@@ -1,0 +1,203 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/userinfo.email": {
+                    "description": "View your email address"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://daily-5-subscribewithgoogle.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Subscribe with Google",
+    "description": "The Subscribe with Google Publication APIs enable a publisher to fetch information related to their SwG subscriptions, including the entitlement status of users who are requesting publisher content.",
+    "discoveryVersion": "v1",
+    "documentationLink": "https://developers.google.com/news/subscribe/guides/overview",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "daily_5_subscribewithgoogle_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "daily_5_subscribewithgoogle_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "publications": {
+            "resources": {
+                "entitlements": {
+                    "methods": {
+                        "list": {
+                            "description": "Gets a set of entitlements for the user for this publication.\nThe publication can fetch entitlements on behalf of a user authenticated\nvia OAuth2.",
+                            "flatPath": "v1/publications/{publicationId}/entitlements",
+                            "httpMethod": "GET",
+                            "id": "daily_5_subscribewithgoogle_sandbox.publications.entitlements.list",
+                            "parameterOrder": [
+                                "publicationId"
+                            ],
+                            "parameters": {
+                                "pageSize": {
+                                    "description": "Requested page size. If unspecified, server will pick an appropriate\ndefault.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "A token identifying a page of results the server should return.\nTypically, this is the value of\nListEntitlementsResponse.next_page_token\nreturned from the previous call to `ListEntitlements` method.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "publicationId": {
+                                    "description": "Mapped to the URL.",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/publications/{publicationId}/entitlements",
+                            "response": {
+                                "$ref": "ListEntitlementsResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.email"
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190913",
+    "rootUrl": "https://daily-5-subscribewithgoogle.sandbox.googleapis.com/",
+    "schemas": {
+        "Entitlement": {
+            "description": "A single entitlement component from a single source.",
+            "id": "Entitlement",
+            "properties": {
+                "name": {
+                    "description": "The resource name of the entitlement.\nEntitlement names have the form\n`publications/{publication_id}/entitlements/{source}:{subscription_token}`.",
+                    "type": "string"
+                },
+                "products": {
+                    "description": "A set of the publication's product IDs the user has access to. At least\none product is present and up to 20. This is the same product ID as\ncan be found in Schema.org markup (http://schema.org/productID).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "source": {
+                    "description": "The identifier of the entitlement source. It could be Google, or the\npublication itself, or some other party in the future.",
+                    "type": "string"
+                },
+                "subscriptionToken": {
+                    "description": "A source-specific subscription token. It's an opaque string that\nrepresents the subscription at the source and it stays unchanged for\nthe duration of the subscription. This token is unique per a publication\nand a source combination.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListEntitlementsResponse": {
+            "description": "Response message for PublicationService.ListEntitlements.",
+            "id": "ListEntitlementsResponse",
+            "properties": {
+                "entitlements": {
+                    "description": "There could be 0-N entitlements from different sources. The sources\nof entitlements could include Google (Play, News, etc), or it could be\nthe publication's own entitlements.",
+                    "items": {
+                        "$ref": "Entitlement"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "A token to retrieve next page of results.\nPass this value in the\nListEntitlementsRequest.page_token\nfield in the subsequent call to `ListEntitlements` method to retrieve the\nnext page of results.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Subscribe with Google Publication API - daily-5",
+    "version": "v1",
+    "version_module": true
+}

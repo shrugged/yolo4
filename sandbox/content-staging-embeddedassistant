@@ -1,0 +1,904 @@
+{
+    "basePath": "",
+    "baseUrl": "https://staging-embeddedassistant.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Embedded Assistant",
+    "description": "Google Assistant API",
+    "discoveryVersion": "v1",
+    "documentationLink": "https://developers.google.com/assistant/",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "embeddedassistant:v1beta1",
+    "kind": "discovery#restDescription",
+    "name": "embeddedassistant",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "projects": {
+            "resources": {
+                "deviceModels": {
+                    "methods": {
+                        "create": {
+                            "description": "Creates a device model.",
+                            "flatPath": "v1beta1/projects/{projectsId}/deviceModels",
+                            "httpMethod": "POST",
+                            "id": "embeddedassistant.projects.deviceModels.create",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "Name of the project with the form: `projects/{project_id}`.",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1beta1/{+parent}/deviceModels",
+                            "request": {
+                                "$ref": "DeviceModel"
+                            },
+                            "response": {
+                                "$ref": "DeviceModel"
+                            }
+                        },
+                        "delete": {
+                            "description": "Deletes a device model.",
+                            "flatPath": "v1beta1/projects/{projectsId}/deviceModels/{deviceModelsId}",
+                            "httpMethod": "DELETE",
+                            "id": "embeddedassistant.projects.deviceModels.delete",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Name of the device model with the form:\n`projects/{project_id}/deviceModels/{device_model_id}`.",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/deviceModels/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1beta1/{+name}",
+                            "response": {
+                                "$ref": "DeleteDeviceModelResponse"
+                            }
+                        },
+                        "get": {
+                            "description": "Returns the device model with the given ID.",
+                            "flatPath": "v1beta1/projects/{projectsId}/deviceModels/{deviceModelsId}",
+                            "httpMethod": "GET",
+                            "id": "embeddedassistant.projects.deviceModels.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Name of the device model with the form:\n`projects/{project_id}/deviceModels/{device_model_id}`.",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/deviceModels/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1beta1/{+name}",
+                            "response": {
+                                "$ref": "DeviceModel"
+                            }
+                        },
+                        "list": {
+                            "description": "Lists all of the device models for the given project ID.\nLimit: 1,000 results.",
+                            "flatPath": "v1beta1/projects/{projectsId}/deviceModels",
+                            "httpMethod": "GET",
+                            "id": "embeddedassistant.projects.deviceModels.list",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "Name of the project with the form: `projects/{project_ID}`.",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1beta1/{+parent}/deviceModels",
+                            "response": {
+                                "$ref": "ListDeviceModelsResponse"
+                            }
+                        },
+                        "update": {
+                            "description": "Updates a device model.\n`Note:` this overwrites the DeviceModel content, so the request\nshould contain the entire DeviceModel.",
+                            "flatPath": "v1beta1/projects/{projectsId}/deviceModels/{deviceModelsId}",
+                            "httpMethod": "PUT",
+                            "id": "embeddedassistant.projects.deviceModels.update",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Name of the device model with the form:\n`projects/{project_id}/deviceModels/{device_model_id}`.",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/deviceModels/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1beta1/{+name}",
+                            "request": {
+                                "$ref": "DeviceModel"
+                            },
+                            "response": {
+                                "$ref": "DeviceModel"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190907",
+    "rootUrl": "https://staging-embeddedassistant.sandbox.googleapis.com/",
+    "schemas": {
+        "App": {
+            "description": "Configuration for an available app. Defines a unique key for the app\nalong with multiple user-friendly names.",
+            "id": "App",
+            "properties": {
+                "key": {
+                    "description": "A canonicalized identifier for the app.",
+                    "type": "string"
+                },
+                "names": {
+                    "description": "List of nicknames for a specific app, e.g., \"Google\" or \"Google App\".",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AppSettingCapability": {
+            "description": "Configures the UI for SDK devices on the Assistant App. For example, you can\nchange: language, notification, and input/output methods.",
+            "id": "AppSettingCapability",
+            "properties": {
+                "disableLanguageDisplay": {
+                    "description": "If set, the device won't show its supported query language on the Assistant\nApp.\nIf not set, the language shown on the Assistant App will override\nthe client's language when applicable.\nTo enable this, devices must provide an interface for the user to set\nthe language.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "ArgSpec": {
+            "description": "Argument associated with an Intent.",
+            "id": "ArgSpec",
+            "properties": {
+                "intValueSpec": {
+                    "$ref": "IntValueSpec"
+                },
+                "optionValueSpec": {
+                    "$ref": "OptionValueSpec"
+                },
+                "type": {
+                    "enum": [
+                        "TYPE_UNSPECIFIED",
+                        "BOOL",
+                        "INTEGER",
+                        "OPTION"
+                    ],
+                    "enumDescriptions": [
+                        "A type must be specified.",
+                        "The arg value type is boolean.",
+                        "The arg value type is integer. The value can be any integer unless\nIntValueSpec is provided.",
+                        "The arg value is from list of options. The valid options are specified\nfrom OptionValueSpec."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AvailableApps": {
+            "description": "A universal set of available apps provided for app understanding.",
+            "id": "AvailableApps",
+            "properties": {
+                "disableGoogleApps": {
+                    "description": "To prevent Google's catalog of apps from being enabled by default, then set\n`disableGoogleApps` to `true` in the device model.",
+                    "type": "boolean"
+                },
+                "localizedApps": {
+                    "description": "List of apps which should be enabled.",
+                    "items": {
+                        "$ref": "LocalizedApps"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AvailableChannels": {
+            "description": "A universal set of available channels provided for channel understanding.",
+            "id": "AvailableChannels",
+            "properties": {
+                "disableGoogleChannels": {
+                    "description": "To prevent Google's catalog of channels from being enabled by default, then\nset `disableGoogleChannels` to `true` in the device model.",
+                    "type": "boolean"
+                },
+                "localizedChannels": {
+                    "items": {
+                        "$ref": "LocalizedChannels"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Channel": {
+            "description": "Configuration for an available channel. Defines a unique key for the channel\nalong with multiple user-friendly names.",
+            "id": "Channel",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "names": {
+                    "description": "List of nicknames for a specific channel, e.g., \"NTGEO\" or \"National\nGeographic\" or \"Nat Geo\".",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CloudCapability": {
+            "description": "Lists which cloud endpoint(s) to use for cloud execution of actions or\nregistration.",
+            "id": "CloudCapability",
+            "properties": {
+                "cloudEndpoints": {
+                    "description": "The list of CloudEndpoints supported by this Device Model. Each endpoint\nshould have a unique `name`. If any cloud endpoints are provided here, then\nthe first one in the list will be used by default for all Cloud Execution.\nAn Intent may override the default by providing an `execution_config`.",
+                    "items": {
+                        "$ref": "CloudEndpoint"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CloudEndpoint": {
+            "description": "A cloud endpoint associated with this device, which may be invoked for\nquery parsing or cloud execution.",
+            "id": "CloudEndpoint",
+            "properties": {
+                "name": {
+                    "description": "The name for this cloud endpoint. It must be unique within a Device Model.\nEx: \"sample-nlu-endpoint\"",
+                    "type": "string"
+                },
+                "scopes": {
+                    "description": "The list of scopes to be provided in the OAuth2 token. They must be a\nsubset of the scopes registered in the Account Linking flow, or the\nrequest will fail. If the client itself provides the token, then this field\nis ignored.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "url": {
+                    "description": "The URL for this endpoint. It must start with \"https\".",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DeleteDeviceModelResponse": {
+            "description": "Response message for DevicesPlatformExternalService.DeleteDeviceModel.",
+            "id": "DeleteDeviceModelResponse",
+            "properties": {},
+            "type": "object"
+        },
+        "DeviceActionCapabilities": {
+            "description": "Represents device action capabilities.",
+            "id": "DeviceActionCapabilities",
+            "properties": {
+                "customIntentMode": {
+                    "description": "Specifies which custom device actions should be enabled for this device\nmodel. This will only affect the behavior of intents corresponding to those\nfrom the Action Package of this project. If not specified, defaults to\nENABLE_ALL.",
+                    "enum": [
+                        "CUSTOM_INTENT_CAPABILITY_UNSPECIFIED",
+                        "ENABLE_ALL",
+                        "ENABLE_CONFIGURED_INTENTS_ONLY",
+                        "PUNT_FOR_UNCONFIGURED_INTENTS"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "All intents are enabled, regardless of whether the intent is registered\nin the `intents` field.",
+                        "Only the intents registered in the `intents` field will be enabled.",
+                        "Only the intents registered in the `intents` field will be enabled.\nAdditionally, read an error message when the unconfigured intents are\ninvoked."
+                    ],
+                    "type": "string"
+                },
+                "defaultExecutionConfig": {
+                    "$ref": "ExecutionConfig",
+                    "description": "Default instructions for routing intents. If you want to override this\nsetting for specific intents, provide the new data in the `intents` field."
+                },
+                "intents": {
+                    "description": "Intent configurations: built-in and custom intents can be configured here.\nBuilt-in intents will always behave with IntentMode of\n`ENABLE_CONFIGURED_INTENTS_ONLY`. The IntentMode for custom intents can be\nchanged using the `custom_intent_mode`. To configure an intent, list it\nhere with its intent name. For example: \"MY_CUSTOM_INTENT\",\n\"google.assistant.car.model.capabilities.AC_TEMPERATURE\".",
+                    "items": {
+                        "$ref": "Intent"
+                    },
+                    "type": "array"
+                },
+                "providedData": {
+                    "description": "Provided data which augments the device action capabilities. Some built-in\nintents may require additional configuration to be provided. One example\ncould be the list of channels available for the SelectChannel intent.\n\nFor more details on what provided_data is available, see the individual\nintent documentations.\n\n<p>\n# JSON\n\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    {\n      \"@type\":\n      \"type.googleapis.com/google.assistant.devices.v1beta1.intent.AvailableChannels\",\n      \"localizedChannels\": [{\n        \"locale\": <string>,\n        \"channels\": [{\n           \"key\": <string>,\n           \"names\": [<string>, <string> ... ]\n         }]\n       }]\n    }\n</p>",
+                    "items": {
+                        "$ref": "ProvidedData"
+                    },
+                    "type": "array"
+                },
+                "traits": {
+                    "description": "List of built-in traits the device can support. For example,\n\"action.devices.traits.OnOff\".\nDeprecated, traits should be registered as intents.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "DeviceModel": {
+            "description": "Defines metadata and common capabilities for a family of devices.",
+            "id": "DeviceModel",
+            "properties": {
+                "capabilities": {
+                    "$ref": "DeviceModelCapabilities",
+                    "description": "Optional. Describes the capabilities of the Device Model."
+                },
+                "deviceModelId": {
+                    "description": "Required. Global unique ID specified by developer such as:\n\u201csmart-robot-voice-assistant-2018-v1\u201d.",
+                    "type": "string"
+                },
+                "deviceType": {
+                    "description": "Required. Some valid device types include:\n<ul>\n<li>`action.devices.types.LIGHT`.\n<li>`action.devices.types.OUTLET`.\n<li>`action.devices.types.SWITCH`.\n<li>`action.devices.types.TV`.\n</ul>",
+                    "type": "string"
+                },
+                "lastUpdatedTime": {
+                    "description": "Last updated timestamp.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "localeData": {
+                    "description": "Required. Locale is in BCP 47 format: en-US, en-CA.",
+                    "items": {
+                        "$ref": "LocaleData"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "Name of the device model with the form:\n`projects/{project_id}/deviceModels/{device_model_id}`.",
+                    "type": "string"
+                },
+                "projectId": {
+                    "description": "Required. Cloud project ID associated with the device model. Projects are allowed\nto create multiple device models.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DeviceModelCapabilities": {
+            "description": "Lists capabilities of a Device Model.",
+            "id": "DeviceModelCapabilities",
+            "properties": {
+                "appSetting": {
+                    "$ref": "AppSettingCapability"
+                },
+                "cloud": {
+                    "$ref": "CloudCapability"
+                },
+                "deviceAction": {
+                    "$ref": "DeviceActionCapabilities"
+                },
+                "routine": {
+                    "$ref": "RoutineCapability"
+                },
+                "visualOutput": {
+                    "$ref": "VisualOutputCapability"
+                }
+            },
+            "type": "object"
+        },
+        "ExecutionConfig": {
+            "description": "Specifies the intent's routing capabilities.",
+            "id": "ExecutionConfig",
+            "properties": {
+                "cloudEndpointName": {
+                    "description": "Instructions for performing a cloud execution request for the Intent when\nthe `execution_type` is set to `CLOUD`. If non-empty, then the device\nexecution is routed to the CloudEndpoint specified by this name. The\nAccount Linking exchange may be performed to fetch the OAuth access token,\nand the access token will be included in the HTTP header.",
+                    "type": "string"
+                },
+                "intentCommandFormat": {
+                    "description": "Specifies the intent command format for this Action. For example, in order\nto launch an Android intent instead of receiving the device action payload\non the client, then this field can be set with\n\n<p>\n\"intent:/#Intent;...;my_extra={$.params.channels[0].channelCode};end\"\n</p>\n\nThe parameter \"{$.params.channels[0].channelCode}\" is in JSON path format,\nand will be replaced with the content from the original device action\npayload. Thus, with\n\n<p>\n# JSON\n\n\"execution\": [\n  {\n    \"command\": \"action.devices.commands.SelectChannel\",\n    \"params\": {\n      \"channels\": [{\n        \"channelName\": \"exampleChannel\",\n        \"channelCode\": \"1-1\"\n      }]\n    }\n  }\n]\n</p>\n\nas the original action result, then the final result would look like\n\n<p>\n\"intent:/#Intent;...;my_extra=\\\"1-1\\\";end\"\n</p>",
+                    "type": "string"
+                },
+                "localExecutionType": {
+                    "description": "Specifies how to execute this Action when it is invoked locally (from the\nsame device).",
+                    "enum": [
+                        "DEFAULT",
+                        "CLOUD"
+                    ],
+                    "enumDescriptions": [
+                        "Route requests directly to the device via the regular channel.",
+                        "Route all execution requests to cloud."
+                    ],
+                    "type": "string"
+                },
+                "remoteDisabled": {
+                    "description": "If this field is set, then remote execution capability is disabled for all\nmatching intents.",
+                    "type": "boolean"
+                },
+                "remoteExecutionType": {
+                    "description": "Specifies how to execute this Action when it is invoked remotely (from a\ndifferent device).",
+                    "enum": [
+                        "DEFAULT",
+                        "CLOUD"
+                    ],
+                    "enumDescriptions": [
+                        "Route requests directly to the device via the regular channel.",
+                        "Route all execution requests to cloud."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "IntValueSpec": {
+            "id": "IntValueSpec",
+            "properties": {
+                "maxValue": {
+                    "format": "int64",
+                    "type": "string"
+                },
+                "minValue": {
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Intent": {
+            "description": "An intent configures the behavior of a device action for this device.",
+            "id": "Intent",
+            "properties": {
+                "argSpecs": {
+                    "additionalProperties": {
+                        "$ref": "ArgSpec"
+                    },
+                    "description": "List of arguments associated this intent. Each argument must be defined\nwith a template describing the valid arguments.",
+                    "type": "object"
+                },
+                "executionConfig": {
+                    "$ref": "ExecutionConfig",
+                    "description": "Instructions for the routing of this Intent."
+                },
+                "name": {
+                    "description": "The name of the intent.",
+                    "type": "string"
+                },
+                "providedDataNames": {
+                    "description": "List of provided data names used by this intent. Note that some built-in\nintents will not function properly without provided data, such as\n`action.intent.SwitchChannel` or `action.intent.AppSelector`.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "securityConfig": {
+                    "$ref": "SecurityConfig",
+                    "description": "Security configuration for this Intent."
+                }
+            },
+            "type": "object"
+        },
+        "ListDeviceModelsResponse": {
+            "description": "Response message for DevicesPlatformExternalService.ListDeviceModels.",
+            "id": "ListDeviceModelsResponse",
+            "properties": {
+                "deviceModels": {
+                    "items": {
+                        "$ref": "DeviceModel"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "LocaleData": {
+            "description": "Localized Device Model metadata.",
+            "id": "LocaleData",
+            "properties": {
+                "locale": {
+                    "description": "Required. Locale is in BCP 47 format: en-US, en-CA.",
+                    "type": "string"
+                },
+                "manifest": {
+                    "$ref": "Manifest",
+                    "description": "Required. Metadata that describes the device model and manufacturer. This will be\nshown in the SDK console, metrics dashboards, and other related visual\ninterfaces."
+                }
+            },
+            "type": "object"
+        },
+        "LocalizedApps": {
+            "description": "Apps are available in various locales. For each locale, a set of global\napps can be defined.",
+            "id": "LocalizedApps",
+            "properties": {
+                "apps": {
+                    "description": "List of supported apps for this locale.",
+                    "items": {
+                        "$ref": "App"
+                    },
+                    "type": "array"
+                },
+                "locale": {
+                    "description": "Locale is in BCP 47 format. eg. en-US, en-CA.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "LocalizedChannels": {
+            "description": "Channels are available in various locales. For each locale, a set of global\nchannels can be defined.",
+            "id": "LocalizedChannels",
+            "properties": {
+                "channels": {
+                    "items": {
+                        "$ref": "Channel"
+                    },
+                    "type": "array"
+                },
+                "locale": {
+                    "description": "Locale is in BCP 47 format. eg. en-US, en-CA.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Manifest": {
+            "description": "Metadata that describes the device model and manufacturer. This will be\nshown in the SDK console, metrics dashboards, and other related visual\ninterfaces.",
+            "id": "Manifest",
+            "properties": {
+                "deviceDescription": {
+                    "description": "Description of this device model, such as \"Sample robot with the Google\nAssistant Built-in\".",
+                    "type": "string"
+                },
+                "manufacturer": {
+                    "description": "Required. Manufacturer of this device model, such as \"Robot corp.\". This may be used\nto name the device for remote execution.",
+                    "type": "string"
+                },
+                "productName": {
+                    "description": "Required. Consumer facing product name for this device model, such as \"Sample Robot\n2018\". This may be used to name the device for remote execution.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "OptionValueSpec": {
+            "id": "OptionValueSpec",
+            "properties": {
+                "values": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ProvidedData": {
+            "description": "Provided data which augments the device action capabilities. Some built-in\nintents may require additional configuration to be provided. One example\ncould be the list of channels available for the `action.intent.SelectChannel`\nintent.",
+            "id": "ProvidedData",
+            "properties": {
+                "data": {
+                    "additionalProperties": {
+                        "description": "Properties of the object. Contains field @type with type URL.",
+                        "type": "any"
+                    },
+                    "description": "For more details on which provided data types are available, see the\n<a href=\"assistant-partners/device-actions/reference/built-in/\">individual\nintent documentations</a>.",
+                    "type": "object"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ResponseLoggingParams": {
+            "description": "Container for information that is used by the clients for per-response\nlogging. This field can be filled by either Assistant Server or S3. Clients\nMUST NOT use this for any other purposes, such as branching on it.\nnext id: 14",
+            "id": "ResponseLoggingParams",
+            "properties": {
+                "designedForFamily": {
+                    "description": "Whether or not logging should be handled as a defined_for_family feature.\nSee go/a4k-logging for more details of the legal necessities.",
+                    "type": "boolean"
+                },
+                "featureVeId": {
+                    "description": "VE ids of the triggered features, used mainly for testing purpose.",
+                    "items": {
+                        "format": "int32",
+                        "type": "integer"
+                    },
+                    "type": "array"
+                },
+                "firstFeatureVerticalName": {
+                    "description": "The vertical which fulfilled the request. The vertical name comes from the\nVisual Element produced for this request. To avoid duplicating the VE list\nin AS and AGSA (and for privacy), we are sending only the vertical string\nname (instead of the Feature VEID). In case of multiple elements, the\nvertical comes from the first one produced. See go/opaft.",
+                    "type": "string"
+                },
+                "isOemPartner": {
+                    "description": "True if current request comes from OEM device and is answered by\nOEM partners. If true, it should comply with 3P partner data policy.\nSee go/assistant-sdk-partner-data for details.",
+                    "type": "boolean"
+                },
+                "isOnDeviceCache": {
+                    "description": "True if current request is fulfilled by an on-device cache.",
+                    "type": "boolean"
+                },
+                "isSensitiveQuery": {
+                    "description": "True if the original query contains sensitive data. Callers should not do\narchival logging in this case. See go/assistant-limited-logging and\ngo/assistant-partner-sensitive-data for details.",
+                    "type": "boolean"
+                },
+                "isYoutubeKidsNonManagedAccountRequest": {
+                    "description": "True if current request involves fetching YouTube Kids content for\nnon_managed_account (adult voice-matched or guests or Unicorn that didn\u2019t\nset up the app for a dedicated experience), e.g. [play peppa pig on YouTube\nKids].\nIf true logging of audio in S3 will not happen.\ngo/ytk-logging for details.",
+                    "type": "boolean"
+                },
+                "responseErrorMessage": {
+                    "description": "The additional error message when the response is not successful.",
+                    "type": "string"
+                },
+                "responseIndex": {
+                    "description": "Position of the given response among all responses of the request. Only set\nin the multiple responses flow. See http://go/assistant-multiple-response",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "responseReason": {
+                    "enum": [
+                        "UNKNOWN_RESPONSE_REASON",
+                        "SUCCESS",
+                        "ASSISTANT_SERVER_PUNT",
+                        "ASSISTANT_SERVER_TIME_OUT",
+                        "ASSISTANT_SERVER_NOT_REACHABLE",
+                        "ASSISTANT_SERVER_INTERNAL_ERROR",
+                        "MULTI_HOTWORD_ARBITRATION_REJECTED",
+                        "HOTWORD_MISTRIGGER",
+                        "BAD_REQUEST"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "Indicates the server was able to handle the request and the response is a\nsuccessful response.",
+                        "Indicates the server was not capable to handle the request and the\nresponse is a punt response.",
+                        "The server timed out on handling the request.",
+                        "The server is not reachable at the moment.",
+                        "The server met internal error when handling the request.",
+                        "The server determined that the client is not selected in the\nmulti-hotword arbitration.",
+                        "The server determined that the request is from a client whose hotword was\nmis-triggered.",
+                        "Catch-all category for what in HTTP would be a 400-class response code,\nand in AGSA might be termed \"Not Google's Fault.\"  That is, this response\ncode indicates that we did not provide the user a satisfactory response,\nbut do not regret that.  HOTWORD_MISTRIGGER is an example of this\ncategory of error.  This particular enum value is for requests that do\nnot have any more-specific ResponseReason defined."
+                    ],
+                    "type": "string"
+                },
+                "serverHotwordInfo": {
+                    "$ref": "ServerHotwordInfo"
+                },
+                "sherlogUrl": {
+                    "type": "string"
+                },
+                "youtubeImpressions": {
+                    "description": "Impressions for the youtube client to copy to\nYouTubeGWSLogEntryProto.Impression if applicable.\nUsed by go/counterfactuals-for-voz for YouTube Assistant.",
+                    "items": {
+                        "$ref": "YoutubeImpression"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "RoutineCapability": {
+            "description": "Identifies whether or not a device model supports routines.",
+            "id": "RoutineCapability",
+            "properties": {
+                "supportsReconnect": {
+                    "description": "Indicates that the client supports sequential execution of routines.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "SecurityConfig": {
+            "description": "Encapsulates security configuration for a single intent of a device model.",
+            "id": "SecurityConfig",
+            "properties": {
+                "authMechanismForRemoteRequests": {
+                    "description": "Specifies auth mechanism to be used upon remote request for device action.",
+                    "enum": [
+                        "NONE",
+                        "ENABLED",
+                        "FINGERPRINT_OR_PASSWORD",
+                        "PIN"
+                    ],
+                    "enumDescriptions": [
+                        "Indicates that auth is not required.",
+                        "Indicates that auth is required. Auth mechanism used is determined\nautomatically at query time, based on various factors such as device\ntype, user settings, etc.",
+                        "Use fingerprint, with fallback to Google account password if fingerprint\ncapabilities are not available on personal device.\nNote: explicit configuration of specific auth mechanism is being\ndeprecated.",
+                        "Prompt for pin, sent to cloud for validation.\nNote: explicit configuration of specific auth mechanism is being\ndeprecated."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ServerHotwordInfo": {
+            "description": "Add information about server hotword decision.\n\nServer Hotword enables decoding the full preamble+query audio in hotword\ntriggered queries. By enabling decoding preamble+main audio, server hotword\nchecks if a hotword phrase is detected in the top hypothesis. This signal\nmay be used to suppress the request on client.\n\nWhile for most hotword triggered queries, server runs server_hotword, it's\nupto the client to use or ignore the signal when preparing the response.\nunintended_query_filter.gcl dictates for which clients server hotword is\nused to suppress the query or not. Even if server hotword result is not\nused to suppress, logging this information is useful for tracking the\nclient hotword performance.\n\nEnum HOTWORD_MISTRIGGER ResponseReason above isn't currently used, but it\nis meant to set based on the action taken for the query. E.g. if the\nserver_hotword doesn't find hotword, but client ignores the server hotword\nresult, response_reason will not be set to HOTWORD_MISTRIGGER. (This is\nsimilar to HOTWORD_MISTRIGGER in ResponseForInvalidRequest -\nhttps://cs.corp.google.com/piper///depot/google3/assistant/api/conversation.proto?type=cs&q=+hotword_mistrigger&g=0&l=350&rcl=254451652\n)",
+            "id": "ServerHotwordInfo",
+            "properties": {
+                "result": {
+                    "enum": [
+                        "NOT_SET",
+                        "SERVER_HOTWORD_VALIDATED",
+                        "SERVER_HOTWORD_INVALIDATED"
+                    ],
+                    "enumDescriptions": [
+                        "Hotword validation is not done in speech recognition server.",
+                        "Hotword was found by the speech recognition server.",
+                        "Hotword was not found by the speech recognition server."
+                    ],
+                    "type": "string"
+                },
+                "status": {
+                    "enum": [
+                        "UNKNOWN",
+                        "SERVER_HOTWORD_DISABLED",
+                        "SERVER_HOTWORD_ENABLED"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "Hotword validation is either not done or if done, is not used to\nsuppress the query. It is the case when either unintended_query_filter\nor server_hotword check is not enabled. Defined at\nhttps://cs.corp.google.com/piper///depot/google3/googledata/experiments/assistant_server/features/unintended_query_filter.gcl?type=cs&g=0&l=18&rcl=248775811",
+                        "Hotword validation is done on the speech recognition server AND the\nresult is used to decide if the query should be suppressed or not."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TraitConfig": {
+            "description": "Domain specific capabilities regarding traits.",
+            "id": "TraitConfig",
+            "properties": {
+                "attributes": {
+                    "additionalProperties": {
+                        "type": "any"
+                    },
+                    "description": "The default attributes to be registered in this device for this trait.\nFor example, `{\"colorModel\": \"rgb\"}` could designate the color model to use\nfor the ColorSetting trait. The attributes will control the behavior of the\ntraits, and different traits depend on different sets of attributes. The\nattributes for a specific device owned by the user may be overridden by the\ndevice instance registration. For the list of traits and their associated\nattributes, see\nhttps://developers.google.com/assistant/sdk/reference/traits/.",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "VisualOutputCapability": {
+            "description": "Manages visual experience of the device model.",
+            "id": "VisualOutputCapability",
+            "properties": {
+                "style": {
+                    "description": "Specifies the visual output style for this device model.",
+                    "enum": [
+                        "UNSPECIFIED",
+                        "HTML_TV",
+                        "TEXT"
+                    ],
+                    "enumDescriptions": [
+                        "No visual experience is provided.",
+                        "Give visual output in HTML5 format, suitable for TV.",
+                        "Give plain text as output."
+                    ],
+                    "type": "string"
+                },
+                "supportsPersistentDisplay": {
+                    "description": "Identifies whether or not a device model supports a persistent display.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "YoutubeImpression": {
+            "id": "YoutubeImpression",
+            "properties": {
+                "intArg": {
+                    "description": "Copied to YouTubeGWSLogEntryProto.Impression.IntArgs",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "tag": {
+                    "description": "Human readable text, not a serialized proto.\nCopied to YouTubeGWSLogEntryProto.Impression.Tag",
+                    "type": "string"
+                },
+                "textArg": {
+                    "description": "Human readable text, not a serialized proto.\nCopied to YouTubeGWSLogEntryProto.Impression.TextArgs",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Google Assistant API (internal-only staging)",
+    "version": "v1beta1",
+    "version_module": true
+}
