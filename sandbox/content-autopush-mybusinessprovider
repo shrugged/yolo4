@@ -1,0 +1,343 @@
+{
+    "basePath": "",
+    "baseUrl": "https://autopush-mybusinessprovider.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "My Business Provider",
+    "description": "The My Business Provider API enables organizations to partner with Google to help business owners claim their business on Google Maps.\n",
+    "discoveryVersion": "v1",
+    "documentationLink": "https://developers.google.com/my-business-provider/",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "autopush_mybusinessprovider_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "autopush_mybusinessprovider_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "verificationTokens": {
+            "methods": {
+                "generate": {
+                    "description": "Generates or optionally refreshes a token for verifying any user as owner\nof a business.\n\nIf the given data is new, a new token will be generated. If the given data\npoints to the same business as data given earlier by the same caller, this\nwill either throw an `ALREADY_EXISTS` error or return the existing token\nwith an extended expiration window (= refresh).\n\nIf the given data points to an already claimed business, this will return\nthe obfuscated email address of the current owner. No token will be\ngenerated.\n\nError codes that may be returned (not exhaustive):\n\n- `ALREADY_EXISTS` if the given data points to the same business as data\n  given earlier by the same caller. If this is intended and you want the\n  existing token, set\n  GenerateVerificationTokenRequest.allow_refresh_existing_token to\n  true.\n- `PERMISSION_DENIED` if the caller is not allowed to generate a\n  verification token for the given business. Examples of reasons: Business\n  in wrong city, address could not be parsed to the minimum precision\n  level.\n- `PERMISSION_DENIED` if the caller or its organization has hit a limit,\n  e.g. organization generated too many verification tokens today. If this\n  happens during normal operation, ask your Google contact person to\n  increase the limits.\n- `PERMISSION_DENIED` if this API has not been enabled for the client\n  project. Ask your Google contact person for help.\n- `RESOURCE_EXHAUSTED` if this API was called too frequently.\n- `INVALID_ARGUMENT` if a given location address could not be understood.",
+                    "flatPath": "v1/verificationTokens:generate",
+                    "httpMethod": "POST",
+                    "id": "autopush_mybusinessprovider_sandbox.verificationTokens.generate",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/verificationTokens:generate",
+                    "request": {
+                        "$ref": "GenerateVerificationTokenRequest"
+                    },
+                    "response": {
+                        "$ref": "GenerateVerificationTokenResponse"
+                    }
+                },
+                "get": {
+                    "description": "Gets a previously generated verification token.\n\nError codes that may be returned (not exhaustive):\n\n- `NOT_FOUND` if the verification token does not exist.\n- `NOT_FOUND` if the caller did not generate this token.",
+                    "flatPath": "v1/verificationTokens/{verificationTokensId}",
+                    "httpMethod": "GET",
+                    "id": "autopush_mybusinessprovider_sandbox.verificationTokens.get",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Required. Resource name of the verification token. It must have the format\nof \"verificationTokens/*\". For example: \"verificationTokens/123456789\".",
+                            "location": "path",
+                            "pattern": "^verificationTokens/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "VerificationToken"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190913",
+    "rootUrl": "https://autopush-mybusinessprovider.sandbox.googleapis.com/",
+    "schemas": {
+        "BusinessLead": {
+            "description": "Container that represents the business information that this API received\nwhen a verification token was generated.",
+            "id": "BusinessLead",
+            "properties": {
+                "location": {
+                    "$ref": "Location",
+                    "description": "The address and other details that describe how a business could look\nlike on Google Maps."
+                }
+            },
+            "type": "object"
+        },
+        "GenerateVerificationTokenRequest": {
+            "description": "Request for generating a token for verifying any user as owner of a business.",
+            "id": "GenerateVerificationTokenRequest",
+            "properties": {
+                "allowRefreshExistingToken": {
+                    "description": "If we detect that the given data in this request matches data given earlier\nby the same caller:\n\n- and this field is false (default): An `ALREADY_EXISTS` error is returned.\n- and this field is true: The existing token is refreshed and returned,\n  meaning that its expiration window is extended to match that of a new\n  token.\n\n**Warning:** When setting this to true, you must make sure you **never**\ngive a refreshed token to a different business owner. This would cause two\npersons to receive the same token, causing an error for one of the two.",
+                    "type": "boolean"
+                },
+                "dryRun": {
+                    "description": "Optional. If set to true, this call will behave as normal except that it is\nside effect free and returns a dummy token such as \"AAA-1BB-CC2\". This\ncould be used to test an implementation.\n\nNote: Your Google contact person can grant you permission to call this\nmethod under the same constraints as you would in a production ready setup\nwith the additional constraint that dry run has to be enabled. This allows\ntrying out this API without any risk of touching production data and\nwithout necessarily having a full agreement yet.\n\nDefaults to false.",
+                    "type": "boolean"
+                },
+                "label": {
+                    "description": "Optional. Label that groups a number of verification tokens together. This\ncould e.g. be the name given to a batch of tokens such as\n\"Outreach_2017-10\". The label can be max 50 characters, all characters are\nallowed.\n\nWARNING: This should not contain personally identifiable information!\n(Reason: This field cannot be 'forgotten')\n\nExamples of good labels:\n\n- \"Outreach_2017-10\"\n- \"2018-01-15\"\n- \"Texas batch\"\n\nExamples of bad labels:\n\n- \"92837128304018\" (unique number): Bad because this could be matched to a\n  person\n- \"john.doe@gmail.com\": Bad because it identifies a person\n- \"+441234567890\": Bad because it identifies a person",
+                    "type": "string"
+                },
+                "location": {
+                    "$ref": "Location",
+                    "description": "The address and other details that describe how a business could look\nlike on Google Maps. All fields are optional, except `location_name` and\n`address.region_code`."
+                },
+                "programId": {
+                    "description": "Required . The\nprogram on behalf of which the caller is requesting the operation to be\nauthorized.\n\nThis is a number that should be provided by your Google contact person.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GenerateVerificationTokenResponse": {
+            "description": "Response to generating a token for verifying any user as owner of a business.",
+            "id": "GenerateVerificationTokenResponse",
+            "properties": {
+                "claimedBy": {
+                    "description": "If the given data points to an already claimed business, this field\ncontains the obfuscated email address of the current owner.\n\nExamples:\n- \"us...@...\" (non-gmail domains)\n- \"us...@gmail.com\"\n- \"...@...\" (when more informative obfuscation isn't possible)\n\nUnset if the place is not yet claimed.",
+                    "type": "string"
+                },
+                "refreshedExistingToken": {
+                    "description": "If this field is:\n\n- false: `verification_token` is completely new, or if `verification_token`\n  is not set.\n- true: An existing token (created by the same caller) was detected and\n  returned instead with an extended expiration window.\n\n**Warning:** If this is true but you give this token to a different\nbusiness owner, only one person will be able to use the token.\n\nIf GenerateVerificationTokenRequest.allow_refresh_existing_token is\nfalse, this will always be false.",
+                    "type": "boolean"
+                },
+                "verificationToken": {
+                    "$ref": "VerificationToken",
+                    "description": "The generated token."
+                }
+            },
+            "type": "object"
+        },
+        "Location": {
+            "description": "The address and other details that describe how a business could look like\non Google Maps. All fields are optional, except `location_name` and\n`address.region_code`.",
+            "id": "Location",
+            "properties": {
+                "address": {
+                    "$ref": "PostalAddress",
+                    "description": "A precise, accurate address to describe the business location. PO boxes\nor mailboxes located at remote locations are not acceptable. You can\nspecify a maximum of five `address_lines` values in the address.\n\nAll fields are optional, except `region_code`."
+                },
+                "locationName": {
+                    "description": "Required. Name that reflects the business's real-world name, as used on\nthe storefront, website, and stationery, and as known to customers.\n\nAvoid adding unnecessary information to this name (for example, prefer\n\"Google\" over \"Google Inc. - Mountain View Corporate Headquarters\"). Any\nadditional information, when relevant, can be included in other fields of\nthe location (for example, `address`, `primary_category_id`).",
+                    "type": "string"
+                },
+                "primaryCategoryId": {
+                    "description": "Optional. The ID of the category that best describes what the business is\n(not what it does).\n\nExamples of typical category IDs:\n\n- \"gcid:restaurant\"\n- \"gcid:cafe\"\n- \"gcid:bar\"\n- \"gcid:grocery_store\"\n- \"gcid:supermarket\"\n- \"gcid:bakery\"\n- \"gcid:clothing_store\"\n- \"gcid:shoe_store\"\n- \"gcid:shopping_center\"\n- \"gcid:beauty_salon\"\n- \"gcid:hair_salon\"\n- \"gcid:pharmacy\"\n- \"gcid:bank\"\n- \"gcid:hotel\"\n\nWhen picking a category ID, please use this list or ask your contact\nperson at Google. When in doubt or the category is unknown, please omit\nthis field.",
+                    "type": "string"
+                },
+                "primaryPhone": {
+                    "description": "Optional. A phone number in E.164 format that connects to the individual\nbusiness location as directly as possible. This should be a local phone\nnumber instead of a central, call center helpline number whenever possible.\n\nExample: \"+441234567890\".",
+                    "type": "string"
+                },
+                "websiteUrl": {
+                    "description": "Optional. A URL for the business. If possible, use a URL that represents\nthis individual business location instead of a generic website/URL that\nrepresents all locations, or the brand.\n\nExample: \"https://www.example.com/foo/\".",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PostalAddress": {
+            "description": "Represents a postal address, e.g. for postal delivery or payments addresses.\nGiven a postal address, a postal service can deliver items to a premise, P.O.\nBox or similar.\nIt is not intended to model geographical locations (roads, towns,\nmountains).\n\nIn typical usage an address would be created via user input or from importing\nexisting data, depending on the type of process.\n\nAdvice on address input / editing:\n - Use an i18n-ready address widget such as\n   https://github.com/google/libaddressinput)\n- Users should not be presented with UI elements for input or editing of\n  fields outside countries where that field is used.\n\nFor more guidance on how to use this schema, please see:\nhttps://support.google.com/business/answer/6397478",
+            "id": "PostalAddress",
+            "properties": {
+                "addressLines": {
+                    "description": "Unstructured address lines describing the lower levels of an address.\n\nBecause values in address_lines do not have type information and may\nsometimes contain multiple values in a single field (e.g.\n\"Austin, TX\"), it is important that the line order is clear. The order of\naddress lines should be \"envelope order\" for the country/region of the\naddress. In places where this can vary (e.g. Japan), address_language is\nused to make it explicit (e.g. \"ja\" for large-to-small ordering and\n\"ja-Latn\" or \"en\" for small-to-large). This way, the most specific line of\nan address can be selected based on the language.\n\nThe minimum permitted structural representation of an address consists\nof a region_code with all remaining information placed in the\naddress_lines. It would be possible to format such an address very\napproximately without geocoding, but no semantic reasoning could be\nmade about any of the address components until it was at least\npartially resolved.\n\nCreating an address only containing a region_code and address_lines, and\nthen geocoding is the recommended way to handle completely unstructured\naddresses (as opposed to guessing which parts of the address should be\nlocalities or administrative areas).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "administrativeArea": {
+                    "description": "Optional. Highest administrative subdivision which is used for postal\naddresses of a country or region.\nFor example, this can be a state, a province, an oblast, or a prefecture.\nSpecifically, for Spain this is the province and not the autonomous\ncommunity (e.g. \"Barcelona\" and not \"Catalonia\").\nMany countries don't use an administrative area in postal addresses. E.g.\nin Switzerland this should be left unpopulated.",
+                    "type": "string"
+                },
+                "languageCode": {
+                    "description": "Optional. BCP-47 language code of the contents of this address (if\nknown). This is often the UI language of the input form or is expected\nto match one of the languages used in the address' country/region, or their\ntransliterated equivalents.\nThis can affect formatting in certain countries, but is not critical\nto the correctness of the data and will never affect any validation or\nother non-formatting related operations.\n\nIf this value is not known, it should be omitted (rather than specifying a\npossibly incorrect default).\n\nExamples: \"zh-Hant\", \"ja\", \"ja-Latn\", \"en\".",
+                    "type": "string"
+                },
+                "locality": {
+                    "description": "Optional. Generally refers to the city/town portion of the address.\nExamples: US city, IT comune, UK post town.\nIn regions of the world where localities are not well defined or do not fit\ninto this structure well, leave locality empty and use address_lines.",
+                    "type": "string"
+                },
+                "organization": {
+                    "description": "Optional. The name of the organization at the address.",
+                    "type": "string"
+                },
+                "postalCode": {
+                    "description": "Optional. Postal code of the address. Not all countries use or require\npostal codes to be present, but where they are used, they may trigger\nadditional validation with other parts of the address (e.g. state/zip\nvalidation in the U.S.A.).",
+                    "type": "string"
+                },
+                "recipients": {
+                    "description": "Optional. The recipient at the address.\nThis field may, under certain circumstances, contain multiline information.\nFor example, it might contain \"care of\" information.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "regionCode": {
+                    "description": "Required. CLDR region code of the country/region of the address. This\nis never inferred and it is up to the user to ensure the value is\ncorrect. See http://cldr.unicode.org/ and\nhttp://www.unicode.org/cldr/charts/30/supplemental/territory_information.html\nfor details. Example: \"CH\" for Switzerland.",
+                    "type": "string"
+                },
+                "revision": {
+                    "description": "The schema revision of the `PostalAddress`. This must be set to 0, which is\nthe latest revision.\n\nAll new revisions **must** be backward compatible with old revisions.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "sortingCode": {
+                    "description": "Optional. Additional, country-specific, sorting code. This is not used\nin most regions. Where it is used, the value is either a string like\n\"CEDEX\", optionally followed by a number (e.g. \"CEDEX 7\"), or just a number\nalone, representing the \"sector code\" (Jamaica), \"delivery area indicator\"\n(Malawi) or \"post office indicator\" (e.g. C\u00f4te d'Ivoire).",
+                    "type": "string"
+                },
+                "sublocality": {
+                    "description": "Optional. Sublocality of the address.\nFor example, this can be neighborhoods, boroughs, districts.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "VerificationToken": {
+            "description": "A single attempt to get a business owner verified as owner of a particular\nbusiness.",
+            "id": "VerificationToken",
+            "properties": {
+                "businessLead": {
+                    "$ref": "BusinessLead",
+                    "description": "The business information that this API received when this verification\ntoken was generated."
+                },
+                "claimStatus": {
+                    "description": "Describes whether a verification token was claimed.",
+                    "enum": [
+                        "CLAIM_STATUS_UNSPECIFIED",
+                        "PENDING_CLAIM",
+                        "CLAIMED"
+                    ],
+                    "enumDescriptions": [
+                        "Not used.",
+                        "The associated token has not yet been claimed.",
+                        "The associated token has been claimed."
+                    ],
+                    "type": "string"
+                },
+                "createTime": {
+                    "description": "The time at which this token was created. This is **not** updated after an\nexpiration window\nrefresh.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "expireTime": {
+                    "description": "The time at which this token will expire. This is updated after an\nexpiration window\nrefresh.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "label": {
+                    "description": "Optional. Label that groups a number of verification tokens together. This\ncould e.g. be the name given to a batch of tokens such as\n\"Outreach_2017-10\".",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Unique resource name of the verification token. It must have the format of\n\"verificationTokens/*\". For example: \"verificationTokens/123456789\".\n\nThis value is assigned by the server.",
+                    "type": "string"
+                },
+                "programId": {
+                    "description": "The program on behalf of which this operation was authorized.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "verificationCode": {
+                    "description": "The verification code, e.g. \"AAA-1BB-CC2\". This can be used by the\nbusiness owner to verify that they own the business by going to a\nprefilled URL in the following form:\n```\nhttps://g.co/pinverify/AAA1BBCC2\n```\n(where `AAA1BBCC2` is the generated `verification_code` without dashes).",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "My Business Provider API (autopush)",
+    "version": "v1",
+    "version_module": true
+}

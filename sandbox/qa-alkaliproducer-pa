@@ -1,0 +1,4064 @@
+{
+    "basePath": "",
+    "baseUrl": "https://qa-alkaliproducer-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Alkali Producer",
+    "description": "Google News publisher application",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://go/alkali",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "qa_alkaliproducer_pa_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "qa_alkaliproducer_pa_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "accounts": {
+            "methods": {
+                "batchGet": {
+                    "description": "Gets a list of publisher accounts by the list of ids.\n\nThe order of the returned publisher accounts is unspecified.",
+                    "flatPath": "v1/accounts:batchGet",
+                    "httpMethod": "GET",
+                    "id": "qa_alkaliproducer_pa_sandbox.accounts.batchGet",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "ids": {
+                            "description": "Ids of the accounts to get.",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/accounts:batchGet",
+                    "response": {
+                        "$ref": "BatchGetAccountsResponse"
+                    }
+                },
+                "get": {
+                    "description": "Gets a publisher account",
+                    "flatPath": "v1/accounts/{accountsId}",
+                    "httpMethod": "GET",
+                    "id": "qa_alkaliproducer_pa_sandbox.accounts.get",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "fieldMask": {
+                            "description": "Field mask controlling which fields of the publisher account should be\nreturned.",
+                            "format": "google-fieldmask",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Relative resource name of the publisher account.\n\nThe relative resource name is of the form \"accounts/:id\" where the id\nis the unique id of the publisher account, that is, the id of the\nunderlying publisher in the Google News backend.",
+                            "location": "path",
+                            "pattern": "^accounts/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "PublisherAccount"
+                    }
+                }
+            }
+        },
+        "ads": {
+            "methods": {
+                "getData": {
+                    "description": "Returns the ads data for the current user, including their AdSense accounts\nand Xfp (DoubleClick for Publishers) network.",
+                    "flatPath": "v1/ads/data",
+                    "httpMethod": "GET",
+                    "id": "qa_alkaliproducer_pa_sandbox.ads.getData",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/ads/data",
+                    "response": {
+                        "$ref": "UserAdsData"
+                    }
+                }
+            }
+        },
+        "articles": {
+            "methods": {
+                "batchGet": {
+                    "description": "Looks for articles by id and returns the articles that have been\nfound.\n\nThe order of the returned articles is unspecified.",
+                    "flatPath": "v1/articles:batchGet",
+                    "httpMethod": "GET",
+                    "id": "qa_alkaliproducer_pa_sandbox.articles.batchGet",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "fieldMask": {
+                            "description": "Field mask controlling which fields of the articles should be returned.\n\nIf not set, all data is returned.",
+                            "format": "google-fieldmask",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "ids": {
+                            "description": "Ids of the articles to get.",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/articles:batchGet",
+                    "response": {
+                        "$ref": "BatchGetArticlesResponse"
+                    }
+                },
+                "delete": {
+                    "description": "Deletes an article.",
+                    "flatPath": "v1/articles/{articlesId}",
+                    "httpMethod": "DELETE",
+                    "id": "qa_alkaliproducer_pa_sandbox.articles.delete",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Relative resource name of the article to delete.",
+                            "location": "path",
+                            "pattern": "^articles/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "Empty"
+                    }
+                },
+                "get": {
+                    "description": "Gets an article.",
+                    "flatPath": "v1/articles/{articlesId}",
+                    "httpMethod": "GET",
+                    "id": "qa_alkaliproducer_pa_sandbox.articles.get",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "fieldMask": {
+                            "description": "Field mask controlling which fields of the article should be returned.\n\nIf not set, all data is returned.",
+                            "format": "google-fieldmask",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Relative resource name of the article.\n\nThe relative resource name is of the form \"articles/:id\" where the id\nis the unique id of the Article, that is, the id of the underlying\nPost in the Google News backend.",
+                            "location": "path",
+                            "pattern": "^articles/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "Article"
+                    }
+                }
+            }
+        },
+        "configs": {
+            "methods": {
+                "getFrontend": {
+                    "description": "Returns the frontend config (for the given language).",
+                    "flatPath": "v1/configs/frontend",
+                    "httpMethod": "GET",
+                    "id": "qa_alkaliproducer_pa_sandbox.configs.getFrontend",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "languageCode": {
+                            "description": "BCP47 (go/bcp47) language code identifying the local to use for localized\ndata in the frontend config.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/configs/frontend",
+                    "response": {
+                        "$ref": "FrontendConfig"
+                    }
+                }
+            }
+        },
+        "medialibs": {
+            "methods": {
+                "get": {
+                    "description": "Returns the media library associated with an entity (such as a\npublication).",
+                    "flatPath": "v1/medialibs/{medialibsId}",
+                    "httpMethod": "GET",
+                    "id": "qa_alkaliproducer_pa_sandbox.medialibs.get",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Relative resource name of the media library.",
+                            "location": "path",
+                            "pattern": "^medialibs/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "MediaLibrary"
+                    }
+                }
+            }
+        },
+        "organizations": {
+            "methods": {
+                "create": {
+                    "description": "Stores a new organization.\n\nThis method will create a new organization\n\nThe id of the new organization is assigned by the backend and will be set\nin the returned organization.",
+                    "flatPath": "v1/organizations",
+                    "httpMethod": "POST",
+                    "id": "qa_alkaliproducer_pa_sandbox.organizations.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/organizations",
+                    "request": {
+                        "$ref": "Organization"
+                    },
+                    "response": {
+                        "$ref": "Organization"
+                    }
+                },
+                "delete": {
+                    "description": "Deletes an organization permanently.",
+                    "flatPath": "v1/organizations/{organizationsId}",
+                    "httpMethod": "DELETE",
+                    "id": "qa_alkaliproducer_pa_sandbox.organizations.delete",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Relative resource name of the organization to delete.",
+                            "location": "path",
+                            "pattern": "^organizations/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "Empty"
+                    }
+                },
+                "get": {
+                    "description": "Returns a single organization (provided the user has access to it).",
+                    "flatPath": "v1/organizations/{organizationsId}",
+                    "httpMethod": "GET",
+                    "id": "qa_alkaliproducer_pa_sandbox.organizations.get",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "fieldMask": {
+                            "description": "Field mask controlling which fields of the organization should be returned.",
+                            "format": "google-fieldmask",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Relative resource name of the organization.\n\nThe relative resource name is of the form \"organizations/:id\" where the id\nis the unique id of the Organization.",
+                            "location": "path",
+                            "pattern": "^organizations/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "Organization"
+                    }
+                },
+                "list": {
+                    "description": "Returns the organizations the current user has access to.",
+                    "flatPath": "v1/organizations",
+                    "httpMethod": "GET",
+                    "id": "qa_alkaliproducer_pa_sandbox.organizations.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "fieldMask": {
+                            "description": "Optional field mask controlling which data is returned.",
+                            "format": "google-fieldmask",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "pageSize": {
+                            "description": "Maximal number of results to return.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageToken": {
+                            "description": "Optional page token received in a previous response and indicating where\nto start the results.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "publicationId": {
+                            "description": "Optional id of the selected publication.\n\nIf provided, the server will look for the publication with this id and\nreturn it (if the user has access to this publication).",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/organizations",
+                    "response": {
+                        "$ref": "OrganizationSet"
+                    }
+                },
+                "patch": {
+                    "description": "Updates an organization (partial update). Returns the updated organization.",
+                    "flatPath": "v1/organizations/{organizationsId}",
+                    "httpMethod": "PATCH",
+                    "id": "qa_alkaliproducer_pa_sandbox.organizations.patch",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Relative resource name of the organization to update.",
+                            "location": "path",
+                            "pattern": "^organizations/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "request": {
+                        "$ref": "UpdateOrganizationRequest"
+                    },
+                    "response": {
+                        "$ref": "Organization"
+                    }
+                }
+            }
+        },
+        "publications": {
+            "methods": {
+                "batchGet": {
+                    "description": "Looks for publications by id and returns the publications that have been\nfound.\n\nThe order of the returned publications is unspecified.",
+                    "flatPath": "v1/publications:batchGet",
+                    "httpMethod": "GET",
+                    "id": "qa_alkaliproducer_pa_sandbox.publications.batchGet",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "fieldMask": {
+                            "description": "Field mask controlling which fields of the publications should be returned.\n",
+                            "format": "google-fieldmask",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "ids": {
+                            "description": "Ids of the publications to get.",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/publications:batchGet",
+                    "response": {
+                        "$ref": "BatchGetPublicationsResponse"
+                    }
+                },
+                "create": {
+                    "description": "Stores a new publication.\n\nThe id of the new publication is assigned by the backend and will be set\nin the returned publication.\n\nucid:pc:pub:c",
+                    "flatPath": "v1/publications",
+                    "httpMethod": "POST",
+                    "id": "qa_alkaliproducer_pa_sandbox.publications.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/publications",
+                    "request": {
+                        "$ref": "Publication"
+                    },
+                    "response": {
+                        "$ref": "Publication"
+                    }
+                },
+                "delete": {
+                    "description": "Deletes a publication permanently.\n\nucid:pc:pub:d",
+                    "flatPath": "v1/publications/{publicationsId}",
+                    "httpMethod": "DELETE",
+                    "id": "qa_alkaliproducer_pa_sandbox.publications.delete",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Relative resource name of the publication to delete.",
+                            "location": "path",
+                            "pattern": "^publications/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "Empty"
+                    }
+                },
+                "get": {
+                    "description": "Gets a publication.",
+                    "flatPath": "v1/publications/{publicationsId}",
+                    "httpMethod": "GET",
+                    "id": "qa_alkaliproducer_pa_sandbox.publications.get",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "fieldMask": {
+                            "description": "Field mask controlling which fields of the publication should be returned.\nIf not set, all data will be returned.",
+                            "format": "google-fieldmask",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Relative resource name of the publication.\n\nThe relative resource name is of the form \"publications/:id\" where the id\nis the unique id of the Publication, that is, the id of the underlying\nAppFamily in the Google News backend. In case of news publications, the\nid may also be the secondary id, that is, the id of the associated\nApplication in the Google News backend.",
+                            "location": "path",
+                            "pattern": "^publications/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "Publication"
+                    }
+                },
+                "patch": {
+                    "description": "Updates a publication (partial update). Returns the updated publication.\n\nThe returned Publication contains the updated data. Which data (besides the\nbasic information) is included depends on the update request. If the update\nchanges contacts, for example, all (updated) contacts are included in the\nresponse. If the update changes the sections of a (news) publication, all\nthe sections are included in the response. This allows the UI to show the\nlatest state without issuing additional read requests.\n\nThe read_mask in the returned Publication describes which data in included.\n\nucid:pc:pub:u",
+                    "flatPath": "v1/publications/{publicationsId}",
+                    "httpMethod": "PATCH",
+                    "id": "qa_alkaliproducer_pa_sandbox.publications.patch",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Relative resource name of the publication to update.",
+                            "location": "path",
+                            "pattern": "^publications/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "request": {
+                        "$ref": "UpdatePublicationRequest"
+                    },
+                    "response": {
+                        "$ref": "Publication"
+                    }
+                },
+                "publishStyle": {
+                    "description": "Publishes the CSS style draft for a publication. A saved CSS style draft is\nalways valid.",
+                    "flatPath": "v1/publications/{publicationsId}:publishStyle",
+                    "httpMethod": "POST",
+                    "id": "qa_alkaliproducer_pa_sandbox.publications.publishStyle",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Relative resource name of the publication.\n\nThe relative resource name is of the form \"publications/:id\" where the id\nis the unique id of the Publication, that is, the id of the underlying\nAppFamily in the Google News backend. In case of news publications, the\nid may also be the secondary id, that is, the id of the associated\nApplication in the Google News backend.",
+                            "location": "path",
+                            "pattern": "^publications/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}:publishStyle",
+                    "request": {
+                        "$ref": "PublishArticleStyleRequest"
+                    },
+                    "response": {
+                        "$ref": "Empty"
+                    }
+                },
+                "signPolicy": {
+                    "description": "Sign the TOS for a publication.",
+                    "flatPath": "v1/publications/{publicationsId}:signPolicy",
+                    "httpMethod": "POST",
+                    "id": "qa_alkaliproducer_pa_sandbox.publications.signPolicy",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Relative resource name of the publication.\n\nThe relative resource name is of the form \"publications/:id\" where the id\nis the unique id of the Publication, that is, the id of the underlying\nAppFamily in the Google News backend.",
+                            "location": "path",
+                            "pattern": "^publications/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}:signPolicy",
+                    "request": {
+                        "$ref": "SignPolicyRequest"
+                    },
+                    "response": {
+                        "$ref": "Publication"
+                    }
+                },
+                "style": {
+                    "description": "Saves a CSS style sheet as the draft article style for a publication.\nReturns a list of syntax errors if the CSS style sheet is invalid,\notherwise returns an empty list.",
+                    "flatPath": "v1/publications/{publicationsId}/style",
+                    "httpMethod": "POST",
+                    "id": "qa_alkaliproducer_pa_sandbox.publications.style",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Relative resource name of the publication.\n\nThe relative resource name is of the form \"publications/:id\" where the id\nis the unique id of the Publication, that is, the id of the underlying\nAppFamily in the Google News backend. In case of news publications, the\nid may also be the secondary id, that is, the id of the associated\nApplication in the Google News backend.",
+                            "location": "path",
+                            "pattern": "^publications/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}/style",
+                    "request": {
+                        "$ref": "SaveArticleStyleRequest"
+                    },
+                    "response": {
+                        "$ref": "SaveArticleStyleResponse"
+                    }
+                },
+                "submit": {
+                    "description": "Submits a publication for review.",
+                    "flatPath": "v1/publications/{publicationsId}:submit",
+                    "httpMethod": "POST",
+                    "id": "qa_alkaliproducer_pa_sandbox.publications.submit",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Relative resource name of the publication.\n\nThe relative resource name is of the form \"publications/:id\" where the id\nis the unique id of the Publication, that is, the id of the underlying\nAppFamily in the Google News backend.",
+                            "location": "path",
+                            "pattern": "^publications/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}:submit",
+                    "request": {
+                        "$ref": "SubmitPublicationRequest"
+                    },
+                    "response": {
+                        "$ref": "Publication"
+                    }
+                },
+                "unpublish": {
+                    "description": "Unpublishes an approved publication.",
+                    "flatPath": "v1/publications/{publicationsId}:unpublish",
+                    "httpMethod": "POST",
+                    "id": "qa_alkaliproducer_pa_sandbox.publications.unpublish",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Relative resource name of the publication.\n\nThe relative resource name is of the form \"publications/:id\" where the id\nis the unique id of the Publication, that is, the id of the underlying\nAppFamily in the Google News backend.",
+                            "location": "path",
+                            "pattern": "^publications/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}:unpublish",
+                    "request": {
+                        "$ref": "UnpublishPublicationRequest"
+                    },
+                    "response": {
+                        "$ref": "PublicationStatus"
+                    }
+                },
+                "verifyPath": {
+                    "description": "Checks if a publication's path is verified. If a path is verified\nby the site verifier, the publication will be updated with the verified\npath and the update info will be returned in the response.",
+                    "flatPath": "v1/publications/{publicationsId}:verifyPath",
+                    "httpMethod": "POST",
+                    "id": "qa_alkaliproducer_pa_sandbox.publications.verifyPath",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Relative resource name of the publication.\n\nThe relative resource name is of the form \"publications/:id\" where the id\nis the unique id of the Publication, that is, the id of the underlying\nAppFamily in the Google News backend. In case of news publications, the\nid may also be the secondary id, that is, the id of the associated\nApplication in the Google News backend.",
+                            "location": "path",
+                            "pattern": "^publications/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}:verifyPath",
+                    "request": {
+                        "$ref": "VerifyPathRequest"
+                    },
+                    "response": {
+                        "$ref": "VerifyPathResponse"
+                    }
+                }
+            }
+        },
+        "roles": {
+            "methods": {
+                "list": {
+                    "description": "Gets a publisher account",
+                    "flatPath": "v1/roles",
+                    "httpMethod": "GET",
+                    "id": "qa_alkaliproducer_pa_sandbox.roles.list",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/roles",
+                    "response": {
+                        "$ref": "AuthRoleSet"
+                    }
+                }
+            }
+        },
+        "sections": {
+            "methods": {
+                "batchGet": {
+                    "description": "Looks for sections by id and returns the sections that have been\nfound.\n\nThe order of the returned sections is unspecified.",
+                    "flatPath": "v1/sections:batchGet",
+                    "httpMethod": "GET",
+                    "id": "qa_alkaliproducer_pa_sandbox.sections.batchGet",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "fieldMask": {
+                            "description": "Field mask controlling which fields of the sections should be returned.\n\nThe semantics are the same as for the GetSectionRequest.",
+                            "format": "google-fieldmask",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "ids": {
+                            "description": "Ids of the sections to get.",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/sections:batchGet",
+                    "response": {
+                        "$ref": "BatchGetSectionsResponse"
+                    }
+                },
+                "get": {
+                    "description": "Gets a section.",
+                    "flatPath": "v1/sections/{sectionsId}",
+                    "httpMethod": "GET",
+                    "id": "qa_alkaliproducer_pa_sandbox.sections.get",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "fieldMask": {
+                            "description": "Field mask controlling which fields of the section should be returned.\n\nIf not set, only the main fields (as determined by the server) will be\nreturned. Those are the fields that the server can fetch quickly by reading\na single table. The read_mask in the returned ContentSection always\nindicates which additional fields were fetched.",
+                            "format": "google-fieldmask",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Relative resource name of the section.\n\nThe relative resource name is of the form \"sections/:id\" where the id\nis the unique id of the Section, that is, the id of the underlying\nAppFamily in the Google News backend. In case of news sections, the\nid may also be the secondary id, that is, the id of the associated\nApplication in the Google News backend.",
+                            "location": "path",
+                            "pattern": "^sections/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "ContentSection"
+                    }
+                },
+                "refresh": {
+                    "description": "Refreshes the content of a section.\n\nFor feed-based sections, this method will fetch the section's feed and,\nif it has changed, update the section and its posts based on the new feed\ndata.",
+                    "flatPath": "v1/sections/{sectionsId}:refresh",
+                    "httpMethod": "POST",
+                    "id": "qa_alkaliproducer_pa_sandbox.sections.refresh",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Relative resource name of the section to refresh.",
+                            "location": "path",
+                            "pattern": "^sections/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}:refresh",
+                    "request": {
+                        "$ref": "RefreshSectionRequest"
+                    },
+                    "response": {
+                        "$ref": "RefreshSectionResponse"
+                    }
+                }
+            }
+        },
+        "swg": {
+            "resources": {
+                "publications": {
+                    "methods": {
+                        "batchGet": {
+                            "description": "Fetches publications with a given app family ids.",
+                            "flatPath": "v1/swg/publications:batchGet",
+                            "httpMethod": "GET",
+                            "id": "qa_alkaliproducer_pa_sandbox.swg.publications.batchGet",
+                            "parameterOrder": [],
+                            "parameters": {
+                                "fieldMask": {
+                                    "description": "Field mask controlling which fields of the swgPublications should be\nreturned.",
+                                    "format": "google-fieldmask",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "ids": {
+                                    "description": "App family ids of the publications to get.",
+                                    "location": "query",
+                                    "repeated": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/swg/publications:batchGet",
+                            "response": {
+                                "$ref": "BatchGetSwgPublicationsResponse"
+                            }
+                        },
+                        "create": {
+                            "description": "Stores a new SwG publication.",
+                            "flatPath": "v1/swg/publications",
+                            "httpMethod": "POST",
+                            "id": "qa_alkaliproducer_pa_sandbox.swg.publications.create",
+                            "parameterOrder": [],
+                            "parameters": {},
+                            "path": "v1/swg/publications",
+                            "request": {
+                                "$ref": "SwgPublication"
+                            },
+                            "response": {
+                                "$ref": "SwgPublication"
+                            }
+                        },
+                        "get": {
+                            "description": "Fetches a SwG publication with a given ID.",
+                            "flatPath": "v1/swg/publications/{publicationsId}",
+                            "httpMethod": "GET",
+                            "id": "qa_alkaliproducer_pa_sandbox.swg.publications.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "fieldMask": {
+                                    "description": "Fields to return (all if empty).",
+                                    "format": "google-fieldmask",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "description": "Relative resource name for a SwG publication.\n\nEx: \"swg/publications/scenic-2017.appspot.com\"",
+                                    "location": "path",
+                                    "pattern": "^swg/publications/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "response": {
+                                "$ref": "SwgPublication"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "uploads": {
+            "methods": {
+                "submit": {
+                    "description": "Process an upload submitted by the app frontend's Uploader Widget.",
+                    "flatPath": "v1/uploads:submit",
+                    "httpMethod": "POST",
+                    "id": "qa_alkaliproducer_pa_sandbox.uploads.submit",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/uploads:submit",
+                    "request": {
+                        "$ref": "SubmitUploadRequest"
+                    },
+                    "response": {
+                        "$ref": "SubmitUploadResponse"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190910",
+    "rootUrl": "https://qa-alkaliproducer-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "AccountSet": {
+            "description": "Collection of publisher accounts supporting pagination.",
+            "id": "AccountSet",
+            "properties": {
+                "accounts": {
+                    "description": "Results in this set.",
+                    "items": {
+                        "$ref": "PublisherAccount"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "Token for retrieving the next page. Empty if there are no more results.",
+                    "type": "string"
+                },
+                "totalSize": {
+                    "description": "Total count of results irrespective of pagination.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AccountUser": {
+            "description": "A single publisher account user maps to Publisher.PublisherRole. Each\npublisher account user will have a corresponding membership record.",
+            "id": "AccountUser",
+            "properties": {
+                "email": {
+                    "description": "Email of the account user.",
+                    "type": "string"
+                },
+                "role": {
+                    "description": "Role of the account user.",
+                    "enum": [
+                        "UNKNOWN",
+                        "MANAGER"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Manager role of the publisher account."
+                    ],
+                    "type": "string"
+                },
+                "userId": {
+                    "description": "Gaia id of the user.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AdConfig": {
+            "description": "Settings for a single ad unit for an article.",
+            "id": "AdConfig",
+            "properties": {
+                "adUnitCode": {
+                    "description": "The ad unit code without publisherId",
+                    "type": "string"
+                },
+                "sectionId": {
+                    "description": "Optional section id for the section this ad unit will target, only used for\nAdExchange ads. If no id is present, the ad will not be targeted at a\nspecific section.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "Format for this ad unit",
+                    "enum": [
+                        "TYPE_UNSPECIFIED",
+                        "ADX_MOBILE",
+                        "ADX_WEB",
+                        "ADMOB",
+                        "ADSENSE",
+                        "CUSTOM",
+                        "AMP"
+                    ],
+                    "enumDescriptions": [
+                        "Default value",
+                        "AdExchange mobile in-app ad",
+                        "AdExchange web ad",
+                        "AdMob mobile in-app ad",
+                        "AdSense Online web ad",
+                        "Custom ad through DFP",
+                        "Amp ad layout"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AdSenseAccount": {
+            "description": "AdSense account for the producer frontend.",
+            "id": "AdSenseAccount",
+            "properties": {
+                "accountId": {
+                    "description": "The legacy AdSense account id.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "locale": {
+                    "description": "The locale of the user and account, always present.\n\nThis will be the locale stored in the user's preferences, or the default\nlocale (en-US) if no preference is available (or if the locale specified in\nthe request was invalid). May be formatted either as \"en_GB\" or \"en-GB\",\ncompatible with LocaleUtilNoXmb.getLocale(String).",
+                    "type": "string"
+                },
+                "publisherCode": {
+                    "description": "The AdSense publisher code attached to this account.",
+                    "type": "string"
+                },
+                "syndicationProperty": {
+                    "$ref": "WebProperty",
+                    "description": "Information about the web properties for this account the corresponding\nAdSense token grants access to."
+                },
+                "timezone": {
+                    "description": "The specific timezone strings (e.g. \"America/Los_Angeles\") used for this\naccount.\n\nA list of timezones is maintained in\ngoogle3/i18n/identifiers/data/timezones.txt. This should be the timezone\nassociated with the user's AdSense account. By default, it is the Google\ntimezone but users can change this to something more relevant.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "Type of the account.",
+                    "enum": [
+                        "TYPE_UNSPECIFIED",
+                        "ADSENSE",
+                        "ADX",
+                        "MANUAL",
+                        "LEGACY"
+                    ],
+                    "enumDescriptions": [
+                        "Default value",
+                        "AdSense Online",
+                        "AdExchange",
+                        "Set the syndication property information manually",
+                        "Value was set in an earlier version of publisher-sold ads"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Article": {
+            "description": "Data of a single article.",
+            "id": "Article",
+            "properties": {
+                "attribution": {
+                    "$ref": "ContentAttribution",
+                    "description": "Attribution for this Article."
+                },
+                "content": {
+                    "$ref": "HtmlContent",
+                    "description": "HTML markup of this article."
+                },
+                "id": {
+                    "description": "Unique id of this Article.\n\nThis is the long id encapsulating the path of the article within the\ndots hierarchy (publication, section, article).",
+                    "type": "string"
+                },
+                "images": {
+                    "description": "Images in the article.",
+                    "items": {
+                        "$ref": "ImageRef"
+                    },
+                    "type": "array"
+                },
+                "subtitle": {
+                    "description": "Subtitle of the article.",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Title provided by publisher.",
+                    "type": "string"
+                },
+                "updateInfo": {
+                    "$ref": "UpdateInfo",
+                    "description": "Metadata describing when this article was created and updated."
+                },
+                "updateSpec": {
+                    "$ref": "UpdateSpec",
+                    "description": "Input (request) field describing an update of an Article.\n\nThis field is only set when using this message to describe an update of an\nArticle."
+                },
+                "urls": {
+                    "description": "URLs pointing to this article.",
+                    "items": {
+                        "$ref": "Url"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ArticleStyle": {
+            "description": "Style customization for native articles of a publication.\n\nNative article is an article from RSS feed and is not rendered by AMP.",
+            "id": "ArticleStyle",
+            "properties": {
+                "draftStyleSheet": {
+                    "$ref": "StyleSheet",
+                    "description": "Draft style customization maps to dots.render.NativeArticleStyleUi.\n\nIt will be converted to a dots.render.PostRenderingStyleConfig\nin AppFamily.PostRenderingCustomization when the user publish it."
+                },
+                "hasPublishedStyle": {
+                    "description": "It's true if the user has ever published a draft article style for the\npublication.",
+                    "type": "boolean"
+                },
+                "syntaxErrors": {
+                    "description": "Syntax errors for the draft style sheet.",
+                    "items": {
+                        "$ref": "SyntaxError"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AuthOperationSpec": {
+            "description": "An OperationSpec specifies a set operations.",
+            "id": "AuthOperationSpec",
+            "properties": {
+                "accessLevel": {
+                    "description": "Level of access of the specified operations.\n\nAn operation (AuthOperation) matches the access level if the access level\nof the operation is set and greater or equal to the access level of this\noperation spec.",
+                    "enum": [
+                        "UNSPECIFIED_ACCESS_LEVEL",
+                        "READ",
+                        "WRITE",
+                        "MANAGE"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Read-only operations that do not change the state of a resource.",
+                        "Operations that may change the state of a resource.",
+                        "Operations that may create or destroy resources."
+                    ],
+                    "type": "string"
+                },
+                "operationNames": {
+                    "description": "Names of the operations included in the set.\n\nThe operation names are application specific. If applicable, they should\nuse the standard REST API operation names such as LIST, GET, CREATE,\nUPDATE, or DELETE (see go/api-style). Other typical operation names are\nCANCEL, MOVE, APPROVE, BLOCK, or NOTIFY.\n\nA single operation name ANY may be used as a wild card matching all\noperation names. To match, the operation (AuthOperation) must have a\nnon-empty operation name.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AuthResourceSpec": {
+            "description": "A ResourceSpec specifies a set of resources.\n\nAs an example, a ResourceSpec may be defined as the \"publications\nfor which the current user is an editor\".",
+            "id": "AuthResourceSpec",
+            "properties": {
+                "fieldMask": {
+                    "description": "Field mask restricting the access to a subset of fields of a resource.\n\nIf set, the operation associated with this resource spec in a permission\napplies only to fields matching this `field_mask`.",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                },
+                "resourceTypes": {
+                    "description": "Types of the resources to give access to.\n\nA type is typically the name of a domain type such as PUBLICATION or\nARTICLE.\n\nMultiple types may be used for broad access, for example, read access to\ncontent objects. Fine grained permissions typically apply to a single\nresource type.\n\nA single resource type ANY may be used as a wild card matching all resource\ntypes.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "resourceUserAssociation": {
+                    "description": "Relationship between the user and the resource.\n\nThe set of resources on which a user may perform an operation often\ndepends on a relationship between the resource and the user that is kept\nand managed outside of the authorization component. As an example, a\npublisher may assign another user as an editor of a publication. Once\nthe user has become an editor, they may perform certain operations such\nas creating new sections for this publication.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AuthRole": {
+            "description": "A role is a named set of permissions and/or other roles.\n\nThe set of permissions associated with a role is the union of the permissions\nin the role itself and its children.\n\nThe top-level roles typically represent job families such as \"editor\" while\nthe lower level roles are used to group permissions that are often used\ntogether.",
+            "id": "AuthRole",
+            "properties": {
+                "childRoleCodes": {
+                    "description": "Codes of sub roles whose permissions are included in this role.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "code": {
+                    "description": "Unique code of this role. This code uniquely identifies this role in the\nconfiguration.",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "Short English description of this role.",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "English name of this role to display in a UI.",
+                    "type": "string"
+                },
+                "permissions": {
+                    "description": "Permissions that users with this role have.",
+                    "items": {
+                        "$ref": "Permission"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AuthRoleRef": {
+            "description": "Identification of an authorization role.",
+            "id": "AuthRoleRef",
+            "properties": {
+                "roleCode": {
+                    "description": "Code identifying the role.\n\nThis code references the code in an AuthRole as configured in the roles\nconfiguration (for example, roles.textproto) of an application.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AuthRoleSet": {
+            "description": "A set of roles.\n\nA role set captures the authorization configuration.",
+            "id": "AuthRoleSet",
+            "properties": {
+                "roles": {
+                    "description": "Role definitions.",
+                    "items": {
+                        "$ref": "AuthRole"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BatchGetAccountsResponse": {
+            "description": "Response message for the BatchGetAccounts method.",
+            "id": "BatchGetAccountsResponse",
+            "properties": {
+                "accounts": {
+                    "description": "Retrieved accounts.",
+                    "items": {
+                        "$ref": "PublisherAccount"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BatchGetArticlesResponse": {
+            "description": "Response message for the batch article get methods.",
+            "id": "BatchGetArticlesResponse",
+            "properties": {
+                "articles": {
+                    "description": "Retrieved articles.",
+                    "items": {
+                        "$ref": "Article"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BatchGetPublicationsResponse": {
+            "description": "Response message for the BatchGetPublications method.",
+            "id": "BatchGetPublicationsResponse",
+            "properties": {
+                "publications": {
+                    "description": "Retrieved publications.",
+                    "items": {
+                        "$ref": "Publication"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BatchGetSectionsResponse": {
+            "description": "Response message for the BatchGetSections method.",
+            "id": "BatchGetSectionsResponse",
+            "properties": {
+                "sections": {
+                    "description": "Retrieved sections.",
+                    "items": {
+                        "$ref": "ContentSection"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BatchGetSwgPublicationsResponse": {
+            "description": "Response message for the BatchGetSwgPublications method.",
+            "id": "BatchGetSwgPublicationsResponse",
+            "properties": {
+                "publications": {
+                    "description": "Retrieved publications.",
+                    "items": {
+                        "$ref": "SwgPublication"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BillingConfig": {
+            "description": "Billing configuration for a publisher account.",
+            "id": "BillingConfig",
+            "properties": {
+                "id": {
+                    "description": "Billing configuration id.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Billing configuration name.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ContentAccess": {
+            "description": "Defines who has access to the content of a publication (or part of it, for\nexample, a section).",
+            "id": "ContentAccess",
+            "properties": {
+                "permissions": {
+                    "description": "Permissions for accessing the content.\n\nEach permission defines the access of some user or user group to the\ncontent.",
+                    "items": {
+                        "$ref": "ContentPermission"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ContentAttribution": {
+            "description": "Attribution that should be shown for the content.",
+            "id": "ContentAttribution",
+            "properties": {
+                "copyright": {
+                    "description": "Copyright text to be shown with the content.",
+                    "type": "string"
+                },
+                "credits": {
+                    "description": "Credits for content.",
+                    "items": {
+                        "$ref": "ContentCredit"
+                    },
+                    "type": "array"
+                },
+                "licenses": {
+                    "description": "Licenses under which the content is published.",
+                    "items": {
+                        "$ref": "ContentLicense"
+                    },
+                    "type": "array"
+                },
+                "text": {
+                    "description": "Plain text describing the attribution.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ContentCredit": {
+            "description": "Describes the role of a person (or group) in producing content.",
+            "id": "ContentCredit",
+            "properties": {
+                "displayName": {
+                    "description": "Name of the credited person or group.",
+                    "type": "string"
+                },
+                "role": {
+                    "description": "Role of the person in producing the ContentItem.",
+                    "enum": [
+                        "UNSPECIFIED",
+                        "PRODUCER",
+                        "AUTHOR",
+                        "PERFORMER"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Producer of a content item.",
+                        "Author of a content item.",
+                        "Performer of a content item (for example, a song)."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ContentLicense": {
+            "description": "License under which the content is published.",
+            "id": "ContentLicense",
+            "properties": {
+                "displayName": {
+                    "description": "Name of the License.",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "URL pointing to the license.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ContentPermission": {
+            "description": "Permission describing the access of a user group to the content.",
+            "id": "ContentPermission",
+            "properties": {
+                "accessLevel": {
+                    "description": "Level of access to the content.",
+                    "enum": [
+                        "UNSPECIFIED_ACCESS_LEVEL",
+                        "READ",
+                        "WRITE",
+                        "MANAGE"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Read-only operations that do not change the state of a resource.",
+                        "Operations that may change the state of a resource.",
+                        "Operations that may create or destroy resources."
+                    ],
+                    "type": "string"
+                },
+                "roleId": {
+                    "description": "Role id identifying the group of users that may access the content.\n\nA role id may either identify a system-defined group of users such as\n\"anyone\" or \"authenticated\" (in the original sense of a \"role\") or a group\nof users defined by a publisher (\"access group\" or \"tester group\").\n\nA role id is unique within a publication (AppFamily).",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ContentSection": {
+            "description": "Section of a news publication or magazine issue.\n\nA section is the smallest unit above individual articles. The sections are\nprovided by the publisher.",
+            "id": "ContentSection",
+            "properties": {
+                "access": {
+                    "$ref": "ContentAccess",
+                    "description": "Access to this section."
+                },
+                "articleRefs": {
+                    "description": "References to the articles contained in this section. This will only\ncontain ids and not display names.\n\nThis field will not be set if the `articles` field is used (as it contains\na superset of this data).",
+                    "items": {
+                        "$ref": "EntityRef"
+                    },
+                    "type": "array"
+                },
+                "articles": {
+                    "description": "The list of articles that belong to this section.\n\nThis list is never written by the client but is always written by back end\nservices. This also may be expensive data to fetch so the `article_refs`\nfield can be used to simply get the ids of the articles.",
+                    "items": {
+                        "$ref": "Article"
+                    },
+                    "type": "array"
+                },
+                "contentSource": {
+                    "$ref": "ContentSource",
+                    "description": "Defines where to get the content for this section."
+                },
+                "contentUpdatedTimestamp": {
+                    "$ref": "UserTimestamp",
+                    "description": "When the content within the section has been updated."
+                },
+                "description": {
+                    "description": "Short description of the section.",
+                    "type": "string"
+                },
+                "flags": {
+                    "description": "Flags associated with this section.\n\nThe flags values are encoded as enums on the backend side. The behavior\nof the support frontends (permissions, possible values) is driven by the\nconfig and does not depend on specific flag values so that we can leave\nthem as strings.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "Internal id that uniquely identifies this section.",
+                    "type": "string"
+                },
+                "issueId": {
+                    "description": "Id of the collection this section belongs to.\n\nThis is the id of the Application containing the Section in the Google News\nbackend. This id is contained in the section id as a parent id, but it's\neasier to pass it explicitly to the frontend.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Relative resource name of this section as used by the API and the UI.",
+                    "type": "string"
+                },
+                "publicationId": {
+                    "description": "Id of the publication this section belongs to.\n\nThis is the id of the AppFamily containing the Section in the Google News\nbackend. This id is contained in the section id, but it's easier to pass it\nexplicitly to the frontend.",
+                    "type": "string"
+                },
+                "readMask": {
+                    "description": "Output (response) field returned by the server that indicates which fields\nhas been fetched.",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Short title to display for this section.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "Type of this content source.",
+                    "enum": [
+                        "UNSPECIFIED",
+                        "FEED",
+                        "WEB_HUB",
+                        "VIDEO_SERVICE",
+                        "PHOTO_FEED",
+                        "PERSONALIZED_FEED",
+                        "PERSONALIZED_VISUAL_STORIES"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Web feed (RSS/Atom).",
+                        "Web hub (site, path on site).",
+                        "Videos obtained from a video service (for example, YouTube channel).",
+                        "Photos from a feed (Media RSS).",
+                        "A section of articles for the publication based on the users interests.",
+                        "A section of personalized \"STAMP\" articles."
+                    ],
+                    "type": "string"
+                },
+                "updateInfo": {
+                    "$ref": "UpdateInfo",
+                    "description": "Metadata describing when this section was created and updated."
+                },
+                "updateSpec": {
+                    "$ref": "UpdateSpec",
+                    "description": "Input (request) field describing an update of a ContentSection.\n\nThis field is only set when using this message to describe an update of a\nContentSection."
+                }
+            },
+            "type": "object"
+        },
+        "ContentSource": {
+            "description": "Configuration of a content source as provided by a publisher.",
+            "id": "ContentSource",
+            "properties": {
+                "feedSourceConfig": {
+                    "$ref": "FeedSourceConfig",
+                    "description": "Feed configuration."
+                },
+                "photoFeedSourceConfig": {
+                    "$ref": "PhotoFeedSourceConfig",
+                    "description": "Configuration of the photos feed source."
+                },
+                "videoSourceConfig": {
+                    "$ref": "VideoSourceConfig",
+                    "description": "Configuration of the video source."
+                },
+                "webHubSourceConfig": {
+                    "$ref": "WebHubSourceConfig",
+                    "description": "Configuration of the web hub this content source is using."
+                }
+            },
+            "type": "object"
+        },
+        "CountryConfig": {
+            "description": "Country information needed by the frontend.\n\nWe keep this data separate from the DisplayedCountry because it is\nindependent of the user's locale.",
+            "id": "CountryConfig",
+            "properties": {
+                "advertisedCurrencyCode": {
+                    "description": "Three letter code of the currency that is used to show prices in the\ncountry. This is the currency in which the prices are set in Publisher\nCenter.",
+                    "type": "string"
+                },
+                "countryCode": {
+                    "description": "ISO 3166 two letter country code.",
+                    "type": "string"
+                },
+                "taxInclusion": {
+                    "description": "Tax inclusion policy in the country.",
+                    "enum": [
+                        "TAX_INCLUSION_UNSPECIFIED",
+                        "TAX_INCLUDED",
+                        "TAX_EXCLUDED"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Taxes are included.",
+                        "Taxes are excluded."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CountrySet": {
+            "description": "Set of countries specified either as list of included countries or list of\nexcluded countries.",
+            "id": "CountrySet",
+            "properties": {
+                "excludedCountryCodes": {
+                    "description": "ISO 3166 codes of the excluded countries.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "includedCountryCodes": {
+                    "description": "ISO 3166 codes of the included countries.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "specType": {
+                    "description": "How this set is specified.",
+                    "enum": [
+                        "SPEC_TYPE_UNSPECIFIED",
+                        "ALL",
+                        "INCLUDE",
+                        "EXCLUDE"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "The set consists of all available countries.",
+                        "The set consists of the countries in the included_country_codes list.",
+                        "The set consists of all available countries that are not in the\nexcluded_country_codes list."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CrawlPath": {
+            "description": "CrawlPath is a public-facing representation of NewSource's hub.\nIt specifies a URL that's crawled for news content, includes content labels\ndescribing that URL, and reflects the hub's current status and inclusion.\n\nCorresponds to a HubProperties Hub in the GNews backend.",
+            "id": "CrawlPath",
+            "properties": {
+                "editorsPicks": {
+                    "description": "True if this hub has been marked with backend flag EDITORSPICKRSSHUB.\nSplit out of 'flags' as it is not directly editable by partnerdash users.",
+                    "type": "boolean"
+                },
+                "labels": {
+                    "description": "Labels associated with the crawl path.\n\nThis maps to GNews' \"Flags\", listing only those that are settable/viewable\nin the PFE, and is a subset of the list in:\n   news/crawl/proto/gnews.proto:HubProperties.Flags\n\nFor Vinyl, this is list of opaque values, so that we use strings. The\nlabels managed by a frontend are send to the frontend as part of the\ninitial configuration.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "phoneApp": {
+                    "description": "True if this hub has been marked with backend flag PHONE_APP.\nSplit out of 'flags' as it is not directly editable by partnerdash users.\nIf true, indicates a URL pointing to an app store link.",
+                    "type": "boolean"
+                },
+                "sourceId": {
+                    "description": "ID of the Source to which this Crawl Path belongs.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "state": {
+                    "description": "Current state of the crawl path.",
+                    "enum": [
+                        "UNSPECIFIED",
+                        "ACTIVE",
+                        "DELETED"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Crawl path is active (being crawled).",
+                        "Crawl path has been soft deleted/marked obsolete\nSee go/pfe-hub-deletion for more details on how this works.\nNote that in the PFE, this corresponds to the boolean \"obsolete\"."
+                    ],
+                    "type": "string"
+                },
+                "url": {
+                    "description": "Crawled URL.",
+                    "type": "string"
+                },
+                "video": {
+                    "description": "True if this hub has been marked with backend flag VIDEO.\nSplit out of 'flags' as it is not directly editable by partnerdash users.\nIf true, indicates a video source link, likely not in source's domain.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "DisplayedCountry": {
+            "description": "Data about a country as needed in the frontend.",
+            "id": "DisplayedCountry",
+            "properties": {
+                "code": {
+                    "description": "ISO 3166 two letter country code.",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "Display name of the country in the user's locale.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DisplayedLanguage": {
+            "description": "Data about a language as needed in the frontend.",
+            "id": "DisplayedLanguage",
+            "properties": {
+                "code": {
+                    "description": "BCP47 (go/bcp47) language code.",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "Display name of the language in the user's locale.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DisplayedUrl": {
+            "description": "URL that can be displayed as a link in the client.",
+            "id": "DisplayedUrl",
+            "properties": {
+                "label": {
+                    "description": "Text displayed for the link.",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "URL to link to.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Empty": {
+            "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+            "id": "Empty",
+            "properties": {},
+            "type": "object"
+        },
+        "EntityRef": {
+            "description": "Lightweight reference to an entity.",
+            "id": "EntityRef",
+            "properties": {
+                "displayName": {
+                    "description": "Optional user-facing name of the entity.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Unique id of the entity.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FeedSourceConfig": {
+            "description": "Configuration of a feed content source.",
+            "id": "FeedSourceConfig",
+            "properties": {
+                "imageDuplicateCheck": {
+                    "$ref": "ImageDuplicateCheckConfig",
+                    "description": "Duplication check for images in the feed."
+                },
+                "uri": {
+                    "description": "URI of the RSS of Atom feed.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FileKey": {
+            "description": "A unique File Key to identify an uploaded file.",
+            "id": "FileKey",
+            "properties": {
+                "keyId": {
+                    "description": "The name (UUID) of this file key.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Font": {
+            "description": "Individual font that is part of the font family.",
+            "id": "Font",
+            "properties": {
+                "file": {
+                    "$ref": "MediaItem",
+                    "description": "Uploaded font file."
+                },
+                "style": {
+                    "description": "Style of this font. If stored in the Google News backend, only ITALIC is\nrecognized.",
+                    "enum": [
+                        "NONE",
+                        "NORMAL",
+                        "ITALIC",
+                        "OBLIQUE"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "CSS font-style 'normal'.",
+                        "CSS font-style 'italic'.",
+                        "CSS font-style 'oblique'."
+                    ],
+                    "type": "string"
+                },
+                "updateSpec": {
+                    "$ref": "UpdateSpec",
+                    "description": "Input (request) field describing a Font update."
+                },
+                "weight": {
+                    "description": "Numeric weight (100, 200, ..., 900).",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "FontFamily": {
+            "description": "Font family consisting of a set of uploaded fonts.",
+            "id": "FontFamily",
+            "properties": {
+                "displayName": {
+                    "description": "Name identifying the font family (as set by the user in the UI).",
+                    "type": "string"
+                },
+                "fonts": {
+                    "description": "Fonts the family consists of.",
+                    "items": {
+                        "$ref": "Font"
+                    },
+                    "type": "array"
+                },
+                "updateSpec": {
+                    "$ref": "UpdateSpec",
+                    "description": "Input (request) field describing a FontFamily update."
+                }
+            },
+            "type": "object"
+        },
+        "FrontendConfig": {
+            "description": "Configuration data for the producer frontend.",
+            "id": "FrontendConfig",
+            "properties": {
+                "applicationFeatures": {
+                    "description": "Enabled application features.",
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Subscribe with Google frontend for publishers.\n\nSelf-service frontend for publishers to manage the Subscribe with Google\nconfiguration for the publisher's publications.",
+                        "Internal support frontend for Subscribe with Google."
+                    ],
+                    "items": {
+                        "enum": [
+                            "APPLICATION_FEATURE_UNSPECIFIED",
+                            "SWG_PUBLISHER_FRONTEND",
+                            "SWG_SUPPORT_FRONTEND"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "countryConfigs": {
+                    "description": "Country information needed by the frontend.",
+                    "items": {
+                        "$ref": "CountryConfig"
+                    },
+                    "type": "array"
+                },
+                "targetCountries": {
+                    "description": "List of Google News target countries.",
+                    "items": {
+                        "$ref": "DisplayedCountry"
+                    },
+                    "type": "array"
+                },
+                "targetLanguages": {
+                    "description": "List of Google News target languages.",
+                    "items": {
+                        "$ref": "DisplayedLanguage"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "FrontendNewsSource": {
+            "description": "Single domain and source of crawl paths (hubs).\n\nSee http://google3/news/crawl/proto/gnews.proto",
+            "id": "FrontendNewsSource",
+            "properties": {
+                "crawlPaths": {
+                    "description": "Crawl paths under this source.",
+                    "items": {
+                        "$ref": "CrawlPath"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "Unique id of the source in the GNews backend.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "inclusionInfo": {
+                    "$ref": "GnpInclusionInfo",
+                    "description": "Inclusion state for this Source."
+                },
+                "location": {
+                    "$ref": "NewsSourceLocation",
+                    "description": "Location of the Publisher who manages this News Source."
+                }
+            },
+            "type": "object"
+        },
+        "GnpInclusionInfo": {
+            "description": "Provides information about existing inclusion request for a Source. This\nmessage is not mapped to any existing backend protobuf. It is derived from a\nNewsSource.",
+            "id": "GnpInclusionInfo",
+            "properties": {
+                "rejectReason": {
+                    "description": "Reason that this Inclusion request has been rejected.",
+                    "enum": [
+                        "REASON_UNKNOWN",
+                        "REJECT_DEFAULT",
+                        "REJECT_ACCOUNTABILITY",
+                        "REJECT_AGGREGATION",
+                        "REJECT_READABILITY",
+                        "REJECT_SELF_PROMOTION"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified value.",
+                        "No clear consensus on reject reason. One or more of the below.\nhttps://support.google.com/news/publisher-center/answer/6228626",
+                        "No 'about' page, unclear who's writing\nhttps://support.google.com/news/publisher-center/answer/6364000",
+                        "Non-original content / aggregates other sites\nhttps://support.google.com/news/publisher-center/answer/6363949",
+                        "Low quality writing\nhttps://support.google.com/news/publisher-center/answer/6363982",
+                        "Promoting their own product/services\nhttps://support.google.com/news/publisher-center/answer/6364018"
+                    ],
+                    "type": "string"
+                },
+                "state": {
+                    "description": "Current state of the inclusion request.",
+                    "enum": [
+                        "STATE_UNKNOWN",
+                        "PENDING",
+                        "ACCEPTED",
+                        "REJECTED",
+                        "RECENTLY_REJECTED"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified.",
+                        "Still under review. Cannot be edited.",
+                        "Included and being actively crawled.",
+                        "Reviewed and rejected.",
+                        "Rejected less than 60 days ago, cannot reapply."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GooglePropertySet": {
+            "description": "Specifies a set of Google properties.",
+            "id": "GooglePropertySet",
+            "properties": {
+                "allProperties": {
+                    "description": "If true, all Google properties are included.",
+                    "type": "boolean"
+                },
+                "properties": {
+                    "description": "Specific list of included Google properties.",
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Content may be shown on Google Chromecast.",
+                        "Content may be shown in Google Play.",
+                        "Content may be used for Google Assistant."
+                    ],
+                    "items": {
+                        "enum": [
+                            "GOOGLE_PROPERTY_UNSPECIFIED",
+                            "CHROMECAST",
+                            "GOOGLE_PLAY",
+                            "GOOGLE_ASSISTANT"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleSoldAdsConfig": {
+            "description": "Configuration for ads sold by google for a publication.",
+            "id": "GoogleSoldAdsConfig",
+            "properties": {
+                "adsenseAccount": {
+                    "$ref": "AdSenseAccount",
+                    "description": "AdSense account to receive payment for ads."
+                },
+                "percent": {
+                    "description": "Percent of ads that will be sold by google.",
+                    "format": "float",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "HtmlContent": {
+            "description": "HTML content.",
+            "id": "HtmlContent",
+            "properties": {
+                "content": {
+                    "description": "Sanitized HTML markup.",
+                    "type": "string"
+                },
+                "debugRawContent": {
+                    "description": "Original HTML markup.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ImageDuplicateCheckConfig": {
+            "description": "Configuration for duplication image detection.",
+            "id": "ImageDuplicateCheckConfig",
+            "properties": {
+                "matchImage": {
+                    "description": "If true, the duplicate images will be detected based on the images\nthemselves.",
+                    "type": "boolean"
+                },
+                "matchUrl": {
+                    "description": "If true, the duplicate images will be detected based on the URL.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "ImageRef": {
+            "description": "Reference to an image stored as an attachment in the Google News backend\nand served using FIFE/shoebox.",
+            "id": "ImageRef",
+            "properties": {
+                "filename": {
+                    "description": "Optional original name of the uploaded image file.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Unique id of this image in the Google News backend.\n\nThis is the id of the Attachment keeping the metadata of the image.",
+                    "type": "string"
+                },
+                "permanentUrl": {
+                    "description": "Optional permanent URL serving the image.",
+                    "type": "string"
+                },
+                "resolution": {
+                    "$ref": "ImageResolution",
+                    "description": "Optional original resolution of the uploaded image file."
+                }
+            },
+            "type": "object"
+        },
+        "ImageResolution": {
+            "description": "Resolution of an image.",
+            "id": "ImageResolution",
+            "properties": {
+                "height": {
+                    "description": "Height in pixels.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "width": {
+                    "description": "Width in pixels.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "IssueProductDetails": {
+            "description": "Details of a magazine issue product.",
+            "id": "IssueProductDetails",
+            "properties": {
+                "issueType": {
+                    "description": "Sub type in case of a product for a single magazine issue.",
+                    "enum": [
+                        "ISSUE_TYPE_UNSPECIFIED",
+                        "CURRENT_ISSUE",
+                        "BACK_ISSUE",
+                        "PRICED_ISSUE",
+                        "NON_PURCHASABLE_ISSUE"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Current magazine issue.",
+                        "Old magazine issue (older than current one).",
+                        "Specific magazine issue (for example, special issue of particular value).",
+                        "Issue that cannot be purchased."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MagazineIssue": {
+            "description": "Issue of a magazine publication.",
+            "id": "MagazineIssue",
+            "properties": {
+                "id": {
+                    "description": "Internal id that uniquely identifies this magazine issue.",
+                    "type": "string"
+                },
+                "issueDate": {
+                    "description": "Nominal publication date of this issue.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "sections": {
+                    "description": "Content of this MagazineIssue organized in sections.",
+                    "items": {
+                        "$ref": "ContentSection"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "MagazinePublication": {
+            "description": "Publication data that is specific to a magazine.",
+            "id": "MagazinePublication",
+            "properties": {
+                "issues": {
+                    "description": "Issues of a magazine Publication.",
+                    "items": {
+                        "$ref": "MagazineIssue"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "MediaItem": {
+            "description": "Reference to an media item stored as an attachment in the Google News backend\nand served using FIFE/shoebox.",
+            "id": "MediaItem",
+            "properties": {
+                "contentType": {
+                    "description": "Type of content contained in this MediaItem.",
+                    "enum": [
+                        "MEDIA_CONTENT_TYPE_UNSPECIFIED",
+                        "AUDIO",
+                        "FONT",
+                        "IMAGE",
+                        "VIDEO",
+                        "TEXT"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Audio content.",
+                        "Font file (part of a font family).",
+                        "Image content.",
+                        "Video content.",
+                        "Plain text."
+                    ],
+                    "type": "string"
+                },
+                "filename": {
+                    "description": "Optional original name of the uploaded media file.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Unique id of this image in the Google News backend.\n\nThis is the id of the Attachment keeping the metadata of the image.",
+                    "type": "string"
+                },
+                "mimeType": {
+                    "description": "MIME type of the original media file.",
+                    "type": "string"
+                },
+                "permanentUrl": {
+                    "description": "Optional permanent URL serving the media item (shoebox URL).",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MediaLibrary": {
+            "description": "Set of media items associated with some entity such as a publication.\n\nNote: Besides the plain MediaItems we may add more specific data such as\nfonts later.",
+            "id": "MediaLibrary",
+            "properties": {
+                "mediaItems": {
+                    "description": "Items in the library (not necessarily sorted in any way).",
+                    "items": {
+                        "$ref": "MediaItem"
+                    },
+                    "type": "array"
+                },
+                "parentId": {
+                    "description": "Id of the entity this media library is associated with.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Member": {
+            "description": "Member of an access group.\n\nIn the Google News backend, access group members are represented as\nApplicationUser objects in the AppFamilyUsers table. Each ApplicationUser\ncontains the list of role ids of the access groups the user belongs to.",
+            "id": "Member",
+            "properties": {
+                "updateSpec": {
+                    "$ref": "UpdateSpec",
+                    "description": "Input (request) field for partial updates."
+                },
+                "userEmail": {
+                    "description": "Email of the user as shown in the UI and provided by the publisher when\nadding new members to the group.",
+                    "type": "string"
+                },
+                "userId": {
+                    "description": "Internal Google News user id.\n\nThis field may be empty in the request that adds this member.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Membership": {
+            "description": "A Membership describes the role of a user in the context of an asset\n(resource) such as an organization or publication.",
+            "id": "Membership",
+            "properties": {
+                "assetId": {
+                    "description": "ID of the asset for which the user has the role.",
+                    "type": "string"
+                },
+                "assetType": {
+                    "description": "Type of the asset in question.",
+                    "enum": [
+                        "UNSPECIFIED_ASSET_TYPE",
+                        "ORGANIZATION",
+                        "PUBLICATION",
+                        "PUBLISHER_ACCOUNT",
+                        "UNIVERSAL"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Identifies an accompanying asset_id as describing an Organization.",
+                        "Identifies an accompanying asset_id as describing an AppFamily.",
+                        "Identifies an accompanying asset_id as describing a PublisherAccount.",
+                        "UNIVERSAL AssetTypes are intended only for use in the Memberships table.\n\nIts presence indicates that the Membership describes a member's access for\nthe entire Organizations universe, not for a single asset. The asset_id\nattached to this type should be populated (prefer 'universe'), but unused.\n\nThis must only ever be used for internal users, e.g. granting global read\naccess to partner managers, or global edit access to the Publisher Center\nteam."
+                    ],
+                    "type": "string"
+                },
+                "role": {
+                    "description": "Role that the user has in the context of the asset.",
+                    "enum": [
+                        "UNSPECIFIED_MEMBER_ROLE",
+                        "READER",
+                        "EDITOR",
+                        "OWNER"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Read access to the asset.",
+                        "Write access to the asset.",
+                        "Member owns asset, may create or delete assets of this type, and delegate\naccess to other users."
+                    ],
+                    "type": "string"
+                },
+                "updateSpec": {
+                    "$ref": "UpdateSpec",
+                    "description": "Input (request) field describing an update of a Membership.\n\nThis field is only set when using this message to describe an update of a\nMembership."
+                },
+                "userEmail": {
+                    "description": "Email address of the user.",
+                    "type": "string"
+                },
+                "userId": {
+                    "description": "User id in Google News backend.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Money": {
+            "description": "Represents an amount of money with its currency type.",
+            "id": "Money",
+            "properties": {
+                "currencyCode": {
+                    "description": "The 3-letter currency code defined in ISO 4217.",
+                    "type": "string"
+                },
+                "nanos": {
+                    "description": "Number of nano (10^-9) units of the amount.\nThe value must be between -999,999,999 and +999,999,999 inclusive.\nIf `units` is positive, `nanos` must be positive or zero.\nIf `units` is zero, `nanos` can be positive, zero, or negative.\nIf `units` is negative, `nanos` must be negative or zero.\nFor example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "units": {
+                    "description": "The whole units of the amount.\nFor example if `currencyCode` is `\"USD\"`, then 1 unit is one US dollar.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "NewsPublication": {
+            "description": "Publication data that is specific to a news publication.",
+            "id": "NewsPublication",
+            "properties": {
+                "contentPaths": {
+                    "description": "Domains that this news publication may refer to in feed content.\n\nThe feed item URLs of sections belonging to this news publication must only\nuse verified domains associated with the publication.",
+                    "items": {
+                        "$ref": "PublicationVerifiablePath"
+                    },
+                    "type": "array"
+                },
+                "frontendNewsSource": {
+                    "$ref": "FrontendNewsSource",
+                    "description": "Frontend representation of GNews source (and its crawl paths) associated\nwith this news publication."
+                },
+                "secondaryId": {
+                    "description": "Secondary id identifying the news publication. Set to the id of the one and\nonly Application in the AppFamily of this news publication.",
+                    "type": "string"
+                },
+                "sectionRefs": {
+                    "description": "References to the sections contained in this news publication in the order\nspecified by the publisher.\n\nThis field will not be set if the `sections` field is used (as it contains\na superset of this data).",
+                    "items": {
+                        "$ref": "EntityRef"
+                    },
+                    "type": "array"
+                },
+                "sections": {
+                    "description": "Content of a news publication organized in sections.\n\nThis data is relatively expensive to fetch. For faster responses, a client\ncan select the `section_refs` instead and then fetch the associated section\ndata in a second request.",
+                    "items": {
+                        "$ref": "ContentSection"
+                    },
+                    "type": "array"
+                },
+                "websiteProperty": {
+                    "$ref": "PublicationVerifiablePath",
+                    "description": "This is the single value website property associated with a news\npublication."
+                }
+            },
+            "type": "object"
+        },
+        "NewsSourceLocation": {
+            "description": "Collection of granularities describing a specific location.",
+            "id": "NewsSourceLocation",
+            "properties": {
+                "city": {
+                    "description": "City the NewsSource is based in, e.g. \"Cambridge\".",
+                    "type": "string"
+                },
+                "region": {
+                    "description": "Region/Country the NewsSource is based in, e.g. \"US\" or \"DE\".",
+                    "type": "string"
+                },
+                "state": {
+                    "description": "State the NewsSource is based in, e.g. \"Massachusetts\".",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Organization": {
+            "description": "Top-level entity for a publisher organization.\n\nAn organization owns the publications, publisher accounts, and members\nmanaging these objects.",
+            "id": "Organization",
+            "properties": {
+                "accounts": {
+                    "$ref": "AccountSet",
+                    "description": "Accounts in this organization that the user has access to.\n\nOnly populated when specified in field mask."
+                },
+                "displayName": {
+                    "description": "Name to use when displaying or referring to this organization.",
+                    "type": "string"
+                },
+                "flags": {
+                    "description": "List of feature flags present for this Organization.",
+                    "enumDescriptions": [
+                        "Unspecified flag",
+                        "If present, Organization is approved to access and control its SwG settings\nand further configure SwG for its child Publications."
+                    ],
+                    "items": {
+                        "enum": [
+                            "ORGANIZATION_FLAG_UNSPECIFIED",
+                            "SWG_ACCESS_APPROVED"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "Unique id of the organization.\n\nThis is the Google News backend ObjectId of type ORGANIZATION which is\ngenerated by the backend when an organization is created.",
+                    "type": "string"
+                },
+                "memberships": {
+                    "description": "Memberships of this organizations and its publications.\n\nThis data is only returned if the client asks for it (field mask) and the\nuser is an owner of the organization or of one or more publications.\n\nIf the user is not an owner of the organization, only the memberships of\nthe publications that the user is an owner of will be returned.",
+                    "items": {
+                        "$ref": "Membership"
+                    },
+                    "type": "array"
+                },
+                "publications": {
+                    "$ref": "PublicationSet",
+                    "description": "Publications in this organization that the user has access to.\n\nOnly populated when specified in field mask."
+                },
+                "readMask": {
+                    "description": "Output field mask describing which fields were included.",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                },
+                "userAuthorization": {
+                    "$ref": "UserAuthorization",
+                    "description": "Output field describing the authorization that the requesting user has for\nthis organization."
+                }
+            },
+            "type": "object"
+        },
+        "OrganizationSet": {
+            "description": "Collection of Organization objects supporting pagination.",
+            "id": "OrganizationSet",
+            "properties": {
+                "nextPageToken": {
+                    "description": "Token for retrieving the next page. Empty if there are no more results.",
+                    "type": "string"
+                },
+                "organizations": {
+                    "description": "Results in this set.",
+                    "items": {
+                        "$ref": "Organization"
+                    },
+                    "type": "array"
+                },
+                "totalSize": {
+                    "description": "Total count of results irrespective of pagination.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Permission": {
+            "description": "A Permission allows for performing operations on a set of resources.",
+            "id": "Permission",
+            "properties": {
+                "operations": {
+                    "description": "Specifies which operations may be performed on the resources.",
+                    "items": {
+                        "$ref": "AuthOperationSpec"
+                    },
+                    "type": "array"
+                },
+                "resource": {
+                    "$ref": "AuthResourceSpec",
+                    "description": "Specifies which resources the operation may be performed on."
+                }
+            },
+            "type": "object"
+        },
+        "PhotoFeedSourceConfig": {
+            "description": "Configuration of a photo feed source.",
+            "id": "PhotoFeedSourceConfig",
+            "properties": {
+                "uri": {
+                    "description": "URI of the photo feed.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PostalAddress": {
+            "description": "Represents a postal address, e.g. for postal delivery or payments addresses.\nGiven a postal address, a postal service can deliver items to a premise, P.O.\nBox or similar.\nIt is not intended to model geographical locations (roads, towns,\nmountains).\n\nIn typical usage an address would be created via user input or from importing\nexisting data, depending on the type of process.\n\nAdvice on address input / editing:\n - Use an i18n-ready address widget such as\n   https://github.com/google/libaddressinput)\n- Users should not be presented with UI elements for input or editing of\n  fields outside countries where that field is used.\n\nFor more guidance on how to use this schema, please see:\nhttps://support.google.com/business/answer/6397478",
+            "id": "PostalAddress",
+            "properties": {
+                "addressLines": {
+                    "description": "Unstructured address lines describing the lower levels of an address.\n\nBecause values in address_lines do not have type information and may\nsometimes contain multiple values in a single field (e.g.\n\"Austin, TX\"), it is important that the line order is clear. The order of\naddress lines should be \"envelope order\" for the country/region of the\naddress. In places where this can vary (e.g. Japan), address_language is\nused to make it explicit (e.g. \"ja\" for large-to-small ordering and\n\"ja-Latn\" or \"en\" for small-to-large). This way, the most specific line of\nan address can be selected based on the language.\n\nThe minimum permitted structural representation of an address consists\nof a region_code with all remaining information placed in the\naddress_lines. It would be possible to format such an address very\napproximately without geocoding, but no semantic reasoning could be\nmade about any of the address components until it was at least\npartially resolved.\n\nCreating an address only containing a region_code and address_lines, and\nthen geocoding is the recommended way to handle completely unstructured\naddresses (as opposed to guessing which parts of the address should be\nlocalities or administrative areas).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "administrativeArea": {
+                    "description": "Optional. Highest administrative subdivision which is used for postal\naddresses of a country or region.\nFor example, this can be a state, a province, an oblast, or a prefecture.\nSpecifically, for Spain this is the province and not the autonomous\ncommunity (e.g. \"Barcelona\" and not \"Catalonia\").\nMany countries don't use an administrative area in postal addresses. E.g.\nin Switzerland this should be left unpopulated.",
+                    "type": "string"
+                },
+                "languageCode": {
+                    "description": "Optional. BCP-47 language code of the contents of this address (if\nknown). This is often the UI language of the input form or is expected\nto match one of the languages used in the address' country/region, or their\ntransliterated equivalents.\nThis can affect formatting in certain countries, but is not critical\nto the correctness of the data and will never affect any validation or\nother non-formatting related operations.\n\nIf this value is not known, it should be omitted (rather than specifying a\npossibly incorrect default).\n\nExamples: \"zh-Hant\", \"ja\", \"ja-Latn\", \"en\".",
+                    "type": "string"
+                },
+                "locality": {
+                    "description": "Optional. Generally refers to the city/town portion of the address.\nExamples: US city, IT comune, UK post town.\nIn regions of the world where localities are not well defined or do not fit\ninto this structure well, leave locality empty and use address_lines.",
+                    "type": "string"
+                },
+                "organization": {
+                    "description": "Optional. The name of the organization at the address.",
+                    "type": "string"
+                },
+                "postalCode": {
+                    "description": "Optional. Postal code of the address. Not all countries use or require\npostal codes to be present, but where they are used, they may trigger\nadditional validation with other parts of the address (e.g. state/zip\nvalidation in the U.S.A.).",
+                    "type": "string"
+                },
+                "recipients": {
+                    "description": "Optional. The recipient at the address.\nThis field may, under certain circumstances, contain multiline information.\nFor example, it might contain \"care of\" information.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "regionCode": {
+                    "description": "Required. CLDR region code of the country/region of the address. This\nis never inferred and it is up to the user to ensure the value is\ncorrect. See http://cldr.unicode.org/ and\nhttp://www.unicode.org/cldr/charts/30/supplemental/territory_information.html\nfor details. Example: \"CH\" for Switzerland.",
+                    "type": "string"
+                },
+                "revision": {
+                    "description": "The schema revision of the `PostalAddress`. This must be set to 0, which is\nthe latest revision.\n\nAll new revisions **must** be backward compatible with old revisions.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "sortingCode": {
+                    "description": "Optional. Additional, country-specific, sorting code. This is not used\nin most regions. Where it is used, the value is either a string like\n\"CEDEX\", optionally followed by a number (e.g. \"CEDEX 7\"), or just a number\nalone, representing the \"sector code\" (Jamaica), \"delivery area indicator\"\n(Malawi) or \"post office indicator\" (e.g. C\u00f4te d'Ivoire).",
+                    "type": "string"
+                },
+                "sublocality": {
+                    "description": "Optional. Sublocality of the address.\nFor example, this can be neighborhoods, boroughs, districts.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PricePromotion": {
+            "description": "Describes a promotion offering special subscription prices.",
+            "id": "PricePromotion",
+            "properties": {
+                "description": {
+                    "description": "Description of the promotion.",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "Name of the promotion.",
+                    "type": "string"
+                },
+                "effectiveTimeRange": {
+                    "$ref": "TimeRange",
+                    "description": "Dates during which the promotion is available."
+                },
+                "id": {
+                    "description": "Unique id of the promotion.\n\nThis is the object id of the PricePromotion in the Google News backend.",
+                    "type": "string"
+                },
+                "offers": {
+                    "description": "Promotional offers for the publication.",
+                    "items": {
+                        "$ref": "PublicationOffer"
+                    },
+                    "type": "array"
+                },
+                "updateSpec": {
+                    "$ref": "UpdateSpec",
+                    "description": "Input (request) field describing an update of a PricePromotion.\n\nThis field is only set when using this message to describe an update of a\nPricePromotion."
+                }
+            },
+            "type": "object"
+        },
+        "PrivacyPolicy": {
+            "description": "A single privacy policy associated with a publisher account.",
+            "id": "PrivacyPolicy",
+            "properties": {
+                "countryCodes": {
+                    "description": "List of the country codes this privacy policy applied to.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "updateSpec": {
+                    "$ref": "UpdateSpec",
+                    "description": "Input (request) field describing an update of a PrivacyPolicy.\n\nThis field is only set when using this message to describe an update of a\nPrivacyPolicy."
+                },
+                "url": {
+                    "description": "URL to the location that this privacy policy can be loaded from.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PsvConfig": {
+            "description": "Print subscriber verification (PSV) settings.",
+            "id": "PsvConfig",
+            "properties": {
+                "fulfillmentPublicationId": {
+                    "description": "Id of the publication in the fulfillment system.",
+                    "type": "string"
+                },
+                "fulfillmentServiceId": {
+                    "description": "Id of the fulfillment service (fulfillment house, FH).\n\nThis is the id of the PSV service in Turnstile, the PSV module of the\nGoogle News backend.",
+                    "type": "string"
+                },
+                "helpUrl": {
+                    "description": "URL of the publisher's help page for print subscriber verification.",
+                    "type": "string"
+                },
+                "publisherAuthenticationUrl": {
+                    "description": "URL of the publisher's authentication page when using federated\nauthentication (user provides credentials for publisher site).",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Publication": {
+            "description": "News or magazine publication in Google News.\n\nA Publication corresponds to an AppFamily of type (\"StoreType\") news or\nmagazine in the Google News backend. It does not cover curations (as the\nthird AppFamily type) because the Producer application is restricted to\npublisher use cases.\n\nIn case of news publications, the AppFamily has exactly one Application which\ntogether comprise the publication. A news publications can therefore be\nidentified by the AppFamily id or the Application id.\n\nThis message contain only the data that applies to both news and magazine\npublications. The news or magazine specific data is stored the associated\nmessages, NewsPublication and MagazinePublication.",
+            "id": "Publication",
+            "properties": {
+                "accessGroups": {
+                    "description": "Publisher-defined user groups for this publication.\n\nThe access groups of a publication are stored in the AppFamilyRoles and\nAppFamilyUsers tables in the Google News backend. The publisher-defined\naccess groups are the AppFamilyRoles of type CUSTOM. The members are\nstored as AppFamilyUsers with the access group's role_id.",
+                    "items": {
+                        "$ref": "PublicationAccessGroup"
+                    },
+                    "type": "array"
+                },
+                "adsConfig": {
+                    "$ref": "PublicationAdsConfig",
+                    "description": "Ad settings controlling what ads will be displayed for articles in the\npublication and how to process payment for ads."
+                },
+                "categoryCode": {
+                    "description": "Category code of the publication. The code should match an enum value in\njava/com/google/apps/dots/proto/category.proto. It might be included in\na separated message if there are more categorization data added in the\nfuture.",
+                    "type": "string"
+                },
+                "contacts": {
+                    "description": "Contacts to notify regarding this publication.",
+                    "items": {
+                        "$ref": "PublicationContact"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "Short paragraph describing this Publication.",
+                    "type": "string"
+                },
+                "distribution": {
+                    "$ref": "PublicationDistributionConfig",
+                    "description": "Distribution settings of this publication."
+                },
+                "id": {
+                    "description": "Unique id of this Publication.\n\nThis is the id of the AppFamily associated with this Publication.",
+                    "type": "string"
+                },
+                "magazinePublication": {
+                    "$ref": "MagazinePublication",
+                    "description": "Data for magazine publications."
+                },
+                "mediaLibrary": {
+                    "$ref": "MediaLibrary",
+                    "description": "Media items (images, fonts) associated with the publication.\n\nThese correspond to the attachments stored in the Google News backend under\nthe app id as parent id."
+                },
+                "newsPublication": {
+                    "$ref": "NewsPublication",
+                    "description": "Data for news publications."
+                },
+                "organizationId": {
+                    "description": "Id of the organization the publication belongs to.",
+                    "type": "string"
+                },
+                "presentationConfig": {
+                    "$ref": "PublicationPresentationConfig",
+                    "description": "Presentation settings of this publication."
+                },
+                "pricing": {
+                    "$ref": "PublicationPricing",
+                    "description": "Pricing information for publications (meter, prices, promotions)."
+                },
+                "publicationStatus": {
+                    "$ref": "PublicationStatus",
+                    "description": "Metadata for different states that the publication can be in."
+                },
+                "publisherAccountId": {
+                    "description": "Id of the publisher account associated with the publication.",
+                    "type": "string"
+                },
+                "readMask": {
+                    "description": "Output field describing which fields were fetches by the backend for this\npublication.\n\nThe `read_mask` includes only the fields that are not included by default.\nIt typically echos the `field_mask` included in the request.",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                },
+                "servicePolicies": {
+                    "description": "The list of policies that can be signed by the user.",
+                    "items": {
+                        "$ref": "ServicePolicy"
+                    },
+                    "type": "array"
+                },
+                "title": {
+                    "description": "Title as assigned by the publisher.",
+                    "type": "string"
+                },
+                "tracking": {
+                    "$ref": "PublicationTrackingConfig",
+                    "description": "Publication data related to the tracking (ie. analytics) of publications."
+                },
+                "type": {
+                    "description": "Type of this publication.",
+                    "enum": [
+                        "PUBLICATION_TYPE_UNSPECIFIED",
+                        "NEWS",
+                        "MAGAZINE"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Publication providing a continuous news stream (feed, web site).",
+                        "Publication that publishes new issues on a fixed periodic schedule."
+                    ],
+                    "type": "string"
+                },
+                "uiConfig": {
+                    "$ref": "PublicationUiConfig",
+                    "description": "Frontend configuration controlling the presentation of this publication in\nPublisher Center."
+                },
+                "updateInfo": {
+                    "$ref": "UpdateInfo",
+                    "description": "Metadata describing when this publication was created and updated."
+                },
+                "userAuthorization": {
+                    "$ref": "UserAuthorization",
+                    "description": "Output field describing the authorization that the requesting user has for\nthis publication."
+                }
+            },
+            "type": "object"
+        },
+        "PublicationAccessGroup": {
+            "description": "Publisher-defined group of users that can be given access to particular\nsections of the publication.\n\nAccess groups are mostly used to give a group of testers access to a section\nbefore it is enabled for everyone.\n\nThis message can also be used to describe a partial update of an access group\nby providing the update_spec and original_role_id.",
+            "id": "PublicationAccessGroup",
+            "properties": {
+                "description": {
+                    "description": "Publisher-provided description of the access group.",
+                    "type": "string"
+                },
+                "members": {
+                    "description": "Members of this access group.",
+                    "items": {
+                        "$ref": "Member"
+                    },
+                    "type": "array"
+                },
+                "roleId": {
+                    "description": "Publisher-defined id (unique within the publication).\n\nThe role_id is the role_name that the publisher entered when creating the\ngroup.\n\nThe role_id is the roleId in ApplicationUser proto (stored in the\nAppFamilyUsers table) and the roleId column of the AppFamilyRoles table.",
+                    "type": "string"
+                },
+                "roleName": {
+                    "description": "Publisher-defined name of the group.",
+                    "type": "string"
+                },
+                "updateSpec": {
+                    "$ref": "UpdateSpec",
+                    "description": "Input (request) field for partial updates."
+                }
+            },
+            "type": "object"
+        },
+        "PublicationAdsConfig": {
+            "description": "Publication data related to ads and which will be shown in articles\nbelonging to the publication.",
+            "id": "PublicationAdsConfig",
+            "properties": {
+                "googleSoldAdConfig": {
+                    "$ref": "GoogleSoldAdsConfig",
+                    "description": "Settings related to ads sold by google for an article."
+                },
+                "publisherSoldAdConfig": {
+                    "$ref": "PublisherSoldAdsConfig",
+                    "description": "Settings related to ads sold by publishers for an article."
+                }
+            },
+            "type": "object"
+        },
+        "PublicationContact": {
+            "description": "Contact information and how it can be used in the context of a publication.\n\nFor now, the contact information is an email address.",
+            "id": "PublicationContact",
+            "properties": {
+                "displayEmailAddress": {
+                    "description": "Email as provided by the publisher.",
+                    "type": "string"
+                },
+                "normalizedEmailAddress": {
+                    "description": "Normalized email address.",
+                    "type": "string"
+                },
+                "subscriptions": {
+                    "description": "Subscriptions and their statuses.",
+                    "items": {
+                        "$ref": "Subscription"
+                    },
+                    "type": "array"
+                },
+                "updateSpec": {
+                    "$ref": "UpdateSpec",
+                    "description": "Input (request) field describing an update of a PublicationContact.\n\nThis field is only set when using this message to describe an update of a\nPublicationContact."
+                }
+            },
+            "type": "object"
+        },
+        "PublicationDistributionConfig": {
+            "description": "Data related to the distribution (regions, language) of a publication.",
+            "id": "PublicationDistributionConfig",
+            "properties": {
+                "allowedCountries": {
+                    "$ref": "CountrySet",
+                    "description": "Countries where a publication can be viewed."
+                },
+                "allowedProperties": {
+                    "$ref": "GooglePropertySet",
+                    "description": "Google properties on which the publication's content can be used."
+                },
+                "automaticTranslation": {
+                    "description": "Setting controlling the automatic translation of the publication.",
+                    "enum": [
+                        "TRANSLATION_UNSPECIFIED",
+                        "TRANSLATION_ENABLED",
+                        "TRANSLATION_DISABLED"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Publication may be automatically translated to the user's preferred\nlanguage.",
+                        "Publication may not be automatically translated to the user's preferred\nlanguage."
+                    ],
+                    "type": "string"
+                },
+                "languageCode": {
+                    "description": "BCP47 language code of the primary language of the publication.",
+                    "type": "string"
+                },
+                "sellableCountries": {
+                    "description": "Two-letter code of the countries where a publication can be sold.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "PublicationImage": {
+            "description": "Configuration of an image and where it should be used.",
+            "id": "PublicationImage",
+            "properties": {
+                "image": {
+                    "$ref": "ImageRef",
+                    "description": "Image to use."
+                },
+                "purpose": {
+                    "description": "Place where this image should be used.",
+                    "enum": [
+                        "UNSPECIFIED",
+                        "LOGO",
+                        "AMP_LOGO",
+                        "COVER"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Logo on top of a page of a publication.\n\nThis is the wide logo containing the name of the publication that is\nshown on top of articles in the Google News app.",
+                        "Logo for AMP articles.",
+                        "Large (recommended resolution 1000x1000) cover image as used, for\nexample, in the Newsstand portion of the Google News app."
+                    ],
+                    "type": "string"
+                },
+                "theme": {
+                    "description": "Theme for which the image should be used.",
+                    "enum": [
+                        "UNSPECIFIED_THEME",
+                        "LIGHT_THEME",
+                        "DARK_THEME"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Theme with light background.",
+                        "Theme with dark background."
+                    ],
+                    "type": "string"
+                },
+                "updateOperation": {
+                    "description": "Input (request) field describing how this message should be interpreted as\npart of a partial update.",
+                    "enum": [
+                        "UNSPECIFIED_UPDATE_OPERATION",
+                        "CREATE",
+                        "UPDATE",
+                        "DELETE"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "A new entity (new id) is stored.",
+                        "An existing entity is updated.",
+                        "An existing entity is deleted."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PublicationMeter": {
+            "description": "Defines a meter for a publication that limits the number of articles a user\ncan view during a given time period.\n\nThis corresponds to the MeteredPolicy in the Google News backend which is\nstored in the app family.\n\nNews publications may restrict the meter to sections. The application\ncontains the ids of the metered sections, and each section contains a\n\"metered\" flag that is denormalized from the application.",
+            "id": "PublicationMeter",
+            "properties": {
+                "interval": {
+                    "description": "Period after which the view count is reset.",
+                    "enum": [
+                        "INTERVAL_UNSPECIFIED",
+                        "DAY",
+                        "WEEK",
+                        "MONTH"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Meter applies to views per day.",
+                        "Meter applies to views per week.",
+                        "Meter applies to views per month."
+                    ],
+                    "type": "string"
+                },
+                "maxArticleCount": {
+                    "description": "Maximal number of articles a user can view during the time period.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "sectionIds": {
+                    "description": "Ids of the sections the meter applies to.\n\nOnly used for metered news publications. Magazines may only defined a meter\non publication level.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "PublicationOffer": {
+            "description": "Product offer offering access to a publication's content for a fee.\n\nA publication may offer three types of products:\n  - subscription: recurring payment for access for some time period\n  - rental: one-time access for some time period\n  - magazine issue: single magazine issue\n\nAn offer describes the product, the country where it's offered, and a price.\nIt may also be associated with a promotion.\n\nThe PublicationOffer is a flattened version of the Product in the Google News\nbackend. The backend Product contains the \"list price\" directly and the\npromotion prices as repeated child messages.\n\nThe message can be used as an update description by setting the update_spec\nfield. Deletes and partial updates (update_operation DELETE or UPDATE) must\ninclude the product_id as the surrogate key.",
+            "id": "PublicationOffer",
+            "properties": {
+                "countryCode": {
+                    "description": "Two-letter of the country where the product is sold.",
+                    "type": "string"
+                },
+                "issueProductDetails": {
+                    "$ref": "IssueProductDetails",
+                    "description": "Details of a magazine issue product."
+                },
+                "price": {
+                    "$ref": "Money",
+                    "description": "Price for the offered product."
+                },
+                "productId": {
+                    "description": "Unique id of this product.\n\nThis is the object id of a Product in the Google News backend.",
+                    "type": "string"
+                },
+                "productType": {
+                    "description": "Type of the offered product.",
+                    "enum": [
+                        "TYPE_UNSPECIFIED",
+                        "SUBSCRIPTION",
+                        "RENTAL",
+                        "ISSUE",
+                        "PSV"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Subscription with recurring charges (per subscription period).",
+                        "Temporary non-renewing access to the publication (for example, one day\npass).",
+                        "Access to a specific issue of a magazine.",
+                        "Print subscriber verification.\n\nAccess to the publication's content through an existing print\nsubscription."
+                    ],
+                    "type": "string"
+                },
+                "promotionId": {
+                    "description": "Optional id of the PricePromotion this offer is part of.\n\nOnly set for promotion offers.",
+                    "type": "string"
+                },
+                "rentalProductDetails": {
+                    "$ref": "RentalProductDetails",
+                    "description": "Details of a rental product."
+                },
+                "subscriptionProductDetails": {
+                    "$ref": "SubscriptionProductDetails",
+                    "description": "Details of a subscription product."
+                },
+                "taxInclusion": {
+                    "description": "Specifies the tax inclusion policy of the prices contained in this offer.",
+                    "enum": [
+                        "TAX_INCLUSION_UNSPECIFIED",
+                        "TAX_INCLUDED",
+                        "TAX_EXCLUDED"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Taxes are included.",
+                        "Taxes are excluded."
+                    ],
+                    "type": "string"
+                },
+                "updateSpec": {
+                    "$ref": "UpdateSpec",
+                    "description": "Input (request) field describing an update of a PublicationOffer.\n\nThis field is only set when using this message to describe an update of a\nPublicationOffer."
+                }
+            },
+            "type": "object"
+        },
+        "PublicationPresentationConfig": {
+            "description": "Presentation settings (images, style) of a publication.",
+            "id": "PublicationPresentationConfig",
+            "properties": {
+                "articleStyle": {
+                    "$ref": "ArticleStyle",
+                    "description": "Style customization for articles of a publication."
+                },
+                "fontFamilies": {
+                    "description": "Available font families.\n",
+                    "items": {
+                        "$ref": "FontFamily"
+                    },
+                    "type": "array"
+                },
+                "images": {
+                    "description": "Images to use for the publication.",
+                    "items": {
+                        "$ref": "PublicationImage"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "PublicationPricing": {
+            "description": "Pricing configuration for a publication.",
+            "id": "PublicationPricing",
+            "properties": {
+                "help": {
+                    "$ref": "DisplayedUrl",
+                    "description": "Link to a help page provided by the publisher where the user can get more\ninformation about the products (\"learn more\")."
+                },
+                "meter": {
+                    "$ref": "PublicationMeter",
+                    "description": "Meter restricting the free access to the publication's content."
+                },
+                "offers": {
+                    "description": "Offers for the publication.",
+                    "items": {
+                        "$ref": "PublicationOffer"
+                    },
+                    "type": "array"
+                },
+                "promotions": {
+                    "description": "Promotions offered for the publication.\n\nThese promotions may be referenced in the promotion_prices of the products\nin this PublicationPricing.",
+                    "items": {
+                        "$ref": "PricePromotion"
+                    },
+                    "type": "array"
+                },
+                "psvConfig": {
+                    "$ref": "PsvConfig",
+                    "description": "PSV settings for the publication."
+                },
+                "type": {
+                    "description": "Type of this pricing.",
+                    "enum": [
+                        "TYPE_UNSPECIFIED",
+                        "FREE",
+                        "METERED"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Free unlimited access to the publication's content.",
+                        "Users can view a limited number of articles during some time period after\nwhich a subscription is required."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PublicationSet": {
+            "description": "Collection of Publications supporting pagination.",
+            "id": "PublicationSet",
+            "properties": {
+                "nextPageToken": {
+                    "description": "Token for retrieving the next page. Empty if there are no more results.",
+                    "type": "string"
+                },
+                "publications": {
+                    "description": "Results in this set.",
+                    "items": {
+                        "$ref": "Publication"
+                    },
+                    "type": "array"
+                },
+                "totalSize": {
+                    "description": "Total count of results irrespective of pagination.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PublicationStatus": {
+            "description": "Describes the different states that a publication can be in.",
+            "id": "PublicationStatus",
+            "properties": {
+                "inclusionStatus": {
+                    "description": "Publications are sent for inclusion review. This indicates the status of\nthat review.",
+                    "enum": [
+                        "UNKNOWN",
+                        "INCLUDED",
+                        "PENDING",
+                        "EXCLUDED"
+                    ],
+                    "enumDescriptions": [
+                        "Inclusion cannot be determined or is unknown.",
+                        "Included in News search",
+                        "Being reviewed by reviewers.",
+                        "Rejected by reviewers."
+                    ],
+                    "type": "string"
+                },
+                "numFollowers": {
+                    "description": "The number of users who are following (aka 'favorited') this publication.\nThis is non-zero for published publications.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "publishedStatus": {
+                    "description": "Publications are published and then sent for review. This indicates the\nstatus of that review.",
+                    "enum": [
+                        "UNSPECIFIED",
+                        "IN_REVIEW",
+                        "APPROVED",
+                        "REJECTED"
+                    ],
+                    "enumDescriptions": [
+                        "Not published or approved. Equivalent of DRAFT.",
+                        "Being reviewed by reviewers.",
+                        "Approved by reviewers.",
+                        "Rejected by reviewers."
+                    ],
+                    "type": "string"
+                },
+                "submitTime": {
+                    "description": "The timestamp of when a publication is submitted for approval.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PublicationTrackingConfig": {
+            "description": "Publication data related to the tracking (ie. analytics) of publications.",
+            "id": "PublicationTrackingConfig",
+            "properties": {
+                "googleAnalyticsAmpId": {
+                    "description": "GA id for a publisher for articles rendered as AMP in the app.",
+                    "type": "string"
+                },
+                "googleAnalyticsAppId": {
+                    "description": "GA id for a publisher for articles rendered natively by the app.",
+                    "type": "string"
+                },
+                "pixelTrackingUris": {
+                    "description": "List of pixel tracking uris loaded by the google news application to send\nhttp gets towards pixel tracking apis (i.e., comscore, etc.). The\npublishers may use these third party pixel tracking services to do\nanalytics.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "PublicationUiConfig": {
+            "description": "Properties controlling the presentation of the publication in Publisher\nCenter.\n\nThis is data sent to the client that controls the presentation of the\npublication to the publisher (besides authorization and the data of the\npublication and organization).",
+            "id": "PublicationUiConfig",
+            "properties": {
+                "features": {
+                    "description": "Features enabled in the Publisher Center frontend for the publication.",
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Content sales (pricing) information.\n\nThe content sales views are enabled explicitly by Google (using the\nPRICING_UI flag in the AppFamily)."
+                    ],
+                    "items": {
+                        "enum": [
+                            "FEATURE_UNSPECIFIED",
+                            "CONTENT_SALES"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "PublicationUpdate": {
+            "description": "Describes a partial update of a publication.",
+            "id": "PublicationUpdate",
+            "properties": {
+                "updateData": {
+                    "$ref": "Publication",
+                    "description": "New data."
+                },
+                "updateMask": {
+                    "description": "Specifies which fields to update.",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PublicationVerifiablePath": {
+            "description": "A domain or a full path that a publisher can verify and associate with a\npublication.",
+            "id": "PublicationVerifiablePath",
+            "properties": {
+                "path": {
+                    "description": "This is the domain or full path location on the web. It is any value that\nis verifiable in Search console.\nSee: https://search.google.com/search-console/welcome.\nExamples: nytimes.com, http://nytimes.com/es.",
+                    "type": "string"
+                },
+                "verification": {
+                    "$ref": "UserTimestamp",
+                    "description": "Optional verification stamp describing when we validated that this domain\nis owned by the user (via go/irdb - Internet Resource Database)."
+                }
+            },
+            "type": "object"
+        },
+        "PublishArticleStyleRequest": {
+            "description": "Response message for publishing a draft CSS article style.",
+            "id": "PublishArticleStyleRequest",
+            "properties": {},
+            "type": "object"
+        },
+        "PublisherAccount": {
+            "description": "A single publisher account.\n\nA publisher account maps to a dots.Publisher. An organization can have\nmultiple publisher accounts and a publisher account can serve multiple\npublications.",
+            "id": "PublisherAccount",
+            "properties": {
+                "address": {
+                    "$ref": "PostalAddress",
+                    "description": "Postal address for the publisher account."
+                },
+                "billingConfigs": {
+                    "description": "List of billing configurations associated with the publisher account.",
+                    "items": {
+                        "$ref": "BillingConfig"
+                    },
+                    "type": "array"
+                },
+                "contactEmail": {
+                    "description": "Contact email address for the publisher account.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Unique identifier of the publisher account.",
+                    "type": "string"
+                },
+                "privacyPolicies": {
+                    "description": "List of privacy policies associated with the publisher account.",
+                    "items": {
+                        "$ref": "PrivacyPolicy"
+                    },
+                    "type": "array"
+                },
+                "title": {
+                    "description": "Title for the publisher account.",
+                    "type": "string"
+                },
+                "updateInfo": {
+                    "$ref": "UpdateInfo",
+                    "description": "Metadata describing when this publisher account was created and updated."
+                },
+                "updateSpec": {
+                    "$ref": "UpdateSpec",
+                    "description": "Input (request) field describing an update of a PublisherAccount.\n\nThis field is only set when using this message to describe an update of a\nPublisherAccount."
+                },
+                "userAuthorization": {
+                    "$ref": "UserAuthorization",
+                    "description": "Output field describing the authorization that the requesting user has for\nthis publisher account."
+                },
+                "users": {
+                    "description": "List of the publisher account users.",
+                    "items": {
+                        "$ref": "AccountUser"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "PublisherSoldAdsConfig": {
+            "description": "Configuration for ads sold by a publisher for a publication.",
+            "id": "PublisherSoldAdsConfig",
+            "properties": {
+                "adConfigs": {
+                    "description": "All publisher sold ads associated with this publication.",
+                    "items": {
+                        "$ref": "AdConfig"
+                    },
+                    "type": "array"
+                },
+                "adVisibility": {
+                    "description": "If true, publisher sold ads will be used for articles.",
+                    "type": "boolean"
+                },
+                "network": {
+                    "description": "Publisher DoubleClick For Publishers network code.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "Selected publisher ad format.",
+                    "enum": [
+                        "TYPE_UNSPECIFIED",
+                        "ADX",
+                        "ADMOB_ADSENSE",
+                        "CUSTOM",
+                        "AMP"
+                    ],
+                    "enumDescriptions": [
+                        "Default value",
+                        "AdExchange",
+                        "AdMob and AdSense Online",
+                        "Custom layout specified by publisher",
+                        "Amp ad layout"
+                    ],
+                    "type": "string"
+                },
+                "useSectionAdUnitConfig": {
+                    "description": "Setting to use section ad unit settings for AdExchange ads.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "RefreshSectionRequest": {
+            "description": "Request message for the RefreshSection method.",
+            "id": "RefreshSectionRequest",
+            "properties": {},
+            "type": "object"
+        },
+        "RefreshSectionResponse": {
+            "description": "Request message for the RefreshSection method.",
+            "id": "RefreshSectionResponse",
+            "properties": {},
+            "type": "object"
+        },
+        "RentalProductDetails": {
+            "description": "Details of a publication rental (such as a day pass).",
+            "id": "RentalProductDetails",
+            "properties": {
+                "rentalDays": {
+                    "description": "Number of days the rental lasts.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "SaveArticleStyleRequest": {
+            "description": "Request message for saving a draft CSS article style.",
+            "id": "SaveArticleStyleRequest",
+            "properties": {
+                "cssStyle": {
+                    "description": "Style in CSS text format.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SaveArticleStyleResponse": {
+            "description": "Response message for saving a draft CSS article style.",
+            "id": "SaveArticleStyleResponse",
+            "properties": {
+                "syntaxErrors": {
+                    "description": "List of syntax errors in the CSS style sheet.",
+                    "items": {
+                        "$ref": "SyntaxError"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ServicePolicy": {
+            "description": "A policy that is comprised of a set of terms that can be signed by the user.",
+            "id": "ServicePolicy",
+            "properties": {
+                "status": {
+                    "description": "The status indicating if the policy has been signed by the end user.",
+                    "enum": [
+                        "SIGNATURE_STATUS_UNSPECIFIED",
+                        "UNSIGNED",
+                        "SIGNED"
+                    ],
+                    "enumDescriptions": [
+                        "This is an error.",
+                        "We know that the terms are not yet signed.",
+                        "The terms have been signed."
+                    ],
+                    "type": "string"
+                },
+                "type": {
+                    "description": "The type of policy that this service policy governs.",
+                    "enum": [
+                        "POLICY_TYPE_UNSPECIFIED",
+                        "PUBLICATION"
+                    ],
+                    "enumDescriptions": [
+                        "We should always know; this is an error.",
+                        "General publication TOS (one size fits all)."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SignPolicyRequest": {
+            "description": "Request message for signing policy of service for a publication.",
+            "id": "SignPolicyRequest",
+            "properties": {
+                "policyVersion": {
+                    "description": "The version number of the policy being signed.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "signatory": {
+                    "description": "The name of the person signing the policy.",
+                    "type": "string"
+                },
+                "signatoryEmail": {
+                    "description": "The email of the person signing the policy.",
+                    "type": "string"
+                },
+                "signatoryOrganizationName": {
+                    "description": "The name of the organization of the person signing the policy.",
+                    "type": "string"
+                },
+                "signatoryTitle": {
+                    "description": "The business title of the person signing the policy. ie. \"Editor\"",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "StyleSheet": {
+            "description": "Style sheet for the article style.",
+            "id": "StyleSheet",
+            "properties": {
+                "cssStyle": {
+                    "description": "Style in CSS text format.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SubmitPublicationRequest": {
+            "description": "Request message for submitting a publication for publishing.",
+            "id": "SubmitPublicationRequest",
+            "properties": {
+                "secondaryId": {
+                    "description": "This is the id of the child of the publication that should be submitted.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SubmitUploadRequest": {
+            "description": "Request for submitting an upload and processing the uploaded files.",
+            "id": "SubmitUploadRequest",
+            "properties": {
+                "files": {
+                    "description": "The details of each uploaded file.",
+                    "items": {
+                        "$ref": "UploadedFile"
+                    },
+                    "type": "array"
+                },
+                "uploadDetails": {
+                    "additionalProperties": {
+                        "description": "Properties of the object. Contains field @type with type URL.",
+                        "type": "any"
+                    },
+                    "description": "This is an Any proto to allow each frontend app to provide contextually\nrelevant information about the upload session to its upload handler.\nThis type must be added to your Alkali app's OnePlatform config file\n(cs/internal/alkali/applications/APP_NAME/APP_NAME.yaml) for the upload\nhandler to correctly handle the request.",
+                    "type": "object"
+                },
+                "uploadKey": {
+                    "$ref": "UploadKey",
+                    "description": "A unique Upload Key identifying the upload session."
+                }
+            },
+            "type": "object"
+        },
+        "SubmitUploadResponse": {
+            "description": "Result of submitting an upload. This response is set by the upload handler\nand gets passed through the Alkali Uploader to the frontend.",
+            "id": "SubmitUploadResponse",
+            "properties": {
+                "response": {
+                    "additionalProperties": {
+                        "description": "Properties of the object. Contains field @type with type URL.",
+                        "type": "any"
+                    },
+                    "description": "This is an Any proto to allow each upload handler to determine its own\nresponse type. This type must be added to your Alkali app's OnePlatform\nconfig file (cs/internal/alkali/applications/APP_NAME/APP_NAME.yaml)\nfor the frontend to correctly handle the response.",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "Subscription": {
+            "description": "State of a subscription using the email address.",
+            "id": "Subscription",
+            "properties": {
+                "category": {
+                    "description": "Category the email address is used for.",
+                    "enum": [
+                        "UNSPECIFIED_SUBSCRIPTION_CATEGORY",
+                        "UPDATES",
+                        "ADS_TIPS",
+                        "TECHNICAL_ISSUES"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Announcements about updates to Google News.",
+                        "Recommendations for using ads in Google News.",
+                        "Contact for technical issues with the publication."
+                    ],
+                    "type": "string"
+                },
+                "subscriptionState": {
+                    "description": "Subscription status for this category.",
+                    "enum": [
+                        "UNSPECIFIED",
+                        "DISABLED",
+                        "ENABLED",
+                        "UNCONFIRMED"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "User does not receive email for the associated category.",
+                        "User does not receive email for the associated category.",
+                        "User needs to verify their signup before becoming ENABLED."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SubscriptionProductDetails": {
+            "description": "Details of a subscription product.",
+            "id": "SubscriptionProductDetails",
+            "properties": {
+                "period": {
+                    "description": "Period of the subscription (recurrence of payment and access).",
+                    "enum": [
+                        "SUBSCRIPTION_PERIOD_UNSPECIFIED",
+                        "MONTH",
+                        "YEAR"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Monthly subscription.",
+                        "Yearly subscription."
+                    ],
+                    "type": "string"
+                },
+                "promotionalPeriodCount": {
+                    "description": "Number of subscription periods that a promotional offer applies to.\n\nOnly set for promotion offers.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "trialPeriodDays": {
+                    "description": "Number of days of the trial period.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "SwgEntitlementCheckParams": {
+            "description": "Params used to perform third party entitlement verification.\n\nSee go/swg-3p-verification-protocol",
+            "id": "SwgEntitlementCheckParams",
+            "properties": {
+                "entitlementVerificationUrl": {
+                    "description": "URL used to perform third party entitlement verification.",
+                    "type": "string"
+                },
+                "gracePeriodAfterSyncFailureSeconds": {
+                    "description": "The length of grace period to allow recovering from an external sync\nfailure.\n\nIf duration passes, entitlements of the user from sync will be revoked.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "oauthPartnerId": {
+                    "description": "The id under which oauth tokens are stored for linked accounts.\n\nDuring server-to-server entitlement checks for the publication, Google\nretrieves a token for this partner id. Leaving this unset disables third\nparty entitlement verification.",
+                    "type": "string"
+                },
+                "quotaServerGroup": {
+                    "description": "Name of the quota server group to check for outgoing QPS throttling per\npublication.\n\nMust begin with 'publication_refresh_' (as this currently lives in a\nshared Play config).\nRequired.",
+                    "type": "string"
+                },
+                "quotaServerUser": {
+                    "description": "User name to use for quota server QPS throttling.\n\nThis should typically be unset, but can be used to share quota between\nmultiple publication entries. If unset, the publication id will be used\nas the quota user, which again is usually what we would want.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SwgPlaySku": {
+            "description": "Play SKUs that apply to the publication.",
+            "id": "SwgPlaySku",
+            "properties": {
+                "playSkuIds": {
+                    "description": "List of offers, delimited by colon \":\".\n(play_developer_id:offer_android_package:play_sku) for the given\nplay_sku_type.\nSince SwgPublication can contain offers across play_developer_id,\nneed to prefix this with play_developer_id:OfferAndroidPackage.\ne.g. 123456789:test.publication.swg.swgpub:weekly",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "playSkuType": {
+                    "description": "Required.",
+                    "enum": [
+                        "SKU_TYPE_UNSPECIFIED",
+                        "DEFAULT",
+                        "AMP",
+                        "GOOGLE_NEWS"
+                    ],
+                    "enumDescriptions": [
+                        "When not specified.",
+                        "If set, the Play_sku are served by default.",
+                        "For AMP.",
+                        "For Google News."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SwgPublication": {
+            "description": "Subscribe with Google (SwG) data associated with a publication.",
+            "id": "SwgPublication",
+            "properties": {
+                "appFamilyId": {
+                    "description": "Publisher's Google News AppFamily.",
+                    "type": "string"
+                },
+                "authorizedJsOrigin": {
+                    "description": "Domains that are allowed to serve content about this publication.\n\nThis is used to verify incoming API requests and for indexing page content.\nSee 'publication_id' for the canonical domain that's used for indexing.\n",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "entitlementCheckParams": {
+                    "$ref": "SwgEntitlementCheckParams",
+                    "description": "Publication's third party entitlement verification params."
+                },
+                "gcpProjectId": {
+                    "description": "Publisher's GCP project ID, used for access to DevTools.\n\nPublishers can self-manage access to DevTools using IAM in this project:\nhttps://console.cloud.google.com/iam-admin/iam\n\nOptional. But if not specified, no access to DevTools.",
+                    "type": "string"
+                },
+                "playDeveloperId": {
+                    "description": "Publisher's Play Developer Console account.\n\nThe publisher can choose any Play SKU under this account to be available in\nthis publication's buy flow.\nRequired.",
+                    "type": "string"
+                },
+                "playSkus": {
+                    "description": "Available PlaySkus for this publication.",
+                    "items": {
+                        "$ref": "SwgPlaySku"
+                    },
+                    "type": "array"
+                },
+                "publicationId": {
+                    "description": "Unique key for publications within SwG.\n\nPublishers embed this key within their articles. The key is then validated\nby SwG APIs.\n\nThis is created once and can not be updated. It takes the form of a\ncanonical domain.\n\nEx: nytimes.com.",
+                    "type": "string"
+                },
+                "purchaseAndManagementParams": {
+                    "$ref": "SwgPurchaseAndManagementParams",
+                    "description": "Publication's buy flow and subscription management params."
+                },
+                "statusParams": {
+                    "$ref": "SwgStatusParams",
+                    "description": "Publication's status params."
+                }
+            },
+            "type": "object"
+        },
+        "SwgPurchaseAndManagementParams": {
+            "description": "Buy flow and subscription management related params.",
+            "id": "SwgPurchaseAndManagementParams",
+            "properties": {
+                "ageLimit": {
+                    "description": "Minimum age allowed to make a purchase.\n\nThis field does not affect business logic of the buy flow. It is only\nused for UI purpose.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "cookiePolicyUrl": {
+                    "description": "Publication's cookie policy URL.",
+                    "type": "string"
+                },
+                "displayCustomizedConsent": {
+                    "description": "Determines whether to display customized consent with age limit, privacy\npolicy, cookie policy and terms.",
+                    "enum": [
+                        "DISPLAY_CUSTOMIZED_CONSENT_UNSPECIFIED",
+                        "ENABLED",
+                        "DISABLED"
+                    ],
+                    "enumDescriptions": [
+                        "Customized consent flow preference isn't specified.",
+                        "Customized consent flow is enable.",
+                        "Customized consent is disabled."
+                    ],
+                    "type": "string"
+                },
+                "oauthClientId": {
+                    "description": "The Google Sign-in OAuth client id.\n\nUsed to grant \"profile\" scope to the publication and produce id_token.\n\nSee https://developers.google.com/identity/sign-in/web/devconsole-project",
+                    "type": "string"
+                },
+                "privacyPolicyUrl": {
+                    "description": "Publication's privacy policy URL.",
+                    "type": "string"
+                },
+                "publicationIconUrl": {
+                    "description": "Publication's optional icon override.",
+                    "type": "string"
+                },
+                "subscriptionManagementUrl": {
+                    "description": "URL where end users can go to manage their third party subscriptions.",
+                    "type": "string"
+                },
+                "termsOfServiceUrl": {
+                    "description": "Publication's TOS URL.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SwgStatusParams": {
+            "description": "Params relating to the status of this publication.",
+            "id": "SwgStatusParams",
+            "properties": {
+                "processStatus": {
+                    "description": "Approval status, managed by gTech.",
+                    "enum": [
+                        "PROCESS_STATUS_UNSPECIFIED",
+                        "PENDING",
+                        "APPROVED",
+                        "REJECTED",
+                        "LIVE"
+                    ],
+                    "enumDescriptions": [
+                        "Approval status isn't specified by gTech.",
+                        "Approval status is pending review by gTech.",
+                        "Approval status is approved by gTech.",
+                        "Approval status is rejected by gTech.",
+                        "Approval status is marked as live by gTech."
+                    ],
+                    "type": "string"
+                },
+                "publicationActivationStatus": {
+                    "description": "Flag to show SwG UI in Publisher Center, managed by publisher.",
+                    "enum": [
+                        "PUBLICATION_ACTIVATION_STATUS_UNSPECIFIED",
+                        "ENABLED",
+                        "DISABLED"
+                    ],
+                    "enumDescriptions": [
+                        "SwG UI preference hasn't been specified by publisher.",
+                        "SwG UI preference has been enabled by publisher.",
+                        "SwG UI preference has been disabled by publisher."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SyntaxError": {
+            "description": "Syntax error for the style sheet.",
+            "id": "SyntaxError",
+            "properties": {
+                "errorMessage": {
+                    "description": "Error message of the error.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TimeRange": {
+            "description": "Range of Timestamps.",
+            "id": "TimeRange",
+            "properties": {
+                "end": {
+                    "description": "End of the range (inclusive).",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "start": {
+                    "description": "Start of the range (inclusive).",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UnpublishPublicationRequest": {
+            "description": "Request message for unpublishing an approved publication.",
+            "id": "UnpublishPublicationRequest",
+            "properties": {
+                "secondaryId": {
+                    "description": "Id of the child of the publication that should be unpublished.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateInfo": {
+            "description": "Metadata describing when and who created and updated an entity.",
+            "id": "UpdateInfo",
+            "properties": {
+                "createUserTimestamp": {
+                    "$ref": "UserTimestamp",
+                    "description": "User and timestamp when the entity was created."
+                },
+                "historyVersion": {
+                    "description": "Identifier of the entity's version in the history stored by the backend.",
+                    "format": "uint64",
+                    "type": "string"
+                },
+                "updateUserTimestamp": {
+                    "$ref": "UserTimestamp",
+                    "description": "User and timestamp when the entity was last updated."
+                }
+            },
+            "type": "object"
+        },
+        "UpdateOrganizationRequest": {
+            "description": "Request message for UpdateOrganization.",
+            "id": "UpdateOrganizationRequest",
+            "properties": {
+                "updateData": {
+                    "$ref": "Organization",
+                    "description": "New values of the changed organization fields."
+                },
+                "updateMask": {
+                    "description": "Specifies which fields should be updated.",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdatePublicationRequest": {
+            "description": "Partial update request for a publication.",
+            "id": "UpdatePublicationRequest",
+            "properties": {
+                "publication": {
+                    "$ref": "Publication",
+                    "description": "New data (delta)."
+                },
+                "update": {
+                    "$ref": "PublicationUpdate",
+                    "description": "Describes the partial update of the publication.\n\nWe use a separate wrapper around the update mask and new data because we\ninclude separate update objects for repeated complex fields such as\nsections."
+                },
+                "updateMask": {
+                    "description": "Fields to update. If empty, all fields will be updated with the new data.",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateSpec": {
+            "description": "Generic part of a partial update.\n\nThis message combines an UpdateOperation that describes the kind of update\nwith an update mask that specifies which fields have changed in case of a\npartial update.\n\nAn UpdateSpec contains the data-independent portion of an update. It can be\nincluded as an input (request) field in the proto representing the domain\nobject so that this proto can be used to describe an update of the domain\nobject as well.\n\nThis is in particular useful for repeated message fields, for example, the\nsections in a news publication. Repeated fields are only allowed as the last\npart of field masks. The path \"news_publication.sections\", for example, is\nvalid field path in an update mask, but \"news_publication.sections.title\" is\nnot because it's meaning would be ambiguous.\n\nA top-level update mask therefore cannot describe a partial update in one of\nthe messages in a repeated message field. Instead, we can include an\nUpdateSpec in those messages and interpret the repeated messages as updates.",
+            "id": "UpdateSpec",
+            "properties": {
+                "updateMask": {
+                    "description": "Field mask specifying which fields to update in case of a partial update\n(update_operation = UPDATE).",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                },
+                "updateOperation": {
+                    "description": "Update operation to be performed.",
+                    "enum": [
+                        "UNSPECIFIED_UPDATE_OPERATION",
+                        "CREATE",
+                        "UPDATE",
+                        "DELETE"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "A new entity (new id) is stored.",
+                        "An existing entity is updated.",
+                        "An existing entity is deleted."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UploadKey": {
+            "description": "A unique Upload Key to identify this upload session.",
+            "id": "UploadKey",
+            "properties": {
+                "dropzone": {
+                    "description": "The dropzone used for temporarily store files.",
+                    "enum": [
+                        "UNKNOWN_DROPZONE",
+                        "BIGSTORE",
+                        "BLOBSTORE"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown dropzone.",
+                        "Use Bigstore. This is the default dropzone.",
+                        "Use Blobstore."
+                    ],
+                    "type": "string"
+                },
+                "keyId": {
+                    "description": "The name (UUID) of this upload key.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UploadRequestDetails": {
+            "description": "Producer specific details included in an Alkali SubmitUploadRequest.",
+            "id": "UploadRequestDetails",
+            "properties": {
+                "parentId": {
+                    "description": "Id of the entity the uploaded files should be associated with.\n\nFor images belonging to a publication (logos, other items in the image\nlibrary of a publication), this is the id of the publication (app family).",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UploadResponseDetails": {
+            "description": "Producer specific details returned in an Alkali SubmitUploadResponse.",
+            "id": "UploadResponseDetails",
+            "properties": {
+                "mediaItems": {
+                    "description": "Metadata of the uploaded media files.",
+                    "items": {
+                        "$ref": "MediaItem"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "UploadedFile": {
+            "description": "Details about an uploaded file.",
+            "id": "UploadedFile",
+            "properties": {
+                "fileKey": {
+                    "$ref": "FileKey",
+                    "description": "The unique File Key for an uploaded file. To get a url for this file, call\nUploadService.AcquireFileUrls with this along with the Upload key."
+                },
+                "filename": {
+                    "description": "The file's original filename; does not include original path or directory.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Url": {
+            "description": "URL with its origin.",
+            "id": "Url",
+            "properties": {
+                "origin": {
+                    "description": "Origin of this Url.",
+                    "enum": [
+                        "UNSPECIFIED",
+                        "FEED",
+                        "RESOLVED",
+                        "CANONICAL",
+                        "SEARCH_INDEX",
+                        "AMP"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "URL was provided by publisher in feed.",
+                        "Feed URL after following redirects.",
+                        "Canonicalized URL.",
+                        "URL obtained from the search index (Raffia).",
+                        "URL pointing to the AMP version."
+                    ],
+                    "type": "string"
+                },
+                "url": {
+                    "description": "URL value.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UserAdsData": {
+            "description": "Data corresponding to a user's ads, including their AdSense and Xfp\n(DoubleClick for Publishers) networks.",
+            "id": "UserAdsData",
+            "properties": {
+                "adsenseAccounts": {
+                    "description": "A user's AdSense accounts.",
+                    "items": {
+                        "$ref": "AdSenseAccount"
+                    },
+                    "type": "array"
+                },
+                "xfpNetworks": {
+                    "description": "A user's Xfp networks.",
+                    "items": {
+                        "$ref": "XfpNetwork"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "UserAuthorization": {
+            "description": "Authorization roles of a user (in the context of a resource).\n\nThis message is used to pass the authorization roles that a user has to a\nclient application.",
+            "id": "UserAuthorization",
+            "properties": {
+                "roles": {
+                    "description": "Roles the user has (in the context that this UserAuthorization refers to,\nfor example, the object that contains the UserAuthorization).",
+                    "items": {
+                        "$ref": "AuthRoleRef"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "UserTimestamp": {
+            "description": "User identification combined with a timestamp.\n\nThis is used to keep track of actions performed by a user such as verifying\na domain. It corresponds to the UserWhen message in the Google News backend.",
+            "id": "UserTimestamp",
+            "properties": {
+                "timestamp": {
+                    "description": "Time when the action was performed by the user.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "userId": {
+                    "description": "Google News user id.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "VerifyPathRequest": {
+            "description": "Request message for verifying a publication's path.",
+            "id": "VerifyPathRequest",
+            "properties": {
+                "path": {
+                    "description": "Domain name to verify.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "VerifyPathResponse": {
+            "description": "Response message for verifying a publication's domain.",
+            "id": "VerifyPathResponse",
+            "properties": {
+                "path": {
+                    "$ref": "PublicationVerifiablePath",
+                    "description": "Publication path with verification data."
+                },
+                "updateInfo": {
+                    "$ref": "UpdateInfo",
+                    "description": "Update information for publication update done by verification."
+                }
+            },
+            "type": "object"
+        },
+        "VideoSourceConfig": {
+            "description": "Configuration of a video content source.",
+            "id": "VideoSourceConfig",
+            "properties": {
+                "query": {
+                    "description": "Id of the video channel or playlist page on the video service.\n",
+                    "type": "string"
+                },
+                "videoService": {
+                    "description": "Platform used for this video source.",
+                    "enum": [
+                        "UNSPECIFIED",
+                        "YOUTUBE"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "YouTube channel or playlist."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "WebHubSourceConfig": {
+            "description": "Configuration of a web hub content source.",
+            "id": "WebHubSourceConfig",
+            "properties": {
+                "uri": {
+                    "description": "URI of the web hub: domain, sub domain, with or without path.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "WebProperty": {
+            "description": "An AdSense web property that AdSense tokens grant access to.",
+            "id": "WebProperty",
+            "properties": {
+                "propertyCode": {
+                    "description": "AdSense-defined property code for the web property.",
+                    "type": "string"
+                },
+                "webPropertyId": {
+                    "description": "AdSense-defined id for the web property.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "XfpNetwork": {
+            "description": "Xfp (DoubleClick for Publishers) account for the producer frontend.",
+            "id": "XfpNetwork",
+            "properties": {
+                "label": {
+                    "description": "Label to be displayed for the network.",
+                    "type": "string"
+                },
+                "networkCode": {
+                    "description": "Network code corresponding to the Xfp backend.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Alkali Producer Private API (QA)",
+    "version": "v1",
+    "version_module": true
+}

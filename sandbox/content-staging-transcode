@@ -1,0 +1,1293 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/cloud-platform": {
+                    "description": "View and manage your data across Google Cloud Platform services"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://staging-transcode.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Transcode",
+    "description": "Using the Transcoder API, you can transcode videos into modern and next generation formats. Cloud video transcoding benefits broadcasters, production companies, businesses, and individuals looking to transform their video content for use across a variety of user devices.\n",
+    "discoveryVersion": "v1",
+    "documentationLink": "https://cloud.google.com/transcoding/",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "transcode:v1alpha",
+    "kind": "discovery#restDescription",
+    "name": "transcode",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "projects": {
+            "resources": {
+                "brandingProfiles": {
+                    "methods": {
+                        "create": {
+                            "description": "Creates a branding profile and returns the new branding profile.",
+                            "flatPath": "v1alpha/projects/{projectsId}/brandingProfiles",
+                            "httpMethod": "POST",
+                            "id": "transcode.projects.brandingProfiles.create",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "The project where the branding profile will be created.\nFor example: \"projects/projectNum1\".",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+parent}/brandingProfiles",
+                            "request": {
+                                "$ref": "BrandingProfile"
+                            },
+                            "response": {
+                                "$ref": "BrandingProfile"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "delete": {
+                            "description": "Deletes a branding profile.\nReturns NOT_FOUND if the branding profile does not exist.",
+                            "flatPath": "v1alpha/projects/{projectsId}/brandingProfiles/{brandingProfilesId}",
+                            "httpMethod": "DELETE",
+                            "id": "transcode.projects.brandingProfiles.delete",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The name of the branding profile to delete, in the form of\n`projects/{projectNumber}/brandingProfiles/{id}`.",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/brandingProfiles/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+name}",
+                            "response": {
+                                "$ref": "Empty"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "get": {
+                            "description": "Gets a branding profile.\nReturns NOT_FOUND if the branding profile does not exist.",
+                            "flatPath": "v1alpha/projects/{projectsId}/brandingProfiles/{brandingProfilesId}",
+                            "httpMethod": "GET",
+                            "id": "transcode.projects.brandingProfiles.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The name of the branding profile to retrieve, in the form of\n`projects/{projectNumber}/brandingProfiles/{id}`.",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/brandingProfiles/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+name}",
+                            "response": {
+                                "$ref": "BrandingProfile"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "list": {
+                            "description": "Lists branding profiles, in descending order by branding\nprofile create time.",
+                            "flatPath": "v1alpha/projects/{projectsId}/brandingProfiles",
+                            "httpMethod": "GET",
+                            "id": "transcode.projects.brandingProfiles.list",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "pageSize": {
+                                    "description": "Requested page size. Server may return fewer branding profiles than\nrequested. Defaults to 20 if not specified or if 0 is specified.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "A token identifying a page of results the server should return.\nTypically, this is the value of\nTranscoding.next_page_token\nreturned from the previous call to `ListBrandingProfiles` method.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "parent": {
+                                    "description": "The project whose branding profiles you want to list.\nFor example: \"projects/projectNum1\".",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+parent}/brandingProfiles",
+                            "response": {
+                                "$ref": "ListBrandingProfilesResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "patch": {
+                            "description": "Updates a branding profile and returns the new branding profile.\nReturns NOT_FOUND if the branding profile to be updated does not exist.",
+                            "flatPath": "v1alpha/projects/{projectsId}/brandingProfiles/{brandingProfilesId}",
+                            "httpMethod": "PATCH",
+                            "id": "transcode.projects.brandingProfiles.patch",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The resource name of the branding profile.<br/>\nBranding profile names have the form\n`projects/{projectNumber}/brandingProfiles/{id}`. The name\nis ignored when creating a branding profile.",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/brandingProfiles/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "updateMask": {
+                                    "description": "The mask used when doing a partial update.",
+                                    "format": "google-fieldmask",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+name}",
+                            "request": {
+                                "$ref": "BrandingProfile"
+                            },
+                            "response": {
+                                "$ref": "BrandingProfile"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        }
+                    }
+                },
+                "drmProfiles": {
+                    "methods": {
+                        "create": {
+                            "description": "Creates a DRM profile and returns the new DRM profile.",
+                            "flatPath": "v1alpha/projects/{projectsId}/drmProfiles",
+                            "httpMethod": "POST",
+                            "id": "transcode.projects.drmProfiles.create",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "The project where the DRM profile will be created.\nFor example: \"projects/projectNum1\".",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+parent}/drmProfiles",
+                            "request": {
+                                "$ref": "DrmProfile"
+                            },
+                            "response": {
+                                "$ref": "DrmProfile"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "delete": {
+                            "description": "Deletes a DRM profile.\nReturns NOT_FOUND if the DRM profile does not exist.",
+                            "flatPath": "v1alpha/projects/{projectsId}/drmProfiles/{drmProfilesId}",
+                            "httpMethod": "DELETE",
+                            "id": "transcode.projects.drmProfiles.delete",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The name of the DRM profile to delete, in the form of\n`projects/{projectNumber}/drmProfiles/{id}`.",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/drmProfiles/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+name}",
+                            "response": {
+                                "$ref": "Empty"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "get": {
+                            "description": "Gets a DRM profile.\nReturns NOT_FOUND if the DRM profile does not exist.",
+                            "flatPath": "v1alpha/projects/{projectsId}/drmProfiles/{drmProfilesId}",
+                            "httpMethod": "GET",
+                            "id": "transcode.projects.drmProfiles.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The name of the DRM profile to retrieve, in the form of\n`projects/{projectNumber}/drmProfiles/{id}`.",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/drmProfiles/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+name}",
+                            "response": {
+                                "$ref": "DrmProfile"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "list": {
+                            "description": "Lists DRM profiles, in descending order by DRM profile create time.",
+                            "flatPath": "v1alpha/projects/{projectsId}/drmProfiles",
+                            "httpMethod": "GET",
+                            "id": "transcode.projects.drmProfiles.list",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "pageSize": {
+                                    "description": "Requested page size. Server may return fewer DRM profiles than\nrequested. Defaults to 20 if not specified or if 0 is specified.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "A token identifying a page of results the server should return.\nTypically, this is the value of\nTranscoding.next_page_token\nreturned from the previous call to `ListDrmProfiles` method.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "parent": {
+                                    "description": "The project whose DRM profiles you want to list.\nFor example: \"projects/projectNum1\".",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+parent}/drmProfiles",
+                            "response": {
+                                "$ref": "ListDrmProfilesResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "patch": {
+                            "description": "Updates a DRM profile and returns the new DRM profile.\nReturns NOT_FOUND if the DRM profile to be updated does not exist.",
+                            "flatPath": "v1alpha/projects/{projectsId}/drmProfiles/{drmProfilesId}",
+                            "httpMethod": "PATCH",
+                            "id": "transcode.projects.drmProfiles.patch",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The resource name of the DRM profile.<br/>\nDRM profile names have the form\n`projects/{projectNumber}/drmProfiles/{id}`. The name is\nignored when creating a DRM profile.",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/drmProfiles/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "updateMask": {
+                                    "description": "The mask used when doing a partial update.",
+                                    "format": "google-fieldmask",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+name}",
+                            "request": {
+                                "$ref": "DrmProfile"
+                            },
+                            "response": {
+                                "$ref": "DrmProfile"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        }
+                    }
+                },
+                "encodeProfiles": {
+                    "methods": {
+                        "create": {
+                            "description": "Creates an encode profile and returns the new encode profile.",
+                            "flatPath": "v1alpha/projects/{projectsId}/encodeProfiles",
+                            "httpMethod": "POST",
+                            "id": "transcode.projects.encodeProfiles.create",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "The project where the encode profile will be created.\nFor example: \"projects/projectNum1\"",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+parent}/encodeProfiles",
+                            "request": {
+                                "$ref": "EncodeProfile"
+                            },
+                            "response": {
+                                "$ref": "EncodeProfile"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "delete": {
+                            "description": "Deletes an encode profile.\nReturns NOT_FOUND if the encode profile does not exist.",
+                            "flatPath": "v1alpha/projects/{projectsId}/encodeProfiles/{encodeProfilesId}",
+                            "httpMethod": "DELETE",
+                            "id": "transcode.projects.encodeProfiles.delete",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The name of the encode profile to delete, in the form of\n`projects/{projectNumber}/encodeProfiles/{id}`.",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/encodeProfiles/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+name}",
+                            "response": {
+                                "$ref": "Empty"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "get": {
+                            "description": "Gets an encode profile.\nReturns NOT_FOUND if the encode profile does not exist.",
+                            "flatPath": "v1alpha/projects/{projectsId}/encodeProfiles/{encodeProfilesId}",
+                            "httpMethod": "GET",
+                            "id": "transcode.projects.encodeProfiles.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The name of the encode profile to retrieve, in the form of\n`projects/{projectNumber}/encodeProfiles/{id}`.",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/encodeProfiles/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+name}",
+                            "response": {
+                                "$ref": "EncodeProfile"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "list": {
+                            "description": "Lists encode profiles, in descending order by encode profile create time.",
+                            "flatPath": "v1alpha/projects/{projectsId}/encodeProfiles",
+                            "httpMethod": "GET",
+                            "id": "transcode.projects.encodeProfiles.list",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "pageSize": {
+                                    "description": "Requested page size. Server may return fewer encode profiles than\nrequested. Defaults to 20 if not specified or if 0 is specified.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "A token identifying a page of results the server should return.\nTypically, this is the value of\nTranscoding.next_page_token\nreturned from the previous call to `ListEncodeProfiles` method.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "parent": {
+                                    "description": "The project whose encode profiles you want to list.\nFor example: \"projects/projectNum1\"",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+parent}/encodeProfiles",
+                            "response": {
+                                "$ref": "ListEncodeProfilesResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "patch": {
+                            "description": "Updates an encode profile and returns the new encode profile.\nReturns NOT_FOUND if the encode profile to be updated does not exist.",
+                            "flatPath": "v1alpha/projects/{projectsId}/encodeProfiles/{encodeProfilesId}",
+                            "httpMethod": "PATCH",
+                            "id": "transcode.projects.encodeProfiles.patch",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The resource name of the encode profile.<br/>\nEncode profile names have the form\n`projects/{projectNumber}/encodeProfiles/{id}`.<br/>\nThe name is ignored when creating an encode profile.",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/encodeProfiles/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "updateMask": {
+                                    "description": "The mask used when doing a partial update.",
+                                    "format": "google-fieldmask",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+name}",
+                            "request": {
+                                "$ref": "EncodeProfile"
+                            },
+                            "response": {
+                                "$ref": "EncodeProfile"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        }
+                    }
+                },
+                "jobs": {
+                    "methods": {
+                        "cancel": {
+                            "description": "Cancels a transcoding job.\nReturns NOT_FOUND if the job does not exist.\nReturns FAILED_PRECONDITION if the job is being processed or completed.",
+                            "flatPath": "v1alpha/projects/{projectsId}/jobs/{jobsId}:cancel",
+                            "httpMethod": "POST",
+                            "id": "transcode.projects.jobs.cancel",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The name of the transcoding job to cancel, in the form of\n`projects/{projectNumber}/jobs/{id}`.",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/jobs/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+name}:cancel",
+                            "request": {
+                                "$ref": "CancelJobRequest"
+                            },
+                            "response": {
+                                "$ref": "Job"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "create": {
+                            "description": "Creates a transcoding job and returns the new job created.",
+                            "flatPath": "v1alpha/projects/{projectsId}/jobs",
+                            "httpMethod": "POST",
+                            "id": "transcode.projects.jobs.create",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "The project where the transcoding job will be created.\nFor example: \"projects/projectNum1\".",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+parent}/jobs",
+                            "request": {
+                                "$ref": "Job"
+                            },
+                            "response": {
+                                "$ref": "Job"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "delete": {
+                            "description": "Deletes a transcoding job.\nReturns NOT_FOUND if the job does not exist.\nReturns FAILED_PRECONDITION if the job is being processed.",
+                            "flatPath": "v1alpha/projects/{projectsId}/jobs/{jobsId}",
+                            "httpMethod": "DELETE",
+                            "id": "transcode.projects.jobs.delete",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The name of the job to delete, in the form of\n`projects/{projectNumber}/jobs/{id}`.",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/jobs/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+name}",
+                            "response": {
+                                "$ref": "Empty"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "get": {
+                            "description": "Gets a transcoding job. Returns NOT_FOUND if the job does not exist.",
+                            "flatPath": "v1alpha/projects/{projectsId}/jobs/{jobsId}",
+                            "httpMethod": "GET",
+                            "id": "transcode.projects.jobs.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The name of the transcoding job to retrieve, in the form of\n`projects/{projectNumber}/jobs/{id}`.",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/jobs/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+name}",
+                            "response": {
+                                "$ref": "Job"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "list": {
+                            "description": "Lists transcoding jobs, in descending order by transcoding job create time.",
+                            "flatPath": "v1alpha/projects/{projectsId}/jobs",
+                            "httpMethod": "GET",
+                            "id": "transcode.projects.jobs.list",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "pageSize": {
+                                    "description": "Requested page size. Server may return fewer jobs than\nrequested. Defaults to 20 if not specified or if 0 is specified.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "A token identifying a page of results the server should return.\nTypically, this is the value of\nTranscoding.next_page_token\nreturned from the previous call to `ListJobs` method.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "parent": {
+                                    "description": "The project whose jobs you want to list.\nFor example: \"projects/projectNum1\"",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+parent}/jobs",
+                            "response": {
+                                "$ref": "ListJobsResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190816",
+    "rootUrl": "https://staging-transcode.sandbox.googleapis.com/",
+    "schemas": {
+        "AdBreak": {
+            "description": "Ad break location specification.",
+            "id": "AdBreak",
+            "properties": {
+                "begin": {
+                    "description": "The begin time relative to the input video where the ad will be inserted,\nspecified in seconds.",
+                    "format": "float",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "AudioMapOneTrack": {
+            "description": "A message type used to specify audio map for one track.",
+            "id": "AudioMapOneTrack",
+            "properties": {
+                "audioTrack": {
+                    "description": "An array entry with each element as \"{trackIndex}.{channelIndex}\".\nIndexes are 0 based.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BrandingProfile": {
+            "description": "A branding profile.",
+            "id": "BrandingProfile",
+            "properties": {
+                "createTime": {
+                    "description": "Output only. The time this branding profile is created.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "The descriptive name for this branding profile.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Output only. A unique ID generated by Transcoder API when a brandingProfile is\ncreated.<br/>",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The resource name of the branding profile.<br/>\nBranding profile names have the form\n`projects/{projectNumber}/brandingProfiles/{id}`. The name\nis ignored when creating a branding profile.",
+                    "type": "string"
+                },
+                "overlays": {
+                    "description": "The overlay image which will be added to the output video.",
+                    "items": {
+                        "$ref": "Overlay"
+                    },
+                    "type": "array"
+                },
+                "postroll": {
+                    "description": "The URL of the postroll video which will be added to the output video,\nin the form of `gs://{bucketName}/{videoPath}`",
+                    "type": "string"
+                },
+                "preroll": {
+                    "description": "The URL of the preroll video which will be added to the output video,\nin the form of `gs://{bucketName}/{videoPath}`",
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "Output only. The time this branding profile is last updated.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CancelJobRequest": {
+            "description": "Request message for Transcoding.CancelJob.",
+            "id": "CancelJobRequest",
+            "properties": {},
+            "type": "object"
+        },
+        "Caption": {
+            "description": "Caption to be added to output video(s).",
+            "id": "Caption",
+            "properties": {
+                "format": {
+                    "description": "The format of the caption. Supported formats are scc, ttml, dfxp, srt,\nsubrip and webvtt.",
+                    "type": "string"
+                },
+                "lang": {
+                    "description": "(Optional). The BCP-47 language code. Defaults to \"eng\".",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "The URL of the input subtitle file, in the form of\n`gs://{bucketName}/{videoPath}`.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CustomizedAudioMap": {
+            "description": "A message type used to specify audio map for multiple tracks.",
+            "id": "CustomizedAudioMap",
+            "properties": {
+                "audioTracks": {
+                    "description": "An array entry with each element specifying audio mapping for one\ntrack. Indexes are 0 based.",
+                    "items": {
+                        "$ref": "AudioMapOneTrack"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "DrmProfile": {
+            "description": "A DRM profile",
+            "id": "DrmProfile",
+            "properties": {
+                "createTime": {
+                    "description": "Output only. The time this DRM profile is created.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "The descriptive name for this DRM profile.",
+                    "type": "string"
+                },
+                "fairplay": {
+                    "description": "(Optional) Whether to use fairpaly for DRM. Default is false.",
+                    "type": "boolean"
+                },
+                "id": {
+                    "description": "Output only. A unique ID generated by Transcoder API when a drmProfile is created.<br/>",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The resource name of the DRM profile.<br/>\nDRM profile names have the form\n`projects/{projectNumber}/drmProfiles/{id}`. The name is\nignored when creating a DRM profile.",
+                    "type": "string"
+                },
+                "playready": {
+                    "description": "(Optional) Whether to use playready for DRM. Default is false.",
+                    "type": "boolean"
+                },
+                "updateTime": {
+                    "description": "Output only. The time this DRM profile is last updated.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "widevine": {
+                    "description": "(Optional) Whether to use widevine for DRM. Default is false.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "Empty": {
+            "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+            "id": "Empty",
+            "properties": {},
+            "type": "object"
+        },
+        "Encode": {
+            "description": "Output renditions specification.",
+            "id": "Encode",
+            "properties": {
+                "audioBitrate": {
+                    "description": "Output audio bitrate in terms of bits per second. See audio_codec section\nfor the range.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "audioChannels": {
+                    "description": "(Optional) Audio channel count. Must be one of 2, 6, or 8. Default is 2.\nSee audio_codec section for the supported values.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "audioCodec": {
+                    "description": "Output audio codec.<br/>\nThe following audio codecs are supported:<br/>\n\n* \"ac3\": Supported channels are stereo, and 5.1. Supported\naudioSamplingRate is 48000. Supported audioBitrate is 64-640kbps.<br/>\n* \"eac3\": Supported channels are stereo, 5.1, and 7.1. Supported\naudioSamplingRate is 48000. Supported audioBitrate is 64-640kbps.<br/>\n* \"aac\": Supported channels are stereo, and 5.1. Supported\naudioSamplingRate is 8000-96000. Supported audioBitrate is\n6-1024kbps.<br/>\n* \"aac-he-v1\": Supported channel is stereo. Supported\naudioSamplingRate is 8000-96000. Supported audioBitrate is\n32-80kbps.<br/>\n* \"aac-he-v2\": Supported channel is stereo. Supported\naudioSamplingRate is 8000-96000. Supported audioBitrate is\n16-40kbps.<br/>",
+                    "type": "string"
+                },
+                "audioSamplingRate": {
+                    "description": "(Optional) Audio sample rate. Default is 44100. See audio_codec section\nfor the range.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "filename": {
+                    "description": "(Optional) Customized filename of output rendition. <br/>\n`If specified:`\n\n* If type is hls, output rendition name is the name specified followed by\n\".m3u8\" as extension.\n\n* If type is mp4, output video name is the name specified followed by\n\".mp4\" as extension.\n\nFor example, An encodeProfile as\n<pre class=\"lang-json prettyprint\">\n{\n  \"displayName\": \"HD and SD\",\n  \"encodes\": [\n    {\n      \"videoBitrate\": 3200000,\n      \"videoCodec\": \"h264\",\n      \"videoHeight\": 720,\n      \"videoWidth\": 1280,\n      \"audioCodec\": \"aac\",\n      \"audioBitrate\": 64000,\n      \"filename\": \"HD-1280x720\"\n    },\n    {\n      \"videoBitrate\": 500000,\n      \"videoCodec\": \"h264\",\n      \"videoHeight\": 360,\n      \"videoWidth\": 640,\n      \"audioCodec\": \"aac\",\n      \"audioBitrate\": 64000,\n      \"filename\": \"SD-640x360\"\n    }\n  ],\n  \"formats\": [\n    {\n      \"type\": \"hls\"\n    },\n    {\n      \"type\": \"mp4\"\n    }\n  ]\n}\n</pre>\nwill generate the following output rendition files in addition to the\nmaster.m3u8 file and media segments.\n\nhls:\n\n* HD-1280x720.m3u8\n* SD-640x360.m3u8\n\nmp4:\n\n* HD-1280x720.mp4\n* SD-640x360.mp4\n\n`If filename is not specified in the encodes:`\n\nRenditions, and videos will be named sequentially:\n\n* rendition-0.m3u8\n* rendition-1.m3u8\n* rendition-0.mp4\n* rendition-1.mp4\n\nThe following macros are also supported for the filename field:\n\n* [ORIGINAL_FILENAME] which will be replaced by original filename in\noutput.\n* [BITRATE] which will be replaced by videoBitrate + audioBitrate of the\nrendition in output.\n* [VIDEO_BITRATE] which will be replaced by videoBitrate of the rendition\nin output.\n* [AUDIO_BITRATE] which will be replaced by audioBitrate of the rendition\nin output.\n* [TIMESTAMP] which will be replaced by the time when the video is\nprocessed.",
+                    "type": "string"
+                },
+                "videoBframes": {
+                    "description": "(Optional) The consecutive b-frames in the GOP structure for main\nand high profiles. Possible values are 0, 1, 2, and 3. Default is 0.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "videoBitrate": {
+                    "description": "Output video bitrate in terms of bits per second, range 90000 - 50000000.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "videoCodec": {
+                    "description": "Output video codec. Default is \"h264\".<br/>\nThe following video codecs are supported:\n\n* \"h264\"\n* \"h265\", only working with \"mp4\" format now.",
+                    "type": "string"
+                },
+                "videoEmbeddedCaption": {
+                    "description": "(Optional) true or false. Default is false. Enable/disable\ncaption embedding in output file. For example, this flag enables\nembedding of 608/708 captions in H264 SEI packets.",
+                    "type": "boolean"
+                },
+                "videoGopSize": {
+                    "description": "(Optional) GOP frame count. Minimum 1. Default is 90.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "videoHeight": {
+                    "description": "(Optional) Output video height, range 16 - 2160.\nIf not specified:\n\n* If video_width is specified, video_height = video_width *\ninput video_height / input video_width.\n* If video_width is not specified, video_height = input video_height.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "videoPixelFormat": {
+                    "description": "(Optional) Output video pixel format, can be either \"yuv420p\" or\n\"yuv422p\". Default is \"yuv420p\".",
+                    "type": "string"
+                },
+                "videoProfile": {
+                    "description": "(Optional) Codec profile. Can be \"baseline\", \"main\", or \"high\". Default\nis \"high\".",
+                    "type": "string"
+                },
+                "videoWidth": {
+                    "description": "(Optional) Output video width, range 16 - 3840.\nIf not specified:\n\n* If video_height is specified, video_width = video_height *\ninput video_width / input video_height.\n* If video_height is not specified, video_width = input video_width.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "EncodeProfile": {
+            "description": "An encode profile.",
+            "id": "EncodeProfile",
+            "properties": {
+                "createTime": {
+                    "description": "Output only. The time this encode profile is created.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "The descriptive name for this encode profile.",
+                    "type": "string"
+                },
+                "encodes": {
+                    "description": "Encode renditions.",
+                    "items": {
+                        "$ref": "Encode"
+                    },
+                    "type": "array"
+                },
+                "formats": {
+                    "description": "Encode output formats.",
+                    "items": {
+                        "$ref": "Format"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "Output only. A unique ID generated by Transcoder API when a encodeProfile is\ncreated.<br/>",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The resource name of the encode profile.<br/>\nEncode profile names have the form\n`projects/{projectNumber}/encodeProfiles/{id}`.<br/>\nThe name is ignored when creating an encode profile.",
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "Output only. The time this encode profile is last updated.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Error": {
+            "description": "Transcoding job error on 'complete-error'.",
+            "id": "Error",
+            "properties": {
+                "message": {
+                    "description": "Error message on 'complete-error'.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Format": {
+            "description": "Output packager format specification.",
+            "id": "Format",
+            "properties": {
+                "fragmentDuration": {
+                    "description": "(Optional) Duration of each fragment in seconds.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "type": {
+                    "description": "Type of packaging.<br/>\nThe following format types are supported.<br/>\n\n* \"hls\": HTTP Live Streaming. Packager can be fmp4 for fragmented MP4\nsegments and ts for MPEG-TS packaged segments.\n* \"dash\": MPEG-DASH fragments.\n* \"mp4\": Standard MP4 packaged VOD.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Input": {
+            "description": "An input video specification.",
+            "id": "Input",
+            "properties": {
+                "adbreaks": {
+                    "description": "(Optional) The adbreak locations.",
+                    "items": {
+                        "$ref": "AdBreak"
+                    },
+                    "type": "array"
+                },
+                "begin": {
+                    "description": "(Optional) Begin time in seconds of the desired part of input video file.\nDefaults to the beginning of the file.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "captions": {
+                    "description": "The captions to be added to the output video. Only one caption file is\nsupported in alpha. Multiple caption inputs will be supported in future.",
+                    "items": {
+                        "$ref": "Caption"
+                    },
+                    "type": "array"
+                },
+                "customizedAudioMap": {
+                    "$ref": "CustomizedAudioMap",
+                    "description": "For each output track, an array entry should be specified\nas \"{trackIndex}.{channelIndex}\".<br/>\nNote that indexes are 0 based.<br/>\nCurrently only one output audio track is supported.<br/>\nFor example, to map a 5.1 audio channel's 2nd and 4th\nchannels as left and right, use:\n<pre class=\"lang-json prettyprint\">\n'customized_audio_map': {\n  'audio_tracks': [\n    {\n      'audio_track': ['0.2', '0.4']\n    }\n  ]\n}\n</pre>\nTo use an MXF input and select track 4 as left and track 7\nas right, use:\n<pre class=\"lang-json prettyprint\">\n'customized_audio_map': {\n  'audio_tracks': [\n    {\n      'audio_track': ['4.0', '7.0']\n    }\n  ]\n}\n</pre>"
+                },
+                "end": {
+                    "description": "(Optional) End time in seconds of the desired part of input video file.\nDefaults to the end of the shortest stream in the file.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "ituAudioMap": {
+                    "description": "5.1 to stereo down-mix as specified by the ITU standard.<br/>\nThe only valid value is \"itu\".\n<pre class=\"lang-json prettyprint\">\n'ituAudioMap': 'itu'\n</pre>",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "The URL of the input video in the form `gs://{bucketName}/{objectPath}`",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Job": {
+            "description": "A transcoding job resource.",
+            "id": "Job",
+            "properties": {
+                "brandingProfile": {
+                    "$ref": "BrandingProfile",
+                    "description": "Specify branding_profile to use inline branding profile."
+                },
+                "brandingProfileId": {
+                    "description": "Specify branding_profile_id to use an existing branding profile.\nRefer to 'id' field of BrandingProfile.",
+                    "type": "string"
+                },
+                "createTime": {
+                    "description": "Output only. The time when the transcoding job is created.<br/>\nIgnore when creating a transcoding job.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "The descriptive name for this transcoding job.",
+                    "type": "string"
+                },
+                "drmProfile": {
+                    "$ref": "DrmProfile",
+                    "description": "Specify drm_profile to use inline DRM profile."
+                },
+                "drmProfileId": {
+                    "description": "Specify drm_profile_id to use an existing DRM profile.\nRefer to 'id' field of DrmProfile.",
+                    "type": "string"
+                },
+                "encodeProfile": {
+                    "$ref": "EncodeProfile",
+                    "description": "Specify encode_profile to use inline encode profile."
+                },
+                "encodeProfileId": {
+                    "description": "Specify encode_profile_id to use an existing encode profile.\nRefer to 'id' field of EncodeProfile.",
+                    "type": "string"
+                },
+                "encryptIv": {
+                    "description": "The encrypt initialization vector as 32 character hex string for DRM\nFairPlay.",
+                    "type": "string"
+                },
+                "encryptKey": {
+                    "description": "The encrypt key as 32 character hex string for DRM.",
+                    "type": "string"
+                },
+                "encryptKeyId": {
+                    "description": "The encrypt key ID as 32 character hex string for DRM.",
+                    "type": "string"
+                },
+                "endTime": {
+                    "description": "Output only. The time when the transcoding job is complete.<br/>\nIgnore when creating a transcoding job.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "error": {
+                    "$ref": "Error",
+                    "description": "Output only. Error if transcoding job fails with state 'complete-error'."
+                },
+                "id": {
+                    "description": "Output only. A unique ID generated by Transcoder API when a job is created.",
+                    "type": "string"
+                },
+                "input": {
+                    "$ref": "Input",
+                    "description": "The input video specification. At a minimum, specify the URL field."
+                },
+                "name": {
+                    "description": "The resource name of the transcoding job.<br/>\nTranscoding job names have the form\n`projects/{projectNumber}/jobs/{id}`. The name is ignored when creating\na transcoding job.",
+                    "type": "string"
+                },
+                "notificationUrl": {
+                    "description": "The URL to request after transcoding job is done.",
+                    "type": "string"
+                },
+                "output": {
+                    "description": "The google cloud bucket and folder in form of\n`gs://{bucketName}/{folderPath}` that will hold the files created\naccording to the specified encode_spec.",
+                    "type": "string"
+                },
+                "progress": {
+                    "description": "Output only. The transcoding job progress in percentage relative to the current\nstate.<br/>\nE.g. 50% when state is 'analyzing' does not mean 50% of the\nwhole transcoding job has been done, but means 50% of analyzing has been\ndone. Available only in GetJobResponse. Ignore when creating a transcoding\njob.",
+                    "type": "string"
+                },
+                "report": {
+                    "$ref": "Report",
+                    "description": "Output only. The report of the transcoding job which includes information such as output\nvideo, download, encode, and upload duration. Available only in\nGetJobResponse. Ignore when creating a transcoding job."
+                },
+                "state": {
+                    "description": "Output only. The current state of the transcoding job. Possible values are: pending,\nanalyzing, downloading, encoding, uploading, complete-error,\ncomplete-success, or canceled.<br/>\nIgnore when creating a transcoding job.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListBrandingProfilesResponse": {
+            "description": "Response message for transcode.ListBrandingProfiles.",
+            "id": "ListBrandingProfilesResponse",
+            "properties": {
+                "brandingProfiles": {
+                    "description": "The list of branding profiles.",
+                    "items": {
+                        "$ref": "BrandingProfile"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "A token to retrieve the next page of results.\nPass this value in the\nListBrandingProfiles.page_token\nfield in the subsequent call to `ListBrandingProfiles` method to retrieve\nthe next page of results.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListDrmProfilesResponse": {
+            "description": "Response message for transcode.ListDrmProfiles.",
+            "id": "ListDrmProfilesResponse",
+            "properties": {
+                "drmProfiles": {
+                    "description": "The list of DRM profiles.",
+                    "items": {
+                        "$ref": "DrmProfile"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "A token to retrieve the next page of results.\nPass this value in the\nListDrmProfiles.page_token\nfield in the subsequent call to `ListDrmProfiles` method to retrieve\nthe next page of results.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListEncodeProfilesResponse": {
+            "description": "Response message for transcode.ListEncodeProfiles.",
+            "id": "ListEncodeProfilesResponse",
+            "properties": {
+                "encodeProfiles": {
+                    "description": "The list of encode profiles.",
+                    "items": {
+                        "$ref": "EncodeProfile"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "A token to retrieve the next page of results.\nPass this value in the\nListEncodeProfiles.page_token\nfield in the subsequent call to `ListEncodeProfiles` method to retrieve the\nnext page of results.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListJobsResponse": {
+            "description": "Response message for transcoding.ListJobs.",
+            "id": "ListJobsResponse",
+            "properties": {
+                "jobs": {
+                    "description": "The list of jobs.",
+                    "items": {
+                        "$ref": "Job"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "A token to retrieve the next page of results.\nPass this value in the\nListJobsRequest.page_token\nfield in the subsequent call to `ListJobs` method to retrieve\nthe next page of results.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Output": {
+            "description": "An output video specification.",
+            "id": "Output",
+            "properties": {
+                "format": {
+                    "description": "The format of this output video links, such as 'video/mp4',\n'application/json', 'application/x-mpegURL', 'application/dash+xml'...",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "The URL of this output video in the form\n`gs://{bucketName}/{videoPath}`.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Overlay": {
+            "description": "An image overlay specification.",
+            "id": "Overlay",
+            "properties": {
+                "begin": {
+                    "description": "(Optional) The overlay begin time in seconds of the output video. Default\nis begin of output video.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "duration": {
+                    "description": "(Optional) The total overlay time in seconds. Default is from overlay\nbegin time to end of video.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "height": {
+                    "description": "(Optional) The height of the overlay image relative to the output video\nheight. Format: percentage value. e.g. \"10%\". Either height or width\nshould be specified.",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "The URL of the overlay image,\nin the form of `gs://{bucketName}/{videoPath}`\nOnly png image type is supported in alpha.",
+                    "type": "string"
+                },
+                "width": {
+                    "description": "(Optional) The width of the overlay image relative to the output video\nwidth. Format: percentage value. e.g. \"10%\". Either height or width\nshould be specified.",
+                    "type": "string"
+                },
+                "x": {
+                    "description": "(Optional) The left most position of the overlay image relative to the\noutput video width from left. Format: percentage value. e.g. \"10%\".\nDefault is \"0%\".",
+                    "type": "string"
+                },
+                "y": {
+                    "description": "(Optional) The top most position of the overlay image relative to the\noutput video height from the top. Format: percentage value. e.g. \"10%\".\nDefault is \"0%\".",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Report": {
+            "description": "Transcoding job report.",
+            "id": "Report",
+            "properties": {
+                "outputs": {
+                    "description": "The output videos.",
+                    "items": {
+                        "$ref": "Output"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Transcoder API Staging",
+    "version": "v1alpha",
+    "version_module": true
+}

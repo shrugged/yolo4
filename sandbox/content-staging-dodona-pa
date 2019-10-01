@@ -1,0 +1,2602 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/cloud-platform": {
+                    "description": "View and manage your data across Google Cloud Platform services"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://staging-dodona-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Dodona Producer",
+    "description": "",
+    "discoveryVersion": "v1",
+    "documentationLink": "",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "dodona_pa:v1internal",
+    "kind": "discovery#restDescription",
+    "name": "dodona_pa",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "projects": {
+            "resources": {
+                "locations": {
+                    "methods": {
+                        "get": {
+                            "description": "Gets information about a location.",
+                            "flatPath": "v1internal/projects/{projectsId}/locations/{locationsId}",
+                            "httpMethod": "GET",
+                            "id": "dodona_pa.projects.locations.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Resource name for the location.",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/locations/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1internal/{+name}",
+                            "response": {
+                                "$ref": "Location"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "list": {
+                            "description": "Lists information about the supported locations for this service.",
+                            "flatPath": "v1internal/projects/{projectsId}/locations",
+                            "httpMethod": "GET",
+                            "id": "dodona_pa.projects.locations.list",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "filter": {
+                                    "description": "The standard list filter.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "description": "The resource that owns the locations collection, if applicable.",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "pageSize": {
+                                    "description": "The standard list page size.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "The standard list page token.",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1internal/{+name}/locations",
+                            "response": {
+                                "$ref": "ListLocationsResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        }
+                    },
+                    "resources": {
+                        "databases": {
+                            "methods": {
+                                "breakglass": {
+                                    "description": "Dodona Internal Break Glass functionality.",
+                                    "flatPath": "v1internal/projects/{projectsId}/locations/{locationsId}/databases/{databasesId}:breakglass",
+                                    "httpMethod": "POST",
+                                    "id": "dodona_pa.projects.locations.databases.breakglass",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "name": {
+                                            "description": "Fully qualified resource name of a GCE instance.",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/locations/[^/]+/databases/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1internal/{+name}:breakglass",
+                                    "request": {
+                                        "$ref": "BreakGlassRequest"
+                                    },
+                                    "response": {
+                                        "$ref": "Operation"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                },
+                                "createchange": {
+                                    "description": "Dodona Workflow Engine: Create Change Request.",
+                                    "flatPath": "v1internal/projects/{projectsId}/locations/{locationsId}/databases/{databasesId}:createchange",
+                                    "httpMethod": "POST",
+                                    "id": "dodona_pa.projects.locations.databases.createchange",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "name": {
+                                            "description": "Name of a Dodona database receiving a request.",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/locations/[^/]+/databases/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1internal/{+name}:createchange",
+                                    "request": {
+                                        "$ref": "CreateChangeRequest"
+                                    },
+                                    "response": {
+                                        "$ref": "Operation"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                },
+                                "get": {
+                                    "description": "Gets details of a single ProducerDatabase.\nInternal version of DBaaS.GetDatabase API.",
+                                    "flatPath": "v1internal/projects/{projectsId}/locations/{locationsId}/databases/{databasesId}",
+                                    "httpMethod": "GET",
+                                    "id": "dodona_pa.projects.locations.databases.get",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "name": {
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/locations/[^/]+/databases/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1internal/{+name}",
+                                    "response": {
+                                        "$ref": "ProducerDatabase"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                },
+                                "listProducer": {
+                                    "description": "Lists ProducerDatabases in a given project and location.\nInternal version of DBaaS.ListDatabases API.\n\nThis API is used for cross-project listing of the Producer version of\nDatabases which is used by SSA Rollouts and Health Monitoring.",
+                                    "flatPath": "v1internal/projects/{projectsId}/locations/{locationsId}/databases:producer",
+                                    "httpMethod": "GET",
+                                    "id": "dodona_pa.projects.locations.databases.listProducer",
+                                    "parameterOrder": [
+                                        "parent"
+                                    ],
+                                    "parameters": {
+                                        "filter": {
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "orderBy": {
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "pageSize": {
+                                            "description": "The maximum number of items to return.",
+                                            "format": "int32",
+                                            "location": "query",
+                                            "type": "integer"
+                                        },
+                                        "pageToken": {
+                                            "description": "The next_page_token value returned from a previous List request, if any.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "parent": {
+                                            "description": "The parent resource name.",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/locations/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1internal/{+parent}/databases:producer",
+                                    "response": {
+                                        "$ref": "ListProducerDatabasesResponse"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                },
+                                "reporthealth": {
+                                    "description": "CLH call to trigger a repair based on incoming health report.",
+                                    "flatPath": "v1internal/projects/{projectsId}/locations/{locationsId}/databases/{databasesId}:reporthealth",
+                                    "httpMethod": "POST",
+                                    "id": "dodona_pa.projects.locations.databases.reporthealth",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "name": {
+                                            "description": "The name of the Dodona database being health checked.",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/locations/[^/]+/databases/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1internal/{+name}:reporthealth",
+                                    "request": {
+                                        "$ref": "ReportHealthRequest"
+                                    },
+                                    "response": {
+                                        "$ref": "Operation"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                },
+                                "updateProducer": {
+                                    "description": "CLH call for a Producer to update Dodona database.",
+                                    "flatPath": "v1internal/projects/{projectsId}/locations/{locationsId}/databases/{databasesId}:producer",
+                                    "httpMethod": "PATCH",
+                                    "id": "dodona_pa.projects.locations.databases.updateProducer",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "name": {
+                                            "description": "The name of the database (public and internal databases use the same name).",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/locations/[^/]+/databases/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1internal/{+name}:producer",
+                                    "request": {
+                                        "$ref": "UpdateProducerDatabaseRequest"
+                                    },
+                                    "response": {
+                                        "$ref": "Operation"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                }
+                            }
+                        },
+                        "operations": {
+                            "methods": {
+                                "cancel": {
+                                    "description": "Starts asynchronous cancellation on a long-running operation.  The server\nmakes a best effort to cancel the operation, but success is not\nguaranteed.  If the server doesn't support this method, it returns\n`google.rpc.Code.UNIMPLEMENTED`.  Clients can use\nOperations.GetOperation or\nother methods to check whether the cancellation succeeded or whether the\noperation completed despite cancellation. On successful cancellation,\nthe operation is not deleted; instead, it becomes an operation with\nan Operation.error value with a google.rpc.Status.code of 1,\ncorresponding to `Code.CANCELLED`.",
+                                    "flatPath": "v1internal/projects/{projectsId}/locations/{locationsId}/operations/{operationsId}:cancel",
+                                    "httpMethod": "POST",
+                                    "id": "dodona_pa.projects.locations.operations.cancel",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "name": {
+                                            "description": "The name of the operation resource to be cancelled.",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/locations/[^/]+/operations/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1internal/{+name}:cancel",
+                                    "request": {
+                                        "$ref": "CancelOperationRequest"
+                                    },
+                                    "response": {
+                                        "$ref": "Empty"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                },
+                                "delete": {
+                                    "description": "Deletes a long-running operation. This method indicates that the client is\nno longer interested in the operation result. It does not cancel the\noperation. If the server doesn't support this method, it returns\n`google.rpc.Code.UNIMPLEMENTED`.",
+                                    "flatPath": "v1internal/projects/{projectsId}/locations/{locationsId}/operations/{operationsId}",
+                                    "httpMethod": "DELETE",
+                                    "id": "dodona_pa.projects.locations.operations.delete",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "name": {
+                                            "description": "The name of the operation resource to be deleted.",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/locations/[^/]+/operations/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1internal/{+name}",
+                                    "response": {
+                                        "$ref": "Empty"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                },
+                                "get": {
+                                    "description": "Gets the latest state of a long-running operation.  Clients can use this\nmethod to poll the operation result at intervals as recommended by the API\nservice.",
+                                    "flatPath": "v1internal/projects/{projectsId}/locations/{locationsId}/operations/{operationsId}",
+                                    "httpMethod": "GET",
+                                    "id": "dodona_pa.projects.locations.operations.get",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "name": {
+                                            "description": "The name of the operation resource.",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/locations/[^/]+/operations/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1internal/{+name}",
+                                    "response": {
+                                        "$ref": "Operation"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                },
+                                "list": {
+                                    "description": "Lists operations that match the specified filter in the request. If the\nserver doesn't support this method, it returns `UNIMPLEMENTED`.\n\nNOTE: the `name` binding allows API services to override the binding\nto use different resource name schemes, such as `users/*/operations`. To\noverride the binding, API services can add a binding such as\n`\"/v1/{name=users/*}/operations\"` to their service configuration.\nFor backwards compatibility, the default name includes the operations\ncollection id, however overriding users must ensure the name binding\nis the parent resource, without the operations collection id.",
+                                    "flatPath": "v1internal/projects/{projectsId}/locations/{locationsId}/operations",
+                                    "httpMethod": "GET",
+                                    "id": "dodona_pa.projects.locations.operations.list",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "filter": {
+                                            "description": "The standard list filter.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "name": {
+                                            "description": "The name of the operation's parent resource.",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/locations/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "pageSize": {
+                                            "description": "The standard list page size.",
+                                            "format": "int32",
+                                            "location": "query",
+                                            "type": "integer"
+                                        },
+                                        "pageToken": {
+                                            "description": "The standard list page token.",
+                                            "location": "query",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1internal/{+name}/operations",
+                                    "response": {
+                                        "$ref": "ListOperationsResponse"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190313",
+    "rootUrl": "https://staging-dodona-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "ActionLog": {
+            "description": "Action is an action even that needs to run on the managed database.",
+            "id": "ActionLog",
+            "properties": {
+                "actionCategory": {
+                    "description": "action_category is the category of the action to be invoked.",
+                    "type": "string"
+                },
+                "actionDate": {
+                    "description": "time when the action was registered on the CLH",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "actionId": {
+                    "description": "action_id is a hash of the operation, consumer prj, tenant\nprj id and database name",
+                    "type": "string"
+                },
+                "actionName": {
+                    "description": "action_name is the name of the action to be invoked on the management\nagent.",
+                    "type": "string"
+                },
+                "actionParams": {
+                    "description": "action_params is a JSON map containing the parameters and their values.\nIt is of the form map[string]interface{}",
+                    "type": "string"
+                },
+                "complete": {
+                    "description": "indicates if this action is completed.",
+                    "type": "boolean"
+                },
+                "completionDate": {
+                    "description": "Epoch time when the action was completed on the database.\nIf this value is set, it is assumed the action was completed.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "custom": {
+                    "description": "indicates if this is a custom action or standard action",
+                    "type": "boolean"
+                },
+                "response": {
+                    "description": "response or error message if any. If the completed time is set\nand the response is nil, it is infered that the action\ncompleted successfully.",
+                    "type": "string"
+                },
+                "startDate": {
+                    "description": "Epoch time when the action was started on the database",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "updateBy": {
+                    "description": "user who requested this action",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "BootstrapConfig": {
+            "description": "BootstrapConfig defines the configuration needed to bootstrap the instance.\nIt is also known as startup script.",
+            "id": "BootstrapConfig",
+            "properties": {
+                "bootstrapCloudConfig": {
+                    "description": "Required. The entire bootstrap cloud config that will be the value of\nmetadata item with key 'user-data'. This cloud config will be used by VM to\nboostrap the instance, like creating systemd entry for instance agent,\nbuild script for fetching metadata values, etc.\n",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "BreakGlassRequest": {
+            "description": "Internal request implementing a Break Glass scenario.",
+            "id": "BreakGlassRequest",
+            "properties": {
+                "consumerProjectName": {
+                    "description": "Consumer project name requesting a break glass.",
+                    "type": "string"
+                },
+                "tenantProjectName": {
+                    "description": "Tenant project name that a GCE instance is hosted in.\nTechnically, given the 1:1 mapping, only one of the two\nprojects is required. In light of sensitivity around\nthe break glass protocol however and for the ease of auditing\nboth project names are requested/recorded.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CSEResourceId": {
+            "description": "ResourceId identifies a single monitored resource under a monitored service\ninstance. Health Monitor uses this resource ID to communicate health status\nupdates back to the service owning these resources during the lifetime of the\nmonitored instances.\n\nHealth Monitor builds its initial list of resources to monitor by calling an\ninternal producer list API (supported by CCFE) which is expected to embed the\nlist of monitored resources for each instance under the [HealthMonitoring]\nmessage.",
+            "id": "CSEResourceId",
+            "properties": {
+                "id": {
+                    "description": "Unique Id for the monitored resource. For the typical case of a monitored\nresource being a GCE VM instance, the VM ID will be used.",
+                    "type": "string"
+                },
+                "rootId": {
+                    "description": "Id for the root resource that the monitored resource belongs too; typically\nthe full name (URI) of the SaaS service instance.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CancelOperationRequest": {
+            "description": "The request message for Operations.CancelOperation.",
+            "id": "CancelOperationRequest",
+            "properties": {},
+            "type": "object"
+        },
+        "ChangeRequest": {
+            "description": "Examples of a change request:\n  - Update a Data Plane (agents) software.\n  - Create a Standby database.\n  - Refresh a non-Production database.\n  - Clone a database.\n  - Upgrade a database.",
+            "id": "ChangeRequest",
+            "properties": {
+                "createStandbyRequest": {
+                    "$ref": "CreateStandby"
+                },
+                "createTime": {
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "destinations": {
+                    "description": "Optional. E.g. a list of agent(s) that a request is to be delivered to\n(confirmed to a store via a feedback loop) before a request can be removed.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "expiration": {
+                    "description": "Optional. Not every request can expire (and be removed).",
+                    "format": "google-duration",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Name of a change request for humans to read.\nFor instance for a Data Plane Rollout this field may be used\nto record a release name, e.g.\ndodona-software-update-dodona-dataplane_20190107_00_p0.",
+                    "type": "string"
+                },
+                "requestObject": {
+                    "enum": [
+                        "REQUEST_OBJECT_UNSPECIFIED",
+                        "DATA_PLANE_SOFTWARE",
+                        "DATABASE",
+                        "STANDBY"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "requestType": {
+                    "enum": [
+                        "REQUEST_TYPE_UNSPECIFIED",
+                        "CREATE",
+                        "UPDATE",
+                        "DELETE",
+                        "REFRESH",
+                        "CLONE"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "updateDataPlaneRequest": {
+                    "$ref": "UpdateDataPlaneSoftware"
+                },
+                "updateTime": {
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "uuid": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CommonResourceId": {
+            "description": "ResourceId is included in Health message payload, and understood by SAAS\ncontrol plane and service-specific agents. Health monitor treats it as\nan opaque identifier for the Health message.",
+            "id": "CommonResourceId",
+            "properties": {
+                "id": {
+                    "description": "Unique Id for the resource. The choice of the Id for the resource is\nspecific to the SAAS service. Example: Arcus resource name.",
+                    "type": "string"
+                },
+                "rootId": {
+                    "description": "Id for the root resource this resource belongs to. The definition of the\nroot resource is specific to the SAAS service. Typical choice is the\ntop-level resource the SAAS control plane manages.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "Type for the resource, e.g. name of the resource proto message.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Container": {
+            "description": "Container defines every container\u2019s configuration including its image url,\nstartup command line, etc.",
+            "id": "Container",
+            "properties": {
+                "cmds": {
+                    "description": "Optional. Run Command - If set, this will override image run command. These\nare exec-style parameters (argv list).\n\nThis is a single command separated by argument tokens, so to run command\nlike: /bin/sh echo abcde\ncmds would look like [\"/bin/sh\", \"echo\", \"abcde\"]",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "copyToScope": {
+                    "description": "Optional. Copies the `container` scope heath metric to a new health metric\nwith its scope updated to the given scope. Useful for including the\ncontainer's status while aggregating health status over a scope.",
+                    "type": "string"
+                },
+                "environmentVariables": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Optional. Environment variables to set in the container.",
+                    "type": "object"
+                },
+                "hostname": {
+                    "description": "Optional. Hostname for the container. In bridge networking mode, containers\ncan access each other by hostname on the virtual network. Only necessary in\nWindows scenarios since host networking mode is not supported on Windows.",
+                    "type": "string"
+                },
+                "image": {
+                    "description": "Required. The location of docker container image.",
+                    "type": "string"
+                },
+                "logConfig": {
+                    "$ref": "LogConfig",
+                    "description": "Optional. Log configurations for the container. Logs will be written to GCP\nif it is not set."
+                },
+                "name": {
+                    "description": "Required. Name and unique identifier of the container configuration.",
+                    "type": "string"
+                },
+                "networkMode": {
+                    "$ref": "NetworkModeConfig",
+                    "description": "Optional. Network mode configurations of the container. For example, using\n\u2018host\u2019 mode to obtain best performance."
+                },
+                "pidMode": {
+                    "$ref": "PidModeConfig",
+                    "description": "Optional. The PID (Process) Namespace mode for the container."
+                },
+                "privileged": {
+                    "description": "Optional. Run container in privileged mode or not.",
+                    "type": "boolean"
+                },
+                "resourceLimits": {
+                    "$ref": "ResourceLimits",
+                    "description": "Optional. Container will run without limits if not set."
+                },
+                "restartPolicy": {
+                    "$ref": "RestartConfig",
+                    "description": "Optional. Restart policy of the container."
+                },
+                "version": {
+                    "description": "Required. Version number of this container config. It\u2019s sequential and\nstarting from 1. It goes up for any change.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "volumes": {
+                    "description": "Optional. A list of volumes to be mounted in the container.",
+                    "items": {
+                        "$ref": "Volume"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CreateChangeRequest": {
+            "description": "Request to initiate a Dodona workflow.\nSee go/Dodona-Workflow-Engine.",
+            "id": "CreateChangeRequest",
+            "properties": {
+                "changeName": {
+                    "description": "Name of a change request.",
+                    "type": "string"
+                },
+                "changeOption": {
+                    "description": "Option depends on a change_target.\nIf a target is a \"rollout\", an option is a rollout version, e.g.\n\"dodona-dataplane_20190221_00_p0\".\nIf a target is a \"standby\", an option is a database role.",
+                    "type": "string"
+                },
+                "changeSubject": {
+                    "description": "A subject of a requested change.\nFor instance for a change request of target=STANDBY, a subject is a name\nof a primary or a standby database.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "changeTarget": {
+                    "enum": [
+                        "CHANGE_TARGET_UNSPECIFIED",
+                        "DATA_PLANE_SOFTWARE",
+                        "DATABASE",
+                        "STANDBY"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CreateStandby": {
+            "id": "CreateStandby",
+            "properties": {
+                "backupModeExpiration": {
+                    "description": "Optional. Once a Standby Agent puts a source database in backup mode,\nit can get out of it either by a command or after this time expires.",
+                    "format": "google-duration",
+                    "type": "string"
+                },
+                "nextStep": {
+                    "enum": [
+                        "STEP_UNSPECIFIED",
+                        "SOURCEDB_PREP",
+                        "DESTDB_DISK",
+                        "DESTDB_PREP"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "Prep steps for a Standby Agent to take on a primary:\n- Create standby control file.\n- Set up init params.\n- Create TNS config.\n- Put primary in a backup mode.\n- Take PD snapshots.\n- Take primary out of backup mode.",
+                        "CLH: get PD snapshot names, cut new PDs and attach them to a standby.",
+                        "Prep steps for a Standby Agent to take on a standby:\n- Mount file systems on the attached PDs.\n- Set up init params.\n- Create TNS config.\n- Move backup control file in the right locations.\n- Mount a standby, apply logs, put in managed recovery mode."
+                    ],
+                    "type": "string"
+                },
+                "pdSnapshotNames": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Snapshot names for each PD, e.g. data: data-20190101-001.",
+                    "type": "object"
+                },
+                "primaryDatabaseUniqueName": {
+                    "type": "string"
+                },
+                "primaryUniqueName": {
+                    "description": "At the time a standby is requested and a CR is filed:\nprimary_unique_name is the same as\ngoogle.cloud.dodona.v1alpha1.internal.clh.DatabaseDetails.unique_name\nprimary_database_unique_name is the same as\ngoogle.cloud.dodona.v1alpha1.internal.clh.DatabaseDetails.database_unique_name\nOn role reversal this changes, but CR proto gets persisted in Config Store.",
+                    "type": "string"
+                },
+                "standbyDatabaseUniqueName": {
+                    "type": "string"
+                },
+                "standbyUniqueName": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DatabaseFeature": {
+            "description": "Database features, e.g. Partitioning, Advanced Compression, etc.",
+            "id": "DatabaseFeature",
+            "properties": {
+                "available": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DatabaseParam": {
+            "description": "Database parameters.",
+            "id": "DatabaseParam",
+            "properties": {
+                "basic": {
+                    "type": "boolean"
+                },
+                "dataType": {
+                    "description": "Allowed parameter data types are: string, int32 and float32.",
+                    "enum": [
+                        "DATA_TYPE_UNSPECIFIED",
+                        "STRING",
+                        "INT32",
+                        "FLOAT32"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "dynamic": {
+                    "description": "Can a parameter be changed without bouncing a database?",
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "noConvert": {
+                    "description": "Refrain from applying a conversion. A parameter is already a number\n(and in case of memory parameters it is expressed in MB).",
+                    "type": "boolean"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DodonaConfigs": {
+            "description": "DodonaConfigs represents a message containing a configuration\nthat CLH wants to push to a data plane.",
+            "id": "DodonaConfigs",
+            "properties": {
+                "databaseDetails": {
+                    "$ref": "InternalDatabaseDetails"
+                }
+            },
+            "type": "object"
+        },
+        "Empty": {
+            "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+            "id": "Empty",
+            "properties": {},
+            "type": "object"
+        },
+        "Endpoint": {
+            "description": "Endpoint defines the protocol and address of a service or agent.",
+            "id": "Endpoint",
+            "properties": {
+                "address": {
+                    "description": "Required. Address of the service.",
+                    "type": "string"
+                },
+                "protocol": {
+                    "description": "Required. Protocol of the service, e.g. grpc, HTTP, etc.",
+                    "enum": [
+                        "PROTOCOL_UNSPECIFIED",
+                        "GRPC"
+                    ],
+                    "enumDescriptions": [
+                        "Not initialized, invalid value.",
+                        "GRPC service."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GrpcConfig": {
+            "description": "GrpcConfig is the configuration object for changing GRPC settings.",
+            "id": "GrpcConfig",
+            "properties": {
+                "timeout": {
+                    "description": "Optional. The timeout for GRPC calls made by IA. This will be used for\nIA's calls like GetHealth, SetConfig, and GetConfigState. Any GRPC\ninteraction between IA and other data plane agents will use this timeout.\nIf not provided, defaults to agent_grpc_timeout flag value, or\n1 second if not provided.",
+                    "format": "google-duration",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "HealthMonitoring": {
+            "description": "Embeds a list of monitored resources to be used by instances returned from\nthe SaaS service's implementation of producer list API. This message should\nbe included for every resource `instance` returned from the producer list API\nand will be used by Health Monitor to build the list of all the resources it\nneeds to track during its bootstrap phase.",
+            "id": "HealthMonitoring",
+            "properties": {
+                "resources": {
+                    "description": "List of monitored resources for a given health-monitored instance.",
+                    "items": {
+                        "$ref": "MonitoredResource"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "HostSpec": {
+            "description": "HostSpec defines what should be configured and run on the host\ninstance. Like scopes, os image of the host, etc.",
+            "id": "HostSpec",
+            "properties": {
+                "bootstrapConfig": {
+                    "$ref": "BootstrapConfig",
+                    "description": "Required. The cloud configuration to bootstrap the host."
+                },
+                "osImage": {
+                    "description": "Required. The OS image used to create the host instance.",
+                    "type": "string"
+                },
+                "scopes": {
+                    "description": "Required. A list of GCP scopes to be enabled for each VM in the entity.\nThose scopes are used to authorize requests to google API. For example:\n\"https://www.googleapis.com/auth/pubsub\" should be included if your service\nneeds to access cloud pubsub.\n\nSee\nhttps://cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances#applications\nfor more details.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "IAConfig": {
+            "description": "LINT.IfChange\nIAConfig contains any configurations that can be sent to the instance agent,\nrunning on the data plane. Currently, this contains \"Runtime\" configurations.",
+            "id": "IAConfig",
+            "properties": {
+                "iaRuntimeConfig": {
+                    "$ref": "IARuntimeConfig",
+                    "description": "Optional. IARuntimeConfig contains different runtime configurations."
+                }
+            },
+            "type": "object"
+        },
+        "IARuntimeConfig": {
+            "description": "IARuntimeConfig contains IA configurations that can be updated at runtime\nthrough calling SetConfig(). Messages will be added here to expose new\nsettings that are made available to configure the behavior of the agents.\nAll settings specified here will pull their values fromo present sources in\nthe following order:\n1. IARuntimeConfig message\n2. Flag (including flag default)\n3. IA specified default",
+            "id": "IARuntimeConfig",
+            "properties": {
+                "grpcConfig": {
+                    "$ref": "GrpcConfig",
+                    "description": "Optional. Contains settings that control how the IA utilizes GRPC, through\naltering properties like request timeouts, when communicating with other\ndata plane agents through GRPC. Current calls include SetConfig,\nGetConfigState, and GetHealth when talking to service provider Config and\nHealth agents."
+                },
+                "imageCleanerConfig": {
+                    "$ref": "ImageCleanerConfig",
+                    "description": "Optional. An image cleaner configuration to set IA image cleaner behavior."
+                },
+                "logsConfig": {
+                    "$ref": "LogsConfig",
+                    "description": "Optional. Contains settings that control how the IA handles the logs it\ncollects and exports. This can be used to alter behavior like how often the\nIA reports logs it caches to chemist."
+                },
+                "metricsConfig": {
+                    "$ref": "MetricsConfig",
+                    "description": "Optional. Contains settings that control how the IA handles the metrics it\nexports. This can be used to alter behavior like how often the IA reports\nmetrics to chemist, affecting the time it takes for metrics to update to\ncloud monarch."
+                }
+            },
+            "type": "object"
+        },
+        "ImageCleanerConfig": {
+            "description": "ImageCleanerConfig is the configuration object for the image cleaner in IA.\nIf not provided, this will default to the value of the respective flag. If a\nvalue is passed into the flag, this value will be the default. If no flag is\nprovided, the defaults listed below will be used.",
+            "id": "ImageCleanerConfig",
+            "properties": {
+                "cacheSizeBuffer": {
+                    "description": "Optional. The number of images to buffer in cache size for recently pulled\nimages. If not provided, defaults to image_cleaner_cahce_size_buffer flag\nvalue, or 3.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "interval": {
+                    "description": "Optional. The interval between consecutive runs on image cleaner. A\nduration of 0 will disable this feature. If not provided, value will\ndefault to image_cleaner_frequency flag value, or disabled if no flag is\nprovided.",
+                    "format": "google-duration",
+                    "type": "string"
+                },
+                "timeout": {
+                    "description": "Optional. The max duration for one run of the image cleaner. If not\nprovided, defaults to image_cleaner_run_timeout flag value, or 15 minutes\nif no flag is provided.",
+                    "format": "google-duration",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "InternalBackup": {
+            "description": "Database backup settings.",
+            "id": "InternalBackup",
+            "properties": {
+                "alRetention": {
+                    "description": "number of days to retain archivelogs on disk",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "albkInterval": {
+                    "description": "frequency to backup archivelogs [2h | 120m ]",
+                    "type": "string"
+                },
+                "alfps": {
+                    "description": "max number of archivelogs per backup piece",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "autoMaintain": {
+                    "description": "option to auto maintain backup sets true/false\ndeletes backup sets based on bk_retention/al_retention",
+                    "type": "boolean"
+                },
+                "backupDir": {
+                    "description": "full path of dir to write the backups",
+                    "type": "string"
+                },
+                "bkRetention": {
+                    "description": "number of days to retain backups on disk",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "channels": {
+                    "description": "number of parallel backup channels",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "dbName": {
+                    "description": "name of the database/container/container",
+                    "type": "string"
+                },
+                "dbType": {
+                    "description": "database type",
+                    "enum": [
+                        "NORMAL",
+                        "CONTAINER",
+                        "PLUGGABLE"
+                    ],
+                    "enumDescriptions": [
+                        "Normal database",
+                        "container database",
+                        "pluggable database"
+                    ],
+                    "type": "string"
+                },
+                "dbfps": {
+                    "description": "max number of datafiles per backup piece",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "enabled": {
+                    "description": "backups enabled true/false",
+                    "type": "boolean"
+                },
+                "format": {
+                    "description": "backup piece format %d_%Y%M%D_%type_%U\"",
+                    "type": "string"
+                },
+                "pdbName": {
+                    "description": "pluggable database name if dbtype is container",
+                    "type": "string"
+                },
+                "schedule": {
+                    "description": "seven part schedule starting with sunday to saturday\nexample inc0:inc1:inc1:inc1c:inc1:inc1:inc1c",
+                    "type": "string"
+                },
+                "startTime": {
+                    "description": "time of the day to start backups in format HH24:MI:SS",
+                    "type": "string"
+                },
+                "target": {
+                    "description": "option to backup on primary/standby/both",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "InternalDatabase": {
+            "description": "Internal (backend) representation of a Database resource.",
+            "id": "InternalDatabase",
+            "properties": {
+                "agentsPorts": {
+                    "additionalProperties": {
+                        "format": "int32",
+                        "type": "integer"
+                    },
+                    "description": "A map of agents and ports they run on.",
+                    "type": "object"
+                },
+                "baseUrl": {
+                    "description": "Base URL that may be overridden at the run time.\nFor now applies only to GCE.",
+                    "type": "string"
+                },
+                "caAddr": {
+                    "type": "string"
+                },
+                "createTime": {
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "databaseDetails": {
+                    "$ref": "InternalDatabaseDetails"
+                },
+                "healthResourceId": {
+                    "$ref": "CommonResourceId",
+                    "description": "Health message resource ID."
+                },
+                "hmAddr": {
+                    "type": "string"
+                },
+                "index": {
+                    "description": "Index in the image maps.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "instanceAgentCurrentVersion": {
+                    "description": "CSE IA current and target versions (used in a Data Plane Rollout).",
+                    "type": "string"
+                },
+                "instanceAgentNextVersion": {
+                    "type": "string"
+                },
+                "isCreateHostResources": {
+                    "description": "Corp may re-use an existing/pre-created instance.",
+                    "type": "boolean"
+                },
+                "isExternal": {
+                    "type": "boolean"
+                },
+                "isHm": {
+                    "type": "boolean"
+                },
+                "isManaged": {
+                    "description": "Simple IaaS vs. fully managed DBaaS.\nIf this is just about provisioning, create a GCE instance\nand a corresponding database (1:1) in the consumer project\n(letting customer chose names for both GCE instance and\ndatabase).  If this is a fully managed service,\ncreate an instance/database in a tenant project instead.",
+                    "type": "boolean"
+                },
+                "isMultiDisk": {
+                    "type": "boolean"
+                },
+                "labels": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Do we need to map these fields?",
+                    "type": "object"
+                },
+                "loggingService": {
+                    "type": "string"
+                },
+                "monitoringService": {
+                    "type": "string"
+                },
+                "name": {
+                    "description": "ops.dbe.cloud.dodona.v1alpha1.Database public_database = 1;",
+                    "type": "string"
+                },
+                "project": {
+                    "$ref": "Project",
+                    "description": "Project metadata: consumer, tenant, producer."
+                },
+                "pushEndpoint": {
+                    "type": "string"
+                },
+                "state": {
+                    "enum": [
+                        "DATABASE_STATE_UNSPECIFIED",
+                        "CREATING",
+                        "READY",
+                        "STOPPING",
+                        "STOPPED",
+                        "UPDATING",
+                        "DELETING",
+                        "DATABASE_STATE_ERROR"
+                    ],
+                    "enumDescriptions": [
+                        "Not set.",
+                        "Being created.",
+                        "Has been created and is fully usable.",
+                        "Being stopped.",
+                        "Stopped.",
+                        "Being updated.",
+                        "Being deleted.",
+                        "Being repaired and may be unusable."
+                    ],
+                    "type": "string"
+                },
+                "statusMessage": {
+                    "type": "string"
+                },
+                "tpRobot": {
+                    "description": "Tenant Project owner robot account.",
+                    "type": "string"
+                },
+                "uniqueId": {
+                    "type": "string"
+                },
+                "updateTime": {
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "InternalDatabaseDetails": {
+            "description": "Internal (backend) representation of a DatabaseDetail resource.",
+            "id": "InternalDatabaseDetails",
+            "properties": {
+                "actions": {
+                    "items": {
+                        "$ref": "ActionLog"
+                    },
+                    "type": "array"
+                },
+                "backup": {
+                    "$ref": "InternalBackup"
+                },
+                "changeRequest": {
+                    "description": "Dodona Workflow Engine.",
+                    "items": {
+                        "$ref": "ChangeRequest"
+                    },
+                    "type": "array"
+                },
+                "currentRequestId": {
+                    "description": "If a request is part of the workflow, set it to the current request ID.\nOtherwise, set it to 0.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "dataPlaneRolloutState": {
+                    "description": "Data Plane Rollout state.",
+                    "enum": [
+                        "DATABASE_STATE_UNSPECIFIED",
+                        "CREATING",
+                        "READY",
+                        "STOPPING",
+                        "STOPPED",
+                        "UPDATING",
+                        "DELETING",
+                        "DATABASE_STATE_ERROR"
+                    ],
+                    "enumDescriptions": [
+                        "Not set.",
+                        "Being created.",
+                        "Has been created and is fully usable.",
+                        "Being stopped.",
+                        "Stopped.",
+                        "Being updated.",
+                        "Being deleted.",
+                        "Being repaired and may be unusable."
+                    ],
+                    "type": "string"
+                },
+                "dataPlaneVersion": {
+                    "$ref": "SoftwareDeploymentVersion",
+                    "description": "Data Plane software version (handled via CSE Data Plane Rollout)."
+                },
+                "databaseBase": {
+                    "description": "Data Plane database attributes (coming from a YAML or a store).",
+                    "type": "string"
+                },
+                "databaseHome": {
+                    "type": "string"
+                },
+                "databaseId": {
+                    "format": "int64",
+                    "type": "string"
+                },
+                "databaseInstances": {
+                    "items": {
+                        "$ref": "InternalDatabaseInstance"
+                    },
+                    "type": "array"
+                },
+                "databaseName": {
+                    "type": "string"
+                },
+                "databaseRole": {
+                    "enum": [
+                        "ROLE_UNSPECIFIED",
+                        "PRIMARY",
+                        "STANDBY",
+                        "ADG",
+                        "LOGICAL"
+                    ],
+                    "enumDescriptions": [
+                        "Database role should always be known and so\nan UNSPECIFIED role is an anomaly.",
+                        "Primary database.",
+                        "(Physical) standby database.",
+                        "ADG=Active Data Guard database.",
+                        "Logical standby database."
+                    ],
+                    "type": "string"
+                },
+                "databaseUniqueName": {
+                    "type": "string"
+                },
+                "datafiles": {
+                    "type": "string"
+                },
+                "datafilesDir": {
+                    "type": "string"
+                },
+                "displayName": {
+                    "type": "string"
+                },
+                "dnsName": {
+                    "type": "string"
+                },
+                "edition": {
+                    "enum": [
+                        "EDITION_UNSPECIFIED",
+                        "ENTERPRISE",
+                        "STANDARD",
+                        "STANDARD_ONE",
+                        "STANDARD_TWO",
+                        "EXPRESS"
+                    ],
+                    "enumDescriptions": [
+                        "Database edition should always be known and so\nan UNSPECIFIED edition is an anomaly.",
+                        "Enterprise Edition.",
+                        "Standard edition.",
+                        "Standard 1 edition.",
+                        "Standard 2 edition.",
+                        "Express edition."
+                    ],
+                    "type": "string"
+                },
+                "env": {
+                    "type": "string"
+                },
+                "environment": {
+                    "enum": [
+                        "ENVIRONMENT_UNSPECIFIED",
+                        "DEV",
+                        "PROD",
+                        "TEST",
+                        "STAGE",
+                        "LNP",
+                        "PATCH"
+                    ],
+                    "enumDescriptions": [
+                        "Each database is expected to belong to one of the\ndatabase environments, so UNSPECIFIED value\nis an anomaly.",
+                        "Development environment.",
+                        "Production environment.",
+                        "Test environment.",
+                        "Stage environment.",
+                        "LNP=Load and Performance Testing environment.",
+                        "Patch environment."
+                    ],
+                    "type": "string"
+                },
+                "features": {
+                    "items": {
+                        "$ref": "DatabaseFeature"
+                    },
+                    "type": "array"
+                },
+                "flashDir": {
+                    "type": "string"
+                },
+                "listenerDir": {
+                    "description": "This is a base listener directory\nwith each individual listener files\ncreated in separate sub directory\nunder this base.",
+                    "type": "string"
+                },
+                "listeners": {
+                    "items": {
+                        "$ref": "InternalListener"
+                    },
+                    "type": "array"
+                },
+                "mountPointDatafiles": {
+                    "type": "string"
+                },
+                "mountPointFlash": {
+                    "type": "string"
+                },
+                "passwordFile": {
+                    "type": "string"
+                },
+                "primaryUniqueName": {
+                    "description": "Optional fields that only apply to a standby.\nprimary_unique_name is equivalent of a unique_name.",
+                    "type": "string"
+                },
+                "rac": {
+                    "type": "boolean"
+                },
+                "sourceDatabaseHost": {
+                    "type": "string"
+                },
+                "sourceDatabaseName": {
+                    "description": "Source database name/host atributes is a convenient\nway to replace the seed values in various configuration\nfiles, e.g. in a control file.",
+                    "type": "string"
+                },
+                "standbyCount": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "tempfileSizeGb": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "uniqueName": {
+                    "type": "string"
+                },
+                "versions": {
+                    "items": {
+                        "$ref": "Version"
+                    },
+                    "type": "array"
+                },
+                "workDir": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "InternalDatabaseInstance": {
+            "id": "InternalDatabaseInstance",
+            "properties": {
+                "createTime": {
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "host": {
+                    "$ref": "InternalHost"
+                },
+                "instId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "instanceName": {
+                    "type": "string"
+                },
+                "listeners": {
+                    "description": "Non-SCAN listeners, i.e. Host and VIPs.",
+                    "items": {
+                        "$ref": "InternalListener"
+                    },
+                    "type": "array"
+                },
+                "params": {
+                    "items": {
+                        "$ref": "DatabaseParam"
+                    },
+                    "type": "array"
+                },
+                "services": {
+                    "items": {
+                        "$ref": "InternalService"
+                    },
+                    "type": "array"
+                },
+                "updateTime": {
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "InternalDisk": {
+            "description": "Storage available to a host.",
+            "id": "InternalDisk",
+            "properties": {
+                "capacity": {
+                    "description": "Capacity in GB.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "device": {
+                    "type": "string"
+                },
+                "diskGroup": {
+                    "description": "If used for ASM, a disk group that this volume is part of.",
+                    "type": "string"
+                },
+                "diskImageName": {
+                    "type": "string"
+                },
+                "diskImageProject": {
+                    "type": "string"
+                },
+                "diskName": {
+                    "type": "string"
+                },
+                "diskType": {
+                    "description": "Disk type: pd-standard or pd-ssd.",
+                    "type": "string"
+                },
+                "fileSystem": {
+                    "description": "If used for a cooked file system, a mount point.",
+                    "type": "string"
+                },
+                "mountOptions": {
+                    "type": "string"
+                },
+                "mountPoint": {
+                    "type": "string"
+                },
+                "zone": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "InternalHost": {
+            "id": "InternalHost",
+            "properties": {
+                "canIpForward": {
+                    "type": "boolean"
+                },
+                "containers": {
+                    "items": {
+                        "$ref": "Container"
+                    },
+                    "type": "array"
+                },
+                "createTime": {
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "disks": {
+                    "items": {
+                        "$ref": "InternalDisk"
+                    },
+                    "type": "array"
+                },
+                "hostName": {
+                    "type": "string"
+                },
+                "imageName": {
+                    "type": "string"
+                },
+                "imageProject": {
+                    "type": "string"
+                },
+                "limits": {
+                    "items": {
+                        "$ref": "Limit"
+                    },
+                    "type": "array"
+                },
+                "machineType": {
+                    "type": "string"
+                },
+                "metadata": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "type": "object"
+                },
+                "networks": {
+                    "items": {
+                        "$ref": "InternalNetwork"
+                    },
+                    "type": "array"
+                },
+                "updateTime": {
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "users": {
+                    "items": {
+                        "$ref": "User"
+                    },
+                    "type": "array"
+                },
+                "zone": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "InternalListener": {
+            "description": "Database Listeners.",
+            "id": "InternalListener",
+            "properties": {
+                "listenerName": {
+                    "type": "string"
+                },
+                "listenerType": {
+                    "enum": [
+                        "LISTENER_TYPE_UNSPECIFIED",
+                        "HOST",
+                        "VIP",
+                        "SCAN"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "local": {
+                    "type": "boolean"
+                },
+                "port": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "protocol": {
+                    "enum": [
+                        "PROTOCOL_UNSPECIFIED",
+                        "TCP",
+                        "TCPS",
+                        "IPC",
+                        "BEQUEATH"
+                    ],
+                    "enumDescriptions": [
+                        "Protocol is supposed to be predefined.\nUNSPECIFIED protocol is an anomaly.",
+                        "TCP protocol.",
+                        "TCP with SSL protocol.",
+                        "IPC protocol.",
+                        "Bequeath protocol."
+                    ],
+                    "type": "string"
+                },
+                "services": {
+                    "description": "Supported services.",
+                    "items": {
+                        "$ref": "InternalService"
+                    },
+                    "type": "array"
+                },
+                "state": {
+                    "enum": [
+                        "LISTENER_STATE_UNSPECIFIED",
+                        "UP",
+                        "DOWN",
+                        "LISTENER_STATE_ERROR"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "enum values use C++ scoping rules, meaning that enum values\nare siblings of their type, not children of it.\nTherefore an ERROR must be unique across all enums in this proto."
+                    ],
+                    "type": "string"
+                },
+                "tnsAdmin": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "InternalNetwork": {
+            "description": "Network interfaces available to a host.\nWith the exception of reserved IPs, at provisioning time only a subnet\nis specified with the rest of the attributes populated at a later time.",
+            "id": "InternalNetwork",
+            "properties": {
+                "interfaceIpAddress": {
+                    "type": "string"
+                },
+                "interfaceMask": {
+                    "type": "string"
+                },
+                "interfaceName": {
+                    "description": "E.g. eth0",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Network name.",
+                    "type": "string"
+                },
+                "reservedIpRange": {
+                    "type": "string"
+                },
+                "state": {
+                    "enum": [
+                        "UP",
+                        "DOWN",
+                        "ERROR",
+                        "UNAVAILABLE"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "subnetCidr": {
+                    "type": "string"
+                },
+                "subnetName": {
+                    "description": "Subnet name.",
+                    "type": "string"
+                },
+                "type": {
+                    "enum": [
+                        "PUBLIC",
+                        "PRIVATE"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "InternalService": {
+            "description": "Database Services offered by a specific instance.",
+            "id": "InternalService",
+            "properties": {
+                "serviceName": {
+                    "type": "string"
+                },
+                "state": {
+                    "enum": [
+                        "STATE_UNSPECIFIED",
+                        "PREFERRED",
+                        "AVAILABLE",
+                        "UNAVAILABLE"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Limit": {
+            "description": "PAM limit: soft, hard.",
+            "id": "Limit",
+            "properties": {
+                "hard": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "soft": {
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "ListLocationsResponse": {
+            "description": "The response message for Locations.ListLocations.",
+            "id": "ListLocationsResponse",
+            "properties": {
+                "locations": {
+                    "description": "A list of locations that matches the specified filter in the request.",
+                    "items": {
+                        "$ref": "Location"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "The standard List next-page token.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListOperationsResponse": {
+            "description": "The response message for Operations.ListOperations.",
+            "id": "ListOperationsResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "The standard List next-page token.",
+                    "type": "string"
+                },
+                "operations": {
+                    "description": "A list of operations that matches the specified filter in the request.",
+                    "items": {
+                        "$ref": "Operation"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListProducerDatabasesResponse": {
+            "description": "The response for producer database list API following OnePlatform list API.",
+            "id": "ListProducerDatabasesResponse",
+            "properties": {
+                "databases": {
+                    "items": {
+                        "$ref": "ProducerDatabase"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "type": "string"
+                },
+                "unreachable": {
+                    "description": "Locations that could not be reached.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Location": {
+            "description": "A resource that represents Google Cloud Platform location.",
+            "id": "Location",
+            "properties": {
+                "displayName": {
+                    "description": "The friendly name for this location, typically a nearby city name.\nFor example, \"Tokyo\".",
+                    "type": "string"
+                },
+                "labels": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Cross-service attributes for the location. For example\n\n    {\"cloud.googleapis.com/region\": \"us-east1\"}",
+                    "type": "object"
+                },
+                "locationId": {
+                    "description": "The canonical id for this location. For example: `\"us-east1\"`.",
+                    "type": "string"
+                },
+                "metadata": {
+                    "additionalProperties": {
+                        "description": "Properties of the object. Contains field @type with type URL.",
+                        "type": "any"
+                    },
+                    "description": "Service-specific metadata. For example the available capacity at the given\nlocation.",
+                    "type": "object"
+                },
+                "name": {
+                    "description": "Resource name for the location, which may vary between implementations.\nFor example: `\"projects/example-project/locations/us-east1\"`",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "LogConfig": {
+            "description": "LogConfig defines the log configuration container should use.",
+            "id": "LogConfig",
+            "properties": {
+                "configs": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Optional. Log configurable options.",
+                    "type": "object"
+                },
+                "driver": {
+                    "description": "Required. Log driver type.",
+                    "enum": [
+                        "DRIVER_UNSPECIFIED",
+                        "DRIVER_JOURNALD",
+                        "GCP_LOGS",
+                        "JSON_FILE",
+                        "FLUENTD",
+                        "ETW_LOGS"
+                    ],
+                    "enumDescriptions": [
+                        "Not initialized, invalid value.",
+                        "JOURNALD log. Writes log messages to journald. The journald daemon must\nbe running on the host machine.",
+                        "GCP log. Writing log message to Google Cloud Platform (GCP) Logging.",
+                        "JSON log. The logs are formatted as JSON.",
+                        "The logs are sent to fluentd logging agent.",
+                        "The logs are written via Windows Eventing Framework.\nOnly available on Windows hosts."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "LogsConfig": {
+            "description": "LogsConfig is the configuration object for changing settings related to\ninstance agent logging, like collection and reporting intervals.",
+            "id": "LogsConfig",
+            "properties": {
+                "structuredLogInterval": {
+                    "description": "Optional. The interval between consecutive log reports. This determines how\noften structured logs are pushed to chemist. If not provided, this will use\nthe log_batching_duration flag value, or 10 seconds if not provided.",
+                    "format": "google-duration",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MetricsConfig": {
+            "description": "MetricsConfig is the configuration object for changing settings related to\ninstance agent metrics collection and reporting.",
+            "id": "MetricsConfig",
+            "properties": {
+                "interval": {
+                    "description": "Optional. The interval between consecutive metrics reports. This affects\nhow often collected instance_agent metrics are pushed to chemist. If not\nprovided, this will use the flag \"metrics_collect_interval\", or 1 minute if\nnot provided.",
+                    "format": "google-duration",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MonitoredResource": {
+            "description": "MonitoredResource message is used by HealthMonitor to exchange information\non a monitored resource with the control plane owning that resource (i.e.\nSaaS service control plane behind CCFE). This includes receiving the list of\nresources to monitor from the SaaS service as well as reporting back status\nupdates on these resources to the SaaS service.",
+            "id": "MonitoredResource",
+            "properties": {
+                "id": {
+                    "$ref": "CSEResourceId",
+                    "description": "The id of the monitored resource"
+                },
+                "status": {
+                    "description": "Optional. The status of the resource if known.",
+                    "enum": [
+                        "UNKNOWN",
+                        "HEALTHY",
+                        "UNHEALTHY",
+                        "TIMEOUT"
+                    ],
+                    "enumDescriptions": [
+                        "Health status is unknown: not initialized or failed to retrieve.",
+                        "The resource is healthy.",
+                        "The resource is unhealthy.",
+                        "The resource is unresponsive."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "NetworkModeConfig": {
+            "description": "NetworkModeConfig defines network mode configurations for the container.",
+            "id": "NetworkModeConfig",
+            "properties": {
+                "identifier": {
+                    "description": "Optional. This field is used when <mode> is CONTAINER or CUSTOM.\nIn case of CONTAINER, identifier field is container name for shared\nnetwork.\nIn case of CUSTOM, identifier field is custom network name to which this\ncontainer should connect to.\nOtherwise, the identifier is ignored.\nSee network mode in docker document\n(https://docs.docker.com/engine/api/v1.29/#operation/ImageBuild) to know\nmore about NetworkMode setting.",
+                    "type": "string"
+                },
+                "mode": {
+                    "description": "Required. Network mode enum.",
+                    "enum": [
+                        "MODE_UNSPECIFIED",
+                        "BRIDGE",
+                        "HOST",
+                        "NONE",
+                        "CONTAINER",
+                        "CUSTOM"
+                    ],
+                    "enumDescriptions": [
+                        "Not initialized, invalid value.",
+                        "Bridge with host network\nOn Windows this is equivalent to the default \"nat\" network",
+                        "Share host's networking stack (most performant networking option)\nHost networking mode is not available on Windows.",
+                        "No networking for this container",
+                        "Use same networking as target container",
+                        "Use custom named network (specified externally)"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Operation": {
+            "description": "This resource represents a long-running operation that is the result of a\nnetwork API call.",
+            "id": "Operation",
+            "properties": {
+                "done": {
+                    "description": "If the value is `false`, it means the operation is still in progress.\nIf `true`, the operation is completed, and either `error` or `response` is\navailable.",
+                    "type": "boolean"
+                },
+                "error": {
+                    "$ref": "Status",
+                    "description": "The error result of the operation in case of failure or cancellation."
+                },
+                "metadata": {
+                    "additionalProperties": {
+                        "description": "Properties of the object. Contains field @type with type URL.",
+                        "type": "any"
+                    },
+                    "description": "Service-specific metadata associated with the operation.  It typically\ncontains progress information and common metadata such as create time.\nSome services might not provide such metadata.  Any method that returns a\nlong-running operation should document the metadata type, if any.",
+                    "type": "object"
+                },
+                "name": {
+                    "description": "The server-assigned name, which is only unique within the same service that\noriginally returns it. If you use the default HTTP mapping, the\n`name` should have the format of `operations/some/unique/name`.",
+                    "type": "string"
+                },
+                "response": {
+                    "additionalProperties": {
+                        "description": "Properties of the object. Contains field @type with type URL.",
+                        "type": "any"
+                    },
+                    "description": "The normal response of the operation in case of success.  If the original\nmethod returns no data on success, such as `Delete`, the response is\n`google.protobuf.Empty`.  If the original method is standard\n`Get`/`Create`/`Update`, the response should be the resource.  For other\nmethods, the response should have the type `XxxResponse`, where `Xxx`\nis the original method name.  For example, if the original method name\nis `TakeSnapshot()`, the inferred response type is\n`TakeSnapshotResponse`.",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "OperationMetadata": {
+            "description": "Represents the metadata of the long-running operation.",
+            "id": "OperationMetadata",
+            "properties": {
+                "apiVersion": {
+                    "description": "[Output only] API version used to start the operation.",
+                    "type": "string"
+                },
+                "cancelRequested": {
+                    "description": "[Output only] Identifies whether the user has requested cancellation\nof the operation. Operations that have successfully been cancelled\nhave Operation.error value with a google.rpc.Status.code of 1,\ncorresponding to `Code.CANCELLED`.",
+                    "type": "boolean"
+                },
+                "createTime": {
+                    "description": "[Output only] The time the operation was created.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "endTime": {
+                    "description": "[Output only] The time the operation finished running.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "statusDetail": {
+                    "description": "[Output only] Human-readable status of the operation, if any.",
+                    "type": "string"
+                },
+                "target": {
+                    "description": "[Output only] Server-defined resource path for the target of the operation.",
+                    "type": "string"
+                },
+                "verb": {
+                    "description": "[Output only] Name of the verb executed by the operation.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PidModeConfig": {
+            "description": "PidModeConfig defines the PID namespace mode for the container.",
+            "id": "PidModeConfig",
+            "properties": {
+                "containerName": {
+                    "description": "Optional. Only valid when <mode> is CONTAINER. It tells this container\nwill use PID namespace of another container with the name of\n<containerName>. Otherwise the field will be ignored.",
+                    "type": "string"
+                },
+                "mode": {
+                    "description": "Required. PID mode enum.",
+                    "enum": [
+                        "MODE_UNSPECIFIED",
+                        "HOST",
+                        "CONTAINER"
+                    ],
+                    "enumDescriptions": [
+                        "Not initialized, invalid value.",
+                        "Share the host's PID namespace inside container.",
+                        "Share another container's PID namespace."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ProducerDatabase": {
+            "description": "A producer database embeds the public database and adds HealthMonitoring\nresources for integration with HM. It can also add other messages for\nintegration with backend services such as Rollouts.",
+            "id": "ProducerDatabase",
+            "properties": {
+                "createTime": {
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "healthMonitoring": {
+                    "$ref": "HealthMonitoring",
+                    "description": "The health monitoring information for this database including list of\nmonitored resources that need to be tracked by Health Monitor."
+                },
+                "internalDatabase": {
+                    "$ref": "InternalDatabase",
+                    "description": "CLH-side internal representation of a Dodona database resource."
+                },
+                "labels": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "type": "object"
+                },
+                "name": {
+                    "description": "The name of the database (public and internal databases use the same name).",
+                    "type": "string"
+                },
+                "rolloutMetadata": {
+                    "$ref": "RolloutMetadata",
+                    "description": "The metadata used by Rollout."
+                },
+                "updateTime": {
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Project": {
+            "description": "Project is the metadata that CCFE would pass along for\ntenant, consumer and producer projects.",
+            "id": "Project",
+            "properties": {
+                "consumer": {
+                    "$ref": "ProjectMetadata",
+                    "description": "Consumer is the project owner of the public resource (always required)."
+                },
+                "producer": {
+                    "$ref": "ProjectMetadata",
+                    "description": "Producer is the project where producer resources, not assigned to\nother projects, are created (optional)."
+                },
+                "tenant": {
+                    "$ref": "ProjectMetadata",
+                    "description": "Tenant is the project where tenant resources are created (optional)."
+                }
+            },
+            "type": "object"
+        },
+        "ProjectMetadata": {
+            "description": "ProjectMetadata identifies a GCP project.",
+            "id": "ProjectMetadata",
+            "properties": {
+                "obfuscatedServiceAccount": {
+                    "type": "string"
+                },
+                "projectName": {
+                    "type": "string"
+                },
+                "projectNumber": {
+                    "format": "int64",
+                    "type": "string"
+                },
+                "serviceAccount": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RebootContainerMitigation": {
+            "description": "RebootContainerMitigation defines mitigation action which reboots a given\ncontainer.",
+            "id": "RebootContainerMitigation",
+            "properties": {
+                "containerName": {
+                    "description": "Required. Container name to be rebooted. It has to match the container name\ndefined in ContainerConfig.",
+                    "type": "string"
+                },
+                "cooldown": {
+                    "description": "Optional. Cooldown defines the minimum duration in seconds IA should wait\nto reboot the same container from the last time. Default value is 1\nminute. If service producer wants to specify the value, it has to be\nbigger than the default one. If it is not provided, the default value will\nbe used.",
+                    "format": "google-duration",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RepairPolicy": {
+            "description": "RepairPolicy defines the policy of repair criteria and how IA takes\nmitigation action.\n\nFor example, service producer delegates IA to reboot container 'health_agent'\nonce health metric with scope 'memcache' and name 'healthagent' is non\nHEALTHY for consecutive 3 times. The DataPlaneRepairPolicy is like:\n\nRepairPolicy{\n  Scope:              \"memcache\",\n  Name:               \"healthagent\",\n  UnhealthyThreshold: 3,\n  Mitigation: &iapb.RepairPolicy_RebootContainer{\n  RebootContainer: &iapb.RebootContainerMitigation{\n    ContainerName: \"health_agent\",\n    Cooldown: &dpb.Duration{\n      Seconds: 60 * 5,\n      },\n    },\n  },\n }",
+            "id": "RepairPolicy",
+            "properties": {
+                "name": {
+                    "description": "Required. Health metric name in the given scope.",
+                    "type": "string"
+                },
+                "rebootContainer": {
+                    "$ref": "RebootContainerMitigation",
+                    "description": "The mitigation simply reboots given container when repair criteria is\nmet."
+                },
+                "scope": {
+                    "description": "Required. Scope of health metric.",
+                    "type": "string"
+                },
+                "unhealthyThreshold": {
+                    "description": "Required. The number of consecutive non HEALTHY status before IA takes the\nmitigation action. The valid value is greater than 0.\nBefore we expose IA polling interval as configurable parameter, now IA\ncollects health status from downstream agents in every 3 seconds.",
+                    "format": "uint32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "ReportHealthRequest": {
+            "description": "The request for ReportHealth API used by HealthMonitor to report health\nstatus change on a monitored resource.",
+            "id": "ReportHealthRequest",
+            "properties": {
+                "resource": {
+                    "$ref": "MonitoredResource",
+                    "description": "The id and current known status of the monitored resource."
+                }
+            },
+            "type": "object"
+        },
+        "ResourceLimits": {
+            "description": "Defines the resource limits of container.\nExamples:\n 1. Hard memory limit of 100 MB\n     ResourceLimits  { MaxMemoryBytes: 100*1024*1024 }\n 2. Hard memory limit of 1GB and 0.5 of CPU access\n     ResourceLimits  {\n         MaxMemoryBytes: 100*1024*1024,\n         Cpus: 0.5\n     }",
+            "id": "ResourceLimits",
+            "properties": {
+                "cpus": {
+                    "description": "Number of cpus the container have access to.\nMinimum allowed limit is 0.01.\nZero means unlimited CPU access.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "maxMemoryBytes": {
+                    "description": "Hard memory limit of container in bytes.\nIf container tries to use more than the limit it will be killed.\nMinimum allowed limit is 4 megabytes.\nZero means unlimited memory.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "swapMemoryConfig": {
+                    "$ref": "SwapMemoryConfig",
+                    "description": "Swap memory related configs of container. Not supported on Windows."
+                }
+            },
+            "type": "object"
+        },
+        "RestartConfig": {
+            "description": "RestartConfig defines the restart policy for the container.",
+            "id": "RestartConfig",
+            "properties": {
+                "policy": {
+                    "description": "Required. Container restart policy enum.",
+                    "enum": [
+                        "POLICY_UNSPECIFIED",
+                        "ALWAYS_RUNNING",
+                        "DO_NOT_RESTART",
+                        "ONETIME"
+                    ],
+                    "enumDescriptions": [
+                        "Not initialized, invalid value.",
+                        "The container should be running all the time. If it is stopped somehow,\nthe container will always be restarted.\nWhen RestartPolicyType is set to ALWAYS_RUNNING, Instance Agent will set\ndocker container\u2019s RestartPolicy to \u2018always\u2019. Docker will keep restarting\nthe container once stopped. If the container is not running, an UNHEALTHY\nHealthMetric will be reported back to CLH.",
+                        "The container won\u2019t be restarted if it\u2019s stopped somehow.\nWhen RestartPolicyType is set to DO_NOT_RESTART, Instance Agent will\nleave docker RestartPolicy empty for target container - docker won\u2019t\nrestart the container if it stops somehow. If the container stops, an\nUNEAHLTHY HealthMetric will be reported back to CLH.",
+                        "The container won\u2019t be restarted if it\u2019s stopped somehow. Besides health\ncheck won\u2019t report status for this container. ONETIME is majorly for the\nscenario that SP wants to launch container that runs temporary script\njust for once.  When RestartPolicyType is set to ONETIME, Instance Agent\nwill leave docker RestartPolicy empty for target container. Container\nwon\u2019t be restarted anyhow.  HealthMetric will be HEALTHY if exit code is\n0 and UNHEALTHY if exit code is non 0 - This is the major difference from\nNOT_RESTART policy."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RolloutMetadata": {
+            "description": "Defines rollout metadata that control plane service need to include on\ndata plane resource proto in order to use SSA Rollout. Service producer\nneeds to include this message as a top level field, under the name as\n'rollout_metadata', in producer resource proto.\nNEXT ID: 6",
+            "id": "RolloutMetadata",
+            "properties": {
+                "forceUpdate": {
+                    "description": "Whether to force update resource. This shall be patched via\nResourceConfig.json_resource by SSA Rollout user. RolloutManager does\nnot add or modify this field.",
+                    "type": "boolean"
+                },
+                "isHealthy": {
+                    "description": "Whether the resource is healthy. This shall be updated by control plane\nservice. RolloutManager does not implicitly add or modify this field.",
+                    "type": "boolean"
+                },
+                "lastConfigVersionApplied": {
+                    "description": "The ID of the last ResourceConfig applied to the resource. This field is\nset and patched by RolloutManager.",
+                    "type": "string"
+                },
+                "lastRolloutApplied": {
+                    "description": "The ID of the last RolloutConfig applied to the resource. This field is\nset and patched by RolloutManager.",
+                    "type": "string"
+                },
+                "softwareDeploymentReference": {
+                    "$ref": "SoftwareDeploymentReference",
+                    "description": "The reference to SoftwareDeploymentVersion. This shall be set via\nResourceConfig, and patched via RolloutManager. RolloutManager does not\nimplicitly add or modify this field."
+                }
+            },
+            "type": "object"
+        },
+        "SoftwareDeploymentConfig": {
+            "description": "SoftwareDeploymentConfig defines what and how to run software on individual\ndata plane instance.",
+            "id": "SoftwareDeploymentConfig",
+            "properties": {
+                "customData": {
+                    "additionalProperties": {
+                        "description": "Properties of the object. Contains field @type with type URL.",
+                        "type": "any"
+                    },
+                    "description": "Optional. Service specific custom config. For example, filer needs a map\nfrom customer sku to machine type used to create host. The map needs to be\nadjustable through deployment for producer to optimize cost or performance,\netc. Filer can store this map in custom_config for such purpose.",
+                    "type": "object"
+                },
+                "hostSpec": {
+                    "$ref": "HostSpec",
+                    "description": "Required. Specification of the host instance that software will run upon."
+                },
+                "iaConfig": {
+                    "$ref": "IAConfig",
+                    "description": "Optional. The instance agent configuration for controlling or altering\ninstance agent behaviors."
+                },
+                "name": {
+                    "description": "Required. Unique name for this SoftwareDeploymentConfig. The name should\nuniquely identify this SoftwareDeploymentConfig object within\nSoftwareDeploymentVersion.\nFor example, \"basic tier\".",
+                    "type": "string"
+                },
+                "softwareSpecs": {
+                    "description": "Required. A list of specs available to the entity.\n\u201cHow to run this software on a VM for this entity type\u201d",
+                    "items": {
+                        "$ref": "SoftwareSpec"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "SoftwareDeploymentReference": {
+            "description": "SoftwareDeploymentReference refers to a SoftwareDeploymentVersion for\ndata plane creation or update.",
+            "id": "SoftwareDeploymentReference",
+            "properties": {
+                "softwareVersion": {
+                    "description": "The name of the SoftwareDeploymentVersion to use for deployment.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SoftwareDeploymentVersion": {
+            "description": "SoftwareDeploymentVersion defines all definitive software deployment\nconfigurations of one particular version.",
+            "id": "SoftwareDeploymentVersion",
+            "properties": {
+                "name": {
+                    "description": "Required. The unique name to identify the software deployment version.",
+                    "type": "string"
+                },
+                "softwareDeploymentConfigs": {
+                    "description": "Required. A list of deployment configurations available of this software\ndeployment version. For example, software deployment config can be used to\ndescribe tiers for one service, like one SoftwareDeploymentConfig for\n'Basic Tier' and SoftwareDeploymentConfig for 'Standard Tier'. Another\nexample is CloudSQL can have one SoftwareDeploymentConfig for mysql & one\nSoftwareDeploymentConfig for PostgreSQL under one version.\nIn other cases, SoftwareDeploymentVersion might only have one\nSoftwareDeploymentConfig.",
+                    "items": {
+                        "$ref": "SoftwareDeploymentConfig"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "SoftwareSpec": {
+            "description": "SoftwareSpec defines one software that may run on the data plane\ninstance (with selection logic in control plane for which to use).",
+            "id": "SoftwareSpec",
+            "properties": {
+                "classification": {
+                    "description": "Required. What type of software is this? Classifying the software spec\nallows implementers to decide how to handle changes in the\nsoftware.",
+                    "enum": [
+                        "CLASSIFICATION_UNSET",
+                        "HELPER_SERVICE",
+                        "CRITICAL_SERVICE",
+                        "BOOTSTRAP_AGENT"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "Helper service is a service which runs after startup, and is\nmeant to provide functionality that does not directly affect\nSLO for the hosted service. Services classified as a \"helper\nservice\" should tolerate being restarted without affecting\nquality of service for critical services on the host.",
+                        "This is a service which, if turned off, would cause a customer\noutage. For example, the redis container service being upgraded\nwould cause an outage at the individual VM level.",
+                        "This is an agent binary which must be running on the machine at\nboot time, in order to bootstrap some functionality for the\nrest of the service.\n\nFor example, Cloud Redis requires the common Service Agent\nbinary to be running at boot time so it can set up critical\nservices/helper services on the host, via commands from the\ncontrol plane."
+                    ],
+                    "type": "string"
+                },
+                "configEndpoint": {
+                    "$ref": "Endpoint",
+                    "description": "Optional. The endpoint of software's config agent which is used to\nconfigure the software."
+                },
+                "container": {
+                    "$ref": "Container",
+                    "description": "Required. Container configuration of how to run the software."
+                },
+                "description": {
+                    "description": "Optional. Friendly description for this software spec. Might include stuff\nlike build time, release information, etc. [Consider adding more\nfields for convenience]",
+                    "type": "string"
+                },
+                "healthCheckEndpoint": {
+                    "$ref": "Endpoint",
+                    "description": "Optional. The endpoint of software's health agent which is used to monitor\nthe software."
+                },
+                "name": {
+                    "description": "Required. Identifier for this SoftwareSpec",
+                    "type": "string"
+                },
+                "repairPolicy": {
+                    "$ref": "RepairPolicy",
+                    "description": "Optional. Data plane local repair policy. It is used to tell IA\nrebooting/fixing agents automatically once repair criteria is met. Data\nplane repair policy can be synergized with CLH centralized repair logic or\nMIG auto repair. For example, service producer leverages MIG auto repair\nonce the service or IA is unhealthy, but delegate IA to reboot\nhelper agents once they are UNHEALTHY. If service producer doesn't expect\nIA to take any repair action on data plane, leave it as empty."
+                },
+                "requiredMetadataKeys": {
+                    "description": "Optional. Required metadata keys of host instance required to run the\nsoftware. It is mainly used for validation before pushing the config out.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Status": {
+            "description": "The `Status` type defines a logical error model that is suitable for\ndifferent programming environments, including REST APIs and RPC APIs. It is\nused by [gRPC](https://github.com/grpc). The error model is designed to be:\n\n- Simple to use and understand for most users\n- Flexible enough to meet unexpected needs\n\n# Overview\n\nThe `Status` message contains three pieces of data: error code, error\nmessage, and error details. The error code should be an enum value of\ngoogle.rpc.Code, but it may accept additional error codes if needed.  The\nerror message should be a developer-facing English message that helps\ndevelopers *understand* and *resolve* the error. If a localized user-facing\nerror message is needed, put the localized message in the error details or\nlocalize it in the client. The optional error details may contain arbitrary\ninformation about the error. There is a predefined set of error detail types\nin the package `google.rpc` that can be used for common error conditions.\n\n# Language mapping\n\nThe `Status` message is the logical representation of the error model, but it\nis not necessarily the actual wire format. When the `Status` message is\nexposed in different client libraries and different wire protocols, it can be\nmapped differently. For example, it will likely be mapped to some exceptions\nin Java, but more likely mapped to some error codes in C.\n\n# Other uses\n\nThe error model and the `Status` message can be used in a variety of\nenvironments, either with or without APIs, to provide a\nconsistent developer experience across different environments.\n\nExample uses of this error model include:\n\n- Partial errors. If a service needs to return partial errors to the client,\n    it may embed the `Status` in the normal response to indicate the partial\n    errors.\n\n- Workflow errors. A typical workflow has multiple steps. Each step may\n    have a `Status` message for error reporting.\n\n- Batch operations. If a client uses batch request and batch response, the\n    `Status` message should be used directly inside batch response, one for\n    each error sub-response.\n\n- Asynchronous operations. If an API call embeds asynchronous operation\n    results in its response, the status of those operations should be\n    represented directly using the `Status` message.\n\n- Logging. If some API errors are stored in logs, the message `Status` could\n    be used directly after any stripping needed for security/privacy reasons.",
+            "id": "Status",
+            "properties": {
+                "code": {
+                    "description": "The status code, which should be an enum value of google.rpc.Code.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "details": {
+                    "description": "A list of messages that carry the error details.  There is a common set of\nmessage types for APIs to use.",
+                    "items": {
+                        "additionalProperties": {
+                            "description": "Properties of the object. Contains field @type with type URL.",
+                            "type": "any"
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "message": {
+                    "description": "A developer-facing error message, which should be in English. Any\nuser-facing error message should be localized and sent in the\ngoogle.rpc.Status.details field, or localized by the client.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SwapMemoryConfig": {
+            "description": "Swap memory related configs of container. Not supported on Windows.",
+            "id": "SwapMemoryConfig",
+            "properties": {
+                "customSwappiness": {
+                    "description": "Set this flag to true if container needs a custom swappiness value.\nSwappiness field is not respected without setting this flag.",
+                    "type": "boolean"
+                },
+                "maxSwapMemoryBytes": {
+                    "description": "Swap memory limit of container in bytes\nIts interpretation depends on max_memory_bytes\nIf it is unset (zero value) container can use twice as much\n   max_memory_bytes as swap\nIf it is set to a positive integer container will have access to\n   (swap_memory_bytes-max_memory_bytes) swap area\n   if limits are set to max_memory_bytes=50M, swap_memory_bytes=80M\n   then container will have 30M (80M-50M) swap area.\nIf it is set to -1 container will have unlimited swap area.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "swappiness": {
+                    "description": "Swappiness percentage of container.\nSet custom_swappiness_value flag to true or it will be considered unset.\nIf it is unset the value is inherited from host machine. On linux kernel\nthis value is 60 by default.\nIf it is set to 0 anonymous page swapping is disabled.\nIf it is set to 100 then all anonymous pages are marked as swappable.\n\nRemember there's a performance penalty of moving pages between main memory\nand swap (disk).",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateDataPlaneSoftware": {
+            "id": "UpdateDataPlaneSoftware",
+            "properties": {
+                "dataPlaneVersion": {
+                    "$ref": "SoftwareDeploymentVersion"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateProducerDatabaseRequest": {
+            "description": "Request for UpdateProducerDatabase.",
+            "id": "UpdateProducerDatabaseRequest",
+            "properties": {
+                "database": {
+                    "$ref": "ProducerDatabase",
+                    "description": "Required."
+                },
+                "updateMask": {
+                    "description": "Required. Mask of fields to update.",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "User": {
+            "description": "Linux user.",
+            "id": "User",
+            "properties": {
+                "comment": {
+                    "type": "string"
+                },
+                "createUserCommands": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "defaultShell": {
+                    "type": "string"
+                },
+                "gid": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "groupName": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "uid": {
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "Version": {
+            "description": "Database Software Versions, e.g. Base version, release, PSUs, CPUs,\none-off patches, merge patches, bundle patches, etc.",
+            "id": "Version",
+            "properties": {
+                "createTime": {
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "state": {
+                    "enum": [
+                        "VERSION_STATE_UNSPECIFIED",
+                        "INSTALLED",
+                        "ROLLEDBACK",
+                        "STAGED"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "updateTime": {
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "versionName": {
+                    "type": "string"
+                },
+                "versionType": {
+                    "enum": [
+                        "VERSION_TYPE_UNSPECIFIED",
+                        "BASE",
+                        "PSU",
+                        "CPU",
+                        "ONEOFF",
+                        "MERGE",
+                        "BUNDLE"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Volume": {
+            "description": "Defines the volume to be mounted in the container.",
+            "id": "Volume",
+            "properties": {
+                "hostPath": {
+                    "description": "Required. Path on the instance (for example, GCE VM).",
+                    "type": "string"
+                },
+                "mountPath": {
+                    "description": "Required. Path on the container.",
+                    "type": "string"
+                },
+                "readOnly": {
+                    "description": "Optional. The volume is read-only or not?",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Dodona Producer API Staging",
+    "version": "v1internal",
+    "version_module": true
+}

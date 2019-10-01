@@ -1,0 +1,1050 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/cloud-platform": {
+                    "description": "View and manage your data across Google Cloud Platform services"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://staging-gkehub-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "GKE Hub Producer",
+    "description": "",
+    "discoveryVersion": "v1",
+    "documentationLink": "https://cloud.google.com/gke-on-prem/docs/latest/how-to/connect/registering-a-user-cluster",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "gkehub_pa:v1alpha1",
+    "kind": "discovery#restDescription",
+    "name": "gkehub_pa",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "projects": {
+            "resources": {
+                "locations": {
+                    "methods": {
+                        "get": {
+                            "description": "Gets information about a location.",
+                            "flatPath": "v1alpha1/projects/{projectsId}/locations/{locationsId}",
+                            "httpMethod": "GET",
+                            "id": "gkehub_pa.projects.locations.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Resource name for the location.",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/locations/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha1/{+name}",
+                            "response": {
+                                "$ref": "Location"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "list": {
+                            "description": "Lists information about the supported locations for this service.",
+                            "flatPath": "v1alpha1/projects/{projectsId}/locations",
+                            "httpMethod": "GET",
+                            "id": "gkehub_pa.projects.locations.list",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "filter": {
+                                    "description": "The standard list filter.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "description": "The resource that owns the locations collection, if applicable.",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "pageSize": {
+                                    "description": "The standard list page size.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "The standard list page token.",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha1/{+name}/locations",
+                            "response": {
+                                "$ref": "ListLocationsResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        }
+                    },
+                    "resources": {
+                        "global": {
+                            "resources": {
+                                "features": {
+                                    "methods": {
+                                        "list": {
+                                            "description": "Lists Features in all projects and locations.",
+                                            "flatPath": "v1alpha1/projects/{projectsId}/locations/global/features",
+                                            "httpMethod": "GET",
+                                            "id": "gkehub_pa.projects.locations.global.features.list",
+                                            "parameterOrder": [
+                                                "parent"
+                                            ],
+                                            "parameters": {
+                                                "filter": {
+                                                    "description": "Lists the Features that match the filter expression.",
+                                                    "location": "query",
+                                                    "type": "string"
+                                                },
+                                                "orderBy": {
+                                                    "description": "Field to use to sort the list.",
+                                                    "location": "query",
+                                                    "type": "string"
+                                                },
+                                                "pageSize": {
+                                                    "description": "When requesting a 'page' of resources, `page_size` specifies number of\nresources to return. If unspecified or set to 0, it defaults to 500.",
+                                                    "format": "int32",
+                                                    "location": "query",
+                                                    "type": "integer"
+                                                },
+                                                "pageToken": {
+                                                    "description": "Token returned by previous call to `ListFeatures` which specifies\nthe position in the list from where to continue listing the resources.",
+                                                    "location": "query",
+                                                    "type": "string"
+                                                },
+                                                "parent": {
+                                                    "description": "The parent in whose context the features are listed. The parent value is\nin the format: `projects/[project_id]/locations/global`.",
+                                                    "location": "path",
+                                                    "pattern": "^projects/[^/]+/locations/global$",
+                                                    "required": true,
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "path": "v1alpha1/{+parent}/features",
+                                            "response": {
+                                                "$ref": "ListFeaturesResponse"
+                                            },
+                                            "scopes": [
+                                                "https://www.googleapis.com/auth/cloud-platform"
+                                            ]
+                                        },
+                                        "patch": {
+                                            "description": "Updates the status of an existing Feature",
+                                            "flatPath": "v1alpha1/projects/{projectsId}/locations/global/features/{featuresId}",
+                                            "httpMethod": "PATCH",
+                                            "id": "gkehub_pa.projects.locations.global.features.patch",
+                                            "parameterOrder": [
+                                                "name"
+                                            ],
+                                            "parameters": {
+                                                "name": {
+                                                    "description": "The feature resource name in the format:\n`projects/[project_id]/locations/global/features/[feature_id]`",
+                                                    "location": "path",
+                                                    "pattern": "^projects/[^/]+/locations/global/features/[^/]+$",
+                                                    "required": true,
+                                                    "type": "string"
+                                                },
+                                                "updateMask": {
+                                                    "description": "Mask of fields to update. At least one field path must be specified in this\nmask.",
+                                                    "format": "google-fieldmask",
+                                                    "location": "query",
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "path": "v1alpha1/{+name}",
+                                            "request": {
+                                                "$ref": "FeatureState"
+                                            },
+                                            "response": {
+                                                "$ref": "Operation"
+                                            },
+                                            "scopes": [
+                                                "https://www.googleapis.com/auth/cloud-platform"
+                                            ]
+                                        }
+                                    }
+                                },
+                                "memberships": {
+                                    "methods": {
+                                        "get": {
+                                            "description": "Get details of a single Membership.",
+                                            "flatPath": "v1alpha1/projects/{projectsId}/locations/global/memberships/{membershipsId}",
+                                            "httpMethod": "GET",
+                                            "id": "gkehub_pa.projects.locations.global.memberships.get",
+                                            "parameterOrder": [
+                                                "name"
+                                            ],
+                                            "parameters": {
+                                                "name": {
+                                                    "description": "The Membership resource name in the format:\n`projects/[project_number]/locations/global/memberships/[membership_id]`",
+                                                    "location": "path",
+                                                    "pattern": "^projects/[^/]+/locations/global/memberships/[^/]+$",
+                                                    "required": true,
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "path": "v1alpha1/{+name}",
+                                            "response": {
+                                                "$ref": "ProducerMembership"
+                                            },
+                                            "scopes": [
+                                                "https://www.googleapis.com/auth/cloud-platform"
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "memberships": {
+                            "methods": {
+                                "list": {
+                                    "description": "Lists Memberships in all projects and locations.",
+                                    "flatPath": "v1alpha1/projects/{projectsId}/locations/{locationsId}/memberships",
+                                    "httpMethod": "GET",
+                                    "id": "gkehub_pa.projects.locations.memberships.list",
+                                    "parameterOrder": [
+                                        "parent"
+                                    ],
+                                    "parameters": {
+                                        "filter": {
+                                            "description": "Lists the Memberships that match the filter expression.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "orderBy": {
+                                            "description": "Field to use to sort the list.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "pageSize": {
+                                            "description": "When requesting a 'page' of resources, `page_size` specifies number of\nresources to return. If unspecified or set to 0, it defaults to 500.",
+                                            "format": "int32",
+                                            "location": "query",
+                                            "type": "integer"
+                                        },
+                                        "pageToken": {
+                                            "description": "Token returned by previous call to `ListMemberships` which specifies\nthe position in the list from where to continue listing the resources.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "parent": {
+                                            "description": "The parent in whose context the memberships are listed. The parent value is\nin the format: `projects/[project_id]/locations/global`.",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/locations/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1alpha1/{+parent}/memberships",
+                                    "response": {
+                                        "$ref": "ListMembershipsResponse"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                }
+                            }
+                        },
+                        "operations": {
+                            "methods": {
+                                "cancel": {
+                                    "description": "Starts asynchronous cancellation on a long-running operation.  The server\nmakes a best effort to cancel the operation, but success is not\nguaranteed.  If the server doesn't support this method, it returns\n`google.rpc.Code.UNIMPLEMENTED`.  Clients can use\nOperations.GetOperation or\nother methods to check whether the cancellation succeeded or whether the\noperation completed despite cancellation. On successful cancellation,\nthe operation is not deleted; instead, it becomes an operation with\nan Operation.error value with a google.rpc.Status.code of 1,\ncorresponding to `Code.CANCELLED`.",
+                                    "flatPath": "v1alpha1/projects/{projectsId}/locations/{locationsId}/operations/{operationsId}:cancel",
+                                    "httpMethod": "POST",
+                                    "id": "gkehub_pa.projects.locations.operations.cancel",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "name": {
+                                            "description": "The name of the operation resource to be cancelled.",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/locations/[^/]+/operations/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1alpha1/{+name}:cancel",
+                                    "request": {
+                                        "$ref": "CancelOperationRequest"
+                                    },
+                                    "response": {
+                                        "$ref": "Empty"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                },
+                                "delete": {
+                                    "description": "Deletes a long-running operation. This method indicates that the client is\nno longer interested in the operation result. It does not cancel the\noperation. If the server doesn't support this method, it returns\n`google.rpc.Code.UNIMPLEMENTED`.",
+                                    "flatPath": "v1alpha1/projects/{projectsId}/locations/{locationsId}/operations/{operationsId}",
+                                    "httpMethod": "DELETE",
+                                    "id": "gkehub_pa.projects.locations.operations.delete",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "name": {
+                                            "description": "The name of the operation resource to be deleted.",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/locations/[^/]+/operations/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1alpha1/{+name}",
+                                    "response": {
+                                        "$ref": "Empty"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                },
+                                "get": {
+                                    "description": "Gets the latest state of a long-running operation.  Clients can use this\nmethod to poll the operation result at intervals as recommended by the API\nservice.",
+                                    "flatPath": "v1alpha1/projects/{projectsId}/locations/{locationsId}/operations/{operationsId}",
+                                    "httpMethod": "GET",
+                                    "id": "gkehub_pa.projects.locations.operations.get",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "name": {
+                                            "description": "The name of the operation resource.",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/locations/[^/]+/operations/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1alpha1/{+name}",
+                                    "response": {
+                                        "$ref": "Operation"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                },
+                                "list": {
+                                    "description": "Lists operations that match the specified filter in the request. If the\nserver doesn't support this method, it returns `UNIMPLEMENTED`.\n\nNOTE: the `name` binding allows API services to override the binding\nto use different resource name schemes, such as `users/*/operations`. To\noverride the binding, API services can add a binding such as\n`\"/v1/{name=users/*}/operations\"` to their service configuration.\nFor backwards compatibility, the default name includes the operations\ncollection id, however overriding users must ensure the name binding\nis the parent resource, without the operations collection id.",
+                                    "flatPath": "v1alpha1/projects/{projectsId}/locations/{locationsId}/operations",
+                                    "httpMethod": "GET",
+                                    "id": "gkehub_pa.projects.locations.operations.list",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "filter": {
+                                            "description": "The standard list filter.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "name": {
+                                            "description": "The name of the operation's parent resource.",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/locations/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "pageSize": {
+                                            "description": "The standard list page size.",
+                                            "format": "int32",
+                                            "location": "query",
+                                            "type": "integer"
+                                        },
+                                        "pageToken": {
+                                            "description": "The standard list page token.",
+                                            "location": "query",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1alpha1/{+name}/operations",
+                                    "response": {
+                                        "$ref": "ListOperationsResponse"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190911",
+    "rootUrl": "https://staging-gkehub-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "AuthorizerFeatureSpec": {
+            "id": "AuthorizerFeatureSpec",
+            "properties": {},
+            "type": "object"
+        },
+        "AuthorizerFeatureState": {
+            "id": "AuthorizerFeatureState",
+            "properties": {},
+            "type": "object"
+        },
+        "CancelOperationRequest": {
+            "description": "The request message for Operations.CancelOperation.",
+            "id": "CancelOperationRequest",
+            "properties": {},
+            "type": "object"
+        },
+        "Empty": {
+            "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+            "id": "Empty",
+            "properties": {},
+            "type": "object"
+        },
+        "Feature": {
+            "description": "Feature represents the settings and status of any feature.",
+            "id": "Feature",
+            "properties": {
+                "authorizerFeatureSpec": {
+                    "$ref": "AuthorizerFeatureSpec"
+                },
+                "createTime": {
+                    "description": "Output only. Timestamp for when the Feature was created.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "deleteTime": {
+                    "description": "Output only. Timestamp for when the Feature was deleted.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "An optional description of the feature, limited to 2048 characters.",
+                    "type": "string"
+                },
+                "featureState": {
+                    "$ref": "FeatureState",
+                    "description": "Output only. State of the resource itself."
+                },
+                "labels": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "GCP labels for this feature.",
+                    "type": "object"
+                },
+                "meteringFeatureSpec": {
+                    "$ref": "MeteringFeatureSpec"
+                },
+                "name": {
+                    "description": "Output only. The unique name of this feature resource in the format:\n`projects/[project_id]/locations/global/features/[feature_id]`.",
+                    "type": "string"
+                },
+                "servicemeshFeatureSpec": {
+                    "$ref": "ServiceMeshFeatureSpec"
+                },
+                "updateTime": {
+                    "description": "Output only. Timestamp for when the Feature was last updated.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FeatureState": {
+            "description": "FeatureState describes the status of any feature.",
+            "id": "FeatureState",
+            "properties": {
+                "details": {
+                    "$ref": "FeatureStateDetails",
+                    "description": "Aggregate status message of the feature."
+                },
+                "detailsByMembership": {
+                    "additionalProperties": {
+                        "$ref": "FeatureStateDetails"
+                    },
+                    "description": "Messages pertaining to the current status of the feature for a given\nmember, keyed by the fully-qualified member name. Example member name\nlooks like `projects/foo-proj/locations/global/memberships/bar`.\nThis is scoped to feature-level messages (e.g. CSM state on clusters)",
+                    "type": "object"
+                },
+                "lifecycleState": {
+                    "enum": [
+                        "LIFECYCLE_STATE_UNSPECIFIED",
+                        "ENABLING",
+                        "ENABLED",
+                        "DISABLING",
+                        "UPDATING"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FeatureStateDetails": {
+            "description": "FeatureStateDetails is a semi-structured status message for a declarative\nresource in the API.",
+            "id": "FeatureStateDetails",
+            "properties": {
+                "authorizerFeatureState": {
+                    "$ref": "AuthorizerFeatureState"
+                },
+                "code": {
+                    "description": "The code indicates machine-interpretable status code of the feature. It\nalso allows for an interpretation of the details.",
+                    "enum": [
+                        "CODE_UNSPECIFIED",
+                        "OK",
+                        "FAILED"
+                    ],
+                    "enumDescriptions": [
+                        "Not set.",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "description": {
+                    "description": "Human readable description of the issue.",
+                    "type": "string"
+                },
+                "meteringFeatureState": {
+                    "$ref": "MeteringFeatureState"
+                },
+                "servicemeshFeatureState": {
+                    "$ref": "ServiceMeshFeatureState"
+                },
+                "updateTime": {
+                    "description": "The last update time of this status by the controllers",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GkeCluster": {
+            "description": "GkeCluster represents a k8s cluster on GKE.",
+            "id": "GkeCluster",
+            "properties": {
+                "createTime": {
+                    "description": "Output only. Time when the cluster was created on GCP.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "resourceLink": {
+                    "description": "Self-link of the GCP resource for the GKE cluster.\nEx: projects/x/zones/us-west1-a/clusters/c0",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleRpcStatus": {
+            "description": "The `Status` type defines a logical error model that is suitable for\ndifferent programming environments, including REST APIs and RPC APIs. It is\nused by [gRPC](https://github.com/grpc). Each `Status` message contains\nthree pieces of data: error code, error message, and error details.\n\nYou can find out more about this error model and how to work with it in the\n[API Design Guide](https://cloud.google.com/apis/design/errors).",
+            "id": "GoogleRpcStatus",
+            "properties": {
+                "code": {
+                    "description": "The status code, which should be an enum value of google.rpc.Code.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "details": {
+                    "description": "A list of messages that carry the error details.  There is a common set of\nmessage types for APIs to use.",
+                    "items": {
+                        "additionalProperties": {
+                            "description": "Properties of the object. Contains field @type with type URL.",
+                            "type": "any"
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "message": {
+                    "description": "A developer-facing error message, which should be in English. Any\nuser-facing error message should be localized and sent in the\ngoogle.rpc.Status.details field, or localized by the client.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListFeaturesResponse": {
+            "description": "Response message for the `GkeHubService.ListFeatures` method.",
+            "id": "ListFeaturesResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "A token to request the next page of resources from the\n`ListFeatures` method. The value of an empty string means that\nthere are no more resources to return.",
+                    "type": "string"
+                },
+                "resources": {
+                    "description": "The list of Features contained within the parent.",
+                    "items": {
+                        "$ref": "ProducerFeature"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListLocationsResponse": {
+            "description": "The response message for Locations.ListLocations.",
+            "id": "ListLocationsResponse",
+            "properties": {
+                "locations": {
+                    "description": "A list of locations that matches the specified filter in the request.",
+                    "items": {
+                        "$ref": "Location"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "The standard List next-page token.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListMembershipsResponse": {
+            "description": "Response message for the `GkeHubService.ListMemberships` method.",
+            "id": "ListMembershipsResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "A token to request the next page of resources from the\n`ListMemberships` method. The value of an empty string means that\nthere are no more resources to return.",
+                    "type": "string"
+                },
+                "resources": {
+                    "description": "The list of Memberships contained within the parent.",
+                    "items": {
+                        "$ref": "ProducerMembership"
+                    },
+                    "type": "array"
+                },
+                "unreachable": {
+                    "description": "List of locations that could not be reached while fetching this list.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListOperationsResponse": {
+            "description": "The response message for Operations.ListOperations.",
+            "id": "ListOperationsResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "The standard List next-page token.",
+                    "type": "string"
+                },
+                "operations": {
+                    "description": "A list of operations that matches the specified filter in the request.",
+                    "items": {
+                        "$ref": "Operation"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Location": {
+            "description": "A resource that represents Google Cloud Platform location.",
+            "id": "Location",
+            "properties": {
+                "displayName": {
+                    "description": "The friendly name for this location, typically a nearby city name.\nFor example, \"Tokyo\".",
+                    "type": "string"
+                },
+                "labels": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Cross-service attributes for the location. For example\n\n    {\"cloud.googleapis.com/region\": \"us-east1\"}",
+                    "type": "object"
+                },
+                "locationId": {
+                    "description": "The canonical id for this location. For example: `\"us-east1\"`.",
+                    "type": "string"
+                },
+                "metadata": {
+                    "additionalProperties": {
+                        "description": "Properties of the object. Contains field @type with type URL.",
+                        "type": "any"
+                    },
+                    "description": "Service-specific metadata. For example the available capacity at the given\nlocation.",
+                    "type": "object"
+                },
+                "name": {
+                    "description": "Resource name for the location, which may vary between implementations.\nFor example: `\"projects/example-project/locations/us-east1\"`",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Membership": {
+            "description": "Membership contains information about a member cluster.\nNext tag: 10",
+            "id": "Membership",
+            "properties": {
+                "createTime": {
+                    "description": "Output only. Timestamp for when the Membership was created.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "deleteTime": {
+                    "description": "Output only. Timestamp for when the Membership was deleted.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A required description of this membership, limited to 63 characters.\ndescription must match the regex: `a-zA-Z0-9*`",
+                    "type": "string"
+                },
+                "endpoint": {
+                    "$ref": "MembershipEndpoint"
+                },
+                "labels": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "GCP labels for this membership.",
+                    "type": "object"
+                },
+                "name": {
+                    "description": "Output only. The unique name of this domain resource in the format:\n`projects/[project_id]/locations/global/memberships/[membership_id]`.\n`membership_id` can only be set at creation time using the `membership_id`\nfield in the creation request. `membership_id` must be a valid RFC 1123\ncompliant DNS label. In particular, it must be:\n  1. At most 63 characters in length\n  2. It must consist of lower case alphanumeric characters or `-`\n  3. It must start and end with an alphanumeric character\nI.e. `membership_id` must match the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`\nwith at most 63 characters.",
+                    "type": "string"
+                },
+                "state": {
+                    "$ref": "MembershipState",
+                    "description": "Output only. State of the Membership resource."
+                },
+                "updateTime": {
+                    "description": "Output only. Timestamp for when the Membership was last updated.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MembershipEndpoint": {
+            "description": "MembershipEndpoint contains the information to reach a member.",
+            "id": "MembershipEndpoint",
+            "properties": {
+                "gcpResourceLink": {
+                    "description": "If this API server is also a Google service provide the self link of its\nGCP resource.\nFor example, the FQDN to a GKE Cluster that backs this Membership:\nhttps://container.googleapis.com/v1/projects/x/zones/us-west1-a/clusters/c0\nIt can be at the most 1000 characters in length.",
+                    "type": "string"
+                },
+                "gkeCluster": {
+                    "$ref": "GkeCluster"
+                }
+            },
+            "type": "object"
+        },
+        "MembershipState": {
+            "description": "State of the Membership resource.",
+            "id": "MembershipState",
+            "properties": {
+                "code": {
+                    "description": "Code indicating the state of the Membership resource.",
+                    "enum": [
+                        "CODE_UNSPECIFIED",
+                        "CREATING",
+                        "READY",
+                        "DELETING",
+                        "UPDATING"
+                    ],
+                    "enumDescriptions": [
+                        "Not set.",
+                        "CREATING indicates the cluster is being registered.",
+                        "READY indicates the cluster is registered.",
+                        "DELETING indicates that the cluster is being unregistered.",
+                        "UPDATING indicates that the cluster registration is being updated."
+                    ],
+                    "type": "string"
+                },
+                "description": {
+                    "description": "Human readable description of the issue.",
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "The last update time of this state by the controllers",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MeteringFeatureSpec": {
+            "description": "An empty spec for metering feature. This is required since Feature proto\nrequires a spec.",
+            "id": "MeteringFeatureSpec",
+            "properties": {},
+            "type": "object"
+        },
+        "MeteringFeatureState": {
+            "description": "An empty state for metering feature. This is required since\nFeatureStateDetails requires a state.",
+            "id": "MeteringFeatureState",
+            "properties": {},
+            "type": "object"
+        },
+        "Operation": {
+            "description": "This resource represents a long-running operation that is the result of a\nnetwork API call.",
+            "id": "Operation",
+            "properties": {
+                "done": {
+                    "description": "If the value is `false`, it means the operation is still in progress.\nIf `true`, the operation is completed, and either `error` or `response` is\navailable.",
+                    "type": "boolean"
+                },
+                "error": {
+                    "$ref": "GoogleRpcStatus",
+                    "description": "The error result of the operation in case of failure or cancellation."
+                },
+                "metadata": {
+                    "additionalProperties": {
+                        "description": "Properties of the object. Contains field @type with type URL.",
+                        "type": "any"
+                    },
+                    "description": "Service-specific metadata associated with the operation.  It typically\ncontains progress information and common metadata such as create time.\nSome services might not provide such metadata.  Any method that returns a\nlong-running operation should document the metadata type, if any.",
+                    "type": "object"
+                },
+                "name": {
+                    "description": "The server-assigned name, which is only unique within the same service that\noriginally returns it. If you use the default HTTP mapping, the\n`name` should be a resource name ending with `operations/{unique_id}`.",
+                    "type": "string"
+                },
+                "response": {
+                    "additionalProperties": {
+                        "description": "Properties of the object. Contains field @type with type URL.",
+                        "type": "any"
+                    },
+                    "description": "The normal response of the operation in case of success.  If the original\nmethod returns no data on success, such as `Delete`, the response is\n`google.protobuf.Empty`.  If the original method is standard\n`Get`/`Create`/`Update`, the response should be the resource.  For other\nmethods, the response should have the type `XxxResponse`, where `Xxx`\nis the original method name.  For example, if the original method name\nis `TakeSnapshot()`, the inferred response type is\n`TakeSnapshotResponse`.",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "OperationMetadata": {
+            "description": "Represents the metadata of the long-running operation.",
+            "id": "OperationMetadata",
+            "properties": {
+                "apiVersion": {
+                    "description": "[Output only] API version used to start the operation.",
+                    "type": "string"
+                },
+                "cancelRequested": {
+                    "description": "[Output only] Identifies whether the user has requested cancellation\nof the operation. Operations that have successfully been cancelled\nhave Operation.error value with a google.rpc.Status.code of 1,\ncorresponding to `Code.CANCELLED`.",
+                    "type": "boolean"
+                },
+                "createTime": {
+                    "description": "[Output only] The time the operation was created.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "endTime": {
+                    "description": "[Output only] The time the operation finished running.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "statusDetail": {
+                    "description": "[Output only] Human-readable status of the operation, if any.",
+                    "type": "string"
+                },
+                "target": {
+                    "description": "[Output only] Server-defined resource path for the target of the operation.",
+                    "type": "string"
+                },
+                "verb": {
+                    "description": "[Output only] Name of the verb executed by the operation.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ProducerFeature": {
+            "description": "Represents a producer view of the Feature resource.",
+            "id": "ProducerFeature",
+            "properties": {
+                "bladeSliceKey": {
+                    "description": "The blade slice key for the Hub that owns this Feature.\nThis is generated using slicer.NewSliceKey(\"blade:\" + Hub).OrderedString()\nSee go/gkehub-multitenant-controllers for details.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "bnsSliceKey": {
+                    "description": "The bns slice key for the Hub that owns this Feature.\nThis is generated using slicer.NewSliceKey(Hub).OrderedString()\nSee go/gkehub-multitenant-controllers for details.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "createTime": {
+                    "description": "Timestamp for when the Feature was created.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "labels": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "GCP labels for this feature.",
+                    "type": "object"
+                },
+                "name": {
+                    "description": "The name of this feature resource in the format:\n`projects/[project_id]/locations/global/features/[feature_id]`.",
+                    "type": "string"
+                },
+                "publicFeature": {
+                    "$ref": "Feature",
+                    "description": "The Feature's public representation.\n\nNote that some of the fields inside this proto are not populated.\nThose fields are available in the outer proto: name, labels, create_time\nand update_time."
+                },
+                "updateTime": {
+                    "description": "Timestamp for when the Feature was last updated.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ProducerMembership": {
+            "description": "Represents a producer view of the Membership resource.",
+            "id": "ProducerMembership",
+            "properties": {
+                "createTime": {
+                    "description": "Timestamp for when the Membership was created.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "labels": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "GCP labels for this membership.",
+                    "type": "object"
+                },
+                "name": {
+                    "description": "The name of this membership resource in the format:\n`projects/[project_id]/locations/global/membership/[membership_id]`.",
+                    "type": "string"
+                },
+                "publicMembership": {
+                    "$ref": "Membership",
+                    "description": "The Membership's public representation.\n\nNote that some of the fields inside this proto are not populated.\nThose fields are available in the outer proto: name, labels, create_time\nand update_time."
+                },
+                "updateTime": {
+                    "description": "Timestamp for when the Membership was last updated.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ServiceMeshFeatureSpec": {
+            "description": "ServiceMeshFeatureSpec contains the input for the service mesh\nfeature. Only those fields that qualify as user inputs are eligible to be\nin a feature spec. These feature spec messages are per-feature, meaning each\nfeature is expected to have its own set of fields. Auto-filled fields and\nstatues do not belong to a spec and must be included in the details field\nof the feature's status. Spec fields could be of any type: primitive or\nnon-primitive types. These types could be simple or complex types and\ncomplex types could be nested. There is no restriction on nesting depth.",
+            "id": "ServiceMeshFeatureSpec",
+            "properties": {
+                "mtls": {
+                    "description": "Mesh should have mtls enabled.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "ServiceMeshFeatureState": {
+            "description": "ServiceMeshFeatureState contains the status fields specific to the\nservice mesh feature. Only those fields that reflect the state of the\nfeature are eligible to be in a feature's state message. These fields are\nexpected to be updated only by the automation and that's usually the\ncontrollers operating on this feature.\n\nThis is currently just a placeholder and more fields will be added when we\nhave more state information to report for this feature.",
+            "id": "ServiceMeshFeatureState",
+            "properties": {},
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "GKE Hub Private API (staging)",
+    "version": "v1alpha1",
+    "version_module": true
+}

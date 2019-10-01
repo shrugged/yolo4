@@ -1,0 +1,682 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/xapi.zoo": {
+                    "description": "Test scope for access to the Zoo service"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://dbinsight.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "DBInsight",
+    "description": "",
+    "discoveryVersion": "v1",
+    "documentationLink": "",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "dbinsight_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "dbinsight_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "databases": {
+            "methods": {
+                "list": {
+                    "description": "List all databases with the given criteria.",
+                    "flatPath": "v1/databases",
+                    "httpMethod": "GET",
+                    "id": "dbinsight_sandbox.databases.list",
+                    "parameterOrder": [
+                        "project",
+                        "instance"
+                    ],
+                    "parameters": {
+                        "instance": {
+                            "description": "The instance name.",
+                            "location": "query",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "project": {
+                            "description": "The project id.",
+                            "location": "query",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/databases",
+                    "response": {
+                        "$ref": "ListDatabasesResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/xapi.zoo"
+                    ]
+                }
+            }
+        },
+        "exemplars": {
+            "methods": {
+                "list": {
+                    "description": "List all exemplars with the given criteria.",
+                    "flatPath": "v1/exemplars",
+                    "httpMethod": "GET",
+                    "id": "dbinsight_sandbox.exemplars.list",
+                    "parameterOrder": [
+                        "project",
+                        "instance",
+                        "normQueryHash"
+                    ],
+                    "parameters": {
+                        "database": {
+                            "description": "The database name.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "endTime": {
+                            "description": "The end of the time window.",
+                            "format": "google-datetime",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "instance": {
+                            "description": "The instance name.",
+                            "location": "query",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "normQueryHash": {
+                            "description": "The normalized query hash string.",
+                            "location": "query",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "project": {
+                            "description": "The project id.",
+                            "location": "query",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "startTime": {
+                            "description": "The start of the time window.",
+                            "format": "google-datetime",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "user": {
+                            "description": "The user name.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/exemplars",
+                    "response": {
+                        "$ref": "ListExemplarsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/xapi.zoo"
+                    ]
+                }
+            }
+        },
+        "instances": {
+            "methods": {
+                "list": {
+                    "description": "List all instances with the given criteria.",
+                    "flatPath": "v1/instances",
+                    "httpMethod": "GET",
+                    "id": "dbinsight_sandbox.instances.list",
+                    "parameterOrder": [
+                        "project"
+                    ],
+                    "parameters": {
+                        "project": {
+                            "description": "The project id.",
+                            "location": "query",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/instances",
+                    "response": {
+                        "$ref": "ListInstancesResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/xapi.zoo"
+                    ]
+                }
+            }
+        },
+        "metrics": {
+            "methods": {
+                "list": {
+                    "description": "List all metrics with the given criteria.",
+                    "flatPath": "v1/metrics",
+                    "httpMethod": "GET",
+                    "id": "dbinsight_sandbox.metrics.list",
+                    "parameterOrder": [
+                        "project",
+                        "instance"
+                    ],
+                    "parameters": {
+                        "database": {
+                            "description": "The database name.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "endTime": {
+                            "description": "The end time of the time series. This should be required. See above for\nmore details.",
+                            "format": "google-datetime",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "instance": {
+                            "description": "The instance name.",
+                            "location": "query",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "normQuery": {
+                            "description": "The norm_query to be filtered on.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "project": {
+                            "description": "The project id.",
+                            "location": "query",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "startTime": {
+                            "description": "The start time of the time series. This should be required. ESF cannot\nhandle the json format well, and will always return a missing field error\neven though it has successfully parsed the input. So we fall back to use\noptional. Besides, we can not fully rely on the ESF to validate the missing\nfield so we still need to implement that logic in our server side.",
+                            "format": "google-datetime",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "user": {
+                            "description": "The user name.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/metrics",
+                    "response": {
+                        "$ref": "ListMetricsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/xapi.zoo"
+                    ]
+                }
+            }
+        },
+        "queries": {
+            "methods": {
+                "list": {
+                    "description": "List top n queries with the given criteria.",
+                    "flatPath": "v1/queries",
+                    "httpMethod": "GET",
+                    "id": "dbinsight_sandbox.queries.list",
+                    "parameterOrder": [
+                        "project",
+                        "instance",
+                        "sortBy"
+                    ],
+                    "parameters": {
+                        "database": {
+                            "description": "The database name.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "endTime": {
+                            "description": "The end time of the time series. This should be required. See above for\nmore details.",
+                            "format": "google-datetime",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "instance": {
+                            "description": "The instance name.",
+                            "location": "query",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "project": {
+                            "description": "The project id.",
+                            "location": "query",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "sortBy": {
+                            "description": "The field used for sorting.",
+                            "location": "query",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "startTime": {
+                            "description": "The start time of the time series. This should be required. See above for\nmore details.",
+                            "format": "google-datetime",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "top": {
+                            "description": "The number of result to be returned. Default to 15.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "user": {
+                            "description": "The user name.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/queries",
+                    "response": {
+                        "$ref": "ListQueriesResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/xapi.zoo"
+                    ]
+                }
+            }
+        },
+        "users": {
+            "methods": {
+                "list": {
+                    "description": "List all users with the given criteria.",
+                    "flatPath": "v1/users",
+                    "httpMethod": "GET",
+                    "id": "dbinsight_sandbox.users.list",
+                    "parameterOrder": [
+                        "project",
+                        "instance"
+                    ],
+                    "parameters": {
+                        "instance": {
+                            "description": "The instance name.",
+                            "location": "query",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "project": {
+                            "description": "The project id.",
+                            "location": "query",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/users",
+                    "response": {
+                        "$ref": "ListUsersResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/xapi.zoo"
+                    ]
+                }
+            }
+        },
+        "v1": {
+            "methods": {
+                "getQueryPlan": {
+                    "description": "Get the query plan for a specific query.",
+                    "flatPath": "v1/queryPlan",
+                    "httpMethod": "GET",
+                    "id": "dbinsight_sandbox.getQueryPlan",
+                    "parameterOrder": [
+                        "project",
+                        "queryId"
+                    ],
+                    "parameters": {
+                        "project": {
+                            "description": "The project id.",
+                            "location": "query",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "queryId": {
+                            "description": "The ID of the query. In practise we use the query_hash as the id.",
+                            "location": "query",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/queryPlan",
+                    "response": {
+                        "$ref": "GetQueryPlanResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/xapi.zoo"
+                    ]
+                }
+            }
+        }
+    },
+    "revision": "20190404",
+    "rootUrl": "https://dbinsight.sandbox.googleapis.com/",
+    "schemas": {
+        "Breakdown": {
+            "description": "Breakdown indicate the set of columns a metric has.",
+            "id": "Breakdown",
+            "properties": {
+                "load": {
+                    "description": "The type of load of the breakdown.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Exemplar": {
+            "description": "Exemplar query plans.",
+            "id": "Exemplar",
+            "properties": {
+                "latency": {
+                    "description": "The latency/duration of the query.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "queryId": {
+                    "description": "The query_id.",
+                    "type": "string"
+                },
+                "startTime": {
+                    "description": "The start time of the query.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GetQueryPlanResponse": {
+            "description": "The response for `/queryPlan` API.",
+            "id": "GetQueryPlanResponse",
+            "properties": {
+                "nodes": {
+                    "description": "The nodes in the query plan.",
+                    "items": {
+                        "$ref": "Node"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListDatabasesResponse": {
+            "description": "The response for `/databases` API.",
+            "id": "ListDatabasesResponse",
+            "properties": {
+                "databases": {
+                    "description": "The database names.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListExemplarsResponse": {
+            "description": "The response for `/exemplars` API.",
+            "id": "ListExemplarsResponse",
+            "properties": {
+                "exemplars": {
+                    "description": "The exemplar list.",
+                    "items": {
+                        "$ref": "Exemplar"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListInstancesResponse": {
+            "description": "The response for `/instances` API.",
+            "id": "ListInstancesResponse",
+            "properties": {
+                "instances": {
+                    "description": "The instance names.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListMetricsResponse": {
+            "description": "The response for `/metrics` API.",
+            "id": "ListMetricsResponse",
+            "properties": {
+                "metrics": {
+                    "description": "The metric.",
+                    "items": {
+                        "$ref": "Metric"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListQueriesResponse": {
+            "description": "The response for `/queries` API.",
+            "id": "ListQueriesResponse",
+            "properties": {
+                "queries": {
+                    "description": "The qureies and their statistics.",
+                    "items": {
+                        "$ref": "Query"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListUsersResponse": {
+            "description": "The response for `/users` API.",
+            "id": "ListUsersResponse",
+            "properties": {
+                "users": {
+                    "description": "The user names.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Metric": {
+            "description": "Metric includes a breakdown which acts as the metric identifier, and a list\nof points in the time series.",
+            "id": "Metric",
+            "properties": {
+                "breakdown": {
+                    "$ref": "Breakdown",
+                    "description": "breakdown includes a set of key/value pair that identifies a slice of a\nmetric."
+                },
+                "points": {
+                    "description": "points stores the time series data.",
+                    "items": {
+                        "$ref": "Point"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Node": {
+            "description": "Node stores the node and its information of a query plan.",
+            "id": "Node",
+            "properties": {
+                "attributes": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "The information associated with this node.",
+                    "type": "object"
+                },
+                "endTime": {
+                    "description": "The end time of the node.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "The ID of a node.",
+                    "format": "uint64",
+                    "type": "string"
+                },
+                "load": {
+                    "description": "The major type of load.",
+                    "type": "string"
+                },
+                "parent": {
+                    "description": "The parent of a node. If absent, it means the node is the root.",
+                    "format": "uint64",
+                    "type": "string"
+                },
+                "startTime": {
+                    "description": "The start time of the node.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "The title of the query node.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Point": {
+            "description": "Point of a time series.",
+            "id": "Point",
+            "properties": {
+                "timestamp": {
+                    "description": "The timestamp of this point.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "The value of this point.",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "Query": {
+            "description": "Query stores statistics of a Cloud SQL query.",
+            "id": "Query",
+            "properties": {
+                "attributes": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "The statistics associated with this query.",
+                    "type": "object"
+                },
+                "loads": {
+                    "additionalProperties": {
+                        "format": "double",
+                        "type": "number"
+                    },
+                    "description": "The time breakdown on different types of load.",
+                    "type": "object"
+                },
+                "normQuery": {
+                    "description": "The normalized query string.",
+                    "type": "string"
+                },
+                "normQueryHash": {
+                    "description": "The hash of the normalized_query.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "",
+    "version": "v1",
+    "version_module": true
+}

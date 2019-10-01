@@ -1,0 +1,208 @@
+{
+    "basePath": "",
+    "baseUrl": "https://dev-androidbackupmigrationservices-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "description": "Services needed during the initial setup wizard migration flow. See go/dolly .",
+    "discoveryVersion": "v1",
+    "documentationLink": "",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "dev_androidbackupmigrationservices_pa_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "dev_androidbackupmigrationservices_pa_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "v1": {
+            "methods": {
+                "appmapping": {
+                    "description": "Get a list of AppStore ids and translate them to Play conterparts.",
+                    "flatPath": "v1/{clientVersion}/appmapping",
+                    "httpMethod": "POST",
+                    "id": "dev_androidbackupmigrationservices_pa_sandbox.appmapping",
+                    "parameterOrder": [
+                        "clientVersion"
+                    ],
+                    "parameters": {
+                        "clientVersion": {
+                            "format": "int32",
+                            "location": "path",
+                            "required": true,
+                            "type": "integer"
+                        }
+                    },
+                    "path": "v1/{clientVersion}/appmapping",
+                    "request": {
+                        "$ref": "RequestBody"
+                    },
+                    "response": {
+                        "$ref": "GetAppMappingForNewAndroidUserResponse"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190715",
+    "rootUrl": "https://dev-androidbackupmigrationservices-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "BundleToPackageTranslation": {
+            "id": "BundleToPackageTranslation",
+            "properties": {
+                "bundleId": {
+                    "type": "string"
+                },
+                "packageName": {
+                    "type": "string"
+                },
+                "result": {
+                    "enum": [
+                        "UNDEFINED",
+                        "MATCH_FREE",
+                        "MATCH_PAID",
+                        "NO_MATCH",
+                        "BLACKLISTED"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GetAppMappingForNewAndroidUserResponse": {
+            "id": "GetAppMappingForNewAndroidUserResponse",
+            "properties": {
+                "localizedAppPermissions": {
+                    "description": "Localized string containing descriptions of all permissions the user\nmight give to apps when installing them via app matching.",
+                    "type": "string"
+                },
+                "supportedPermissions": {
+                    "description": "List of permissions we deem safe to offer users for consideration\nwhen doing app matching.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "translation": {
+                    "items": {
+                        "$ref": "BundleToPackageTranslation"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "RequestBody": {
+            "id": "RequestBody",
+            "properties": {
+                "bundleIds": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "clientLocale": {
+                    "type": "string"
+                },
+                "requestPermissions": {
+                    "description": "Set to true if the response needs to include permission information,\nin the locale defined above.",
+                    "type": "boolean"
+                },
+                "requestSupportedPermissions": {
+                    "description": "Set to true if the response needs to include a list of permissions apps\ncan have in order to be offered to the user.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "",
+    "version": "v1",
+    "version_module": true
+}

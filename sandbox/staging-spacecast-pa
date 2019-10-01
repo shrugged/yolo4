@@ -1,0 +1,1427 @@
+{
+    "basePath": "",
+    "baseUrl": "https://staging-spacecast-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "SpaceCast",
+    "description": "This API is for Spacecast appliances.",
+    "discoveryVersion": "v1",
+    "documentationLink": "",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "spacecast_pa:v2",
+    "kind": "discovery#restDescription",
+    "name": "spacecast_pa",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "auth": {
+            "methods": {
+                "getBootstrap": {
+                    "description": "Gets bootstrap parameters for a device.",
+                    "flatPath": "v2/auth/{modelName}/{serialNumber}/bootstrap",
+                    "httpMethod": "GET",
+                    "id": "spacecast_pa.auth.getBootstrap",
+                    "parameterOrder": [
+                        "modelName",
+                        "serialNumber"
+                    ],
+                    "parameters": {
+                        "modelName": {
+                            "description": "device model name.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "serialNumber": {
+                            "description": "device serial number.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v2/auth/{modelName}/{serialNumber}/bootstrap",
+                    "response": {
+                        "$ref": "GoogleInternalSpacecastAuthenticationV2GetBootstrapParamsResponse"
+                    }
+                },
+                "getChallenges": {
+                    "description": "Returns a new challenge blob for the client to sign.",
+                    "flatPath": "v2/auth/challenges",
+                    "httpMethod": "GET",
+                    "id": "spacecast_pa.auth.getChallenges",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v2/auth/challenges",
+                    "response": {
+                        "$ref": "GoogleInternalSpacecastAuthenticationV2GetChallengeResponse"
+                    }
+                },
+                "register": {
+                    "description": "Registers a device. If Device is already registered,\nit needs to be allowed for registration.",
+                    "flatPath": "v2/auth/{modelName}/{serialNumber}/register",
+                    "httpMethod": "POST",
+                    "id": "spacecast_pa.auth.register",
+                    "parameterOrder": [
+                        "modelName",
+                        "serialNumber"
+                    ],
+                    "parameters": {
+                        "modelName": {
+                            "description": "device model name.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "serialNumber": {
+                            "description": "device serial number.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v2/auth/{modelName}/{serialNumber}/register",
+                    "request": {
+                        "$ref": "GoogleInternalSpacecastAuthenticationV2RegisterDeviceRequest"
+                    },
+                    "response": {
+                        "$ref": "GoogleInternalSpacecastAuthenticationV2RegisterDeviceResponse"
+                    }
+                }
+            }
+        },
+        "licensing": {
+            "methods": {
+                "contentkeys": {
+                    "description": "Returns requested Widevine content key required for content decryption.",
+                    "flatPath": "v2/licensing/contentkeys",
+                    "httpMethod": "POST",
+                    "id": "spacecast_pa.licensing.contentkeys",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v2/licensing/contentkeys",
+                    "request": {
+                        "$ref": "GoogleInternalSpacecastLicensingV2GetContentKeyRequest"
+                    },
+                    "response": {
+                        "$ref": "GoogleInternalSpacecastLicensingV2GetContentKeyResponse"
+                    }
+                },
+                "groupkeys": {
+                    "description": "GetGroupKeys returns a list of group encryption keys the device is\napproved to use.\nNote that group keys are used by openssl based encryption code\nas a replacement for the widevine GetLicense call.",
+                    "flatPath": "v2/licensing/groupkeys",
+                    "httpMethod": "POST",
+                    "id": "spacecast_pa.licensing.groupkeys",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v2/licensing/groupkeys",
+                    "request": {
+                        "$ref": "GoogleInternalSpacecastLicensingV2GroupKeysRequest"
+                    },
+                    "response": {
+                        "$ref": "GoogleInternalSpacecastLicensingV2GroupKeysResponse"
+                    }
+                },
+                "licenses": {
+                    "description": "Returns requested Widevine license required for content decryption.\nLicense contains content keys inside and for security purposes license\nis encrypted, so only CDM library can decrypt it.",
+                    "flatPath": "v2/licensing/licenses",
+                    "httpMethod": "POST",
+                    "id": "spacecast_pa.licensing.licenses",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v2/licensing/licenses",
+                    "request": {
+                        "$ref": "GoogleInternalSpacecastLicensingV2GetLicenseRequest"
+                    },
+                    "response": {
+                        "$ref": "GoogleInternalSpacecastLicensingV2GetLicenseResponse"
+                    }
+                }
+            }
+        },
+        "scheduling": {
+            "resources": {
+                "internet": {
+                    "resources": {
+                        "apkurl": {
+                            "methods": {
+                                "getAPKDownloadURL": {
+                                    "description": "Get metadata for a specified APK content for pull-through.",
+                                    "flatPath": "v2/scheduling/internet/apkurl/{packageName}/{blobkey}",
+                                    "httpMethod": "POST",
+                                    "id": "spacecast_pa.scheduling.internet.apkurl.getAPKDownloadURL",
+                                    "parameterOrder": [
+                                        "packageName",
+                                        "blobkey"
+                                    ],
+                                    "parameters": {
+                                        "blobkey": {
+                                            "description": "The encrypted blobkey for the requested APK content passed by Android Play\nStore.",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "packageName": {
+                                            "description": "The package_name of the requested content.",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v2/scheduling/internet/apkurl/{packageName}/{blobkey}",
+                                    "request": {
+                                        "$ref": "GoogleInternalSpacecastInternetV2GetAPKDownloadURLRequest"
+                                    },
+                                    "response": {
+                                        "$ref": "GoogleInternalSpacecastInternetV2GetAPKDownloadURLResponse"
+                                    }
+                                }
+                            }
+                        },
+                        "metadata": {
+                            "methods": {
+                                "getVideoMetadata": {
+                                    "description": "Get metadata for a specified video for pull-through (go/acc-pull-cache).",
+                                    "flatPath": "v2/scheduling/internet/metadata/{youtubeId}",
+                                    "httpMethod": "POST",
+                                    "id": "spacecast_pa.scheduling.internet.metadata.getVideoMetadata",
+                                    "parameterOrder": [
+                                        "youtubeId"
+                                    ],
+                                    "parameters": {
+                                        "youtubeId": {
+                                            "description": "YouTube ID for the requested video passed by YouTube client.",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v2/scheduling/internet/metadata/{youtubeId}",
+                                    "request": {
+                                        "$ref": "GoogleInternalSpacecastInternetV2GetVideoMetadataRequest"
+                                    },
+                                    "response": {
+                                        "$ref": "GoogleInternalSpacecastInternetV2GetVideoMetadataResponse"
+                                    }
+                                }
+                            }
+                        },
+                        "schedules": {
+                            "methods": {
+                                "default": {
+                                    "description": "Gets a default schedule for an appliance.",
+                                    "flatPath": "v2/scheduling/internet/{internetId}/schedules/default",
+                                    "httpMethod": "POST",
+                                    "id": "spacecast_pa.scheduling.internet.schedules.default",
+                                    "parameterOrder": [
+                                        "internetId"
+                                    ],
+                                    "parameters": {
+                                        "internetId": {
+                                            "description": "ID to identify the Internet backhaul schedule for the appliance.\nFor now, it's the same as broadcast_id so we do not need to change other\nparts of the Spacecast system.\nIn the future, we may redefine the meaning of internet_id.\nrequired",
+                                            "format": "int32",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "path": "v2/scheduling/internet/{internetId}/schedules/default",
+                                    "request": {
+                                        "$ref": "GoogleInternalSpacecastInternetV2GetDefaultScheduleRequest"
+                                    },
+                                    "response": {
+                                        "$ref": "GoogleInternalSpacecastInternetV2GetDefaultScheduleResponse"
+                                    }
+                                },
+                                "items": {
+                                    "description": "List items available within a particular schedule.",
+                                    "flatPath": "v2/scheduling/internet/{internetId}/schedules/{scheduleId}/items",
+                                    "httpMethod": "POST",
+                                    "id": "spacecast_pa.scheduling.internet.schedules.items",
+                                    "parameterOrder": [
+                                        "internetId",
+                                        "scheduleId"
+                                    ],
+                                    "parameters": {
+                                        "internetId": {
+                                            "description": "ID to identify the Internet backhaul schedule for the appliance.\nFor now, it's the same as broadcast_id so we do not need to change other\nparts of the Spacecast system.\nIn the future, we may redefine the meaning of internet_id.\nrequired",
+                                            "format": "int32",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "integer"
+                                        },
+                                        "scheduleId": {
+                                            "description": "ID to identify a version of the schedule.\nrequired",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v2/scheduling/internet/{internetId}/schedules/{scheduleId}/items",
+                                    "request": {
+                                        "$ref": "GoogleInternalSpacecastInternetV2ListItemsRequest"
+                                    },
+                                    "response": {
+                                        "$ref": "GoogleInternalSpacecastInternetV2ListItemsResponse"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "transmux": {
+            "methods": {
+                "brm": {
+                    "description": "GetByteRangeMap is the API that generates ByteRangeMap in response to a\nBRMRequest from the appliance.\nArgs:\n - BRMRequest is the appliance request for the ByteRangeMap of given media.",
+                    "flatPath": "v2/transmux/{contentId}/brm",
+                    "httpMethod": "POST",
+                    "id": "spacecast_pa.transmux.brm",
+                    "parameterOrder": [
+                        "contentId"
+                    ],
+                    "parameters": {
+                        "contentId": {
+                            "description": "content_id is the web-encoded YouTubeId, as defined\nin //video/tools/video.id.h.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v2/transmux/{contentId}/brm",
+                    "request": {
+                        "$ref": "GoogleInternalSpacecastTransmuxV2BRMRequest"
+                    },
+                    "response": {
+                        "$ref": "GoogleInternalSpacecastTransmuxV2BRMResponse"
+                    }
+                },
+                "flatbrm": {
+                    "description": "GetFlatByteRangeMap is similar to GetByteRangeMap except that it returns\nthe ByteRangeMap flattened to bytes.\nArgs:\n - BRMRequest is the appliance request for the ByteRangeMap of given media.",
+                    "flatPath": "v2/transmux/{contentId}/flatbrm",
+                    "httpMethod": "POST",
+                    "id": "spacecast_pa.transmux.flatbrm",
+                    "parameterOrder": [
+                        "contentId"
+                    ],
+                    "parameters": {
+                        "contentId": {
+                            "description": "content_id is the web-encoded YouTubeId, as defined\nin //video/tools/video.id.h.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v2/transmux/{contentId}/flatbrm",
+                    "request": {
+                        "$ref": "GoogleInternalSpacecastTransmuxV2BRMRequest"
+                    },
+                    "response": {
+                        "$ref": "GoogleInternalSpacecastTransmuxV2BRMFlatResponse"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190914",
+    "rootUrl": "https://staging-spacecast-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "FeedsProtoByteRange": {
+            "description": "A byte range structure (inclusive of endpoints like HTTP ranges).  These\nare used to delineate regions of media file bytes such as those\ncontaining a video index or initialization metadata.  See\nDashVodMpd::GetByteRangeString for string conversion.\n\nKeep this protocol buffer in sync with ByteRange defined in\nvideo/storage/proto/byte_range.proto.",
+            "id": "FeedsProtoByteRange",
+            "properties": {
+                "first": {
+                    "description": "A non-existent value indicates \"from the start\".",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "last": {
+                    "description": "A non-existent value indicates \"to the end\".",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FeedsProtoContent": {
+            "description": "The storage info (not the actual bytes) of the item content.\nNext available tag: 10",
+            "id": "FeedsProtoContent",
+            "properties": {
+                "byteLength": {
+                    "description": "byte_length is the size of the content.\nFor videos, it may not be the size of the content itself:\n- for encrypted videos, it is the size of the decrypted content;\n- for byte range maps, it is the size of the transmuxed video.",
+                    "format": "uint64",
+                    "type": "string"
+                },
+                "byteOffset": {
+                    "description": "byte_offset is a field used to support chunks.\nNot currently in use.",
+                    "format": "uint64",
+                    "type": "string"
+                },
+                "cacheKey": {
+                    "description": "cache_key for the file.",
+                    "type": "string"
+                },
+                "checksum": {
+                    "description": "chunk content checksum.",
+                    "type": "string"
+                },
+                "contentKeyId": {
+                    "description": "DEPRECATED(asukhanov): content key ID will be stored within content file.\nkey id which video was encrypted with.",
+                    "type": "string"
+                },
+                "encryptionType": {
+                    "description": "Encryption format used for this content.",
+                    "enum": [
+                        "CLEAR_BYTES",
+                        "WIDEVINE_FILE_ENCRYPTION",
+                        "WIDEVINE_DASH_CENC",
+                        "MOCK_FILE_ENCRYPTION"
+                    ],
+                    "enumDescriptions": [
+                        "Content is not encrypted.",
+                        "File based encryption with Widevine key management system.\nFor encrypted format specification see spacecast/common/encrypt",
+                        "DASH CENC (Common Encryption Scheme). Can be used only for DASH streams.",
+                        "File based encryption without any key management system. Might be used\nonly as a fallback for WIDEVINE_FILE_ENCRYPTION."
+                    ],
+                    "type": "string"
+                },
+                "filename": {
+                    "description": "local appliance storage filename.",
+                    "type": "string"
+                },
+                "groupId": {
+                    "description": "Group License ID used to encrypt content.",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "download URL.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FeedsProtoFileItem": {
+            "description": "FileItem defines the metadata and content of a file item.\nNext available tag: 8",
+            "id": "FeedsProtoFileItem",
+            "properties": {
+                "cacheControl": {
+                    "description": "Cache-Control header. See HTTP/1.1 spec (RFC 2616 section 14.9)\nControls cache settings in HTTP response header for downstream caches.",
+                    "enum": [
+                        "CC_PUBLIC",
+                        "CC_PRIVATE",
+                        "CC_NO_CACHE"
+                    ],
+                    "enumDescriptions": [
+                        "public; cacheable by all caches.",
+                        "private; not cacheable by shared caches.",
+                        "do not cache."
+                    ],
+                    "type": "string"
+                },
+                "cacheMaxAgeSec": {
+                    "description": "Delta Seconds.\nUse cached results if less than cache_max_age_sec seconds old.",
+                    "format": "uint64",
+                    "type": "string"
+                },
+                "contents": {
+                    "description": "Expect 1 or more entries for listing the URL of the contents.",
+                    "items": {
+                        "$ref": "FeedsProtoContent"
+                    },
+                    "type": "array"
+                },
+                "lastModifiedTimeMicros": {
+                    "description": "Microseconds since the epoch.",
+                    "format": "uint64",
+                    "type": "string"
+                },
+                "mimeType": {
+                    "description": "MIME-type for the file contents.",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "URL used to locate the file contents.\nrequired",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FeedsProtoItem": {
+            "description": "An item is the basic element that would be sent. The items do not have to be\njust videos, they can also be files (e.g., HTML, images) or OTA software\nupdates.\nIt also defines whether to update or to delete an item on SpaceCast units.",
+            "id": "FeedsProtoItem",
+            "properties": {
+                "feedIds": {
+                    "description": "List of IDs for feeds to which this item belongs. When multiple feeds\nare carried in a broadcast, this can be used to filter out unwanted\nitems.\nrequired",
+                    "items": {
+                        "format": "int32",
+                        "type": "integer"
+                    },
+                    "type": "array"
+                },
+                "fileItem": {
+                    "$ref": "FeedsProtoFileItem",
+                    "description": "File item, if present; set if item_type == FILE."
+                },
+                "itemAction": {
+                    "description": "Action to take for the item.\nrequired",
+                    "enum": [
+                        "UNKNOWN_ACTION",
+                        "UPDATE",
+                        "DELETE"
+                    ],
+                    "enumDescriptions": [
+                        "Do not use.",
+                        "Update the item.",
+                        "Delete the item."
+                    ],
+                    "type": "string"
+                },
+                "itemId": {
+                    "description": "ID of the item.\nrequired",
+                    "type": "string"
+                },
+                "itemType": {
+                    "description": "Content type represented by the item.\nrequired",
+                    "enum": [
+                        "UNKNOWN_TYPE",
+                        "VIDEO",
+                        "FILE",
+                        "OTA"
+                    ],
+                    "enumDescriptions": [
+                        "Do not use.",
+                        "Videos.",
+                        "Static content (files).",
+                        "OTA software updates."
+                    ],
+                    "type": "string"
+                },
+                "otaItem": {
+                    "$ref": "FeedsProtoOtaItem",
+                    "description": "OTA (over the air update) item, if present; set if item_type == OTA"
+                },
+                "videoItem": {
+                    "$ref": "FeedsProtoVideoItem",
+                    "description": "Video item, if present; set if item_type == VIDEO."
+                }
+            },
+            "type": "object"
+        },
+        "FeedsProtoOtaItem": {
+            "description": "OtaItem defines the metadata and content of a OTA software update item.\nNext available tag: 5",
+            "id": "FeedsProtoOtaItem",
+            "properties": {
+                "contents": {
+                    "description": "Expect 1 or more entries for listing the URL of the contents.",
+                    "items": {
+                        "$ref": "FeedsProtoContent"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "Name of the OTA item.\nrequired",
+                    "type": "string"
+                },
+                "timestampSec": {
+                    "description": "Build timestamp; seconds since the epoch.\nUse it to determine whether to apply this update.",
+                    "format": "uint64",
+                    "type": "string"
+                },
+                "updateType": {
+                    "description": "Type of OTA update.\nrequired",
+                    "enum": [
+                        "UNKNOWN_TYPE"
+                    ],
+                    "enumDescriptions": [
+                        "Do not use"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FeedsProtoSchedule": {
+            "description": "A schedule metadata.\nThe schedule is determined by selection logic.",
+            "id": "FeedsProtoSchedule",
+            "properties": {
+                "scheduleId": {
+                    "description": "ID of the schedule.\nrequired",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FeedsProtoVideoItem": {
+            "description": "VideoItem defines the metadata and content of a video item.",
+            "id": "FeedsProtoVideoItem",
+            "properties": {
+                "contentId": {
+                    "description": "Content ID for the item.\nrequired",
+                    "type": "string"
+                },
+                "representations": {
+                    "description": "A video item might have different representations (itags).",
+                    "items": {
+                        "$ref": "FeedsProtoVideoRepresentation"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "FeedsProtoVideoRepresentation": {
+            "description": "One representation is one format of a video.\nNext available tag: 11",
+            "id": "FeedsProtoVideoRepresentation",
+            "properties": {
+                "contents": {
+                    "description": "Expect 1 or more entries for listing the URL of the contents.",
+                    "items": {
+                        "$ref": "FeedsProtoContent"
+                    },
+                    "type": "array"
+                },
+                "expirationTimeSec": {
+                    "description": "Expiration time as seconds since epoch.",
+                    "format": "uint64",
+                    "type": "string"
+                },
+                "format": {
+                    "description": "The video or audio format number(itag) defined in content_header.proto.\nSee http://go/video-formats.\nDefault is 18 (MP4_AVCBASE640_AAC).\nrequired",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "indexSegmentRange": {
+                    "$ref": "FeedsProtoByteRange",
+                    "description": "Inclusive byte range for the DASH index segment: sidx for ISOBMFF and\nCues for WEBM. This is used to generate the DASH MPD."
+                },
+                "initializationSegmentRange": {
+                    "$ref": "FeedsProtoByteRange",
+                    "description": "Inclusive byte range for the DASH initialization segment: ftyp and\nmoov for ISOBMFF and EBML header, Segment header Segment Information,\nand Tracks) for WEBM. This is used to generate the DASH MPD."
+                },
+                "lastModifiedTimeMicros": {
+                    "description": "Microseconds since the epoch.\nUse lmt to determine whether the cache is up to date.\nSee the lmt parameter in the videoplayback URL",
+                    "format": "uint64",
+                    "type": "string"
+                },
+                "mimeType": {
+                    "description": "MIME-type for the content.",
+                    "type": "string"
+                },
+                "representationType": {
+                    "description": "Type of the content.",
+                    "enum": [
+                        "MEDIA",
+                        "DASH_MP4_BYTE_RANGE_MAP"
+                    ],
+                    "enumDescriptions": [
+                        "Regular media file.",
+                        "ByteRangeMap for DASH->MP4 Transmuxer.\nDetails: goto/spacecast-transmux-design"
+                    ],
+                    "type": "string"
+                },
+                "videoApproxDurationMs": {
+                    "description": "This quantity is approximately the length of the video stream in ms.\n(int32==24days) It may be exact, or the largest timestamp minus the\nsmallest timestamp, or the final timestamp plus 1.0/fps, etc",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalSpacecastAuthenticationV2GetBootstrapParamsResponse": {
+            "description": "GetBootstrapParamsResponse is the response message that contains overrides\nto default configuration parameters. All fields must be strings.\nNext id: 19",
+            "id": "GoogleInternalSpacecastAuthenticationV2GetBootstrapParamsResponse",
+            "properties": {
+                "apiKey": {
+                    "description": "API Key associated with the Developer Project for SpaceCast, to be used\nin unauthenticated calls.",
+                    "type": "string"
+                },
+                "authUri": {
+                    "description": "https://accounts.google.com/o/oauth2/auth",
+                    "type": "string"
+                },
+                "chromeEnterpriseStorageServerUrl": {
+                    "description": "URL for Chrome Enterprise File Storage Server, e.g.,\nhttps://m.google.com/devicemanagement/data/api/upload",
+                    "type": "string"
+                },
+                "clientId": {
+                    "description": "Client ID associated with the Developer Project for SpaceCast, to be used\nin authenticated (OAuth2) calls.\nSee go/sc-projects",
+                    "type": "string"
+                },
+                "clientSecret": {
+                    "description": "Client secret associated with the Developer Project for SpaceCast, to be\nused in authenticated (OAuth2) calls.",
+                    "type": "string"
+                },
+                "dmserverUrl": {
+                    "description": "URL for Chrome Device Management Server, e.g.,\nhttps://m.google.com/devicemanagement/data/api",
+                    "type": "string"
+                },
+                "env": {
+                    "description": "Environment in which the device will be registered into. Might be \"prod\",\n\"qa\" or \"dev\".",
+                    "type": "string"
+                },
+                "environment": {
+                    "description": "Environment in which the device will be registered.",
+                    "enum": [
+                        "ENVIRONMENT_UNKNOWN",
+                        "PROD",
+                        "QA",
+                        "DEV"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "location": {
+                    "description": "Location where device is situated (i.e. lab, field).",
+                    "enum": [
+                        "LOCATION_UNKNOWN",
+                        "FIELD",
+                        "LAB"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "Devices installed at customer location.",
+                        "Device at a lab, not serving users."
+                    ],
+                    "type": "string"
+                },
+                "monapiUrl": {
+                    "description": "MonAPI url, e.g., https://prodxmon-pa.googleapis.com/v1:insert",
+                    "type": "string"
+                },
+                "oauthUri": {
+                    "description": "https://accounts.google.com/o/oauth2/",
+                    "type": "string"
+                },
+                "pcaEnrollUrl": {
+                    "description": "Privacy CA (PCA) enroll URL, e.g., https://chromeos-ca.gstatic.com/enroll",
+                    "type": "string"
+                },
+                "pcaSignUrl": {
+                    "description": "Privacy CA (PCA) signing URL, e.g., https://chromeos-ca.gstatic.com/sign",
+                    "type": "string"
+                },
+                "softwareUpdateAppId": {
+                    "description": "Software update app ID, e.g.,\n{BBAC2BE3-5C7B-4161-BEDC-D17A2DA1CD8E}",
+                    "type": "string"
+                },
+                "softwareUpdateTrack": {
+                    "description": "Sofware update track (aka channel):\n\"stable-channel\", \"beta-channel\", \"dev-channel\", \"canary-channel\"",
+                    "type": "string"
+                },
+                "softwareUpdateUrl": {
+                    "description": "Sofware update url, e.g.,\nhttps://tools.google.com/service/update2",
+                    "type": "string"
+                },
+                "spacecastApiGrpcAddr": {
+                    "description": "gRPC endpoint for SpaceCast API, e.g.,\nspacecast-pa.googlepais.com:443",
+                    "type": "string"
+                },
+                "tokenUri": {
+                    "description": "https://accounts.google.com/o/oauth2/token",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalSpacecastAuthenticationV2GetChallengeResponse": {
+            "description": "GetChallengeResponse defines a response from a GetChallenge RPC Call.",
+            "id": "GoogleInternalSpacecastAuthenticationV2GetChallengeResponse",
+            "properties": {
+                "challenge": {
+                    "description": "For the Client, this is an opaque blob that he has to sign.",
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalSpacecastAuthenticationV2RegisterDeviceRequest": {
+            "description": "RegisterDeviceRequest defines a request for a RegisterDevice RPC Call.",
+            "id": "GoogleInternalSpacecastAuthenticationV2RegisterDeviceRequest",
+            "properties": {
+                "acceleratorId": {
+                    "description": "ID used to identify the device. This ID is unique for every registration.",
+                    "type": "string"
+                },
+                "hardwareVersion": {
+                    "description": "device hardware version.",
+                    "type": "string"
+                },
+                "mkCert": {
+                    "description": "machine-key public certificate, encoded in PEM format.\nthis cert has to be issued by Google Privacy CA for a SpaceCast device\nthe public key on this cert corresponds to the private key used to sign\nthe signed_challenge field.\ngo/sc-attest to get more information about this.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "signedChallenge": {
+                    "$ref": "GoogleInternalSpacecastAuthenticationV2SignedData",
+                    "description": "A signed challenge to authenticate this device."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalSpacecastAuthenticationV2RegisterDeviceResponse": {
+            "description": "RegisterDeviceResponse defines a response from a RegisterDevice RPC Call.",
+            "id": "GoogleInternalSpacecastAuthenticationV2RegisterDeviceResponse",
+            "properties": {},
+            "type": "object"
+        },
+        "GoogleInternalSpacecastAuthenticationV2SignedData": {
+            "description": "The wrapper message of any data and its signature.",
+            "id": "GoogleInternalSpacecastAuthenticationV2SignedData",
+            "properties": {
+                "data": {
+                    "description": "The data to be signed.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "signature": {
+                    "description": "The signature of the data field.",
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalSpacecastInternetV2GetAPKDownloadURLRequest": {
+            "description": "GetAPKDownloadURLRequest defines request for GetAPKDownloadURL RPC call.",
+            "id": "GoogleInternalSpacecastInternetV2GetAPKDownloadURLRequest",
+            "properties": {
+                "modelName": {
+                    "description": "The appliance model name.",
+                    "type": "string"
+                },
+                "serialNumber": {
+                    "description": "The appliance serial number.",
+                    "type": "string"
+                },
+                "signedChallenge": {
+                    "$ref": "GoogleInternalSpacecastAuthenticationV2SignedData",
+                    "description": "A signed challenge to authenticate this device."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalSpacecastInternetV2GetAPKDownloadURLResponse": {
+            "description": "GetAPKDownloadURLResponse defines response for GetAPKDownloadURL RPC call.",
+            "id": "GoogleInternalSpacecastInternetV2GetAPKDownloadURLResponse",
+            "properties": {
+                "url": {
+                    "description": "Download URL for the content.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalSpacecastInternetV2GetDefaultScheduleRequest": {
+            "description": "GetDefaultScheduleRequest defines request for GetDefaultSchedule RPC call.",
+            "id": "GoogleInternalSpacecastInternetV2GetDefaultScheduleRequest",
+            "properties": {
+                "deviceId": {
+                    "description": "The appliance's GCD ID.",
+                    "type": "string"
+                },
+                "modelName": {
+                    "description": "The appliance model name.",
+                    "type": "string"
+                },
+                "serialNumber": {
+                    "description": "The appliance serial number.",
+                    "type": "string"
+                },
+                "signedChallenge": {
+                    "$ref": "GoogleInternalSpacecastAuthenticationV2SignedData",
+                    "description": "A signed challenge to authenticate this device."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalSpacecastInternetV2GetDefaultScheduleResponse": {
+            "description": "GetDefaultScheduleResponse defines response for GetDefaultSchedule RPC call.",
+            "id": "GoogleInternalSpacecastInternetV2GetDefaultScheduleResponse",
+            "properties": {
+                "schedule": {
+                    "$ref": "FeedsProtoSchedule",
+                    "description": "The default schedule."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalSpacecastInternetV2GetVideoMetadataRequest": {
+            "description": "GetVideoMetadataRequest defines request for GetVideoMetadata RPC call.",
+            "id": "GoogleInternalSpacecastInternetV2GetVideoMetadataRequest",
+            "properties": {
+                "modelName": {
+                    "description": "The appliance model name.",
+                    "type": "string"
+                },
+                "resolution": {
+                    "description": "The resolution of the video.",
+                    "enum": [
+                        "UNSPECIFIED_RESOLUTION",
+                        "LD_144P",
+                        "LD_240P",
+                        "SD_360P",
+                        "SD_480P",
+                        "HD_720P",
+                        "HD_1080P",
+                        "HD_1440P",
+                        "HD_2160P"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "4K"
+                    ],
+                    "type": "string"
+                },
+                "serialNumber": {
+                    "description": "The appliance serial number.",
+                    "type": "string"
+                },
+                "signedChallenge": {
+                    "$ref": "GoogleInternalSpacecastAuthenticationV2SignedData",
+                    "description": "A signed challenge to authenticate this device."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalSpacecastInternetV2GetVideoMetadataResponse": {
+            "description": "GetVideoMetadataResponse defines response for GetVideoMetadata RPC call.",
+            "id": "GoogleInternalSpacecastInternetV2GetVideoMetadataResponse",
+            "properties": {
+                "video": {
+                    "$ref": "FeedsProtoVideoItem",
+                    "description": "Metadata for the video."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalSpacecastInternetV2ListItemsRequest": {
+            "description": "ListItemsRequest defines request for ListItems RPC call.",
+            "id": "GoogleInternalSpacecastInternetV2ListItemsRequest",
+            "properties": {
+                "checkItemsTtl": {
+                    "description": "If true - ListItems fails on schedule with expired items.",
+                    "type": "boolean"
+                },
+                "deviceId": {
+                    "description": "The appliance's GCD ID.",
+                    "type": "string"
+                },
+                "modelName": {
+                    "description": "The appliance model name.",
+                    "type": "string"
+                },
+                "paginationToken": {
+                    "description": "if empty - gets first page",
+                    "type": "string"
+                },
+                "serialNumber": {
+                    "description": "The appliance serial number.",
+                    "type": "string"
+                },
+                "signedChallenge": {
+                    "$ref": "GoogleInternalSpacecastAuthenticationV2SignedData",
+                    "description": "A signed challenge to authenticate this device."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalSpacecastInternetV2ListItemsResponse": {
+            "description": "ListItemsResponse defines response for ListItems RPC call.",
+            "id": "GoogleInternalSpacecastInternetV2ListItemsResponse",
+            "properties": {
+                "items": {
+                    "description": "The sequence of available items.",
+                    "items": {
+                        "$ref": "FeedsProtoItem"
+                    },
+                    "type": "array"
+                },
+                "paginationToken": {
+                    "description": "If non-empty - more items to read.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalSpacecastLicensingV2GetContentKeyRequest": {
+            "description": "GetContentKeyRequest defines request for GetContentKey RPC call.",
+            "id": "GoogleInternalSpacecastLicensingV2GetContentKeyRequest",
+            "properties": {
+                "groupId": {
+                    "description": "The group ID used for group licensing.\nDEPRECATED: bool should_get_actual_key = 7;",
+                    "type": "string"
+                },
+                "mediaContentId": {
+                    "description": "A unique identifier used by the provider to identify the media,\ne.g. YouTube encrypted content ID.",
+                    "type": "string"
+                },
+                "mediaType": {
+                    "description": "Type of the media, e.g. \"youtube\".",
+                    "type": "string"
+                },
+                "modelName": {
+                    "description": "The appliance model name.",
+                    "type": "string"
+                },
+                "serialNumber": {
+                    "description": "The appliance serial number.",
+                    "type": "string"
+                },
+                "signedChallenge": {
+                    "$ref": "GoogleInternalSpacecastAuthenticationV2SignedData",
+                    "description": "A signed challenge to authenticate this device. The challenge to be signed\nshould be obtained by calling the GetChallenge RPC of\n//google/internal/spacecast/authentication/v2/device_authentication.proto."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalSpacecastLicensingV2GetContentKeyResponse": {
+            "description": "GetContentKeyResponse defines response of GetContentKey RPC call.",
+            "id": "GoogleInternalSpacecastLicensingV2GetContentKeyResponse",
+            "properties": {
+                "keyId": {
+                    "description": "Corresponds to video_widevine::CommonEncryptionResponse::Track.\nDEPRECATED: bytes key = 1;\nID of the content key.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "pssh": {
+                    "description": "PSSH (Protection System Specification Header) box for Widevine Common\nEncryption content.",
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalSpacecastLicensingV2GetLicenseRequest": {
+            "description": "GetLicenseRequest defines request for GetLicense RPC call.",
+            "id": "GoogleInternalSpacecastLicensingV2GetLicenseRequest",
+            "properties": {
+                "challenge": {
+                    "description": "Serialized LicenseChallenge formed by CDM library.\nCorresponds to video_widevine::ModularDrmLicenseRequest::payload field.\nWe pass serialized challenge rather than proto, because we would like to\navoid dependencies between gfiber git-gerrit and google3.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "modelName": {
+                    "description": "The appliance model name.",
+                    "type": "string"
+                },
+                "serialNumber": {
+                    "description": "The appliance serial number.",
+                    "type": "string"
+                },
+                "signedChallenge": {
+                    "$ref": "GoogleInternalSpacecastAuthenticationV2SignedData",
+                    "description": "A signed challenge to authenticate this device. This signed challenge is to\nauthenticate the device to the Spacecast service, and not to the Widevine\nservice, which the challenge above is used for. The challenge to be signed\nshould be obtained by calling the GetChallenge RPC of\n//google/internal/spacecast/authentication/v2/device_authentication.proto."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalSpacecastLicensingV2GetLicenseResponse": {
+            "description": "GetLicenseResponse defines response of GetLicense RPC call.",
+            "id": "GoogleInternalSpacecastLicensingV2GetLicenseResponse",
+            "properties": {
+                "license": {
+                    "description": "Corresponds to video_widevine::ModularDrmLicenseResponse::license.",
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalSpacecastLicensingV2GroupKey": {
+            "id": "GoogleInternalSpacecastLicensingV2GroupKey",
+            "properties": {
+                "id": {
+                    "description": "Group key ID string; for backwards compatibility with widevine.",
+                    "type": "string"
+                },
+                "index": {
+                    "description": "Group key index; uniquely identifies the group key.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "key": {
+                    "description": "Group key secret; should be a valid AES key size.",
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalSpacecastLicensingV2GroupKeysRequest": {
+            "description": "GroupKeysRequest contains information identifying and authenticating the\nclient asking for group encryption keys.",
+            "id": "GoogleInternalSpacecastLicensingV2GroupKeysRequest",
+            "properties": {
+                "modelName": {
+                    "description": "The appliance model name.",
+                    "type": "string"
+                },
+                "serialNumber": {
+                    "description": "The appliance serial number.",
+                    "type": "string"
+                },
+                "signedChallenge": {
+                    "$ref": "GoogleInternalSpacecastAuthenticationV2SignedData",
+                    "description": "A signed challenge to authenticate this device."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalSpacecastLicensingV2GroupKeysResponse": {
+            "description": "GroupKeysResponse contains a list of group encryption keys the\nclient is currently approved to use. The returned list is cacheable\nby the client for a few days, but it should not be written to disk.\nWhen encrypting new files, the client will use the first group key\nreturned. When decrypting files, the client will use any group key\nmatching the group that the files were originally encrypted with,\nand the client won't be able to decrypt files for which no matching\ngroup key is found.",
+            "id": "GoogleInternalSpacecastLicensingV2GroupKeysResponse",
+            "properties": {
+                "key": {
+                    "items": {
+                        "$ref": "GoogleInternalSpacecastLicensingV2GroupKey"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalSpacecastTransmuxV2BRMFlatResponse": {
+            "description": "BRMFlatResponse is the response from GetFlatByteRangeMap method",
+            "id": "GoogleInternalSpacecastTransmuxV2BRMFlatResponse",
+            "properties": {
+                "brmBytes": {
+                    "description": "BRM marshalled to bytes.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "outputLength": {
+                    "description": "Transmuxed stream length in bytes.\nRequired in order to avoid forcing the client to parse the ByteRangeMap\nto extract stream length.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "responseType": {
+                    "description": "response_type is the the type of the response.",
+                    "enum": [
+                        "UNKNOWN",
+                        "SUCCESS",
+                        "RETRY_BUSY",
+                        "RETRY_DESYNCHRONIZE",
+                        "PERMANENTLY_GONE"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown response.",
+                        "Successful serve of the required BRM.",
+                        "Too busy to serve it now. Try me later.",
+                        "Multiple appliances are requesting a same BRM generation. Back off and\nde-synchronize the requests.",
+                        "This ByteRangeMap is permanently unavailable."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalSpacecastTransmuxV2BRMRequest": {
+            "description": "BRMRequest is the appliance request to the TransmuxService Stubby service\nfor the ByteRangeMap of a given media.",
+            "id": "GoogleInternalSpacecastTransmuxV2BRMRequest",
+            "properties": {
+                "audioItem": {
+                    "$ref": "GoogleInternalSpacecastTransmuxV2MediaItem",
+                    "description": "audio_item is the audio content of the media."
+                },
+                "outputFormat": {
+                    "description": "output_format is the video format of the transmuxed output, expressed as\nan itag value.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "requestType": {
+                    "description": "request_type is the the type of the request.",
+                    "enum": [
+                        "UNKNOWN",
+                        "BLOCKING",
+                        "NONBLOCKING"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown request.",
+                        "Blocking request.",
+                        "Non-blocking request."
+                    ],
+                    "type": "string"
+                },
+                "videoItem": {
+                    "$ref": "GoogleInternalSpacecastTransmuxV2MediaItem",
+                    "description": "video_item is the video content of the media."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalSpacecastTransmuxV2BRMResponse": {
+            "description": "BRMResponse is the response from the TransmuxService Stubby service for a\nBRMRequest.\nNote that errors will be returned at the RPC layer. In other words,\nBRMResponse is returned when there are no errors.",
+            "id": "GoogleInternalSpacecastTransmuxV2BRMResponse",
+            "properties": {
+                "brm": {
+                    "$ref": "VideoFileTransmuxerMp4fMp4ByteRangeMap",
+                    "description": "brm is the calculated ByteRangeMap."
+                },
+                "responseType": {
+                    "description": "response_type is the the type of the response.",
+                    "enum": [
+                        "UNKNOWN",
+                        "SUCCESS",
+                        "RETRY_BUSY",
+                        "RETRY_DESYNCHRONIZE",
+                        "PERMANENTLY_GONE"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown response.",
+                        "Successful serve of the required BRM.",
+                        "Too busy to serve it now. Try me later.",
+                        "Multiple appliances are requesting a same BRM generation. Back off and\nde-synchronize the requests.",
+                        "This ByteRangeMap is permanently unavailable."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalSpacecastTransmuxV2MediaItem": {
+            "description": "MediaItem describes a piece of video or audio content, which is the source\nfor generating ByteRangeMap.",
+            "id": "GoogleInternalSpacecastTransmuxV2MediaItem",
+            "properties": {
+                "itag": {
+                    "description": "itag is the internal YouTube video format number of the media.\nSee\nhttps://sites.google.com/a/google.com/video-transcoder-team/video-formats",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "lastModifiedTimeMicros": {
+                    "description": "last_modified_time_micros is microseconds since the epoch.\nUse lmt to determine whether the cache is up to date.\nSee the lmt parameter in the videoplayback URL.",
+                    "format": "uint64",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "url is the download URL for the media content.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "VideoFileTransmuxerMp4fMp4ByteRange": {
+            "description": "A byte range is a correspondence between consecutive bytes in the output with\na consecutive range of bytes of the same length in an input.",
+            "id": "VideoFileTransmuxerMp4fMp4ByteRange",
+            "properties": {
+                "inputIndex": {
+                    "description": "Required; index of the input.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "inputOffset": {
+                    "description": "Required; byte that starts the range in an input.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "outputOffset": {
+                    "description": "Required; byte that starts the range in the output.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "VideoFileTransmuxerMp4fMp4ByteRangeMap": {
+            "description": "A byte range map is a correspondence between the bytes of an output file with\nbytes of one or more inputs.",
+            "id": "VideoFileTransmuxerMp4fMp4ByteRangeMap",
+            "properties": {
+                "identifier": {
+                    "description": "Identifier for this byte range map, e.g., content id for a video.",
+                    "type": "string"
+                },
+                "inputs": {
+                    "description": "List of inputs used in the map.",
+                    "items": {
+                        "$ref": "VideoFileTransmuxerMp4fMp4Input"
+                    },
+                    "type": "array"
+                },
+                "outputLength": {
+                    "description": "Required; size in bytes of the output.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "ranges": {
+                    "description": "Byte range mapping between output and inputs;\nByte ranges must be non-overlapping and cover the entire output\nin increasing output offset order.",
+                    "items": {
+                        "$ref": "VideoFileTransmuxerMp4fMp4ByteRange"
+                    },
+                    "type": "array"
+                },
+                "signature": {
+                    "description": "Optional; Signature for resulting transmuxed video.",
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "VideoFileTransmuxerMp4fMp4Input": {
+            "description": "An input is either a file to read from or embedded data\nLast used: 8",
+            "id": "VideoFileTransmuxerMp4fMp4Input",
+            "properties": {
+                "fileIdentifier": {
+                    "description": "Identifier for the file used in conjunction with identifier in\nByteRangeMap. It means:\n1. The source file path/name in the use case of SpaceCast.\n2. Itag in transmuxing used by Youtube. This will be deprecated and moved\nto the VodFormatReference/LiveSegmentReference.",
+                    "type": "string"
+                },
+                "fileSize": {
+                    "description": "Size of the input file.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "lastModifiedTimeUsec": {
+                    "description": "Used for versioning purposes.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "liveSegmentReference": {
+                    "$ref": "VideoFileTransmuxerMp4fMp4LiveSegmentReference",
+                    "description": "Source reference for live segment."
+                },
+                "originalUrl": {
+                    "description": "Original url of the input that was used to generate ByteRangeMap.",
+                    "type": "string"
+                },
+                "payload": {
+                    "description": "Metadata embedded in the message. Currently the payload contains the\nmp4 header of the file, typically \"ftyp\" and \"moov\" atom.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "source": {
+                    "description": "Corresponds to SourceEnum in video/pipeline/common/common.proto",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "vodFormatReference": {
+                    "$ref": "VideoFileTransmuxerMp4fMp4VodFormatReference",
+                    "description": "Source reference for vod format."
+                }
+            },
+            "type": "object"
+        },
+        "VideoFileTransmuxerMp4fMp4LiveSegmentReference": {
+            "description": "The reference of a live segment that will be used to locate the transcode in\nDatagen Recipe.",
+            "id": "VideoFileTransmuxerMp4fMp4LiveSegmentReference",
+            "properties": {
+                "itag": {
+                    "description": "ContentHeader.VideoFormat enum value.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "sequenceNumber": {
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "VideoFileTransmuxerMp4fMp4VodFormatReference": {
+            "description": "The reference of a vod format that will be used to locate the transcode in\nDatagen Recipe.",
+            "id": "VideoFileTransmuxerMp4fMp4VodFormatReference",
+            "properties": {
+                "itag": {
+                    "description": "ContentHeader.VideoFormat enum value.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Spacecast API (Staging)",
+    "version": "v2",
+    "version_module": true
+}

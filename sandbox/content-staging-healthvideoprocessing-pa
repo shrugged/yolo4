@@ -1,0 +1,345 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/userinfo.email": {
+                    "description": "View your email address"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://staging-healthvideoprocessing-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Health Video Processing",
+    "description": "Health Video Processing Private API.",
+    "discoveryVersion": "v1",
+    "documentationLink": "go/movement-monitoring-service",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "healthvideoprocessing_pa:v1",
+    "kind": "discovery#restDescription",
+    "name": "healthvideoprocessing_pa",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "participants": {
+            "methods": {
+                "create": {
+                    "description": "Creates a Participant.",
+                    "flatPath": "v1/participants",
+                    "httpMethod": "POST",
+                    "id": "healthvideoprocessing_pa.participants.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/participants",
+                    "request": {
+                        "$ref": "Participant"
+                    },
+                    "response": {
+                        "$ref": "CreateParticipantResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                }
+            }
+        },
+        "sessions": {
+            "methods": {
+                "create": {
+                    "description": "Creates a Session corresponding to a given Participant.",
+                    "flatPath": "v1/sessions",
+                    "httpMethod": "POST",
+                    "id": "healthvideoprocessing_pa.sessions.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/sessions",
+                    "request": {
+                        "$ref": "Session"
+                    },
+                    "response": {
+                        "$ref": "CreateSessionResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                }
+            }
+        },
+        "v1": {
+            "methods": {
+                "trial_metadata": {
+                    "description": "Uploads TrialMetadata corresponding to a Trial. Should contain the blob id\nof the media file.",
+                    "flatPath": "v1/trial_metadata",
+                    "httpMethod": "POST",
+                    "id": "healthvideoprocessing_pa.trial_metadata",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/trial_metadata",
+                    "request": {
+                        "$ref": "TrialMetadata"
+                    },
+                    "response": {
+                        "$ref": "UploadTrialMetadataResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                }
+            }
+        }
+    },
+    "revision": "20190311",
+    "rootUrl": "https://staging-healthvideoprocessing-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "AbsoluteTimeRange": {
+            "description": "Encapsulates a continuous period of time, parametrized by an absolute start\ntimestamp, and a duration.",
+            "id": "AbsoluteTimeRange",
+            "properties": {
+                "duration": {
+                    "format": "google-duration",
+                    "type": "string"
+                },
+                "startTimestamp": {
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CreateParticipantResponse": {
+            "id": "CreateParticipantResponse",
+            "properties": {
+                "participant": {
+                    "$ref": "Participant"
+                }
+            },
+            "type": "object"
+        },
+        "CreateSessionResponse": {
+            "id": "CreateSessionResponse",
+            "properties": {
+                "session": {
+                    "$ref": "Session"
+                }
+            },
+            "type": "object"
+        },
+        "DemographicMetadata": {
+            "description": "Demographic data about the participant.",
+            "id": "DemographicMetadata",
+            "properties": {
+                "notes": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Participant": {
+            "description": "A participant who contributes data to be uploaded and analyzed.",
+            "id": "Participant",
+            "properties": {
+                "demographicMetadata": {
+                    "$ref": "DemographicMetadata",
+                    "description": "Demographics about the participant."
+                },
+                "participantId": {
+                    "description": "Unique identifier of the participant. Mapping to \"real\" user is maintained\nby partner organization.",
+                    "type": "string"
+                },
+                "technicianId": {
+                    "description": "GAIA ID of the technician that assisted in enrolling the participant.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Session": {
+            "description": "A session corresponds to a participant and defines a single, continuous\nperiod during which data record-and-upload trials happen.",
+            "id": "Session",
+            "properties": {
+                "participantId": {
+                    "description": "ID of the participant to whom the session pertains.",
+                    "type": "string"
+                },
+                "sessionId": {
+                    "description": "Unique session idenitifer.",
+                    "type": "string"
+                },
+                "technicianId": {
+                    "description": "GAIA ID of the technician that assisted with the session.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "timestamp": {
+                    "description": "Epoch timestamp of the session (for example, session creation time).",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TrialMetadata": {
+            "description": "A trial is an individual recorded video instance. There could be different\ntypes of trials corresponding to different data collection programs.\nFurthermore, each trial is recorded with a specific video device, for\nexample, a cellphone or other camera device. TrialMetadata represents\ninformation about the trial, including a reference to the media itself,\nand an Any field that contains collection program specific information.",
+            "id": "TrialMetadata",
+            "properties": {
+                "blobId": {
+                    "description": "The identifier of the media file blob id.\nFor example, the BigStore or BlobStore id.",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Free-form text notes about the trial.",
+                    "type": "string"
+                },
+                "participantId": {
+                    "description": "ID of the participant to whom the trial pertains.",
+                    "type": "string"
+                },
+                "sessionId": {
+                    "description": "ID of the session to which the trial belongs.",
+                    "type": "string"
+                },
+                "timeRange": {
+                    "$ref": "AbsoluteTimeRange",
+                    "description": "Start and end epoch timestamps of the trial."
+                },
+                "trialId": {
+                    "description": "Unique trial identifier.",
+                    "type": "string"
+                },
+                "trialMetadata": {
+                    "additionalProperties": {
+                        "description": "Properties of the object. Contains field @type with type URL.",
+                        "type": "any"
+                    },
+                    "description": "Other fields related to specific trial types. Video trial metadata can be\nstored in this field and is invisible to the service. The uploading device\nis responsible to serialize appropriate data in this field.",
+                    "type": "object"
+                },
+                "videoSource": {
+                    "$ref": "VideoSource"
+                }
+            },
+            "type": "object"
+        },
+        "UploadTrialMetadataResponse": {
+            "id": "UploadTrialMetadataResponse",
+            "properties": {
+                "trialMetadata": {
+                    "$ref": "TrialMetadata"
+                }
+            },
+            "type": "object"
+        },
+        "VideoSource": {
+            "description": "The source of the video the trial was recorded from.",
+            "id": "VideoSource",
+            "properties": {
+                "version": {
+                    "description": "Any software version information that we want to associate with the\nsource.",
+                    "type": "string"
+                },
+                "videoSourceType": {
+                    "enum": [
+                        "UNKNOWN",
+                        "PIXEL_3",
+                        "NEST_CAM_IQ"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Health Video Processing Private API (Test)",
+    "version": "v1",
+    "version_module": true
+}

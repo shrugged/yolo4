@@ -1,0 +1,906 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/xapi.zoo": {
+                    "description": "Test scope for access to the Zoo service"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://staging-accessoss-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "description": "Access Operations Support System Private API.",
+    "discoveryVersion": "v1",
+    "documentationLink": "go/hilbert-dp-design",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "accessoss_pa:v1",
+    "kind": "discovery#restDescription",
+    "name": "accessoss_pa",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "v1": {
+            "methods": {
+                "burrow": {
+                    "description": "Netflow logging endpoint for Burrow collectors.",
+                    "flatPath": "v1/burrow",
+                    "httpMethod": "POST",
+                    "id": "accessoss_pa.burrow",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/burrow",
+                    "request": {
+                        "$ref": "LogBurrowFlowRequest"
+                    },
+                    "response": {
+                        "$ref": "LogBurrowFlowResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/xapi.zoo"
+                    ]
+                },
+                "devicedata": {
+                    "description": "Syncs device data in raw format. The server will be responsible for parsing\nthe raw data into meaningful structure. Returns NULL on failure.",
+                    "flatPath": "v1/devicedata",
+                    "httpMethod": "POST",
+                    "id": "accessoss_pa.devicedata",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/devicedata",
+                    "request": {
+                        "$ref": "DeviceData"
+                    },
+                    "response": {
+                        "$ref": "DeviceData"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/xapi.zoo"
+                    ]
+                },
+                "updatejob": {
+                    "description": "Job update between DP and other components.",
+                    "flatPath": "v1/updatejob",
+                    "httpMethod": "POST",
+                    "id": "accessoss_pa.updatejob",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/updatejob",
+                    "request": {
+                        "$ref": "UpdateJobsRequest"
+                    },
+                    "response": {
+                        "$ref": "UpdateJobsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/xapi.zoo"
+                    ]
+                }
+            }
+        }
+    },
+    "revision": "20190913",
+    "rootUrl": "https://staging-accessoss-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "DeviceData": {
+            "description": "Definition of the device data.\nNEXT_TAG = 9",
+            "id": "DeviceData",
+            "properties": {
+                "collectTs": {
+                    "description": "Timestamp when this device data is collected.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "dataFormat": {
+                    "description": "Format of the data i.e. XML, SNMP, TEXT etc.",
+                    "enum": [
+                        "UNKNOWN_FORMAT",
+                        "SNMP",
+                        "SYSLOG",
+                        "XML",
+                        "CSV",
+                        "KV_PAIR",
+                        "SCRIPT",
+                        "OPEN_CONFIG",
+                        "BMS"
+                    ],
+                    "enumDescriptions": [
+                        "Default unknown format.",
+                        "SNMP protocol format.",
+                        "SYSLOG i.e text format.",
+                        "XML format.",
+                        "Comma-separated values format.",
+                        "Key-value pairs.",
+                        "Script type.",
+                        "",
+                        "BMS system's data format."
+                    ],
+                    "type": "string"
+                },
+                "deviceType": {
+                    "description": "Device type i.e. eNodeB, Router, Switch etc.",
+                    "enum": [
+                        "UNKNOWN_DEVICE_TYPE",
+                        "EMS",
+                        "ENB",
+                        "HENB"
+                    ],
+                    "enumDescriptions": [
+                        "Default unknown type.",
+                        "Element Management System e.g. NetSpan, NetPac etc.",
+                        "eNodeB.",
+                        "Home eNodeB"
+                    ],
+                    "type": "string"
+                },
+                "entityId": {
+                    "description": "Name of the device where this data is from.",
+                    "type": "string"
+                },
+                "out": {
+                    "additionalProperties": {
+                        "$ref": "Var"
+                    },
+                    "description": "Map for key-value pair output.",
+                    "type": "object"
+                },
+                "rawData": {
+                    "description": "Raw data in bytes.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "sourceIp": {
+                    "description": "Source IP address where we collect this data..",
+                    "type": "string"
+                },
+                "vendorName": {
+                    "description": "Name of the vendor of this device i.e. Nokia, Airspan etc.",
+                    "enum": [
+                        "UNKNOWN_VENDOR",
+                        "AIRSPAN",
+                        "NOKIA",
+                        "SERCOMM",
+                        "JUNI",
+                        "ASKEY",
+                        "GEMTEK",
+                        "GOOGLE",
+                        "CONVERSOCIAL",
+                        "LIVECHAT",
+                        "ADTRAN",
+                        "ALU",
+                        "ANY_VENDOR"
+                    ],
+                    "enumDescriptions": [
+                        "Default unknown vendor.",
+                        "Airspan vendor.",
+                        "Nokia vendor.",
+                        "Sercomm vendor.",
+                        "Juni vendor.",
+                        "Askey vendor.",
+                        "Gemtek vendor.",
+                        "Google vendor.",
+                        "Conversocial vendor.",
+                        "Livechat vendor.",
+                        "Adtran vendor.",
+                        "Alcatel-Lucent vendor (now Nokia).",
+                        "ANY_VENDOR means the data is already standardized and VendorName doesn't\nmatter. For example: OpenConfig and Syslog doesn't require VendorName to\nperform normalization.\nThis enum value should be the last."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Job": {
+            "description": "This protobuf defines the system job for the communications between different\ncomponents (Data Platform, Edge, etc).\nNEXT_TAG = 37.",
+            "id": "Job",
+            "properties": {
+                "archiveTimestamp": {
+                    "description": "The time when the job should be archived (in milliseconds since epoch).",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "completeTimestamp": {
+                    "description": "The time the job was completed (in milliseconds since epoch).",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "createTimestamp": {
+                    "description": "The time when the job was created (in milliseconds since epoch).",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "creator": {
+                    "description": "The string identifier of the creator of the job.",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "job description. Only text/plain is supported.",
+                    "type": "string"
+                },
+                "deviceData": {
+                    "$ref": "DeviceData",
+                    "description": "DEPRECATED: Use out (29) instead.\nTODO(nhewitt) remove this field and list as reserved when Edge references\nremoved. See b/28820030."
+                },
+                "duePeriod": {
+                    "description": "The period it takes in milliseconds for this job to due.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "dueTimestamp": {
+                    "description": "The time this job is due and will be TIMEOUT (in milliseconds since epoch).",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "entityId": {
+                    "description": "The Id of the entity this job is operating on if there's any.",
+                    "type": "string"
+                },
+                "expirationPeriod": {
+                    "description": "The period it takes in milliseconds before it become obsolete.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "expirationTimestamp": {
+                    "description": "The time when the job will become obselete if it's still open\n(in milliseconds since epoch).",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "in": {
+                    "additionalProperties": {
+                        "$ref": "Var"
+                    },
+                    "description": "The input param map, with parameter name as key.\nNOTE(b/9499602 won't fix): If you're referencing this field from a python\nclient, you will have to use getattr() as opposed to the dot syntax or\nindexing syntax. Python doesn't like protobuf field names that are also\nreserved keywords.",
+                    "type": "object"
+                },
+                "inType": {
+                    "additionalProperties": {
+                        "$ref": "VarType"
+                    },
+                    "description": "The input param type map, with parameter name as key.",
+                    "type": "object"
+                },
+                "infoLevel": {
+                    "description": "The visibility level of the job, used for filtering less important jobs\nin UI and logs.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "internalInput": {
+                    "additionalProperties": {
+                        "$ref": "VarList"
+                    },
+                    "description": "The internal input param map, with parameter name as key, this is\ninternally used to construct input params for field 28 before sending it\nout to jobRunners.",
+                    "type": "object"
+                },
+                "issuedTimestamp": {
+                    "description": "The time the job was issued (in milliseconds since epoch).",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "jobId": {
+                    "description": "Id that uniquely identifies a job instance.",
+                    "type": "string"
+                },
+                "jobRunner": {
+                    "description": "The name of the job runner which was issued with this job instance.",
+                    "type": "string"
+                },
+                "jobType": {
+                    "description": "Move the job_type field added in CL/119777887 to here.\nJob was designed to use string type to identify its definition.\nI am not convinced that the benefit out-weights overhead by introducing\nan enum to bound its type system.",
+                    "enum": [
+                        "UNKNOWN_JOB_TYPE",
+                        "I_BRIDGE_BASE_RADIO_PROFILE_UPDATE",
+                        "NODE_INFO_GET",
+                        "NODE_LIST",
+                        "NODE_REPROVISION",
+                        "NODE_RESET",
+                        "ALARM_ACKNOWLEDGE",
+                        "ALARM_LIST",
+                        "ALARM_LIST_NODE",
+                        "ALARM_UNACKNOWLEDGE",
+                        "ENB_CONFIG_GET",
+                        "ENB_CONFIG_SET",
+                        "ENB_STATE_GET",
+                        "ENB_STATE_SET",
+                        "LTE_NEIGHBOUR_ADD",
+                        "RADIO_PROFILE_CLONE",
+                        "RADIO_PROFILE_CREATE",
+                        "RADIO_PROFILE_DELETE",
+                        "RADIO_PROFILE_GET",
+                        "RADIO_PROFILE_UPDATE",
+                        "SON_PROFILE_CLONE",
+                        "SON_PROFILE_CREATE",
+                        "SON_PROFILE_DELETE",
+                        "SON_PROFILE_GET",
+                        "SON_PROFILE_LIST",
+                        "SON_PROFILE_UPDATE",
+                        "CELL_LEVEL_RADIO_BEARER_QOS_RAW_GET",
+                        "ERAB_RAW_GET",
+                        "HANDOVER_RAW_GET",
+                        "PAGING_RAW_GET",
+                        "RADIO_RESOURCE_UTILIZATION_RAW_GET",
+                        "RRC_CONNECTION_RAW_GET",
+                        "RRU_PER_QCI_RAW_GET",
+                        "BMS_ALARM_POLL"
+                    ],
+                    "enumDescriptions": [
+                        "Default unknown job type.",
+                        "Update a iBridge Base Radio Profile from the NMS.\nRequire NBIF Extensions Licence.",
+                        "Return Node info. Require NBIF Extensions Licence.",
+                        "Return a list Nodes. Require NBIF Extensions Licence.",
+                        "Reprovision one or more Nodes. Require NBIF Extensions Licence.",
+                        "Reset one or more Nodes. Require NBIF Extensions Licence.",
+                        "/////// Fault management related APIs. /////////\nAck one or more alams",
+                        "Get alarm list.",
+                        "Return a list of Active Alarms for the specified Nodes.",
+                        "Unack one or more alams",
+                        "/////// LTE related APIs. /////////\nGet the eNodeB configuration for the specified Node in the NMS.\nRequire NBIF Extensions Licence.",
+                        "Set the eNodeB configuration for the specified Node in the NMS.\nRequire NBIF Extensions Licence.",
+                        "Get the eNodeB State for the specified Node in the NMS.\nRequire NBIF Extensions Licence.",
+                        "Set the eNodeB State for the specified Node in the NMS.\nRequire NBIF Extensions Licence.",
+                        "Add or Edit a manual neighbour for a Node.\nRequire NBIF Extensions Licence.",
+                        "Clone a Radio Profile from the NMS. Require NBIF Extensions Licence.",
+                        "Create a Radio Profile on the NMS. Require NBIF Extensions Licence.",
+                        "Delete one or more Radio Profiles. Require NBIF Extensions Licence.",
+                        "Get a Radio Profile from the NMS. Require NBIF Extensions Licence.",
+                        "Update a Radio Profile from the NMS. Require NBIF Extensions Licence.",
+                        "Clone a SON Profile from the NMS. Require NBIF Extensions Licence.",
+                        "Create a SON Profile on the NMS. Require NBIF Extensions Licence.",
+                        "Delete one or more SON Profiles. Require NBIF Extensions Licence.",
+                        "Get a SON Profile from the NMS. Require NBIF Extensions Licence.",
+                        "Return a list of SON Profiles. Require NBIF Extensions Licence.",
+                        "Update a SON Profile from the NMS. Require NBIF Extensions Licence.",
+                        "Get the raw Cell Level Radio Bearer QoS statistics for the specified Nodes.\nRequire NBIF Extensions Licence.",
+                        "Get the raw E-RAB statistics for the specified Nodes.\nRequire NBIF Extensions Licence.",
+                        "Get the raw Handover statistics for the specified Nodes.\nRequire NBIF Extensions Licence.",
+                        "Get the raw E-RAB statistics for the specified Nodes.\nRequire NBIF Extensions Licence.",
+                        "Get the raw Radio Resource Utilization statistics for the specified Nodes.\nRequire NBIF Extensions Licence.",
+                        "Get the raw RRC Connection statistics for the specified Nodes.\nRequire NBIF Extensions Licence.",
+                        "Get the raw RRU per Qci statistics for the specified Nodes.\nRequire NBIF Extensions Licence.",
+                        "Poll BMS alarms."
+                    ],
+                    "type": "string"
+                },
+                "lastUpdatedTimestamp": {
+                    "description": "Time in milliseconds when this job was updated.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "lockEntity": {
+                    "description": "Whether this job should lock the entity from performing other\nlock_entity-is-true jobs, i.e. if multiple jobs with lock_entity is true\nare targeting on a same entity, only one of them can be executed at any\ntime, but jobs with lock_entity is false will not be affected.",
+                    "type": "boolean"
+                },
+                "log": {
+                    "description": "The log of this job in string.",
+                    "type": "string"
+                },
+                "opType": {
+                    "description": "A unique string for stating the type of operation this job runs.\nFor example, we support \"SCRIPT\" as a basic op_type.",
+                    "type": "string"
+                },
+                "out": {
+                    "additionalProperties": {
+                        "$ref": "Var"
+                    },
+                    "description": "The output param map, with parameter name as key.",
+                    "type": "object"
+                },
+                "outType": {
+                    "additionalProperties": {
+                        "$ref": "VarType"
+                    },
+                    "description": "The output param type map, with parameter name as key.",
+                    "type": "object"
+                },
+                "package": {
+                    "description": "A namespace used for avoid too many job definitions in flat structure.\nFor example, we can define package such as 'edge.airspan' or 'son.sas'.",
+                    "type": "string"
+                },
+                "priority": {
+                    "description": "The priority of the job, smaller the number, higher the priority.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "processId": {
+                    "description": "The id of the process this job belongs to.",
+                    "type": "string"
+                },
+                "receivedTimestamp": {
+                    "description": "The time the job was received (in milliseconds since epoch).",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "scheduledStartTimestamp": {
+                    "description": "The time when the job scheduled to start (in milliseconds since epoch).",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "startTimestamp": {
+                    "description": "The time this job started (in milliseconds since epoch).",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "The status of this job.",
+                    "enum": [
+                        "UNKNOWN",
+                        "OPEN",
+                        "ISSUED",
+                        "RECEIVED",
+                        "RUNNING",
+                        "SUCCEED",
+                        "FAILED",
+                        "TIMEOUT",
+                        "ABORTED",
+                        "OBSOLETE",
+                        "SCHEDULED"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown state before job is created.",
+                        "Created.",
+                        "Issued to JobRunner.",
+                        "Received by JobRunner.",
+                        "Running on JobRunner.",
+                        "Finished with success.",
+                        "Finished with failure.",
+                        "Timeout.",
+                        "Aborted by user.",
+                        "Never been issued and can be recycled.",
+                        "Scheduled to be run in the future."
+                    ],
+                    "type": "string"
+                },
+                "stepId": {
+                    "description": "The Id of the step this job is associated with in parent process.",
+                    "type": "string"
+                },
+                "target": {
+                    "description": "The target of this job in a string representation. This could be a\nchassis_id, a server hostname, a service id or other string unique id.",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Job title. Only text/plain is supported.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "The type of job that uniquely identifies a job definition.\nPlease see job definitions at //configs/access/oss/ for\nexample job types.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "JobRunner": {
+            "description": "The runner to run the jobs, which can be in both Edge and Data Platform.\nNEXT_TAG = 11.",
+            "id": "JobRunner",
+            "properties": {
+                "distributionMethod": {
+                    "description": "The method that this runner uses to receive work.",
+                    "enum": [
+                        "UNKNOWN_DISTRIBUTION_METHOD",
+                        "IN_PROCESS",
+                        "PUSH",
+                        "PULL"
+                    ],
+                    "enumDescriptions": [
+                        "Default type.",
+                        "In-Process job runner.",
+                        "Push-based job runner.",
+                        "Pull-based job runner."
+                    ],
+                    "type": "string"
+                },
+                "entityId": {
+                    "description": "An optional list of entity IDs. If present, a job must match both the\ntarget and the entitity_id to be run by a given runner.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "freeCapacity": {
+                    "description": "How many more jobs can this JobRunner handle at the time.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "The name of the JobRunner.",
+                    "type": "string"
+                },
+                "state": {
+                    "description": "The current state of the job runner.",
+                    "enum": [
+                        "UNKNOWN_STATE",
+                        "ACTIVE",
+                        "INACTIVE"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown state.",
+                        "Can receive work.",
+                        "Not ready to receive work."
+                    ],
+                    "type": "string"
+                },
+                "stubbyEndpoint": {
+                    "description": "An endpoint for the runner, if applicable.",
+                    "type": "string"
+                },
+                "target": {
+                    "description": "Which zone does this JobRunner belongs to.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "totalCapacity": {
+                    "description": "How many jobs can this JobRunner handle at the same time.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "type": {
+                    "description": "The type of JobRunner.",
+                    "enum": [
+                        "UNKNOWN_TYPE",
+                        "SCRIPT",
+                        "HEMS",
+                        "SOAP",
+                        "SNMP",
+                        "CORBA"
+                    ],
+                    "enumDescriptions": [
+                        "Couldn't use UNKOWN alone as is conventional, because the C++ naming\nconventions dictate that enum values must be unique within a message.\nUnknown Job runner type.",
+                        "job runner can run script on edge.",
+                        "Home eNB Management server job runner.",
+                        "job runner can handle SOAP on edge.",
+                        "job runner can handle SNMP on edge.",
+                        "job runner can handle CORBA on edge."
+                    ],
+                    "type": "string"
+                },
+                "version": {
+                    "description": "The version of the job runner.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "LogBurrowFlowRequest": {
+            "description": "Request from Burrow collector to forward flows into google prod.",
+            "id": "LogBurrowFlowRequest",
+            "properties": {
+                "rawFlows": {
+                    "$ref": "RawFlows",
+                    "description": "Collection of flows destined for Sawmill."
+                }
+            },
+            "type": "object"
+        },
+        "LogBurrowFlowResponse": {
+            "description": "Response to Burrow collector with logging error statuses.",
+            "id": "LogBurrowFlowResponse",
+            "properties": {
+                "statusCode": {
+                    "description": "If not all success, ULS status codes per flow.",
+                    "items": {
+                        "format": "int32",
+                        "type": "integer"
+                    },
+                    "type": "array"
+                },
+                "success": {
+                    "description": "Whether or not all flows were logged successfully.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "RawFlow": {
+            "description": "Defines the format of netflow data to be logged.\nAll info herein shall be populated by Burrow collectors running in Google\nFiber network environment.",
+            "id": "RawFlow",
+            "properties": {
+                "data": {
+                    "description": "Binary copy of netflow data received.\nThis is the payload (minus IP header) when received as UDP.\nThe data format is expected to be IPFIX V10.\nNote: This may contain IP-addresses assigned to customers.\nrequired",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "packedSenderIp": {
+                    "description": "The ip address of the sending device as noted by the collector in\n\"packed format\", a binary value in network byte order (most significant\nbyte first).\nExample: The IPv4 address 10.1.0.100 will be represented as\n0x0a 0x01 0x00 0x64\nrequired",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "rawFlowProcessorShardingKeyInternal": {
+                    "description": "Sharding key to assist in the raw flow processor sharding.  For internal\nusage in the Burrow pipeline only, not set by the collector.",
+                    "type": "string"
+                },
+                "receivedTimeUs": {
+                    "description": "Time in microseconds since epoch when the netflow data was received by\ncollector.\nrequired",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RawFlows": {
+            "description": "RawFlow batch.",
+            "id": "RawFlows",
+            "properties": {
+                "rawFlow": {
+                    "description": "required",
+                    "items": {
+                        "$ref": "RawFlow"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateJobsRequest": {
+            "id": "UpdateJobsRequest",
+            "properties": {
+                "hostname": {
+                    "description": "The hostname of the request.",
+                    "type": "string"
+                },
+                "job": {
+                    "description": "The finished jobs from JobRunners.",
+                    "items": {
+                        "$ref": "Job"
+                    },
+                    "type": "array"
+                },
+                "jobRunner": {
+                    "$ref": "JobRunner",
+                    "description": "The runner to run the jobs."
+                }
+            },
+            "type": "object"
+        },
+        "UpdateJobsResponse": {
+            "description": "A series of update to jobs which could be sent from DP to JobRunner for\ndispatching jobs and reporting the progress.",
+            "id": "UpdateJobsResponse",
+            "properties": {
+                "job": {
+                    "description": "The jobs to run for JobRunner.",
+                    "items": {
+                        "$ref": "Job"
+                    },
+                    "type": "array"
+                },
+                "jobRunner": {
+                    "$ref": "JobRunner",
+                    "description": "The runner to run the jobs."
+                }
+            },
+            "type": "object"
+        },
+        "Var": {
+            "description": "This proto defines the basic scalar of PCE called var(a.k.a. variable).",
+            "id": "Var",
+            "properties": {
+                "depot": {
+                    "description": "The depot this var is in.",
+                    "type": "string"
+                },
+                "lastModified": {
+                    "description": "The time when this var is last modified.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "md5": {
+                    "description": "The MD5 hash of this snapshot.",
+                    "type": "string"
+                },
+                "piperPath": {
+                    "description": "The path of var file in Piper.",
+                    "type": "string"
+                },
+                "revisionNumber": {
+                    "description": "The revision number of var file in Piper this variable is synced to.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "snapshotNumber": {
+                    "description": "The snapshot number of this variable.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "space": {
+                    "description": "The var space inside this depot this var is in.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "The name var type of this var.\nBesides custom prime types, we also provide a few primitive prime types\nsuch as STRING, INT, BOOL, FLOAT and BYTES.",
+                    "type": "string"
+                },
+                "valueBytes": {
+                    "description": "The value of this var in bytes.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "valueString": {
+                    "description": "The value of this var in string format, which can facilitate the debugging\npurpose.",
+                    "type": "string"
+                },
+                "varId": {
+                    "description": "The unique id of this var.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "VarList": {
+            "description": "A list of Var with common type.",
+            "id": "VarList",
+            "properties": {
+                "type": {
+                    "description": "The type of this list.",
+                    "type": "string"
+                },
+                "vars": {
+                    "description": "This is used in the input param of job. Which allow us for a map between\nparam name to a list of vars, e.g., for some jobs, we may take a list of\nNodeIDs instead of only one.",
+                    "items": {
+                        "$ref": "Var"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "VarType": {
+            "description": "This proto defines the types for vars.",
+            "id": "VarType",
+            "properties": {
+                "depot": {
+                    "description": "The depot this var is in.",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "The description of this var type.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The unique name of this var type.",
+                    "type": "string"
+                },
+                "protoClass": {
+                    "description": "The protobuf class for this var if applicable.",
+                    "type": "string"
+                },
+                "required": {
+                    "description": "Indicates whether this Var is required or optional.",
+                    "type": "boolean"
+                },
+                "space": {
+                    "description": "The var space inside this depot this var is in.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "The type of this var.",
+                    "enum": [
+                        "UNKNOWN",
+                        "STRING",
+                        "INT",
+                        "BOOL",
+                        "FLOAT",
+                        "PROTO",
+                        "BYTES",
+                        "BLOB",
+                        "LONG",
+                        "STRING_LIST",
+                        "INT_LIST",
+                        "BOOL_LIST",
+                        "FLOAT_LIST",
+                        "PROTO_LIST",
+                        "BYTES_LIST",
+                        "LONG_LIST",
+                        "ENUM"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown type.",
+                        "String type.",
+                        "Integer type.",
+                        "Boolean type.",
+                        "Float type.",
+                        "Proto buffer type.",
+                        "Bytes type.",
+                        "Blob type.",
+                        "Long type.",
+                        "A list of string type.",
+                        "A list of integer type.",
+                        "A list of bool type.",
+                        "A list of float type.",
+                        "A list of proto type.",
+                        "A list of bytes type.",
+                        "A list of long type.",
+                        "Enum type."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Access Operations Support System API Private staging",
+    "version": "v1",
+    "version_module": true
+}

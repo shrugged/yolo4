@@ -1,0 +1,459 @@
+{
+    "basePath": "",
+    "baseUrl": "https://daily-5-tangovisualmapping-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Tango Visual Mapping",
+    "description": "An API providing Visual Mapping service for Tango Devices.",
+    "discoveryVersion": "v1",
+    "documentationLink": "https://goto.google.com/tango-panda",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "daily_5_tangovisualmapping_pa_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "daily_5_tangovisualmapping_pa_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "file": {
+            "methods": {
+                "write": {
+                    "description": "Writes file.",
+                    "flatPath": "v1/file:write",
+                    "httpMethod": "POST",
+                    "id": "daily_5_tangovisualmapping_pa_sandbox.file.write",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/file:write",
+                    "request": {
+                        "$ref": "WriteFileRequestProto"
+                    },
+                    "response": {
+                        "$ref": "WriteFileResponseProto"
+                    }
+                }
+            }
+        },
+        "tiles": {
+            "methods": {
+                "read": {
+                    "description": "Reads tiles.",
+                    "flatPath": "v1/tiles:read",
+                    "httpMethod": "POST",
+                    "id": "daily_5_tangovisualmapping_pa_sandbox.tiles.read",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/tiles:read",
+                    "request": {
+                        "$ref": "ReadTilesRequestProto"
+                    },
+                    "response": {
+                        "$ref": "ReadTilesResponseProto"
+                    }
+                },
+                "stream": {
+                    "description": "A stream RPC version of ReadTiles RPC.",
+                    "flatPath": "v1/tiles:stream",
+                    "httpMethod": "POST",
+                    "id": "daily_5_tangovisualmapping_pa_sandbox.tiles.stream",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/tiles:stream",
+                    "request": {
+                        "$ref": "ReadTilesRequestProto"
+                    },
+                    "response": {
+                        "$ref": "ReadTilesResponseProto"
+                    }
+                }
+            }
+        },
+        "v1": {
+            "methods": {
+                "readtiles": {
+                    "description": "Reads tiles.",
+                    "flatPath": "v1/readtiles",
+                    "httpMethod": "POST",
+                    "id": "daily_5_tangovisualmapping_pa_sandbox.readtiles",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/readtiles",
+                    "request": {
+                        "$ref": "ReadTilesRequestProto"
+                    },
+                    "response": {
+                        "$ref": "ReadTilesResponseProto"
+                    }
+                },
+                "writefile": {
+                    "description": "Writes file.",
+                    "flatPath": "v1/writefile",
+                    "httpMethod": "POST",
+                    "id": "daily_5_tangovisualmapping_pa_sandbox.writefile",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/writefile",
+                    "request": {
+                        "$ref": "WriteFileRequestProto"
+                    },
+                    "response": {
+                        "$ref": "WriteFileResponseProto"
+                    }
+                }
+            }
+        },
+        "venuegroups": {
+            "methods": {
+                "list": {
+                    "description": "Lists venue groups.",
+                    "flatPath": "v1/venuegroups",
+                    "httpMethod": "GET",
+                    "id": "daily_5_tangovisualmapping_pa_sandbox.venuegroups.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "tags": {
+                            "description": "Filters the response to matching tag strings.",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        },
+                        "venueGroupId": {
+                            "description": "Venue group ID.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/venuegroups",
+                    "response": {
+                        "$ref": "ListVenueGroupResponseProto"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190920",
+    "rootUrl": "https://daily-5-tangovisualmapping-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "ListVenueGroupResponseProto": {
+            "description": "A response to a request to list venue groups.",
+            "id": "ListVenueGroupResponseProto",
+            "properties": {
+                "venueGroups": {
+                    "description": "A list of venue groups with only externally safe fields.",
+                    "items": {
+                        "$ref": "VenueGroupExternalSafeProto"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ReadTilesRequestProto": {
+            "description": "A request to read multiple tiles.",
+            "id": "ReadTilesRequestProto",
+            "properties": {
+                "cachedTiles": {
+                    "description": "Version information for tiles the client has cached so the server\ncan return consistent tiles or replace outdated tiles.\n\nTileInfoProto with empty namespace field and 0 version field is used to\nindicate the client has a tombstone set for the given S2 cell.",
+                    "items": {
+                        "$ref": "TileInfoProto"
+                    },
+                    "type": "array"
+                },
+                "keys": {
+                    "items": {
+                        "$ref": "TileKeyProto"
+                    },
+                    "type": "array"
+                },
+                "maxSupportedVersion": {
+                    "description": "The highest version of the tile format that the client can parse.\nThe number encodes the version as date in the format: YYYYMMDD.",
+                    "enum": [
+                        "UNDEFINED_VERSION_USE_LATEST",
+                        "LIFT_OBSERVATION_KEYED_UNCOMPRESSED",
+                        "LIFT_OBSERVATION_KEYED_PQ_COMPRESSED",
+                        "LIFT_LANDMARK_KEYED_PQ_COMPRESSED",
+                        "CONGAS_PQ_COMPRESSED_IMAGE_LOCALIZER",
+                        "LIFT_OBSERVATION_KEYED_PQ_COMPRESSED_IMAGE_LOCALIZER",
+                        "IMAGE_LOCALIZER"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "primaryTag": {
+                    "description": "Set to \u201clive\u201d for production scenarios.",
+                    "type": "string"
+                },
+                "requestedTileIds": {
+                    "description": "The tiles the client wants to fetch from the server.",
+                    "items": {
+                        "$ref": "S2CellIdProto"
+                    },
+                    "type": "array"
+                },
+                "versionHint": {
+                    "description": "The tile version hint client passes to server.",
+                    "enum": [
+                        "UNSPECIFIED",
+                        "LATEST",
+                        "CONSISTENT"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified version hint.",
+                        "Prefer the latest available tile versions over cached versions.",
+                        "Minimize cache invalidation and send only missing tiles if possible."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ReadTilesResponseProto": {
+            "description": "A response from reading multiple tiles.\n\n\nThe responses of reading tiles from server should ensure that client\n  (1) gets missing tiles of the requested cells,\n  (2) receives updates of cached tiles,\n  (3) and has consistency across any given namespace in the loaded tiles.\n\nResponding with all tiles in one response is too big, so we need to pick an\nordering and return intermediate responses with a set of tiles by a stream\nRPC.\n\nThe ordering should be decided based on the considerations of\n  (1) allowing client to have consistency across any given namespace in their\n      loaded tiles,\n  (2) most-quickly satisfying the client's need for requested cells,\n  (3) and updating client's cached tiles that may be no longer appropriate to\n      use.\n\n\nGiven the fact that server does not have consistency for a namespace, the\nonly approach that works with the current situation is to send tiles by cell\nin the ordering of requested cells(across all namespaces) first, followed by\nupdates for cached tiles not yet covered by requested cells. And also client\ndoes not enforce consistency locally, but load and unload tiles from a cell\nas server returns replacements.",
+            "id": "ReadTilesResponseProto",
+            "properties": {
+                "tiles": {
+                    "description": "A list of tile updates.",
+                    "items": {
+                        "$ref": "TileReadProto"
+                    },
+                    "type": "array"
+                },
+                "ttlSeconds": {
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "S2CellIdProto": {
+            "description": "Identifier of a S2 cell. Additional description of S2 cells and geometry can\nbe found in //depot/google3/util/geometry/s2cell.h",
+            "id": "S2CellIdProto",
+            "properties": {
+                "id": {
+                    "description": "The identifier of the cell: a number sufficient to reconstruct the location\non a globe.",
+                    "format": "uint64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TileDataProto": {
+            "description": "A message contains tile data.",
+            "id": "TileDataProto",
+            "properties": {
+                "rawData": {
+                    "description": "The serialized raw bytes of a localization summary map for all Area\nDescription Files (ADFs) that comprise the tile.",
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TileInfoProto": {
+            "description": "Identifies a specific versioned instance of a tile\u2019s data.",
+            "id": "TileInfoProto",
+            "properties": {
+                "namespace": {
+                    "description": "Tiles belong to potentially overlapping namespaces, so tile\nidentity is determined by both s2_cell_id + namespace.",
+                    "type": "string"
+                },
+                "s2CellId": {
+                    "$ref": "S2CellIdProto",
+                    "description": "ID of an S2 cell."
+                },
+                "version": {
+                    "description": "Tile versions are namespace-specific. Consumers should make sure that\ntiles from the same namespace share consistent version numbers. Currently,\nthey are microsecond-resolution UTC timestamps, but may not be in the\nfuture.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TileKeyProto": {
+            "description": "The Earth is partitioned into non-overlapping tiles. This key\nspecifies the exact tile.",
+            "id": "TileKeyProto",
+            "properties": {
+                "s2CellId": {
+                    "$ref": "S2CellIdProto",
+                    "description": "The S2 Cell ID to index a specific geographic region on the\nEarth."
+                }
+            },
+            "type": "object"
+        },
+        "TileReadProto": {
+            "description": "A response from reading a single tile.",
+            "id": "TileReadProto",
+            "properties": {
+                "cacheAction": {
+                    "description": "The action which the client should take on its cache using the provided\ntile_info (and data where appropriate).",
+                    "enum": [
+                        "UNSPECIFIED",
+                        "SET_TILE",
+                        "DELETE_TILE",
+                        "REFRESH_TILE_CACHE_TTL",
+                        "NO_DATA_FOR_CELL"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "The client should cache the tile provided in the data field, and remove\nany existing tiles matching the same s2_cell_id and namespace combination\nincluded in the tile_info field(keeping only this one).",
+                        "The client should delete the exact cached tile indicated by the tile_info\nfield.",
+                        "The client should refresh the cache TTL of the exact cached tile\nindicated by the tile_info field.",
+                        "No tiles are avaialble for the S2 cell indicated by the tile_info field\nacross any namespace. The client should cache the negative result for the\nstandard cache TTL."
+                    ],
+                    "type": "string"
+                },
+                "data": {
+                    "$ref": "TileDataProto",
+                    "description": "The data read for the tile. This field is used when cache_action\nis SET_TILE."
+                },
+                "key": {
+                    "$ref": "TileKeyProto",
+                    "description": "The key for the tile"
+                },
+                "tileInfo": {
+                    "$ref": "TileInfoProto",
+                    "description": "ID and version information for the tile. Clients should treat all\nfields except the cell ID as opaque data that is provided only so\nit can be passed back to the server to report the tile versions\nthe client has cached."
+                }
+            },
+            "type": "object"
+        },
+        "VenueGroupExternalSafeProto": {
+            "id": "VenueGroupExternalSafeProto",
+            "properties": {
+                "id": {
+                    "description": "Globally unique, human readable ID for the venue group.",
+                    "type": "string"
+                },
+                "tags": {
+                    "description": "Categories defined by Tango operations.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "WriteFileRequestProto": {
+            "description": "A request to write a file to be uploaded.",
+            "id": "WriteFileRequestProto",
+            "properties": {
+                "bucket": {
+                    "description": "The Bigstore bucket name.",
+                    "type": "string"
+                },
+                "fileFullName": {
+                    "description": "The file name including the full path of the directory. Analogous to\nBigstore object names.",
+                    "type": "string"
+                },
+                "idToken": {
+                    "description": "The JSON Web Token (JWT) signed by Google.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "WriteFileResponseProto": {
+            "description": "A response from writing a file.",
+            "id": "WriteFileResponseProto",
+            "properties": {
+                "signedUploadRequestUrl": {
+                    "description": "A signed upload request URL.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Tango Visual Mapping Private API (Daily 5)",
+    "version": "v1",
+    "version_module": true
+}

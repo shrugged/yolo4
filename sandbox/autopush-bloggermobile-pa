@@ -1,0 +1,1325 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/blogger": {
+                    "description": "Manage your Blogger account"
+                },
+                "https://www.googleapis.com/auth/blogger.readonly": {
+                    "description": "View your Blogger account"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://autopush-bloggerapiv3.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Bloggerapiv3",
+    "description": "",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://boq/java/com/google/blogger/api/server",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "autopush_bloggerapiv3_sandbox:v3",
+    "kind": "discovery#restDescription",
+    "name": "autopush_bloggerapiv3_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "blogs": {
+            "methods": {
+                "get": {
+                    "description": "Gets a blog by id.",
+                    "flatPath": "v3/blogs/{blogId}",
+                    "httpMethod": "GET",
+                    "id": "autopush_bloggerapiv3_sandbox.blogs.get",
+                    "parameterOrder": [
+                        "blogId"
+                    ],
+                    "parameters": {
+                        "blogId": {
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "maxPosts": {
+                            "format": "uint32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "view": {
+                            "enum": [
+                                "READER",
+                                "AUTHOR",
+                                "ADMIN"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v3/blogs/{blogId}",
+                    "response": {
+                        "$ref": "ApiBloggerProtoBlog"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/blogger",
+                        "https://www.googleapis.com/auth/blogger.readonly"
+                    ]
+                },
+                "getByurl": {
+                    "description": "Gets a blog by url.",
+                    "flatPath": "v3/blogs/byurl",
+                    "httpMethod": "GET",
+                    "id": "autopush_bloggerapiv3_sandbox.blogs.getByurl",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "url": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "view": {
+                            "enum": [
+                                "READER",
+                                "AUTHOR",
+                                "ADMIN"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v3/blogs/byurl",
+                    "response": {
+                        "$ref": "ApiBloggerProtoBlog"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/blogger",
+                        "https://www.googleapis.com/auth/blogger.readonly"
+                    ]
+                },
+                "getPageviews": {
+                    "description": "Gets page views by blog id.",
+                    "flatPath": "v3/blogs/{blogId}/pageviews",
+                    "httpMethod": "GET",
+                    "id": "autopush_bloggerapiv3_sandbox.blogs.getPageviews",
+                    "parameterOrder": [
+                        "blogId"
+                    ],
+                    "parameters": {
+                        "blogId": {
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "range": {
+                            "enum": [
+                                "ALL_TIME",
+                                "THIRTY_DAYS",
+                                "SEVEN_DAYS"
+                            ],
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v3/blogs/{blogId}/pageviews",
+                    "response": {
+                        "$ref": "ApiBloggerProtoPageViews"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/blogger",
+                        "https://www.googleapis.com/auth/blogger.readonly"
+                    ]
+                }
+            },
+            "resources": {
+                "pages": {
+                    "methods": {
+                        "create": {
+                            "description": "Inserts a page.",
+                            "flatPath": "v3/blogs/{blogId}/pages",
+                            "httpMethod": "POST",
+                            "id": "autopush_bloggerapiv3_sandbox.blogs.pages.create",
+                            "parameterOrder": [
+                                "blogId"
+                            ],
+                            "parameters": {
+                                "blogId": {
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "isDraft": {
+                                    "location": "query",
+                                    "type": "boolean"
+                                }
+                            },
+                            "path": "v3/blogs/{blogId}/pages",
+                            "request": {
+                                "$ref": "ApiBloggerProtoPage"
+                            },
+                            "response": {
+                                "$ref": "ApiBloggerProtoPage"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/blogger",
+                                "https://www.googleapis.com/auth/blogger.readonly"
+                            ]
+                        },
+                        "get": {
+                            "description": "Gets a page by blog id and page id.",
+                            "flatPath": "v3/blogs/{blogId}/pages/{pageId}",
+                            "httpMethod": "GET",
+                            "id": "autopush_bloggerapiv3_sandbox.blogs.pages.get",
+                            "parameterOrder": [
+                                "blogId",
+                                "pageId"
+                            ],
+                            "parameters": {
+                                "blogId": {
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "pageId": {
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "view": {
+                                    "enum": [
+                                        "READER",
+                                        "AUTHOR",
+                                        "ADMIN"
+                                    ],
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v3/blogs/{blogId}/pages/{pageId}",
+                            "response": {
+                                "$ref": "ApiBloggerProtoPage"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/blogger",
+                                "https://www.googleapis.com/auth/blogger.readonly"
+                            ]
+                        }
+                    }
+                },
+                "posts": {
+                    "methods": {
+                        "create": {
+                            "description": "Inserts a post.",
+                            "flatPath": "v3/blogs/{blogId}/posts",
+                            "httpMethod": "POST",
+                            "id": "autopush_bloggerapiv3_sandbox.blogs.posts.create",
+                            "parameterOrder": [
+                                "blogId"
+                            ],
+                            "parameters": {
+                                "blogId": {
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "fetchBody": {
+                                    "default": "true",
+                                    "location": "query",
+                                    "type": "boolean"
+                                },
+                                "fetchImages": {
+                                    "location": "query",
+                                    "type": "boolean"
+                                },
+                                "isDraft": {
+                                    "location": "query",
+                                    "type": "boolean"
+                                }
+                            },
+                            "path": "v3/blogs/{blogId}/posts",
+                            "request": {
+                                "$ref": "ApiBloggerProtoPost"
+                            },
+                            "response": {
+                                "$ref": "ApiBloggerProtoPost"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/blogger",
+                                "https://www.googleapis.com/auth/blogger.readonly"
+                            ]
+                        },
+                        "get": {
+                            "description": "Gets a post by blog id and post id",
+                            "flatPath": "v3/blogs/{blogId}/posts/{postId}",
+                            "httpMethod": "GET",
+                            "id": "autopush_bloggerapiv3_sandbox.blogs.posts.get",
+                            "parameterOrder": [
+                                "blogId",
+                                "postId"
+                            ],
+                            "parameters": {
+                                "blogId": {
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "fetchBody": {
+                                    "default": "true",
+                                    "location": "query",
+                                    "type": "boolean"
+                                },
+                                "fetchImages": {
+                                    "default": "false",
+                                    "location": "query",
+                                    "type": "boolean"
+                                },
+                                "maxComments": {
+                                    "default": "0",
+                                    "format": "uint32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "postId": {
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "view": {
+                                    "default": "READER",
+                                    "enum": [
+                                        "READER",
+                                        "AUTHOR",
+                                        "ADMIN"
+                                    ],
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v3/blogs/{blogId}/posts/{postId}",
+                            "response": {
+                                "$ref": "ApiBloggerProtoPost"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/blogger",
+                                "https://www.googleapis.com/auth/blogger.readonly"
+                            ]
+                        },
+                        "getBypath": {
+                            "description": "Gets a post by path.",
+                            "flatPath": "v3/blogs/{blogId}/posts/bypath",
+                            "httpMethod": "GET",
+                            "id": "autopush_bloggerapiv3_sandbox.blogs.posts.getBypath",
+                            "parameterOrder": [
+                                "blogId"
+                            ],
+                            "parameters": {
+                                "blogId": {
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "maxComments": {
+                                    "format": "uint32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "path": {
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "view": {
+                                    "enum": [
+                                        "READER",
+                                        "AUTHOR",
+                                        "ADMIN"
+                                    ],
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v3/blogs/{blogId}/posts/bypath",
+                            "response": {
+                                "$ref": "ApiBloggerProtoPost"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/blogger",
+                                "https://www.googleapis.com/auth/blogger.readonly"
+                            ]
+                        },
+                        "search": {
+                            "description": "Searches for posts matching given query terms in the specified blog.",
+                            "flatPath": "v3/blogs/{blogId}/posts/search",
+                            "httpMethod": "GET",
+                            "id": "autopush_bloggerapiv3_sandbox.blogs.posts.search",
+                            "parameterOrder": [
+                                "blogId"
+                            ],
+                            "parameters": {
+                                "blogId": {
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "fetchBodies": {
+                                    "location": "query",
+                                    "type": "boolean"
+                                },
+                                "orderBy": {
+                                    "default": "PUBLISHED",
+                                    "enum": [
+                                        "ORDER_BY_UNSPECIFIED",
+                                        "PUBLISHED",
+                                        "UPDATED"
+                                    ],
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "q": {
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v3/blogs/{blogId}/posts/search",
+                            "response": {
+                                "$ref": "ApiBloggerProtoPostList"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/blogger",
+                                "https://www.googleapis.com/auth/blogger.readonly"
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "users": {
+            "resources": {
+                "blogs": {
+                    "methods": {
+                        "get": {
+                            "description": "Gets one blog and user info pair by blog id and user id.",
+                            "flatPath": "v3/users/{userId}/blogs/{blogId}",
+                            "httpMethod": "GET",
+                            "id": "autopush_bloggerapiv3_sandbox.users.blogs.get",
+                            "parameterOrder": [
+                                "userId",
+                                "blogId"
+                            ],
+                            "parameters": {
+                                "blogId": {
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "maxPosts": {
+                                    "format": "uint32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "userId": {
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v3/users/{userId}/blogs/{blogId}",
+                            "response": {
+                                "$ref": "ApiBloggerProtoBlogUserInfo"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/blogger",
+                                "https://www.googleapis.com/auth/blogger.readonly"
+                            ]
+                        },
+                        "list": {
+                            "description": "Lists blogs by user.",
+                            "flatPath": "v3/users/{userId}/blogs",
+                            "httpMethod": "GET",
+                            "id": "autopush_bloggerapiv3_sandbox.users.blogs.list",
+                            "parameterOrder": [
+                                "userId"
+                            ],
+                            "parameters": {
+                                "fetchUserInfo": {
+                                    "location": "query",
+                                    "type": "boolean"
+                                },
+                                "role": {
+                                    "enum": [
+                                        "READER",
+                                        "AUTHOR",
+                                        "ADMIN"
+                                    ],
+                                    "location": "query",
+                                    "repeated": true,
+                                    "type": "string"
+                                },
+                                "status": {
+                                    "description": "Default value of status is LIVE.",
+                                    "enum": [
+                                        "LIVE",
+                                        "DELETED"
+                                    ],
+                                    "location": "query",
+                                    "repeated": true,
+                                    "type": "string"
+                                },
+                                "userId": {
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "view": {
+                                    "enum": [
+                                        "READER",
+                                        "AUTHOR",
+                                        "ADMIN"
+                                    ],
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v3/users/{userId}/blogs",
+                            "response": {
+                                "$ref": "ApiBloggerProtoBlogList"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/blogger",
+                                "https://www.googleapis.com/auth/blogger.readonly"
+                            ]
+                        }
+                    },
+                    "resources": {
+                        "posts": {
+                            "methods": {
+                                "get": {
+                                    "description": "Gets one post and user info pair, by post_id and user_id.",
+                                    "flatPath": "v3/users/{userId}/blogs/{blogId}/posts/{postId}",
+                                    "httpMethod": "GET",
+                                    "id": "autopush_bloggerapiv3_sandbox.users.blogs.posts.get",
+                                    "parameterOrder": [
+                                        "userId",
+                                        "blogId",
+                                        "postId"
+                                    ],
+                                    "parameters": {
+                                        "blogId": {
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "maxComments": {
+                                            "format": "uint32",
+                                            "location": "query",
+                                            "type": "integer"
+                                        },
+                                        "postId": {
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "userId": {
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v3/users/{userId}/blogs/{blogId}/posts/{postId}",
+                                    "response": {
+                                        "$ref": "ApiBloggerProtoPostUserInfo"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/blogger",
+                                        "https://www.googleapis.com/auth/blogger.readonly"
+                                    ]
+                                },
+                                "list": {
+                                    "description": "Lists post and user info pairs.",
+                                    "flatPath": "v3/users/{userId}/blogs/{blogId}/posts",
+                                    "httpMethod": "GET",
+                                    "id": "autopush_bloggerapiv3_sandbox.users.blogs.posts.list",
+                                    "parameterOrder": [
+                                        "userId",
+                                        "blogId"
+                                    ],
+                                    "parameters": {
+                                        "blogId": {
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "endDate": {
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "fetchBodies": {
+                                            "default": "true",
+                                            "location": "query",
+                                            "type": "boolean"
+                                        },
+                                        "labels": {
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "maxResults": {
+                                            "format": "uint32",
+                                            "location": "query",
+                                            "type": "integer"
+                                        },
+                                        "orderBy": {
+                                            "default": "PUBLISHED",
+                                            "enum": [
+                                                "ORDER_BY_UNSPECIFIED",
+                                                "PUBLISHED",
+                                                "UPDATED"
+                                            ],
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "pageToken": {
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "startDate": {
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "status": {
+                                            "enum": [
+                                                "LIVE",
+                                                "DRAFT",
+                                                "SCHEDULED"
+                                            ],
+                                            "location": "query",
+                                            "repeated": true,
+                                            "type": "string"
+                                        },
+                                        "userId": {
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "view": {
+                                            "enum": [
+                                                "READER",
+                                                "AUTHOR",
+                                                "ADMIN"
+                                            ],
+                                            "location": "query",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v3/users/{userId}/blogs/{blogId}/posts",
+                                    "response": {
+                                        "$ref": "ApiBloggerProtoPostUserInfoList"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/blogger",
+                                        "https://www.googleapis.com/auth/blogger.readonly"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190925",
+    "rootUrl": "https://autopush-bloggerapiv3.sandbox.googleapis.com/",
+    "schemas": {
+        "ApiBloggerProtoAuthor": {
+            "id": "ApiBloggerProtoAuthor",
+            "properties": {
+                "displayName": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "image": {
+                    "$ref": "ApiBloggerProtoAuthorAuthorImage"
+                },
+                "url": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ApiBloggerProtoAuthorAuthorImage": {
+            "id": "ApiBloggerProtoAuthorAuthorImage",
+            "properties": {
+                "url": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ApiBloggerProtoBlog": {
+            "description": "Keep this proto in sync with v3/templates/blog.jsont\nnext tag: 14",
+            "id": "ApiBloggerProtoBlog",
+            "properties": {
+                "customMetaData": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "kind": {
+                    "type": "string"
+                },
+                "locale": {
+                    "$ref": "ApiBloggerProtoLocale"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "pages": {
+                    "$ref": "ApiBloggerProtoBlogBlogPages"
+                },
+                "posts": {
+                    "$ref": "ApiBloggerProtoBlogBlogPosts"
+                },
+                "published": {
+                    "type": "string"
+                },
+                "selfLink": {
+                    "type": "string"
+                },
+                "status": {
+                    "enum": [
+                        "LIVE",
+                        "DELETED"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "updated": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ApiBloggerProtoBlogBlogPages": {
+            "id": "ApiBloggerProtoBlogBlogPages",
+            "properties": {
+                "selfLink": {
+                    "type": "string"
+                },
+                "totalItems": {
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "ApiBloggerProtoBlogBlogPosts": {
+            "id": "ApiBloggerProtoBlogBlogPosts",
+            "properties": {
+                "items": {
+                    "items": {
+                        "$ref": "ApiBloggerProtoPost"
+                    },
+                    "type": "array"
+                },
+                "selfLink": {
+                    "type": "string"
+                },
+                "totalItems": {
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "ApiBloggerProtoBlogList": {
+            "description": "Keep this proto in sync with v3/templates/blogsListResponse.jsont",
+            "id": "ApiBloggerProtoBlogList",
+            "properties": {
+                "blogUserInfos": {
+                    "items": {
+                        "$ref": "ApiBloggerProtoBlogUserInfo"
+                    },
+                    "type": "array"
+                },
+                "items": {
+                    "items": {
+                        "$ref": "ApiBloggerProtoBlog"
+                    },
+                    "type": "array"
+                },
+                "kind": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ApiBloggerProtoBlogPerUserInfo": {
+            "description": "Keep this proto in sync with v3/templates/blogsperUserInfo.jsont\nnext tag: 7",
+            "id": "ApiBloggerProtoBlogPerUserInfo",
+            "properties": {
+                "blogId": {
+                    "type": "string"
+                },
+                "hasAdminAccess": {
+                    "type": "boolean"
+                },
+                "kind": {
+                    "type": "string"
+                },
+                "photosAlbumKey": {
+                    "type": "string"
+                },
+                "role": {
+                    "enum": [
+                        "READER",
+                        "AUTHOR",
+                        "ADMIN"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "userId": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ApiBloggerProtoBlogUserInfo": {
+            "description": "Keep this proto in sync with v3/templates/blogUserInfo.jsont",
+            "id": "ApiBloggerProtoBlogUserInfo",
+            "properties": {
+                "blog": {
+                    "$ref": "ApiBloggerProtoBlog"
+                },
+                "blogUserInfo": {
+                    "$ref": "ApiBloggerProtoBlogPerUserInfo"
+                },
+                "kind": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ApiBloggerProtoComment": {
+            "description": "Keep this proto in sync with v3/templates/comment.jsont\nnext tag: 12",
+            "id": "ApiBloggerProtoComment",
+            "properties": {
+                "author": {
+                    "$ref": "ApiBloggerProtoAuthor"
+                },
+                "blog": {
+                    "$ref": "ApiBloggerProtoCommentCommentBlog"
+                },
+                "content": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "inReplyTo": {
+                    "$ref": "ApiBloggerProtoCommentParentComment"
+                },
+                "kind": {
+                    "type": "string"
+                },
+                "post": {
+                    "$ref": "ApiBloggerProtoCommentCommentPost"
+                },
+                "published": {
+                    "type": "string"
+                },
+                "selfLink": {
+                    "type": "string"
+                },
+                "status": {
+                    "enum": [
+                        "LIVE",
+                        "EMPTIED",
+                        "PENDING",
+                        "SPAM"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "updated": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ApiBloggerProtoCommentCommentBlog": {
+            "id": "ApiBloggerProtoCommentCommentBlog",
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ApiBloggerProtoCommentCommentPost": {
+            "id": "ApiBloggerProtoCommentCommentPost",
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ApiBloggerProtoCommentParentComment": {
+            "id": "ApiBloggerProtoCommentParentComment",
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ApiBloggerProtoLocale": {
+            "id": "ApiBloggerProtoLocale",
+            "properties": {
+                "country": {
+                    "type": "string"
+                },
+                "language": {
+                    "type": "string"
+                },
+                "variant": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ApiBloggerProtoLocation": {
+            "id": "ApiBloggerProtoLocation",
+            "properties": {
+                "lat": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "lng": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "span": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ApiBloggerProtoPage": {
+            "description": "Keep this proto in sync with v3/templates/page.jsont\nnext tag: 13",
+            "id": "ApiBloggerProtoPage",
+            "properties": {
+                "author": {
+                    "$ref": "ApiBloggerProtoAuthor"
+                },
+                "blog": {
+                    "$ref": "ApiBloggerProtoPagePageBlog"
+                },
+                "content": {
+                    "type": "string"
+                },
+                "etag": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "kind": {
+                    "type": "string"
+                },
+                "published": {
+                    "type": "string"
+                },
+                "selfLink": {
+                    "type": "string"
+                },
+                "status": {
+                    "enum": [
+                        "LIVE",
+                        "DRAFT"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "updated": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ApiBloggerProtoPagePageBlog": {
+            "id": "ApiBloggerProtoPagePageBlog",
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ApiBloggerProtoPageViews": {
+            "description": "Keep this proto in sync with v3/templates/pageViews.jsont",
+            "id": "ApiBloggerProtoPageViews",
+            "properties": {
+                "blogId": {
+                    "type": "string"
+                },
+                "counts": {
+                    "items": {
+                        "$ref": "ApiBloggerProtoPageViewsTimeRangeCount"
+                    },
+                    "type": "array"
+                },
+                "kind": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ApiBloggerProtoPageViewsTimeRangeCount": {
+            "id": "ApiBloggerProtoPageViewsTimeRangeCount",
+            "properties": {
+                "count": {
+                    "format": "int64",
+                    "type": "string"
+                },
+                "timeRange": {
+                    "enum": [
+                        "ALL_TIME",
+                        "THIRTY_DAYS",
+                        "SEVEN_DAYS"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ApiBloggerProtoPost": {
+            "description": "Keep this proto in sync with v3/templates/post.jsont\nnext tag: 20",
+            "id": "ApiBloggerProtoPost",
+            "properties": {
+                "author": {
+                    "$ref": "ApiBloggerProtoAuthor"
+                },
+                "blog": {
+                    "$ref": "ApiBloggerProtoPostPostBlog"
+                },
+                "content": {
+                    "type": "string"
+                },
+                "customMetaData": {
+                    "type": "string"
+                },
+                "etag": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "images": {
+                    "items": {
+                        "$ref": "ApiBloggerProtoPostPostImage"
+                    },
+                    "type": "array"
+                },
+                "kind": {
+                    "type": "string"
+                },
+                "labels": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "location": {
+                    "$ref": "ApiBloggerProtoLocation"
+                },
+                "published": {
+                    "type": "string"
+                },
+                "readerComments": {
+                    "enum": [
+                        "ALLOW",
+                        "DONT_ALLOW_SHOW_EXISTING",
+                        "DONT_ALLOW_HIDE_EXISTING"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "replies": {
+                    "$ref": "ApiBloggerProtoPostPostComments"
+                },
+                "selfLink": {
+                    "type": "string"
+                },
+                "status": {
+                    "enum": [
+                        "LIVE",
+                        "DRAFT",
+                        "SCHEDULED"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "titleLink": {
+                    "type": "string"
+                },
+                "updated": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ApiBloggerProtoPostList": {
+            "description": "Keep this proto in sync with v3/templates/postsListResponse.jsont",
+            "id": "ApiBloggerProtoPostList",
+            "properties": {
+                "etag": {
+                    "type": "string"
+                },
+                "items": {
+                    "items": {
+                        "$ref": "ApiBloggerProtoPost"
+                    },
+                    "type": "array"
+                },
+                "kind": {
+                    "type": "string"
+                },
+                "nextPageToken": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ApiBloggerProtoPostPerUserInfo": {
+            "description": "Keep this proto in sync with v3/templates/postPerUserInfo.jsont",
+            "id": "ApiBloggerProtoPostPerUserInfo",
+            "properties": {
+                "blogId": {
+                    "type": "string"
+                },
+                "hasEditAccess": {
+                    "type": "boolean"
+                },
+                "kind": {
+                    "type": "string"
+                },
+                "postId": {
+                    "type": "string"
+                },
+                "userId": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ApiBloggerProtoPostPostBlog": {
+            "id": "ApiBloggerProtoPostPostBlog",
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ApiBloggerProtoPostPostComments": {
+            "id": "ApiBloggerProtoPostPostComments",
+            "properties": {
+                "items": {
+                    "items": {
+                        "$ref": "ApiBloggerProtoComment"
+                    },
+                    "type": "array"
+                },
+                "selfLink": {
+                    "type": "string"
+                },
+                "totalItems": {
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ApiBloggerProtoPostPostImage": {
+            "id": "ApiBloggerProtoPostPostImage",
+            "properties": {
+                "url": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ApiBloggerProtoPostUserInfo": {
+            "description": "Keep this proto in sync with v3/templates/postUserInfo.jsont",
+            "id": "ApiBloggerProtoPostUserInfo",
+            "properties": {
+                "kind": {
+                    "type": "string"
+                },
+                "post": {
+                    "$ref": "ApiBloggerProtoPost"
+                },
+                "postUserInfo": {
+                    "$ref": "ApiBloggerProtoPostPerUserInfo"
+                }
+            },
+            "type": "object"
+        },
+        "ApiBloggerProtoPostUserInfoList": {
+            "description": "Keep this proto in sync with v3/templates/postUserInfosListResponse.jsont",
+            "id": "ApiBloggerProtoPostUserInfoList",
+            "properties": {
+                "items": {
+                    "items": {
+                        "$ref": "ApiBloggerProtoPostUserInfo"
+                    },
+                    "type": "array"
+                },
+                "kind": {
+                    "type": "string"
+                },
+                "nextPageToken": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "bloggerapiv3 API (autopush)",
+    "version": "v3",
+    "version_module": true
+}

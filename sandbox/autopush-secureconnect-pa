@@ -1,0 +1,415 @@
+{
+    "basePath": "",
+    "baseUrl": "https://autopush-secureconnect-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Secure Connect",
+    "description": "",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://go/secureconnect",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "autopush_secureconnect_pa_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "autopush_secureconnect_pa_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "domains": {
+            "methods": {
+                "list": {
+                    "description": "Lists all top-level domains for which Secure Connect service\nneeds to collect the browser ChannelIDs (go/channelid). This is\nan authenticated request.\nDEPRECATED: No longer collecting Channel IDs. This is a no-op now.",
+                    "flatPath": "v1/domains",
+                    "httpMethod": "GET",
+                    "id": "autopush_secureconnect_pa_sandbox.domains.list",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/domains",
+                    "response": {
+                        "$ref": "ListDomainsResponse"
+                    }
+                }
+            }
+        },
+        "v1": {
+            "methods": {
+                "enrollDevice": {
+                    "description": "Enrolls the current device with the SecureConnect service. This is an\nauthenticated request.",
+                    "flatPath": "v1:enrollDevice",
+                    "httpMethod": "POST",
+                    "id": "autopush_secureconnect_pa_sandbox.enrollDevice",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1:enrollDevice",
+                    "request": {
+                        "$ref": "EnrollDeviceRequest"
+                    },
+                    "response": {
+                        "$ref": "EnrollDeviceResponse"
+                    }
+                },
+                "getManagementState": {
+                    "description": "Gets the management state (i.e. whether SecureConnect and / or MDM is\nenabled) for the current authenticated user and OS.",
+                    "flatPath": "v1:getManagementState",
+                    "httpMethod": "POST",
+                    "id": "autopush_secureconnect_pa_sandbox.getManagementState",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1:getManagementState",
+                    "request": {
+                        "$ref": "GetManagementStateRequest"
+                    },
+                    "response": {
+                        "$ref": "GetManagementStateResponse"
+                    }
+                },
+                "reportDeviceChannelID": {
+                    "description": "Reports the browser ChannelID (go/channelid), for a given\ntop-level domain, and associates it to a given device. This is a\n_non-authenticated_ request.\nDEPRECATED: No longer collecting Channel IDs. This is a no-op now.",
+                    "flatPath": "v1:reportDeviceChannelID",
+                    "httpMethod": "POST",
+                    "id": "autopush_secureconnect_pa_sandbox.reportDeviceChannelID",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1:reportDeviceChannelID",
+                    "request": {
+                        "$ref": "ReportDeviceChannelIDRequest"
+                    },
+                    "response": {
+                        "$ref": "ReportDeviceChannelIDResponse"
+                    }
+                },
+                "reportDeviceState": {
+                    "description": "Reports the current device state.  This is an authenticated\nrequest.",
+                    "flatPath": "v1:reportDeviceState",
+                    "httpMethod": "POST",
+                    "id": "autopush_secureconnect_pa_sandbox.reportDeviceState",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1:reportDeviceState",
+                    "request": {
+                        "$ref": "ReportDeviceStateRequest"
+                    },
+                    "response": {
+                        "$ref": "ReportDeviceStateResponse"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190921",
+    "rootUrl": "https://autopush-secureconnect-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "EnrollDeviceRequest": {
+            "description": "Request message for EnrollDevice.",
+            "id": "EnrollDeviceRequest",
+            "properties": {
+                "chromeDeviceId": {
+                    "description": "Device id as returned by Chrome's enterprise.reporting API.\nThis is not part of the signed request since we want to avoid a native\nhelper release.",
+                    "type": "string"
+                },
+                "signedRequest": {
+                    "description": "The signed request (a serialized SecureMessage). Its body contains an\nEnrollDeviceRequestBody.",
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "EnrollDeviceResponse": {
+            "description": "Response message for EnrollDevice.",
+            "id": "EnrollDeviceResponse",
+            "properties": {
+                "deviceResourceId": {
+                    "description": "The DeviceResourceId corresponding to the newly created entry.",
+                    "type": "string"
+                },
+                "nextExpectedKeyUsageCount": {
+                    "description": "The next key usage count that will be expected in requests that hold a\nDeviceKeyInfo.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "status": {
+                    "$ref": "ResponseStatus",
+                    "description": "The request status."
+                }
+            },
+            "type": "object"
+        },
+        "GetManagementStateRequest": {
+            "description": "Request message for GetManagementState.\nNext unused tag number: 4",
+            "id": "GetManagementStateRequest",
+            "properties": {
+                "osName": {
+                    "description": "The OS type of the device sending this request.",
+                    "enum": [
+                        "OS_NAME_UNSPECIFIED",
+                        "MACOS",
+                        "WINDOWS",
+                        "LINUX",
+                        "CHROMEOS"
+                    ],
+                    "enumDescriptions": [
+                        "OS unspecified.",
+                        "macOS",
+                        "Windows",
+                        "Linux",
+                        "ChromeOs"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GetManagementStateResponse": {
+            "description": "Response message for GetManagementState.\nNext unused tag number: 4",
+            "id": "GetManagementStateResponse",
+            "properties": {
+                "managementLevel": {
+                    "description": "The management level for the user and OS pair.",
+                    "enum": [
+                        "UNDEFINED_MANAGEMENT_LEVEL",
+                        "UNMANAGED",
+                        "SYNC_DISABLED",
+                        "BASIC",
+                        "ADVANCED"
+                    ],
+                    "enumDescriptions": [
+                        "Undefined value.",
+                        "The user is not managed. Do not restrict access.",
+                        "Sync of the data on the device is disabled.",
+                        "Basic Management is required, which contains the basic screenlock policy,\naccount wipe and device inventory management to the admin.",
+                        "Advance level of device management is required."
+                    ],
+                    "type": "string"
+                },
+                "osName": {
+                    "description": "The OS type of the device that send the request.",
+                    "enum": [
+                        "OS_NAME_UNSPECIFIED",
+                        "MACOS",
+                        "WINDOWS",
+                        "LINUX",
+                        "CHROMEOS"
+                    ],
+                    "enumDescriptions": [
+                        "OS unspecified.",
+                        "macOS",
+                        "Windows",
+                        "Linux",
+                        "ChromeOs"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListDomainsResponse": {
+            "description": "Response message for ListDomains.",
+            "id": "ListDomainsResponse",
+            "properties": {
+                "domains": {
+                    "description": "The list of top-level domains for which the Secure Connect\nservice needs to collect the ChannelIDs (go/channelid).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ReportDeviceChannelIDRequest": {
+            "description": "Request message for ReportDeviceChannelID.",
+            "id": "ReportDeviceChannelIDRequest",
+            "properties": {
+                "signedRequest": {
+                    "description": "The signed request (a serialized SecureMessage). Its body contains a\nReportDeviceChannelIDRequestBody.",
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ReportDeviceChannelIDResponse": {
+            "description": "Response message for ReportDeviceChannelID.",
+            "id": "ReportDeviceChannelIDResponse",
+            "properties": {
+                "status": {
+                    "description": "The request status.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ReportDeviceStateRequest": {
+            "description": "Device state sent by the Secure Connect Chrome extension.",
+            "id": "ReportDeviceStateRequest",
+            "properties": {
+                "chromeDeviceId": {
+                    "description": "Device id as returned by Chrome's enterprise.reporting API.\nThis is not part of the signed request since we want to avoid a native\nhelper release.",
+                    "type": "string"
+                },
+                "signedRequest": {
+                    "description": "The signed request (a serialized SecureMessage). Its body contains a\nReportDeviceStateRequestBody.",
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ReportDeviceStateResponse": {
+            "description": "Response message for ReportDeviceState.",
+            "id": "ReportDeviceStateResponse",
+            "properties": {
+                "deviceResourceId": {
+                    "description": "The DeviceResourceId corresponding to the device entry.",
+                    "type": "string"
+                },
+                "nextExpectedKeyUsageCount": {
+                    "description": "The next key usage count that will be expected in requests that hold a\nDeviceKeyInfo.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "status": {
+                    "$ref": "ResponseStatus",
+                    "description": "The request status."
+                }
+            },
+            "type": "object"
+        },
+        "ResponseStatus": {
+            "description": "Response status for a request.\nNext ID to use: 4",
+            "id": "ResponseStatus",
+            "properties": {
+                "errorCode": {
+                    "enum": [
+                        "UNDEFINED_ERROR",
+                        "OK",
+                        "INTERNAL_ERROR",
+                        "INVALID_INPUT",
+                        "DEVICE_ALREADY_EXISTS",
+                        "DEVICE_NOT_FOUND",
+                        "TIMEOUT",
+                        "BAD_REQUEST",
+                        "TRIGGER_REPORT",
+                        "KEY_MISMATCH"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "errorMessage": {
+                    "type": "string"
+                },
+                "suggestedActions": {
+                    "description": "The server may suggest a list of actions that the client is supposed to\nperform based on the registered device state and/or other conditions.\nThe client may or may not perform all and/or any of the actions for any\nreasons - doesn't want to, doesn't support etc.",
+                    "enumDescriptions": [
+                        "",
+                        ""
+                    ],
+                    "items": {
+                        "enum": [
+                            "UNDEFINED_ACTION",
+                            "ROTATE_KEY"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Secure Connect Private API (Autopush)",
+    "version": "v1",
+    "version_module": true
+}

@@ -1,0 +1,314 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/dogfood": {
+                    "description": "Manage your Google dogfood apps"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://staging-dogfoodmanager-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Dogfood Manager",
+    "description": "",
+    "discoveryVersion": "v1",
+    "documentationLink": "https://go/kong",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "dogfoodmanager_pa:v1",
+    "kind": "discovery#restDescription",
+    "name": "dogfoodmanager_pa",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "kong": {
+            "resources": {
+                "v1": {
+                    "methods": {
+                        "getApps": {
+                            "description": "Returns a list of apps that users can opt in or out of.\n\nNote: In order to maintain backward-compatibility, we need to preserve the\n\"/kong\" prefix in the http mappings.",
+                            "flatPath": "kong/v1/apps",
+                            "httpMethod": "GET",
+                            "id": "dogfoodmanager_pa.kong.v1.getApps",
+                            "parameterOrder": [],
+                            "parameters": {},
+                            "path": "kong/v1/apps",
+                            "response": {
+                                "$ref": "GetAllDogfoodingAppsResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/dogfood"
+                            ]
+                        }
+                    },
+                    "resources": {
+                        "apps": {
+                            "resources": {
+                                "channels": {
+                                    "methods": {
+                                        "update": {
+                                            "description": "Changes the channel for a list of apps.",
+                                            "flatPath": "kong/v1/apps/{pendingApp}/channels/{channel}",
+                                            "httpMethod": "PUT",
+                                            "id": "dogfoodmanager_pa.kong.v1.apps.channels.update",
+                                            "parameterOrder": [
+                                                "pendingApp",
+                                                "channel"
+                                            ],
+                                            "parameters": {
+                                                "channel": {
+                                                    "description": "The channel to update the packages to.",
+                                                    "enum": [
+                                                        "UNKNOWN_CHANNEL",
+                                                        "ALPHA",
+                                                        "BETA",
+                                                        "PROD"
+                                                    ],
+                                                    "location": "path",
+                                                    "required": true,
+                                                    "type": "string"
+                                                },
+                                                "pendingApp": {
+                                                    "description": "The Android package name for a single change request that can be encoded\ninto the URL path, added for backward compatibility.",
+                                                    "location": "path",
+                                                    "required": true,
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "path": "kong/v1/apps/{pendingApp}/channels/{channel}",
+                                            "request": {
+                                                "$ref": "UpdateChannelsRequest"
+                                            },
+                                            "response": {
+                                                "$ref": "UpdateChannelsResponse"
+                                            },
+                                            "scopes": [
+                                                "https://www.googleapis.com/auth/dogfood"
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190913",
+    "rootUrl": "https://staging-dogfoodmanager-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "AppInfo": {
+            "description": "Information about android app shown in the Dogfood Manager app.",
+            "id": "AppInfo",
+            "properties": {
+                "appChannels": {
+                    "description": "Information about dependent applications and version numbers available on\neach channel.",
+                    "items": {
+                        "$ref": "ChannelVersionCode"
+                    },
+                    "type": "array"
+                },
+                "appName": {
+                    "description": "Name of the android app.\nE.g. \"Google Play Books\".",
+                    "type": "string"
+                },
+                "bannerFileUrl": {
+                    "description": "Banner image.",
+                    "type": "string"
+                },
+                "channel": {
+                    "description": "The channel in which the user is enrolled for this app.",
+                    "enum": [
+                        "UNKNOWN_CHANNEL",
+                        "ALPHA",
+                        "BETA",
+                        "PROD"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown channel.",
+                        "Alpha channel, used for fishfood.",
+                        "Beta channel, used for dogfood.",
+                        "Production channel."
+                    ],
+                    "type": "string"
+                },
+                "channelReason": {
+                    "description": "The reason for the caller user to be part of the channel.",
+                    "type": "string"
+                },
+                "iconFileUrl": {
+                    "description": "The app's icon.",
+                    "type": "string"
+                },
+                "packageName": {
+                    "description": "Package name. This identifies the app on Android.\nE.g. \"com.google.android.apps.books\".",
+                    "type": "string"
+                },
+                "snippet": {
+                    "description": "Brief description of the application.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ChannelVersionCode": {
+            "description": "Contains information about applications a given app depends on in order to\nwork properly as well as version numbers available on each channel.",
+            "id": "ChannelVersionCode",
+            "properties": {
+                "channel": {
+                    "description": "The distribution channel (e.g. BETA).",
+                    "enum": [
+                        "UNKNOWN_CHANNEL",
+                        "ALPHA",
+                        "BETA",
+                        "PROD"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown channel.",
+                        "Alpha channel, used for fishfood.",
+                        "Beta channel, used for dogfood.",
+                        "Production channel."
+                    ],
+                    "type": "string"
+                },
+                "dependencies": {
+                    "description": "Android package names of apps that the current app depends on.\nE.g. \"com.google.android.gms\".",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "versions": {
+                    "description": "Versions of the app in the current channel. This is used to determine\nthe channel that corresponds to an application version.\nE.g. \"31112\".",
+                    "items": {
+                        "format": "int32",
+                        "type": "integer"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GetAllDogfoodingAppsResponse": {
+            "description": "Response message for GetAllDogfoodingApps",
+            "id": "GetAllDogfoodingAppsResponse",
+            "properties": {
+                "items": {
+                    "description": "Contains information about apps available for dogfood.",
+                    "items": {
+                        "$ref": "AppInfo"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateChannelsRequest": {
+            "description": "Contains package names that will be updated to the provided channel.",
+            "id": "UpdateChannelsRequest",
+            "properties": {
+                "pendingApps": {
+                    "description": "Android package names for all apps to be updated.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateChannelsResponse": {
+            "description": "Response message for UpdateChannels",
+            "id": "UpdateChannelsResponse",
+            "properties": {},
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Dogfood Manager Private API (Staging)",
+    "version": "v1",
+    "version_module": true
+}

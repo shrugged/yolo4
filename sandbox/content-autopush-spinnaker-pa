@@ -1,0 +1,1201 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/cloud-platform": {
+                    "description": "View and manage your data across Google Cloud Platform services"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://autopush-spinnaker-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "description": "",
+    "discoveryVersion": "v1",
+    "documentationLink": "",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "autopush_spinnaker_pa_sandbox:v1internal",
+    "kind": "discovery#restDescription",
+    "name": "autopush_spinnaker_pa_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "projects": {
+            "resources": {
+                "locations": {
+                    "methods": {
+                        "get": {
+                            "description": "Gets information about a location.",
+                            "flatPath": "v1internal/projects/{projectsId}/locations/{locationsId}",
+                            "httpMethod": "GET",
+                            "id": "autopush_spinnaker_pa_sandbox.projects.locations.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Resource name for the location.",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/locations/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1internal/{+name}",
+                            "response": {
+                                "$ref": "Location"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "list": {
+                            "description": "Lists information about the supported locations for this service.",
+                            "flatPath": "v1internal/projects/{projectsId}/locations",
+                            "httpMethod": "GET",
+                            "id": "autopush_spinnaker_pa_sandbox.projects.locations.list",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "filter": {
+                                    "description": "The standard list filter.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "description": "The resource that owns the locations collection, if applicable.",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "pageSize": {
+                                    "description": "The standard list page size.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "The standard list page token.",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1internal/{+name}/locations",
+                            "response": {
+                                "$ref": "ListLocationsResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        }
+                    },
+                    "resources": {
+                        "accounts": {
+                            "methods": {
+                                "listProducer": {
+                                    "description": "Lists ProducerAccounts in a given project and location.",
+                                    "flatPath": "v1internal/projects/{projectsId}/locations/{locationsId}/accounts:producer",
+                                    "httpMethod": "GET",
+                                    "id": "autopush_spinnaker_pa_sandbox.projects.locations.accounts.listProducer",
+                                    "parameterOrder": [
+                                        "parent"
+                                    ],
+                                    "parameters": {
+                                        "pageSize": {
+                                            "description": "The maximum number of items to return.",
+                                            "format": "int32",
+                                            "location": "query",
+                                            "type": "integer"
+                                        },
+                                        "pageToken": {
+                                            "description": "The next_page_token value returned from a previous List request, if any.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "parent": {
+                                            "description": "projects/<project-id>/locations/<location>",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/locations/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1internal/{+parent}/accounts:producer",
+                                    "response": {
+                                        "$ref": "ListProducerAccountsResponse"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                }
+                            }
+                        },
+                        "applications": {
+                            "methods": {
+                                "listProducer": {
+                                    "description": "Lists ProducerApplications in a given project and location.",
+                                    "flatPath": "v1internal/projects/{projectsId}/locations/{locationsId}/applications:producer",
+                                    "httpMethod": "GET",
+                                    "id": "autopush_spinnaker_pa_sandbox.projects.locations.applications.listProducer",
+                                    "parameterOrder": [
+                                        "parent"
+                                    ],
+                                    "parameters": {
+                                        "pageSize": {
+                                            "description": "The maximum number of items to return.",
+                                            "format": "int32",
+                                            "location": "query",
+                                            "type": "integer"
+                                        },
+                                        "pageToken": {
+                                            "description": "The next_page_token value returned from a previous List request, if any.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "parent": {
+                                            "description": "projects/<project-id>/locations/<location>",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/locations/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1internal/{+parent}/applications:producer",
+                                    "response": {
+                                        "$ref": "ListProducerApplicationsResponse"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                }
+                            }
+                        },
+                        "deployments": {
+                            "methods": {
+                                "listProducer": {
+                                    "description": "Lists ProducerDeployments in a given project and location.",
+                                    "flatPath": "v1internal/projects/{projectsId}/locations/{locationsId}/deployments:producer",
+                                    "httpMethod": "GET",
+                                    "id": "autopush_spinnaker_pa_sandbox.projects.locations.deployments.listProducer",
+                                    "parameterOrder": [
+                                        "parent"
+                                    ],
+                                    "parameters": {
+                                        "pageSize": {
+                                            "description": "The maximum number of items to return.",
+                                            "format": "int32",
+                                            "location": "query",
+                                            "type": "integer"
+                                        },
+                                        "pageToken": {
+                                            "description": "The next_page_token value returned from a previous List request, if any.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "parent": {
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/locations/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1internal/{+parent}/deployments:producer",
+                                    "response": {
+                                        "$ref": "ListProducerDeploymentsResponse"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                },
+                                "patch": {
+                                    "description": "Updates a currently running Spinnaker deployment with administrative knobs\nand levers.",
+                                    "flatPath": "v1internal/projects/{projectsId}/locations/{locationsId}/deployments/{deploymentsId}",
+                                    "httpMethod": "PATCH",
+                                    "id": "autopush_spinnaker_pa_sandbox.projects.locations.deployments.patch",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "forceHalDeployApply": {
+                                            "description": "When set to true, forces a hal deploy apply even if no changes are\ndetected.",
+                                            "location": "query",
+                                            "type": "boolean"
+                                        },
+                                        "kubernetesVersion": {
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "name": {
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/locations/[^/]+/deployments/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "skipHalValidation": {
+                                            "description": "When set to true, hal deploy apply will be run with --no-validate. This\nshould very carefully be used, as skipping validation can end up in\nactually breaking things.",
+                                            "location": "query",
+                                            "type": "boolean"
+                                        },
+                                        "updateMask": {
+                                            "format": "google-fieldmask",
+                                            "location": "query",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1internal/{+name}",
+                                    "request": {
+                                        "$ref": "ProducerDeployment"
+                                    },
+                                    "response": {
+                                        "$ref": "Operation"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                }
+                            }
+                        },
+                        "operations": {
+                            "methods": {
+                                "cancel": {
+                                    "description": "Starts asynchronous cancellation on a long-running operation.  The server\nmakes a best effort to cancel the operation, but success is not\nguaranteed.  If the server doesn't support this method, it returns\n`google.rpc.Code.UNIMPLEMENTED`.  Clients can use\nOperations.GetOperation or\nother methods to check whether the cancellation succeeded or whether the\noperation completed despite cancellation. On successful cancellation,\nthe operation is not deleted; instead, it becomes an operation with\nan Operation.error value with a google.rpc.Status.code of 1,\ncorresponding to `Code.CANCELLED`.",
+                                    "flatPath": "v1internal/projects/{projectsId}/locations/{locationsId}/operations/{operationsId}:cancel",
+                                    "httpMethod": "POST",
+                                    "id": "autopush_spinnaker_pa_sandbox.projects.locations.operations.cancel",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "name": {
+                                            "description": "The name of the operation resource to be cancelled.",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/locations/[^/]+/operations/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1internal/{+name}:cancel",
+                                    "request": {
+                                        "$ref": "CancelOperationRequest"
+                                    },
+                                    "response": {
+                                        "$ref": "GoogleProtobufEmpty"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                },
+                                "delete": {
+                                    "description": "Deletes a long-running operation. This method indicates that the client is\nno longer interested in the operation result. It does not cancel the\noperation. If the server doesn't support this method, it returns\n`google.rpc.Code.UNIMPLEMENTED`.",
+                                    "flatPath": "v1internal/projects/{projectsId}/locations/{locationsId}/operations/{operationsId}",
+                                    "httpMethod": "DELETE",
+                                    "id": "autopush_spinnaker_pa_sandbox.projects.locations.operations.delete",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "name": {
+                                            "description": "The name of the operation resource to be deleted.",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/locations/[^/]+/operations/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1internal/{+name}",
+                                    "response": {
+                                        "$ref": "GoogleProtobufEmpty"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                },
+                                "get": {
+                                    "description": "Gets the latest state of a long-running operation.  Clients can use this\nmethod to poll the operation result at intervals as recommended by the API\nservice.",
+                                    "flatPath": "v1internal/projects/{projectsId}/locations/{locationsId}/operations/{operationsId}",
+                                    "httpMethod": "GET",
+                                    "id": "autopush_spinnaker_pa_sandbox.projects.locations.operations.get",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "name": {
+                                            "description": "The name of the operation resource.",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/locations/[^/]+/operations/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1internal/{+name}",
+                                    "response": {
+                                        "$ref": "Operation"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                },
+                                "list": {
+                                    "description": "Lists operations that match the specified filter in the request. If the\nserver doesn't support this method, it returns `UNIMPLEMENTED`.\n\nNOTE: the `name` binding allows API services to override the binding\nto use different resource name schemes, such as `users/*/operations`. To\noverride the binding, API services can add a binding such as\n`\"/v1/{name=users/*}/operations\"` to their service configuration.\nFor backwards compatibility, the default name includes the operations\ncollection id, however overriding users must ensure the name binding\nis the parent resource, without the operations collection id.",
+                                    "flatPath": "v1internal/projects/{projectsId}/locations/{locationsId}/operations",
+                                    "httpMethod": "GET",
+                                    "id": "autopush_spinnaker_pa_sandbox.projects.locations.operations.list",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "filter": {
+                                            "description": "The standard list filter.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "name": {
+                                            "description": "The name of the operation's parent resource.",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/locations/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "pageSize": {
+                                            "description": "The standard list page size.",
+                                            "format": "int32",
+                                            "location": "query",
+                                            "type": "integer"
+                                        },
+                                        "pageToken": {
+                                            "description": "The standard list page token.",
+                                            "location": "query",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1internal/{+name}/operations",
+                                    "response": {
+                                        "$ref": "ListOperationsResponse"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190715",
+    "rootUrl": "https://autopush-spinnaker-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "Account": {
+            "id": "Account",
+            "properties": {
+                "appEngine": {
+                    "$ref": "GcpAppEngine"
+                },
+                "computeEngine": {
+                    "$ref": "GcpComputeEngine"
+                },
+                "createTime": {
+                    "description": "Output only.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "gcbPubsubSubscription": {
+                    "$ref": "GcpGcbPubsubSubscription"
+                },
+                "gcrPubsubSubscription": {
+                    "$ref": "GcpGcrPubsubSubscription"
+                },
+                "gcsPubsubSubscription": {
+                    "$ref": "GcpGcsPubsubSubscription"
+                },
+                "id": {
+                    "description": "Unique ID for this account.",
+                    "type": "string"
+                },
+                "kubernetesEngine": {
+                    "$ref": "GcpKubernetesEngine"
+                },
+                "labels": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "type": "object"
+                },
+                "name": {
+                    "description": "Output only.",
+                    "type": "string"
+                },
+                "serviceAccount": {
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "Output only.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Application": {
+            "id": "Application",
+            "properties": {
+                "createTime": {
+                    "description": "Output only.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Unique ID for this application.",
+                    "type": "string"
+                },
+                "labels": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "type": "object"
+                },
+                "name": {
+                    "description": "Output only.",
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "Output only.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CancelOperationRequest": {
+            "description": "The request message for Operations.CancelOperation.",
+            "id": "CancelOperationRequest",
+            "properties": {},
+            "type": "object"
+        },
+        "Deployment": {
+            "description": "An instance of a Cloud Spinnaker deployment.",
+            "id": "Deployment",
+            "properties": {
+                "accounts": {
+                    "description": "Output only.",
+                    "items": {
+                        "$ref": "Account"
+                    },
+                    "type": "array"
+                },
+                "apiServiceUrl": {
+                    "description": "Output only.",
+                    "type": "string"
+                },
+                "createTime": {
+                    "description": "Output only.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "iapClientId": {
+                    "description": "Output only. This is the ID of the OAuth client used by IAP. An end user\ncan use this to authenticate with IAP using a service account.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Unique ID for this deployment.",
+                    "type": "string"
+                },
+                "labels": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "type": "object"
+                },
+                "name": {
+                    "description": "Output only.",
+                    "type": "string"
+                },
+                "notificationServiceAccount": {
+                    "description": "Output only. This is the service account that will be used to publish\nnotifications to the consumer project.",
+                    "type": "string"
+                },
+                "uiServiceUrl": {
+                    "description": "Output only.",
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "Output only.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "EchoLocalProfile": {
+            "description": "Echo's local profile values.",
+            "id": "EchoLocalProfile",
+            "properties": {
+                "emailEnabled": {
+                    "description": "SMTP config for email notifications.",
+                    "type": "boolean"
+                },
+                "emailFrom": {
+                    "type": "string"
+                },
+                "emailHost": {
+                    "type": "string"
+                },
+                "emailPassword": {
+                    "type": "string"
+                },
+                "emailUsername": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GcpAppEngine": {
+            "id": "GcpAppEngine",
+            "properties": {
+                "projectId": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GcpComputeEngine": {
+            "id": "GcpComputeEngine",
+            "properties": {
+                "projectId": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GcpGcbPubsubSubscription": {
+            "id": "GcpGcbPubsubSubscription",
+            "properties": {
+                "subscriptionName": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GcpGcrPubsubSubscription": {
+            "id": "GcpGcrPubsubSubscription",
+            "properties": {
+                "subscriptionName": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GcpGcsPubsubSubscription": {
+            "id": "GcpGcsPubsubSubscription",
+            "properties": {
+                "subscriptionName": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GcpKubernetesEngine": {
+            "id": "GcpKubernetesEngine",
+            "properties": {
+                "clusterName": {
+                    "type": "string"
+                },
+                "location": {
+                    "description": "Can be region or zone of the cluster.",
+                    "type": "string"
+                },
+                "projectId": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleProtobufEmpty": {
+            "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+            "id": "GoogleProtobufEmpty",
+            "properties": {},
+            "type": "object"
+        },
+        "ListLocationsResponse": {
+            "description": "The response message for Locations.ListLocations.",
+            "id": "ListLocationsResponse",
+            "properties": {
+                "locations": {
+                    "description": "A list of locations that matches the specified filter in the request.",
+                    "items": {
+                        "$ref": "Location"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "The standard List next-page token.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListOperationsResponse": {
+            "description": "The response message for Operations.ListOperations.",
+            "id": "ListOperationsResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "The standard List next-page token.",
+                    "type": "string"
+                },
+                "operations": {
+                    "description": "A list of operations that matches the specified filter in the request.",
+                    "items": {
+                        "$ref": "Operation"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListProducerAccountsResponse": {
+            "id": "ListProducerAccountsResponse",
+            "properties": {
+                "accounts": {
+                    "items": {
+                        "$ref": "ProducerAccount"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "The next page token or empty if none.",
+                    "type": "string"
+                },
+                "unreachable": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListProducerApplicationsResponse": {
+            "id": "ListProducerApplicationsResponse",
+            "properties": {
+                "applications": {
+                    "items": {
+                        "$ref": "ProducerApplication"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "The next_page_token value returned from a previous List request, if any.",
+                    "type": "string"
+                },
+                "unreachable": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListProducerDeploymentsResponse": {
+            "id": "ListProducerDeploymentsResponse",
+            "properties": {
+                "deployments": {
+                    "items": {
+                        "$ref": "ProducerDeployment"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "The next page token or empty if none.",
+                    "type": "string"
+                },
+                "unreachable": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Location": {
+            "description": "A resource that represents Google Cloud Platform location.",
+            "id": "Location",
+            "properties": {
+                "displayName": {
+                    "description": "The friendly name for this location, typically a nearby city name.\nFor example, \"Tokyo\".",
+                    "type": "string"
+                },
+                "labels": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Cross-service attributes for the location. For example\n\n    {\"cloud.googleapis.com/region\": \"us-east1\"}",
+                    "type": "object"
+                },
+                "locationId": {
+                    "description": "The canonical id for this location. For example: `\"us-east1\"`.",
+                    "type": "string"
+                },
+                "metadata": {
+                    "additionalProperties": {
+                        "description": "Properties of the object. Contains field @type with type URL.",
+                        "type": "any"
+                    },
+                    "description": "Service-specific metadata. For example the available capacity at the given\nlocation.",
+                    "type": "object"
+                },
+                "name": {
+                    "description": "Resource name for the location, which may vary between implementations.\nFor example: `\"projects/example-project/locations/us-east1\"`",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Operation": {
+            "description": "This resource represents a long-running operation that is the result of a\nnetwork API call.",
+            "id": "Operation",
+            "properties": {
+                "done": {
+                    "description": "If the value is `false`, it means the operation is still in progress.\nIf `true`, the operation is completed, and either `error` or `response` is\navailable.",
+                    "type": "boolean"
+                },
+                "error": {
+                    "$ref": "Status",
+                    "description": "The error result of the operation in case of failure or cancellation."
+                },
+                "metadata": {
+                    "additionalProperties": {
+                        "description": "Properties of the object. Contains field @type with type URL.",
+                        "type": "any"
+                    },
+                    "description": "Service-specific metadata associated with the operation.  It typically\ncontains progress information and common metadata such as create time.\nSome services might not provide such metadata.  Any method that returns a\nlong-running operation should document the metadata type, if any.",
+                    "type": "object"
+                },
+                "name": {
+                    "description": "The server-assigned name, which is only unique within the same service that\noriginally returns it. If you use the default HTTP mapping, the\n`name` should be a resource name ending with `operations/{unique_id}`.",
+                    "type": "string"
+                },
+                "response": {
+                    "additionalProperties": {
+                        "description": "Properties of the object. Contains field @type with type URL.",
+                        "type": "any"
+                    },
+                    "description": "The normal response of the operation in case of success.  If the original\nmethod returns no data on success, such as `Delete`, the response is\n`google.protobuf.Empty`.  If the original method is standard\n`Get`/`Create`/`Update`, the response should be the resource.  For other\nmethods, the response should have the type `XxxResponse`, where `Xxx`\nis the original method name.  For example, if the original method name\nis `TakeSnapshot()`, the inferred response type is\n`TakeSnapshotResponse`.",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "OperationMetadata": {
+            "description": "Represents the metadata of the long-running operation.",
+            "id": "OperationMetadata",
+            "properties": {
+                "apiVersion": {
+                    "description": "[Output only] API version used to start the operation.",
+                    "type": "string"
+                },
+                "cancelRequested": {
+                    "description": "[Output only] Identifies whether the user has requested cancellation\nof the operation. Operations that have successfully been cancelled\nhave Operation.error value with a google.rpc.Status.code of 1,\ncorresponding to `Code.CANCELLED`.",
+                    "type": "boolean"
+                },
+                "createTime": {
+                    "description": "[Output only] The time the operation was created.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "endTime": {
+                    "description": "[Output only] The time the operation finished running.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "statusDetail": {
+                    "description": "[Output only] Human-readable status of the operation, if any.",
+                    "type": "string"
+                },
+                "target": {
+                    "description": "[Output only] Server-defined resource path for the target of the operation.",
+                    "type": "string"
+                },
+                "verb": {
+                    "description": "[Output only] Name of the verb executed by the operation.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "OrcaLocalProfile": {
+            "description": "Orca's local profile values.",
+            "id": "OrcaLocalProfile",
+            "properties": {
+                "rejectedCidrs": {
+                    "description": "List of IPs or CIDR ranges that Orca should blacklist for SpEL and outgoing\nwebhook calls.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ProducerAccount": {
+            "description": "A producer account embeds the public account.",
+            "id": "ProducerAccount",
+            "properties": {
+                "account": {
+                    "$ref": "Account",
+                    "description": "The public representation of the account resource."
+                },
+                "createTime": {
+                    "description": "Output only.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name of the instance (public and internal nodes use the same name).",
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "Output only.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ProducerApplication": {
+            "description": "A producer application embeds the public application.",
+            "id": "ProducerApplication",
+            "properties": {
+                "application": {
+                    "$ref": "Application",
+                    "description": "The public representation of the application resource."
+                },
+                "createTime": {
+                    "description": "Output only.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name of the instance (public and internal nodes use the same name).",
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "Output only.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ProducerDeployment": {
+            "description": "A producer deployment embeds the public deployment. It can also add other\nmessages for integration with backend services such as Rollouts.",
+            "id": "ProducerDeployment",
+            "properties": {
+                "accounts": {
+                    "description": "Accounts in use in this deployment. This list is snapshotted from what is\nreturned from ListProducerAccounts when the creation of this deployment is\nprepared.",
+                    "items": {
+                        "$ref": "ProducerAccount"
+                    },
+                    "type": "array"
+                },
+                "bucket": {
+                    "description": "GCS Bucket being used for this deployment.",
+                    "type": "string"
+                },
+                "clusterNodesPerZone": {
+                    "description": "This is the number of nodes per zone of the regional cluster in which\nspinnaker is running. Each regional cluster has three zones, so the total\nnumber of nodes in the cluster is this value * 3.",
+                    "format": "uint32",
+                    "type": "integer"
+                },
+                "createTime": {
+                    "description": "Output only.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "deployment": {
+                    "$ref": "Deployment",
+                    "description": "The public representation of the deployment resource."
+                },
+                "halyardVersion": {
+                    "description": "Version of halyard used for this deployment. This is the tag in the\ncloud-spinnaker-artifacts gcr repo, not the open source version.",
+                    "type": "string"
+                },
+                "iapClientSecret": {
+                    "description": "The secret of the OAuth client used by IAP.",
+                    "type": "string"
+                },
+                "kubernetesMasterVersion": {
+                    "description": "Version of kubernetes master running in this deployment.\nOutput only.",
+                    "type": "string"
+                },
+                "kubernetesNodeVersion": {
+                    "description": "Version of kubernetes nodes running in this deployment.\nOutput only.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name of the instance (public and internal nodes use the same name).",
+                    "type": "string"
+                },
+                "serviceLocalProfiles": {
+                    "$ref": "ServiceLocalProfiles",
+                    "description": "Values used to generate service-specific local profiles."
+                },
+                "serviceRequirementsList": {
+                    "$ref": "ServiceRequirementsList",
+                    "description": "The enumerated list of resource requirements for each Spinnaker\nmicroservice."
+                },
+                "spinnakerClusterName": {
+                    "description": "The name of the cluster in which spinnaker is running. This is a snapshot\nof the cluster_name flag when the deployment is created.",
+                    "type": "string"
+                },
+                "spinnakerNamespace": {
+                    "description": "The name of the namespace in which spinnaker is running. This is a snapshot\nof the namespace flag when the deployment is created.",
+                    "type": "string"
+                },
+                "spinnakerServiceAccount": {
+                    "description": "The email of the service account which is running the kubernetes cluster.",
+                    "type": "string"
+                },
+                "spinnakerVersion": {
+                    "description": "Version of spinnaker running in this deployment.",
+                    "type": "string"
+                },
+                "tenantProjectId": {
+                    "description": "This value is a temporary fix for our dashboards to know what project\ntenant project contains the metrics for this deployment, until we integrate\nwith chemist.",
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "Output only.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ResourceList": {
+            "description": "ResourceList represents a Kubernetes ResourceList object.",
+            "id": "ResourceList",
+            "properties": {
+                "cpu": {
+                    "description": "Cpu per pod.",
+                    "type": "string"
+                },
+                "memory": {
+                    "description": "RAM per pod.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ServiceLocalProfiles": {
+            "description": "Each Spinnaker microservice's local profile values.",
+            "id": "ServiceLocalProfiles",
+            "properties": {
+                "echo": {
+                    "$ref": "EchoLocalProfile"
+                },
+                "orca": {
+                    "$ref": "OrcaLocalProfile"
+                }
+            },
+            "type": "object"
+        },
+        "ServiceRequirements": {
+            "description": "ServiceRequirements list the resource requirements for each Spinnaker\nmicroservice.",
+            "id": "ServiceRequirements",
+            "properties": {
+                "basicAuthPassword": {
+                    "type": "string"
+                },
+                "basicAuthUsername": {
+                    "description": "Basic authentication for this microservice.",
+                    "type": "string"
+                },
+                "limits": {
+                    "$ref": "ResourceList",
+                    "description": "Represents the maximum resources this pod should be allowed to consume."
+                },
+                "name": {
+                    "description": "The name of the Spinnaker microservice.",
+                    "type": "string"
+                },
+                "replicas": {
+                    "description": "The number of pods for this service in the deployment.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "requests": {
+                    "$ref": "ResourceList",
+                    "description": "Represents the minimal resources needed for this pod to be scheduled."
+                }
+            },
+            "type": "object"
+        },
+        "ServiceRequirementsList": {
+            "description": "Each Spinnaker microservice's resource requirements.",
+            "id": "ServiceRequirementsList",
+            "properties": {
+                "clouddriverCaching": {
+                    "$ref": "ServiceRequirements"
+                },
+                "clouddriverRo": {
+                    "$ref": "ServiceRequirements"
+                },
+                "clouddriverRw": {
+                    "$ref": "ServiceRequirements"
+                },
+                "deck": {
+                    "$ref": "ServiceRequirements"
+                },
+                "echo": {
+                    "$ref": "ServiceRequirements"
+                },
+                "fiat": {
+                    "$ref": "ServiceRequirements"
+                },
+                "front50": {
+                    "$ref": "ServiceRequirements"
+                },
+                "gate": {
+                    "$ref": "ServiceRequirements"
+                },
+                "igor": {
+                    "$ref": "ServiceRequirements"
+                },
+                "kayenta": {
+                    "$ref": "ServiceRequirements"
+                },
+                "monitoringDaemon": {
+                    "$ref": "ServiceRequirements"
+                },
+                "orca": {
+                    "$ref": "ServiceRequirements"
+                },
+                "redis": {
+                    "$ref": "ServiceRequirements"
+                },
+                "rosco": {
+                    "$ref": "ServiceRequirements"
+                }
+            },
+            "type": "object"
+        },
+        "Status": {
+            "description": "The `Status` type defines a logical error model that is suitable for\ndifferent programming environments, including REST APIs and RPC APIs. It is\nused by [gRPC](https://github.com/grpc). Each `Status` message contains\nthree pieces of data: error code, error message, and error details.\n\nYou can find out more about this error model and how to work with it in the\n[API Design Guide](https://cloud.google.com/apis/design/errors).",
+            "id": "Status",
+            "properties": {
+                "code": {
+                    "description": "The status code, which should be an enum value of google.rpc.Code.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "details": {
+                    "description": "A list of messages that carry the error details.  There is a common set of\nmessage types for APIs to use.",
+                    "items": {
+                        "additionalProperties": {
+                            "description": "Properties of the object. Contains field @type with type URL.",
+                            "type": "any"
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "message": {
+                    "description": "A developer-facing error message, which should be in English. Any\nuser-facing error message should be localized and sent in the\ngoogle.rpc.Status.details field, or localized by the client.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "spinnaker-pa API (autopush)",
+    "version": "v1internal",
+    "version_module": true
+}

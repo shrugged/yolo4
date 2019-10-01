@@ -1,0 +1,1772 @@
+{
+    "basePath": "",
+    "baseUrl": "https://perf-alkalicore-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Alkali Core",
+    "description": "The Alkali Core API provides access services needed by Alkali FE See go/alkali for more details.",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://go/alkali",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "perf_alkalicore_pa_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "perf_alkalicore_pa_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "applications": {
+            "methods": {
+                "checkpermission": {
+                    "description": "Checks permission for the given Application and/or Account of the user.",
+                    "flatPath": "v1/applications/{applicationsId}:checkpermission",
+                    "httpMethod": "POST",
+                    "id": "perf_alkalicore_pa_sandbox.applications.checkpermission",
+                    "parameterOrder": [
+                        "application"
+                    ],
+                    "parameters": {
+                        "application": {
+                            "description": "application resources name to check. e.g. `applications/console`.",
+                            "location": "path",
+                            "pattern": "^applications/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+application}:checkpermission",
+                    "request": {
+                        "$ref": "CheckPermissionsRequest"
+                    },
+                    "response": {
+                        "$ref": "CheckPermissionsResponse"
+                    }
+                },
+                "get": {
+                    "description": "Gets application information. Throws\naccess denied if the current user does not has access to any account\nof the application.",
+                    "flatPath": "v1/applications/{applicationsId}",
+                    "httpMethod": "GET",
+                    "id": "perf_alkalicore_pa_sandbox.applications.get",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "The name of the application resource. This maps to application key\nin alkalibase.",
+                            "location": "path",
+                            "pattern": "^applications/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "Application"
+                    }
+                },
+                "getUserinfo": {
+                    "description": "Get application info for the logged in user.",
+                    "flatPath": "v1/applications/{applicationsId}/userinfo",
+                    "httpMethod": "GET",
+                    "id": "perf_alkalicore_pa_sandbox.applications.getUserinfo",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "The key of the application. This is used to retrieve logged in user's\napplication permissions and user labels.",
+                            "location": "path",
+                            "pattern": "^applications/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "view": {
+                            "description": "Indicates if any information related to the application context is\nreturned. Default value is interpreted as FULL. BASIC view returns only\nuser's email address and indicator if the user is internal.",
+                            "enum": [
+                                "APPLICATION_USER_VIEW_UNSPECIFIED",
+                                "BASIC",
+                                "FULL"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}/userinfo",
+                    "response": {
+                        "$ref": "ApplicationUserInfo"
+                    }
+                },
+                "list": {
+                    "description": "Lists applications accessible to the current user.",
+                    "flatPath": "v1/applications",
+                    "httpMethod": "GET",
+                    "id": "perf_alkalicore_pa_sandbox.applications.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "_fields": {
+                            "format": "google-fieldmask",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "pageSize": {
+                            "description": "Specifies the maximum number of results to be returned by the server. The\nserver may further constrain the maximum number of results returned in a\nsingle page. If the page_size is 0, the server will decide the number of\nresults to be returned.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageToken": {
+                            "description": "The token for the specific page of results requested.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/applications",
+                    "response": {
+                        "$ref": "ListApplicationsResponse"
+                    }
+                }
+            },
+            "resources": {
+                "accountlabels": {
+                    "methods": {
+                        "create": {
+                            "description": "Creates a new account label for an application. The account label's ID will\nbe set in a numerically serial manner (i.e., the first created account\nlabel for an application will have an ID of \"1\", the second will have an ID\nof \"2\", etc.) The created labels will be available for use in all\nenvironments. A user must be an application owner in order to call this.",
+                            "flatPath": "v1/applications/{applicationsId}/accountlabels",
+                            "httpMethod": "POST",
+                            "id": "perf_alkalicore_pa_sandbox.applications.accountlabels.create",
+                            "parameterOrder": [
+                                "application"
+                            ],
+                            "parameters": {
+                                "application": {
+                                    "description": "Required. The application key for which to create an account label. This\nmust be a reference application.",
+                                    "location": "path",
+                                    "pattern": "^applications/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+application}/accountlabels",
+                            "request": {
+                                "$ref": "CreateAccountLabelRequest"
+                            },
+                            "response": {
+                                "$ref": "AccountLabel"
+                            }
+                        },
+                        "delete": {
+                            "description": "Deletes an account label defined for an application. The ID and display\nname will not be available for reuse. A user must be an application owner\nin order to call this.",
+                            "flatPath": "v1/applications/{applicationsId}/accountlabels/{accountlabelsId}",
+                            "httpMethod": "DELETE",
+                            "id": "perf_alkalicore_pa_sandbox.applications.accountlabels.delete",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The name of the account label to be deleted, in the form\n{application}/accountlabels/{account_label_id}.",
+                                    "location": "path",
+                                    "pattern": "^applications/[^/]+/accountlabels/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "response": {
+                                "$ref": "Empty"
+                            }
+                        },
+                        "list": {
+                            "description": "Lists the account labels defined for an application. A user must be an\napplication reader in order to call this.",
+                            "flatPath": "v1/applications/{applicationsId}/accountlabels",
+                            "httpMethod": "GET",
+                            "id": "perf_alkalicore_pa_sandbox.applications.accountlabels.list",
+                            "parameterOrder": [
+                                "application"
+                            ],
+                            "parameters": {
+                                "application": {
+                                    "description": "Required. The application key for which to list account labels.",
+                                    "location": "path",
+                                    "pattern": "^applications/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "pageSize": {
+                                    "description": "The desired page size. If this is not set, all results will be returned.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "The page token.",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+application}/accountlabels",
+                            "response": {
+                                "$ref": "ListAccountLabelsResponse"
+                            }
+                        },
+                        "listAllApplied": {
+                            "description": "Lists all account labels applied within an application. Only accounts\nwith labels are included in the returned proto. Pagination is not\nsupported. This call will return all results, regardless of size or count.\nPerformance is not guaranteed with this call. A user must be an application\nowner in order to call this.",
+                            "flatPath": "v1/applications/{applicationsId}/accountlabels:listAllApplied",
+                            "httpMethod": "POST",
+                            "id": "perf_alkalicore_pa_sandbox.applications.accountlabels.listAllApplied",
+                            "parameterOrder": [
+                                "application"
+                            ],
+                            "parameters": {
+                                "application": {
+                                    "description": "Required. The application key for which to list account labels.",
+                                    "location": "path",
+                                    "pattern": "^applications/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+application}/accountlabels:listAllApplied",
+                            "request": {
+                                "$ref": "ListAllAppliedAccountLabelsRequest"
+                            },
+                            "response": {
+                                "$ref": "ListAllAppliedAccountLabelsResponse"
+                            }
+                        }
+                    }
+                },
+                "accounts": {
+                    "methods": {
+                        "checkpermission": {
+                            "description": "Checks permission for the given Application and/or Account of the user.",
+                            "flatPath": "v1/applications/{applicationsId}/accounts/{accountsId}:checkpermission",
+                            "httpMethod": "POST",
+                            "id": "perf_alkalicore_pa_sandbox.applications.accounts.checkpermission",
+                            "parameterOrder": [
+                                "account"
+                            ],
+                            "parameters": {
+                                "account": {
+                                    "description": "Account resource name to check, e.g. `applications/console/accounts/123`.",
+                                    "location": "path",
+                                    "pattern": "^applications/[^/]+/accounts/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "application": {
+                                    "description": "application resources name to check. e.g. `applications/console`.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "role": {
+                                    "enum": [
+                                        "ROLE_UNSPECIFIED",
+                                        "READER",
+                                        "WRITER",
+                                        "OWNER"
+                                    ],
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+account}:checkpermission",
+                            "response": {
+                                "$ref": "CheckPermissionsResponse"
+                            }
+                        },
+                        "get": {
+                            "description": "Gets account information. Throws BadRequestException if:\n1. The current user does not have access to the account\n2. The account is soft-deleted\n3. The account is disabled\n4. The account does not exist",
+                            "flatPath": "v1/applications/{applicationsId}/accounts/{accountsId}",
+                            "httpMethod": "GET",
+                            "id": "perf_alkalicore_pa_sandbox.applications.accounts.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The name of the account resource. This maps to account key\nin alkalibase.",
+                                    "location": "path",
+                                    "pattern": "^applications/[^/]+/accounts/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "view": {
+                                    "enum": [
+                                        "ACCOUNT_VIEW_UNSPECIFIED",
+                                        "BASIC",
+                                        "FULL"
+                                    ],
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "response": {
+                                "$ref": "Account"
+                            }
+                        },
+                        "getDefault": {
+                            "description": "Gets account information for the default account. Default account is\ndefined as the most recently used account returned by the\nListAccessibleAccounts AlkaliBase API. Throws BadRequestException if:\n1. The parent application does not exist\n2. The user does not have access to any account in the application",
+                            "flatPath": "v1/applications/{applicationsId}/accounts:default",
+                            "httpMethod": "GET",
+                            "id": "perf_alkalicore_pa_sandbox.applications.accounts.getDefault",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "The name of the parent application. This maps to application key\nin Alkali Base.",
+                                    "location": "path",
+                                    "pattern": "^applications/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "view": {
+                                    "description": "Indicates how much account information is returned. Default value is\ninterpreted as FULL.",
+                                    "enum": [
+                                        "ACCOUNT_VIEW_UNSPECIFIED",
+                                        "BASIC",
+                                        "FULL"
+                                    ],
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/accounts:default",
+                            "response": {
+                                "$ref": "Account"
+                            }
+                        },
+                        "list": {
+                            "description": "Lists accounts accessible to the current user. This API will only return\naccount with BASIC_VIEW(e.g. user labels information will not\nbe returned in this API).\n\nThe parent parameter(application key, in form of\napplications/{application_id}) in the request is required.\n\nThe query parameter is used for full-text search in account name(This\nAPI does not support prefix search yet).\n\nFor listing hierarchical sub-accounts, supply the root_account\n(in form of applications/{application_id}/accounts/{account_id} parameter.\nUsing query together with root_account is not supported.\nThrows BadRequestException if:\n1. The parent application does not exist\n2. Invalid resource name format(or input combination, see above)",
+                            "flatPath": "v1/applications/{applicationsId}/accounts",
+                            "httpMethod": "GET",
+                            "id": "perf_alkalicore_pa_sandbox.applications.accounts.list",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "_fields": {
+                                    "format": "google-fieldmask",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "pageSize": {
+                                    "description": "Specifies the maximum number of results to be returned by the server. The\nserver may further constrain the maximum number of results returned in a\nsingle page. If the page_size is 0, the server will decide the number of\nresults to be returned.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "The token for the specific page of results requested.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "parent": {
+                                    "description": "The application name to list accounts for. Required.",
+                                    "location": "path",
+                                    "pattern": "^applications/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "query": {
+                                    "description": "Free text search query to limit the list.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "rootAccount": {
+                                    "description": "Root account id to limit the list. This field cannot be used together\nwith query.",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/accounts",
+                            "response": {
+                                "$ref": "ListAccountsResponse"
+                            }
+                        },
+                        "listRecent": {
+                            "description": "Lists recent accounts accessible to the current user.\nThis API will only return\naccount with BASIC_VIEW(e.g. user labels information will not\nbe returned in this API).\n\nThe parent parameter(application key, in form of\napplications/{application_id}) in the request is required.\n\nThrows BadRequestException if:\n1. The parent application does not exist\n2. Invalid resource name format(or input combination, see above)",
+                            "flatPath": "v1/applications/{applicationsId}/accounts:recent",
+                            "httpMethod": "GET",
+                            "id": "perf_alkalicore_pa_sandbox.applications.accounts.listRecent",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "_fields": {
+                                    "format": "google-fieldmask",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "pageSize": {
+                                    "description": "Specifies the maximum number of results to be returned by the server.\nMaximum number is 3.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "parent": {
+                                    "description": "The application name to list accounts for. Required.",
+                                    "location": "path",
+                                    "pattern": "^applications/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/accounts:recent",
+                            "response": {
+                                "$ref": "ListRecentAccountsResponse"
+                            }
+                        }
+                    },
+                    "resources": {
+                        "accountlabels": {
+                            "methods": {
+                                "apply": {
+                                    "description": "Applies an account label to a scope. A user must be an application owner in\norder to call this.",
+                                    "flatPath": "v1/applications/{applicationsId}/accounts/{accountsId}/accountlabels/{accountLabelId}:apply",
+                                    "httpMethod": "POST",
+                                    "id": "perf_alkalicore_pa_sandbox.applications.accounts.accountlabels.apply",
+                                    "parameterOrder": [
+                                        "account",
+                                        "accountLabelId"
+                                    ],
+                                    "parameters": {
+                                        "account": {
+                                            "description": "Required. The account key to which to apply an account label.",
+                                            "location": "path",
+                                            "pattern": "^applications/[^/]+/accounts/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "accountLabelId": {
+                                            "description": "Required. The ID of the account label to apply.",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/{+account}/accountlabels/{accountLabelId}:apply",
+                                    "request": {
+                                        "$ref": "ApplyAccountLabelRequest"
+                                    },
+                                    "response": {
+                                        "$ref": "ApplyAccountLabelResponse"
+                                    }
+                                },
+                                "hasApplied": {
+                                    "description": "Checks whether a scope contains an account label. A user must be an account\nreader in order to call this.",
+                                    "flatPath": "v1/applications/{applicationsId}/accounts/{accountsId}/accountlabels/{accountLabelId}:hasApplied",
+                                    "httpMethod": "POST",
+                                    "id": "perf_alkalicore_pa_sandbox.applications.accounts.accountlabels.hasApplied",
+                                    "parameterOrder": [
+                                        "account",
+                                        "accountLabelId"
+                                    ],
+                                    "parameters": {
+                                        "account": {
+                                            "description": "Required. The account key to check for an account label.",
+                                            "location": "path",
+                                            "pattern": "^applications/[^/]+/accounts/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "accountLabelId": {
+                                            "description": "Required. The ID of the account label to check.",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/{+account}/accountlabels/{accountLabelId}:hasApplied",
+                                    "request": {
+                                        "$ref": "HasAppliedAccountLabelRequest"
+                                    },
+                                    "response": {
+                                        "$ref": "HasAppliedAccountLabelResponse"
+                                    }
+                                },
+                                "listApplied": {
+                                    "description": "Lists account labels applied to a scope. A user must be an account reader\nin order to call this.",
+                                    "flatPath": "v1/applications/{applicationsId}/accounts/{accountsId}/accountlabels:listApplied",
+                                    "httpMethod": "POST",
+                                    "id": "perf_alkalicore_pa_sandbox.applications.accounts.accountlabels.listApplied",
+                                    "parameterOrder": [
+                                        "account"
+                                    ],
+                                    "parameters": {
+                                        "account": {
+                                            "description": "Required. The account key for which to list account labels.",
+                                            "location": "path",
+                                            "pattern": "^applications/[^/]+/accounts/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/{+account}/accountlabels:listApplied",
+                                    "request": {
+                                        "$ref": "ListAppliedAccountLabelsRequest"
+                                    },
+                                    "response": {
+                                        "$ref": "ListAppliedAccountLabelsResponse"
+                                    }
+                                },
+                                "unapply": {
+                                    "description": "Unapplies an account label to a scope. A user must be an application owner\nin order to call this.",
+                                    "flatPath": "v1/applications/{applicationsId}/accounts/{accountsId}/accountlabels/{accountLabelId}:unapply",
+                                    "httpMethod": "POST",
+                                    "id": "perf_alkalicore_pa_sandbox.applications.accounts.accountlabels.unapply",
+                                    "parameterOrder": [
+                                        "account",
+                                        "accountLabelId"
+                                    ],
+                                    "parameters": {
+                                        "account": {
+                                            "description": "Required. The account key to which to unapply an account label.",
+                                            "location": "path",
+                                            "pattern": "^applications/[^/]+/accounts/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "accountLabelId": {
+                                            "description": "Required. The ID of the account label to unapply.",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/{+account}/accountlabels/{accountLabelId}:unapply",
+                                    "request": {
+                                        "$ref": "UnapplyAccountLabelRequest"
+                                    },
+                                    "response": {
+                                        "$ref": "UnapplyAccountLabelResponse"
+                                    }
+                                }
+                            }
+                        },
+                        "userlabels": {
+                            "methods": {
+                                "apply": {
+                                    "description": "Applies a user label to an account-based scope. A user must be an\napplication owner in order to call this.",
+                                    "flatPath": "v1/applications/{applicationsId}/accounts/{accountsId}/userlabels/{userLabelId}:apply",
+                                    "httpMethod": "POST",
+                                    "id": "perf_alkalicore_pa_sandbox.applications.accounts.userlabels.apply",
+                                    "parameterOrder": [
+                                        "account",
+                                        "userLabelId"
+                                    ],
+                                    "parameters": {
+                                        "account": {
+                                            "description": "Required. The account key to which to apply a user label.",
+                                            "location": "path",
+                                            "pattern": "^applications/[^/]+/accounts/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "userLabelId": {
+                                            "description": "Required. The ID of the user label to apply.",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/{+account}/userlabels/{userLabelId}:apply",
+                                    "request": {
+                                        "$ref": "ApplyAccountUserLabelRequest"
+                                    },
+                                    "response": {
+                                        "$ref": "ApplyAccountUserLabelResponse"
+                                    }
+                                },
+                                "hasApplied": {
+                                    "description": "Checks whether an account-based scope contains a user label. A user must be\nan account reader in order to call this on themselves, and they must be an\napplication owner in order to call this on another user.",
+                                    "flatPath": "v1/applications/{applicationsId}/accounts/{accountsId}/userlabels/{userLabelId}:hasApplied",
+                                    "httpMethod": "POST",
+                                    "id": "perf_alkalicore_pa_sandbox.applications.accounts.userlabels.hasApplied",
+                                    "parameterOrder": [
+                                        "account",
+                                        "userLabelId"
+                                    ],
+                                    "parameters": {
+                                        "account": {
+                                            "description": "Required. The account key to check for a user label.",
+                                            "location": "path",
+                                            "pattern": "^applications/[^/]+/accounts/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "userLabelId": {
+                                            "description": "Required. The ID of the user label to check.",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/{+account}/userlabels/{userLabelId}:hasApplied",
+                                    "request": {
+                                        "$ref": "HasAppliedAccountUserLabelRequest"
+                                    },
+                                    "response": {
+                                        "$ref": "HasAppliedAccountUserLabelResponse"
+                                    }
+                                },
+                                "listAllApplied": {
+                                    "description": "Lists all account-scoped user labels applied within an account. Only users\nwith labels are included in the returned proto. Pagination is not\nsupported. This call will return all results, regardless of size or count.\nPerformance is not guaranteed with this call. A user must be an\napplication owner in order to call this.",
+                                    "flatPath": "v1/applications/{applicationsId}/accounts/{accountsId}/userlabels:listAllApplied",
+                                    "httpMethod": "POST",
+                                    "id": "perf_alkalicore_pa_sandbox.applications.accounts.userlabels.listAllApplied",
+                                    "parameterOrder": [
+                                        "account"
+                                    ],
+                                    "parameters": {
+                                        "account": {
+                                            "description": "Required. The account key for which to list user labels.",
+                                            "location": "path",
+                                            "pattern": "^applications/[^/]+/accounts/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/{+account}/userlabels:listAllApplied",
+                                    "request": {
+                                        "$ref": "ListAllAppliedAccountUserLabelsRequest"
+                                    },
+                                    "response": {
+                                        "$ref": "ListAllAppliedAccountUserLabelsResponse"
+                                    }
+                                },
+                                "listApplied": {
+                                    "description": "Lists user labels applied to an account-based scope. A user must be an\naccount reader in order to call this on themselves, and they must be an\napplication owner in order to call this on another user.",
+                                    "flatPath": "v1/applications/{applicationsId}/accounts/{accountsId}/userlabels:listApplied",
+                                    "httpMethod": "POST",
+                                    "id": "perf_alkalicore_pa_sandbox.applications.accounts.userlabels.listApplied",
+                                    "parameterOrder": [
+                                        "account"
+                                    ],
+                                    "parameters": {
+                                        "account": {
+                                            "description": "Required. The account key for which to list user labels.",
+                                            "location": "path",
+                                            "pattern": "^applications/[^/]+/accounts/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/{+account}/userlabels:listApplied",
+                                    "request": {
+                                        "$ref": "ListAppliedAccountUserLabelsRequest"
+                                    },
+                                    "response": {
+                                        "$ref": "ListAppliedAccountUserLabelsResponse"
+                                    }
+                                },
+                                "unapply": {
+                                    "description": "Unapplies a user label to an account-based scope. A user must be an\napplication owner in order to call this.",
+                                    "flatPath": "v1/applications/{applicationsId}/accounts/{accountsId}/userlabels/{userLabelId}:unapply",
+                                    "httpMethod": "POST",
+                                    "id": "perf_alkalicore_pa_sandbox.applications.accounts.userlabels.unapply",
+                                    "parameterOrder": [
+                                        "account",
+                                        "userLabelId"
+                                    ],
+                                    "parameters": {
+                                        "account": {
+                                            "description": "Required. The account key to which to unapply a user label.",
+                                            "location": "path",
+                                            "pattern": "^applications/[^/]+/accounts/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "userLabelId": {
+                                            "description": "Required. The ID of the user label to unapply.",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/{+account}/userlabels/{userLabelId}:unapply",
+                                    "request": {
+                                        "$ref": "UnapplyAccountUserLabelRequest"
+                                    },
+                                    "response": {
+                                        "$ref": "UnapplyAccountUserLabelResponse"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "userlabels": {
+                    "methods": {
+                        "apply": {
+                            "description": "Applies a user label to an application-based scope. A user must be an\napplication owner in order to call this.",
+                            "flatPath": "v1/applications/{applicationsId}/userlabels/{userLabelId}:apply",
+                            "httpMethod": "POST",
+                            "id": "perf_alkalicore_pa_sandbox.applications.userlabels.apply",
+                            "parameterOrder": [
+                                "application",
+                                "userLabelId"
+                            ],
+                            "parameters": {
+                                "application": {
+                                    "description": "Required. The application key to which to apply a user label.",
+                                    "location": "path",
+                                    "pattern": "^applications/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "userLabelId": {
+                                    "description": "Required. The ID of the user label to apply.",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+application}/userlabels/{userLabelId}:apply",
+                            "request": {
+                                "$ref": "ApplyApplicationUserLabelRequest"
+                            },
+                            "response": {
+                                "$ref": "ApplyApplicationUserLabelResponse"
+                            }
+                        },
+                        "create": {
+                            "description": "Creates a new user label for an application. The user label's ID will be\nset in a numerically serial manner (i.e., the first created user label for\nan application will have an ID of \"1\", the second will have an ID of \"2\",\netc.) The created labels will be available for use in all environments. A\nuser must be an application owner in order to call this.",
+                            "flatPath": "v1/applications/{applicationsId}/userlabels",
+                            "httpMethod": "POST",
+                            "id": "perf_alkalicore_pa_sandbox.applications.userlabels.create",
+                            "parameterOrder": [
+                                "application"
+                            ],
+                            "parameters": {
+                                "application": {
+                                    "description": "Required. The application key for which to create a user label. This must\nbe a reference application.",
+                                    "location": "path",
+                                    "pattern": "^applications/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+application}/userlabels",
+                            "request": {
+                                "$ref": "CreateUserLabelRequest"
+                            },
+                            "response": {
+                                "$ref": "UserLabel"
+                            }
+                        },
+                        "delete": {
+                            "description": "Deletes a user label defined for an application. The ID and display name\nwill not be available for reuse. A user must be an application owner in\norder to call this.",
+                            "flatPath": "v1/applications/{applicationsId}/userlabels/{userlabelsId}",
+                            "httpMethod": "DELETE",
+                            "id": "perf_alkalicore_pa_sandbox.applications.userlabels.delete",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The name of the user label to be deleted, in the form\n{application}/userlabels/{user_label_id}.",
+                                    "location": "path",
+                                    "pattern": "^applications/[^/]+/userlabels/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "response": {
+                                "$ref": "Empty"
+                            }
+                        },
+                        "hasApplied": {
+                            "description": "Checks whether an application-based scope contains a user label. A user\nmust be an application reader in order to call this on themselves, and they\nmust be an application owner in order to call this on another user.",
+                            "flatPath": "v1/applications/{applicationsId}/userlabels/{userLabelId}:hasApplied",
+                            "httpMethod": "POST",
+                            "id": "perf_alkalicore_pa_sandbox.applications.userlabels.hasApplied",
+                            "parameterOrder": [
+                                "application",
+                                "userLabelId"
+                            ],
+                            "parameters": {
+                                "application": {
+                                    "description": "Required. The application key to check for a user label.",
+                                    "location": "path",
+                                    "pattern": "^applications/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "userLabelId": {
+                                    "description": "Required. The ID of the user label to check.",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+application}/userlabels/{userLabelId}:hasApplied",
+                            "request": {
+                                "$ref": "HasAppliedApplicationUserLabelRequest"
+                            },
+                            "response": {
+                                "$ref": "HasAppliedApplicationUserLabelResponse"
+                            }
+                        },
+                        "list": {
+                            "description": "Lists the user labels defined for an application. A user must be an\napplication reader in order to call this.",
+                            "flatPath": "v1/applications/{applicationsId}/userlabels",
+                            "httpMethod": "GET",
+                            "id": "perf_alkalicore_pa_sandbox.applications.userlabels.list",
+                            "parameterOrder": [
+                                "application"
+                            ],
+                            "parameters": {
+                                "application": {
+                                    "description": "Required. The application key for which to list user labels.",
+                                    "location": "path",
+                                    "pattern": "^applications/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "pageSize": {
+                                    "description": "The desired page size. If this is not set, all results will be returned.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "The page token.",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+application}/userlabels",
+                            "response": {
+                                "$ref": "ListUserLabelsResponse"
+                            }
+                        },
+                        "listAllApplied": {
+                            "description": "Lists all application-scoped user labels applied within an application.\nOnly users with labels are included in the returned proto. Pagination is\nnot supported. This call will return all results, regardless of size or\ncount. Performance is not guaranteed with this call. A user must be an\napplication owner in order to call this.",
+                            "flatPath": "v1/applications/{applicationsId}/userlabels:listAllApplied",
+                            "httpMethod": "POST",
+                            "id": "perf_alkalicore_pa_sandbox.applications.userlabels.listAllApplied",
+                            "parameterOrder": [
+                                "application"
+                            ],
+                            "parameters": {
+                                "application": {
+                                    "description": "Required. The application key for which to list user labels.",
+                                    "location": "path",
+                                    "pattern": "^applications/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+application}/userlabels:listAllApplied",
+                            "request": {
+                                "$ref": "ListAllAppliedApplicationUserLabelsRequest"
+                            },
+                            "response": {
+                                "$ref": "ListAllAppliedApplicationUserLabelsResponse"
+                            }
+                        },
+                        "listApplied": {
+                            "description": "Lists user labels applied to an application and account based scope. If no\naccount is passed then only application user labels are returned. A user\nmust be an application reader in order to call this on themselves, and they\nmust be an application owner in order to call this on another user.",
+                            "flatPath": "v1/applications/{applicationsId}/userlabels:listApplied",
+                            "httpMethod": "POST",
+                            "id": "perf_alkalicore_pa_sandbox.applications.userlabels.listApplied",
+                            "parameterOrder": [
+                                "application"
+                            ],
+                            "parameters": {
+                                "application": {
+                                    "description": "Required. The application key for which to list user labels.",
+                                    "location": "path",
+                                    "pattern": "^applications/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+application}/userlabels:listApplied",
+                            "request": {
+                                "$ref": "ListAppliedUserLabelsRequest"
+                            },
+                            "response": {
+                                "$ref": "ListAppliedUserLabelsResponse"
+                            }
+                        },
+                        "unapply": {
+                            "description": "Unapplies a user label to an application-based scope. A user must be an\napplication owner in order to call this.",
+                            "flatPath": "v1/applications/{applicationsId}/userlabels/{userLabelId}:unapply",
+                            "httpMethod": "POST",
+                            "id": "perf_alkalicore_pa_sandbox.applications.userlabels.unapply",
+                            "parameterOrder": [
+                                "application",
+                                "userLabelId"
+                            ],
+                            "parameters": {
+                                "application": {
+                                    "description": "Required. The application key to which to unapply a user label.",
+                                    "location": "path",
+                                    "pattern": "^applications/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "userLabelId": {
+                                    "description": "Required. The ID of the user label to unapply.",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+application}/userlabels/{userLabelId}:unapply",
+                            "request": {
+                                "$ref": "UnapplyApplicationUserLabelRequest"
+                            },
+                            "response": {
+                                "$ref": "UnapplyApplicationUserLabelResponse"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "permissions": {
+            "methods": {
+                "has": {
+                    "description": "Gets permisisons for the given Applications and Accounts of the user.\nChecking for non-zero entries in the response is equivalent to seeing\nif the user has permissions for the specified Application or Account.\nDeprecated and replaced by AccessControlService.CheckPermissions.",
+                    "flatPath": "v1/permissions:has",
+                    "httpMethod": "POST",
+                    "id": "perf_alkalicore_pa_sandbox.permissions.has",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/permissions:has",
+                    "request": {
+                        "$ref": "HasPermissionsRequest"
+                    },
+                    "response": {
+                        "$ref": "HasPermissionsResponse"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190918",
+    "rootUrl": "https://perf-alkalicore-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "Account": {
+            "description": "Represents an alkali account and related account and account user labels.",
+            "id": "Account",
+            "properties": {
+                "accountLabels": {
+                    "description": "The (numeric) IDs of account labels applied to the account.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "displayName": {
+                    "description": "The display name of the account",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name of the application resource. This maps to account key\nin alkalibase.",
+                    "type": "string"
+                },
+                "parent": {
+                    "description": "The parent application",
+                    "type": "string"
+                },
+                "parentAccount": {
+                    "description": "The parent account should the account be part of an account hierarchy.",
+                    "type": "string"
+                },
+                "roles": {
+                    "description": "Roles assigned to the end user for the account.",
+                    "enumDescriptions": [
+                        "Unspecified role.",
+                        "Full read access.",
+                        "Read and write access.",
+                        "Full access, including ability to modify ACLs."
+                    ],
+                    "items": {
+                        "enum": [
+                            "ROLE_UNSPECIFIED",
+                            "READER",
+                            "WRITER",
+                            "OWNER"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "userLabels": {
+                    "description": "The (numeric) IDs of account user labels applied to the user.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AccountLabel": {
+            "description": "The Account Label proto returned by returned by account label list functions.",
+            "id": "AccountLabel",
+            "properties": {
+                "description": {
+                    "description": "The text description of the account label.",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "The display name of the account label.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name of the account label, in the form\n{application}/accountlabels/{account_label_id}.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Application": {
+            "id": "Application",
+            "properties": {
+                "dashIconUrl": {
+                    "description": "URL used by [dash]. Size to be 128x128 for alkali classic and 80x80 for\nalkali Angular",
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "displayName": {
+                    "type": "string"
+                },
+                "faviconUrl": {
+                    "description": "URL for favicon. Size to be 32x32 pixels",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name of the application resource. This maps to application key\nin alkalibase.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ApplicationUserInfo": {
+            "description": "Returns the application info of the user.",
+            "id": "ApplicationUserInfo",
+            "properties": {
+                "emailAddress": {
+                    "description": "email address",
+                    "type": "string"
+                },
+                "isInternalUser": {
+                    "description": "Indicates if the user is googler or an external user.",
+                    "type": "boolean"
+                },
+                "roles": {
+                    "description": "Effective roles assigned to the end user for the application.",
+                    "enumDescriptions": [
+                        "Unspecified role.",
+                        "Full read access.",
+                        "Read and write access.",
+                        "Full access, including ability to modify ACLs."
+                    ],
+                    "items": {
+                        "enum": [
+                            "ROLE_UNSPECIFIED",
+                            "READER",
+                            "WRITER",
+                            "OWNER"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "userLabels": {
+                    "description": "The (numeric) IDs of application user labels applied to the user.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AppliedAccountLabels": {
+            "description": "Represents an account and the account labels applied to that account.",
+            "id": "AppliedAccountLabels",
+            "properties": {
+                "account": {
+                    "$ref": "Account",
+                    "description": "Information about the account to which the account labels are applied.\nOnly the name and display_name fields are populated."
+                },
+                "accountLabels": {
+                    "description": "The account labels applied to that account.",
+                    "items": {
+                        "$ref": "AccountLabel"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AppliedUserLabels": {
+            "description": "Represents a user and the user labels applied to that user.",
+            "id": "AppliedUserLabels",
+            "properties": {
+                "emailAddress": {
+                    "description": "The e-mail address of the user to which the user labels are applied.",
+                    "type": "string"
+                },
+                "userLabels": {
+                    "description": "The user labels applied to that user.",
+                    "items": {
+                        "$ref": "UserLabel"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ApplyAccountLabelRequest": {
+            "description": "ApplyAccountLabel request.",
+            "id": "ApplyAccountLabelRequest",
+            "properties": {},
+            "type": "object"
+        },
+        "ApplyAccountLabelResponse": {
+            "description": "ApplyAccountLabel response.",
+            "id": "ApplyAccountLabelResponse",
+            "properties": {},
+            "type": "object"
+        },
+        "ApplyAccountUserLabelRequest": {
+            "description": "ApplyAccountUserLabel request.",
+            "id": "ApplyAccountUserLabelRequest",
+            "properties": {
+                "emailAddress": {
+                    "description": "Required. The e-mail address of the user to which to apply a label.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ApplyAccountUserLabelResponse": {
+            "description": "ApplyAccountUserLabel response.",
+            "id": "ApplyAccountUserLabelResponse",
+            "properties": {},
+            "type": "object"
+        },
+        "ApplyApplicationUserLabelRequest": {
+            "description": "ApplyApplicationUserLabel request.",
+            "id": "ApplyApplicationUserLabelRequest",
+            "properties": {
+                "emailAddress": {
+                    "description": "Required. The e-mail address of the user to which to apply a label.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ApplyApplicationUserLabelResponse": {
+            "description": "ApplyApplicationUserLabel response.",
+            "id": "ApplyApplicationUserLabelResponse",
+            "properties": {},
+            "type": "object"
+        },
+        "CheckPermissionsRequest": {
+            "description": "CheckPermissions request.",
+            "id": "CheckPermissionsRequest",
+            "properties": {
+                "account": {
+                    "description": "Account resource name to check, e.g. `applications/console/accounts/123`.",
+                    "type": "string"
+                },
+                "role": {
+                    "enum": [
+                        "ROLE_UNSPECIFIED",
+                        "READER",
+                        "WRITER",
+                        "OWNER"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified role.",
+                        "Full read access.",
+                        "Read and write access.",
+                        "Full access, including ability to modify ACLs."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CheckPermissionsResponse": {
+            "description": "CheckPermissions response.",
+            "id": "CheckPermissionsResponse",
+            "properties": {
+                "hasPermission": {
+                    "description": "Whether the user has permission for all the request entities.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "CreateAccountLabelRequest": {
+            "description": "CreateAccountLabel request.",
+            "id": "CreateAccountLabelRequest",
+            "properties": {
+                "accountLabel": {
+                    "$ref": "AccountLabel",
+                    "description": "Required. The account label to create. The name must not be specified."
+                }
+            },
+            "type": "object"
+        },
+        "CreateUserLabelRequest": {
+            "description": "CreateUserLabel request.",
+            "id": "CreateUserLabelRequest",
+            "properties": {
+                "userLabel": {
+                    "$ref": "UserLabel",
+                    "description": "Required. The user label to create. The name must not be specified."
+                }
+            },
+            "type": "object"
+        },
+        "Empty": {
+            "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+            "id": "Empty",
+            "properties": {},
+            "type": "object"
+        },
+        "HasAppliedAccountLabelRequest": {
+            "description": "HasAppliedAccountLabel request.",
+            "id": "HasAppliedAccountLabelRequest",
+            "properties": {},
+            "type": "object"
+        },
+        "HasAppliedAccountLabelResponse": {
+            "description": "HasAppliedAccountLabel response.",
+            "id": "HasAppliedAccountLabelResponse",
+            "properties": {
+                "hasLabel": {
+                    "description": "A boolean value representing whether the account label is present or not.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "HasAppliedAccountUserLabelRequest": {
+            "description": "HasAppliedAccountUserLabel request.",
+            "id": "HasAppliedAccountUserLabelRequest",
+            "properties": {
+                "emailAddress": {
+                    "description": "Required. The e-mail address of the user to check for a label.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "HasAppliedAccountUserLabelResponse": {
+            "description": "HasAppliedAccountUserLabel response.",
+            "id": "HasAppliedAccountUserLabelResponse",
+            "properties": {
+                "hasLabel": {
+                    "description": "A boolean value representing whether the user label is present or not.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "HasAppliedApplicationUserLabelRequest": {
+            "description": "HasAppliedApplicationUserLabel request.",
+            "id": "HasAppliedApplicationUserLabelRequest",
+            "properties": {
+                "emailAddress": {
+                    "description": "Required. The e-mail address of the user to check for a label.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "HasAppliedApplicationUserLabelResponse": {
+            "description": "HasAppliedApplicationUserLabel response.",
+            "id": "HasAppliedApplicationUserLabelResponse",
+            "properties": {
+                "hasLabel": {
+                    "description": "A boolean value representing whether the user label is present or not.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "HasPermissionsRequest": {
+            "description": "HasPermissions request.",
+            "id": "HasPermissionsRequest",
+            "properties": {
+                "accountId": {
+                    "description": "Optional key of account in the above application to check permission for.\nMax 1000 accounts can be checked.\nE.g. `123` in `applications/console/accounts/123`.",
+                    "type": "string"
+                },
+                "applicationId": {
+                    "description": "Key of application to check permission for.\nE.g. `console` in `applications/console`.",
+                    "type": "string"
+                },
+                "role": {
+                    "description": "Role to filter permissions by.\nIf unspecified, no filtering will be done.",
+                    "enum": [
+                        "ROLE_UNSPECIFIED",
+                        "READER",
+                        "WRITER",
+                        "OWNER"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified role.",
+                        "Full read access.",
+                        "Read and write access.",
+                        "Full access, including ability to modify ACLs."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "HasPermissionsResponse": {
+            "description": "HasPermissions response.",
+            "id": "HasPermissionsResponse",
+            "properties": {
+                "hasPermissions": {
+                    "description": "Whether the user has permissions for all the request entities.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "ListAccountLabelsResponse": {
+            "description": "ListAccountLabels response.",
+            "id": "ListAccountLabelsResponse",
+            "properties": {
+                "accountLabels": {
+                    "description": "The account labels.",
+                    "items": {
+                        "$ref": "AccountLabel"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "The token for the next page. If this is not set, this is the last page.",
+                    "type": "string"
+                },
+                "totalSize": {
+                    "description": "The total number of defined account labels.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "ListAccountsResponse": {
+            "description": "ListAccounts response",
+            "id": "ListAccountsResponse",
+            "properties": {
+                "accounts": {
+                    "items": {
+                        "$ref": "Account"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "The token to retrieve the next page of results. If empty, there are no\nlater results.",
+                    "type": "string"
+                },
+                "startIndex": {
+                    "description": "The best-effort index of the first result in this page.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "ListAllAppliedAccountLabelsRequest": {
+            "description": "ListAllAppliedAccountLabels request.",
+            "id": "ListAllAppliedAccountLabelsRequest",
+            "properties": {},
+            "type": "object"
+        },
+        "ListAllAppliedAccountLabelsResponse": {
+            "description": "ListAllAppliedAccountLabels response.",
+            "id": "ListAllAppliedAccountLabelsResponse",
+            "properties": {
+                "appliedAccountLabels": {
+                    "description": "A list of AppliedAccountLabels objects.",
+                    "items": {
+                        "$ref": "AppliedAccountLabels"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListAllAppliedAccountUserLabelsRequest": {
+            "description": "ListAllAppliedAccountUserLabels request.",
+            "id": "ListAllAppliedAccountUserLabelsRequest",
+            "properties": {},
+            "type": "object"
+        },
+        "ListAllAppliedAccountUserLabelsResponse": {
+            "description": "ListAllAppliedAccountUserLabels response.",
+            "id": "ListAllAppliedAccountUserLabelsResponse",
+            "properties": {
+                "appliedUserLabels": {
+                    "description": "A list of AppliedUserLabels objects.",
+                    "items": {
+                        "$ref": "AppliedUserLabels"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListAllAppliedApplicationUserLabelsRequest": {
+            "description": "ListAllAppliedApplicationUserLabels request.",
+            "id": "ListAllAppliedApplicationUserLabelsRequest",
+            "properties": {},
+            "type": "object"
+        },
+        "ListAllAppliedApplicationUserLabelsResponse": {
+            "description": "ListAllAppliedApplicationUserLabels response.",
+            "id": "ListAllAppliedApplicationUserLabelsResponse",
+            "properties": {
+                "appliedUserLabels": {
+                    "description": "A list of AppliedUserLabels objects.",
+                    "items": {
+                        "$ref": "AppliedUserLabels"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListApplicationsResponse": {
+            "id": "ListApplicationsResponse",
+            "properties": {
+                "applications": {
+                    "items": {
+                        "$ref": "Application"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "The token to retrieve the next page of results. If empty, there are no\nlater results.",
+                    "type": "string"
+                },
+                "startIndex": {
+                    "description": "The best-effort index of the first result in this page.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "ListAppliedAccountLabelsRequest": {
+            "description": "ListAppliedAccountLabels request.",
+            "id": "ListAppliedAccountLabelsRequest",
+            "properties": {
+                "pageSize": {
+                    "description": "The desired page size. The default and maximum value is 1000.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "pageToken": {
+                    "description": "The page token. The account key must still be set even if a page token\nis provided.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListAppliedAccountLabelsResponse": {
+            "description": "ListAppliedAccountLabels response.",
+            "id": "ListAppliedAccountLabelsResponse",
+            "properties": {
+                "accountLabels": {
+                    "description": "The listed account labels.",
+                    "items": {
+                        "$ref": "AccountLabel"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "The next page token, set if there are more results.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListAppliedAccountUserLabelsRequest": {
+            "description": "ListAppliedAccountUserLabels request.",
+            "id": "ListAppliedAccountUserLabelsRequest",
+            "properties": {
+                "emailAddress": {
+                    "description": "Required. The e-mail address of the user for which to list labels.",
+                    "type": "string"
+                },
+                "pageSize": {
+                    "description": "The desired page size. The default and maximum value is 1000.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "pageToken": {
+                    "description": "The page token. The account key and email address must still be set even if\na page token is provided.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListAppliedAccountUserLabelsResponse": {
+            "description": "ListAppliedAccountUserLabels response.",
+            "id": "ListAppliedAccountUserLabelsResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "The next page token, set if there are more results.",
+                    "type": "string"
+                },
+                "userLabels": {
+                    "description": "The listed user labels.",
+                    "items": {
+                        "$ref": "UserLabel"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListAppliedUserLabelsRequest": {
+            "description": "ListAppliedUserLabels request.",
+            "id": "ListAppliedUserLabelsRequest",
+            "properties": {
+                "account": {
+                    "description": "The account key for which to list user labels.",
+                    "type": "string"
+                },
+                "emailAddress": {
+                    "description": "Required. The e-mail address of the user for which to list labels.",
+                    "type": "string"
+                },
+                "pageSize": {
+                    "description": "The desired page size. The default and maximum value is 1000.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "pageToken": {
+                    "description": "The page token. The application key and email address must still be set\neven if a page token is provided.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListAppliedUserLabelsResponse": {
+            "description": "ListAppliedUserLabels response.",
+            "id": "ListAppliedUserLabelsResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "The next page token, set if there are more results.",
+                    "type": "string"
+                },
+                "userLabels": {
+                    "description": "The listed user labels.",
+                    "items": {
+                        "$ref": "UserLabel"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListRecentAccountsResponse": {
+            "description": "ListRecentAccounts response",
+            "id": "ListRecentAccountsResponse",
+            "properties": {
+                "recentAccounts": {
+                    "items": {
+                        "$ref": "Account"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListUserLabelsResponse": {
+            "description": "ListUserLabels response.",
+            "id": "ListUserLabelsResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "The token for the next page. If this is not set, this is the last page.",
+                    "type": "string"
+                },
+                "totalSize": {
+                    "description": "The total number of defined user labels.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "userLabels": {
+                    "description": "The user labels.",
+                    "items": {
+                        "$ref": "UserLabel"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "UnapplyAccountLabelRequest": {
+            "description": "UnapplyAccountLabel request.",
+            "id": "UnapplyAccountLabelRequest",
+            "properties": {},
+            "type": "object"
+        },
+        "UnapplyAccountLabelResponse": {
+            "description": "UnapplyAccountLabel response.",
+            "id": "UnapplyAccountLabelResponse",
+            "properties": {},
+            "type": "object"
+        },
+        "UnapplyAccountUserLabelRequest": {
+            "description": "UnapplyAccountUserLabel request.",
+            "id": "UnapplyAccountUserLabelRequest",
+            "properties": {
+                "emailAddress": {
+                    "description": "Required. The e-mail address of the user to which to unapply a label.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UnapplyAccountUserLabelResponse": {
+            "description": "UnapplyAccountUserLabel response.",
+            "id": "UnapplyAccountUserLabelResponse",
+            "properties": {},
+            "type": "object"
+        },
+        "UnapplyApplicationUserLabelRequest": {
+            "description": "UnapplyApplicationUserLabel request.",
+            "id": "UnapplyApplicationUserLabelRequest",
+            "properties": {
+                "emailAddress": {
+                    "description": "Required. The e-mail address of the user to which to unapply a label.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UnapplyApplicationUserLabelResponse": {
+            "description": "UnapplyApplicationUserLabel response.",
+            "id": "UnapplyApplicationUserLabelResponse",
+            "properties": {},
+            "type": "object"
+        },
+        "UserLabel": {
+            "description": "The User Label proto returned by user label list functions.",
+            "id": "UserLabel",
+            "properties": {
+                "description": {
+                    "description": "The text description of the user label.",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "The display name of the user label.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name of the user label, in the form\n{application}/userlabels/{user_label_id}.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Alkali Core Private API (Perf)",
+    "version": "v1",
+    "version_module": true
+}

@@ -1,0 +1,1959 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/userinfo.profile": {
+                    "description": "See your personal info, including any personal info you've made publicly available"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://qa-alkalitomo-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Alkali Tomo",
+    "description": "Apis related to Partner contacts, tickets",
+    "discoveryVersion": "v1",
+    "documentationLink": "https://go/alkali",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "qa_alkalitomo_pa_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "qa_alkalitomo_pa_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "applications": {
+            "resources": {
+                "accounts": {
+                    "methods": {
+                        "batchCreate": {
+                            "description": "Creates multiple Alkali accounts associated with an Alkali application.",
+                            "flatPath": "v1/applications/{applicationsId}/accounts:batchCreate",
+                            "httpMethod": "POST",
+                            "id": "qa_alkalitomo_pa_sandbox.applications.accounts.batchCreate",
+                            "parameterOrder": [
+                                "applicationKey"
+                            ],
+                            "parameters": {
+                                "applicationKey": {
+                                    "description": "The key of the application to modify.",
+                                    "location": "path",
+                                    "pattern": "^applications/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+applicationKey}/accounts:batchCreate",
+                            "request": {
+                                "$ref": "CreateAlkaliAccountsRequest"
+                            },
+                            "response": {
+                                "$ref": "CreateAlkaliAccountsResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.profile"
+                            ]
+                        },
+                        "create": {
+                            "description": "Creates one Alkali account from a given service account",
+                            "flatPath": "v1/applications/{applicationsId}/accounts",
+                            "httpMethod": "POST",
+                            "id": "qa_alkalitomo_pa_sandbox.applications.accounts.create",
+                            "parameterOrder": [
+                                "applicationKey"
+                            ],
+                            "parameters": {
+                                "applicationKey": {
+                                    "description": "The key of the application to modify.",
+                                    "location": "path",
+                                    "pattern": "^applications/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+applicationKey}/accounts",
+                            "request": {
+                                "$ref": "CreateAlkaliAccountRequest"
+                            },
+                            "response": {
+                                "$ref": "Account"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.profile"
+                            ]
+                        },
+                        "delete": {
+                            "description": "Soft delete the Alkali account for a given service account",
+                            "flatPath": "v1/applications/{applicationsId}/accounts/{serviceAccountId}",
+                            "httpMethod": "DELETE",
+                            "id": "qa_alkalitomo_pa_sandbox.applications.accounts.delete",
+                            "parameterOrder": [
+                                "applicationKey",
+                                "serviceAccountId"
+                            ],
+                            "parameters": {
+                                "applicationKey": {
+                                    "description": "The key of the application to modify.",
+                                    "location": "path",
+                                    "pattern": "^applications/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "serviceAccountId": {
+                                    "description": "The service account ID to associate with the Alkali account.",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+applicationKey}/accounts/{serviceAccountId}",
+                            "response": {
+                                "$ref": "Empty"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.profile"
+                            ]
+                        },
+                        "deletePermissions": {
+                            "description": "Delete Alkali account permission for a given Salesforce contract email.",
+                            "flatPath": "v1/applications/{applicationsId}/accounts/{serviceAccountId}/permissions",
+                            "httpMethod": "DELETE",
+                            "id": "qa_alkalitomo_pa_sandbox.applications.accounts.deletePermissions",
+                            "parameterOrder": [
+                                "applicationKey",
+                                "serviceAccountId"
+                            ],
+                            "parameters": {
+                                "applicationKey": {
+                                    "description": "The key of the application to modify.",
+                                    "location": "path",
+                                    "pattern": "^applications/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "contactEmail": {
+                                    "description": "The name of the account to create.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "serviceAccountId": {
+                                    "description": "The service account ID to associate with the Alkali account.",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+applicationKey}/accounts/{serviceAccountId}/permissions",
+                            "response": {
+                                "$ref": "Empty"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.profile"
+                            ]
+                        },
+                        "patch": {
+                            "description": "Update the Alkali account name for a given service account",
+                            "flatPath": "v1/applications/{applicationsId}/accounts/{serviceAccountId}",
+                            "httpMethod": "PATCH",
+                            "id": "qa_alkalitomo_pa_sandbox.applications.accounts.patch",
+                            "parameterOrder": [
+                                "applicationKey",
+                                "serviceAccountId"
+                            ],
+                            "parameters": {
+                                "applicationKey": {
+                                    "description": "The key of the application to modify.",
+                                    "location": "path",
+                                    "pattern": "^applications/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "serviceAccountId": {
+                                    "description": "The service account ID to associate with the Alkali account.",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+applicationKey}/accounts/{serviceAccountId}",
+                            "request": {
+                                "$ref": "UpdateAlkaliAccountRequest"
+                            },
+                            "response": {
+                                "$ref": "Account"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.profile"
+                            ]
+                        },
+                        "updatePermissions": {
+                            "description": "Update Alkali account permission for a given Salesforce contact email.",
+                            "flatPath": "v1/applications/{applicationsId}/accounts/{serviceAccountId}/permissions",
+                            "httpMethod": "PATCH",
+                            "id": "qa_alkalitomo_pa_sandbox.applications.accounts.updatePermissions",
+                            "parameterOrder": [
+                                "applicationKey",
+                                "serviceAccountId"
+                            ],
+                            "parameters": {
+                                "applicationKey": {
+                                    "description": "The key of the application to modify.",
+                                    "location": "path",
+                                    "pattern": "^applications/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "serviceAccountId": {
+                                    "description": "The service account ID to associate with the Alkali account.",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+applicationKey}/accounts/{serviceAccountId}/permissions",
+                            "request": {
+                                "$ref": "UpdateAlkaliAccountPermissionRequest"
+                            },
+                            "response": {
+                                "$ref": "AlkaliAccountPermission"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.profile"
+                            ]
+                        }
+                    },
+                    "resources": {
+                        "permissions": {
+                            "methods": {
+                                "create": {
+                                    "description": "Create Alkali account permission for a given Salesforce contact email.",
+                                    "flatPath": "v1/applications/{applicationsId}/accounts/{serviceAccountId}/permissions",
+                                    "httpMethod": "POST",
+                                    "id": "qa_alkalitomo_pa_sandbox.applications.accounts.permissions.create",
+                                    "parameterOrder": [
+                                        "applicationKey",
+                                        "serviceAccountId"
+                                    ],
+                                    "parameters": {
+                                        "applicationKey": {
+                                            "description": "The key of the application to modify.",
+                                            "location": "path",
+                                            "pattern": "^applications/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "serviceAccountId": {
+                                            "description": "The service account ID to associate with the Alkali account.",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/{+applicationKey}/accounts/{serviceAccountId}/permissions",
+                                    "request": {
+                                        "$ref": "CreateAlkaliAccountPermissionRequest"
+                                    },
+                                    "response": {
+                                        "$ref": "AlkaliAccountPermission"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/userinfo.profile"
+                                    ]
+                                }
+                            }
+                        },
+                        "tomoaccount": {
+                            "methods": {
+                                "create": {
+                                    "description": "Creates a Tomo account and adds it to the Alkali account.",
+                                    "flatPath": "v1/applications/{applicationsId}/accounts/{accountsId}/tomoaccount",
+                                    "httpMethod": "POST",
+                                    "id": "qa_alkalitomo_pa_sandbox.applications.accounts.tomoaccount.create",
+                                    "parameterOrder": [
+                                        "accountKey"
+                                    ],
+                                    "parameters": {
+                                        "accountKey": {
+                                            "description": "The ID of the account to modify.",
+                                            "location": "path",
+                                            "pattern": "^applications/[^/]+/accounts/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/{+accountKey}/tomoaccount",
+                                    "request": {
+                                        "$ref": "CreateTomoAccountRequest"
+                                    },
+                                    "response": {
+                                        "$ref": "TomoAccount"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/userinfo.profile"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "tomoconfiguration": {
+                    "methods": {
+                        "create": {
+                            "description": "Creates a Tomo configuration and adds it to the Alkali application.",
+                            "flatPath": "v1/applications/{applicationsId}/tomoconfiguration",
+                            "httpMethod": "POST",
+                            "id": "qa_alkalitomo_pa_sandbox.applications.tomoconfiguration.create",
+                            "parameterOrder": [
+                                "applicationKey"
+                            ],
+                            "parameters": {
+                                "applicationKey": {
+                                    "description": "The key of the application to modify.",
+                                    "location": "path",
+                                    "pattern": "^applications/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+applicationKey}/tomoconfiguration",
+                            "request": {
+                                "$ref": "CreateTomoConfigurationRequest"
+                            },
+                            "response": {
+                                "$ref": "TomoConfiguration"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.profile"
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "hello": {
+            "methods": {
+                "get": {
+                    "description": "Returns a response saying hello to the addressee.",
+                    "flatPath": "v1/hello/{name}",
+                    "httpMethod": "GET",
+                    "id": "qa_alkalitomo_pa_sandbox.hello.get",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Name of the addressee.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/hello/{name}",
+                    "response": {
+                        "$ref": "HelloWorldResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.profile"
+                    ]
+                }
+            }
+        },
+        "media": {
+            "methods": {
+                "download": {
+                    "description": "Downloads media. Download is supported\non the URI `/v1/media/{+name}?alt=media`.",
+                    "flatPath": "v1/media/{mediaId}",
+                    "httpMethod": "GET",
+                    "id": "qa_alkalitomo_pa_sandbox.media.download",
+                    "parameterOrder": [
+                        "resourceName"
+                    ],
+                    "parameters": {
+                        "resourceName": {
+                            "description": "Name of the media that is being downloaded.  See\nReadRequest.resource_name.",
+                            "location": "path",
+                            "pattern": "^.+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/media/{+resourceName}",
+                    "response": {
+                        "$ref": "Media"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.profile"
+                    ],
+                    "supportsMediaDownload": true
+                },
+                "upload": {
+                    "description": "Uploads media. Upload is supported on\nthe URI `/upload/v1/media/{+name}`.",
+                    "flatPath": "v1/media/{mediaId}",
+                    "httpMethod": "POST",
+                    "id": "qa_alkalitomo_pa_sandbox.media.upload",
+                    "mediaUpload": {
+                        "accept": [
+                            "*/*"
+                        ],
+                        "protocols": {
+                            "simple": {
+                                "multipart": true,
+                                "path": "/upload/v1/media/{+resourceName}"
+                            }
+                        }
+                    },
+                    "parameterOrder": [
+                        "resourceName"
+                    ],
+                    "parameters": {
+                        "resourceName": {
+                            "description": "Name of the media that is being downloaded.  See\nReadRequest.resource_name.",
+                            "location": "path",
+                            "pattern": "^.+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/media/{+resourceName}",
+                    "request": {
+                        "$ref": "Media"
+                    },
+                    "response": {
+                        "$ref": "Media"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.profile"
+                    ],
+                    "supportsMediaUpload": true
+                }
+            }
+        },
+        "metadata": {
+            "methods": {
+                "get": {
+                    "description": "Returns a Metadata representation for the entity whose name is specified in\nthe request.",
+                    "flatPath": "v1/metadata/{name}",
+                    "httpMethod": "GET",
+                    "id": "qa_alkalitomo_pa_sandbox.metadata.get",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Name of the salesforce entity for which metadata is being requested,\nfor example: Contact, Case, Serivce_Account__c.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/metadata/{name}",
+                    "response": {
+                        "$ref": "Metadata"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.profile"
+                    ]
+                }
+            }
+        },
+        "serviceaccounts": {
+            "methods": {
+                "create": {
+                    "description": "Creates a new service account.",
+                    "flatPath": "v1/serviceaccounts",
+                    "httpMethod": "POST",
+                    "id": "qa_alkalitomo_pa_sandbox.serviceaccounts.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/serviceaccounts",
+                    "request": {
+                        "$ref": "ServiceAccount"
+                    },
+                    "response": {
+                        "$ref": "ServiceAccount"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.profile"
+                    ]
+                },
+                "get": {
+                    "description": "Returns the details of the account selected in the account selector.\nThe salesforce ServiceAccount Id of the account to be retrieved. This can\nbe either passed in the request object or the consumer can pass in the\nAlkali account id as the x-alkali-account-id header in the\nHttpHeaderContext and the service will retrieve the value for the\nServiceAccount Id from the AlkaliAccount::extensions_entry.",
+                    "flatPath": "v1/serviceaccounts/{id}",
+                    "httpMethod": "GET",
+                    "id": "qa_alkalitomo_pa_sandbox.serviceaccounts.get",
+                    "parameterOrder": [
+                        "id"
+                    ],
+                    "parameters": {
+                        "id": {
+                            "description": "Unique identifier for this account in Salesforce. Note that this Id is\ndifferent from the AlkaliAccount id and has a 1:1 relationship to it.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/serviceaccounts/{id}",
+                    "response": {
+                        "$ref": "ServiceAccount"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.profile"
+                    ]
+                },
+                "patch": {
+                    "description": "Updates an account based on the input from the consumer.",
+                    "flatPath": "v1/serviceaccounts/{id}",
+                    "httpMethod": "PATCH",
+                    "id": "qa_alkalitomo_pa_sandbox.serviceaccounts.patch",
+                    "parameterOrder": [
+                        "id"
+                    ],
+                    "parameters": {
+                        "id": {
+                            "description": "Unique identifier of an Account in salesforce.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/serviceaccounts/{id}",
+                    "request": {
+                        "$ref": "UpdateServiceAccountRequest"
+                    },
+                    "response": {
+                        "$ref": "ServiceAccount"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.profile"
+                    ]
+                }
+            },
+            "resources": {
+                "cases": {
+                    "methods": {
+                        "create": {
+                            "description": "Creates a Case.",
+                            "flatPath": "v1/serviceaccounts/{serviceaccountsId}/cases",
+                            "httpMethod": "POST",
+                            "id": "qa_alkalitomo_pa_sandbox.serviceaccounts.cases.create",
+                            "parameterOrder": [
+                                "serviceaccountsId"
+                            ],
+                            "parameters": {
+                                "serviceaccountsId": {
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/serviceaccounts/{serviceaccountsId}/cases",
+                            "request": {
+                                "$ref": "Case"
+                            },
+                            "response": {
+                                "$ref": "Case"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.profile"
+                            ]
+                        },
+                        "emailmessages": {
+                            "description": "Sends an e-mail message for a Case.",
+                            "flatPath": "v1/serviceaccounts/{serviceaccountsId}/cases/{caseId}/emailmessages",
+                            "httpMethod": "POST",
+                            "id": "qa_alkalitomo_pa_sandbox.serviceaccounts.cases.emailmessages",
+                            "parameterOrder": [
+                                "serviceaccountsId",
+                                "caseId"
+                            ],
+                            "parameters": {
+                                "caseId": {
+                                    "description": "The ID of the Case to which to add the sent e-mail message.",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "serviceaccountsId": {
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/serviceaccounts/{serviceaccountsId}/cases/{caseId}/emailmessages",
+                            "request": {
+                                "$ref": "SendCaseEmailMessageRequest"
+                            },
+                            "response": {
+                                "$ref": "Empty"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.profile"
+                            ]
+                        },
+                        "get": {
+                            "description": "Gets a Case given its ID.",
+                            "flatPath": "v1/serviceaccounts/{serviceaccountsId}/cases/{id}",
+                            "httpMethod": "GET",
+                            "id": "qa_alkalitomo_pa_sandbox.serviceaccounts.cases.get",
+                            "parameterOrder": [
+                                "serviceaccountsId",
+                                "id"
+                            ],
+                            "parameters": {
+                                "id": {
+                                    "description": "The ID of the Case to get.",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "serviceaccountsId": {
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/serviceaccounts/{serviceaccountsId}/cases/{id}",
+                            "response": {
+                                "$ref": "Case"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.profile"
+                            ]
+                        },
+                        "list": {
+                            "description": "Lists Cases that meet specific filter criteria and are associated with a\ngiven ServiceAccount, with pagination. These filter criteria can be\nprovided in the ListCasesRequest. The results can be sorted in an order\nwhich is able to be specified in the ListCasesRequest.",
+                            "flatPath": "v1/serviceaccounts/{serviceAccountId}/cases",
+                            "httpMethod": "GET",
+                            "id": "qa_alkalitomo_pa_sandbox.serviceaccounts.cases.list",
+                            "parameterOrder": [
+                                "serviceAccountId"
+                            ],
+                            "parameters": {
+                                "filter": {
+                                    "description": "A string in Cloud Search syntax describing desired filters.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "orderBy": {
+                                    "description": "A string in SQL syntax describing sorting order.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "pageIndex": {
+                                    "description": "The zero-indexed page number being requested.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageSize": {
+                                    "description": "Specifies the maximum number of results to be returned by the server. The\nserver may further constrain the maximum number of results returned in a\nsingle page. If the page_size is 0, the CasesServiceImpl will decide the\nnumber of results to be returned (currently 10).",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "The token for the specific page of results requested.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "serviceAccountId": {
+                                    "description": "The ID of the ServiceAccount whose cases are to be listed.",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/serviceaccounts/{serviceAccountId}/cases",
+                            "response": {
+                                "$ref": "ListCasesResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.profile"
+                            ]
+                        },
+                        "patch": {
+                            "description": "Updates the properties of a Case.",
+                            "flatPath": "v1/serviceaccounts/{serviceaccountsId}/cases/{id}",
+                            "httpMethod": "PATCH",
+                            "id": "qa_alkalitomo_pa_sandbox.serviceaccounts.cases.patch",
+                            "parameterOrder": [
+                                "serviceaccountsId",
+                                "id"
+                            ],
+                            "parameters": {
+                                "id": {
+                                    "description": "Unique identifier of the case.",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "serviceaccountsId": {
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/serviceaccounts/{serviceaccountsId}/cases/{id}",
+                            "request": {
+                                "$ref": "UpdateCaseRequest"
+                            },
+                            "response": {
+                                "$ref": "Case"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.profile"
+                            ]
+                        }
+                    },
+                    "resources": {
+                        "attachments": {
+                            "methods": {
+                                "create": {
+                                    "description": "Adds attachments to a Case.",
+                                    "flatPath": "v1/serviceaccounts/{serviceaccountsId}/cases/{caseId}/attachments",
+                                    "httpMethod": "POST",
+                                    "id": "qa_alkalitomo_pa_sandbox.serviceaccounts.cases.attachments.create",
+                                    "parameterOrder": [
+                                        "serviceaccountsId",
+                                        "caseId"
+                                    ],
+                                    "parameters": {
+                                        "caseId": {
+                                            "description": "The ID of the Case to which to add Attachments.",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "serviceaccountsId": {
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/serviceaccounts/{serviceaccountsId}/cases/{caseId}/attachments",
+                                    "request": {
+                                        "$ref": "CreateCaseAttachmentsRequest"
+                                    },
+                                    "response": {
+                                        "$ref": "CreateCaseAttachmentsResponse"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/userinfo.profile"
+                                    ]
+                                },
+                                "list": {
+                                    "description": "Lists Attachments for a Case.",
+                                    "flatPath": "v1/serviceaccounts/{serviceaccountsId}/cases/{caseId}/attachments",
+                                    "httpMethod": "GET",
+                                    "id": "qa_alkalitomo_pa_sandbox.serviceaccounts.cases.attachments.list",
+                                    "parameterOrder": [
+                                        "serviceaccountsId",
+                                        "caseId"
+                                    ],
+                                    "parameters": {
+                                        "caseId": {
+                                            "description": "The ID of the Case for which to list Attachments.",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "serviceaccountsId": {
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/serviceaccounts/{serviceaccountsId}/cases/{caseId}/attachments",
+                                    "response": {
+                                        "$ref": "ListCaseAttachmentsResponse"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/userinfo.profile"
+                                    ]
+                                }
+                            }
+                        },
+                        "emailmessages": {
+                            "methods": {
+                                "list": {
+                                    "description": "Lists EmailMessages for a Case.",
+                                    "flatPath": "v1/serviceaccounts/{serviceaccountsId}/cases/{caseId}/emailmessages",
+                                    "httpMethod": "GET",
+                                    "id": "qa_alkalitomo_pa_sandbox.serviceaccounts.cases.emailmessages.list",
+                                    "parameterOrder": [
+                                        "serviceaccountsId",
+                                        "caseId"
+                                    ],
+                                    "parameters": {
+                                        "caseId": {
+                                            "description": "The ID of the Case for which to list EmailMessages.",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "serviceaccountsId": {
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/serviceaccounts/{serviceaccountsId}/cases/{caseId}/emailmessages",
+                                    "response": {
+                                        "$ref": "ListCaseEmailMessagesResponse"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/userinfo.profile"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "contacts": {
+                    "methods": {
+                        "create": {
+                            "description": "Create the ServiceAccountContact relationship between a ServiceAccount and\na Contact. The Contact to be associated is created first using the input\ndata and then the relationship is created using the created contact's id.",
+                            "flatPath": "v1/serviceaccounts/{serviceaccountsId}/contacts",
+                            "httpMethod": "POST",
+                            "id": "qa_alkalitomo_pa_sandbox.serviceaccounts.contacts.create",
+                            "parameterOrder": [
+                                "serviceaccountsId"
+                            ],
+                            "parameters": {
+                                "serviceaccountsId": {
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/serviceaccounts/{serviceaccountsId}/contacts",
+                            "request": {
+                                "$ref": "ServiceAccountContact"
+                            },
+                            "response": {
+                                "$ref": "ServiceAccountContact"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.profile"
+                            ]
+                        },
+                        "delete": {
+                            "description": "Deletes the ServiceAccountContact relationship between a ServiceAccount and\na Contact. The Contact entity itself is not affected by this change.",
+                            "flatPath": "v1/serviceaccounts/{serviceaccountsId}/contacts/{serviceAccountContactId}",
+                            "httpMethod": "DELETE",
+                            "id": "qa_alkalitomo_pa_sandbox.serviceaccounts.contacts.delete",
+                            "parameterOrder": [
+                                "serviceaccountsId",
+                                "serviceAccountContactId"
+                            ],
+                            "parameters": {
+                                "serviceAccountContactId": {
+                                    "description": "The Id of the ServiceAccountContact to delete.",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "serviceaccountsId": {
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/serviceaccounts/{serviceaccountsId}/contacts/{serviceAccountContactId}",
+                            "response": {
+                                "$ref": "Empty"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.profile"
+                            ]
+                        },
+                        "get": {
+                            "description": "Get the ServiceAccountContact relationship between a ServiceAccount and\na Contact. Details of both the relationship-ServiceAccountContact and the\nassociated Contact are obtained.",
+                            "flatPath": "v1/serviceaccounts/{serviceaccountsId}/contacts/{serviceAccountContactId}",
+                            "httpMethod": "GET",
+                            "id": "qa_alkalitomo_pa_sandbox.serviceaccounts.contacts.get",
+                            "parameterOrder": [
+                                "serviceaccountsId",
+                                "serviceAccountContactId"
+                            ],
+                            "parameters": {
+                                "serviceAccountContactId": {
+                                    "description": "The Id of the ServiceAccountContact to get.",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "serviceaccountsId": {
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/serviceaccounts/{serviceaccountsId}/contacts/{serviceAccountContactId}",
+                            "response": {
+                                "$ref": "ServiceAccountContact"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.profile"
+                            ]
+                        },
+                        "list": {
+                            "description": "List all the ServiceAccountContacts associated with a ServiceAccount.\nReturns an INVALID_ARGUMENT canonical code if alkali_instance is unknown,\npage_size is less than 0, or page_token is malformed.",
+                            "flatPath": "v1/serviceaccounts/{serviceAccountId}/contacts",
+                            "httpMethod": "GET",
+                            "id": "qa_alkalitomo_pa_sandbox.serviceaccounts.contacts.list",
+                            "parameterOrder": [
+                                "serviceAccountId"
+                            ],
+                            "parameters": {
+                                "pageSize": {
+                                    "description": "Specifies the maximum number of results to be returned by the server. The\nserver may further constrain the maximum number of results returned in a\nsingle page. If the page_size is 0, the server will decide the number of\nresults to be returned.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "The token for the specific page of results requested.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "serviceAccountId": {
+                                    "description": "Id of the ServiceAccount who's contacts are to be listed.",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/serviceaccounts/{serviceAccountId}/contacts",
+                            "response": {
+                                "$ref": "ListServiceAccountContactsResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.profile"
+                            ]
+                        },
+                        "patch": {
+                            "description": "Updates the properties of the ServiceAccountContact relationship between a\nServiceAccount and a Contact. Allows to edit properties of the associated\ncontact as well, but does not allow to associate to another contact\naltogether.",
+                            "flatPath": "v1/serviceaccounts/{serviceaccountsId}/contacts/{id}",
+                            "httpMethod": "PATCH",
+                            "id": "qa_alkalitomo_pa_sandbox.serviceaccounts.contacts.patch",
+                            "parameterOrder": [
+                                "serviceaccountsId",
+                                "id"
+                            ],
+                            "parameters": {
+                                "id": {
+                                    "description": "Unique identifier of a ServiceAccountContact in Salesforce.",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "serviceaccountsId": {
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/serviceaccounts/{serviceaccountsId}/contacts/{id}",
+                            "request": {
+                                "$ref": "UpdateServiceAccountContactRequest"
+                            },
+                            "response": {
+                                "$ref": "ServiceAccountContact"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.profile"
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190910",
+    "rootUrl": "https://qa-alkalitomo-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "Account": {
+            "description": "Represents an alkali account and related account and account user labels.",
+            "id": "Account",
+            "properties": {
+                "accountLabels": {
+                    "description": "The (numeric) IDs of account labels applied to the account.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "displayName": {
+                    "description": "The display name of the account",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name of the application resource. This maps to account key\nin alkalibase.",
+                    "type": "string"
+                },
+                "parent": {
+                    "description": "The parent application",
+                    "type": "string"
+                },
+                "parentAccount": {
+                    "description": "The parent account should the account be part of an account hierarchy.",
+                    "type": "string"
+                },
+                "roles": {
+                    "description": "Roles assigned to the end user for the account.",
+                    "enumDescriptions": [
+                        "Unspecified role.",
+                        "Full read access.",
+                        "Read and write access.",
+                        "Full access, including ability to modify ACLs."
+                    ],
+                    "items": {
+                        "enum": [
+                            "ROLE_UNSPECIFIED",
+                            "READER",
+                            "WRITER",
+                            "OWNER"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "userLabels": {
+                    "description": "The (numeric) IDs of account user labels applied to the user.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AlkaliAccount": {
+            "description": "The \"wire\" format of Alkali accounts.",
+            "id": "AlkaliAccount",
+            "properties": {
+                "alkaliHistory": {
+                    "$ref": "AlkaliHistory",
+                    "description": "The account's best-effort historical information (e.g. creation time).\nThis and any of the contained fields may be empty/unset if the underlying\nprovider doesn't store this information.\n@OutputOnly"
+                },
+                "ancestorKeys": {
+                    "description": "The path of parent keys of this account from the root to the immediate\nparent. This is a read-only field, its value will be ignored on\ninserts/updates. This field is mainly useful to retrieve all of the\nancestors of an account in a single batch operation.\n@OutputOnly",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "extensions": {
+                    "description": "Account-specific extensions, generally used by external systems integrating\nwith Alkali. The key must be the fully qualified name of the extension\nproto to prevent conflicts and simplify lookups.",
+                    "items": {
+                        "$ref": "ExtensionEntry"
+                    },
+                    "type": "array"
+                },
+                "externalKey": {
+                    "description": "The external key of the account.  External keys allow a link between an\nAlkali account and a different system, e.g. a Greentea pod or Adwords\naccount. The external key is purely extra metadata, it's not used by\nAlkali platform components.",
+                    "type": "string"
+                },
+                "isEnabled": {
+                    "description": "Is this account enabled?",
+                    "type": "boolean"
+                },
+                "isPublicVisibilityAllowed": {
+                    "description": "Is public visibility allowed for this account? Note that this does not\nenable public visibility, it merely enables the option for public\nvisibility in the sharing widget.",
+                    "type": "boolean"
+                },
+                "isSoftDeleted": {
+                    "description": "Soft deleted accounts are not accessible to the end-users and cannot be\nmodified, but they are still visible and can be undeleted in the Alkali\nconsole. This field is read-only and is set and unset by the delete and\nundelete methods, respectively.  After 30 days, the account will be\npermanently deleted.",
+                    "type": "boolean"
+                },
+                "key": {
+                    "description": "The key of the account. Account keys are of the form\n\"applications/<application id>/accounts/<account id>\", e.g.\n\"applications/demo/accounts/dreamworks\".  The account key must\ncontain only lower case letters, numbers, dashes, and underscores and\nmay not exceed 50 characters.",
+                    "type": "string"
+                },
+                "kryptonApplicationId": {
+                    "description": "The Krypton application id.\n@deprecated Prefer using the key (Krypton unique name).",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "kryptonKeyspaceId": {
+                    "description": "The Krypton keyspace id.\n@deprecated Prefer using the key (Krypton unique name).",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The display name of the account, e.g. \"DreamWorks Animation\".",
+                    "type": "string"
+                },
+                "parentKey": {
+                    "description": "The key of the parent of this account in the account hierarchy, if any. The\nparent account must be in the same application.",
+                    "type": "string"
+                },
+                "tags": {
+                    "description": "Application defined \"tags\" on the account. These correspond to the\n\"account_labels\" field in Krypton.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "versionToken": {
+                    "description": "The version of the account encoded as a web-safe token. It is assigned by\nthe server upon creation and updated upon every update.  An update will be\nrejected if the version_token in the request does not match the currently\nstored version_token. This ensures any update is always based on the most\nrecent data and prevents concurrent updates from overwriting each other.",
+                    "type": "string"
+                },
+                "whitelistedEmailDomains": {
+                    "description": "Can only share with users within the whitelisted email domains. Google\ninternal domains (e.g. @google.com, @prod.google.com) are always allowed.\nIf list is empty, all domains are allowed.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AlkaliAccountPermission": {
+            "description": "Alkali account permission for a given contact email.",
+            "id": "AlkaliAccountPermission",
+            "properties": {
+                "contactEmail": {
+                    "description": "The contact email address",
+                    "type": "string"
+                },
+                "role": {
+                    "description": "Permission that is granted to the given contact_email.",
+                    "enum": [
+                        "ROLE_UNSPECIFIED",
+                        "READER",
+                        "WRITER",
+                        "OWNER"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified role.",
+                        "Full read access.",
+                        "Read and write access.",
+                        "Full access, including ability to modify ACLs."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AlkaliHistory": {
+            "id": "AlkaliHistory",
+            "properties": {
+                "createdByEmailAddress": {
+                    "type": "string"
+                },
+                "createdByMdbUser": {
+                    "type": "string"
+                },
+                "creationTimestamp": {
+                    "description": "Timestamp of the creation.\n@OutputOnly",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "lastUpdateByEmailAddress": {
+                    "type": "string"
+                },
+                "lastUpdateByMdbUser": {
+                    "type": "string"
+                },
+                "lastUpdateTimestamp": {
+                    "description": "Timestamp of the last update.\n@OutputOnly",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Attachment": {
+            "description": "Represents attachment metadata in Salesforce.",
+            "id": "Attachment",
+            "properties": {
+                "attachmentDataRef": {
+                    "$ref": "AttachmentDataRef",
+                    "description": "Data reference that holds the ID of an attachment."
+                },
+                "bodyLength": {
+                    "description": "The size of the file.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "contentType": {
+                    "description": "The MIME type of the file.",
+                    "type": "string"
+                },
+                "createdDate": {
+                    "description": "The date and time the attachment was created.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "The attachment's description.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The attachment's name.",
+                    "type": "string"
+                },
+                "parentId": {
+                    "description": "The parent object's ID.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AttachmentDataRef": {
+            "description": "Data reference that holds the ID of an attachment.",
+            "id": "AttachmentDataRef",
+            "properties": {
+                "resourceName": {
+                    "description": "The attachment ID.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Case": {
+            "description": "Represents information about a case in Salesforce.",
+            "id": "Case",
+            "properties": {
+                "dynamicAttributes": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map to store all attributes that are not mapped to well defined attributes.",
+                    "type": "object"
+                },
+                "id": {
+                    "description": "Unique identifier of the case.",
+                    "type": "string"
+                },
+                "serviceAccountId": {
+                    "description": "Service account ID associated with the case.",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "Status of the case.",
+                    "type": "string"
+                },
+                "subject": {
+                    "description": "Title of the case.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Contact": {
+            "description": "Represents information about a contact in Salesforce. A contact could be\nassociated to several entities like ServiceAccount, Case etc. Each\nassociation is represented as a relation entity which could have properties\nof its own.",
+            "id": "Contact",
+            "properties": {
+                "dynamicAttributes": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map to store all attributes that are not mapped to well defined attributes.",
+                    "type": "object"
+                },
+                "email": {
+                    "description": "Email address of the contact.",
+                    "type": "string"
+                },
+                "fullName": {
+                    "description": "Full name of the contact.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Unique identifier of the contact.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CreateAlkaliAccountPermissionRequest": {
+            "description": "Request to create Alkali account permission for a given Salesforce contact.",
+            "id": "CreateAlkaliAccountPermissionRequest",
+            "properties": {
+                "alkaliPermission": {
+                    "$ref": "AlkaliAccountPermission",
+                    "description": "Alkali account permission to create"
+                }
+            },
+            "type": "object"
+        },
+        "CreateAlkaliAccountRequest": {
+            "description": "Request to create one Alkali account for an Alkali application.",
+            "id": "CreateAlkaliAccountRequest",
+            "properties": {
+                "accountName": {
+                    "description": "The name of the account to create.",
+                    "type": "string"
+                },
+                "serviceAccountId": {
+                    "description": "The service account ID to associate with the Alkali account.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CreateAlkaliAccountsRequest": {
+            "description": "Request to create multiple Alkali accounts for an Alkali application.",
+            "id": "CreateAlkaliAccountsRequest",
+            "properties": {
+                "serviceId": {
+                    "description": "The service ID to use to look up existing Tomo accounts.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CreateAlkaliAccountsResponse": {
+            "description": "Response of creating multiple Alkali accounts for an Alkali application.",
+            "id": "CreateAlkaliAccountsResponse",
+            "properties": {
+                "accounts": {
+                    "description": "The created Alkali accounts.",
+                    "items": {
+                        "$ref": "AlkaliAccount"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CreateCaseAttachmentsRequest": {
+            "description": "Request to add attachments to a Case.",
+            "id": "CreateCaseAttachmentsRequest",
+            "properties": {
+                "attachments": {
+                    "description": "The Attachments to add.",
+                    "items": {
+                        "$ref": "Attachment"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CreateCaseAttachmentsResponse": {
+            "description": "Response containing the added Attachments.",
+            "id": "CreateCaseAttachmentsResponse",
+            "properties": {
+                "attachments": {
+                    "description": "The added Attachments.",
+                    "items": {
+                        "$ref": "Attachment"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CreateTomoAccountRequest": {
+            "description": "Request to store a Tomo service account ID in an account config.",
+            "id": "CreateTomoAccountRequest",
+            "properties": {
+                "serviceAccountId": {
+                    "description": "The service account ID to associate with the Alkali account.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CreateTomoConfigurationRequest": {
+            "description": "Request to store a permission set and a record type in an Alkali\napplication config.",
+            "id": "CreateTomoConfigurationRequest",
+            "properties": {
+                "tomoConfiguration": {
+                    "$ref": "TomoConfiguration",
+                    "description": "The TomoConfiguration containing the attributes to set."
+                }
+            },
+            "type": "object"
+        },
+        "EmailMessage": {
+            "description": "Represents an e-mail message in Salesforce.",
+            "id": "EmailMessage",
+            "properties": {
+                "attachments": {
+                    "description": "The e-mail's attachments.",
+                    "items": {
+                        "$ref": "Attachment"
+                    },
+                    "type": "array"
+                },
+                "body": {
+                    "description": "The body of the e-mail. This may either be HTML or plain text.",
+                    "type": "string"
+                },
+                "ccAddress": {
+                    "description": "The address(es) of those CCed on the e-mail.",
+                    "type": "string"
+                },
+                "fromAddress": {
+                    "description": "The address of the sender.",
+                    "type": "string"
+                },
+                "fromName": {
+                    "description": "The name of the sender.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "The e-mail message ID.",
+                    "type": "string"
+                },
+                "isHtmlBody": {
+                    "description": "A boolean representing whether the e-mail body is HTML or not.",
+                    "type": "boolean"
+                },
+                "messageDate": {
+                    "description": "The date and time the message was sent.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "parentId": {
+                    "description": "The parent object's ID.",
+                    "type": "string"
+                },
+                "subject": {
+                    "description": "The subject of the e-mail.",
+                    "type": "string"
+                },
+                "toAddress": {
+                    "description": "The address(es) of the recipient(s).",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Empty": {
+            "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+            "id": "Empty",
+            "properties": {},
+            "type": "object"
+        },
+        "ExtensionEntry": {
+            "id": "ExtensionEntry",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "additionalProperties": {
+                        "description": "Properties of the object. Contains field @type with type URL.",
+                        "type": "any"
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "Field": {
+            "description": "Represents metadata about a field belonging to an entity. The information\ncontained in this message can be used by consumers to render approriate UI\ncontrols, perform validations, enable/disable sort and filter functionality.",
+            "id": "Field",
+            "properties": {
+                "dynamic": {
+                    "description": "Whether this field is found in the extraAttributes map or statically\ndefined on the entity's message.",
+                    "type": "boolean"
+                },
+                "editable": {
+                    "description": "Whether permissions in salesforce allow the field to be edited.",
+                    "type": "boolean"
+                },
+                "filterable": {
+                    "description": "Whether this field can be used for filtering - when retrieving a list of\nentities.",
+                    "type": "boolean"
+                },
+                "label": {
+                    "description": "Label to use for this field.",
+                    "type": "string"
+                },
+                "maxLength": {
+                    "description": "Maximum length of the string that can be stored as value representing this\nfield.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "Name of the field as defined in message representing the entity. If the\nfield is not defined in the entity, then it has the value as defined in\nsalesforce.",
+                    "type": "string"
+                },
+                "referencedEntity": {
+                    "description": "The name of the salesforce entity that the value refers to. The actual\nvalue stored will be the ID of the reference.",
+                    "type": "string"
+                },
+                "required": {
+                    "description": "Indicates whether the field is required or not. If the field is required,\nthen based on the type, consumers can implement appropriate validations\nprior to submitting requests.",
+                    "type": "boolean"
+                },
+                "sortable": {
+                    "description": "Whether this field can be used to sort - when retrieving a list of\nentities.",
+                    "type": "boolean"
+                },
+                "type": {
+                    "description": "Type enumeration value to store display information.",
+                    "enum": [
+                        "TYPE_UNSPECIFIED",
+                        "INT",
+                        "DOUBLE",
+                        "BOOLEAN",
+                        "DATETIME",
+                        "STRING",
+                        "TEXTAREA",
+                        "ENUM",
+                        "EMAIL",
+                        "PHONE",
+                        "URL",
+                        "REFERENCE",
+                        "BYTE_STRING"
+                    ],
+                    "enumDescriptions": [
+                        "Represents an unknown type.",
+                        "Represents an integral data type corresponding to salesforce \"number\" type.",
+                        "Represents a fractional data type corresponding to salesforce \"float\",\n\"double\" and \"percent\" types.",
+                        "Represents a boolean data type corresponding to salesforce \"boolean\" type.",
+                        "Represents a datetime data type corresponding to salesforce \"date\" and\n\"datetime\" controls.",
+                        "Represents a string data type corresponding to salesforce \"id\" and \"string\"\ntypes.",
+                        "Represents a string data type whose length can be large. This is separated\nfrom STRING so that the UI can display textarea controls for this type if\nneeded.",
+                        "Represents a string data type whose value is constrained to a finite list\nof values. This is separated from STRING so that UI can display dropdown\nand other similar controls for this type if needed.",
+                        "Represents a string data type whose value represents an email address. This\nis separated from STRING so that the UI can render it as an email address\nwith a link.",
+                        "Represents a string data type whose value represents a formatted phone\nnumber.",
+                        "Represents a string data type whose value represents a URL. Separating it\nas a separate type helps the UI display this data as a link.",
+                        "Represents a string data type whose value represents an ID of another\nentity. The UI can use this information to display lookups.",
+                        "Represents binary data like attachments."
+                    ],
+                    "type": "string"
+                },
+                "validValues": {
+                    "description": "The finite set of values that can be set on the field when it is an ENUM\ntype.",
+                    "items": {
+                        "$ref": "ValidValue"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "HelloWorldResponse": {
+            "description": "Response for the Hello World service.",
+            "id": "HelloWorldResponse",
+            "properties": {
+                "response": {
+                    "description": "Echo a response back to the addressee passed in the request.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListCaseAttachmentsResponse": {
+            "description": "Response containing a list of Attachments.",
+            "id": "ListCaseAttachmentsResponse",
+            "properties": {
+                "attachments": {
+                    "description": "The Attachments associated with the input Case.",
+                    "items": {
+                        "$ref": "Attachment"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "The token to retrieve the next page of results. If empty, there are no\nlater results.",
+                    "type": "string"
+                },
+                "previousPageToken": {
+                    "description": "The token to retrieve the previous page of results. If empty, there are no\nearlier results.",
+                    "type": "string"
+                },
+                "startIndex": {
+                    "description": "The best-effort index of the first result in this page.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "totalSize": {
+                    "description": "Total number of Attachments.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "ListCaseEmailMessagesResponse": {
+            "description": "Response containing a list of EmailMessages.",
+            "id": "ListCaseEmailMessagesResponse",
+            "properties": {
+                "emailMessages": {
+                    "description": "The EmailMessages associated with the input Case.",
+                    "items": {
+                        "$ref": "EmailMessage"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "The token to retrieve the next page of results. If empty, there are no\nlater results.",
+                    "type": "string"
+                },
+                "previousPageToken": {
+                    "description": "The token to retrieve the previous page of results. If empty, there are no\nearlier results.",
+                    "type": "string"
+                },
+                "startIndex": {
+                    "description": "The best-effort index of the first result in this page.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "totalSize": {
+                    "description": "Total number of EmailMessages.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "ListCasesResponse": {
+            "description": "Response containing a list of Cases.",
+            "id": "ListCasesResponse",
+            "properties": {
+                "cases": {
+                    "description": "The Cases associated with the input ServiceAccount.",
+                    "items": {
+                        "$ref": "Case"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "The token to retrieve the next page of results. If empty, there are no\nlater results.",
+                    "type": "string"
+                },
+                "previousPageToken": {
+                    "description": "The token to retrieve the previous page of results. If empty, there are no\nearlier results.",
+                    "type": "string"
+                },
+                "startIndex": {
+                    "description": "The best-effort index of the first result in this page.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "totalSize": {
+                    "description": "Total number of Cases.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "ListServiceAccountContactsResponse": {
+            "description": "Response containing a list of ServiceAccountContacts. Since the number of\ncontacts associated with a ServiceAccount is usually small, the\nnext_page_token and previous_page_token values will be usually empty.",
+            "id": "ListServiceAccountContactsResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "The token to retrieve the next page of results. If empty, there are no\nlater results.",
+                    "type": "string"
+                },
+                "previousPageToken": {
+                    "description": "The token to retrieve the previous page of results. If empty, there are no\nearlier results.",
+                    "type": "string"
+                },
+                "serviceAccountContacts": {
+                    "description": "The ServiceAccountContacts associated with the input ServiceAccount.",
+                    "items": {
+                        "$ref": "ServiceAccountContact"
+                    },
+                    "type": "array"
+                },
+                "startIndex": {
+                    "description": "The best-effort index of the first result in this page.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "total": {
+                    "description": "Total number of ServiceAccountContacts.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "Media": {
+            "description": "Media resource.",
+            "id": "Media",
+            "properties": {
+                "resourceName": {
+                    "description": "Name of the media resource.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Metadata": {
+            "description": "Metadata for entities defined in Salesforce. This information helps the\nconsumer of CRUD APIs for these entities, in rendering and validating\nthese entities.",
+            "id": "Metadata",
+            "properties": {
+                "fields": {
+                    "description": "Array of fields that constitute the entity. Each field object contains\ndetailed information about a field such as its label, display information\netc.",
+                    "items": {
+                        "$ref": "Field"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "SendCaseEmailMessageRequest": {
+            "description": "Request to send an e-mail message for a Case.",
+            "id": "SendCaseEmailMessageRequest",
+            "properties": {
+                "emailMessage": {
+                    "$ref": "EmailMessage",
+                    "description": "The EmailMessage to send."
+                }
+            },
+            "type": "object"
+        },
+        "ServiceAccount": {
+            "description": "Message representing an account in Salesforce. Each AlkaliAccount has a\ncorresponding ServiceAccount.",
+            "id": "ServiceAccount",
+            "properties": {
+                "dynamicAttributes": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map to store all attributes that are not mapped to well defined attributes.",
+                    "type": "object"
+                },
+                "id": {
+                    "description": "Unique identifier of an Account in salesforce.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Name of the account",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ServiceAccountContact": {
+            "description": "Represents a relation entity that associates a contact with a service account\nin salesforce. Contacts can be associated to different roles - each of\nwhich is represented as a boolean attribute on the relation. The relation\nattributes referring to different roles are defined as boolean to mirror\ntheir definition in Salesforce, so that visibility of each attribute can be\ncontrolled per application in Salesforce.",
+            "id": "ServiceAccountContact",
+            "properties": {
+                "contact": {
+                    "$ref": "Contact",
+                    "description": "The contact associated with the account."
+                },
+                "dynamicAttributes": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map to store all attributes that are not mapped to well defined attributes.",
+                    "type": "object"
+                },
+                "id": {
+                    "description": "Unique identifier of a ServiceAccountContact in Salesforce.",
+                    "type": "string"
+                },
+                "serviceAccountId": {
+                    "description": "Id of the parent ServiceAccount",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TomoAccount": {
+            "description": "Holds the mapping between AlkaliAccount and its corresponding ServiceAccount\nentity in Tomo(Salesforce). This message will be used as an extension entry\nin AlkaliAccount.",
+            "id": "TomoAccount",
+            "properties": {
+                "id": {
+                    "description": "Unique Id of the ServiceAccount in Tomo.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TomoConfiguration": {
+            "description": "Represents the configurations that are required by tomo server.",
+            "id": "TomoConfiguration",
+            "properties": {
+                "configs": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "All configurations will be stored as a map where key is the configuration\nname and value is the stringified value of the configuration.",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateAlkaliAccountPermissionRequest": {
+            "description": "Request to update Alkali account name for a given service account.",
+            "id": "UpdateAlkaliAccountPermissionRequest",
+            "properties": {
+                "alkaliPermission": {
+                    "$ref": "AlkaliAccountPermission",
+                    "description": "/ Alkali account permission to create"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateAlkaliAccountRequest": {
+            "description": "Request to update Alkali account name for a given service account.",
+            "id": "UpdateAlkaliAccountRequest",
+            "properties": {
+                "accountName": {
+                    "description": "Account name to update.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateCaseRequest": {
+            "description": "Request to update a Case.",
+            "id": "UpdateCaseRequest",
+            "properties": {
+                "case": {
+                    "$ref": "Case",
+                    "description": "The Case to update."
+                },
+                "updateMask": {
+                    "description": "Mask containing all the fields that need to be updated. If this is not\npassed, then the entire Case is updated.",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateServiceAccountContactRequest": {
+            "description": "Request to update a ServiceAccountContact.",
+            "id": "UpdateServiceAccountContactRequest",
+            "properties": {
+                "serviceAccountContact": {
+                    "$ref": "ServiceAccountContact",
+                    "description": "The ServiceAccountContact to update."
+                },
+                "updateMask": {
+                    "description": "Mask containing all the fields that need to be updated. If this is not\npassed, then the entire ServiceAccountContact is updated.",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateServiceAccountRequest": {
+            "description": "Request to update a ServiceAccount. The input update_mask if present is used\nto update only the fields passed as paths inside the mask.",
+            "id": "UpdateServiceAccountRequest",
+            "properties": {
+                "account": {
+                    "$ref": "ServiceAccount",
+                    "description": "ServiceAccount with updated fields."
+                },
+                "updateMask": {
+                    "description": "Mask containing all the fields that need to be updated. If this is not\npassed, then the entire ServiceAccount is updated.",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ValidValue": {
+            "description": "Represents a possible value that a field of type = ENUM can represent.\nEg. for a field of type Title belonging to the Person entity, ValidValue\ncould be something like{ label = \"Mr\", value = \"Mr\" }",
+            "id": "ValidValue",
+            "properties": {
+                "defaultValue": {
+                    "description": "Represents if this is the default value for the enumeration.",
+                    "type": "boolean"
+                },
+                "label": {
+                    "description": "Display label shown to users. Could be more verbose than the value.",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "The actual value stored in the field.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Alkali Tomo Private API (QA)",
+    "version": "v1",
+    "version_module": true
+}

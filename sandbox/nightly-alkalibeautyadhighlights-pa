@@ -1,0 +1,919 @@
+{
+    "basePath": "",
+    "baseUrl": "https://nightly-alkalibeautyadhighlights-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Alkali Beautyadhighlights",
+    "description": "For Beauty this application will top 10 ads from youtube.",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://go/alkali",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "nightly_alkalibeautyadhighlights_pa_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "nightly_alkalibeautyadhighlights_pa_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "datasources": {
+            "methods": {
+                "downloadAsCsv": {
+                    "description": "Returns the dataset retrieved as a result of the given query as a CSV.",
+                    "flatPath": "v1/datasources:downloadAsCsv",
+                    "httpMethod": "POST",
+                    "id": "nightly_alkalibeautyadhighlights_pa_sandbox.datasources.downloadAsCsv",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/datasources:downloadAsCsv",
+                    "request": {
+                        "$ref": "DownloadAsCsvRequest"
+                    },
+                    "response": {
+                        "$ref": "DownloadAsCsvResponse"
+                    }
+                },
+                "executeQuery": {
+                    "description": "Executes a query on the Data Source and returns the results.",
+                    "flatPath": "v1/datasources:executeQuery",
+                    "httpMethod": "POST",
+                    "id": "nightly_alkalibeautyadhighlights_pa_sandbox.datasources.executeQuery",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/datasources:executeQuery",
+                    "request": {
+                        "$ref": "ExecuteQueryRequest"
+                    },
+                    "response": {
+                        "$ref": "ExecuteQueryResponse"
+                    }
+                },
+                "getSchema": {
+                    "description": "Gets the schema for the Data Source.",
+                    "flatPath": "v1/datasources:getSchema",
+                    "httpMethod": "POST",
+                    "id": "nightly_alkalibeautyadhighlights_pa_sandbox.datasources.getSchema",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/datasources:getSchema",
+                    "request": {
+                        "$ref": "GetSchemaRequest"
+                    },
+                    "response": {
+                        "$ref": "Schema"
+                    }
+                }
+            }
+        },
+        "echo": {
+            "methods": {
+                "create": {
+                    "description": "Responds back with same message.",
+                    "flatPath": "v1/echo",
+                    "httpMethod": "POST",
+                    "id": "nightly_alkalibeautyadhighlights_pa_sandbox.echo.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/echo",
+                    "request": {
+                        "$ref": "CreateEchoRequest"
+                    },
+                    "response": {
+                        "$ref": "Echo"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190913",
+    "rootUrl": "https://nightly-alkalibeautyadhighlights-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "Aggregation": {
+            "id": "Aggregation",
+            "properties": {
+                "customReturnType": {
+                    "description": "Might be set for custom aggregations specified in a Schema.\n(Ignored in queries.)",
+                    "enum": [
+                        "UNKNOWN_TYPE",
+                        "STRING",
+                        "INTEGER",
+                        "DECIMAL",
+                        "BOOLEAN",
+                        "TIMESTAMP_MS"
+                    ],
+                    "enumDescriptions": [
+                        "Type is not specified.",
+                        "String type.",
+                        "Integer type.",
+                        "Decimal type.",
+                        "Boolean type.",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "customType": {
+                    "description": "Data Sources can implement their own custom (non-standard) aggregation\nmethods, by setting type to CUSTOM and supply a string identifier here.",
+                    "type": "string"
+                },
+                "parameter": {
+                    "description": "Any additional parameters accepted by this aggregation.\nDO NOT USE DIRECTLY (YET) (Unless you are really brave)",
+                    "items": {
+                        "$ref": "ParamMapEntry"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "description": "The type of aggregation.",
+                    "enum": [
+                        "NONE",
+                        "CUSTOM",
+                        "COUNT",
+                        "SUM",
+                        "AVG",
+                        "MEDIAN",
+                        "MIN",
+                        "MAX"
+                    ],
+                    "enumDescriptions": [
+                        "None.",
+                        "Custom.",
+                        "Count.",
+                        "Sum.",
+                        "Average.",
+                        "Median.",
+                        "Minimum.",
+                        "Maximum."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Column": {
+            "description": "Column definition.",
+            "id": "Column",
+            "properties": {
+                "id": {
+                    "description": "required",
+                    "type": "string"
+                },
+                "isSortable": {
+                    "description": "Indicates if sorting by this column is supported.",
+                    "type": "boolean"
+                },
+                "maxValue": {
+                    "$ref": "Value",
+                    "description": "currently not used"
+                },
+                "minValue": {
+                    "$ref": "Value",
+                    "description": "For numeric columns (only present if known).\ncurrently not used"
+                },
+                "possibleValue": {
+                    "description": "For columns that can only contain a finite (small) set of values, like\nenums (only present if known).",
+                    "items": {
+                        "$ref": "Value"
+                    },
+                    "type": "array"
+                },
+                "role": {
+                    "description": "not used",
+                    "enum": [
+                        "UNKNOWN",
+                        "MEASURE",
+                        "DIMENSION",
+                        "ATTRIBUTE"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown.",
+                        "Measure.",
+                        "Dimension.",
+                        "Attribute."
+                    ],
+                    "type": "string"
+                },
+                "supportedAggregation": {
+                    "description": "List of supported aggregation methods for this column (can be empty).",
+                    "items": {
+                        "$ref": "Aggregation"
+                    },
+                    "type": "array"
+                },
+                "supportedOperators": {
+                    "description": "List of supported condition operators for this column (can be empty).",
+                    "enumDescriptions": [
+                        "Expects two values.",
+                        "Contains the specified values.",
+                        "Contains the specified values ignoring case.",
+                        "NOTE(albinr): Not currently supported!",
+                        "Equals the values.",
+                        "Equals the values ignoring case.",
+                        "Greater than the value.",
+                        "Greater than or equal to the value.",
+                        "Expects zero or more values.",
+                        "Expects one value.",
+                        "Expects no values.",
+                        "Expects no values.",
+                        "Expects no values.",
+                        "Expects no values.",
+                        "Less than the value.",
+                        "Less than or equal to the value.",
+                        "Similar to sql like.",
+                        "Similar to sql like ignoring case.",
+                        "Does not contain the specified values.",
+                        "Not containing the values ignoring case.",
+                        "Not Equal.",
+                        "Not equal",
+                        "Expects zero or more values.",
+                        "Full (not partial) regular expression match.",
+                        "Expects string value.",
+                        "Expects string value."
+                    ],
+                    "items": {
+                        "enum": [
+                            "BETWEEN",
+                            "CONTAINS",
+                            "CONTAINS_IGNORE_CASE",
+                            "CUSTOM",
+                            "EQ",
+                            "EQ_IGNORE_CASE",
+                            "GREATER_THAN",
+                            "GREATER_OR_EQ",
+                            "IN",
+                            "IN_COLUMN",
+                            "IS_EMPTY",
+                            "IS_NOT_EMPTY",
+                            "IS_NULL",
+                            "IS_NOT_NULL",
+                            "LESS_THAN",
+                            "LESS_OR_EQ",
+                            "LIKE",
+                            "LIKE_IGNORE_CASE",
+                            "NOT_CONTAINS",
+                            "NOT_CONTAINS_IGNORE_CASE",
+                            "NOT_EQ",
+                            "NOT_EQ_IGNORE_CASE",
+                            "NOT_IN",
+                            "REGEXP_MATCHES",
+                            "STARTS_WITH",
+                            "STARTS_WITH_IGNORE_CASE"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "supportedTransformation": {
+                    "description": "List of supported transformation methods for this column (can be empty).",
+                    "items": {
+                        "$ref": "Transformation"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "description": "required",
+                    "enum": [
+                        "UNKNOWN_TYPE",
+                        "STRING",
+                        "INTEGER",
+                        "DECIMAL",
+                        "BOOLEAN",
+                        "TIMESTAMP_MS"
+                    ],
+                    "enumDescriptions": [
+                        "Type is not specified.",
+                        "String type.",
+                        "Integer type.",
+                        "Decimal type.",
+                        "Boolean type.",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Condition": {
+            "description": "The specifier for a query.\nLINT.IfChange",
+            "id": "Condition",
+            "properties": {
+                "column": {
+                    "description": "The column id. Required.",
+                    "type": "string"
+                },
+                "customOperator": {
+                    "description": "Not currently supported!",
+                    "type": "string"
+                },
+                "operator": {
+                    "description": "The operator for the condition.",
+                    "enum": [
+                        "BETWEEN",
+                        "CONTAINS",
+                        "CONTAINS_IGNORE_CASE",
+                        "CUSTOM",
+                        "EQ",
+                        "EQ_IGNORE_CASE",
+                        "GREATER_THAN",
+                        "GREATER_OR_EQ",
+                        "IN",
+                        "IN_COLUMN",
+                        "IS_EMPTY",
+                        "IS_NOT_EMPTY",
+                        "IS_NULL",
+                        "IS_NOT_NULL",
+                        "LESS_THAN",
+                        "LESS_OR_EQ",
+                        "LIKE",
+                        "LIKE_IGNORE_CASE",
+                        "NOT_CONTAINS",
+                        "NOT_CONTAINS_IGNORE_CASE",
+                        "NOT_EQ",
+                        "NOT_EQ_IGNORE_CASE",
+                        "NOT_IN",
+                        "REGEXP_MATCHES",
+                        "STARTS_WITH",
+                        "STARTS_WITH_IGNORE_CASE"
+                    ],
+                    "enumDescriptions": [
+                        "Expects two values.",
+                        "Contains the specified values.",
+                        "Contains the specified values ignoring case.",
+                        "NOTE(albinr): Not currently supported!",
+                        "Equals the values.",
+                        "Equals the values ignoring case.",
+                        "Greater than the value.",
+                        "Greater than or equal to the value.",
+                        "Expects zero or more values.",
+                        "Expects one value.",
+                        "Expects no values.",
+                        "Expects no values.",
+                        "Expects no values.",
+                        "Expects no values.",
+                        "Less than the value.",
+                        "Less than or equal to the value.",
+                        "Similar to sql like.",
+                        "Similar to sql like ignoring case.",
+                        "Does not contain the specified values.",
+                        "Not containing the values ignoring case.",
+                        "Not Equal.",
+                        "Not equal",
+                        "Expects zero or more values.",
+                        "Full (not partial) regular expression match.",
+                        "Expects string value.",
+                        "Expects string value."
+                    ],
+                    "type": "string"
+                },
+                "value": {
+                    "description": "The type of the value must match that of the specified column. The number\nof values must match what the operator expects (most only take one). If\nmore than one value is specified they must all have the same type.",
+                    "items": {
+                        "$ref": "Value"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ConditionGroup": {
+            "description": "Note: An empty condition group (no sub-groups or conditions) evaluates to\nTRUE (that is, the condition matches).",
+            "id": "ConditionGroup",
+            "properties": {
+                "condition": {
+                    "description": "List of conditions. Can be empty.",
+                    "items": {
+                        "$ref": "Condition"
+                    },
+                    "type": "array"
+                },
+                "conditionGroup": {
+                    "description": "List of sub-condition-groups. Can be empty.",
+                    "items": {
+                        "$ref": "ConditionGroup"
+                    },
+                    "type": "array"
+                },
+                "operator": {
+                    "description": "The operator to use (AND or OR) when evaluating this group.",
+                    "enum": [
+                        "AND",
+                        "OR"
+                    ],
+                    "enumDescriptions": [
+                        "And.",
+                        "Or."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CreateEchoRequest": {
+            "description": "Echo request.",
+            "id": "CreateEchoRequest",
+            "properties": {
+                "in": {
+                    "description": "Input message to echo.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CsvDownloadColumn": {
+            "description": "Options for one column in a CSV download.",
+            "id": "CsvDownloadColumn",
+            "properties": {
+                "displayName": {
+                    "description": "Custom display name for the column.",
+                    "type": "string"
+                },
+                "format": {
+                    "description": "Format of the column. This will be interpreted as a NumberFormat for\nnumeric columns, or a DateTimeFormat for timestamp columns.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DataSourceParam": {
+            "description": "Extra parameters to pass to the data source methods\n(e.g. GetSchema and ExecuteQuery).",
+            "id": "DataSourceParam",
+            "properties": {
+                "key": {
+                    "description": "The key of the entry. Required.",
+                    "type": "string"
+                },
+                "value": {
+                    "$ref": "Value",
+                    "description": "The value of the entry."
+                }
+            },
+            "type": "object"
+        },
+        "Dataset": {
+            "description": "Dataset.",
+            "id": "Dataset",
+            "properties": {
+                "columnId": {
+                    "description": "Column IDs used in the dataset. The Values in the Row protos must match\nthese (in particular, the number of values in each row must be equal to\nthe number of columns).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "Leave empty if there is no next page (=all rows have been returned) or\nif pagination is not supported.",
+                    "type": "string"
+                },
+                "previousPageToken": {
+                    "description": "Leave empty if there is no previous page (=this is the first page) or if\npagination is not supported.\nNOTE(aabdagic): Current API Style Guide doesn't mention the total number of\nrows as a field and we do not currently need it. We can reevaluate this\nwhen the need arises.",
+                    "type": "string"
+                },
+                "row": {
+                    "description": "The rows within the dataset. (See column_id for invariant.)",
+                    "items": {
+                        "$ref": "Row"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "DownloadAsCsvRequest": {
+            "description": "Request message for download the data as CSV.",
+            "id": "DownloadAsCsvRequest",
+            "properties": {
+                "columnOptions": {
+                    "additionalProperties": {
+                        "$ref": "CsvDownloadColumn"
+                    },
+                    "description": "A columnId/alias -> columnOptions map. Optional.",
+                    "type": "object"
+                },
+                "dataSourceId": {
+                    "description": "Specifies the data source to download the data as CSV.",
+                    "type": "string"
+                },
+                "params": {
+                    "description": "Optional parameters to pass to the data source. This allows additional\nbusiness logic that can not be expressed through the query.",
+                    "items": {
+                        "$ref": "DataSourceParam"
+                    },
+                    "type": "array"
+                },
+                "query": {
+                    "$ref": "Query",
+                    "description": "The query to execute."
+                }
+            },
+            "type": "object"
+        },
+        "DownloadAsCsvResponse": {
+            "description": "Response message for Download as CSV action.",
+            "id": "DownloadAsCsvResponse",
+            "properties": {
+                "csvContent": {
+                    "description": "The dataset retrieved as a CSV.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Echo": {
+            "description": "Echo response.",
+            "id": "Echo",
+            "properties": {
+                "out": {
+                    "description": "Echoed input message.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ExecuteQueryRequest": {
+            "description": "Execute query request.",
+            "id": "ExecuteQueryRequest",
+            "properties": {
+                "dataSourceId": {
+                    "description": "Specifies the data source to execute the query.",
+                    "type": "string"
+                },
+                "params": {
+                    "description": "Optional parameters to pass to the data source. This allows additional\nbusiness logic that can not be expressed through the query.",
+                    "items": {
+                        "$ref": "DataSourceParam"
+                    },
+                    "type": "array"
+                },
+                "queries": {
+                    "description": "The batch of queries to execute.",
+                    "items": {
+                        "$ref": "Query"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ExecuteQueryResponse": {
+            "description": "Execute query response.",
+            "id": "ExecuteQueryResponse",
+            "properties": {
+                "datasets": {
+                    "description": "Batch of datasets where each one corresponds to a query in the request.",
+                    "items": {
+                        "$ref": "Dataset"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GetSchemaRequest": {
+            "description": "Get schema request.",
+            "id": "GetSchemaRequest",
+            "properties": {
+                "dataSourceId": {
+                    "description": "Specifies the data source to get the schema from.",
+                    "type": "string"
+                },
+                "params": {
+                    "description": "Optional parameters to pass to the data source. This allows additional\nbusiness logic that modifies the returned schema.",
+                    "items": {
+                        "$ref": "DataSourceParam"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ParamMapEntry": {
+            "description": "Parameter map entry (VOLATILE: will likely be removed in favor of a real map;\nplease contact partnerdash-team before using).",
+            "id": "ParamMapEntry",
+            "properties": {
+                "key": {
+                    "description": "The key of the entry.",
+                    "type": "string"
+                },
+                "value": {
+                    "$ref": "Value",
+                    "description": "The value of the entry."
+                }
+            },
+            "type": "object"
+        },
+        "Query": {
+            "description": "The query definition.",
+            "id": "Query",
+            "properties": {
+                "column": {
+                    "description": "The columns to retrieve.",
+                    "items": {
+                        "$ref": "QueryColumn"
+                    },
+                    "type": "array"
+                },
+                "conditionGroup": {
+                    "$ref": "ConditionGroup",
+                    "description": "The conditions/filters to apply (can be empty). Only column+operator\ncombinations that are listed as supported by the Schema can be used."
+                },
+                "distinct": {
+                    "description": "Should the query only return distinct rows.",
+                    "type": "boolean"
+                },
+                "ordering": {
+                    "description": "How to sort the dataset (optional). More than one sort criterion can\nbe specified (the order is respected). Only columns listed as \"sortable\"\nin the schema can be used.",
+                    "items": {
+                        "$ref": "SortCriterion"
+                    },
+                    "type": "array"
+                },
+                "pageSize": {
+                    "description": "The (max) number of rows to return. This setting must be respected by all\ndata sources.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "pageToken": {
+                    "description": "The token/id of the result page to return. Only allowed if the data\nsource's schema indicates that pagination is supported.\nAbsent or an empty string indicates the first page.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "QueryColumn": {
+            "description": "A column definition for the query.",
+            "id": "QueryColumn",
+            "properties": {
+                "aggregation": {
+                    "$ref": "Aggregation",
+                    "description": "Optionally apply an aggregation to the column before returning it. The\nspecified aggregation must be listed as supported by this column in the\nschema. Can not be used at the same time as transformation.\nNOTE(albinr): Aggregating by at least one column will usually trigger\n\"group by\" behavior by SQL-like data sources (e.g. Dremel), e.g. all\nnon aggregated columns will be grouped by (effectively removing duplicates\nput potentially slowing down the query)."
+                },
+                "alias": {
+                    "description": "Optional alias, used instead of the id in the returned DataSet.\n(All DataSources MUST support aliases.)",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "ID of the requested column.\nrequired",
+                    "type": "string"
+                },
+                "transformation": {
+                    "$ref": "Transformation",
+                    "description": "Optionally apply a transformation to the column before returning it. The\nspecified transformation must be listed as supported by this column in the\nschema. Can not be used at the same time as aggregation."
+                }
+            },
+            "type": "object"
+        },
+        "Row": {
+            "description": "LINT.IfChange",
+            "id": "Row",
+            "properties": {
+                "value": {
+                    "description": "The values in a row. (See Dataset.column_id for invariant.)",
+                    "items": {
+                        "$ref": "Value"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Schema": {
+            "description": "The schema of the data source.",
+            "id": "Schema",
+            "properties": {
+                "column": {
+                    "description": "List of columns in this data source.",
+                    "items": {
+                        "$ref": "Column"
+                    },
+                    "type": "array"
+                },
+                "isDistinctSupported": {
+                    "description": "Indicates if distinct (e.g. \"SELECT DISTINCT a, b FROM c\") is supported.",
+                    "type": "boolean"
+                },
+                "isPaginationSupported": {
+                    "description": "Indicates if pagination (\"Query.page_token\") is supported. Note that\n\"Query.page_size\" MUST be supported by all data sources, regardless of\nthis setting.",
+                    "type": "boolean"
+                },
+                "maxPageSize": {
+                    "description": "Optionally indicates the maximum page size supported by the data source.\nUnset (<=0) means there is no maximum page size.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "totalRows": {
+                    "description": "Optionally indicates the total number of rows in this data source, which\nmight be useful to client-side components (for a small number of rows,\nthey might want to load all data client-side). Currently not implemented.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SortCriterion": {
+            "description": "The sort criterion.",
+            "id": "SortCriterion",
+            "properties": {
+                "columnId": {
+                    "description": "The column to apply the sort.",
+                    "type": "string"
+                },
+                "direction": {
+                    "description": "The direction of the sort criterion.",
+                    "enum": [
+                        "NONE",
+                        "ASC",
+                        "DESC"
+                    ],
+                    "enumDescriptions": [
+                        "None.",
+                        "Ascending.",
+                        "Descending."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Transformation": {
+            "description": "A message for the transformation that can (getSchema) and is (executeQuery)\napplied to the query.",
+            "id": "Transformation",
+            "properties": {
+                "customReturnType": {
+                    "description": "Might be set for custom transformations specified in a Schema.\n(Ignored in queries.)",
+                    "enum": [
+                        "UNKNOWN_TYPE",
+                        "STRING",
+                        "INTEGER",
+                        "DECIMAL",
+                        "BOOLEAN",
+                        "TIMESTAMP_MS"
+                    ],
+                    "enumDescriptions": [
+                        "Type is not specified.",
+                        "String type.",
+                        "Integer type.",
+                        "Decimal type.",
+                        "Boolean type.",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "customType": {
+                    "description": "Data Sources can implement their own custom (non-standard) transformation\nmethods, by setting type to CUSTOM and supply a string identifier here.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "The type of transformation.",
+                    "enum": [
+                        "NONE",
+                        "CUSTOM",
+                        "HOUR",
+                        "DAY",
+                        "WEEK",
+                        "MONTH",
+                        "QUARTER",
+                        "YEAR"
+                    ],
+                    "enumDescriptions": [
+                        "No transformation.",
+                        "Custom transformation, as specified below.",
+                        "Changes a timestamp, shifting it to the hour it belongs to.",
+                        "Changes a timestamp, shifting it to the day it belongs to in UTC.",
+                        "Changes a timestamp, shifting it to the week it belongs to in UTC.",
+                        "Changes a timestamp, shifting it to the month it belongs to in UTC.",
+                        "Changes a timestamp, shifting it to the quarter it belongs to in UTC.",
+                        "Changes a timestamp, shifting it to the year it belongs to in UTC."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Value": {
+            "description": "A single value representation",
+            "id": "Value",
+            "properties": {
+                "booleanValue": {
+                    "description": "A boolean value.",
+                    "type": "boolean"
+                },
+                "decimalValue": {
+                    "description": "A decimal value.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "integerValue": {
+                    "description": "An integer value.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "stringValue": {
+                    "description": "Exactly one, matching type, must be set.\nA string value.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "The type of value.",
+                    "enum": [
+                        "UNKNOWN_TYPE",
+                        "STRING",
+                        "INTEGER",
+                        "DECIMAL",
+                        "BOOLEAN",
+                        "TIMESTAMP_MS"
+                    ],
+                    "enumDescriptions": [
+                        "Type is not specified.",
+                        "String type.",
+                        "Integer type.",
+                        "Decimal type.",
+                        "Boolean type.",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Alkali Beautyadhighlights Private API (Nightly)",
+    "version": "v1",
+    "version_module": true
+}

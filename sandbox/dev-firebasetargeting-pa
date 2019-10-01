@@ -1,0 +1,1991 @@
+{
+    "basePath": "",
+    "baseUrl": "https://dev-firebasetargeting-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Firebase Targeting",
+    "description": "Firebase Targeting Service Library API.",
+    "discoveryVersion": "v1",
+    "documentationLink": "https://docs.google.com/presentation/d/1XwdN9ydHdKeb2qibCfM5m-7xQ07ObO-HZRKRfeSMz8U/edit#slide=id.g35358f53cb_0_414",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "firebasetargeting-pa:v1",
+    "kind": "discovery#restDescription",
+    "name": "firebasetargeting-pa",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "targeting": {
+            "methods": {
+                "enumeration": {
+                    "description": "Method for getting targeting signal enumerations of given Firebase\nproject / app.",
+                    "flatPath": "v1/targeting/enumeration",
+                    "httpMethod": "POST",
+                    "id": "firebasetargeting-pa.targeting.enumeration",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/targeting/enumeration",
+                    "request": {
+                        "$ref": "GetSignalEnumerationsRequest"
+                    },
+                    "response": {
+                        "$ref": "GetSignalEnumerationsResponse"
+                    }
+                },
+                "estimation": {
+                    "description": "Provide estimation of active instance population and per targeting\ncondition expected matching fraction for one or multiple apps in a single\nproject.",
+                    "flatPath": "v1/targeting/estimation",
+                    "httpMethod": "POST",
+                    "id": "firebasetargeting-pa.targeting.estimation",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/targeting/estimation",
+                    "request": {
+                        "$ref": "GetConditionsEstimationsRequest"
+                    },
+                    "response": {
+                        "$ref": "GetConditionsEstimationsResponse"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190913",
+    "rootUrl": "https://dev-firebasetargeting-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "AbtExperimentCondition": {
+            "description": "A condition which determines if an App Instance has been assigned to an\nABT experiment.",
+            "id": "AbtExperimentCondition",
+            "properties": {
+                "experimentId": {
+                    "description": "Required. The target experiment id's for the ABT experiment.\nNOTE: Experiment Id's are unique only within the scope of a project.\nThe implicit operator is IN_ANY - the condition will return true if\nthe instance is in any of the target experiments. This list can have a\nmaximum of 10 experiments.\nThe experiments may belong to multiple different services eg. Remote\nConfig, FIAM. It may also include some experiments which have expired but\nhave not been cleaned up yet. The experiment id is case-sensitive.\nAn example experiment id - \"123\".",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AnalyticsAudienceCondition": {
+            "description": "A condition that evaluates if the device belongs to the target analytics\naudience(s).\n\nAudiences are defined in Scion and the membership of app instances\nto audiences are stored in the Firebase Scion Adapter (FSA) and other\ndownstream system(s), keyed by scion audience ids, with no audience\nnames directly associated with them.\n\nThis condition references audiences by names rather than audience ids\nwhich requires binding to the audience ids in order to use the\ninstance audience data. The recommended way of doing this binding is\nas late as possible. For example, if making the binding at the time\nthe condition is saved by the user may result in different targeting\nthan making the binding at the time of the condition evaluation,\nthe latter approach should be preferred because it provides a more\nconsistent behavior from user's perspective who sees only\nthe audience names.\n\nFor example, if a condition for audience \"A\" is in the scope of an\nentire project and if a new app is added to the project after the\ncondition was saved, at runtime the condition should also target\naudience \"A\" for the new app.\n\nAnother important aspect of audiences is the user ability to share\nor hide analytics information (data and metadata) from specific\nservices. When a specific service that uses this condition has\ndata sharing disabled in Scion, the service should use no\nanalytics metadata (e.g. audience names) and data (e.g. app instance\nmembership in audiences). This applies to both the service frontend\nwhich may use audience names for input validation and the\nservice backend which evaluates this condition based on the instance\naudience membership.\n\nValidation: validation of audience conditions is done in the\ncontext of a firebase service (ConsumingProduct in Scion's terminology)\nand either a single app, a strict subset of project apps or\nthe entire project. The validation should reject audience conditions\nwith at least one audience name that is currently not defined\nand shared within the context of the condition. For example, if the\ncondition is used in a context of a single app X and contains\naudience name A which is not defined and/or shared by app X but\nonly with app Y in the same project then the condition should\nbe rejected. Note that once a condition is validated and saved,\nit can later become invalid, for example, if the app is deleted\nor the sharing is disabled. This is typically handled at runtime\nduring the evaluation of the condition.\n\nEvaluation:\n1. If the audience information for the instance could not be fetched,\nthen evaluation for that audience should be evaluated to false.\n\n2. If during the evaluation of this condition, the instance membership in an\naudience cannot be determined (e.g. due to disabled scion data sharing or\naudience got deleted), then the condition is evaluated as if the instance\nis not a member of that audience.\nThis can cause both operators IN_ALL_OF and NONE_OF operators to return\nfalse for a given audience set if any audience in that set is not shared\nwith the evaluating service. This is the correct behavior.",
+            "id": "AnalyticsAudienceCondition",
+            "properties": {
+                "operator": {
+                    "description": "Required.",
+                    "enum": [
+                        "UNKNOWN",
+                        "IN_AT_LEAST_ONE",
+                        "NOT_IN_AT_LEAST_ONE",
+                        "IN_ALL",
+                        "IN_NONE"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "The condition will be true if the App Instance is a member of\nat least one of the target audiences in the set.",
+                        "The condition will be true if the App Instance is not a member of\nat least one of the target audiences in the set.",
+                        "The condition will be true if the App Instance is a member of every\naudience in the target audiences in the set.",
+                        "NOTE(arete): The enum name IN_NONE here is misleading, it actually\nmatches \"Actual audience members does not include all of the target\naudiences\" on UI, which literally means \"not in all\", not \"in none\"."
+                    ],
+                    "type": "string"
+                },
+                "targetAudienceEntityId": {
+                    "description": "Required (Must have at least 1 id).\nA list of globally unique audience id. There can be upto 50 audiences.\nDuplicate id's are not allowed.\n\nBefore Transition to Gold:\nThis field may have 0 entries.\n\nWriting the condition: The entity id's corresponding to the audience being\ncreated should be filled along with audience name.\nWhen creating a condition from an audience CEL, we can identify the\nentity id for the audience since there is a requirement to have App Id\ncondition\nReading the condition: The target_audience_names field is used for display.\nEvaluation: target_audience_names is used for evaluation.\n\nAfter transition to Gold (transition is one project at a time):\nThis field will have at least one entry.\n\nWriting the condition: Only the entity id's need to be written.\ntarget_audience_names field can be ignored.\nReading the condition: The entity id is used to resolve the display name of\naudiences.\nNOTE: It is possible that archived Conditions cannot be migrated to Scion\nGold, in which case there will be no entries and an error will be displayed\nto the user.\nEvaluating the condition: Entity id's are used for evaluating targeting\nconditions.",
+                    "items": {
+                        "format": "int64",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "targetAudienceNames": {
+                    "description": "Deprecated.\nThe target Analytics Audience Name which is case-sensitive. The audience\nset can have up to 50 audiences. Duplicate audiences are not allowed.\nNOTE: This field is present for backward compatibility for systems which\nhave stored Audience conditions.\nThis field is deprecated for new audiences. See go/abt-scion-gold-migration",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AnalyticsUserPropertyCondition": {
+            "description": "A condition that compares the Analytics\nUser Property value against a target value.\nEvaluation:\n1. If the User Property has not been defined in Scion, then the condition\nshould be evaluated to false.\n2. If the User Property exists in Scion but has not been set on the client,\nthen the condition should be evaluated to false.\n3. If a numeric operator is used for comparison and the User Property value\nset on the device cannot be converted to a number, then the condition\nshould be evaluated to false.\n4. If this User Property is currently not shared with the Firebase service\nevaluating the condition, then the condition should be evaluated to false.",
+            "id": "AnalyticsUserPropertyCondition",
+            "properties": {
+                "operator": {
+                    "description": "Required.",
+                    "enum": [
+                        "UNKNOWN",
+                        "NUMERIC_LESS_THAN",
+                        "NUMERIC_LESS_EQUAL",
+                        "NUMERIC_EQUAL",
+                        "NUMERIC_NOT_EQUAL",
+                        "NUMERIC_GREATER_THAN",
+                        "NUMERIC_GREATER_EQUAL",
+                        "STRING_CONTAINS",
+                        "STRING_DOES_NOT_CONTAIN",
+                        "STRING_EXACTLY_MATCHES",
+                        "STRING_CONTAINS_REGEX"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "The actual value is less than the target value.",
+                        "The actual value is less than or equal to the target value.",
+                        "The actual value is equal to the target value.",
+                        "The actual value is not equal to the target value.",
+                        "The actual value is greater than the target value.",
+                        "The actual value is greater than or equal to the target value.",
+                        "AT LEAST ONE of the target values is a substring of the actual User\nProperty value. Eg: \"abc\" contains the string \"a\", \"bc\".",
+                        "NONE of the target values is a substring of the actual User Property\nvalue.",
+                        "The actual value exactly matches AT LEAST ONE of the target values.",
+                        "The target regular expression matches a portion of AT LEAST ONE of the\nactual values (or the entire string). The regex has to be in RE2 format.\nSee https://github.com/google/re2/wiki/Syntax"
+                    ],
+                    "type": "string"
+                },
+                "targetUserPropertyEntityId": {
+                    "description": "Required. The Id of the User Property to be targeted (0 is not a valid id and can\nbe assumed as unset).\n1. If this User Property is not currently shared with the Firebase service\nevaluating the condition or if this user property does not exist (no value)\nthen the atom should be evaluated to false.\n2. If the service does not support the operator, then the condition is\nevaluated to false.\n\nBefore Transition to Gold:\nThis field may not be populated.\n\nWriting: The entity id's corresponding to the user property name being\ncreated should be filled along with target_user_property_name.\nReading: The target_user_property_name field is used for display.\nEvaluation: The name field will be used for evaluation.\n\nAfter Transition to Gold (transition is one project at a time):\nThis field will always be populated.\n\nWriting: Only the entity id field will be written.\nReading: The name should be resolved from the entity id. New conditions\nwill not have the target_user_property_name field populated.\nNOTE: It is possible that archived conditions for the user property cannot\nbe migrated to the new format (if it was deleted for example) in which case\nthis field will be empty and an error will be displayed to the user.\nEvaluation: Entity id will be used for evaluation.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "targetUserPropertyName": {
+                    "description": "Deprecated.\nThe target User Property Name. This must be exactly what is defined in\nAnalytics and is case-sensitive. Only developer visible, non reserved\nuser properties are allowed (eg. those user properties with prefix \"_\"\nor \"firebase_\" are reserved user properties).\n1. If this User Property is not currently shared with the Firebase service\nevaluating the condition or if this user property does not exist (no value)\nthen the atom should be evaluated to false.\n2. If the service does not support the operator, then the condition is\nevaluated to false.\n\nNOTE: This field is present for backward compatibility for systems which\nhave stored User Property conditions.\nThis field is deprecated for new user properties.\nSee go/abt-scion-gold-migration",
+                    "type": "string"
+                },
+                "targetUserPropertyValue": {
+                    "description": "Deprecated (as of May 2018).\nPlease use target_user_property_values = 5 instead.\nFor numeric operators must be in a valid numeric format (see above).\nFor string operators, this must conform to the length\nlimits specified above.",
+                    "type": "string"
+                },
+                "targetUserPropertyValues": {
+                    "description": "Required. During the transition from target_user_property_value to\ntarget_user_property_values, if the latter exists, the former\nwill be silently ignored.\n\nA list of at most 100 target user property values.\nFor numeric operators: this list must have exactly ONE target user\nproperty value that is of a valid numeric format specified above.\nFor string operators, this is a list of target user\nproperty values, where each value conforms to the length limits specified\nabove.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AndCondition": {
+            "description": "AND of sub-conditions.\nAn AND condition is true if all of its subconditions evaluate to true.",
+            "id": "AndCondition",
+            "properties": {
+                "conditions": {
+                    "description": "Evaluated in given order with short circuit of false.\nShould contain at least one condition and no more than 100 conditions.",
+                    "items": {
+                        "$ref": "Condition"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AppSignalEnumerations": {
+            "description": "A message that presents signal value enumerations of multiple signals for one\napp.",
+            "id": "AppSignalEnumerations",
+            "properties": {
+                "gmpAppId": {
+                    "description": "Indicates which gmp app id is this enumeration for. It must be one of the\ngmp app ids in the request.",
+                    "type": "string"
+                },
+                "singleSignalEnumerations": {
+                    "description": "For each requested targeting signal code, there will be one\nSingleSignalEnumerations. The signal codes would be copied into\nSingleSignalEnumerations.signal, so that the caller can get the mapping.\nThis list should have exactly the same length as\nGetSignalEnumerationsRequest.requested_signals.",
+                    "items": {
+                        "$ref": "SingleSignalEnumerations"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AppVersionCondition": {
+            "description": "A condition that compares the app version to a target app version argument.\nThis can target multiple apps simultaneously unless it is AND'ed with a\nFirebaseAppIdCondition in which case, it will target the app specified.\nEvaluation:\nIf the App Version is unknown, then the condition should be\nevaluated to false.",
+            "id": "AppVersionCondition",
+            "properties": {
+                "operator": {
+                    "description": "Required.",
+                    "enum": [
+                        "UNKNOWN",
+                        "CONTAINS",
+                        "DOES_NOT_CONTAIN",
+                        "EXACTLY_MATCHES",
+                        "CONTAINS_REGEX",
+                        "NUMERIC_LESS_THAN",
+                        "NUMERIC_LESS_EQUAL",
+                        "NUMERIC_EQUAL",
+                        "NUMERIC_NOT_EQUAL",
+                        "NUMERIC_GREATER_THAN",
+                        "NUMERIC_GREATER_EQUAL"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "At least one of the target_app_versions is a substring of the actual App\nVersion. Eg: \"abc\" contains the string \"a\", \"bc\".",
+                        "None of the target_app_versions is a substring of the actual App Version.",
+                        "The actual value and the target value are the same for one of the\ntarget_app_versions. Case-sensitive.",
+                        "The target regular expression matches a substring of or the entire actual\nvalue. To force matching of the entire string, use the RE2 anchors '^'\nand '$'.The regex has to be in RE2 format.\nSee https://github.com/google/re2/wiki/Syntax\nEvaluates to true if *any* of the regular expressions in the list\nmatches the target value.",
+                        "The actual value is less than the target value.",
+                        "The actual value is less than or equal to the target value.",
+                        "The actual value is equal to the target value.",
+                        "The actual value is not equal to the target value.",
+                        "The actual value is greater than the target value.",
+                        "The actual value is greater than or equal to the target value."
+                    ],
+                    "type": "string"
+                },
+                "targetAppVersions": {
+                    "description": "Required. During the transition from target_value to target_app_versions,\nif target_app_versions exists, the value in the field target_value will\nbe ignored.\n\nThe target App Version or a regular expression depending\non the operator. The length must be between 1-250 characters.\nCan have a maximum of 45 versions (duplicates are allowed). Minimum 1\nis required (see caveat above).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "targetValue": {
+                    "description": "Deprecated (as of April 2018).\nConditions which have stored only target_value (eg. archived experiments)\nwill have only this field set,\n\nPlease use target_app_versions instead.\nThe target App Version or a regular expression depending\non the operator. The length must be between 1-250 characters.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AppVersionEnumeration": {
+            "description": "A message that contains a list of distinct app versions.",
+            "id": "AppVersionEnumeration",
+            "properties": {
+                "appVersions": {
+                    "description": "Values in the list are returned in descending order of prevalence.",
+                    "items": {
+                        "$ref": "AppVersionValue"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AppVersionValue": {
+            "description": "A single app version enumeration value.",
+            "id": "AppVersionValue",
+            "properties": {
+                "count": {
+                    "description": "count of this value in the requested app/project.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "A app version string.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AudienceMetadata": {
+            "description": "A single analytics audience defined at project level.",
+            "id": "AudienceMetadata",
+            "properties": {
+                "count": {
+                    "description": "Count of instances in this project that subscribe this audience.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "entityId": {
+                    "description": "A unique id of this audience in its project.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Name of this audience.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AudienceMetadataEnumeration": {
+            "description": "A message that contains metadata of a list of distinct analytics audiences.",
+            "id": "AudienceMetadataEnumeration",
+            "properties": {
+                "audienceMetadata": {
+                    "description": "A list of audience metadata, Sorted by instance count.",
+                    "items": {
+                        "$ref": "AudienceMetadata"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BrowserAndVersionCondition": {
+            "description": "A condition to target users by browser and browser version.",
+            "id": "BrowserAndVersionCondition",
+            "properties": {
+                "operator": {
+                    "description": "Required",
+                    "enum": [
+                        "UNKNOWN",
+                        "IN_ONE",
+                        "IN_NONE"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "The actual browser and browser version is in at least one of the given\nsub-condition TargetBrowserAndVersions.",
+                        "The actual browser and browser version is not in any of the given\nsub-condition TargetBrowserAndVersions."
+                    ],
+                    "type": "string"
+                },
+                "targetBrowserAndVersions": {
+                    "description": "A list of sub-conditions of browser and browser version.\nTargeting server accepts at least 1 and at most 50 values in this list.",
+                    "items": {
+                        "$ref": "TargetBrowserAndVersion"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BrowserEnumeration": {
+            "description": "A message that contains a list of distinct browsers.",
+            "id": "BrowserEnumeration",
+            "properties": {
+                "browsers": {
+                    "description": "Values in the list are returned in descending order of prevalence.",
+                    "items": {
+                        "$ref": "BrowserValue"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BrowserValue": {
+            "description": "A single browser value and its count.",
+            "id": "BrowserValue",
+            "properties": {
+                "count": {
+                    "description": "count of this value in the requested app/project.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "A string to present the name of browser.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Condition": {
+            "description": "A general boolean expression that is used to evaluate\nconditions.\n\nNEXT TAG: 27",
+            "id": "Condition",
+            "properties": {
+                "abtExperiment": {
+                    "$ref": "AbtExperimentCondition",
+                    "description": "Target an ABT Experiment."
+                },
+                "alwaysFalse": {
+                    "$ref": "FalseCondition",
+                    "description": "Always evaluates to false"
+                },
+                "alwaysTrue": {
+                    "$ref": "TrueCondition",
+                    "description": "Always evaluates to true"
+                },
+                "analyticsAudiences": {
+                    "$ref": "AnalyticsAudienceCondition",
+                    "description": "Target a device if it belongs to an Analytics Audience."
+                },
+                "analyticsUserProperty": {
+                    "$ref": "AnalyticsUserPropertyCondition",
+                    "description": "Target a device by Analytics User Properties set on the device."
+                },
+                "and": {
+                    "$ref": "AndCondition",
+                    "description": "Boolean operators and consts\n\nApply logical \"and\" condition to the subset of conditions."
+                },
+                "appId": {
+                    "$ref": "FirebaseAppIdCondition",
+                    "description": "Target a device by its App Id."
+                },
+                "appVersion": {
+                    "$ref": "AppVersionCondition",
+                    "description": "Target a device by App version."
+                },
+                "browserAndVersion": {
+                    "$ref": "BrowserAndVersionCondition",
+                    "description": "Target app instances by brwoser and browser version."
+                },
+                "countries": {
+                    "$ref": "DeviceCountryCondition",
+                    "description": "Target a device by its location."
+                },
+                "customAudiences": {
+                    "$ref": "CustomAudienceCondition",
+                    "description": "Target app instance by developers' custom audiences."
+                },
+                "deviceCategory": {
+                    "$ref": "DeviceCategoryCondition",
+                    "description": "Target app instances by device category."
+                },
+                "deviceModel": {
+                    "$ref": "DeviceModelCondition",
+                    "description": "Target a device by its device model."
+                },
+                "firstOpenTime": {
+                    "$ref": "FirstOpenTimeCondition",
+                    "description": "Target app instance by its first open time."
+                },
+                "languages": {
+                    "$ref": "DeviceLanguageCondition",
+                    "description": "Target a device by the user locale language(s)."
+                },
+                "lastUserEngagementTime": {
+                    "$ref": "LastUserEngagementTimeCondition",
+                    "description": "Target app instance by its last user engagement time."
+                },
+                "not": {
+                    "$ref": "NotCondition",
+                    "description": "Apply logical \"not\" condition to the subset of conditions."
+                },
+                "operatingSystemAndVersion": {
+                    "$ref": "OperatingSystemAndVersionCondition",
+                    "description": "Target app instances by operating system and OS version."
+                },
+                "or": {
+                    "$ref": "OrCondition",
+                    "description": "Apply logical \"or\" condition to the subset of conditions."
+                },
+                "osType": {
+                    "$ref": "OsTypeCondition",
+                    "description": "Target the device by its OS type."
+                },
+                "osVersion": {
+                    "$ref": "OsVersionCondition",
+                    "description": "Target the device by its OS version."
+                },
+                "percent": {
+                    "$ref": "PercentCondition",
+                    "description": "Target a percentage of App instances."
+                },
+                "predictionScores": {
+                    "$ref": "PredictionScoresCondition",
+                    "description": "Target using Predictions user_percentile."
+                },
+                "predictions": {
+                    "$ref": "PredictionsCondition",
+                    "description": "Target using Prediction classifications."
+                },
+                "time": {
+                    "$ref": "DateTimeCondition",
+                    "description": "Builtin conditions (aka 'atoms')\n\nTarget a device at a given time."
+                },
+                "topic": {
+                    "$ref": "TopicCondition",
+                    "description": "Target a device by its membership to a Topic."
+                }
+            },
+            "type": "object"
+        },
+        "ConditionIndexRequestNode": {
+            "description": "Represents a single condition to estimate.",
+            "id": "ConditionIndexRequestNode",
+            "properties": {
+                "children": {
+                    "$ref": "ConditionIndexRequestNodeList",
+                    "description": "An optional list of dependent children. For a given instance, if this node\nis evaluated to false, all the direct and indirect of this node are\nevaluated to false (shadowed by this node)."
+                },
+                "conditionIndex": {
+                    "description": "The index of the condition to estimate in the request condition list. It's\nok to have multiple nodes referring to the same condition. This is useful\nfor estimation a condition that can appear in different dependencies\ncontexts.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "userData": {
+                    "description": "Optional user data. If specified, it is copied to the respective response\nnode.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ConditionIndexRequestNodeList": {
+            "description": "Represents a list of condition nodes.",
+            "id": "ConditionIndexRequestNodeList",
+            "properties": {
+                "isPriorityList": {
+                    "description": "If true, once a node in this list is evaluated to true, all the following\nnodes and their children are forced to false. Otherwise, each node is\nevaluated independently of the other nodes in the list.",
+                    "type": "boolean"
+                },
+                "requestNode": {
+                    "description": "The nodes with references to conditions to estimate.",
+                    "items": {
+                        "$ref": "ConditionIndexRequestNode"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ConditionResponseNode": {
+            "description": "Represents the results of a single condition in the request\nand all of its dependent conditions.",
+            "id": "ConditionResponseNode",
+            "properties": {
+                "children": {
+                    "$ref": "ConditionResponseNodeList",
+                    "description": "Estimation results of matching ConditionRequestNodeList from the\nrequest. Order and count match the request."
+                },
+                "estimatedPpm": {
+                    "description": "The estimation of fraction of active instances that will\nwill not match any of the conditions this condition depends\non and will match this condition.\n\nThe fraction is specified in parts-per-millions in the\nrange [0, 1000000]. Note that the resolution here is much\nfiner than the actual accuracy of the estimation.\nIf the estimation query returns a zero active instance estimation,\nthis field is arbitrarily set to zero.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "userData": {
+                    "description": "This is a copy of the user data from the matching condition\nnode in the request. Callers can use to to match condition\nresults to conditions.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ConditionResponseNodeList": {
+            "description": "Represents estimation results of a ConditionRequestNodeList.",
+            "id": "ConditionResponseNodeList",
+            "properties": {
+                "responseNode": {
+                    "description": "Count and order match the corresponding ConditionRequestNodeList\nfrom the request.",
+                    "items": {
+                        "$ref": "ConditionResponseNode"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CustomAudienceCondition": {
+            "description": "A targeting condition based on the custom audience memberships uploaded into\nFirebase project by the developers.",
+            "id": "CustomAudienceCondition",
+            "properties": {
+                "operator": {
+                    "description": "Required operator",
+                    "enum": [
+                        "UNKNOWN",
+                        "IN_AT_LEAST_ONE",
+                        "IN_ALL",
+                        "NOT_IN_AT_LEAST_ONE",
+                        "IN_NONE"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "The actual custom audience set of an instance contains at least one of\nthe target custom audiences.",
+                        "The actual custom audience set of an instance contains all of the\ntarget custom audiences.",
+                        "The condition is true if the instance is not a member of at least one of\nthe target custom audiences.",
+                        "The condition is true if the instance is not a member of any of the\ntarget custom audiences."
+                    ],
+                    "type": "string"
+                },
+                "targetCustomAudienceIds": {
+                    "description": "A set of targeting custom audience ids.\nThe audience id is used internally to Firebase, which is generated to be\nunique across a Firebase project based on the project number + developer\ndefined audience label.",
+                    "items": {
+                        "format": "int64",
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CustomAudienceEnumeration": {
+            "description": "A list of distinct custom audiences.",
+            "id": "CustomAudienceEnumeration",
+            "properties": {
+                "customAudienceMetadata": {
+                    "description": "A list of custom audiences, sorted by instance count.",
+                    "items": {
+                        "$ref": "CustomAudienceMetadata"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CustomAudienceMetadata": {
+            "description": "A single custom audience defined by developer and count of instances that\nsubscribe to this audience.",
+            "id": "CustomAudienceMetadata",
+            "properties": {
+                "audienceId": {
+                    "description": "A unique id of the custom audience, used internally by Firebase and is not\nshared with developers. This is generated based on the AudienceLabel\nreported by developers and the parent project it belongs to.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "count": {
+                    "description": "Count of instances in this project that subscribe to this audience.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Display name of the custom audience, defined by developers",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Date": {
+            "description": "Represents a whole or partial calendar date, e.g. a birthday. The time of day\nand time zone are either specified elsewhere or are not significant. The date\nis relative to the Proleptic Gregorian Calendar. This can represent:\n\n* A full date, with non-zero year, month and day values\n* A month and day value, with a zero year, e.g. an anniversary\n* A year on its own, with zero month and day values\n* A year and month value, with a zero day, e.g. a credit card expiration date\n\nRelated types are google.type.TimeOfDay and `google.protobuf.Timestamp`.",
+            "id": "Date",
+            "properties": {
+                "day": {
+                    "description": "Day of month. Must be from 1 to 31 and valid for the year and month, or 0\nif specifying a year by itself or a year and month where the day is not\nsignificant.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "month": {
+                    "description": "Month of year. Must be from 1 to 12, or 0 if specifying a year without a\nmonth and day.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "year": {
+                    "description": "Year of date. Must be from 1 to 9999, or 0 if specifying a date without\na year.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "DateTimeCondition": {
+            "description": "A condition that compares the evaluation time\nto a given target time argument.\nEvaluation:\nIf the target_timezone_id is empty and the timezone of the device cannot\nbe determined, then the condition should be evaluated to false.",
+            "id": "DateTimeCondition",
+            "properties": {
+                "operator": {
+                    "description": "Required.",
+                    "enum": [
+                        "UNKNOWN",
+                        "BEFORE",
+                        "AFTER_OR_EQUAL"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "Condition resolution is done before target time.",
+                        "Condition resolution is done at or after target time.\nThe resolution of comparison is at the second level."
+                    ],
+                    "type": "string"
+                },
+                "targetDateTimeZone": {
+                    "$ref": "TargetDateTimeZone",
+                    "description": "Required."
+                }
+            },
+            "type": "object"
+        },
+        "DeviceCategoryCondition": {
+            "description": "A condition to target users by Device category.",
+            "id": "DeviceCategoryCondition",
+            "properties": {
+                "operator": {
+                    "description": "Required",
+                    "enum": [
+                        "UNKNOWN",
+                        "STRING_CONTAINS",
+                        "STRING_DOES_NOT_CONTAIN",
+                        "STRING_EXACTLY_MATCHES"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "At least one of the given target_device_categories is a substring of the\nactual device category.",
+                        "NONE of the given target_device_categories is a substring of the actual\ndevice category.",
+                        "The actual device category exactly matches one of the given\ntarget_device_categories."
+                    ],
+                    "type": "string"
+                },
+                "targetDeviceCategories": {
+                    "description": "Required\nA list of target device categories.\nTargeting service accepts at least 1 and at most 50 values in this list.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "DeviceCategoryEnumeration": {
+            "description": "A message that contains a list of distinct device categories.",
+            "id": "DeviceCategoryEnumeration",
+            "properties": {
+                "deviceCategories": {
+                    "description": "Values in the list are returned in descending order of prevalence.",
+                    "items": {
+                        "$ref": "DeviceCategoryValue"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "DeviceCategoryValue": {
+            "description": "A single device category value and its count.",
+            "id": "DeviceCategoryValue",
+            "properties": {
+                "count": {
+                    "description": "count of this value in the requested app/project.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "A string to present the name of device category.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DeviceCountryCondition": {
+            "description": "A condition that compares the device country against target countries.\nThe device country is determined by geo-lookup using device IP address.\nEvaluation:\nIf the Device Country cannot be determined, then the condition should be\nevaluated to false.",
+            "id": "DeviceCountryCondition",
+            "properties": {
+                "operator": {
+                    "description": "Required. Country code condition evaluation operator.",
+                    "enum": [
+                        "UNKNOWN",
+                        "IS_IN",
+                        "IS_NOT_IN"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "Indicates that the actual country code is one of the target country codes",
+                        "Indicates that the actual country code is not in the target country codes"
+                    ],
+                    "type": "string"
+                },
+                "targetCountryCodes": {
+                    "description": "Required. A list of target countries containing the 2 letter country code\nas defined in ISO 3166-1 alpha-2. This is case-insensitive.\nSee https://www.iso.org/obp/ui/#search\nMaximum of 300 countries are allowed. Dupe countries are\nnot allowed (case insensitive).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "DeviceCountryEnumeration": {
+            "description": "A message that contains a list of distinct device country codes.",
+            "id": "DeviceCountryEnumeration",
+            "properties": {
+                "countryCodes": {
+                    "description": "Values in the list are returned in descending order of prevalence.",
+                    "items": {
+                        "$ref": "DeviceCountryValue"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "DeviceCountryValue": {
+            "description": "A single device country code enumeration value.",
+            "id": "DeviceCountryValue",
+            "properties": {
+                "count": {
+                    "description": "count of this value in the requested app/project.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "Each value is the country code of a country in format defined\nby ISO 3166-1 alpha-2 standard.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DeviceLanguageCondition": {
+            "description": "A condition that compares the device language(s) against target languages.\nThe device language is determined using the device locale.\nEvaluation:\nIf the Device Language cannot be determined, then the condition should be\nevaluated to false.",
+            "id": "DeviceLanguageCondition",
+            "properties": {
+                "operator": {
+                    "description": "Required",
+                    "enum": [
+                        "UNKNOWN",
+                        "STRING_CONTAINS",
+                        "STRING_DOES_NOT_CONTAIN"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "Indicates that one of the target language codes is a substring of the\nactual language code.",
+                        "Indicates that none of the target language codes is a substring of the\nactual language code."
+                    ],
+                    "type": "string"
+                },
+                "targetLanguageCodes": {
+                    "description": "Required. A list of target languages in the BCP47 format.\nFor example \"en-US\". This is case-insensitive.\nSee https://www.w3.org/International/core/langtags/rfc3066bis.html\nMaximum of 300 languages are allowed. Dupe languages\nare not allowed (case insensitive).\nUse case NOTIFICATIONS accepts exactly one language code.\nWhen evaluating, the target language code and the actual App Instance\nlanguage code are \"maximized\" by adding likely subtags. The two language\ncodes are then compared for equality.\nSee java/com/google/i18n/identifiers/LanguageInfo.java for more info.\nA reference evaluation logic is at\njava/com/google/developers/mobile/targeting/evaluation/ConditionEvaluator.java#evaluateLanguageCondition",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "DeviceLanguageEnumeration": {
+            "description": "A message that contains a list of distinct device languages.",
+            "id": "DeviceLanguageEnumeration",
+            "properties": {
+                "languages": {
+                    "description": "Values in the list are returned in descending order of prevalence.",
+                    "items": {
+                        "$ref": "DeviceLanguageValue"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "DeviceLanguageValue": {
+            "description": "A single device language enumeration value.",
+            "id": "DeviceLanguageValue",
+            "properties": {
+                "count": {
+                    "description": "count of this value in the requested app/project.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "Each value is the language subtag of a language code in BCP47 format.\nFor example, \"en-GB\" -> \"en\", \"zh-hans-CN\" -> \"zh\".",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DeviceModelCondition": {
+            "description": "A condition to target by the device model strings.",
+            "id": "DeviceModelCondition",
+            "properties": {
+                "operator": {
+                    "description": "Required",
+                    "enum": [
+                        "UNKNOWN",
+                        "STRING_CONTAINS",
+                        "STRING_DOES_NOT_CONTAIN",
+                        "STRING_EXACTLY_MATCHES"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "At least one of the given target_device_models is a substring of the\nactually device model.",
+                        "NONE of the given target_device_models is a substring of the actually\ndevice model.",
+                        "The actual device model string exactly matches one of the given\ntarget_device_models.\nTODO(arete) to support regex match / not match"
+                    ],
+                    "type": "string"
+                },
+                "targetDeviceModels": {
+                    "description": "Required\nA list of target device model strings.\nTargeting service accepts at least 1 and at most 50 values in this list.\nTODO(arete) Add comment about any format restriction of device models.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "DeviceModelEnumeration": {
+            "description": "A message that contains a list of distinct device models.",
+            "id": "DeviceModelEnumeration",
+            "properties": {
+                "deviceModels": {
+                    "description": "Values in the list are returned in descending order of prevalence.",
+                    "items": {
+                        "$ref": "DeviceModelValue"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "DeviceModelValue": {
+            "description": "A single device model enumeration value.",
+            "id": "DeviceModelValue",
+            "properties": {
+                "count": {
+                    "description": "count of this value in the requested app/project.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "A device model string.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ExperimentalEstimationRequestParams": {
+            "id": "ExperimentalEstimationRequestParams",
+            "properties": {
+                "allowDuplicateApps": {
+                    "description": "If true, service will allow duplicate gmp app ids in the request and\nwill treat them as independent apps. For testing only.",
+                    "type": "boolean"
+                },
+                "desiredCountSampleSize": {
+                    "description": "If specified, overrides the per app default desired sample size\nfor total count estimation.\nIt's is subject to silent truncation to unspecified min/max limits.\nHigher values increase accuracy, latency, and resource usage.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "desiredPercentageSampleSize": {
+                    "description": "Same as desired_total_count_sample_size but for the per app percentage size\nestimations.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "instanceActiveWindowInDays": {
+                    "description": "When value > 0 : this number indicates that in the past how many days an\ninstance had activities then it will be treated as active. Targeting server\nenforces this number in range (0, 365].\nWhen value == -1 : treat instance active if it was active at some point in\nthe past.\nLast activity time in this case refers to the Last User Engagement Time, as\nobserved by GA. Instances without a Last User Engagement Time are\nconsidered inactive.\nIf not specified, targeting server will use these per-Firebase service\ndefault values:\n<li> Remote Config: 7\n<li> In-App Messaging: 7\n<li> Cloud Messaging: -1",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "maxReadStalenessSecs": {
+                    "description": "If specified it controls the max allowed data staleness when reading\ninstance signals for estimation. A value of 0 sets to full transactional\nstrict mode but is overkill and may slow the estimations.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "maxShardCount": {
+                    "description": "Experimental. If exists, limits the number of parallel shards\nper app percentage estimation.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "preferredShardSize": {
+                    "description": "Experimental. If exists, overrides the default preferred size of\nparallel app estimations shards.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "FalseCondition": {
+            "description": "This condition always evaluates to false.",
+            "id": "FalseCondition",
+            "properties": {},
+            "type": "object"
+        },
+        "FirebaseAppIdCondition": {
+            "description": "A condition that compares the Firebase App Id to a target Firebase App Id.",
+            "id": "FirebaseAppIdCondition",
+            "properties": {
+                "targetGmpAppId": {
+                    "description": "Required. The target Firebase App Id.\nFor example: \"1:708293126705:ios:a750b5ff97fbf47d\".\nThis is case-sensitive (confirmed with tylerg@ March 2017).",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FirstOpenTimeCondition": {
+            "description": "A condition to target by first open time of an app instance. This\ncondition is evaluated against the first open timestamp collected by Google\nAnalytics.",
+            "id": "FirstOpenTimeCondition",
+            "properties": {
+                "endOpenOffsetDays": {
+                    "description": "Optional\nEnd time offset of a time range(Open) at day granularity,\nend_time = current_time - end_open_offset_days.\ngranularity. Value should be integer, with minimum value as\nzero. This number must be smaller than start_closed_offset_days.\nThis value must be specified if operator is EARLIER or BETWEEN.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "operator": {
+                    "description": "Required",
+                    "enum": [
+                        "UNKNOWN",
+                        "EARLIER",
+                        "LATER_OR_EQUAL",
+                        "BETWEEN"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "The actual first open timestamp is earlier than the given end time.\nIn this case, the end_open_offset_days field below must be specified.",
+                        "The actual first open timestamp is later than or equal to the given\nstart time. In this case, the start_closed_offset_days field below must\nbe specified.",
+                        "The actual first open timestamp is between the given start\n(closed) and end(open) time. In this case, both the\nstart_closed_offset_days and end_open_offset_days fields below must be\nspecified."
+                    ],
+                    "type": "string"
+                },
+                "startClosedOffsetDays": {
+                    "description": "Optional\nStart time offset of a time range(Closed) at day granularity,\nstart_time = current_time - start_closed_offset_days\nValue should be an integer, with minimum value as one.\nThis number must be bigger than end_open_offset_days.\nThis value must be specified if operator is LATER_OR_EQUAL or BETWEEN.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "GetConditionsEstimationsRequest": {
+            "description": "A condition estimation request.",
+            "id": "GetConditionsEstimationsRequest",
+            "properties": {
+                "condition": {
+                    "description": "A list of conditions that are involved in this estimation. These\nconditions are referenced by the request nodes using their\nzero based index in this list. It's ok for a condition to be\nreferenced by multiple nodes\nNOTE: Topics condition is not supported.",
+                    "items": {
+                        "$ref": "Condition"
+                    },
+                    "type": "array"
+                },
+                "experimentalParams": {
+                    "$ref": "ExperimentalEstimationRequestParams"
+                },
+                "gmpAppId": {
+                    "description": "One or more gmp app ids that include the target instances.\nFor cross project isolation, we require that the gmp app ids\nshould belong to the same firebase project.\nThe order doesn't matter. Duplicates are not allowed.\nThe service doesn't validate gmp app ids, so specifying a non\nexisting gmp app id will contribute 0 active instances from that\napp.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "requestNodes": {
+                    "$ref": "ConditionIndexRequestNodeList",
+                    "description": "The list of condition nodes to be estimated. Each node can\nrepresent a single condition or a tree of conditions that defines\nthe dependencies between them.\n\nUsage example 1: FN, a campaign with a single condition. Have\nhere a list with a single condition and INDEPENDENT mode.\n\nUsage example 2: RC, Have here a list with the project's conditions\nand PRIORITY_LIST mode.\n\nUsage example 3: ABT with per variant condition. Have here a list\nwith the experiment condition as the only member and INDEPENDENT\nmode. Under that node, have a list of the per variant conditions\nand INDEPENDENT mode."
+                },
+                "service": {
+                    "description": "The context firebase service. This defines the 'active' criteria\nof the results. Different services may have different estimations\nfor the same condition.",
+                    "enum": [
+                        "UNKNOWN",
+                        "AUTH",
+                        "CRASH",
+                        "NOTIFICATIONS",
+                        "REMOTE_CONFIG",
+                        "FUNCTIONS",
+                        "SAGE",
+                        "IN_APP_MESSAGING",
+                        "DIGITAL_GOODS"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts.",
+                        "Bitmask for Firebase Auth (Firebear/Users)",
+                        "Bitmask for Firebase Crash Analysis",
+                        "Bitmask for Firebase Notifications (FCM)",
+                        "Bitmask for Firebase Remote Config",
+                        "Bitmask for Firebase Functions",
+                        "Bitmask for Sage",
+                        "Bitmask for In-App Messaging",
+                        "Bitmask for Digital Goods"
+                    ],
+                    "type": "string"
+                },
+                "verboseDebugInfo": {
+                    "description": "If set to true, the response includes verbose debug info (which may make\nthe request slower and consume more resources). Otherwise the returned\ndebug info is empty or include only very basic information.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "GetConditionsEstimationsResponse": {
+            "description": "A response of a condition estimation request.",
+            "id": "GetConditionsEstimationsResponse",
+            "properties": {
+                "debugInfo": {
+                    "description": "For internal debugging information. Content may change without\nprior notice. See the verbose_debug_info field of the request.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "estimatedSize": {
+                    "description": "Populated IFF status is OK. The estimated number of\nactive instances for the service and apps specified in the\nrequest.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "responseNodes": {
+                    "$ref": "ConditionResponseNodeList",
+                    "description": "Populated IFF status is OK. This is a list of condition results\ntrees that matches the request_nodes in the request."
+                },
+                "status": {
+                    "description": "Request status.",
+                    "enum": [
+                        "UNKNOWN_STATUS",
+                        "OK",
+                        "INVALID_REQUEST",
+                        "DATABASE_ERROR",
+                        "SERVER_INTERNAL_ERROR"
+                    ],
+                    "enumDescriptions": [
+                        "Per go/proto3\nUsed to capture enum version mismatch. Should not be used.",
+                        "This is the only OK status.",
+                        "The request is not valid.",
+                        "General operation related to accessing the underlying database.",
+                        "An unspecified error. Try to use more specific ones if possible."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GetSignalEnumerationsRequest": {
+            "description": "Request message for getting targeting signal enumerations of given Firebase\nproject / app.",
+            "id": "GetSignalEnumerationsRequest",
+            "properties": {
+                "gmpAppIds": {
+                    "description": "A list of gmp app ids.\nIf any of the gmp_app_id doesn't match the project number,\nINVALID_ARGUMENT(401) response will be returned.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "gmpProjectNumber": {
+                    "description": "The gmp project number.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "requestedSignals": {
+                    "description": "The targeting signal(s) for which the enumeration is asked.\n\nOnly those signals which are supported by this service should be listed\nhere:\n   APP_VERSION\n   LANGUAGE\n   COUNTRY\n   DEVICE_MODEL\n   ANALYTICS_USER_PROPERTY\n   OS_VERSION\n   TIMEZONE_OFFSET\n   ANALYTICS_AUDIENCES\n   CUSTOM_AUDIENCES\n   BROWSER\n   OPERATING_SYSTEM\n   DEVICE_CATEGORY\n\nOtherwise INVALID_ARGUMENT(401) response will be returned.\n\nAt least one signal code should be present here, otherwise INVALID_REQUEST\nwill be returned.",
+                    "enumDescriptions": [
+                        "Per go/protodosdonts",
+                        "The Instance Id of the App Install in base64 encoded string format\nwith no padding. eg. \"foAfooo7kzs\".",
+                        "The GMP App Id of the instance.\neg. \"1:708293126705:ios:a750b5ff97fbf47d\".",
+                        "The project number of the instance",
+                        "Targeting signal Country Code.\nThe 2 letter Country code as defined in ISO 3166-1 alpha-2 format.\nFor example \"us\". This is case-insensitive.",
+                        "Targeting signal Language Code\nDevice language in the BCP47 format.\nFor example \"en-US\". This is case-insensitive.",
+                        "The App version.\nAndroid - versionName - http://shortn/_SXW3Wxg972\niOS - CFBundleVersion - http://shortn/_Z1l0Lv8Kq6",
+                        "Time zone in Olson ID format (eg: \"America/Los_Angeles\"). Case-sensitive.",
+                        "The Platform Type of the App Instance.\nCorresponds to OsTypeCondition.OsType.",
+                        "A set of Audience names that this App Instance belongs to.\nFormat: InstanceAudiences proto below.",
+                        "A set of user property key-value pairs that are associated with the\nApp Instance.\nFormat: InstanceUserProperties proto below.",
+                        "A set of Sage Predictions for this App Instance.\nFormat: InstancePredictions proto below.",
+                        "A set of Notification topics that the App Instance belongs to.\nFormat: InstanceTopics proto below.",
+                        "Time of evaluation. Represented by milliseconds since epoch.",
+                        "A set of ABT experiments being performed on an App Instance.",
+                        "A set of Sage Interventions for this App Instance.\nFormat: InstanceInterventions proto below.",
+                        "Targeting signal Device Model.",
+                        "The user's last engagement time. Represented by milliseconds since epoch.",
+                        "Time of instance first open",
+                        "The os version of the device where the app instance is installed.",
+                        "The Timezone Offset is the offset from UTC in seconds.",
+                        "The timestamp of last Google Analytics report to Registry.\nRepresented by milliseconds since epoch.",
+                        "The optimal hour of day to interact with the user.\nThis value is computed/predicted by the Sage machine learning pipelines.\nExpected to be in [0,23] interval.",
+                        "A set of audiences that an installation is a member of, as defined by\ndevelopers and imported into Firebase.",
+                        "A set of Sage Scores for this App Instance.\nFormat: InstancePredictionScores proto below.",
+                        "Name of the browser used to access a web app.",
+                        "Version of the browser used.",
+                        "OS of the device used to access the app.",
+                        "Type of the device used to access the app."
+                    ],
+                    "items": {
+                        "enum": [
+                            "UNKNOWN_TARGETING_SIGNAL",
+                            "APP_INSTANCE_ID",
+                            "GMP_APP_ID",
+                            "PROJECT_NUMBER",
+                            "COUNTRY",
+                            "LANGUAGE",
+                            "APP_VERSION",
+                            "TIME_ZONE",
+                            "PLATFORM_TYPE",
+                            "AUDIENCES",
+                            "USER_PROPERTIES",
+                            "SAGE_PREDICTIONS",
+                            "TOPICS",
+                            "ACTUAL_TIME",
+                            "ABT_EXPERIMENTS",
+                            "SAGE_INTERVENTIONS",
+                            "DEVICE_MODEL",
+                            "LAST_USER_ENGAGEMENT_TIME",
+                            "FIRST_OPEN_TIME",
+                            "OS_VERSION",
+                            "TIME_ZONE_OFFSET",
+                            "LAST_ANALYTICS_REPORT_TIME",
+                            "OPTIMAL_HOUR_OF_DAY",
+                            "CUSTOM_AUDIENCES",
+                            "SAGE_SCORES",
+                            "BROWSER",
+                            "BROWSER_VERSION",
+                            "OPERATING_SYSTEM",
+                            "DEVICE_CATEGORY"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "service": {
+                    "description": "The service performing the request.",
+                    "enum": [
+                        "UNKNOWN",
+                        "AUTH",
+                        "CRASH",
+                        "NOTIFICATIONS",
+                        "REMOTE_CONFIG",
+                        "FUNCTIONS",
+                        "SAGE",
+                        "IN_APP_MESSAGING",
+                        "DIGITAL_GOODS"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts.",
+                        "Bitmask for Firebase Auth (Firebear/Users)",
+                        "Bitmask for Firebase Crash Analysis",
+                        "Bitmask for Firebase Notifications (FCM)",
+                        "Bitmask for Firebase Remote Config",
+                        "Bitmask for Firebase Functions",
+                        "Bitmask for Sage",
+                        "Bitmask for In-App Messaging",
+                        "Bitmask for Digital Goods"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GetSignalEnumerationsResponse": {
+            "description": "Response message for getting targeting signal enumerations of given Firebase\nproject / app.",
+            "id": "GetSignalEnumerationsResponse",
+            "properties": {
+                "appSignalEnumerations": {
+                    "description": "For each requested app, return a AppSignalEnumerations. The\ngmp app ids in the request would be copied into\nAppSignalEnumerations.gmp_app_id, so that the caller can get the mapping.\n\nThis list should have exactly the same length as\nGetSignalEnumerationsRequest.gmp_app_ids.\n\nIf a gmp app id doesn't have enumerations, there will also be a\nAppSignalEnumerations in the response which gmp_app_id will be populated.",
+                    "items": {
+                        "$ref": "AppSignalEnumerations"
+                    },
+                    "type": "array"
+                },
+                "gaEnabled": {
+                    "description": "This bit explicitly indicates GA is enabled or disabled for the Firebase\nproject.\nNOTE : This is NOT the GA data sharing bit.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "LastUserEngagementTimeCondition": {
+            "description": "A condition to target by last user engagement time. This condition is\nevaluated against the last user engagement timestamp collected by Google\nAnalytics.",
+            "id": "LastUserEngagementTimeCondition",
+            "properties": {
+                "endOpenOffsetDays": {
+                    "description": "Optional\nEnd time offset of a time range(Open) at day granularity,\nend_time = current_time - end_open_offset_days.\ngranularity. Value should be integer, with minimum value as\nzero. This number must be smaller than start_closed_offset_days.\nThis value must be specified if operator is EARLIER or BETWEEN.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "operator": {
+                    "description": "Required",
+                    "enum": [
+                        "UNKNOWN",
+                        "EARLIER",
+                        "LATER_OR_EQUAL",
+                        "BETWEEN"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "The actual last user engagement time is earlier than the given end time.\nIn this case, the end_open_offset_days field below must be specified.",
+                        "The actual last user engagement time is later than or equal to the given\nstart time. In this case, the start_closed_offset_days field below must\nbe specified.",
+                        "The actual last user engagement time is between the given start\ntime(closed) and end time(open). In this case, both the\nstart_closed_offset_days and end_open_offset_days fields below must be\nspecified."
+                    ],
+                    "type": "string"
+                },
+                "startClosedOffsetDays": {
+                    "description": "Optional\nStart time offset of a time range(Closed) at day granularity,\nstart_time = current_time - start_closed_offset_days\nValue should be an integer, with minimum value as one.\nThis number must be bigger than end_open_offset_days.\nThis value must be specified if operator is LATER_OR_EQUAL or BETWEEN.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "NotCondition": {
+            "description": "NOT of a sub-condition.",
+            "id": "NotCondition",
+            "properties": {
+                "condition": {
+                    "$ref": "Condition",
+                    "description": "Required. It's an error not to have a sub condition."
+                }
+            },
+            "type": "object"
+        },
+        "OperatingSystemAndVersionCondition": {
+            "description": "A condition to target users by operating system and operating system version.",
+            "id": "OperatingSystemAndVersionCondition",
+            "properties": {
+                "operator": {
+                    "description": "Required",
+                    "enum": [
+                        "UNKNOWN",
+                        "IN_ONE",
+                        "IN_NONE"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "The actual operating system and OS version is in at least one of the\ngiven sub-condition TargetOperatingSystemAndVersions.",
+                        "The actual operating system and OS version in in none of the given\nsub-condition TargetOperatingSystemAndVersions."
+                    ],
+                    "type": "string"
+                },
+                "targetOperatingSystemAndVersions": {
+                    "description": "A list of sub-conditions of operating system and OS version.\nTargeting server accepts at least 1 and at most 50 values in this list.",
+                    "items": {
+                        "$ref": "TargetOperatingSystemAndVersion"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "OperatingSystemEnumeration": {
+            "description": "A message that contains a list of distinct operating systems.",
+            "id": "OperatingSystemEnumeration",
+            "properties": {
+                "operatingSystems": {
+                    "description": "Values in the list are returned in descending order of prevalence.",
+                    "items": {
+                        "$ref": "OperatingSystemValue"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "OperatingSystemValue": {
+            "description": "A single operating system value and its count.",
+            "id": "OperatingSystemValue",
+            "properties": {
+                "count": {
+                    "description": "count of this value in the requested app/project.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "A string to present the name of operating system.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "OrCondition": {
+            "description": "OR of sub-conditions.\nAn OR condition is true if any of its subconditions evaluate to true.\nIf there is an exception evaluating any of its subconditions, that\nsubcondition can be ignored if any other subcondition is true.",
+            "id": "OrCondition",
+            "properties": {
+                "conditions": {
+                    "description": "Evaluated in given order with short circuit of true.\nShould contain at least one condition and no more than 100 conditions.",
+                    "items": {
+                        "$ref": "Condition"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "OsTypeCondition": {
+            "description": "A condition that compares the device OS to the target OS.\nEvaluation:\nIf the OS Type cannot be determined, then the condition should be\nevaluated to false.",
+            "id": "OsTypeCondition",
+            "properties": {
+                "operator": {
+                    "description": "Required. The comparison operator.",
+                    "enum": [
+                        "UNKNOWN_OPERATOR",
+                        "EQUALS",
+                        "NOT_EQUALS"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "Condition will evaluate to true if actual OS type is\nthe same as target OS type.",
+                        "Condition will evaluate to true if actual OS type is\ndifferent than the target OS type."
+                    ],
+                    "type": "string"
+                },
+                "targetOsType": {
+                    "description": "Required. The target OS Type.",
+                    "enum": [
+                        "UNKNOWN_OS_TYPE",
+                        "ANDROID",
+                        "IOS",
+                        "WEB"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "Android devices.",
+                        "iOS devices.",
+                        "Web apps.\nAdd more OS types here if needed."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "OsVersionCondition": {
+            "description": "A condition that compares the device OS version to the targeting OS version.\nIf the OS version of the device is not determined, evaluate to false.",
+            "id": "OsVersionCondition",
+            "properties": {
+                "operator": {
+                    "description": "Required\nOs version operator",
+                    "enum": [
+                        "UNKNOWN",
+                        "STRING_CONTAINS",
+                        "STRING_DOES_NOT_CONTAIN",
+                        "STRING_EXACTLY_MATCHES",
+                        "NUMERIC_LESS_THAN",
+                        "NUMERIC_LESS_EQUAL",
+                        "NUMERIC_EQUAL",
+                        "NUMERIC_NOT_EQUAL",
+                        "NUMERIC_GREATER_THAN",
+                        "NUMERIC_GREATER_EQUAL"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "Evaluate to true if at least one of the targeting OS versions is a\nsubstring of the actual OS version.",
+                        "Evaluate to true if none of the targeting OS version is a substring of\nthe actual OS version.",
+                        "Evaluate to true if the actual OS version exactly equals to one of the\ntargeting OS versions.\nTODO(arete) Add regex match/not match",
+                        "The actual value is less than the target value.",
+                        "The actual value is less than or equal to the target value.",
+                        "The actual value is equal to the target value.",
+                        "The actual value is not equal to the target value.",
+                        "The actual value is greater than the target value.",
+                        "The actual value is greater than or equal to the target value."
+                    ],
+                    "type": "string"
+                },
+                "targetingOsVersions": {
+                    "description": "Required. A list of target OS versions.\nTargeting service accepts at least 1 and at most 50 values in this list.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "OsVersionEnumeration": {
+            "description": "A message that contains a list of distinct os versions.",
+            "id": "OsVersionEnumeration",
+            "properties": {
+                "osVersions": {
+                    "description": "Values in the list are returned in descending order of prevalence.",
+                    "items": {
+                        "$ref": "OsVersionValue"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "OsVersionValue": {
+            "description": "A single OS version value and its count.",
+            "id": "OsVersionValue",
+            "properties": {
+                "count": {
+                    "description": "count of this value in the requested app/project.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "A OS version string.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PercentCondition": {
+            "description": "NOTE(tal): this atom is not allowed in ABT conditions.\n\nA condition that compares the instance pseudo\nrandom percentile to a given limit.",
+            "id": "PercentCondition",
+            "properties": {
+                "microPercent": {
+                    "description": "Required. The limit of percentiles to target in micro-percents. The value must be\nin the range [0 and 100000000].",
+                    "format": "uint32",
+                    "type": "integer"
+                },
+                "operator": {
+                    "description": "Required.",
+                    "enum": [
+                        "UNKNOWN",
+                        "LESS_OR_EQUAL",
+                        "GREATER_THAN"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "Target a percentage less than or equal to the target percent.",
+                        "Target a percentage greater than the target percent."
+                    ],
+                    "type": "string"
+                },
+                "seed": {
+                    "description": "Optional. The seed used when evaluating the hash function to map an instance to\na value in the hash space. This is a string which can have 0 - 32\ncharacters and can contain ASCII characters [-_.0-9a-zA-Z].\nThe string is case-sensitive.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PredictionScoresCondition": {
+            "description": "A condition that checks if the Predictions user_percentile score\nis between two target values.",
+            "id": "PredictionScoresCondition",
+            "properties": {
+                "operator": {
+                    "description": "Required",
+                    "enum": [
+                        "UNKNOWN",
+                        "BETWEEN"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "The actual value is between the lower percentile (closed) and the\nupper percentile (closed)."
+                    ],
+                    "type": "string"
+                },
+                "predictionId": {
+                    "description": "The prediction type to compare against",
+                    "type": "string"
+                },
+                "userPercentileLower": {
+                    "description": "The lower bound for the condition",
+                    "format": "float",
+                    "type": "number"
+                },
+                "userPercentileUpper": {
+                    "description": "The upper bound for the condition",
+                    "format": "float",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "PredictionsCondition": {
+            "description": "A condition to target by predictions on individual app instances.\nUses signals generated by Firebase Sage.",
+            "id": "PredictionsCondition",
+            "properties": {
+                "operator": {
+                    "description": "Required.",
+                    "enum": [
+                        "UNKNOWN",
+                        "IN_AT_LEAST_ONE",
+                        "IN_ALL"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "The condition will be true if the App Instance is a member of\nat least one of the target predictions in the set.",
+                        "The condition will be true if the App Instance is a member of every\ntarget prediction in the set."
+                    ],
+                    "type": "string"
+                },
+                "predictionTargets": {
+                    "description": "Required. For V1, only supporting one target.\nOrder doesn't matter.",
+                    "items": {
+                        "$ref": "PredictionsTarget"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "PredictionsTarget": {
+            "description": "Represents an expected value for a given prediction id.",
+            "id": "PredictionsTarget",
+            "properties": {
+                "predictionRiskProfileId": {
+                    "description": "Required. Unique ID from Sage that identifies an event + risk profile combination.\nThe implicit operation for each target is IS_POSITIVE.\n\nFor any operator, if this list contains a risk profile id, which does not\nexist, then the condition is evaluated as false.\n",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SingleSignalEnumerations": {
+            "description": "A message that presents value enumeration of a single targeting signal.",
+            "id": "SingleSignalEnumerations",
+            "properties": {
+                "appVersionEnumeration": {
+                    "$ref": "AppVersionEnumeration",
+                    "description": "Used for app versions"
+                },
+                "audienceMetadataEnumeration": {
+                    "$ref": "AudienceMetadataEnumeration",
+                    "description": "Used for analytics audiences"
+                },
+                "browserEnumeration": {
+                    "$ref": "BrowserEnumeration",
+                    "description": "Used for browser enumeration"
+                },
+                "customAudienceEnumeration": {
+                    "$ref": "CustomAudienceEnumeration",
+                    "description": "Used for custom audiences"
+                },
+                "deviceCategoryEnumeration": {
+                    "$ref": "DeviceCategoryEnumeration",
+                    "description": "Used for device category enumeration"
+                },
+                "deviceCountryEnumeration": {
+                    "$ref": "DeviceCountryEnumeration",
+                    "description": "Used for device country code"
+                },
+                "deviceLanguageEnumeration": {
+                    "$ref": "DeviceLanguageEnumeration",
+                    "description": "Used for device language."
+                },
+                "deviceModelEnumeration": {
+                    "$ref": "DeviceModelEnumeration",
+                    "description": "Used for device model"
+                },
+                "operatingSystemEnumeration": {
+                    "$ref": "OperatingSystemEnumeration",
+                    "description": "Used for operating system enumeration"
+                },
+                "osVersionEnumeration": {
+                    "$ref": "OsVersionEnumeration",
+                    "description": "Used for os version"
+                },
+                "signal": {
+                    "description": "Indicates which signal is this enumeration for. It must be one of the\nsignal codes in the request.",
+                    "enum": [
+                        "UNKNOWN_TARGETING_SIGNAL",
+                        "APP_INSTANCE_ID",
+                        "GMP_APP_ID",
+                        "PROJECT_NUMBER",
+                        "COUNTRY",
+                        "LANGUAGE",
+                        "APP_VERSION",
+                        "TIME_ZONE",
+                        "PLATFORM_TYPE",
+                        "AUDIENCES",
+                        "USER_PROPERTIES",
+                        "SAGE_PREDICTIONS",
+                        "TOPICS",
+                        "ACTUAL_TIME",
+                        "ABT_EXPERIMENTS",
+                        "SAGE_INTERVENTIONS",
+                        "DEVICE_MODEL",
+                        "LAST_USER_ENGAGEMENT_TIME",
+                        "FIRST_OPEN_TIME",
+                        "OS_VERSION",
+                        "TIME_ZONE_OFFSET",
+                        "LAST_ANALYTICS_REPORT_TIME",
+                        "OPTIMAL_HOUR_OF_DAY",
+                        "CUSTOM_AUDIENCES",
+                        "SAGE_SCORES",
+                        "BROWSER",
+                        "BROWSER_VERSION",
+                        "OPERATING_SYSTEM",
+                        "DEVICE_CATEGORY"
+                    ],
+                    "enumDescriptions": [
+                        "Per go/protodosdonts",
+                        "The Instance Id of the App Install in base64 encoded string format\nwith no padding. eg. \"foAfooo7kzs\".",
+                        "The GMP App Id of the instance.\neg. \"1:708293126705:ios:a750b5ff97fbf47d\".",
+                        "The project number of the instance",
+                        "Targeting signal Country Code.\nThe 2 letter Country code as defined in ISO 3166-1 alpha-2 format.\nFor example \"us\". This is case-insensitive.",
+                        "Targeting signal Language Code\nDevice language in the BCP47 format.\nFor example \"en-US\". This is case-insensitive.",
+                        "The App version.\nAndroid - versionName - http://shortn/_SXW3Wxg972\niOS - CFBundleVersion - http://shortn/_Z1l0Lv8Kq6",
+                        "Time zone in Olson ID format (eg: \"America/Los_Angeles\"). Case-sensitive.",
+                        "The Platform Type of the App Instance.\nCorresponds to OsTypeCondition.OsType.",
+                        "A set of Audience names that this App Instance belongs to.\nFormat: InstanceAudiences proto below.",
+                        "A set of user property key-value pairs that are associated with the\nApp Instance.\nFormat: InstanceUserProperties proto below.",
+                        "A set of Sage Predictions for this App Instance.\nFormat: InstancePredictions proto below.",
+                        "A set of Notification topics that the App Instance belongs to.\nFormat: InstanceTopics proto below.",
+                        "Time of evaluation. Represented by milliseconds since epoch.",
+                        "A set of ABT experiments being performed on an App Instance.",
+                        "A set of Sage Interventions for this App Instance.\nFormat: InstanceInterventions proto below.",
+                        "Targeting signal Device Model.",
+                        "The user's last engagement time. Represented by milliseconds since epoch.",
+                        "Time of instance first open",
+                        "The os version of the device where the app instance is installed.",
+                        "The Timezone Offset is the offset from UTC in seconds.",
+                        "The timestamp of last Google Analytics report to Registry.\nRepresented by milliseconds since epoch.",
+                        "The optimal hour of day to interact with the user.\nThis value is computed/predicted by the Sage machine learning pipelines.\nExpected to be in [0,23] interval.",
+                        "A set of audiences that an installation is a member of, as defined by\ndevelopers and imported into Firebase.",
+                        "A set of Sage Scores for this App Instance.\nFormat: InstancePredictionScores proto below.",
+                        "Name of the browser used to access a web app.",
+                        "Version of the browser used.",
+                        "OS of the device used to access the app.",
+                        "Type of the device used to access the app."
+                    ],
+                    "type": "string"
+                },
+                "timezoneOffsetEnumeration": {
+                    "$ref": "TimezoneOffsetEnumeration",
+                    "description": "Used for timezone offset"
+                },
+                "userPropertyEnumeration": {
+                    "$ref": "UserPropertyEnumeration",
+                    "description": "Used for analytics user property"
+                }
+            },
+            "type": "object"
+        },
+        "TargetBrowserAndVersion": {
+            "description": "Sub-condition to describe the target browser and browser version.",
+            "id": "TargetBrowserAndVersion",
+            "properties": {
+                "operator": {
+                    "description": "Optional",
+                    "enum": [
+                        "UNKNOWN",
+                        "STRING_CONTAINS",
+                        "STRING_DOES_NOT_CONTAIN",
+                        "STRING_EXACTLY_MATCHES",
+                        "NUMERIC_LESS_THAN",
+                        "NUMERIC_LESS_EQUAL",
+                        "NUMERIC_EQUAL",
+                        "NUMERIC_NOT_EQUAL",
+                        "NUMERIC_GREATER_THAN",
+                        "NUMERIC_GREATER_EQUAL"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "The given target_browser_version is a substring of the\nactual browser version.",
+                        "The given target_browser_version is not a substring of the actual\nbrowser version.",
+                        "The actual browser version exactly matches one of the given\ntarget_browser_versions.",
+                        "The actual value is less than the target value.",
+                        "The actual value is less than or equal to the target value.",
+                        "The actual value is equal to the target value.",
+                        "The actual value is not equal to the target value.",
+                        "The actual value is greater than the target value.",
+                        "The actual value is greater than or equal to the target value."
+                    ],
+                    "type": "string"
+                },
+                "targetBrowser": {
+                    "description": "Required",
+                    "type": "string"
+                },
+                "targetVersion": {
+                    "description": "Optional",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TargetDateTimeZone": {
+            "description": "NOTE(tal): this atom is not used in ABT/FN and ABT/RC  I/O 2017 launch\nand it will rejected by the ABT condition validator.\n\nA representation of Date-time and timezone offset.",
+            "id": "TargetDateTimeZone",
+            "properties": {
+                "date": {
+                    "$ref": "Date",
+                    "description": "Required. A date object that must have all year, month, and day fields set."
+                },
+                "time": {
+                    "$ref": "TimeOfDay",
+                    "description": "Required. A time of the day."
+                },
+                "timeZone": {
+                    "description": "Optional. Time zone in Olson ID format (eg: \"America/Los_Angeles\") if the condition\nshould be evaluated according to a standard timezone. If it should be\nevaluated at the client time zone, this field must be empty.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TargetOperatingSystemAndVersion": {
+            "description": "Sub-condition to describe the target operating system and operating system\nversion.",
+            "id": "TargetOperatingSystemAndVersion",
+            "properties": {
+                "operator": {
+                    "description": "Optional",
+                    "enum": [
+                        "UNKNOWN",
+                        "STRING_CONTAINS",
+                        "STRING_DOES_NOT_CONTAIN",
+                        "STRING_EXACTLY_MATCHES",
+                        "NUMERIC_LESS_THAN",
+                        "NUMERIC_LESS_EQUAL",
+                        "NUMERIC_EQUAL",
+                        "NUMERIC_NOT_EQUAL",
+                        "NUMERIC_GREATER_THAN",
+                        "NUMERIC_GREATER_EQUAL"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "The given target_os_version is a substring of the\nactual operating system version.",
+                        "The given target_os_version is not a substring of the actual os\nversion.",
+                        "The actual os version exactly matches one of the given\ntarget_os_versions.\nThe actual value is less than the target value.",
+                        "The actual value is less than the target value.",
+                        "The actual value is less than or equal to the target value.",
+                        "The actual value is equal to the target value.",
+                        "The actual value is not equal to the target value.",
+                        "The actual value is greater than the target value.",
+                        "The actual value is greater than or equal to the target value."
+                    ],
+                    "type": "string"
+                },
+                "targetOperatingSystem": {
+                    "description": "Required",
+                    "type": "string"
+                },
+                "targetVersion": {
+                    "description": "Optional",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TimeOfDay": {
+            "description": "Represents a time of day. The date and time zone are either not significant\nor are specified elsewhere. An API may choose to allow leap seconds. Related\ntypes are google.type.Date and `google.protobuf.Timestamp`.",
+            "id": "TimeOfDay",
+            "properties": {
+                "hours": {
+                    "description": "Hours of day in 24 hour format. Should be from 0 to 23. An API may choose\nto allow the value \"24:00:00\" for scenarios like business closing time.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "minutes": {
+                    "description": "Minutes of hour of day. Must be from 0 to 59.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "nanos": {
+                    "description": "Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "seconds": {
+                    "description": "Seconds of minutes of the time. Must normally be from 0 to 59. An API may\nallow the value 60 if it allows leap-seconds.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "TimezoneOffsetEnumeration": {
+            "description": "A message that contains a list of distinct timezone offsets.",
+            "id": "TimezoneOffsetEnumeration",
+            "properties": {
+                "timezoneOffsets": {
+                    "description": "Values in the list are returned in descending order of prevalence.",
+                    "items": {
+                        "$ref": "TimezoneOffsetValue"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "TimezoneOffsetValue": {
+            "description": "A single timezone offset value and its count.",
+            "id": "TimezoneOffsetValue",
+            "properties": {
+                "count": {
+                    "description": "Count of this value in the requested app/project.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "Timezone offset value, which is offset of seconds from UTC time zone.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "TopicCondition": {
+            "description": "A condition that compares if the instance belongs to the Topic.\nEvaluation:\nIf the membership to the topic cannot be determined or if the Topic does not\nexist, the condition should evaluate to false.\nSpecial restriction: As of Oct 2015, only use case NOTIFICATIONS\nsupports this condition.",
+            "id": "TopicCondition",
+            "properties": {
+                "topicName": {
+                    "description": "The topic name including prefix, e.g. \"/topics/whales\".\nA topic can span multiple apps.\nThis is case-sensitive. Maximum length for topic name is XYZ characters\nand minimum length is (9?).",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TrueCondition": {
+            "description": "This condition always evaluates to true.",
+            "id": "TrueCondition",
+            "properties": {},
+            "type": "object"
+        },
+        "UserPropertyEnumeration": {
+            "description": "A message that contains a list of user property value data sets.",
+            "id": "UserPropertyEnumeration",
+            "properties": {
+                "userProperties": {
+                    "description": "Each value in the list contains an entity ID and a list of user property\nvalues in descending order of prevalence.",
+                    "items": {
+                        "$ref": "UserPropertyValuesForSingleEntity"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "UserPropertyValue": {
+            "description": "A single user property value and its count.",
+            "id": "UserPropertyValue",
+            "properties": {
+                "count": {
+                    "description": "count of this value in the requested app/project",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "A user property value string.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UserPropertyValuesForSingleEntity": {
+            "description": "A message contains an user property entity ID and a list of distinct user\nproperty values associated to this user property.",
+            "id": "UserPropertyValuesForSingleEntity",
+            "properties": {
+                "entityId": {
+                    "description": "User property entity ID",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Name of this user property",
+                    "type": "string"
+                },
+                "userPropertyValues": {
+                    "description": "Values in the list are returned in descending order of count",
+                    "items": {
+                        "$ref": "UserPropertyValue"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Firebase Targeting Internal Management Dev Private API",
+    "version": "v1",
+    "version_module": true
+}

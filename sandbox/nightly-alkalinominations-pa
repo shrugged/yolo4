@@ -1,0 +1,832 @@
+{
+    "basePath": "",
+    "baseUrl": "https://nightly-alkalinominations-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Alkali Nominations",
+    "description": "Engage Nomination seeks to solve the process of finding and nominating the right contacts to an event by ensuring Google delivers the right events to the right people with the minimum burden on sales and marketing teams.",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://go/alkali",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "nightly_alkalinominations_pa_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "nightly_alkalinominations_pa_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "echo": {
+            "methods": {
+                "create": {
+                    "description": "Responds back with same message.",
+                    "flatPath": "v1/echo",
+                    "httpMethod": "POST",
+                    "id": "nightly_alkalinominations_pa_sandbox.echo.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/echo",
+                    "request": {
+                        "$ref": "CreateEchoRequest"
+                    },
+                    "response": {
+                        "$ref": "Echo"
+                    }
+                }
+            }
+        },
+        "events": {
+            "methods": {
+                "batchGetMetrics": {
+                    "description": "Retrieves aggregated metrics for a batch of events.",
+                    "flatPath": "v1/events:batchGetMetrics",
+                    "httpMethod": "GET",
+                    "id": "nightly_alkalinominations_pa_sandbox.events.batchGetMetrics",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "names": {
+                            "description": "Name of the events to retrieve metrics for.\nEvent names have the form `events/{event_id}`.",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/events:batchGetMetrics",
+                    "response": {
+                        "$ref": "BatchGetEventMetricsResponse"
+                    }
+                },
+                "create": {
+                    "description": "Create a new Event.\nOnly event admins can create a new event.",
+                    "flatPath": "v1/events",
+                    "httpMethod": "POST",
+                    "id": "nightly_alkalinominations_pa_sandbox.events.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/events",
+                    "request": {
+                        "$ref": "Event"
+                    },
+                    "response": {
+                        "$ref": "CreateEventResponse"
+                    }
+                },
+                "get": {
+                    "description": "Gets details of an event. Returns NOT_FOUND if the event does not exist.",
+                    "flatPath": "v1/events/{eventsId}",
+                    "httpMethod": "GET",
+                    "id": "nightly_alkalinominations_pa_sandbox.events.get",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "The name of the event to retrieve.\nEvent names have the form `events/{event_id}`.",
+                            "location": "path",
+                            "pattern": "^events/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "GetEventResponse"
+                    }
+                },
+                "list": {
+                    "description": "Lists events as per the provided filter.",
+                    "flatPath": "v1/events",
+                    "httpMethod": "GET",
+                    "id": "nightly_alkalinominations_pa_sandbox.events.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "filter": {
+                            "description": "The filter expression for listing events.\nSyntax and grammar are based on go/filtering and\ncloud/api/filter/filter.proto.\n",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/events",
+                    "response": {
+                        "$ref": "ListEventsResponse"
+                    }
+                },
+                "patch": {
+                    "description": "Updates an event. Returns INVALID_ARGUMENT for an invalid event name in the\nrequest.",
+                    "flatPath": "v1/events/{eventsId}",
+                    "httpMethod": "PATCH",
+                    "id": "nightly_alkalinominations_pa_sandbox.events.patch",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Unique system generated identifier for an event.\nEvent names have the form `events/{event_id}`.",
+                            "location": "path",
+                            "pattern": "^events/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "updateMask": {
+                            "description": "Paths of the fields to be updated in the event.\nhttps://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask",
+                            "format": "google-fieldmask",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "request": {
+                        "$ref": "Event"
+                    },
+                    "response": {
+                        "$ref": "UpdateEventResponse"
+                    }
+                }
+            },
+            "resources": {
+                "nominationLeads": {
+                    "methods": {
+                        "batchGetMetrics": {
+                            "description": "Retrieves aggregated metrics for batch of Nomination leads.",
+                            "flatPath": "v1/events/{eventsId}/nominationLeads:batchGetMetrics",
+                            "httpMethod": "GET",
+                            "id": "nightly_alkalinominations_pa_sandbox.events.nominationLeads.batchGetMetrics",
+                            "parameterOrder": [
+                                "eventsId"
+                            ],
+                            "parameters": {
+                                "eventsId": {
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "names": {
+                                    "description": "Name of the Nomination lead to retrieve metrics for.\nNomination lead names have the form\n\"events/{event_id}/nominationleads/{nomination_lead_id}\".",
+                                    "location": "query",
+                                    "repeated": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/events/{eventsId}/nominationLeads:batchGetMetrics",
+                            "response": {
+                                "$ref": "BatchGetNominationLeadMetricsResponse"
+                            }
+                        },
+                        "create": {
+                            "description": "Create a new Nomination Lead.",
+                            "flatPath": "v1/events/{eventsId}/nominationLeads",
+                            "httpMethod": "POST",
+                            "id": "nightly_alkalinominations_pa_sandbox.events.nominationLeads.create",
+                            "parameterOrder": [
+                                "eventName"
+                            ],
+                            "parameters": {
+                                "eventName": {
+                                    "description": "Resource name of the Event for which Nomination lead will be created.\nFor example: \"events/{event_id}\".",
+                                    "location": "path",
+                                    "pattern": "^events/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+eventName}/nominationLeads",
+                            "request": {
+                                "$ref": "NominationLead"
+                            },
+                            "response": {
+                                "$ref": "CreateNominationLeadResponse"
+                            }
+                        },
+                        "get": {
+                            "description": "Gets details of an Nomination Lead. Returns NOT_FOUND if the Nomination\nLead does not exist.",
+                            "flatPath": "v1/events/{eventsId}/nominationLeads/{nominationLeadsId}",
+                            "httpMethod": "GET",
+                            "id": "nightly_alkalinominations_pa_sandbox.events.nominationLeads.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The name of the Nomination lead to retrieve.\nFor example: \"events/{event_id}/nominationLeads/{nomination_lead_id}\".",
+                                    "location": "path",
+                                    "pattern": "^events/[^/]+/nominationLeads/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "response": {
+                                "$ref": "GetNominationLeadResponse"
+                            }
+                        },
+                        "list": {
+                            "description": "Lists Nomination Leads as per the provided filter.",
+                            "flatPath": "v1/events/{eventsId}/nominationLeads",
+                            "httpMethod": "GET",
+                            "id": "nightly_alkalinominations_pa_sandbox.events.nominationLeads.list",
+                            "parameterOrder": [
+                                "eventName"
+                            ],
+                            "parameters": {
+                                "eventName": {
+                                    "description": "Event resource name which is parent resource of Nomination lead.\nNomination leads will be searched for this event only.\nEvent name has the form \"events/{event_id}\"",
+                                    "location": "path",
+                                    "pattern": "^events/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "filter": {
+                                    "description": "The filter expression for listing Nomination leads.\nSyntax and grammar are based on go/filtering and\ncloud/api/filter/filter.proto.\n",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+eventName}/nominationLeads",
+                            "response": {
+                                "$ref": "ListNominationLeadsResponse"
+                            }
+                        },
+                        "patch": {
+                            "description": "Updates a Nomination lead. Returns INVALID_ARGUMENT for an invalid\nNominationLead name in the request.",
+                            "flatPath": "v1/events/{eventsId}/nominationLeads/{nominationLeadsId}",
+                            "httpMethod": "PATCH",
+                            "id": "nightly_alkalinominations_pa_sandbox.events.nominationLeads.patch",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Unique system generated identifier for an event.\nEvent names have the form\n`events/{event_id}/nominaton_leads/{nomination_lead_id}`.\nnomination_lead_id is a hash of {event_id, team.name and company.name).",
+                                    "location": "path",
+                                    "pattern": "^events/[^/]+/nominationLeads/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "updateMask": {
+                                    "description": "Paths of the fields to be updated in the Nomination lead.\nhttps://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask",
+                                    "format": "google-fieldmask",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "request": {
+                                "$ref": "NominationLead"
+                            },
+                            "response": {
+                                "$ref": "UpdateNominationLeadResponse"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190918",
+    "rootUrl": "https://nightly-alkalinominations-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "BatchGetEventMetricsResponse": {
+            "description": "Response message for EventService.BatchGetMetrics.",
+            "id": "BatchGetEventMetricsResponse",
+            "properties": {
+                "eventMetricsByName": {
+                    "additionalProperties": {
+                        "$ref": "EventMetrics"
+                    },
+                    "description": "Map of event name to event metrics.",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "BatchGetNominationLeadMetricsResponse": {
+            "description": "Response message for NominationLeadService.BatchGetMetrics.",
+            "id": "BatchGetNominationLeadMetricsResponse",
+            "properties": {
+                "nominationLeadMetricsByName": {
+                    "additionalProperties": {
+                        "$ref": "NominationLeadMetrics"
+                    },
+                    "description": "Map of Nomination lead name to event metrics.",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "Company": {
+            "description": "Wrapper over CE Sales companies, retaining only the info relevant to\nNominations.\ncs/symbol:google.internal.alkali.applications.ecssales.v1.SalesCrmCompany;",
+            "id": "Company",
+            "properties": {
+                "displayName": {
+                    "description": "A user readable name for the company.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Unique identifier for a SalesCrmCompany in ECS Sales API.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CreateEchoRequest": {
+            "description": "Echo request.",
+            "id": "CreateEchoRequest",
+            "properties": {
+                "in": {
+                    "description": "Input message to echo.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CreateEventResponse": {
+            "description": "Response message for EventService.CreateEvent.",
+            "id": "CreateEventResponse",
+            "properties": {
+                "event": {
+                    "$ref": "Event",
+                    "description": "The newly created event."
+                }
+            },
+            "type": "object"
+        },
+        "CreateNominationLeadResponse": {
+            "description": "Response message for NominationLeadService.CreateNominationLead.",
+            "id": "CreateNominationLeadResponse",
+            "properties": {
+                "nominationLead": {
+                    "$ref": "NominationLead",
+                    "description": "The newly created Nomination lead."
+                }
+            },
+            "type": "object"
+        },
+        "Echo": {
+            "description": "Echo response.",
+            "id": "Echo",
+            "properties": {
+                "out": {
+                    "description": "Echoed input message.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Event": {
+            "description": "Represents a Google sales / marketing event.",
+            "id": "Event",
+            "properties": {
+                "createTime": {
+                    "description": "Epoch timestamp when the event was first created.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "createdBy": {
+                    "description": "Email of the individual who created this event.",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "Description for the event.",
+                    "type": "string"
+                },
+                "endTime": {
+                    "description": "Epoch timestamp for end of the event.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "internalStatus": {
+                    "description": "Internal status of the Event.",
+                    "enum": [
+                        "INTERNAL_STATUS_UNSPECIFIED",
+                        "ACTIVE",
+                        "DELETED"
+                    ],
+                    "enumDescriptions": [
+                        "Undefined. Default.",
+                        "Event is active.",
+                        "Event has been deleted."
+                    ],
+                    "type": "string"
+                },
+                "lastUpdateTime": {
+                    "description": "Epoch timestamp when the event was last updated.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "link": {
+                    "description": "Link to the home page of the event, which users can visit to get more\ndetails about the event.\nExample: https://events.google.com/io/",
+                    "type": "string"
+                },
+                "location": {
+                    "description": "Location of the event. This is a free-form text field, only used for\ndisplay purposes.\nExample: 'Opera House, Sydney'",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Unique system generated identifier for an event.\nEvent names have the form `events/{event_id}`.",
+                    "type": "string"
+                },
+                "nominationCriteria": {
+                    "description": "Free text description of nomination criteria. Used only for display\npurposes.",
+                    "type": "string"
+                },
+                "nominationExpireTime": {
+                    "description": "Epoch timestamp for expiry of adding nominations to the event.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "primaryAdmin": {
+                    "description": "Email of the primary admin of the event.\nOnly an individual user is supported for now. Support for Google groups\nwill be added later.",
+                    "type": "string"
+                },
+                "secondaryAdmins": {
+                    "description": "Emails of secondary admins of the event.\nOnly an individual user is supported for now. Support for Google groups\nwill be added later.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "startTime": {
+                    "description": "Epoch timestamp for start of the event.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "targetAttendance": {
+                    "description": "Target number of attendees for the event.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "targetJobLevels": {
+                    "description": "Jobs levels targeted for the Event.\nThis is a suggestive list for display purposes and for contact\nrecommendations. This is not an enforced list.",
+                    "enumDescriptions": [
+                        "Unknown",
+                        "C level",
+                        "Senior management",
+                        "Middle management",
+                        "Day to day"
+                    ],
+                    "items": {
+                        "enum": [
+                            "JOB_LEVEL_UNKNOWN",
+                            "JOB_LEVEL_C_LEVEL",
+                            "JOB_LEVEL_SENIOR_MANAGEMENT",
+                            "JOB_LEVEL_MIDDLE_MANAGEMENT",
+                            "JOB_LEVEL_DAY_TO_DAY"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "targetNominations": {
+                    "description": "Target number of nominations for the event.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "User friendly name for the event.",
+                    "type": "string"
+                },
+                "userDefinedStatus": {
+                    "description": "Business relevant user defined status of the event.",
+                    "enum": [
+                        "USER_DEFINED_STATUS_UNSPECIFIED",
+                        "OPEN_FOR_NOMINATIONS",
+                        "CLOSED_FOR_NOMINATIONS",
+                        "CANCELLED",
+                        "COMPLETE"
+                    ],
+                    "enumDescriptions": [
+                        "Undefined. Default.",
+                        "Event is accepting nominations.",
+                        "Event is no longer accepting nominations.",
+                        "Event is cancelled and no longer accepting nominations.",
+                        "Event has been conducted and completed successfully."
+                    ],
+                    "type": "string"
+                },
+                "userPermissions": {
+                    "description": "Permissions the requesting user has for the Event.",
+                    "enum": [
+                        "USER_PERMISSIONS_UNSPECIFIED",
+                        "EDIT",
+                        "READ"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified. Default value.",
+                        "The requesting user has edit permissions for the event.",
+                        "The requesting user has read permissions for the event."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "EventMetrics": {
+            "description": "Aggregated metrics for the Event.",
+            "id": "EventMetrics",
+            "properties": {
+                "confirmedAttending": {
+                    "description": "Count of unique contacts who've confirmed their attendance.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "confirmedAttendingFromRequestor": {
+                    "description": "Count of unique contacts nominated by the requestor who've confirmed their\nattendance.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "nominationsFromRequestor": {
+                    "description": "Count of unique contacts nominated by the requestor.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "totalNominations": {
+                    "description": "Total unique contacts in the event.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Flag": {
+            "description": "Flags that can be applied to Nomination lead.\nThis represents both MANUAL and AUTOMATED flagging.",
+            "id": "Flag",
+            "properties": {
+                "createTime": {
+                    "description": "Epoch timestamp when the Flag was created.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "createdBy": {
+                    "description": "Email of the creator.",
+                    "type": "string"
+                },
+                "creationNote": {
+                    "description": "Note explaing the reason of flagging, added at time of flagging .",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "Type of the flag.",
+                    "enum": [
+                        "FLAG_TYPE_UNDEFINED",
+                        "MANUAL",
+                        "COMPANY_TEAM_INVALID",
+                        "CREATED_BY_SELLER"
+                    ],
+                    "enumDescriptions": [
+                        "Undefined. Default.",
+                        "Manually flagged by a user.",
+                        "<Company,Team> mapping is not present in Connect Sales crm.",
+                        "Nomination lead created by Seller instead of Admin."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GetEventResponse": {
+            "description": "Response message for EventService.GetEvent.",
+            "id": "GetEventResponse",
+            "properties": {
+                "event": {
+                    "$ref": "Event",
+                    "description": "The requested event."
+                }
+            },
+            "type": "object"
+        },
+        "GetNominationLeadResponse": {
+            "description": "Response message for NominationLeadService.GetNominationLead.",
+            "id": "GetNominationLeadResponse",
+            "properties": {
+                "nominationLead": {
+                    "$ref": "NominationLead",
+                    "description": "The requested Nomination lead."
+                }
+            },
+            "type": "object"
+        },
+        "ListEventsResponse": {
+            "description": "Response message for EventService.ListEvents.",
+            "id": "ListEventsResponse",
+            "properties": {
+                "events": {
+                    "description": "Events matching the filter expression provided.",
+                    "items": {
+                        "$ref": "Event"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListNominationLeadsResponse": {
+            "description": "Response message for NominationLeadService.ListNominationLeads.",
+            "id": "ListNominationLeadsResponse",
+            "properties": {
+                "nominationLeads": {
+                    "description": "Nomination leads matching the filter expression provided.",
+                    "items": {
+                        "$ref": "NominationLead"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "NominationLead": {
+            "description": "Represents a Nomination lead(aka Nomination Request) i.e. requests to sales\nteams to nominate Contacts from companies.",
+            "id": "NominationLead",
+            "properties": {
+                "company": {
+                    "$ref": "Company",
+                    "description": "Details of the company corresponding to the Nomination Lead."
+                },
+                "createTime": {
+                    "description": "Epoch timestamp when the Nomination lead was created.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "createdBy": {
+                    "description": "Email of the individual who created this Nomination lead.",
+                    "type": "string"
+                },
+                "creationNote": {
+                    "description": "Note explaining why this Nomination lead was created.\nCreation note will only be present for manually created Nomination leads\nand not for leads created via bulk uploads.",
+                    "type": "string"
+                },
+                "flags": {
+                    "description": "List of Flags on this Nomination lead.\nIt is guaranteed that at most there will be one record per Flag.Type.",
+                    "items": {
+                        "$ref": "Flag"
+                    },
+                    "type": "array"
+                },
+                "internalStatus": {
+                    "description": "Internal status of the Nomination lead.",
+                    "enum": [
+                        "INTERNAL_STATUS_UNSPECIFIED",
+                        "ACTIVE",
+                        "DELETED"
+                    ],
+                    "enumDescriptions": [
+                        "Undefined. Default.",
+                        "Nomination lead is active.",
+                        "Nomination lead has been deleted."
+                    ],
+                    "type": "string"
+                },
+                "lastUpdateTime": {
+                    "description": "Epoch timestamp when the Nomination lead was last updated.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Unique system generated identifier for an event.\nEvent names have the form\n`events/{event_id}/nominaton_leads/{nomination_lead_id}`.\nnomination_lead_id is a hash of {event_id, team.name and company.name).",
+                    "type": "string"
+                },
+                "team": {
+                    "$ref": "Team",
+                    "description": "Details of the team corresponding to the Nomination Lead."
+                }
+            },
+            "type": "object"
+        },
+        "NominationLeadMetrics": {
+            "description": "Aggregated metrics for the Nomination lead.",
+            "id": "NominationLeadMetrics",
+            "properties": {
+                "confirmedAttending": {
+                    "description": "Count of unique contacts who've confirmed their attendance for the\nNomination lead.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "totalNominations": {
+                    "description": "Total unique contacts in the Nomination lead.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Team": {
+            "description": "Wrapper over CE Sales teams, retaining only the info relevant to Nominations.\ncs/symbol:google.internal.alkali.applications.ecssales.v1.SalesCrmTeam;",
+            "id": "Team",
+            "properties": {
+                "displayName": {
+                    "description": "A user readable name for the team.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Unique identifier for a SalesCrmTeam in ECS Sales API.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateEventResponse": {
+            "description": "Response message for EventService.UpdateEvent.",
+            "id": "UpdateEventResponse",
+            "properties": {
+                "event": {
+                    "$ref": "Event",
+                    "description": "The updated Event."
+                }
+            },
+            "type": "object"
+        },
+        "UpdateNominationLeadResponse": {
+            "description": "Response message for NominationLeadService.UpdateNominationLead.",
+            "id": "UpdateNominationLeadResponse",
+            "properties": {
+                "nominationLead": {
+                    "$ref": "NominationLead",
+                    "description": "The updated Nomination lead."
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Alkali Nominations Private API (Nightly)",
+    "version": "v1",
+    "version_module": true
+}

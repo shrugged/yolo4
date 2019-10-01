@@ -1,0 +1,1322 @@
+{
+    "basePath": "",
+    "baseUrl": "https://autopush-growthanalysis-pa.corp.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Growth Analysis",
+    "description": "An API to provides access to Growth Analysis resources and services.",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://go/growth-analysis-api",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "corp_autopush_growthanalysis_pa:v1",
+    "kind": "discovery#restDescription",
+    "name": "corp_autopush_growthanalysis_pa",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "featurespaces": {
+            "methods": {
+                "create": {
+                    "description": "Creates a featurespace.",
+                    "flatPath": "v1/featurespaces",
+                    "httpMethod": "POST",
+                    "id": "corp_autopush_growthanalysis_pa.featurespaces.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/featurespaces",
+                    "request": {
+                        "$ref": "Featurespace"
+                    },
+                    "response": {
+                        "$ref": "CreateFeaturespaceResponse"
+                    }
+                },
+                "delete": {
+                    "description": "Permanently deletes a featurespace, all its features and all other\nresources associated with the features.\nWARNING: This operation can't be undone.\n",
+                    "flatPath": "v1/featurespaces/{featurespacesId}",
+                    "httpMethod": "DELETE",
+                    "id": "corp_autopush_growthanalysis_pa.featurespaces.delete",
+                    "parameterOrder": [
+                        "featurespaceIdOrName"
+                    ],
+                    "parameters": {
+                        "featurespaceIdOrName": {
+                            "description": "A featurespace's globally unique identifier, either an id or a name.",
+                            "location": "path",
+                            "pattern": "^[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/featurespaces/{+featurespaceIdOrName}",
+                    "response": {
+                        "$ref": "DeleteFeaturespaceResponse"
+                    }
+                },
+                "get": {
+                    "description": "Get a featurespace with the given id or name.",
+                    "flatPath": "v1/featurespaces/{featurespacesId}",
+                    "httpMethod": "GET",
+                    "id": "corp_autopush_growthanalysis_pa.featurespaces.get",
+                    "parameterOrder": [
+                        "featurespaceIdOrName"
+                    ],
+                    "parameters": {
+                        "featurespaceIdOrName": {
+                            "description": "A featurespace's globally unique identifier, either an id or a name.",
+                            "location": "path",
+                            "pattern": "^[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/featurespaces/{+featurespaceIdOrName}",
+                    "response": {
+                        "$ref": "GetFeaturespaceResponse"
+                    }
+                },
+                "list": {
+                    "description": "Lists the featurespaces known by Atlas.\n\nSupports pagination via token.",
+                    "flatPath": "v1/featurespaces",
+                    "httpMethod": "GET",
+                    "id": "corp_autopush_growthanalysis_pa.featurespaces.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "filter": {
+                            "description": "Standard List filtering expressions. See: go/filtering",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "pageSize": {
+                            "description": "Set on initial pagination request to define how many items to return per\npage.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageToken": {
+                            "description": "Set on subsequent pagination requests to retrieve a specific page.\nUse the next_page_token returned by the last pagination response.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/featurespaces",
+                    "response": {
+                        "$ref": "ListFeaturespacesResponse"
+                    }
+                },
+                "patch": {
+                    "description": "Updates a featurespace (partial update support pending).\n\nSpecify which fields should be updated via the update_mask. If the mask\nis empty, all fields (except id and name) will be replaced.\n\nBehavior:\n - The id field can't be changed, therefore, it will be ignored.\n - The name field can only be changed if explicitly set on the mask.\n   If not on the mask, it will be ignored.\n - If the contact field is in the mask but it's empty in the request, a\n   BAD_REQUEST will be returned. Otherwise, the contact field will be fully\n   replaced.",
+                    "flatPath": "v1/featurespaces/{featurespacesId}",
+                    "httpMethod": "PATCH",
+                    "id": "corp_autopush_growthanalysis_pa.featurespaces.patch",
+                    "parameterOrder": [
+                        "featurespaceIdOrName"
+                    ],
+                    "parameters": {
+                        "featurespaceIdOrName": {
+                            "description": "A featurespace's globally unique identifier, either an id or a name.",
+                            "location": "path",
+                            "pattern": "^[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "updateMask": {
+                            "description": "The update mask applies to the resource. For the `FieldMask` definition,\nsee go/fieldmask.",
+                            "format": "google-fieldmask",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/featurespaces/{+featurespaceIdOrName}",
+                    "request": {
+                        "$ref": "Featurespace"
+                    },
+                    "response": {
+                        "$ref": "UpdateFeaturespaceResponse"
+                    }
+                }
+            },
+            "resources": {
+                "features": {
+                    "methods": {
+                        "create": {
+                            "description": "Creates a feature.",
+                            "flatPath": "v1/featurespaces/{featurespacesId}/features",
+                            "httpMethod": "POST",
+                            "id": "corp_autopush_growthanalysis_pa.featurespaces.features.create",
+                            "parameterOrder": [
+                                "featurespaceIdOrName"
+                            ],
+                            "parameters": {
+                                "featurespaceIdOrName": {
+                                    "description": "A featurespace's globally unique identifier, either an id or a name.",
+                                    "location": "path",
+                                    "pattern": "^[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/featurespaces/{+featurespaceIdOrName}/features",
+                            "request": {
+                                "$ref": "Feature"
+                            },
+                            "response": {
+                                "$ref": "CreateFeatureResponse"
+                            }
+                        },
+                        "delete": {
+                            "description": "Permanently deletes a feature and all resources associated with it.\nWARNING: This operation can't be undone.\n",
+                            "flatPath": "v1/featurespaces/{featurespacesId}/features/{featuresId}",
+                            "httpMethod": "DELETE",
+                            "id": "corp_autopush_growthanalysis_pa.featurespaces.features.delete",
+                            "parameterOrder": [
+                                "featurespaceIdOrName",
+                                "featureIdOrName"
+                            ],
+                            "parameters": {
+                                "featureIdOrName": {
+                                    "description": "A feature's unique identifier within the featurespace it belongs to,\neither an id, a name or combination of namespace and name with format\n<namespace>:<name>.",
+                                    "location": "path",
+                                    "pattern": "^[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "featurespaceIdOrName": {
+                                    "description": "A featurespace's globally unique identifier, either an id or a name.",
+                                    "location": "path",
+                                    "pattern": "^[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/featurespaces/{+featurespaceIdOrName}/features/{+featureIdOrName}",
+                            "response": {
+                                "$ref": "DeleteFeatureResponse"
+                            }
+                        },
+                        "get": {
+                            "description": "Gets a feature with the given id or name under the featurespace with the\ngiven id or name.",
+                            "flatPath": "v1/featurespaces/{featurespacesId}/features/{featuresId}",
+                            "httpMethod": "GET",
+                            "id": "corp_autopush_growthanalysis_pa.featurespaces.features.get",
+                            "parameterOrder": [
+                                "featurespaceIdOrName",
+                                "featureIdOrName"
+                            ],
+                            "parameters": {
+                                "featureIdOrName": {
+                                    "description": "A feature's unique identifier within the featurespace it belongs to,\neither an id, a name or combination of namespace and name with format\n<namespace>:<name>.",
+                                    "location": "path",
+                                    "pattern": "^[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "featurespaceIdOrName": {
+                                    "description": "A featurespace's globally unique identifier, either an id or a name.",
+                                    "location": "path",
+                                    "pattern": "^[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/featurespaces/{+featurespaceIdOrName}/features/{+featureIdOrName}",
+                            "response": {
+                                "$ref": "GetFeatureResponse"
+                            }
+                        },
+                        "list": {
+                            "description": "Lists the features under a specific featurespace.\n\nSupports pagination via token.",
+                            "flatPath": "v1/featurespaces/{featurespacesId}/features",
+                            "httpMethod": "GET",
+                            "id": "corp_autopush_growthanalysis_pa.featurespaces.features.list",
+                            "parameterOrder": [
+                                "featurespaceIdOrName"
+                            ],
+                            "parameters": {
+                                "featurespaceIdOrName": {
+                                    "description": "A featurespace's globally unique identifier, either an id or a name.",
+                                    "location": "path",
+                                    "pattern": "^[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "filter": {
+                                    "description": "Standard List filtering expressions. See: go/filtering",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "pageSize": {
+                                    "description": "Set on initial pagination request to define how many items to return per\npage.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "Set on subsequent pagination requests to retrieve a specific page.\nUse the next_page_token returned by the last pagination response.",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/featurespaces/{+featurespaceIdOrName}/features",
+                            "response": {
+                                "$ref": "ListFeaturesResponse"
+                            }
+                        },
+                        "listbystat": {
+                            "description": "Custom method that lists the features under a specific featurespace,\nsorting by stat value instead of ID. See go/stats-in-atlas.\n\nFeatures without a value for the selected stat type are still returned,\nlisted after all features with a value. The sort order is by descending\nstat value, breaking ties via the usual ascending feature ID order.\n\nSupports pagination via token.",
+                            "flatPath": "v1/featurespaces/{featurespacesId}/features:listbystat",
+                            "httpMethod": "GET",
+                            "id": "corp_autopush_growthanalysis_pa.featurespaces.features.listbystat",
+                            "parameterOrder": [
+                                "featurespaceIdOrName"
+                            ],
+                            "parameters": {
+                                "featurespaceIdOrName": {
+                                    "description": "A featurespace's globally unique identifier, either an id or a name.",
+                                    "location": "path",
+                                    "pattern": "^[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "filter": {
+                                    "description": "Standard List filtering expressions. See: go/filtering",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "pageSize": {
+                                    "description": "Set on initial pagination request to define how many items to return per\npage.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "Set on subsequent pagination requests to retrieve a specific page.\nUse the next_page_token returned by the last pagination response.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "statType.description": {
+                                    "description": "The description to show in the UI, taken from the StatType enum definition\nin google3/evaluation/ui/growth/atlas/proto/stat_type.proto.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "statType.displayName": {
+                                    "description": "The name to show in the UI, taken from the StatType enum definition in\ngoogle3/evaluation/ui/growth/atlas/proto/stat_type.proto.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "statType.type": {
+                                    "description": "StatType enum value with retrievable StatTypeMetadata annotation.",
+                                    "enum": [
+                                        "UNKNOWN_STAT_TYPE",
+                                        "DAILY_ACTIVE_USERS"
+                                    ],
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/featurespaces/{+featurespaceIdOrName}/features:listbystat",
+                            "response": {
+                                "$ref": "ListFeaturesByStatResponse"
+                            }
+                        },
+                        "patch": {
+                            "description": "Updates a feature (partial update support pending).\n\nSpecify which fields should be updated via the update_mask. If the mask\nis empty, all fields (except featurespace_id, id and name) will be\nreplaced.\n\nBehavior:\n - The id and featurespace_id fields can't be changed, therefore, they will\n   be ignored.\n - The name field can only be changed if explicitly set on the mask.\n   If not on the mask, it will be ignored.\n - If a repeated field is in the mask but it's empty in the request, a\n   BAD_REQUEST will be returned. Otherwise, the field will be fully\n   replaced.",
+                            "flatPath": "v1/featurespaces/{featurespacesId}/features/{featuresId}",
+                            "httpMethod": "PATCH",
+                            "id": "corp_autopush_growthanalysis_pa.featurespaces.features.patch",
+                            "parameterOrder": [
+                                "featurespaceIdOrName",
+                                "featureIdOrName"
+                            ],
+                            "parameters": {
+                                "featureIdOrName": {
+                                    "description": "A feature's unique identifier within the featurespace it belongs to,\neither an id, a name or combination of namespace and name with format\n<namespace>:<name>.",
+                                    "location": "path",
+                                    "pattern": "^[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "featurespaceIdOrName": {
+                                    "description": "A featurespace's globally unique identifier, either an id or a name.",
+                                    "location": "path",
+                                    "pattern": "^[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "updateMask": {
+                                    "description": "The update mask applies to the resource. For the `FieldMask` definition,\nsee go/fieldmask.",
+                                    "format": "google-fieldmask",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/featurespaces/{+featurespaceIdOrName}/features/{+featureIdOrName}",
+                            "request": {
+                                "$ref": "Feature"
+                            },
+                            "response": {
+                                "$ref": "UpdateFeatureResponse"
+                            }
+                        }
+                    },
+                    "resources": {
+                        "cards": {
+                            "methods": {
+                                "create": {
+                                    "description": "Creates a feature-specific card.",
+                                    "flatPath": "v1/featurespaces/{featurespacesId}/features/{featuresId}/cards",
+                                    "httpMethod": "POST",
+                                    "id": "corp_autopush_growthanalysis_pa.featurespaces.features.cards.create",
+                                    "parameterOrder": [
+                                        "featurespaceIdOrName",
+                                        "featureIdOrName"
+                                    ],
+                                    "parameters": {
+                                        "featureIdOrName": {
+                                            "description": "A feature's unique identifier within the featurespace it belongs to,\neither an id, a name or combination of namespace and name with format\n<namespace>:<name>.",
+                                            "location": "path",
+                                            "pattern": "^[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "featurespaceIdOrName": {
+                                            "description": "A featurespace's globally unique identifier, either an id or a name.",
+                                            "location": "path",
+                                            "pattern": "^[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/featurespaces/{+featurespaceIdOrName}/features/{+featureIdOrName}/cards",
+                                    "request": {
+                                        "$ref": "Card"
+                                    },
+                                    "response": {
+                                        "$ref": "CreateFeatureCardResponse"
+                                    }
+                                },
+                                "delete": {
+                                    "description": "Permanently deletes a feature-specific card.\nWARNING: This operation can't be undone.",
+                                    "flatPath": "v1/featurespaces/{featurespacesId}/features/{featuresId}/cards/{cardsId}",
+                                    "httpMethod": "DELETE",
+                                    "id": "corp_autopush_growthanalysis_pa.featurespaces.features.cards.delete",
+                                    "parameterOrder": [
+                                        "featurespaceIdOrName",
+                                        "featureIdOrName",
+                                        "cardId"
+                                    ],
+                                    "parameters": {
+                                        "cardId": {
+                                            "description": "A card's unique identifier within the feature it belongs to.",
+                                            "location": "path",
+                                            "pattern": "^[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "featureIdOrName": {
+                                            "description": "A feature's unique identifier within the featurespace it belongs to,\neither an id, a name or combination of namespace and name with format\n<namespace>:<name>.",
+                                            "location": "path",
+                                            "pattern": "^[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "featurespaceIdOrName": {
+                                            "description": "A featurespace's globally unique identifier, either an id or a name.",
+                                            "location": "path",
+                                            "pattern": "^[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/featurespaces/{+featurespaceIdOrName}/features/{+featureIdOrName}/cards/{+cardId}",
+                                    "response": {
+                                        "$ref": "DeleteFeatureCardResponse"
+                                    }
+                                },
+                                "get": {
+                                    "description": "Gets a card with the given id under the featurespace and feature with the\ngiven id or name.",
+                                    "flatPath": "v1/featurespaces/{featurespacesId}/features/{featuresId}/cards/{cardsId}",
+                                    "httpMethod": "GET",
+                                    "id": "corp_autopush_growthanalysis_pa.featurespaces.features.cards.get",
+                                    "parameterOrder": [
+                                        "featurespaceIdOrName",
+                                        "featureIdOrName",
+                                        "cardId"
+                                    ],
+                                    "parameters": {
+                                        "cardId": {
+                                            "description": "A feature's unique identifier within the feature it belongs to.",
+                                            "location": "path",
+                                            "pattern": "^[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "featureIdOrName": {
+                                            "description": "A feature's unique identifier within the featurespace it belongs to,\neither an id, a name or combination of namespace and name with format\n<namespace>:<name>.",
+                                            "location": "path",
+                                            "pattern": "^[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "featurespaceIdOrName": {
+                                            "description": "A featurespace's globally unique identifier, either an id or a name.",
+                                            "location": "path",
+                                            "pattern": "^[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/featurespaces/{+featurespaceIdOrName}/features/{+featureIdOrName}/cards/{+cardId}",
+                                    "response": {
+                                        "$ref": "GetFeatureCardResponse"
+                                    }
+                                },
+                                "list": {
+                                    "description": "Lists the cards under a specific feature.\n\nSupports pagination via token.",
+                                    "flatPath": "v1/featurespaces/{featurespacesId}/features/{featuresId}/cards",
+                                    "httpMethod": "GET",
+                                    "id": "corp_autopush_growthanalysis_pa.featurespaces.features.cards.list",
+                                    "parameterOrder": [
+                                        "featurespaceIdOrName",
+                                        "featureIdOrName"
+                                    ],
+                                    "parameters": {
+                                        "featureIdOrName": {
+                                            "description": "A feature's unique identifier within the featurespace it belongs to,\neither an id, a name or combination of namespace and name with format\n<namespace>:<name>.",
+                                            "location": "path",
+                                            "pattern": "^[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "featurespaceIdOrName": {
+                                            "description": "A featurespace's globally unique identifier, either an id or a name.",
+                                            "location": "path",
+                                            "pattern": "^[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "filter": {
+                                            "description": "Standard List filtering expressions. See: go/filtering",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "pageSize": {
+                                            "description": "Set on initial pagination request to define how many items to return per\npage.",
+                                            "format": "int32",
+                                            "location": "query",
+                                            "type": "integer"
+                                        },
+                                        "pageToken": {
+                                            "description": "Set on subsequent pagination requests to retrieve a specific page.\nUse the next_page_token returned by the last pagination response.",
+                                            "location": "query",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/featurespaces/{+featurespaceIdOrName}/features/{+featureIdOrName}/cards",
+                                    "response": {
+                                        "$ref": "ListFeatureCardsResponse"
+                                    }
+                                },
+                                "patch": {
+                                    "description": "Updates a feature-specific card.\n\nSpecify which fields should be updated via the update_mask. If the mask is\nempty, all fields except id, feature_id, featurespace_id, and content will\nbe replaced.\n\nBehavior:\n - The id, feature_id, and featurespace_id fields can't be changed,\n   therefore, they will be ignored.\n - The content field can only be changed if explicitly set on the mask.\n   If not on the mask, it will be ignored.\n - If a repeated field is in the mask but it's empty in the request, a\n   BAD_REQUEST will be returned. Otherwise, the field will be fully\n   replaced.",
+                                    "flatPath": "v1/featurespaces/{featurespacesId}/features/{featuresId}/cards/{cardsId}",
+                                    "httpMethod": "PATCH",
+                                    "id": "corp_autopush_growthanalysis_pa.featurespaces.features.cards.patch",
+                                    "parameterOrder": [
+                                        "featurespaceIdOrName",
+                                        "featureIdOrName",
+                                        "cardId"
+                                    ],
+                                    "parameters": {
+                                        "cardId": {
+                                            "description": "A card's unique identifier within the feature it belongs to.",
+                                            "location": "path",
+                                            "pattern": "^[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "featureIdOrName": {
+                                            "description": "A feature's unique identifier within the featurespace it belongs to,\neither an id, a name or combination of namespace and name with format\n<namespace>:<name>.",
+                                            "location": "path",
+                                            "pattern": "^[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "featurespaceIdOrName": {
+                                            "description": "A featurespace's globally unique identifier, either an id or a name.",
+                                            "location": "path",
+                                            "pattern": "^[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "updateMask": {
+                                            "description": "The update mask applies to the resource. For the `FieldMask` definition,\nsee go/fieldmask.",
+                                            "format": "google-fieldmask",
+                                            "location": "query",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/featurespaces/{+featurespaceIdOrName}/features/{+featureIdOrName}/cards/{+cardId}",
+                                    "request": {
+                                        "$ref": "Card"
+                                    },
+                                    "response": {
+                                        "$ref": "UpdateFeatureCardResponse"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190923",
+    "rootUrl": "https://autopush-growthanalysis-pa.corp.googleapis.com/",
+    "schemas": {
+        "AplosChartCard": {
+            "description": "A card used to display an Aplos (go/aplos) chart using specs.",
+            "id": "AplosChartCard",
+            "properties": {
+                "chartSpec": {
+                    "description": "A JSON encoded chart spec used by Aplos to know what chart to render.",
+                    "type": "string"
+                },
+                "dataSpec": {
+                    "description": "A JSON encoded data spec used by Aplos to know how to pull data for the\nchart.",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "Description which can be displayed to users.",
+                    "type": "string"
+                },
+                "drilldown": {
+                    "description": "URI to a dashboard view with additional slicing capability or some other\nresource which helps drill down into the data shown.",
+                    "type": "string"
+                },
+                "drilldownToolName": {
+                    "description": "Drilldown tool name is used in the footer button of the chart card.",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Title which can be displayed to users.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Asset": {
+            "description": "An external asset to be associated with an Atlas entity.\nHow the asset appears in the UI will be determine by the AssetType and\nFlavor.",
+            "id": "Asset",
+            "properties": {
+                "flavor": {
+                    "$ref": "Flavor",
+                    "description": "To be used to differentiate assets when an entity has various flavors.\nFor example, if the same feature is rendered differently on different\nplatforms, each platform would be a flavor."
+                },
+                "type": {
+                    "description": "The asset's type. UNKNOWN_ASSET_TYPE assets will be ignored by Atlas.",
+                    "enum": [
+                        "UNKNOWN_ASSET_TYPE",
+                        "SCREENSHOT",
+                        "CODESEARCH_DEFINITION",
+                        "CODESEARCH_REFERENCES"
+                    ],
+                    "enumDescriptions": [
+                        "Added as best practice but a specific type must always be set.",
+                        "A screenshot of the entity to be shown in the UI.\nThe asset's URI should be set to a URL that can be used in an HTML img\ntag's src attribute. Domain must be whitelisted by the service.\nSee: java/com/google/search/growth/boq/atlas/service/utils/Validator.java",
+                        "A codesearch URL that points to the location in a file where the entity is\ndefined. Should rely on filepath and query alone, no line number.",
+                        "A codesearch URL that performs a global search for the entry's code\nreferences. Should point to /search endpoint and have only a query param."
+                    ],
+                    "type": "string"
+                },
+                "uri": {
+                    "description": "The URI where the asset can be found.\nIn general it should be a URL where the asset can be accessed via an HTTP\nGET request. This might vary by AssetType. Therefore, consult the\nsearch.growth.atlas.proto.AssetType definition for more information.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Card": {
+            "description": "A card associated with a feature.\nIt contains fields usable on all card types and a `content` oneof which will\nbe set to the proto message of a specific card type.\nNextId: 12",
+            "id": "Card",
+            "properties": {
+                "aplosChart": {
+                    "$ref": "AplosChartCard",
+                    "description": "Contains all the data needed to render a chart using Aplos."
+                },
+                "config": {
+                    "$ref": "ConfigCard",
+                    "description": "Contains all the data needed to render a config card."
+                },
+                "contacts": {
+                    "description": "The card's contacts (e.g. owners).",
+                    "items": {
+                        "$ref": "Contact"
+                    },
+                    "type": "array"
+                },
+                "featureId": {
+                    "description": "The id of the feature the card belongs to.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "featurespaceId": {
+                    "description": "The id of the featurespace the card's feature belongs to.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "id": {
+                    "description": "The card's unique identifier within the feature.",
+                    "type": "string"
+                },
+                "labels": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "The card's labels.",
+                    "type": "object"
+                },
+                "resource": {
+                    "$ref": "ResourceCard",
+                    "description": "Contains all the data needed to render a resource card."
+                },
+                "screenshot": {
+                    "$ref": "ScreenshotCard",
+                    "description": "Contains all the data needed to render a screenshot card."
+                }
+            },
+            "type": "object"
+        },
+        "ConfigCard": {
+            "description": "A card used to display feature metadata and references in codesearch.",
+            "id": "ConfigCard",
+            "properties": {
+                "config": {
+                    "description": "Config which can be displayed to users.",
+                    "type": "string"
+                },
+                "definitionLink": {
+                    "description": "The link to the metadata in codesearch.",
+                    "type": "string"
+                },
+                "referencesLink": {
+                    "description": "The link to the references in codesearch.",
+                    "type": "string"
+                },
+                "subtitle": {
+                    "description": "Subtitle which can be displayed to users.",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Title which can be displayed to users.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Contact": {
+            "description": "A resource's contact information. Each contact must have a designated role\nsuch as owner.",
+            "id": "Contact",
+            "properties": {
+                "name": {
+                    "description": "The contact name (ldap, group, url).",
+                    "type": "string"
+                },
+                "role": {
+                    "description": "The role the contact plays wrt the resource.",
+                    "enum": [
+                        "UNKNOWN_CONTACT_ROLE",
+                        "OWNER"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecifed by default to prevent breaking APIs when default changes.",
+                        "Contact is considered the resource's owner."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CreateFeatureCardResponse": {
+            "description": "Returned when clients create a new card.",
+            "id": "CreateFeatureCardResponse",
+            "properties": {
+                "card": {
+                    "$ref": "Card",
+                    "description": "The newly created card."
+                }
+            },
+            "type": "object"
+        },
+        "CreateFeatureResponse": {
+            "description": "Returned when clients create a new feature.",
+            "id": "CreateFeatureResponse",
+            "properties": {
+                "feature": {
+                    "$ref": "Feature",
+                    "description": "The newly created feature."
+                }
+            },
+            "type": "object"
+        },
+        "CreateFeaturespaceResponse": {
+            "description": "Returned when clients create a new featurespace.",
+            "id": "CreateFeaturespaceResponse",
+            "properties": {
+                "featurespace": {
+                    "$ref": "Featurespace",
+                    "description": "The newly created featurespace."
+                }
+            },
+            "type": "object"
+        },
+        "DeleteFeatureCardResponse": {
+            "description": "Returned when clients delete a card.\n\nLeave empty while API deletes the card immediately. Once the resource\nis only marked as deleted, the updated resource and any additional info\nshould be returned.",
+            "id": "DeleteFeatureCardResponse",
+            "properties": {},
+            "type": "object"
+        },
+        "DeleteFeatureResponse": {
+            "description": "Returned when clients delete a feature.\n\nLeave empty while API deletes the feature immediately. Once the resource\nis only marked as deleted, the updated resource and any additional info\nshould be returned.",
+            "id": "DeleteFeatureResponse",
+            "properties": {},
+            "type": "object"
+        },
+        "DeleteFeaturespaceResponse": {
+            "description": "Returned when clients delete a featurespace.\n\nLeave empty while API deletes the featurespace immediately. Once the resource\nis only marked as deleted, the updated resource and any additional info\nshould be returned.",
+            "id": "DeleteFeaturespaceResponse",
+            "properties": {},
+            "type": "object"
+        },
+        "DesignDoc": {
+            "description": "A resource's design doc information.",
+            "id": "DesignDoc",
+            "properties": {
+                "displayName": {
+                    "description": "The name of the hyperlink that will be displayed on the dashboard.",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "The link to the design doc.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Feature": {
+            "description": "A feature of a specific featurespace known by Atlas.\nNextId: 14\nWiz options. See: go/wiz/dev/data/proto",
+            "id": "Feature",
+            "properties": {
+                "assets": {
+                    "description": "The feature's assets (i.e. screenshots).",
+                    "items": {
+                        "$ref": "Asset"
+                    },
+                    "type": "array"
+                },
+                "buganizerId": {
+                    "description": "Id of the Buganizer component where bugs regarding a feature should\nbe filed.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "contacts": {
+                    "description": "The feature's contacts (i.e. owners).",
+                    "items": {
+                        "$ref": "Contact"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "Description which can be displayed to users.",
+                    "type": "string"
+                },
+                "designDoc": {
+                    "$ref": "DesignDoc",
+                    "description": "Link and display name of the design doc."
+                },
+                "displayName": {
+                    "description": "Name which can be displayed to users.",
+                    "type": "string"
+                },
+                "featurespaceId": {
+                    "description": "The id of the featurespace the feature belongs to. Each feature is unique\nonly to its own featurespace, therefore, both ids are needed to find a\nspecific feature. For example, both VisualElement and OneNamespace define\na feature with id 21.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "id": {
+                    "description": "The feature's unique identifier within its featurespace.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "labels": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "User-defined metadata associated with the feature. See: go/api-label",
+                    "type": "object"
+                },
+                "name": {
+                    "description": "The feature's unique name within its featurespace.\nTo be used in URLs, therefore, best to avoid characters that have to be\nURL escaped.",
+                    "type": "string"
+                },
+                "namespace": {
+                    "description": "Used to ensure uniqueness together with name for featurespaces where the\nname isn't guaranteed to be unique, such as Visual Element.\nIf a feature has a namespace, it's best to request data for that feature\neither by its id or by a combination of its namespace and name with the\nformat <namespace>:<name>.",
+                    "type": "string"
+                },
+                "stats": {
+                    "description": "List of stored stat entries. See go/stats-in-atlas.",
+                    "items": {
+                        "$ref": "Stat"
+                    },
+                    "type": "array"
+                },
+                "tabs": {
+                    "description": "List of tabs. See go/navstar-tabs",
+                    "items": {
+                        "$ref": "Tab"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Featurespace": {
+            "description": "A featurespace known by Atlas.\nIts id or name can be used to retrieve features associated with it.\nNextId: 6\nWiz options. See: go/wiz/dev/data/proto",
+            "id": "Featurespace",
+            "properties": {
+                "contacts": {
+                    "description": "The featurespace's contacts (i.e. owners).",
+                    "items": {
+                        "$ref": "Contact"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "Description which can be displayed to users.",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "Name which can be displayed to users.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "The featurespace's globally unique identifier.\nAssigned by the API backend at creation time.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "The featurespace's globally unique snake_case name. To be used in URLs.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Flavor": {
+            "description": "Flavor is used to distinguish between multiple flavors of the same feature.\nWe wrap the Flavor enum with this message to return the enum value\nannotations in the API so clients don't have to read the annotations\nthemselves.",
+            "id": "Flavor",
+            "properties": {
+                "description": {
+                    "description": "The description to show in the UI, taken from the flavor definition in\ngoogle3/evaluation/ui/growth/atlas/proto/flavor.proto\n\nThe value will be ignored in mutator operations such as Create and Update\nas it will be taken from the FlavorMetadata.",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "The name to show in the UI, taken from the flavor definition in\ngoogle3/evaluation/ui/growth/atlas/proto/flavor.proto\n\nThe value will be ignored in mutator operations such as Create and Update\nas it will be taken from the FlavorMetadata.",
+                    "type": "string"
+                },
+                "flavor": {
+                    "description": "The flavor enum value defined in\ngoogle3/evaluation/ui/growth/atlas/proto/flavor.proto",
+                    "enum": [
+                        "UNKNOWN_FLAVOR",
+                        "MOBILE",
+                        "DESKTOP"
+                    ],
+                    "enumDescriptions": [
+                        "Used when features have no flavor.",
+                        "Used when the feature is shown on a mobile device.",
+                        "Used when the feature is shown on a desktop device.\nAdd new entries above this line and update the next available id.\n\nSend a CL to robwhiteside@ for review, including reason why an existing\nflavor can't be reused.\n\nRead the comments on FlavorMetadata for more info on what to include\nwhen adding a new flavor."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GetFeatureCardResponse": {
+            "description": "Returned when clients request a specific card under a feature.",
+            "id": "GetFeatureCardResponse",
+            "properties": {
+                "card": {
+                    "$ref": "Card",
+                    "description": "The requested card."
+                }
+            },
+            "type": "object"
+        },
+        "GetFeatureResponse": {
+            "description": "Returned when clients request a specific feature.",
+            "id": "GetFeatureResponse",
+            "properties": {
+                "feature": {
+                    "$ref": "Feature",
+                    "description": "The requested feature."
+                }
+            },
+            "type": "object"
+        },
+        "GetFeaturespaceResponse": {
+            "description": "Returned when clients request a specific featurespace.",
+            "id": "GetFeaturespaceResponse",
+            "properties": {
+                "featurespace": {
+                    "$ref": "Featurespace",
+                    "description": "The requested featurespace."
+                }
+            },
+            "type": "object"
+        },
+        "ListFeatureCardsResponse": {
+            "description": "Returned when clients want to list the cards of a sepcific feature.",
+            "id": "ListFeatureCardsResponse",
+            "properties": {
+                "cards": {
+                    "description": "The cards under the requested feature.",
+                    "items": {
+                        "$ref": "Card"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "The token to be used as page_token to retrieve the next page of data.\nEmpty if there aren't any other pages to retrieve.",
+                    "type": "string"
+                },
+                "totalSize": {
+                    "description": "The total number of cards that match the given filter irrespective of\npagination.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "ListFeaturesByStatResponse": {
+            "description": "Returned when clients want to list the features of a specific featurespace\nsorted by values for a specific stat type.",
+            "id": "ListFeaturesByStatResponse",
+            "properties": {
+                "features": {
+                    "description": "The features under the requested featurespace.",
+                    "items": {
+                        "$ref": "Feature"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "The token to be used as page_token to retrieve the next page of data.\nEmpty if there aren't any other pages to retrieve.",
+                    "type": "string"
+                },
+                "totalSize": {
+                    "description": "The total number of features that match the given filter irrespective of\npagination.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "ListFeaturesResponse": {
+            "description": "Returned when clients want to list the features of a specific featurespace.",
+            "id": "ListFeaturesResponse",
+            "properties": {
+                "features": {
+                    "description": "The features under the requested featurespace.",
+                    "items": {
+                        "$ref": "Feature"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "The token to be used as page_token to retrieve the next page of data.\nEmpty if there aren't any other pages to retrieve.",
+                    "type": "string"
+                },
+                "totalSize": {
+                    "description": "The total number of features that match the given filter irrespective of\npagination.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "ListFeaturespacesResponse": {
+            "description": "Returned when clients want to list the featurespaces known by the Atlas.",
+            "id": "ListFeaturespacesResponse",
+            "properties": {
+                "featurespaces": {
+                    "description": "The featurespaces known by the Atlas.",
+                    "items": {
+                        "$ref": "Featurespace"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "The token to be used as page_token to retrieve the next page of data.\nEmpty if there aren't any other pages to retrieve.",
+                    "type": "string"
+                },
+                "totalSize": {
+                    "description": "The total number of featurespaces that match the given filter irrespective\nof pagination.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "ResourceCard": {
+            "description": "A card used to display link to other tool.",
+            "id": "ResourceCard",
+            "properties": {
+                "description": {
+                    "description": "Description which will be displayed in the body of the resource card.\nDescribe why a user should click the link",
+                    "type": "string"
+                },
+                "link": {
+                    "description": "The link to the tool for deeply exploring the feature.",
+                    "type": "string"
+                },
+                "subtitle": {
+                    "description": "Subtitle which can be displayed to users. This might be the name of the\ntool this card is linking to, or other amplifying text.",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Title which will be displayed to users.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ScreenshotCard": {
+            "description": "A card used to display screenshots.",
+            "id": "ScreenshotCard",
+            "properties": {
+                "addScreenshotLink": {
+                    "description": "The link for users click to learn how to add screenshot.",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "Description which can be displayed to users.",
+                    "type": "string"
+                },
+                "screenshots": {
+                    "description": "Screenshots links.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "title": {
+                    "description": "Title which can be displayed to users.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Stat": {
+            "description": "Generic message for holding various dated statistics about entities.\nSee go/stats-in-atlas for design.",
+            "id": "Stat",
+            "properties": {
+                "date": {
+                    "description": "Measurement date to support showing freshness. Queries to retrieve stats\ncan use date sorting and LIMIT to restrict to the freshest data, though in\nmost cases old data should be replaced with new data.",
+                    "type": "string"
+                },
+                "type": {
+                    "$ref": "StatType",
+                    "description": "Stat type with automatically extracted metadata such as display name and\ndescription."
+                },
+                "value": {
+                    "description": "Value of the stat.\nNOTE(kwyngarden): Initially only integer metrics are supported. For ratio\nmetrics that must support rollups of dimension values, prefer storing the\nnumerator/denominator count metrics over adding floats. Truly continuous\nmeasurements can often be represented with bucketing, e.g. milliseconds for\nduration metrics.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "StatType": {
+            "description": "StatType is used to distinguish between different stats for the same feature.\nWe wrap the StatType enum with this message to return enum value annotations\nuseful to end users in the API so clients don't have to read the annotations\nthemselves.",
+            "id": "StatType",
+            "properties": {
+                "description": {
+                    "description": "The description to show in the UI, taken from the StatType enum definition\nin google3/evaluation/ui/growth/atlas/proto/stat_type.proto.",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "The name to show in the UI, taken from the StatType enum definition in\ngoogle3/evaluation/ui/growth/atlas/proto/stat_type.proto.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "StatType enum value with retrievable StatTypeMetadata annotation.",
+                    "enum": [
+                        "UNKNOWN_STAT_TYPE",
+                        "DAILY_ACTIVE_USERS"
+                    ],
+                    "enumDescriptions": [
+                        "Default for metrics without a specified stat type.",
+                        "Used for DAU metrics from standard growth datastore tables that are covered\nby generic permissions from go/growth-data-access.\nAdd new entries above this line and update the next available id.\n\nRead the comments on StatTypeMetadata for more info on what to include when\nadding a new stat type."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Tab": {
+            "description": "Tab information. Each tab must have a name and id.",
+            "id": "Tab",
+            "properties": {
+                "displayName": {
+                    "description": "Name which can be displayed to users. (ie. Growth Discovery)",
+                    "type": "string"
+                },
+                "experimentId": {
+                    "description": "An optional experiment ID. When included, this tab will be filtered for\nusers that aren't in the experiment.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "A string id (ie. growthDiscoveryTab) that is stored in users\u2019 settings for\npreferred tab of certain featurespace.",
+                    "type": "string"
+                },
+                "iframeHeight": {
+                    "description": "Height of the iframe. This is added due to no access to iframe document.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "iframeUrl": {
+                    "$ref": "TrustedResourceUrlProto",
+                    "description": "The url of the iframe as the content of the tab."
+                }
+            },
+            "type": "object"
+        },
+        "TrustedResourceUrlProto": {
+            "description": "Message containing a string that is safe to use in all URL contexts in DOM\nAPIs and HTML documents; even where the referred-to resource is interpreted\nas code, e.g., as the src of a script element.",
+            "id": "TrustedResourceUrlProto",
+            "properties": {
+                "privateDoNotAccessOrElseTrustedResourceUrlWrappedValue": {
+                    "description": "IMPORTANT: Never set or read this field, even from tests, it is private.\nSee documentation at the top of .proto file for programming language\npackages with which to create or read this message.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateFeatureCardResponse": {
+            "description": "Returned when clients update a card.",
+            "id": "UpdateFeatureCardResponse",
+            "properties": {
+                "card": {
+                    "$ref": "Card",
+                    "description": "The updated feature."
+                }
+            },
+            "type": "object"
+        },
+        "UpdateFeatureResponse": {
+            "description": "Returned when clients update a feature.",
+            "id": "UpdateFeatureResponse",
+            "properties": {
+                "feature": {
+                    "$ref": "Feature",
+                    "description": "The updated feature."
+                }
+            },
+            "type": "object"
+        },
+        "UpdateFeaturespaceResponse": {
+            "description": "Returned when clients update a featurespace.",
+            "id": "UpdateFeaturespaceResponse",
+            "properties": {
+                "featurespace": {
+                    "$ref": "Featurespace",
+                    "description": "The updated featurespace."
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Growth Analysis API",
+    "version": "v1",
+    "version_module": true
+}

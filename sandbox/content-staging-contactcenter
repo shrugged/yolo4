@@ -1,0 +1,383 @@
+{
+    "basePath": "",
+    "baseUrl": "https://contactcenter-pa.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Contact Center",
+    "description": "Google Contact Center Private API provides resources representing Googlers, vendors, support sessions and lines of business in Google's contact centers.",
+    "discoveryVersion": "v1",
+    "documentationLink": "https://goto.google.com/speakeasy",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "contactcenter_pa:v1",
+    "kind": "discovery#restDescription",
+    "name": "contactcenter_pa",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "callQualityReports": {
+            "methods": {
+                "update": {
+                    "description": "Updates or inserts an audio quality test result. The returned status\nindicates the result of the operation. Subsequent calls to a test result\nwith the same test_id will replace the existing result.",
+                    "flatPath": "v1/callQualityReports/{callQualityReportsId}",
+                    "httpMethod": "PUT",
+                    "id": "contactcenter_pa.callQualityReports.update",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Required. Identifier of a report.",
+                            "location": "path",
+                            "pattern": "^callQualityReports/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "request": {
+                        "$ref": "CallQualityReport"
+                    },
+                    "response": {
+                        "$ref": "Status"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190913",
+    "rootUrl": "https://contactcenter-pa.googleapis.com/",
+    "schemas": {
+        "CallProperties": {
+            "description": "Properties for a test using a telephony network.",
+            "id": "CallProperties",
+            "properties": {
+                "carrier": {
+                    "description": "Required. Carrier used to place the call of an inbound test, or to receive\nthe call of an outbound test.",
+                    "type": "string"
+                },
+                "cli": {
+                    "description": "CLI (caller ID). For an inbound test, the CLI string that the test used\nwhen placing the call. For an outbound test, the CLI string that the test\nreceived.",
+                    "type": "string"
+                },
+                "fullRecordingUrl": {
+                    "description": "URL of the full recording.",
+                    "type": "string"
+                },
+                "lineType": {
+                    "description": "The network type which was used to place an inbound call, or receive\nthe outbound call.",
+                    "enum": [
+                        "LINE_TYPE_UNSPECIFIED",
+                        "LANDLINE",
+                        "MOBILE"
+                    ],
+                    "enumDescriptions": [
+                        "Default. Should not be used. A network type should be specified.",
+                        "The test call placed by, or received by a land line.",
+                        "The test call placed by, or received by a mobile device."
+                    ],
+                    "type": "string"
+                },
+                "location": {
+                    "description": "Required. Originating location of an inbound test, or location where the\ncall was received for an outbound test.",
+                    "type": "string"
+                },
+                "phoneNumber": {
+                    "description": "Required. Phone number in E.164 format. This is the number called for an\ninbound test, or the number where the call was received for an outbound\ntest.",
+                    "type": "string"
+                },
+                "scoredRecordingUrl": {
+                    "description": "URL of the scored portion of the recording.",
+                    "type": "string"
+                },
+                "tollStatus": {
+                    "description": "The toll status of a call.",
+                    "enum": [
+                        "TOLL_UNSPECIFIED",
+                        "TOLL",
+                        "TOLL_FREE"
+                    ],
+                    "enumDescriptions": [
+                        "Default. Should not be used. A toll status should be specified.",
+                        "The call is placed to a toll line, or received by a toll line.",
+                        "The call is placed to a toll-free number, or received via a toll-free\nnumber for an inbound test."
+                    ],
+                    "type": "string"
+                },
+                "wirelessSignalStrength": {
+                    "$ref": "WirelessSignalStrength",
+                    "description": "Wireless signal strength of a mobile call. The object should be set only if\nthe wireless signal strength was measured for the call."
+                }
+            },
+            "type": "object"
+        },
+        "CallQualityReport": {
+            "description": "A report of an individual occurrence of a call quality test. The\n`CallQualityReport` is a resource uniquely identified by `name`, and uses\n`service` and `configuration` for classifying the result. A report indicates\nthe success or failure of a test and contains the PESQ and POLQA score.\n`test_id` corresponds to the test id used internally by the testing service,\nhowever `test_id` and `name` should be equivalent values unless a **create**\nmethod is introduced.",
+            "id": "CallQualityReport",
+            "properties": {
+                "callProperties": {
+                    "$ref": "CallProperties",
+                    "description": "Properties for an audio test using a telephony network."
+                },
+                "config": {
+                    "description": "Required. A configuration identifier which identifies what test for a\nservice is being performed. A configuration may correspond with a device\nor a test label specified by the service for distinguishing the\ntests from other tests of the same `test_type`.",
+                    "type": "string"
+                },
+                "endTime": {
+                    "description": "Required. End time of the test.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Required. Identifier of a report.",
+                    "type": "string"
+                },
+                "pesqResult": {
+                    "$ref": "PesqResult",
+                    "description": "The PESQ score result."
+                },
+                "polqaResult": {
+                    "$ref": "PolqaResult",
+                    "description": "The POLQA score result."
+                },
+                "resultType": {
+                    "description": "Required. The status of the test. Failure result status may be\nadded periodically by testing partners to indicate new failure or other\ntest end conditions.",
+                    "type": "string"
+                },
+                "startTime": {
+                    "description": "Required. Start time of the test.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "testId": {
+                    "description": "Required. ID of the test as assigned by the testing service.",
+                    "type": "string"
+                },
+                "testType": {
+                    "description": "Required. Type of test performed by the testing service. Test type should\nbe a descriptive name and should remain consistent for all tests of the\nsame behavior performed by a testing partner (ie. Inbound, Outbound, C2C).\nTesting partners may add new test types at the request of the service.",
+                    "type": "string"
+                },
+                "testedService": {
+                    "description": "Required. The service being tested.",
+                    "enum": [
+                        "TESTED_SERVICE_UNSPECIFIED",
+                        "SPEAKEASY",
+                        "CLICK2CALL",
+                        "ONEACD",
+                        "GTP"
+                    ],
+                    "enumDescriptions": [
+                        "Default. Should not be used. A service should be specified.",
+                        "The tested service is Speakeasy.",
+                        "The tested service is Cick2Call (outbound).",
+                        "The tested service is OneACD.",
+                        "The tested Service is GTP."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PesqResult": {
+            "description": "The PESQ score result. If a POLQA result is provided, a score must be\nprovided.",
+            "id": "PesqResult",
+            "properties": {
+                "aslGainRefVDeg": {
+                    "description": "Active speech level gain of reference vs degraded file.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "aslRef": {
+                    "description": "Active speech level of reference file.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "dcMeanRef": {
+                    "description": "Digital conversion mean reference. This can diagnose offset problems\nin analog to digital conversion.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "delayMax": {
+                    "description": "Maximum audio delay within the degraded file in seconds.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "delayMean": {
+                    "description": "Mean audio delay within the degraded file in seconds.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "delayMin": {
+                    "description": "Minimum audio delay within the degraded file in seconds.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "rmsDeg": {
+                    "description": "Active speech level of the degraded file.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "score": {
+                    "description": "Required. PESQ score.",
+                    "format": "float",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "PolqaResult": {
+            "description": "The POLQA score result. If a POLQA result is provided, a score must be\nprovided.",
+            "id": "PolqaResult",
+            "properties": {
+                "delayMax": {
+                    "description": "Maximum audio delay within the degraded file in seconds.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "delayMean": {
+                    "description": "Mean audio delay within the degraded file in seconds.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "delayMin": {
+                    "description": "Minimum audio delay within the degraded file in seconds.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "mos": {
+                    "description": "Mean opinion score.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "score": {
+                    "description": "Required. POLQA score.",
+                    "format": "float",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "Status": {
+            "description": "The `Status` type defines a logical error model that is suitable for\ndifferent programming environments, including REST APIs and RPC APIs. It is\nused by [gRPC](https://github.com/grpc). Each `Status` message contains\nthree pieces of data: error code, error message, and error details.\n\nYou can find out more about this error model and how to work with it in the\n[API Design Guide](https://cloud.google.com/apis/design/errors).",
+            "id": "Status",
+            "properties": {
+                "code": {
+                    "description": "The status code, which should be an enum value of google.rpc.Code.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "details": {
+                    "description": "A list of messages that carry the error details.  There is a common set of\nmessage types for APIs to use.",
+                    "items": {
+                        "additionalProperties": {
+                            "description": "Properties of the object. Contains field @type with type URL.",
+                            "type": "any"
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "message": {
+                    "description": "A developer-facing error message, which should be in English. Any\nuser-facing error message should be localized and sent in the\ngoogle.rpc.Status.details field, or localized by the client.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "WirelessSignalStrength": {
+            "description": "The signal strength of a mobile call.",
+            "id": "WirelessSignalStrength",
+            "properties": {
+                "value": {
+                    "description": "Required. The strength of wireless signal. A value corresponding to the\nsignal strength in the range 0-32 where 32 represents full signal\nstrength.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Contact Center Private API",
+    "version": "v1",
+    "version_module": true
+}

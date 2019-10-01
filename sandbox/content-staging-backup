@@ -1,0 +1,902 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/drive.appdata": {
+                    "description": "View and manage its own configuration data in your Google Drive"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://staging-backup.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Backup",
+    "description": "Backup API (partner use only)",
+    "discoveryVersion": "v1",
+    "documentationLink": "https://www.google.com",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "backup:v1",
+    "kind": "discovery#restDescription",
+    "name": "backup",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "clients": {
+            "resources": {
+                "backups": {
+                    "methods": {
+                        "batchDeleteFiles": {
+                            "description": "Deletes several files, with the same semantics as DeleteFile (where all\nfiles share the same backup and transaction)",
+                            "flatPath": "v1/clients/{clientsId}/backups/{backupsId}:batchDeleteFiles",
+                            "httpMethod": "POST",
+                            "id": "backup.clients.backups.batchDeleteFiles",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "Required. The relative resource name of the backup containing all files.\nExample: \"clients/wa/backups/15188775287\".",
+                                    "location": "path",
+                                    "pattern": "^clients/[^/]+/backups/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}:batchDeleteFiles",
+                            "request": {
+                                "$ref": "BatchDeleteFilesRequest"
+                            },
+                            "response": {
+                                "$ref": "BatchDeleteFilesResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/drive.appdata"
+                            ]
+                        },
+                        "beginTransaction": {
+                            "description": "Begins a long-running transaction for a backup.\n\nThe scope of a transaction is a single backup.\nRead-only transactions are used to provide consistent reads of a backup\nsnapshot across multiple requests and time out after 12 hours.\n\nRead-write transactions group write operations to be committed atomically\nand allow reading of uncommitted changes. Read-write transactions time out\nand rollback 14 days after the last write operation if they are not\ncommitted. There can only be one Read-write transaction at a time and\nBeginTransaction requests fail if there is an active Read-write\ntransaction for the backup.",
+                            "flatPath": "v1/clients/{clientsId}/backups/{backupsId}:beginTransaction",
+                            "httpMethod": "POST",
+                            "id": "backup.clients.backups.beginTransaction",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "Required. The resource name of the backup that the transaction belongs and\napplies to.",
+                                    "location": "path",
+                                    "pattern": "^clients/[^/]+/backups/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}:beginTransaction",
+                            "request": {
+                                "$ref": "BeginTransactionRequest"
+                            },
+                            "response": {
+                                "$ref": "Transaction"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/drive.appdata"
+                            ]
+                        },
+                        "commit": {
+                            "description": "Commits the active read-write transaction for the backup. All file changes\nare committed atomically. The backup metadata may optionally be updated by\nthe client as part of the commit.\nFor read-only transactions, commit should be called to release the\nresources held by the transaction.",
+                            "flatPath": "v1/clients/{clientsId}/backups/{backupsId}:commit",
+                            "httpMethod": "POST",
+                            "id": "backup.clients.backups.commit",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Required. The relative resource name of the backup, for example,\n\"clients/wa/backups/15188775287\".\nOutput only.",
+                                    "location": "path",
+                                    "pattern": "^clients/[^/]+/backups/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}:commit",
+                            "request": {
+                                "$ref": "CommitRequest"
+                            },
+                            "response": {
+                                "$ref": "CommitResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/drive.appdata"
+                            ]
+                        },
+                        "create": {
+                            "description": "Creates a backup, and returns the new Backup.",
+                            "flatPath": "v1/clients/{clientsId}/backups",
+                            "httpMethod": "POST",
+                            "id": "backup.clients.backups.create",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "backupId": {
+                                    "description": "Required. The name of the new backup relative to the parent.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "parent": {
+                                    "description": "Required. The name of the client.",
+                                    "location": "path",
+                                    "pattern": "^clients/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/backups",
+                            "request": {
+                                "$ref": "Backup"
+                            },
+                            "response": {
+                                "$ref": "Backup"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/drive.appdata"
+                            ]
+                        },
+                        "delete": {
+                            "description": "Deletes a backup and all of its files.",
+                            "flatPath": "v1/clients/{clientsId}/backups/{backupsId}",
+                            "httpMethod": "DELETE",
+                            "id": "backup.clients.backups.delete",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Required. The resource name of the backup.",
+                                    "location": "path",
+                                    "pattern": "^clients/[^/]+/backups/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "response": {
+                                "$ref": "Empty"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/drive.appdata"
+                            ]
+                        },
+                        "get": {
+                            "description": "Gets the specified backup.",
+                            "flatPath": "v1/clients/{clientsId}/backups/{backupsId}",
+                            "httpMethod": "GET",
+                            "id": "backup.clients.backups.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Required. The name of the backup requested.",
+                                    "location": "path",
+                                    "pattern": "^clients/[^/]+/backups/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "response": {
+                                "$ref": "Backup"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/drive.appdata"
+                            ]
+                        },
+                        "list": {
+                            "description": "Lists all the backups for the current user and application.",
+                            "flatPath": "v1/clients/{clientsId}/backups",
+                            "httpMethod": "GET",
+                            "id": "backup.clients.backups.list",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "pageSize": {
+                                    "description": "The maximum number of items to return.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "The next_page_token value returned from a previous List request, if any.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "parent": {
+                                    "description": "Required. The client to list backups for. Example: \"clients/wa\"",
+                                    "location": "path",
+                                    "pattern": "^clients/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/backups",
+                            "response": {
+                                "$ref": "ListBackupsResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/drive.appdata"
+                            ]
+                        },
+                        "patch": {
+                            "description": "Updates a backup.",
+                            "flatPath": "v1/clients/{clientsId}/backups/{backupsId}",
+                            "httpMethod": "PATCH",
+                            "id": "backup.clients.backups.patch",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Required. The relative resource name of the backup, for example,\n\"clients/wa/backups/15188775287\".\nOutput only.",
+                                    "location": "path",
+                                    "pattern": "^clients/[^/]+/backups/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "updateMask": {
+                                    "description": "Required. Fields to update. If empty, no fields will be updated.",
+                                    "format": "google-fieldmask",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "request": {
+                                "$ref": "Backup"
+                            },
+                            "response": {
+                                "$ref": "Backup"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/drive.appdata"
+                            ]
+                        },
+                        "rename": {
+                            "description": "Changes the name of a backup. The rename will fail with an ALREADY_EXISTS\nerror if a backup with the new name already exists.",
+                            "flatPath": "v1/clients/{clientsId}/backups/{backupsId}:rename",
+                            "httpMethod": "POST",
+                            "id": "backup.clients.backups.rename",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Required. The current name of the backup.\nExample: \"clients/wa/backups/17863841234\"",
+                                    "location": "path",
+                                    "pattern": "^clients/[^/]+/backups/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}:rename",
+                            "request": {
+                                "$ref": "RenameBackupRequest"
+                            },
+                            "response": {
+                                "$ref": "RenameBackupResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/drive.appdata"
+                            ]
+                        },
+                        "rollback": {
+                            "description": "Cancels the active read-write transaction for the backup and rolls back all\nfile changes in the transaction.",
+                            "flatPath": "v1/clients/{clientsId}/backups/{backupsId}:rollback",
+                            "httpMethod": "POST",
+                            "id": "backup.clients.backups.rollback",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Required. The name of the backup. Example: \"clients/wa/backups/17863841234\"",
+                                    "location": "path",
+                                    "pattern": "^clients/[^/]+/backups/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}:rollback",
+                            "request": {
+                                "$ref": "RollbackRequest"
+                            },
+                            "response": {
+                                "$ref": "Empty"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/drive.appdata"
+                            ]
+                        }
+                    },
+                    "resources": {
+                        "files": {
+                            "methods": {
+                                "delete": {
+                                    "description": "Deletes a file, or stages it to be deleted if in a transaction.",
+                                    "flatPath": "v1/clients/{clientsId}/backups/{backupsId}/files/{filesId}",
+                                    "httpMethod": "DELETE",
+                                    "id": "backup.clients.backups.files.delete",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "name": {
+                                            "description": "Required. The relative resource name of the file to be deleted.\nExample: \"clients/wa/backups/17863841234/Databases/msgstore.db.crypt9\"",
+                                            "location": "path",
+                                            "pattern": "^clients/[^/]+/backups/[^/]+/files/.+$",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "transactionId": {
+                                            "description": "The transaction to execute the delete in.",
+                                            "location": "query",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/{+name}",
+                                    "response": {
+                                        "$ref": "Empty"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/drive.appdata"
+                                    ]
+                                },
+                                "list": {
+                                    "description": "Lists all the files in a given backup.",
+                                    "flatPath": "v1/clients/{clientsId}/backups/{backupsId}/files",
+                                    "httpMethod": "GET",
+                                    "id": "backup.clients.backups.files.list",
+                                    "parameterOrder": [
+                                        "parent"
+                                    ],
+                                    "parameters": {
+                                        "pageSize": {
+                                            "description": "The maximum number of items to return.",
+                                            "format": "int32",
+                                            "location": "query",
+                                            "type": "integer"
+                                        },
+                                        "pageToken": {
+                                            "description": "The next_page_token value returned from a previous List request, if any.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "parent": {
+                                            "description": "The name of the backup. Example: \"clients/wa/backups/",
+                                            "location": "path",
+                                            "pattern": "^clients/[^/]+/backups/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "transactionId": {
+                                            "description": "The transaction to execute the read in.",
+                                            "location": "query",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/{+parent}/files",
+                                    "response": {
+                                        "$ref": "ListFilesResponse"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/drive.appdata"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "media": {
+            "methods": {
+                "download": {
+                    "description": "Gets a file. When calling this method via REST, only the File metadata is\nreturned by default. To retrieve the file content via REST, add alt=media\nas a query parameter.",
+                    "flatPath": "v1/clients/{clientsId}/backups/{backupsId}/files/{filesId}",
+                    "httpMethod": "GET",
+                    "id": "backup.media.download",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Required. The relative resource name of the requested file.\nExample: \"clients/wa/backups/17863841234/Databases/msgstore.db.crypt9\"",
+                            "location": "path",
+                            "pattern": "^clients/[^/]+/backups/[^/]+/files/.+$",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "transactionId": {
+                            "description": "The transaction to execute the read in.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "File"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/drive.appdata"
+                    ],
+                    "supportsMediaDownload": true,
+                    "useMediaDownloadService": true
+                },
+                "upload": {
+                    "description": "Updates a file and returns the updated File. If the file doesn't exist,\nthen this will create a new file with the client-supplied ID.",
+                    "flatPath": "v1/clients/{clientsId}/backups/{backupsId}/files/{filesId}",
+                    "httpMethod": "PUT",
+                    "id": "backup.media.upload",
+                    "mediaUpload": {
+                        "accept": [
+                            "*/*"
+                        ],
+                        "protocols": {
+                            "simple": {
+                                "multipart": true,
+                                "path": "/upload/v1/{+name}"
+                            }
+                        }
+                    },
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "mediaRequestInfo.currentBytes": {
+                            "description": "The number of current bytes uploaded or downloaded.",
+                            "format": "int64",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "mediaRequestInfo.customData": {
+                            "description": "Data to be copied to backend requests. Custom data is returned to Scotty in\nthe agent_state field, which Scotty will then provide in subsequent upload\nnotifications.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "mediaRequestInfo.diffObjectVersion": {
+                            "description": "Set if the http request info is diff encoded. The value of\nthis field is the version number of the base revision.\nThis is corresponding to Apiary's mediaDiffObjectVersion\n(//depot/google3/java/com/google/api/server/media/variable/DiffObjectVersionVariable.java).\nSee go/esf-scotty-diff-upload for more information.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "mediaRequestInfo.notificationType": {
+                            "description": "The type of notification received from Scotty.",
+                            "enum": [
+                                "START",
+                                "PROGRESS",
+                                "END",
+                                "RESPONSE_SENT",
+                                "ERROR"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "mediaRequestInfo.requestId": {
+                            "description": "The Scotty request ID.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "mediaRequestInfo.totalBytes": {
+                            "description": "The total size of the file.",
+                            "format": "int64",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "mediaRequestInfo.totalBytesIsEstimated": {
+                            "description": "Whether the total bytes field contains an estimated data.",
+                            "location": "query",
+                            "type": "boolean"
+                        },
+                        "name": {
+                            "description": "The relative resource name of the backup, for example:\n\"clients/wa/backups/15188775287/files/Databases/msgstore.db.crypt9\"",
+                            "location": "path",
+                            "pattern": "^clients/[^/]+/backups/[^/]+/files/.+$",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "transactionId": {
+                            "description": "The transaction to execute the write in.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "request": {
+                        "$ref": "File"
+                    },
+                    "response": {
+                        "$ref": "File"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/drive.appdata"
+                    ],
+                    "supportsMediaUpload": true
+                }
+            }
+        }
+    },
+    "revision": "20190923",
+    "rootUrl": "https://staging-backup.sandbox.googleapis.com/",
+    "schemas": {
+        "Backup": {
+            "description": "A backup belonging to a client",
+            "id": "Backup",
+            "properties": {
+                "activeTransactionId": {
+                    "description": "Output only. The active read-write transaction for this backup if there is\none. There can only be one active read-write transaction for a backup at a\ntime.",
+                    "type": "string"
+                },
+                "metadata": {
+                    "description": "Additional information about this backup supplied by the backup client.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Required. The relative resource name of the backup, for example,\n\"clients/wa/backups/15188775287\".\nOutput only.",
+                    "type": "string"
+                },
+                "sizeBytes": {
+                    "description": "Output only. Aggregate size of all files contained in this backup, in\nbytes.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "Output only. The time the backup was last updated. A backup is considered\nupdated when it is modified directly or when changes to the files in the\nbackup are committed.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "BatchDeleteFilesRequest": {
+            "description": "A request to delete multiple files.",
+            "id": "BatchDeleteFilesRequest",
+            "properties": {
+                "fileIds": {
+                    "description": "The file ids relative to parent of the files to be deleted.\nExample: \"Databases/msgstore.db.crypt9\"",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "transactionId": {
+                    "description": "The transaction to execute the deletes in.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "BatchDeleteFilesResponse": {
+            "description": "The response from BatchDeleteFiles.",
+            "id": "BatchDeleteFilesResponse",
+            "properties": {
+                "status": {
+                    "additionalProperties": {
+                        "enum": [
+                            "OK",
+                            "CANCELLED",
+                            "UNKNOWN",
+                            "INVALID_ARGUMENT",
+                            "DEADLINE_EXCEEDED",
+                            "NOT_FOUND",
+                            "ALREADY_EXISTS",
+                            "PERMISSION_DENIED",
+                            "UNAUTHENTICATED",
+                            "RESOURCE_EXHAUSTED",
+                            "FAILED_PRECONDITION",
+                            "ABORTED",
+                            "OUT_OF_RANGE",
+                            "UNIMPLEMENTED",
+                            "INTERNAL",
+                            "UNAVAILABLE",
+                            "DATA_LOSS"
+                        ],
+                        "type": "string"
+                    },
+                    "description": "The result status code for each file. The key is the relative resource name\nof the file. The value is the status code which will be OK or NOT_FOUND.",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "BeginTransactionRequest": {
+            "description": "A request to begin a new transaction. Both read-write and read-only\ntransactions are supported. Read-write transactions are used to group write\nrequests along with the ability to read uncommitted changes. Read-only\ntransactions present a consistent view of the backup across multiple read\nrequests.",
+            "id": "BeginTransactionRequest",
+            "properties": {
+                "options": {
+                    "$ref": "TransactionOptions",
+                    "description": "The transaction options."
+                }
+            },
+            "type": "object"
+        },
+        "CommitRequest": {
+            "description": "A request to finish a transaction. For read-write transactions, all file\nchanges made within the transaction are committed atomically. For read-only\ntransactions, any resources held by the transaction are released.",
+            "id": "CommitRequest",
+            "properties": {
+                "backup": {
+                    "$ref": "Backup",
+                    "description": "Required. The backup to commit changes to."
+                },
+                "returnBackupSize": {
+                    "description": "Whether or not to include the backup size in CommitResponse. If this is\nfalse or not specified then CommitResponse.backup_size_bytes\nwill be zero.\nComputing the backup size during commit can be expensive so clients should\nonly set this if they are prepared for increased latency on the request.",
+                    "type": "boolean"
+                },
+                "transactionId": {
+                    "description": "Required. The id of the transaction to commit.",
+                    "type": "string"
+                },
+                "updateMask": {
+                    "description": "The field mask specifying which fields on Backup should be updated along\nwith the commit. If absent or empty, no fields are updated.",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CommitResponse": {
+            "description": "A commit response.",
+            "id": "CommitResponse",
+            "properties": {
+                "backupSizeBytes": {
+                    "description": "Aggregate size of all files contained in this backup, in bytes, after all\nchanges in the transaction were committed. This is only valid if\nCommitRequest.return_backup_size\nwas set to true.",
+                    "format": "uint64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Empty": {
+            "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+            "id": "Empty",
+            "properties": {},
+            "type": "object"
+        },
+        "File": {
+            "description": "A file belonging to a backup",
+            "id": "File",
+            "properties": {
+                "md5Hash": {
+                    "description": "Output only. The unencoded digest of the MD5 hash of the file contents.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "mimeType": {
+                    "description": "The mime type of the file contents.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The relative resource name of the backup, for example:\n\"clients/wa/backups/15188775287/files/Databases/msgstore.db.crypt9\"",
+                    "type": "string"
+                },
+                "sizeBytes": {
+                    "description": "Output only. The size of the file in bytes.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "Output only. The time the backup was last updated.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListBackupsResponse": {
+            "description": "A list or partial list of a user's backups.",
+            "id": "ListBackupsResponse",
+            "properties": {
+                "backups": {
+                    "description": "The backups that matched the list request. The maximum number of items\nreturned is based on the page_size field in the request.",
+                    "items": {
+                        "$ref": "Backup"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "Token to retrieve the next page of results, or empty if there are no\nmore results in the list.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListFilesResponse": {
+            "description": "The response from ListFiles, including 0 or more files and a token to get\nmore, if more exist.",
+            "id": "ListFilesResponse",
+            "properties": {
+                "files": {
+                    "description": "The files in the backup.",
+                    "items": {
+                        "$ref": "File"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "Token to retrieve the next page of results, or empty if there are no\nmore results in the list.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RenameBackupRequest": {
+            "description": "A request to change the name of an existing backup.",
+            "id": "RenameBackupRequest",
+            "properties": {
+                "newName": {
+                    "description": "Required. The desired new name of the backup. A backup cannot be moved to a\ndifferent client, so only the last segment of the resource name (backup_id)\ncan be changed. Example: \"clients/wa/backups/17864328746\"",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RenameBackupResponse": {
+            "description": "The response from renaming a backup.",
+            "id": "RenameBackupResponse",
+            "properties": {
+                "backup": {
+                    "$ref": "Backup",
+                    "description": "The renamed backup."
+                }
+            },
+            "type": "object"
+        },
+        "RollbackRequest": {
+            "description": "A request to rollback a read-write transaction.",
+            "id": "RollbackRequest",
+            "properties": {
+                "transactionId": {
+                    "description": "Required. The id of the transaction to rollback.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Transaction": {
+            "description": "A read or write transaction created with a call to BeginTransaction",
+            "id": "Transaction",
+            "properties": {
+                "id": {
+                    "description": "Output only. The unique identifier for the transaction.",
+                    "type": "string"
+                },
+                "mode": {
+                    "description": "Output only. The mode of the transaction.",
+                    "enum": [
+                        "TRANSACTION_MODE_UNSPECIFIED",
+                        "READ_ONLY",
+                        "READ_WRITE"
+                    ],
+                    "enumDescriptions": [
+                        "Invalid value. One of the other values must be specified.",
+                        "A transaction that only works for list and get operations.",
+                        "A transaction that also works for update and delete operations."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TransactionOptions": {
+            "description": "Options that can be specified while creating a transaction.",
+            "id": "TransactionOptions",
+            "properties": {
+                "estimatedDeltaBytes": {
+                    "description": "Estimated net change in size of backup (Backup.size_bytes)\nOptional, but can be provided as an estimate at the start of\na read-write transaction of the expected net change in the size of the\nbackup based on the number and size of files to be added, updated, or\ndeleted. If storage quota is being enforced for the client and the\nestimated new size of the backup would put it over quota then the\ncall to BeginTransaction will fail\nwith a quota error.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "mode": {
+                    "description": "Required. The mode of the transaction to be created.",
+                    "enum": [
+                        "TRANSACTION_MODE_UNSPECIFIED",
+                        "READ_ONLY",
+                        "READ_WRITE"
+                    ],
+                    "enumDescriptions": [
+                        "Invalid value. One of the other values must be specified.",
+                        "A transaction that only works for list and get operations.",
+                        "A transaction that also works for update and delete operations."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Backup API (staging)",
+    "version": "v1",
+    "version_module": true
+}

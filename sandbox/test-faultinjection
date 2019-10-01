@@ -1,0 +1,382 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/cloud-platform": {
+                    "description": "View and manage your data across Google Cloud Platform services"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://test-faultinjection.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "GCP Fault Injection",
+    "description": "The API for GCP Fault Injection tests.",
+    "discoveryVersion": "v1",
+    "documentationLink": "https://console.cloud.google.com/apis/api/faultinjection.googleapis.com/overview",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "faultinjection:v1eap",
+    "kind": "discovery#restDescription",
+    "name": "faultinjection",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "projects": {
+            "methods": {
+                "cancelAll": {
+                    "description": "Cancels all Tasks for the given project.",
+                    "flatPath": "v1eap/projects/{projectsId}:cancelAll",
+                    "httpMethod": "POST",
+                    "id": "faultinjection.projects.cancelAll",
+                    "parameterOrder": [
+                        "parent"
+                    ],
+                    "parameters": {
+                        "parent": {
+                            "description": "Required. The project of this agent.\nFormat: `projects/{project_id}`.",
+                            "location": "path",
+                            "pattern": "^projects/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1eap/{+parent}:cancelAll",
+                    "request": {
+                        "$ref": "CancelAllTasksRequest"
+                    },
+                    "response": {
+                        "$ref": "Empty"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                }
+            },
+            "resources": {
+                "tasks": {
+                    "methods": {
+                        "cancel": {
+                            "description": "Cancels a Task.",
+                            "flatPath": "v1eap/projects/{projectsId}/tasks/{tasksId}:cancel",
+                            "httpMethod": "POST",
+                            "id": "faultinjection.projects.tasks.cancel",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The name of the Task to cancel, including the project, e.g.,\n\"projects/*/tasks/*\".",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/tasks/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1eap/{+name}:cancel",
+                            "request": {
+                                "$ref": "CancelTaskRequest"
+                            },
+                            "response": {
+                                "$ref": "Empty"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "create": {
+                            "description": "Creates and starts a Task, returning the new Task",
+                            "flatPath": "v1eap/projects/{projectsId}/tasks",
+                            "httpMethod": "POST",
+                            "id": "faultinjection.projects.tasks.create",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "Required. The project of this agent.\nFormat: `projects/{project_id}`.",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1eap/{+parent}/tasks",
+                            "request": {
+                                "$ref": "Task"
+                            },
+                            "response": {
+                                "$ref": "Task"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "get": {
+                            "description": "Gets a Task with task name. Returns empty if the Task does not exist.",
+                            "flatPath": "v1eap/projects/{projectsId}/tasks/{tasksId}",
+                            "httpMethod": "GET",
+                            "id": "faultinjection.projects.tasks.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The name of the Task to retrieve, including the project, e.g.,\n\"projects/*/tasks/*\".",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/tasks/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1eap/{+name}",
+                            "response": {
+                                "$ref": "Task"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "list": {
+                            "description": "Lists Tasks.",
+                            "flatPath": "v1eap/projects/{projectsId}/tasks",
+                            "httpMethod": "GET",
+                            "id": "faultinjection.projects.tasks.list",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "pageSize": {
+                                    "description": "Requested page size. Server may return fewer Task than requested.\nIf unspecified, server will pick an appropriate default.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "A token identifying a page of results the server should return.\nTypically, this is the value of\nListTasksResponse.next_page_token\nreturned from the previous call to `ListTasks` method.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "parent": {
+                                    "description": "Required. The project of this agent.\nFormat: `projects/{project_id}`.",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1eap/{+parent}/tasks",
+                            "response": {
+                                "$ref": "ListTasksResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190425",
+    "rootUrl": "https://test-faultinjection.sandbox.googleapis.com/",
+    "schemas": {
+        "CancelAllTasksRequest": {
+            "description": "Request message for FaultInjectionService.CancelAllTasks.",
+            "id": "CancelAllTasksRequest",
+            "properties": {
+                "validFor": {
+                    "description": "Optional. Period of time during which tasks are canceled and new tasks will\nnot be started. Default: 5 minutes. Minimum: 5 minutes. Maximum: 1 hour.",
+                    "format": "google-duration",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CancelTaskRequest": {
+            "description": "Request message for FaultInjectionService.CancelTask.",
+            "id": "CancelTaskRequest",
+            "properties": {},
+            "type": "object"
+        },
+        "Empty": {
+            "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+            "id": "Empty",
+            "properties": {},
+            "type": "object"
+        },
+        "ListTasksResponse": {
+            "description": "Response message for FaultInjectionService.ListTasks.",
+            "id": "ListTasksResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "A token to retrieve next page of results.\nPass this value in the\nListTasksRequest.page_token\nfield in the subsequent call to `ListTasks` method to retrieve the next\npage of results.",
+                    "type": "string"
+                },
+                "tasks": {
+                    "description": "The list of Tasks.",
+                    "items": {
+                        "$ref": "Task"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Task": {
+            "description": "A Fault Injection Service Task.",
+            "id": "Task",
+            "properties": {
+                "liveRun": {
+                    "description": "Live runs actually execute the task. If false, simulate and report.",
+                    "type": "boolean"
+                },
+                "messages": {
+                    "additionalProperties": {
+                        "description": "Properties of the object.",
+                        "type": "any"
+                    },
+                    "description": "Human readable messages describing details about the executing task.\nIf failed, detailed error messages will be logged here.",
+                    "type": "object"
+                },
+                "name": {
+                    "description": "A single Task. The name is ignored when creating a Task. The system\ncreates and returns a unique name for the task.",
+                    "type": "string"
+                },
+                "parameters": {
+                    "additionalProperties": {
+                        "description": "Properties of the object.",
+                        "type": "any"
+                    },
+                    "description": "Use google.protobuf.Struct for parameters for JSON interoperability.",
+                    "type": "object"
+                },
+                "startTime": {
+                    "description": "Start time of the task.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "state": {
+                    "description": "Output only. The detailed state of a task.",
+                    "enum": [
+                        "STATE_UNSPECIFIED",
+                        "CREATING",
+                        "READY",
+                        "RUNNING",
+                        "SUCCEEDED",
+                        "FAILED",
+                        "CANCELLING",
+                        "CANCELLED"
+                    ],
+                    "enumDescriptions": [
+                        "The task state is unspecified.",
+                        "The task has just been created and is being verified.",
+                        "The service is ready to run the task.",
+                        "The task is in progress.",
+                        "The task completed successfully.",
+                        "The task failed.",
+                        "The task is being aborted/cancelled.",
+                        "The task has been aborted/cancelled."
+                    ],
+                    "type": "string"
+                },
+                "taskType": {
+                    "description": "The Task spec.",
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "Last update time of the state.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "GCP Fault Injection API (Test)",
+    "version": "v1eap",
+    "version_module": true
+}

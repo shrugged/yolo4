@@ -1,0 +1,559 @@
+{
+    "basePath": "",
+    "baseUrl": "https://nightly-alkaliannounce-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Alkali Announce",
+    "description": "Announce is an announcement publishing application for support org.",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://go/alkali",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "nightly_alkaliannounce_pa_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "nightly_alkaliannounce_pa_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "announcements": {
+            "methods": {
+                "create": {
+                    "description": "Creates a new Announcement.",
+                    "flatPath": "v1/announcements",
+                    "httpMethod": "POST",
+                    "id": "nightly_alkaliannounce_pa_sandbox.announcements.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/announcements",
+                    "request": {
+                        "$ref": "Announcement"
+                    },
+                    "response": {
+                        "$ref": "Announcement"
+                    }
+                },
+                "get": {
+                    "description": "Retrieves a UserAnnouncement for the given ID.",
+                    "flatPath": "v1/announcements/{announcementsId}",
+                    "httpMethod": "GET",
+                    "id": "nightly_alkaliannounce_pa_sandbox.announcements.get",
+                    "parameterOrder": [
+                        "announcementId"
+                    ],
+                    "parameters": {
+                        "announcementId": {
+                            "description": "ID of the announcement that should be retrieved.\nAnnouncement IDs are in format announcements/{announcement_id}.",
+                            "location": "path",
+                            "pattern": "^announcements/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "include": {
+                            "description": "Projection of the returned resource.",
+                            "format": "google-fieldmask",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+announcementId}",
+                    "response": {
+                        "$ref": "Announcement"
+                    }
+                },
+                "list": {
+                    "description": "Retrieves all Announcements satisfying the given (optional) constraints.",
+                    "flatPath": "v1/announcements",
+                    "httpMethod": "GET",
+                    "id": "nightly_alkaliannounce_pa_sandbox.announcements.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "continuationToken": {
+                            "description": "Token to retrieve the next set of UserAnnouncements.\nNote that the same constraints field is required in addition to the\npage_token in all follow-up requests. The request will fail if different\nconstraints are specified.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "filter": {
+                            "description": "Cloud API filter expression",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "include": {
+                            "description": "Projection of the returned resource.",
+                            "format": "google-fieldmask",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "orderBy": {
+                            "description": "Sort order of the results, consisting of an Announcement field\noptionally followed by a space and `desc`.  Examples: \"priority desc\". The\ndefault sort order is ascending (from older to newer entries) unless `desc`\nis appended.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "pageSize": {
+                            "description": "Maximum number of UserAnnouncements to return in one response.\npage_size must be non-negative and less than or equal to the max page size\nof 1000. If page_size is zero or is not provided, the default page size\nof 50 will be used.\nThe number of UserAnnouncements returned in the response may be less\nthan page_size if the number of matches is less than page_size.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "parentResourceName": {
+                            "description": "Resource name for an Announcement resource. Example: \"authors/johndoe\".",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/announcements",
+                    "response": {
+                        "$ref": "ListAnnouncementsResponse"
+                    }
+                },
+                "patch": {
+                    "description": "Updates an Announcement.",
+                    "flatPath": "v1/announcements/{announcementsId}",
+                    "httpMethod": "PATCH",
+                    "id": "nightly_alkaliannounce_pa_sandbox.announcements.patch",
+                    "parameterOrder": [
+                        "id"
+                    ],
+                    "parameters": {
+                        "id": {
+                            "description": "Unique identifier, in format announcements/{announcement_id}.",
+                            "location": "path",
+                            "pattern": "^announcements/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "notifyUsers": {
+                            "description": "True if users should be re-notified when update happens.",
+                            "location": "query",
+                            "type": "boolean"
+                        },
+                        "update": {
+                            "description": "Indicates which fields to update.",
+                            "format": "google-fieldmask",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+id}",
+                    "request": {
+                        "$ref": "Announcement"
+                    },
+                    "response": {
+                        "$ref": "Announcement"
+                    }
+                }
+            }
+        },
+        "users": {
+            "resources": {
+                "announcements": {
+                    "methods": {
+                        "get": {
+                            "description": "Retrieves a UserAnnouncement for the given ID.",
+                            "flatPath": "v1/users/{usersId}/announcements/{announcementsId}",
+                            "httpMethod": "GET",
+                            "id": "nightly_alkaliannounce_pa_sandbox.users.announcements.get",
+                            "parameterOrder": [
+                                "announcementId"
+                            ],
+                            "parameters": {
+                                "announcementId": {
+                                    "description": "ID of the announcement that should be retrieved.\nFormatted as users/{username}/announcements/{announcement_id}.",
+                                    "location": "path",
+                                    "pattern": "^users/[^/]+/announcements/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "include": {
+                                    "description": "Projection of the returned resource.",
+                                    "format": "google-fieldmask",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+announcementId}",
+                            "response": {
+                                "$ref": "UserAnnouncement"
+                            }
+                        },
+                        "list": {
+                            "description": "Retrieves all UserAnnouncements satisfying the given (optional)\nconstraints.",
+                            "flatPath": "v1/users/announcements",
+                            "httpMethod": "GET",
+                            "id": "nightly_alkaliannounce_pa_sandbox.users.announcements.list",
+                            "parameterOrder": [],
+                            "parameters": {
+                                "continuationToken": {
+                                    "description": "Token to retrieve the next set of UserAnnouncements.\nNote that the same constraints field is required in addition to the\npage_token in all follow-up requests. The request will fail if different\nconstraints are specified.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "filter": {
+                                    "description": "Cloud API filter expression.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "include": {
+                                    "description": "Projection of the returned resource.",
+                                    "format": "google-fieldmask",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "orderBy": {
+                                    "description": "Sort order of the results, consisting of a UserAnnouncement field\noptionally followed by a space and `desc`.  Examples: \"priority desc\". The\ndefault sort order is ascending (from older to newer entries) unless `desc`\nis appended.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "pageSize": {
+                                    "description": "Maximum number of UserAnnouncements to return in one response.\npage_size must be non-negative and less than or equal to the max page size\nof 1000. If page_size is zero or is not provided, the default page size\nof 50 will be used.\nThe number of UserAnnouncements returned in the response may be less\nthan page_size if the number of matches is less than page_size.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "parentResourceName": {
+                                    "description": "Resource name for an Announcement resource. Example: \"users/johndoe\".",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/users/announcements",
+                            "response": {
+                                "$ref": "ListUserAnnouncementsResponse"
+                            }
+                        },
+                        "patch": {
+                            "description": "Updates a UserAnnouncement.",
+                            "flatPath": "v1/users/{usersId}/announcements/{announcementsId}",
+                            "httpMethod": "PATCH",
+                            "id": "nightly_alkaliannounce_pa_sandbox.users.announcements.patch",
+                            "parameterOrder": [
+                                "id"
+                            ],
+                            "parameters": {
+                                "id": {
+                                    "description": "Unique identifier.\nFormatted as users/{username}/announcements/{announcement_id}.",
+                                    "location": "path",
+                                    "pattern": "^users/[^/]+/announcements/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "update": {
+                                    "description": "Indicates which fields to update.",
+                                    "format": "google-fieldmask",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+id}",
+                            "request": {
+                                "$ref": "UserAnnouncement"
+                            },
+                            "response": {
+                                "$ref": "UserAnnouncement"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190921",
+    "rootUrl": "https://nightly-alkaliannounce-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "Announcement": {
+            "description": "An Announcement resource.\nNEXT_TAG: 12",
+            "id": "Announcement",
+            "properties": {
+                "content": {
+                    "description": "Announcement content as safe HTML.",
+                    "type": "string"
+                },
+                "createdByUsername": {
+                    "description": "Username of the announcement creator",
+                    "type": "string"
+                },
+                "criteria": {
+                    "$ref": "TargetingCriteria",
+                    "description": "Encapsulates targeting criteria (to be defined by WfM API)."
+                },
+                "id": {
+                    "description": "Unique identifier, in format announcements/{announcement_id}.",
+                    "type": "string"
+                },
+                "lastUpdatedByUsername": {
+                    "description": "Username of the last person to update announcement.",
+                    "type": "string"
+                },
+                "priority": {
+                    "description": "Announcement priority (eg Medium, High, Critical).",
+                    "enum": [
+                        "ANNOUNCEMENT_PRIORITY_UNKNOWN",
+                        "ANNOUNCEMENT_PRIORITY_LOW",
+                        "ANNOUNCEMENT_PRIORITY_MEDIUM",
+                        "ANNOUNCEMENT_PRIORITY_HIGH",
+                        "ANNOUNCEMENT_PRIORITY_CRITICAL"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown announcement priority.",
+                        "Low announcement priority.",
+                        "Medium announcement priority.",
+                        "High announcement priority.",
+                        "Critical announcement priority."
+                    ],
+                    "type": "string"
+                },
+                "product": {
+                    "description": "Product (derived from targeting criteria).",
+                    "type": "string"
+                },
+                "publishDate": {
+                    "description": "Target publish date.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "Announcement status (Draft, Sent, Archived)",
+                    "enum": [
+                        "ANNOUNCEMENT_STATUS_UNKNOWN",
+                        "ANNOUNCEMENT_STATUS_DRAFT",
+                        "ANNOUNCEMENT_STATUS_PUBLISHED",
+                        "ANNOUNCEMENT_STATUS_ARCHIVED",
+                        "ANNOUNCEMENT_STATUS_DELETED"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown announcement status.",
+                        "Announcement is in draft status but not published.",
+                        "Announcement is published and active.",
+                        "Announcement is archived and not visible to users.",
+                        "Announcement is deleted."
+                    ],
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Announcement title.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "Announcement type (eg Outage, Policy Change).",
+                    "enum": [
+                        "ANNOUNCEMENT_TYPE_UNKNOWN",
+                        "ANNOUNCEMENT_TYPE_OUTAGE",
+                        "ANNOUNCEMENT_TYPE_PROCESS_OR_POLICY_CHANGE",
+                        "ANNOUNCEMENT_TYPE_NEW_LAUNCH",
+                        "ANNOUNCEMENT_TYPE_EMERGING_ISSUE",
+                        "ANNOUNCEMENT_TYPE_TOOL_LAUNCH"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown announcement type.",
+                        "Outage announcement (ie service is down).",
+                        "Process or policy change announcement (ie refund changes).",
+                        "New product launch announcement.",
+                        "Emerging issue announcement (ie increased transaction decline rate).",
+                        "Tool launch announcement (ie new merchant lookup tool)."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListAnnouncementsResponse": {
+            "description": "Response containing a list of Announcements for a given request.\nNEXT_TAG: 3",
+            "id": "ListAnnouncementsResponse",
+            "properties": {
+                "announcements": {
+                    "description": "Announcements matching specified constraints.",
+                    "items": {
+                        "$ref": "Announcement"
+                    },
+                    "type": "array"
+                },
+                "continuationToken": {
+                    "description": "Continuation token for pagination.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListUserAnnouncementsResponse": {
+            "description": "Response containing a list of UserAnnouncements for a given request.\nNEXT_TAG: 3",
+            "id": "ListUserAnnouncementsResponse",
+            "properties": {
+                "announcements": {
+                    "description": "User Announcements matching specified constraints.",
+                    "items": {
+                        "$ref": "UserAnnouncement"
+                    },
+                    "type": "array"
+                },
+                "continuationToken": {
+                    "description": "Continuation token for pagination.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TargetingCriteria": {
+            "description": "Placeholder for Announcement targeting criteria.",
+            "id": "TargetingCriteria",
+            "properties": {
+                "propertyFieldsFilter": {
+                    "description": "Property fields filter used to obtain GAIA IDs corresponding to a target\npool.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UserAnnouncement": {
+            "description": "A UserAnnouncement resource.",
+            "id": "UserAnnouncement",
+            "properties": {
+                "content": {
+                    "description": "Announcement content as safe HTML.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Unique identifier.\nFormatted as users/{username}/announcements/{announcement_id}.",
+                    "type": "string"
+                },
+                "isAccepted": {
+                    "description": "True if user has accepted announcement.",
+                    "type": "boolean"
+                },
+                "isFavorited": {
+                    "description": "True if user has favorited announcement.",
+                    "type": "boolean"
+                },
+                "priority": {
+                    "description": "Announcement priority (eg Medium, High, Critical).",
+                    "enum": [
+                        "ANNOUNCEMENT_PRIORITY_UNKNOWN",
+                        "ANNOUNCEMENT_PRIORITY_LOW",
+                        "ANNOUNCEMENT_PRIORITY_MEDIUM",
+                        "ANNOUNCEMENT_PRIORITY_HIGH",
+                        "ANNOUNCEMENT_PRIORITY_CRITICAL"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown announcement priority.",
+                        "Low announcement priority.",
+                        "Medium announcement priority.",
+                        "High announcement priority.",
+                        "Critical announcement priority."
+                    ],
+                    "type": "string"
+                },
+                "product": {
+                    "description": "Product (derived from targeting criteria).",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Announcement title.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "Announcement type (eg Outage, Policy Change).",
+                    "enum": [
+                        "ANNOUNCEMENT_TYPE_UNKNOWN",
+                        "ANNOUNCEMENT_TYPE_OUTAGE",
+                        "ANNOUNCEMENT_TYPE_PROCESS_OR_POLICY_CHANGE",
+                        "ANNOUNCEMENT_TYPE_NEW_LAUNCH",
+                        "ANNOUNCEMENT_TYPE_EMERGING_ISSUE",
+                        "ANNOUNCEMENT_TYPE_TOOL_LAUNCH"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown announcement type.",
+                        "Outage announcement (ie service is down).",
+                        "Process or policy change announcement (ie refund changes).",
+                        "New product launch announcement.",
+                        "Emerging issue announcement (ie increased transaction decline rate).",
+                        "Tool launch announcement (ie new merchant lookup tool)."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Alkali Announce Private API (Nightly)",
+    "version": "v1",
+    "version_module": true
+}

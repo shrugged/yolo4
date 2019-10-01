@@ -1,0 +1,1575 @@
+{
+    "basePath": "",
+    "baseUrl": "https://qa-alkalislice-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Alkali Slice",
+    "description": "Slice is an application for managing FTE and TVC allocations across different breakdown dimensions (product area, work driver...).",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://go/alkali",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "qa_alkalislice_pa_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "qa_alkalislice_pa_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "allocations": {
+            "methods": {
+                "batchGet": {
+                    "description": "Retrieves allocations in batch.",
+                    "flatPath": "v1/allocations:batchGet",
+                    "httpMethod": "POST",
+                    "id": "qa_alkalislice_pa_sandbox.allocations.batchGet",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/allocations:batchGet",
+                    "request": {
+                        "$ref": "BatchGetAllocationRequest"
+                    },
+                    "response": {
+                        "$ref": "BatchGetAllocationResponse"
+                    }
+                },
+                "create": {
+                    "description": "Creates a new allocation.",
+                    "flatPath": "v1/allocations:create",
+                    "httpMethod": "POST",
+                    "id": "qa_alkalislice_pa_sandbox.allocations.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/allocations:create",
+                    "request": {
+                        "$ref": "CreateAllocationRequest"
+                    },
+                    "response": {
+                        "$ref": "Allocation"
+                    }
+                },
+                "delete": {
+                    "description": "Deletes an Allocation.",
+                    "flatPath": "v1/allocations:delete",
+                    "httpMethod": "DELETE",
+                    "id": "qa_alkalislice_pa_sandbox.allocations.delete",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "allocationKey.allocationId": {
+                            "description": "Allocation id.",
+                            "format": "int64",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "allocationKey.organizationKey.alkaliAccountKey": {
+                            "description": "Required. Spanner ID.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "allocationKey.tomoProductId": {
+                            "description": "Tomo product ID.\nOptional and can be used to merge Slice model with Tomo model.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/allocations:delete",
+                    "response": {
+                        "$ref": "Empty"
+                    }
+                },
+                "get": {
+                    "description": "Returns an Allocation.",
+                    "flatPath": "v1/allocations:get",
+                    "httpMethod": "POST",
+                    "id": "qa_alkalislice_pa_sandbox.allocations.get",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/allocations:get",
+                    "request": {
+                        "$ref": "GetAllocationRequest"
+                    },
+                    "response": {
+                        "$ref": "Allocation"
+                    }
+                },
+                "update": {
+                    "description": "Updates an Allocation.",
+                    "flatPath": "v1/allocations:update",
+                    "httpMethod": "POST",
+                    "id": "qa_alkalislice_pa_sandbox.allocations.update",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/allocations:update",
+                    "request": {
+                        "$ref": "UpdateAllocationRequest"
+                    },
+                    "response": {
+                        "$ref": "Allocation"
+                    }
+                }
+            }
+        },
+        "echo": {
+            "methods": {
+                "create": {
+                    "description": "Responds back with same message.",
+                    "flatPath": "v1/echo",
+                    "httpMethod": "POST",
+                    "id": "qa_alkalislice_pa_sandbox.echo.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/echo",
+                    "request": {
+                        "$ref": "CreateEchoRequest"
+                    },
+                    "response": {
+                        "$ref": "Echo"
+                    }
+                }
+            }
+        },
+        "organizations": {
+            "methods": {
+                "create": {
+                    "description": "Creates a new organization.",
+                    "flatPath": "v1/organizations:create",
+                    "httpMethod": "POST",
+                    "id": "qa_alkalislice_pa_sandbox.organizations.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/organizations:create",
+                    "request": {
+                        "$ref": "CreateOrganizationRequest"
+                    },
+                    "response": {
+                        "$ref": "Organization"
+                    }
+                },
+                "get": {
+                    "description": "Returns an Organization.",
+                    "flatPath": "v1/organizations:get",
+                    "httpMethod": "GET",
+                    "id": "qa_alkalislice_pa_sandbox.organizations.get",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "organizationKey.alkaliAccountKey": {
+                            "description": "Required. Spanner ID.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/organizations:get",
+                    "response": {
+                        "$ref": "Organization"
+                    }
+                },
+                "update": {
+                    "description": "Updates an Organization.",
+                    "flatPath": "v1/organizations:update",
+                    "httpMethod": "POST",
+                    "id": "qa_alkalislice_pa_sandbox.organizations.update",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/organizations:update",
+                    "request": {
+                        "$ref": "UpdateOrganizationRequest"
+                    },
+                    "response": {
+                        "$ref": "Organization"
+                    }
+                }
+            }
+        },
+        "persons": {
+            "methods": {
+                "batchGet": {
+                    "description": "Batch gets persons.",
+                    "flatPath": "v1/persons:batchGet",
+                    "httpMethod": "POST",
+                    "id": "qa_alkalislice_pa_sandbox.persons.batchGet",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/persons:batchGet",
+                    "request": {
+                        "$ref": "BatchGetPersonsRequest"
+                    },
+                    "response": {
+                        "$ref": "BatchGetPersonsResponse"
+                    }
+                },
+                "get": {
+                    "description": "Gets a person.",
+                    "flatPath": "v1/persons:get",
+                    "httpMethod": "POST",
+                    "id": "qa_alkalislice_pa_sandbox.persons.get",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/persons:get",
+                    "request": {
+                        "$ref": "GetPersonRequest"
+                    },
+                    "response": {
+                        "$ref": "Person"
+                    }
+                },
+                "resolveUsername": {
+                    "description": "Resolves person's username to user identifier.",
+                    "flatPath": "v1/persons:resolveUsername",
+                    "httpMethod": "POST",
+                    "id": "qa_alkalislice_pa_sandbox.persons.resolveUsername",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/persons:resolveUsername",
+                    "request": {
+                        "$ref": "ResolveUsernameRequest"
+                    },
+                    "response": {
+                        "$ref": "ResolveUsernameResponse"
+                    }
+                }
+            },
+            "resources": {
+                "allocations": {
+                    "methods": {
+                        "batchGet": {
+                            "description": "Batch gets Persons' time allocations.",
+                            "flatPath": "v1/persons/allocations:batchGet",
+                            "httpMethod": "POST",
+                            "id": "qa_alkalislice_pa_sandbox.persons.allocations.batchGet",
+                            "parameterOrder": [],
+                            "parameters": {},
+                            "path": "v1/persons/allocations:batchGet",
+                            "request": {
+                                "$ref": "BatchGetPersonAllocationsRequest"
+                            },
+                            "response": {
+                                "$ref": "BatchGetPersonAllocationsResponse"
+                            }
+                        },
+                        "batchGetPerProductArea": {
+                            "description": "Batch gets Persons' time allocations per product area.",
+                            "flatPath": "v1/persons/allocations:batchGetPerProductArea",
+                            "httpMethod": "POST",
+                            "id": "qa_alkalislice_pa_sandbox.persons.allocations.batchGetPerProductArea",
+                            "parameterOrder": [],
+                            "parameters": {},
+                            "path": "v1/persons/allocations:batchGetPerProductArea",
+                            "request": {
+                                "$ref": "BatchGetPersonProductAreaAllocationsRequest"
+                            },
+                            "response": {
+                                "$ref": "BatchGetPersonProductAreaAllocationsResponse"
+                            }
+                        },
+                        "bulkCreate": {
+                            "description": "Batch creates Persons' allocations proposals.",
+                            "flatPath": "v1/persons/allocations:bulkCreate",
+                            "httpMethod": "POST",
+                            "id": "qa_alkalislice_pa_sandbox.persons.allocations.bulkCreate",
+                            "parameterOrder": [],
+                            "parameters": {},
+                            "path": "v1/persons/allocations:bulkCreate",
+                            "request": {
+                                "$ref": "BulkCreatePersonAllocationsProposalRequest"
+                            },
+                            "response": {
+                                "$ref": "BulkCreatePersonAllocationsProposalResponse"
+                            }
+                        },
+                        "bulkUpdate": {
+                            "description": "Bulk updates Persons' allocations proposals.",
+                            "flatPath": "v1/persons/allocations:bulkUpdate",
+                            "httpMethod": "POST",
+                            "id": "qa_alkalislice_pa_sandbox.persons.allocations.bulkUpdate",
+                            "parameterOrder": [],
+                            "parameters": {},
+                            "path": "v1/persons/allocations:bulkUpdate",
+                            "request": {
+                                "$ref": "BulkUpdatePersonAllocationsProposalRequest"
+                            },
+                            "response": {
+                                "$ref": "BulkUpdatePersonAllocationsProposalResponse"
+                            }
+                        },
+                        "create": {
+                            "description": "Creates Person's allocations proposal.",
+                            "flatPath": "v1/persons/allocations:create",
+                            "httpMethod": "POST",
+                            "id": "qa_alkalislice_pa_sandbox.persons.allocations.create",
+                            "parameterOrder": [],
+                            "parameters": {},
+                            "path": "v1/persons/allocations:create",
+                            "request": {
+                                "$ref": "CreatePersonAllocationsProposalRequest"
+                            },
+                            "response": {
+                                "$ref": "CreatePersonAllocationsProposalResponse"
+                            }
+                        },
+                        "getPerProductArea": {
+                            "description": "Gets Person's time allocations per product area.",
+                            "flatPath": "v1/persons/allocations:getPerProductArea",
+                            "httpMethod": "POST",
+                            "id": "qa_alkalislice_pa_sandbox.persons.allocations.getPerProductArea",
+                            "parameterOrder": [],
+                            "parameters": {},
+                            "path": "v1/persons/allocations:getPerProductArea",
+                            "request": {
+                                "$ref": "GetPersonProductAreaAllocationsRequest"
+                            },
+                            "response": {
+                                "$ref": "GetPersonProductAreaAllocationsResponse"
+                            }
+                        },
+                        "list": {
+                            "description": "Lists Person\u2019s time allocations.",
+                            "flatPath": "v1/persons/allocations:list",
+                            "httpMethod": "POST",
+                            "id": "qa_alkalislice_pa_sandbox.persons.allocations.list",
+                            "parameterOrder": [],
+                            "parameters": {},
+                            "path": "v1/persons/allocations:list",
+                            "request": {
+                                "$ref": "ListPersonAllocationsRequest"
+                            },
+                            "response": {
+                                "$ref": "ListPersonAllocationsResponse"
+                            }
+                        },
+                        "update": {
+                            "description": "Updates Person\u2019s time allocations proposal.",
+                            "flatPath": "v1/persons/allocations:update",
+                            "httpMethod": "POST",
+                            "id": "qa_alkalislice_pa_sandbox.persons.allocations.update",
+                            "parameterOrder": [],
+                            "parameters": {},
+                            "path": "v1/persons/allocations:update",
+                            "request": {
+                                "$ref": "UpdatePersonAllocationsProposalRequest"
+                            },
+                            "response": {
+                                "$ref": "UpdatePersonAllocationsProposalResponse"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "quarters": {
+            "resources": {
+                "management": {
+                    "methods": {
+                        "getQuarterData": {
+                            "description": "Loads current or past quarter data.",
+                            "flatPath": "v1/quarters/management:getQuarterData",
+                            "httpMethod": "POST",
+                            "id": "qa_alkalislice_pa_sandbox.quarters.management.getQuarterData",
+                            "parameterOrder": [],
+                            "parameters": {},
+                            "path": "v1/quarters/management:getQuarterData",
+                            "request": {
+                                "$ref": "GetQuarterDataRequest"
+                            },
+                            "response": {
+                                "$ref": "QuarterData"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190917",
+    "rootUrl": "https://qa-alkalislice-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "Allocation": {
+            "description": "Describes a single allocation.",
+            "id": "Allocation",
+            "properties": {
+                "allocationDescription": {
+                    "description": "Optional Allocation description. Example: Hardware Product Area",
+                    "type": "string"
+                },
+                "allocationName": {
+                    "description": "Allocation name. Example: Hardware.",
+                    "type": "string"
+                },
+                "key": {
+                    "$ref": "AllocationKey",
+                    "description": "Allocation key."
+                },
+                "parentAllocationKey": {
+                    "$ref": "AllocationKey",
+                    "description": "Key of its parent Allocation, if any."
+                }
+            },
+            "type": "object"
+        },
+        "AllocationKey": {
+            "description": "Uniquely identifies an allocation.",
+            "id": "AllocationKey",
+            "properties": {
+                "allocationId": {
+                    "description": "Allocation id.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "organizationKey": {
+                    "$ref": "OrganizationKey",
+                    "description": "Required. Spanner ID."
+                },
+                "tomoProductId": {
+                    "description": "Tomo product ID.\nOptional and can be used to merge Slice model with Tomo model.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AllocationProposal": {
+            "description": "Encapsulates proposed Allocation and associated comment.",
+            "id": "AllocationProposal",
+            "properties": {
+                "allocatedRatio": {
+                    "description": "FTE ratio allocated to this allocation. Example: 30 for 30%.",
+                    "format": "uint32",
+                    "type": "integer"
+                },
+                "allocation": {
+                    "$ref": "Allocation",
+                    "description": "Allocation that should be assigned."
+                },
+                "comment": {
+                    "description": "Comment regarding the allocation.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AllocationProposalProductArea": {
+            "description": "Encapsulates proposed allocations on product area level.",
+            "id": "AllocationProposalProductArea",
+            "properties": {
+                "allocations": {
+                    "description": "Allocation proposals for a given product area.",
+                    "items": {
+                        "$ref": "AllocationProposal"
+                    },
+                    "type": "array"
+                },
+                "productArea": {
+                    "$ref": "Allocation",
+                    "description": "Product area allocation."
+                }
+            },
+            "type": "object"
+        },
+        "BatchGetAllocationRequest": {
+            "description": "Request for batch retrieval of Allocations.\nNEXT_TAG: 7",
+            "id": "BatchGetAllocationRequest",
+            "properties": {
+                "childAllocationKeyFilter": {
+                    "$ref": "AllocationKey",
+                    "description": "Key of the child Allocation if only it's parents should be retrieved."
+                },
+                "continuationToken": {
+                    "description": "Continuation token for paginated results.",
+                    "type": "string"
+                },
+                "maxResults": {
+                    "description": "Maximum number of Allocations to return.",
+                    "format": "uint32",
+                    "type": "integer"
+                },
+                "parentAllocationKeyFilter": {
+                    "$ref": "AllocationKey",
+                    "description": "Key of the parent Allocation if only it's children should be retrieved."
+                },
+                "topLevelAllocationRestrict": {
+                    "description": "If only top level allocations should be retrieved.",
+                    "type": "boolean"
+                },
+                "topLevelAndChildrenRestrict": {
+                    "description": "If only top level allocations and their children should be retrieved.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "BatchGetAllocationResponse": {
+            "description": "Response for batch retrieval of Allocations.\nNEXT_TAG: 4",
+            "id": "BatchGetAllocationResponse",
+            "properties": {
+                "allocations": {
+                    "description": "Retrieved allocations.",
+                    "items": {
+                        "$ref": "Allocation"
+                    },
+                    "type": "array"
+                },
+                "continuationToken": {
+                    "description": "Continuation token for paginated results.",
+                    "type": "string"
+                },
+                "productAreaAllocations": {
+                    "description": "List of product areas and their respective products.",
+                    "items": {
+                        "$ref": "ProductAreaAndProduct"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BatchGetPersonAllocationsRequest": {
+            "description": "Request to batch get persons' time allocations.\nNEXT_TAG: 7",
+            "id": "BatchGetPersonAllocationsRequest",
+            "properties": {
+                "creationFilter": {
+                    "$ref": "TimeRestrict",
+                    "description": "Greater than creation time."
+                },
+                "latestProposalFilter": {
+                    "description": "Only fetch the most recent proposal.",
+                    "type": "boolean"
+                },
+                "managerGaiaId": {
+                    "description": "Manager GAIA ID. Example: retrieve data for all direct reports.",
+                    "format": "uint64",
+                    "type": "string"
+                },
+                "personKeyArray": {
+                    "$ref": "PersonKeyArray",
+                    "description": "Persons' keys."
+                },
+                "proposalStatusFilter": {
+                    "description": "Status filter.",
+                    "enumDescriptions": [
+                        "Unknown status.",
+                        "Proposal is pending review.",
+                        "Proposal is copied over from past cycle and is pending review.",
+                        "Proposal is rejected.",
+                        "Proposal is approved.",
+                        "Proposal is approved after being edited by administrator."
+                    ],
+                    "items": {
+                        "enum": [
+                            "UNKNOWN_STATUS",
+                            "PENDING",
+                            "PENDING_COPY_OVER",
+                            "REJECTED",
+                            "APPROVED",
+                            "APPROVED_WITH_EDIT"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "reviewFilter": {
+                    "$ref": "TimeRestrict",
+                    "description": "Greater than review time."
+                }
+            },
+            "type": "object"
+        },
+        "BatchGetPersonAllocationsResponse": {
+            "description": "Response for batch retrieval of Allocations.\nNEXT_TAG: 2",
+            "id": "BatchGetPersonAllocationsResponse",
+            "properties": {
+                "personAllocationsResult": {
+                    "additionalProperties": {
+                        "$ref": "PersonAllocationsResult"
+                    },
+                    "description": "Maps Person's GAIA ID to their respective allocations results.",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "BatchGetPersonProductAreaAllocationsRequest": {
+            "description": "Request to batch get persons' time allocations per product area.\nNEXT_TAG: 7",
+            "id": "BatchGetPersonProductAreaAllocationsRequest",
+            "properties": {
+                "creationFilter": {
+                    "$ref": "TimeRestrict",
+                    "description": "Greater than creation time."
+                },
+                "latestProposalFilter": {
+                    "description": "Only fetch the most recent proposal.",
+                    "type": "boolean"
+                },
+                "personKey": {
+                    "description": "Persons' keys.",
+                    "items": {
+                        "$ref": "PersonKey"
+                    },
+                    "type": "array"
+                },
+                "proposalStatusFilter": {
+                    "description": "Status filter.",
+                    "enumDescriptions": [
+                        "Unknown status.",
+                        "Proposal is pending review.",
+                        "Proposal is copied over from past cycle and is pending review.",
+                        "Proposal is rejected.",
+                        "Proposal is approved.",
+                        "Proposal is approved after being edited by administrator."
+                    ],
+                    "items": {
+                        "enum": [
+                            "UNKNOWN_STATUS",
+                            "PENDING",
+                            "PENDING_COPY_OVER",
+                            "REJECTED",
+                            "APPROVED",
+                            "APPROVED_WITH_EDIT"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "quarterFilter": {
+                    "$ref": "QuarterFilter",
+                    "description": "Fetch the last proposal for specified quarter."
+                },
+                "reviewFilter": {
+                    "$ref": "TimeRestrict",
+                    "description": "Greater than review time."
+                }
+            },
+            "type": "object"
+        },
+        "BatchGetPersonProductAreaAllocationsResponse": {
+            "description": "Response for batch retrieval of Allocations.\nNEXT_TAG: 2",
+            "id": "BatchGetPersonProductAreaAllocationsResponse",
+            "properties": {
+                "personProductAreaAllocationsResult": {
+                    "additionalProperties": {
+                        "$ref": "PersonProductAreaAllocationsResult"
+                    },
+                    "description": "Maps Person's GAIA ID to their respective allocations results.",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "BatchGetPersonsRequest": {
+            "description": "Request for batch getting Persons.\nNEXT_TAG: 4",
+            "id": "BatchGetPersonsRequest",
+            "properties": {
+                "directManagerGaiaId": {
+                    "description": "Direct manager GAIA ID. Example: retrieve data for all direct reports.",
+                    "format": "uint64",
+                    "type": "string"
+                },
+                "managerInChainGaiaId": {
+                    "description": "GAIA ID of a manager up reporting chain.\nExample: retrieve data for all reports, direct and indirect.",
+                    "format": "uint64",
+                    "type": "string"
+                },
+                "personKeyArray": {
+                    "$ref": "PersonKeyArray",
+                    "description": "Persons' keys."
+                }
+            },
+            "type": "object"
+        },
+        "BatchGetPersonsResponse": {
+            "description": "Response for batch getting Persons.\nNEXT_TAG: 2",
+            "id": "BatchGetPersonsResponse",
+            "properties": {
+                "persons": {
+                    "description": "List of resulting persons.",
+                    "items": {
+                        "$ref": "Person"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BulkCreatePersonAllocationsProposalRequest": {
+            "description": "Request for bulk creation of allocation proposals for Persons.\nNEXT_TAG: 3",
+            "id": "BulkCreatePersonAllocationsProposalRequest",
+            "properties": {
+                "allocationProposals": {
+                    "description": "Proposed allocations to apply.",
+                    "items": {
+                        "$ref": "AllocationProposal"
+                    },
+                    "type": "array"
+                },
+                "personKeys": {
+                    "description": "Persons' keys.",
+                    "items": {
+                        "$ref": "PersonKey"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BulkCreatePersonAllocationsProposalResponse": {
+            "description": "Response for bulk creation of allocation proposals for Persons.\nNEXT_TAG: 3",
+            "id": "BulkCreatePersonAllocationsProposalResponse",
+            "properties": {
+                "allocationProposals": {
+                    "description": "Proposed allocations to apply.",
+                    "items": {
+                        "$ref": "AllocationProposal"
+                    },
+                    "type": "array"
+                },
+                "proposalKeys": {
+                    "description": "Persons' keys.",
+                    "items": {
+                        "$ref": "PersonAllocationProposalKey"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BulkUpdatePersonAllocationsProposalRequest": {
+            "description": "Request for bulk update of allocation proposals for Persons.\nNEXT_TAG: 3",
+            "id": "BulkUpdatePersonAllocationsProposalRequest",
+            "properties": {
+                "proposals": {
+                    "description": "Proposals to be updated.",
+                    "items": {
+                        "$ref": "PersonAllocationsProposals"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BulkUpdatePersonAllocationsProposalResponse": {
+            "description": "Response for bulk update of allocation proposals for Persons.\nNEXT_TAG: 2",
+            "id": "BulkUpdatePersonAllocationsProposalResponse",
+            "properties": {
+                "proposalKeys": {
+                    "description": "Keys of updated proposals.",
+                    "items": {
+                        "$ref": "PersonAllocationProposalKey"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CreateAllocationRequest": {
+            "description": "Request for creating an Allocation.\nNEXT_TAG: 3",
+            "id": "CreateAllocationRequest",
+            "properties": {
+                "allocation": {
+                    "$ref": "Allocation",
+                    "description": "Allocation to be created."
+                },
+                "parentAllocationKey": {
+                    "$ref": "AllocationKey",
+                    "description": "Key of the parent Allocation."
+                }
+            },
+            "type": "object"
+        },
+        "CreateEchoRequest": {
+            "description": "Echo request.",
+            "id": "CreateEchoRequest",
+            "properties": {
+                "in": {
+                    "description": "Input message to echo.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CreateOrganizationRequest": {
+            "description": "Request for creating an Organization.\nNEXT_TAG: 2",
+            "id": "CreateOrganizationRequest",
+            "properties": {
+                "organization": {
+                    "$ref": "Organization",
+                    "description": "Organization to be created."
+                }
+            },
+            "type": "object"
+        },
+        "CreatePersonAllocationsProposalRequest": {
+            "description": "Request for creating Allocations Proposal for a Person.\nNEXT_TAG: 3",
+            "id": "CreatePersonAllocationsProposalRequest",
+            "properties": {
+                "allocationProposals": {
+                    "description": "Proposed allocations.",
+                    "items": {
+                        "$ref": "AllocationProposal"
+                    },
+                    "type": "array"
+                },
+                "personKey": {
+                    "$ref": "PersonKey",
+                    "description": "Person's key."
+                }
+            },
+            "type": "object"
+        },
+        "CreatePersonAllocationsProposalResponse": {
+            "description": "Response for CreatePersonAllocationsProposal.\nNEXT_TAG: 3",
+            "id": "CreatePersonAllocationsProposalResponse",
+            "properties": {
+                "allocationProposals": {
+                    "description": "Written proposals.",
+                    "items": {
+                        "$ref": "AllocationProposal"
+                    },
+                    "type": "array"
+                },
+                "proposalKey": {
+                    "$ref": "PersonAllocationProposalKey",
+                    "description": "Key of created proposal."
+                }
+            },
+            "type": "object"
+        },
+        "Echo": {
+            "description": "Echo response.",
+            "id": "Echo",
+            "properties": {
+                "out": {
+                    "description": "Echoed input message.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Empty": {
+            "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+            "id": "Empty",
+            "properties": {},
+            "type": "object"
+        },
+        "GetAllocationRequest": {
+            "description": "Request to get an Allocation.\nNEXT_TAG: 2",
+            "id": "GetAllocationRequest",
+            "properties": {
+                "allocationKey": {
+                    "$ref": "AllocationKey",
+                    "description": "Key of the requested allocation."
+                }
+            },
+            "type": "object"
+        },
+        "GetPersonProductAreaAllocationsRequest": {
+            "description": "Request to get person's time allocations per product area.\nNEXT_TAG: 7",
+            "id": "GetPersonProductAreaAllocationsRequest",
+            "properties": {
+                "creationFilter": {
+                    "$ref": "TimeRestrict",
+                    "description": "Greater than creation time."
+                },
+                "latestProposalFilter": {
+                    "description": "Only fetch the most recent proposal.",
+                    "type": "boolean"
+                },
+                "personKey": {
+                    "$ref": "PersonKey",
+                    "description": "Person's key."
+                },
+                "proposalStatusFilter": {
+                    "description": "Status filter.",
+                    "enumDescriptions": [
+                        "Unknown status.",
+                        "Proposal is pending review.",
+                        "Proposal is copied over from past cycle and is pending review.",
+                        "Proposal is rejected.",
+                        "Proposal is approved.",
+                        "Proposal is approved after being edited by administrator."
+                    ],
+                    "items": {
+                        "enum": [
+                            "UNKNOWN_STATUS",
+                            "PENDING",
+                            "PENDING_COPY_OVER",
+                            "REJECTED",
+                            "APPROVED",
+                            "APPROVED_WITH_EDIT"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "quarterFilter": {
+                    "$ref": "QuarterFilter",
+                    "description": "Fetch the last proposal for specified quarter."
+                },
+                "reviewFilter": {
+                    "$ref": "TimeRestrict",
+                    "description": "Greater than review time."
+                }
+            },
+            "type": "object"
+        },
+        "GetPersonProductAreaAllocationsResponse": {
+            "description": "Response for retrieval of Allocations.\nNEXT_TAG: 4",
+            "id": "GetPersonProductAreaAllocationsResponse",
+            "properties": {
+                "allocationProposals": {
+                    "description": "Product area allocations results.",
+                    "items": {
+                        "$ref": "AllocationProposalProductArea"
+                    },
+                    "type": "array"
+                },
+                "personAllocationProposalKey": {
+                    "$ref": "PersonAllocationProposalKey",
+                    "description": "Proposal key."
+                },
+                "proposalStatus": {
+                    "description": "Status of proposal.",
+                    "enum": [
+                        "UNKNOWN_STATUS",
+                        "PENDING",
+                        "PENDING_COPY_OVER",
+                        "REJECTED",
+                        "APPROVED",
+                        "APPROVED_WITH_EDIT"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown status.",
+                        "Proposal is pending review.",
+                        "Proposal is copied over from past cycle and is pending review.",
+                        "Proposal is rejected.",
+                        "Proposal is approved.",
+                        "Proposal is approved after being edited by administrator."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GetPersonRequest": {
+            "description": "Request for getting a Person.\nNEXT_TAG: 2",
+            "id": "GetPersonRequest",
+            "properties": {
+                "personKey": {
+                    "$ref": "PersonKey",
+                    "description": "Person's key."
+                }
+            },
+            "type": "object"
+        },
+        "GetQuarterDataRequest": {
+            "description": "Request for quarter data.",
+            "id": "GetQuarterDataRequest",
+            "properties": {
+                "quarter": {
+                    "description": "Id of the quarter to be closed.",
+                    "enum": [
+                        "UNKNOWN_QUARTER",
+                        "CURRENT",
+                        "PAST"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown quarter.",
+                        "Current quarter.",
+                        "Past quarter."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Leader": {
+            "description": "Describes organizational leader.",
+            "id": "Leader",
+            "properties": {
+                "ldap": {
+                    "description": "Leader's LDAP. Example: jdoe.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Leader's full name. Example: John Doe.",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Leader's title. Example: VP.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListPersonAllocationsRequest": {
+            "description": "Request to list persons' time allocations.\nNEXT_TAG: 6",
+            "id": "ListPersonAllocationsRequest",
+            "properties": {
+                "creationFilter": {
+                    "$ref": "TimeRestrict",
+                    "description": "Greater than creation time."
+                },
+                "latestProposalFilter": {
+                    "description": "Only fetch the most recent proposal.",
+                    "type": "boolean"
+                },
+                "personKey": {
+                    "$ref": "PersonKey",
+                    "description": "Person's key."
+                },
+                "proposalStatusFilter": {
+                    "description": "Status filter.",
+                    "enumDescriptions": [
+                        "Unknown status.",
+                        "Proposal is pending review.",
+                        "Proposal is copied over from past cycle and is pending review.",
+                        "Proposal is rejected.",
+                        "Proposal is approved.",
+                        "Proposal is approved after being edited by administrator."
+                    ],
+                    "items": {
+                        "enum": [
+                            "UNKNOWN_STATUS",
+                            "PENDING",
+                            "PENDING_COPY_OVER",
+                            "REJECTED",
+                            "APPROVED",
+                            "APPROVED_WITH_EDIT"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "reviewFilter": {
+                    "$ref": "TimeRestrict",
+                    "description": "Greater than review time."
+                }
+            },
+            "type": "object"
+        },
+        "ListPersonAllocationsResponse": {
+            "description": "Response for ListPersonAllocations.\nNEXT_TAG: 2",
+            "id": "ListPersonAllocationsResponse",
+            "properties": {
+                "allocationProposals": {
+                    "description": "Resulting AllocationProposals.",
+                    "items": {
+                        "$ref": "AllocationProposal"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Location": {
+            "description": "Encapsulates data about person's location.",
+            "id": "Location",
+            "properties": {
+                "deskLocation": {
+                    "description": "Desk location. Example: 1350-2-278C.",
+                    "type": "string"
+                },
+                "locationCode": {
+                    "description": "Location code. Example: US-MTV.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Organization": {
+            "description": "Defines organization configuration.",
+            "id": "Organization",
+            "properties": {
+                "key": {
+                    "$ref": "OrganizationKey",
+                    "description": "Organization key."
+                },
+                "organizationLeader": {
+                    "$ref": "Leader",
+                    "description": "Root leader of an organization. Usually the VP."
+                }
+            },
+            "type": "object"
+        },
+        "OrganizationKey": {
+            "description": "Uniquely identifies an organization.",
+            "id": "OrganizationKey",
+            "properties": {
+                "alkaliAccountKey": {
+                    "description": "Required. Spanner ID.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Person": {
+            "description": "Describes a person that can be allocated to allocations.",
+            "id": "Person",
+            "properties": {
+                "costCenter": {
+                    "description": "Person's cost center.",
+                    "type": "string"
+                },
+                "directManagerLdap": {
+                    "description": "Direct Manager LDAP. Example: aturing.",
+                    "type": "string"
+                },
+                "directManagerName": {
+                    "description": "Direct Manager name. Example: Alan Turing.",
+                    "type": "string"
+                },
+                "email": {
+                    "description": "Person's email address. Example: jdoe@google.com.",
+                    "type": "string"
+                },
+                "employeeType": {
+                    "description": "Person's employment type.",
+                    "enum": [
+                        "UNSPECIFIED",
+                        "FULL_TIME_EMPLOYEE",
+                        "TEMPORARY_EMPLOYEE",
+                        "CONTRACTOR",
+                        "VENDOR"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified type.",
+                        "Full time employee.",
+                        "Temporary employee.",
+                        "Contractor.",
+                        "Vendor."
+                    ],
+                    "type": "string"
+                },
+                "fteRatio": {
+                    "description": "Person's FTE ratio. 100 for 100% (1 FTE).",
+                    "format": "uint32",
+                    "type": "integer"
+                },
+                "jobTitle": {
+                    "description": "Person's job title. Example: Web Solutions Engineer.",
+                    "type": "string"
+                },
+                "key": {
+                    "$ref": "PersonKey",
+                    "description": "Identifies a Person."
+                },
+                "ldap": {
+                    "description": "Person's LDAP. Example: jdoe.",
+                    "type": "string"
+                },
+                "location": {
+                    "$ref": "Location",
+                    "description": "Person's location."
+                },
+                "name": {
+                    "description": "Person's full name. Example: John Doe.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PersonAllocationProposalKey": {
+            "description": "Uniquely identifies a Person Allocation proposal.",
+            "id": "PersonAllocationProposalKey",
+            "properties": {
+                "personKey": {
+                    "$ref": "PersonKey",
+                    "description": "Required. Person Key."
+                },
+                "proposalId": {
+                    "description": "Person Allocation proposal identifier.",
+                    "format": "uint64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PersonAllocationsProposals": {
+            "description": "Encapsulates proposals for a Person.\nNEXT_TAG: 4",
+            "id": "PersonAllocationsProposals",
+            "properties": {
+                "allocationProposals": {
+                    "description": "Allocation Proposals for a person.",
+                    "items": {
+                        "$ref": "AllocationProposal"
+                    },
+                    "type": "array"
+                },
+                "personAllocationProposalKey": {
+                    "$ref": "PersonAllocationProposalKey",
+                    "description": "Proposal key."
+                },
+                "status": {
+                    "description": "Proposal status.",
+                    "enum": [
+                        "UNKNOWN_STATUS",
+                        "PENDING",
+                        "PENDING_COPY_OVER",
+                        "REJECTED",
+                        "APPROVED",
+                        "APPROVED_WITH_EDIT"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown status.",
+                        "Proposal is pending review.",
+                        "Proposal is copied over from past cycle and is pending review.",
+                        "Proposal is rejected.",
+                        "Proposal is approved.",
+                        "Proposal is approved after being edited by administrator."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PersonAllocationsResult": {
+            "description": "Encapsulates resulting proposals for a Person.",
+            "id": "PersonAllocationsResult",
+            "properties": {
+                "allocationProposals": {
+                    "description": "Allocation Proposals for a person.",
+                    "items": {
+                        "$ref": "AllocationProposal"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "PersonKey": {
+            "description": "Uniquely identifies a person.",
+            "id": "PersonKey",
+            "properties": {
+                "gaiaId": {
+                    "description": "Required. Spanner ID.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PersonKeyArray": {
+            "description": "Encapsulates data about persons for which data was requested.",
+            "id": "PersonKeyArray",
+            "properties": {
+                "personKey": {
+                    "description": "Collection of PersonKeys.",
+                    "items": {
+                        "$ref": "PersonKey"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "PersonProductAreaAllocationsResult": {
+            "description": "Encapsulates resulting proposals for a Person.\nNEXT_TAG: 4",
+            "id": "PersonProductAreaAllocationsResult",
+            "properties": {
+                "allocationProposalsProductArea": {
+                    "description": "Allocation Proposals for a person.",
+                    "items": {
+                        "$ref": "AllocationProposalProductArea"
+                    },
+                    "type": "array"
+                },
+                "personAllocationProposalKey": {
+                    "$ref": "PersonAllocationProposalKey",
+                    "description": "Proposal key."
+                },
+                "status": {
+                    "description": "Proposal status.",
+                    "enum": [
+                        "UNKNOWN_STATUS",
+                        "PENDING",
+                        "PENDING_COPY_OVER",
+                        "REJECTED",
+                        "APPROVED",
+                        "APPROVED_WITH_EDIT"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown status.",
+                        "Proposal is pending review.",
+                        "Proposal is copied over from past cycle and is pending review.",
+                        "Proposal is rejected.",
+                        "Proposal is approved.",
+                        "Proposal is approved after being edited by administrator."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ProductAreaAndProduct": {
+            "description": "Encapsulates product area allocations (top level allocations)\nand their children (products).",
+            "id": "ProductAreaAndProduct",
+            "properties": {
+                "productArea": {
+                    "$ref": "Allocation",
+                    "description": "Product area allocation."
+                },
+                "products": {
+                    "description": "Product area allocation children (products).",
+                    "items": {
+                        "$ref": "Allocation"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "QuarterData": {
+            "description": "Encapsulates data about quarter.",
+            "id": "QuarterData",
+            "properties": {
+                "quarterNumber": {
+                    "description": "Quarter number (1-4).",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "quarterState": {
+                    "description": "Quarter state.",
+                    "enum": [
+                        "UNSPECIFIED_QUARTER_STATE",
+                        "OPEN",
+                        "CLOSED"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified quarter state.",
+                        "Quarter open.",
+                        "Quarter closed."
+                    ],
+                    "type": "string"
+                },
+                "quarterYear": {
+                    "description": "Quarter year.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "QuarterFilter": {
+            "description": "Container for a quarter.\nTechnically the container is not necessary,\nbut it allows to keep the server side code consistent and clear.\nNEXT_TAG: 2",
+            "id": "QuarterFilter",
+            "properties": {
+                "quarter": {
+                    "description": "Quarter to filter.",
+                    "enum": [
+                        "UNKNOWN_QUARTER",
+                        "CURRENT",
+                        "PAST"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown quarter.",
+                        "Current quarter.",
+                        "Past quarter."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ResolveUsernameRequest": {
+            "description": "Request for username resolving.\nNEXT_TAG: 2",
+            "id": "ResolveUsernameRequest",
+            "properties": {
+                "username": {
+                    "description": "Person's username.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ResolveUsernameResponse": {
+            "description": "Response for username resolving.\nNEXT_TAG: 2",
+            "id": "ResolveUsernameResponse",
+            "properties": {
+                "gaiaId": {
+                    "description": "Person's identifier.",
+                    "format": "uint64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TimeRestrict": {
+            "description": "Encapsulates time restrictions for filtering.",
+            "id": "TimeRestrict",
+            "properties": {
+                "lowerBoundTimestamp": {
+                    "description": "Lower bound of restricted range.",
+                    "format": "uint64",
+                    "type": "string"
+                },
+                "upperBoundTimestamp": {
+                    "description": "Upper bound of restricted range.",
+                    "format": "uint64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateAllocationRequest": {
+            "description": "Request for updating an Allocation.\nNEXT_TAG: 3",
+            "id": "UpdateAllocationRequest",
+            "properties": {
+                "allocation": {
+                    "$ref": "Allocation",
+                    "description": "Allocation to be updated."
+                },
+                "parentAllocationKey": {
+                    "$ref": "AllocationKey",
+                    "description": "Key of the parent Allocation."
+                }
+            },
+            "type": "object"
+        },
+        "UpdateOrganizationRequest": {
+            "description": "Request for updating an Organization.\nNEXT_TAG: 2",
+            "id": "UpdateOrganizationRequest",
+            "properties": {
+                "organization": {
+                    "$ref": "Organization",
+                    "description": "Organization to be updated."
+                }
+            },
+            "type": "object"
+        },
+        "UpdatePersonAllocationsProposalRequest": {
+            "description": "Request for updating Allocations Proposal for a Person.\nNEXT_TAG: 4",
+            "id": "UpdatePersonAllocationsProposalRequest",
+            "properties": {
+                "allocationProposals": {
+                    "description": "Proposed allocations.",
+                    "items": {
+                        "$ref": "AllocationProposal"
+                    },
+                    "type": "array"
+                },
+                "proposalKey": {
+                    "$ref": "PersonAllocationProposalKey",
+                    "description": "Allocation proposal key."
+                },
+                "status": {
+                    "description": "Proposed status.",
+                    "enum": [
+                        "UNKNOWN_STATUS",
+                        "PENDING",
+                        "PENDING_COPY_OVER",
+                        "REJECTED",
+                        "APPROVED",
+                        "APPROVED_WITH_EDIT"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown status.",
+                        "Proposal is pending review.",
+                        "Proposal is copied over from past cycle and is pending review.",
+                        "Proposal is rejected.",
+                        "Proposal is approved.",
+                        "Proposal is approved after being edited by administrator."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdatePersonAllocationsProposalResponse": {
+            "description": "Response for UpdatePersonAllocationsProposal.\nNEXT_TAG: 3",
+            "id": "UpdatePersonAllocationsProposalResponse",
+            "properties": {
+                "allocationProposals": {
+                    "description": "Allocation proposals that should be updated.",
+                    "items": {
+                        "$ref": "AllocationProposal"
+                    },
+                    "type": "array"
+                },
+                "proposalKey": {
+                    "$ref": "PersonAllocationProposalKey",
+                    "description": "Allocation proposal key."
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Alkali Slice Private API (QA)",
+    "version": "v1",
+    "version_module": true
+}

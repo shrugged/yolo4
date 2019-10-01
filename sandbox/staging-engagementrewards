@@ -1,0 +1,474 @@
+{
+    "basePath": "",
+    "baseUrl": "https://staging-engagementrewards.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "EngagementRewards",
+    "description": "",
+    "discoveryVersion": "v1",
+    "documentationLink": "https://console.cloud.google.com/apis/library/staging-engagementrewards.sandbox.googleapis.com",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "engagementrewards:v1alpha1",
+    "kind": "discovery#restDescription",
+    "name": "engagementrewards",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "rewards": {
+            "methods": {
+                "issueReward": {
+                    "description": "Issues a reward that already exists in cruiser and is currently delayed.",
+                    "flatPath": "v1alpha1/rewards/{rewardName}:issueReward",
+                    "httpMethod": "POST",
+                    "id": "engagementrewards.rewards.issueReward",
+                    "parameterOrder": [
+                        "rewardName"
+                    ],
+                    "parameters": {
+                        "rewardName": {
+                            "description": "Name of the Reward that is already created in cruiser and is to be issued\nto the user.\nThis is the same field as google.nbu.engagementrewards.Reward.name",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1alpha1/rewards/{rewardName}:issueReward",
+                    "request": {
+                        "$ref": "GoogleNbuEngagementrewardsV1alpha1IssueRewardRequest"
+                    },
+                    "response": {
+                        "$ref": "GoogleNbuEngagementrewardsReward"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190924",
+    "rootUrl": "https://staging-engagementrewards.sandbox.googleapis.com/",
+    "schemas": {
+        "GoogleNbuEngagementrewardsClientInstance": {
+            "description": "Message representing a client of the Rewards Platform.  Includes security\nand validation mechanisms.",
+            "id": "GoogleNbuEngagementrewardsClientInstance",
+            "properties": {
+                "androidCaller": {
+                    "$ref": "GoogleNbuEngagementrewardsClientInstanceAndroid",
+                    "description": "Must be specified if the client is an Android app."
+                },
+                "clientId": {
+                    "description": "An id which uniquely identifies the client. This id is defined by the\nclient and will be used by server to identify the client.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "clientMobileSignals": {
+                    "$ref": "GoogleNbuEngagementrewardsClientInstanceClientMobileSignals",
+                    "description": "Mobile related signals of the client."
+                },
+                "iidToken": {
+                    "description": "Instance id token used to verify client integrity.\nhttps://g3doc.corp.google.com/java/com/google/wireless/android/iid/g3doc/index.md?cl=head",
+                    "type": "string"
+                },
+                "locale": {
+                    "description": "The equivalent of using java.util.Locale.toString() (en, en_US, zh_CN)",
+                    "type": "string"
+                },
+                "pseudonymousId": {
+                    "description": "Pseudonymous identifier used for archival logging and analytics.\nOn iOS, the unhashed muid, obtained via:\n[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString].\nOn Android, the string returned by the device's\nAdvertisingIdClient.Info.getId() method.  See\nhttps://support.google.com/googleplay/android-developer/answer/6048248\nA 3p Web Server may use any other identifier that has no pii and is not\npermanently linked to a client_id",
+                    "type": "string"
+                },
+                "sponsorId": {
+                    "description": "Id of the sponsor. This corresponds to the name of the sponsor which is\npredefined between Cruiser and the Sponsors.",
+                    "type": "string"
+                },
+                "targetingOptOut": {
+                    "description": "Boolean indicating that any information tied to this pseudonymous_id\ncannot be used for targeting.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleNbuEngagementrewardsClientInstanceAndroid": {
+            "description": "Messsage representing a client calling from Android.",
+            "id": "GoogleNbuEngagementrewardsClientInstanceAndroid",
+            "properties": {
+                "clientVersion": {
+                    "description": "The version code of the sponsor's app.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "droidguardAttestation": {
+                    "description": "go/droidguard-1p Should be set for all 1p Android clients.",
+                    "type": "string"
+                },
+                "safetynetAttestation": {
+                    "description": "https://developer.android.com/training/safetynet/ Should be set for\nfor all 3p Android clients.",
+                    "type": "string"
+                },
+                "sdkVersion": {
+                    "description": "The version code of the SDK used in making calls to the Cruiser Platform.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleNbuEngagementrewardsClientInstanceClientMobileSignals": {
+            "description": "Message representing mobile related signals of the client. These signals\nare user by the Cruiser Abuse Service",
+            "id": "GoogleNbuEngagementrewardsClientInstanceClientMobileSignals",
+            "properties": {
+                "androidId": {
+                    "description": "Android_id from client to be used in the Cruiser Abuse Service",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "networkMccMnc": {
+                    "description": "Mcc and mnc from client's mobile network. For Android see:\nhttps://developer.android.com/reference/android/telephony/TelephonyManager.html#getNetworkOperator()",
+                    "type": "string"
+                },
+                "simMccMnc": {
+                    "description": "Mcc and mnc from client's SIM. For Android see:\nhttps://developer.android.com/reference/android/telephony/TelephonyManager.html#getSimOperator()",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleNbuEngagementrewardsPromotionCouponOffer": {
+            "description": "Message representing Coupon offer, such as with gojek-ride, gojek-food etc.",
+            "id": "GoogleNbuEngagementrewardsPromotionCouponOffer",
+            "properties": {
+                "amount": {
+                    "$ref": "GoogleTypeMoney",
+                    "description": "The amount of credit offered."
+                },
+                "canonicalProviderName": {
+                    "description": "The name of the provider, eg. gojek. This string is not localized.",
+                    "type": "string"
+                },
+                "couponType": {
+                    "description": "The type of the coupon, eg. gojek-food, gojek-ride, gojek-kar etc. This\nstring is not localized.",
+                    "type": "string"
+                },
+                "details": {
+                    "type": "string"
+                },
+                "imageUrl": {
+                    "description": "The image URL for the provider logo.",
+                    "type": "string"
+                },
+                "summary": {
+                    "type": "string"
+                },
+                "termsOfService": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleNbuEngagementrewardsPromotionDataOffer": {
+            "description": "Message representing mobile data packs.",
+            "id": "GoogleNbuEngagementrewardsPromotionDataOffer",
+            "properties": {
+                "dataBytes": {
+                    "description": "The number of bytes in the pack.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "validity": {
+                    "description": "The amount of time the data pack is valid for after redeeming.",
+                    "format": "google-duration",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleNbuEngagementrewardsPromotionMoneyOffer": {
+            "description": "A generic money or money equivalent based offer.",
+            "id": "GoogleNbuEngagementrewardsPromotionMoneyOffer",
+            "properties": {
+                "amount": {
+                    "$ref": "GoogleTypeMoney"
+                },
+                "moneyOfferType": {
+                    "enum": [
+                        "MONEY_OFFER_TYPE_UNSPECIFIED",
+                        "PLAY_CREDIT_OFFER"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleNbuEngagementrewardsPromotionOffer": {
+            "id": "GoogleNbuEngagementrewardsPromotionOffer",
+            "properties": {
+                "couponOffer": {
+                    "$ref": "GoogleNbuEngagementrewardsPromotionCouponOffer"
+                },
+                "displayName": {
+                    "description": "The human-readable display name of the offer, like gojek-ride",
+                    "type": "string"
+                },
+                "mobileDataOffer": {
+                    "$ref": "GoogleNbuEngagementrewardsPromotionDataOffer",
+                    "description": "Used for representing mobile data offers."
+                },
+                "moneyOffer": {
+                    "$ref": "GoogleNbuEngagementrewardsPromotionMoneyOffer"
+                },
+                "rideCreditOffer": {
+                    "$ref": "GoogleNbuEngagementrewardsPromotionRideCreditOffer",
+                    "description": "Used for representing RideCredit offers."
+                },
+                "tezOffer": {
+                    "$ref": "GoogleNbuEngagementrewardsPromotionTezOffer",
+                    "description": "Used for representing Tez offer."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleNbuEngagementrewardsPromotionRideCreditOffer": {
+            "description": "Message representing Ride Credit offer, such as with Uber or GoJek\nDEPRECATED - Use CouponOffer instead.",
+            "id": "GoogleNbuEngagementrewardsPromotionRideCreditOffer",
+            "properties": {
+                "amount": {
+                    "$ref": "GoogleTypeMoney",
+                    "description": "The amount of credit offered."
+                },
+                "canonicalProviderName": {
+                    "description": "The name of the provider. This string is not localized.",
+                    "type": "string"
+                },
+                "imageUrl": {
+                    "description": "The image URL for the provider logo.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleNbuEngagementrewardsPromotionTezOffer": {
+            "description": "Message representing Tez offer.",
+            "id": "GoogleNbuEngagementrewardsPromotionTezOffer",
+            "properties": {
+                "amount": {
+                    "$ref": "GoogleTypeMoney",
+                    "description": "The amount of currency offered. Example : Rs 25.\nThis is guaranteed to be a positive number."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleNbuEngagementrewardsResourceStrings": {
+            "description": "Message encapsulating action strings from Cruiser Platform.\nNEXT: 2",
+            "id": "GoogleNbuEngagementrewardsResourceStrings",
+            "properties": {
+                "templateNamesToTemplateStrings": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Rendered strings to be displayed to the user regarding a single promotion\nor reward. They are keyed off of template name, and are all rendered in the\nlocale specified in the next field.\n\nExample keys might include: \"call-to-action\" or \"offer_details\" in the\npromotion scope, or \"congratulation\" or \"redeem instructions\" in the reward\nscope.",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleNbuEngagementrewardsReward": {
+            "description": "Message encapsulating a reward on the Cruiser Platform.\nNEXT: 9",
+            "id": "GoogleNbuEngagementrewardsReward",
+            "properties": {
+                "createTime": {
+                    "description": "The time at which this reward was created.  Used for relative ordering.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "expireTime": {
+                    "description": "The time after which the reward is no longer valid.  The reward is\nvalid assuming request_time <= now < expire_time where request time is\nthe time at which the client made the request to the server.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Output only. The name of the resource reward.  This name is generated by the Cruiser\nPlatform.",
+                    "type": "string"
+                },
+                "redemptionStatus": {
+                    "description": "Output only. The status of the redemption request.",
+                    "enum": [
+                        "REDEMPTION_STATUS_UNSPECIFIED",
+                        "FAILURE",
+                        "SUCCESS",
+                        "PENDING"
+                    ],
+                    "enumDescriptions": [
+                        "DO NOT USE.",
+                        "Redemption of this promotion has permanently failed. Subsequent attempts\nwill result in the same FAILURE code.",
+                        "Redemption of this promotion has succeeded.  Subsequent attempts will\nresult in the same SUCCESS code.",
+                        "Redemption of this promotion has temporarily failed.  Subsequent attempts\nmay result in either a FAILURE or SUCCESS code."
+                    ],
+                    "type": "string"
+                },
+                "rewardContent": {
+                    "$ref": "GoogleNbuEngagementrewardsRewardRewardContent",
+                    "description": "Additional content associated with this reward, such as coupon codes."
+                },
+                "rewardStrings": {
+                    "$ref": "GoogleNbuEngagementrewardsResourceStrings",
+                    "description": "Rendered strings to be displayed to the user regarding this reward."
+                },
+                "selectedOffer": {
+                    "$ref": "GoogleNbuEngagementrewardsPromotionOffer",
+                    "description": "The offer selected in the associated promotion. For single reward\npromotion, the selected offer will be the same as the only offer in the\npromotion. For probabilistic reward, the selected offer will be the one\ngranted to the user."
+                },
+                "updateTime": {
+                    "description": "The time at which this reward was last updated.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleNbuEngagementrewardsRewardRewardContent": {
+            "description": "Additional distinguishing content for the reward, such as coupon codes etc.",
+            "id": "GoogleNbuEngagementrewardsRewardRewardContent",
+            "properties": {
+                "coupon": {
+                    "$ref": "GoogleNbuEngagementrewardsRewardRewardContentCoupon",
+                    "description": "A Coupon returned by CouponService"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleNbuEngagementrewardsRewardRewardContentCoupon": {
+            "description": "A Coupon returned by CouponService.",
+            "id": "GoogleNbuEngagementrewardsRewardRewardContentCoupon",
+            "properties": {
+                "couponCode": {
+                    "description": "A Coupon Code string",
+                    "type": "string"
+                },
+                "pinCode": {
+                    "description": "A Pin Code string (goes along with Coupon Code). This will be empty if\nthere is no associated pin code.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleNbuEngagementrewardsV1alpha1IssueRewardRequest": {
+            "description": "Request message for EngagementRewardsService.IssueReward",
+            "id": "GoogleNbuEngagementrewardsV1alpha1IssueRewardRequest",
+            "properties": {
+                "clientInstance": {
+                    "$ref": "GoogleNbuEngagementrewardsClientInstance",
+                    "description": "The identity of the caller's client."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleTypeMoney": {
+            "description": "Represents an amount of money with its currency type.",
+            "id": "GoogleTypeMoney",
+            "properties": {
+                "currencyCode": {
+                    "description": "The 3-letter currency code defined in ISO 4217.",
+                    "type": "string"
+                },
+                "nanos": {
+                    "description": "Number of nano (10^-9) units of the amount.\nThe value must be between -999,999,999 and +999,999,999 inclusive.\nIf `units` is positive, `nanos` must be positive or zero.\nIf `units` is zero, `nanos` can be positive, zero, or negative.\nIf `units` is negative, `nanos` must be negative or zero.\nFor example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "units": {
+                    "description": "The whole units of the amount.\nFor example if `currencyCode` is `\"USD\"`, then 1 unit is one US dollar.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Engagement Rewards API (staging)",
+    "version": "v1alpha1",
+    "version_module": true
+}

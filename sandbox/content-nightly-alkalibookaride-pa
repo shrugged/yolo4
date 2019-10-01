@@ -1,0 +1,2844 @@
+{
+    "basePath": "",
+    "baseUrl": "https://nightly-alkalibookaride-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Alkali BookARide",
+    "description": "Book-a-Ride is a partner frontend that will be used by ridesharing services for working with feed data being sent to Google&#39;s Limo backend.",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://go/alkali",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "nightly_alkalibookaride_pa_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "nightly_alkalibookaride_pa_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "externalAccounts": {
+            "methods": {
+                "create": {
+                    "description": "Create external accounts for a Partner.",
+                    "flatPath": "v1/externalAccounts",
+                    "httpMethod": "POST",
+                    "id": "nightly_alkalibookaride_pa_sandbox.externalAccounts.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/externalAccounts",
+                    "request": {
+                        "$ref": "CreateExternalAccountsRequest"
+                    },
+                    "response": {
+                        "$ref": "CreateExternalAccountsResponse"
+                    }
+                },
+                "delete": {
+                    "description": "Delete external account for a Partner.",
+                    "flatPath": "v1/externalAccounts/{externalAccountsId}",
+                    "httpMethod": "DELETE",
+                    "id": "nightly_alkalibookaride_pa_sandbox.externalAccounts.delete",
+                    "parameterOrder": [
+                        "emailAddress"
+                    ],
+                    "parameters": {
+                        "emailAddress": {
+                            "description": "Email address of account to be deleted.",
+                            "location": "path",
+                            "pattern": "^[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/externalAccounts/{+emailAddress}",
+                    "response": {
+                        "$ref": "Empty"
+                    }
+                },
+                "list": {
+                    "description": "Fetches external accounts of a Partner",
+                    "flatPath": "v1/externalAccounts",
+                    "httpMethod": "GET",
+                    "id": "nightly_alkalibookaride_pa_sandbox.externalAccounts.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "pageSize": {
+                            "description": "The maximum number of external accounts to return.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageToken": {
+                            "description": "The next_page_token returned from the previous list request (if any).",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/externalAccounts",
+                    "response": {
+                        "$ref": "ListExternalAccountsResponse"
+                    }
+                }
+            }
+        },
+        "feeds": {
+            "methods": {
+                "getAggregatedHistory": {
+                    "description": "Gets aggregated data for a given feed ID, time period and data type.",
+                    "flatPath": "v1/feeds/aggregatedHistory",
+                    "httpMethod": "GET",
+                    "id": "nightly_alkalibookaride_pa_sandbox.feeds.getAggregatedHistory",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "chartType": {
+                            "enum": [
+                                "UNKNOWN_CHART",
+                                "AGE",
+                                "FILE_SIZE",
+                                "PRODUCT_COUNT",
+                                "ISSUE_COUNT"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "endTime": {
+                            "description": "End time for fetching history.",
+                            "format": "google-datetime",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "feedId": {
+                            "description": "Feed identifier used for fetching history.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "startTime": {
+                            "description": "Start time for fetching history.",
+                            "format": "google-datetime",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "timezoneOffset": {
+                            "description": "Timezone offset relative to the client's timezone.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        }
+                    },
+                    "path": "v1/feeds/aggregatedHistory",
+                    "response": {
+                        "$ref": "AggregatedFeedHistory"
+                    }
+                },
+                "getHistory": {
+                    "description": "Gets all data points associated with a feed ID, namely all instances of a\nfeed uploaded by a partner to the limo server over the past 30 days.",
+                    "flatPath": "v1/feeds/history",
+                    "httpMethod": "GET",
+                    "id": "nightly_alkalibookaride_pa_sandbox.feeds.getHistory",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "chartType": {
+                            "description": "Feed aspect for which history should be fetched.",
+                            "enum": [
+                                "UNKNOWN_CHART",
+                                "AGE",
+                                "FILE_SIZE",
+                                "PRODUCT_COUNT",
+                                "ISSUE_COUNT"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "endTime": {
+                            "description": "End time for fetching history.",
+                            "format": "google-datetime",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "feedId": {
+                            "description": "Feed ID for which historic data needs to be fetched.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "startTime": {
+                            "description": "Start time for fetching history.",
+                            "format": "google-datetime",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/feeds/history",
+                    "response": {
+                        "$ref": "FeedHistory"
+                    }
+                },
+                "list": {
+                    "description": "Fetches feeds for a partner.",
+                    "flatPath": "v1/feeds",
+                    "httpMethod": "GET",
+                    "id": "nightly_alkalibookaride_pa_sandbox.feeds.list",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/feeds",
+                    "response": {
+                        "$ref": "ListFeedsResponse"
+                    }
+                }
+            }
+        },
+        "monthlyReports": {
+            "methods": {
+                "create": {
+                    "description": "Create monthly report.",
+                    "flatPath": "v1/monthlyReports",
+                    "httpMethod": "POST",
+                    "id": "nightly_alkalibookaride_pa_sandbox.monthlyReports.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/monthlyReports",
+                    "request": {
+                        "$ref": "CreateMonthlyReportsRequest"
+                    },
+                    "response": {
+                        "$ref": "CreateMonthlyReportsResponse"
+                    }
+                },
+                "list": {
+                    "description": "Fetches monthly reports of a Partner.\n(Fetches monthly reports for all partners when user is a Googler.\nFetches only own monthly reports if user is a Partner.)",
+                    "flatPath": "v1/monthlyReports",
+                    "httpMethod": "GET",
+                    "id": "nightly_alkalibookaride_pa_sandbox.monthlyReports.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "month": {
+                            "description": "Flag set for month of earliest year & month period needing data.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageSize": {
+                            "description": "The maximum number of monthly reports to return.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageToken": {
+                            "description": "The next_page_token returned from the previous list request (if any).",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "view": {
+                            "description": "Flag set on page as switcher between narrower and fuller queries.",
+                            "enum": [
+                                "UNKNOWN",
+                                "PARTNER",
+                                "INTERNAL"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "year": {
+                            "description": "Flag set for year of earliest year & month period needing data.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        }
+                    },
+                    "path": "v1/monthlyReports",
+                    "response": {
+                        "$ref": "ListMonthlyReportsResponse"
+                    }
+                }
+            }
+        },
+        "monthlyReportsStatus": {
+            "methods": {
+                "list": {
+                    "description": "Fetches status of a Partner's monthly.",
+                    "flatPath": "v1/monthlyReportsStatus",
+                    "httpMethod": "GET",
+                    "id": "nightly_alkalibookaride_pa_sandbox.monthlyReportsStatus.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "pageSize": {
+                            "description": "The maximum number of monthly reports whose status will be returned.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageToken": {
+                            "description": "The next_page_token returned from the previous list request (if any).",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/monthlyReportsStatus",
+                    "response": {
+                        "$ref": "ListMonthlyReportsStatusResponse"
+                    }
+                }
+            }
+        },
+        "monthlyReportsTemplates": {
+            "methods": {
+                "create": {
+                    "description": "Create monthly reports template.",
+                    "flatPath": "v1/monthlyReportsTemplates",
+                    "httpMethod": "POST",
+                    "id": "nightly_alkalibookaride_pa_sandbox.monthlyReportsTemplates.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/monthlyReportsTemplates",
+                    "request": {
+                        "$ref": "CreateMonthlyReportsTemplatesRequest"
+                    },
+                    "response": {
+                        "$ref": "CreateMonthlyReportsTemplatesResponse"
+                    }
+                },
+                "list": {
+                    "description": "Fetches template data for monthly reports.\n(Fetches data for all partners when user is a Googler.  Fetches only own\ninformation if user is a Partner.)",
+                    "flatPath": "v1/monthlyReportsTemplates",
+                    "httpMethod": "GET",
+                    "id": "nightly_alkalibookaride_pa_sandbox.monthlyReportsTemplates.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "month": {
+                            "description": "Flag set for month of earliest year & month period needing data.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageSize": {
+                            "description": "The maximum number of monthly reports templates to return.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageToken": {
+                            "description": "The next_page_token returned from the previous list request (if any).",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "view": {
+                            "description": "Flag set on page as switcher between narrower and fuller queries.",
+                            "enum": [
+                                "UNKNOWN",
+                                "PARTNER",
+                                "INTERNAL"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "year": {
+                            "description": "Flag set for year of earliest year & month period needing data.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        }
+                    },
+                    "path": "v1/monthlyReportsTemplates",
+                    "response": {
+                        "$ref": "ListMonthlyReportsTemplatesResponse"
+                    }
+                }
+            }
+        },
+        "partnerConfigurations": {
+            "methods": {
+                "create": {
+                    "description": "Create partner configurations.",
+                    "flatPath": "v1/partnerConfigurations",
+                    "httpMethod": "POST",
+                    "id": "nightly_alkalibookaride_pa_sandbox.partnerConfigurations.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/partnerConfigurations",
+                    "request": {
+                        "$ref": "CreatePartnerConfigurationsRequest"
+                    },
+                    "response": {
+                        "$ref": "CreatePartnerConfigurationsResponse"
+                    }
+                },
+                "list": {
+                    "description": "Fetches partner configurations.",
+                    "flatPath": "v1/partnerConfigurations",
+                    "httpMethod": "GET",
+                    "id": "nightly_alkalibookaride_pa_sandbox.partnerConfigurations.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "month": {
+                            "description": "Flag set for month of earliest year & month period needing data.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageSize": {
+                            "description": "The maximum number of monthly reports to return.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageToken": {
+                            "description": "The next_page_token returned from the previous list request (if any).",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "view": {
+                            "description": "Flag set on page as switcher between narrower and fuller queries.",
+                            "enum": [
+                                "UNKNOWN",
+                                "PARTNER",
+                                "INTERNAL"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "year": {
+                            "description": "Flag set for year of earliest year & month period needing data.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        }
+                    },
+                    "path": "v1/partnerConfigurations",
+                    "response": {
+                        "$ref": "ListPartnerConfigurationsResponse"
+                    }
+                }
+            }
+        },
+        "products": {
+            "methods": {
+                "get": {
+                    "description": "Gets geo data for a product.",
+                    "flatPath": "v1/products/{feedId}/{productId}",
+                    "httpMethod": "GET",
+                    "id": "nightly_alkalibookaride_pa_sandbox.products.get",
+                    "parameterOrder": [
+                        "feedId",
+                        "productId"
+                    ],
+                    "parameters": {
+                        "feedId": {
+                            "description": "ID of the feed that the product belongs to.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "productId": {
+                            "description": "ID of the product to be fetched.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/products/{feedId}/{productId}",
+                    "response": {
+                        "$ref": "Product"
+                    }
+                },
+                "list": {
+                    "description": "Fetches products for a partner.",
+                    "flatPath": "v1/products",
+                    "httpMethod": "GET",
+                    "id": "nightly_alkalibookaride_pa_sandbox.products.list",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/products",
+                    "response": {
+                        "$ref": "ListProductsResponse"
+                    }
+                }
+            }
+        },
+        "trips": {
+            "methods": {
+                "create": {
+                    "description": "Creates a trip search list.",
+                    "flatPath": "v1/trips",
+                    "httpMethod": "POST",
+                    "id": "nightly_alkalibookaride_pa_sandbox.trips.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/trips",
+                    "request": {
+                        "$ref": "CreateTripSearchListRequest"
+                    },
+                    "response": {
+                        "$ref": "TripSearchList"
+                    }
+                },
+                "delete": {
+                    "description": "Deletes a trip search list.",
+                    "flatPath": "v1/trips/{emailAddress}/{uuid}",
+                    "httpMethod": "DELETE",
+                    "id": "nightly_alkalibookaride_pa_sandbox.trips.delete",
+                    "parameterOrder": [
+                        "emailAddress",
+                        "uuid"
+                    ],
+                    "parameters": {
+                        "emailAddress": {
+                            "description": "Email address of the user whose list is to be deleted.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "uuid": {
+                            "description": "Identifier of the trip list to be deleted.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/trips/{emailAddress}/{uuid}",
+                    "response": {
+                        "$ref": "Empty"
+                    }
+                },
+                "getTripEstimate": {
+                    "description": "Returns taxi trip estimates based on all products offered by the specified\nprovider, for the given pickup and dropoff locations.",
+                    "flatPath": "v1/trips/getTripEstimate",
+                    "httpMethod": "POST",
+                    "id": "nightly_alkalibookaride_pa_sandbox.trips.getTripEstimate",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/trips/getTripEstimate",
+                    "request": {
+                        "$ref": "GetTripEstimateRequest"
+                    },
+                    "response": {
+                        "$ref": "GetTripEstimateResponse"
+                    }
+                },
+                "list": {
+                    "description": "Returns all the trip lists created by a user.",
+                    "flatPath": "v1/{emailAddress}/trips",
+                    "httpMethod": "GET",
+                    "id": "nightly_alkalibookaride_pa_sandbox.trips.list",
+                    "parameterOrder": [
+                        "emailAddress"
+                    ],
+                    "parameters": {
+                        "emailAddress": {
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{emailAddress}/trips",
+                    "response": {
+                        "$ref": "ListTripSearchListsResponse"
+                    }
+                },
+                "patch": {
+                    "description": "Updates a trip search list.",
+                    "flatPath": "v1/trips/{emailAddress}/{uuid}",
+                    "httpMethod": "PATCH",
+                    "id": "nightly_alkalibookaride_pa_sandbox.trips.patch",
+                    "parameterOrder": [
+                        "emailAddress",
+                        "uuid"
+                    ],
+                    "parameters": {
+                        "emailAddress": {
+                            "description": "Email address of the user updating the trip list.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "uuid": {
+                            "description": "Identifier of the trip list to be updated.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/trips/{emailAddress}/{uuid}",
+                    "request": {
+                        "$ref": "UpdateTripSearchListRequest"
+                    },
+                    "response": {
+                        "$ref": "TripSearchList"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190911",
+    "rootUrl": "https://nightly-alkalibookaride-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "AggregatedFeedHistory": {
+            "description": "Response with aggregated data for a feed for a given request variable. Data\nis aggregated either by day or by hour depending on the timestamp sent in the\nrequest.\nNEXT_TAG = 2",
+            "id": "AggregatedFeedHistory",
+            "properties": {
+                "points": {
+                    "items": {
+                        "$ref": "DataPoint"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AndroidIntent": {
+            "description": "Contains deep link for Android.",
+            "id": "AndroidIntent",
+            "properties": {
+                "url": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CreateExternalAccountsRequest": {
+            "description": "Request for creating external accounts.\nNEXT_TAG : 2.",
+            "id": "CreateExternalAccountsRequest",
+            "properties": {
+                "emailAddresses": {
+                    "description": "Email address of account to be added.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CreateExternalAccountsResponse": {
+            "description": "Response for creating external accounts.\nNEXT_TAG: 3.",
+            "id": "CreateExternalAccountsResponse",
+            "properties": {
+                "externalAccounts": {
+                    "description": "Successfully-created external accounts.",
+                    "items": {
+                        "$ref": "ExternalAccount"
+                    },
+                    "type": "array"
+                },
+                "failedExternalAccounts": {
+                    "description": "External accounts that could not be created.",
+                    "items": {
+                        "$ref": "FailedExternalAccount"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CreateMonthlyReportsRequest": {
+            "description": "Request for creating monthly reports.\nNEXT_TAG: 3.",
+            "id": "CreateMonthlyReportsRequest",
+            "properties": {
+                "monthlyReports": {
+                    "description": "The list of partner-submitted customer-interaction data for creating new\nmonthly reports.",
+                    "items": {
+                        "$ref": "MonthlyReport"
+                    },
+                    "type": "array"
+                },
+                "status": {
+                    "description": "Status (COMPLETE or IN_PROGRESS) for all reports for this ReportPeriod.",
+                    "enum": [
+                        "UNKNOWN_STATUS",
+                        "IN_PROGRESS",
+                        "COMPLETE"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown status.",
+                        "Changes saved, but updates still in progress.",
+                        "Monthly report submitted and saved as final."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CreateMonthlyReportsResponse": {
+            "description": "Response for creating monthly reports.\nNEXT_TAG: 4.",
+            "id": "CreateMonthlyReportsResponse",
+            "properties": {
+                "failedMonthlyReports": {
+                    "description": "Monthly reports that could not be created.",
+                    "items": {
+                        "$ref": "FailedMonthlyReport"
+                    },
+                    "type": "array"
+                },
+                "monthlyReports": {
+                    "description": "Successfully-created monthly reports.",
+                    "items": {
+                        "$ref": "MonthlyReport"
+                    },
+                    "type": "array"
+                },
+                "status": {
+                    "description": "Reports status (COMPLETE or IN_PROGRESS) for all reports.",
+                    "enum": [
+                        "UNKNOWN_STATUS",
+                        "IN_PROGRESS",
+                        "COMPLETE"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown status.",
+                        "Changes saved, but updates still in progress.",
+                        "Monthly report submitted and saved as final."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CreateMonthlyReportsTemplatesRequest": {
+            "description": "Request for creating new monthly reports template (information regarding a\npartner's fees per country, per surface, per user interaction, used to\nbootstrap a monthly report).\nNEXT_TAG: 2.",
+            "id": "CreateMonthlyReportsTemplatesRequest",
+            "properties": {
+                "monthlyReportTemplateForms": {
+                    "description": "Form data for creating new monthly report template.",
+                    "items": {
+                        "$ref": "MonthlyReportTemplate"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CreateMonthlyReportsTemplatesResponse": {
+            "description": "Response for creating monthly reports templates.\nNEXT_TAG: 3.",
+            "id": "CreateMonthlyReportsTemplatesResponse",
+            "properties": {
+                "failedMonthlyReportsTemplates": {
+                    "description": "Monthly reports templates that could not be created.",
+                    "items": {
+                        "$ref": "FailedMonthlyReportTemplate"
+                    },
+                    "type": "array"
+                },
+                "monthlyReportsTemplates": {
+                    "description": "Successfully-created monthly reports templates.",
+                    "items": {
+                        "$ref": "MonthlyReportTemplate"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CreatePartnerConfigurationsRequest": {
+            "description": "Request for creating new partner configuration (information regarding a\npartner's report schedule, surface and user interaction reporting\nrequirements, and countries of operation, used to bootstrap monthly report\ntemplates).\nNEXT_TAG: 2.",
+            "id": "CreatePartnerConfigurationsRequest",
+            "properties": {
+                "partnerConfiguration": {
+                    "$ref": "PartnerConfiguration",
+                    "description": "Form data for creating new monthly report template."
+                }
+            },
+            "type": "object"
+        },
+        "CreatePartnerConfigurationsResponse": {
+            "description": "Response for creating a partner configuration.\nNEXT_TAG: 2.",
+            "id": "CreatePartnerConfigurationsResponse",
+            "properties": {
+                "partnerConfiguration": {
+                    "$ref": "PartnerConfiguration",
+                    "description": "Successfully-created partner configuration."
+                }
+            },
+            "type": "object"
+        },
+        "CreateTripSearchListRequest": {
+            "description": "Request for creating a trip list.\nNEXT_TAG = 3",
+            "id": "CreateTripSearchListRequest",
+            "properties": {
+                "emailAddress": {
+                    "description": "Email address of the user creating the trip list.",
+                    "type": "string"
+                },
+                "tripSearchList": {
+                    "$ref": "TripSearchList",
+                    "description": "Resource being created."
+                }
+            },
+            "type": "object"
+        },
+        "DataPoint": {
+            "description": "Represents one unit of data aggregation for a given time period. The time\nperiod could be a day or an hour.\nNEXT_TAG = 7",
+            "id": "DataPoint",
+            "properties": {
+                "max": {
+                    "description": "Max value of the data type during a day or hour.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "min": {
+                    "description": "Min value of the data type during a day or hour.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "quartileOne": {
+                    "description": "Quartiles for the dataset.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "quartileThree": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "quartileTwo": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "timestamp": {
+                    "description": "Timestamp associated with the data point.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DoubleValue": {
+            "id": "DoubleValue",
+            "properties": {
+                "value": {
+                    "description": "The double value.",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "Empty": {
+            "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+            "id": "Empty",
+            "properties": {},
+            "type": "object"
+        },
+        "EndpointSurchargeMapData": {
+            "id": "EndpointSurchargeMapData",
+            "properties": {
+                "amount": {
+                    "description": "Surcharge amount associated with a pickup and dropoff area.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "dropoffName": {
+                    "description": "Name of the dropoff area for the surcharge.",
+                    "type": "string"
+                },
+                "dropoffS2Tokens": {
+                    "description": "S2 tokens mapping to s2 cells that together make up the dropoff area.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "Name of the area for which the surcharge is applicable.",
+                    "type": "string"
+                },
+                "pickupName": {
+                    "description": "Name of the pickup area for the surcharge.",
+                    "type": "string"
+                },
+                "pickupS2Tokens": {
+                    "description": "S2 tokens mapping to s2 cells that together make up the pickup area.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "EndpointsSurcharge": {
+            "description": "A surcharge that is to be added to the fare, FlatRate or not, iff the\npickup point and the dropoff point of the trip lie, respectively, in the\npickup area and the dropoff area of the surcharge, defined below. In other\nwords, this is quite similar to how the applicability of a FlatRate fare is\ndetermined.",
+            "id": "EndpointsSurcharge",
+            "properties": {
+                "amount": {
+                    "description": "The amount that should be added to the fare of any trip for which this\nsurcharge is applicable. Not subject to the fare multiplier.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "dropoffAreaIndex": {
+                    "description": "The zero based index of the TaxiArea in TaxiFeed.areas that describes\nthe dropoff area for the surcharge.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "A human readable identifier that is used only for monitoring and\ndebugging. For example, \u201cAirport surcharge\u201d, \u201cInter city surcharge\u201d.",
+                    "type": "string"
+                },
+                "pickupAreaIndex": {
+                    "description": "The zero based index of the TaxiArea in TaxiFeed.areas that describes\nthe pickup area for the surcharge.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "ExternalAccount": {
+            "description": "Account details for an external account authorised to access partner's data.\nNEXT_TAG : 3.",
+            "id": "ExternalAccount",
+            "properties": {
+                "commitTimestamp": {
+                    "description": "The date that this account was given access.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "emailAddress": {
+                    "description": "Email address.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FailedExternalAccount": {
+            "description": "Data for failed attempt to create ExternalAccount.\nNEXT_TAG: 3.",
+            "id": "FailedExternalAccount",
+            "properties": {
+                "emailAddress": {
+                    "description": "Email address.",
+                    "type": "string"
+                },
+                "failureReason": {
+                    "description": "The reason the external account could not be created.",
+                    "enum": [
+                        "UNKNOWN",
+                        "SERVER_ERROR",
+                        "ALREADY_EXISTS",
+                        "INVALID_GAIA_ID",
+                        "NOT_AUTHORIZED",
+                        "NOT_FOUND"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Other Spanner error.",
+                        "Record already exists for the primary keys being used to create a new\nrecord.",
+                        "Gaia Id not found for the email address submitted.",
+                        "User not authorized.",
+                        "Record not found."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FailedMonthlyReport": {
+            "description": "Data for failed attempt to submit MonthlyReport data.\nNEXT_TAG: 6.",
+            "id": "FailedMonthlyReport",
+            "properties": {
+                "country": {
+                    "description": "Country covered by the report.",
+                    "type": "string"
+                },
+                "failureReason": {
+                    "description": "The reason the MonthlyReport could not be created.",
+                    "enum": [
+                        "UNKNOWN",
+                        "SERVER_ERROR",
+                        "ALREADY_EXISTS",
+                        "INVALID_GAIA_ID",
+                        "NOT_AUTHORIZED",
+                        "NOT_FOUND"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Other Spanner error.",
+                        "Record already exists for the primary keys being used to create a new\nrecord.",
+                        "Gaia Id not found for the email address submitted.",
+                        "User not authorized.",
+                        "Record not found."
+                    ],
+                    "type": "string"
+                },
+                "month": {
+                    "description": "Month covered by the report.",
+                    "format": "uint32",
+                    "type": "integer"
+                },
+                "surface": {
+                    "description": "Surface covered by the report.",
+                    "enum": [
+                        "UNKNOWN_SURFACE",
+                        "GMM",
+                        "ASSISTANT",
+                        "SEARCH"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown Surface.",
+                        "Google Mobile Maps.",
+                        "Google Assistant.",
+                        "Google Search."
+                    ],
+                    "type": "string"
+                },
+                "year": {
+                    "description": "Year covered by the report.",
+                    "format": "uint32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "FailedMonthlyReportTemplate": {
+            "description": "Data for failed attempt to submit MonthlyReportTemplate data.\nNEXT_TAG: 7.",
+            "id": "FailedMonthlyReportTemplate",
+            "properties": {
+                "country": {
+                    "description": "Country covered by the report.",
+                    "type": "string"
+                },
+                "effectiveMonth": {
+                    "description": "Month of effective date (year coupled with month).",
+                    "format": "uint32",
+                    "type": "integer"
+                },
+                "effectiveYear": {
+                    "description": "Year of effective date (year coupled with month).",
+                    "format": "uint32",
+                    "type": "integer"
+                },
+                "failureReason": {
+                    "description": "The reason the MonthlyReportTemplate could not be created.",
+                    "enum": [
+                        "UNKNOWN",
+                        "SERVER_ERROR",
+                        "ALREADY_EXISTS",
+                        "INVALID_GAIA_ID",
+                        "NOT_AUTHORIZED",
+                        "NOT_FOUND"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Other Spanner error.",
+                        "Record already exists for the primary keys being used to create a new\nrecord.",
+                        "Gaia Id not found for the email address submitted.",
+                        "User not authorized.",
+                        "Record not found."
+                    ],
+                    "type": "string"
+                },
+                "providerToken": {
+                    "description": "Provider token covered by report.",
+                    "type": "string"
+                },
+                "surface": {
+                    "description": "Surface covered by the report.",
+                    "enum": [
+                        "UNKNOWN_SURFACE",
+                        "GMM",
+                        "ASSISTANT",
+                        "SEARCH"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown Surface.",
+                        "Google Mobile Maps.",
+                        "Google Assistant.",
+                        "Google Search."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FareData": {
+            "description": "Data related to fare properties that are applicable to specific pickup and\ndropoff areas.\nNEXT_TAG = 4",
+            "id": "FareData",
+            "properties": {
+                "endpointSurcharge": {
+                    "description": "Geo data for surcharges that apply to the product.",
+                    "items": {
+                        "$ref": "EndpointSurchargeMapData"
+                    },
+                    "type": "array"
+                },
+                "flatRates": {
+                    "description": "Geo data for flat rates that apply to the product.",
+                    "items": {
+                        "$ref": "FlatRateMapData"
+                    },
+                    "type": "array"
+                },
+                "tollSurcharge": {
+                    "description": "Geo data for surcharges that apply to the product.",
+                    "items": {
+                        "$ref": "TollSurchargeMapData"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Feed": {
+            "description": "Data associated with a partner feed.\nNEXT_TAG = 5",
+            "id": "Feed",
+            "properties": {
+                "commitTimestamp": {
+                    "description": "Time the feed was uploaded to Limo.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "details": {
+                    "$ref": "FeedDetails",
+                    "description": "Details associated with a feed, most importantly the creation timestamp\nand feed violations."
+                },
+                "feedId": {
+                    "type": "string"
+                },
+                "type": {
+                    "description": "Type of products in the feed. A feed should only contain one type\nof product.",
+                    "enum": [
+                        "UNKNOWN",
+                        "RANGE_BOUNDED",
+                        "REGION_BOUNDED"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FeedAspect": {
+            "id": "FeedAspect",
+            "properties": {
+                "dataPoint": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "timestamp": {
+                    "description": "Timestamp associated with the data point.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FeedDetails": {
+            "description": "Extra data about partner feeds for use by PFE.",
+            "id": "FeedDetails",
+            "properties": {
+                "feedCreationTimestamp": {
+                    "description": "Time when this feed was created by the provider.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "fileSize": {
+                    "description": "Size of the feed uploaded by the provider.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "productCount": {
+                    "description": "Number of valid products of any kind contained within the feed.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "tripCount": {
+                    "description": "Number of valid region-bounded trips contained within the feed.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "violations": {
+                    "$ref": "FeedViolations",
+                    "description": "Validation warnings and errors found in this feed."
+                }
+            },
+            "type": "object"
+        },
+        "FeedHistory": {
+            "description": "Response containing unaggregated historic data for a feed aspect\nfetched from Limo's database.\nNEXT_TAG : 2",
+            "id": "FeedHistory",
+            "properties": {
+                "feedAspect": {
+                    "description": "Feed history for a given aspect for a given duration.",
+                    "items": {
+                        "$ref": "FeedAspect"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "FeedViolations": {
+            "description": "Holds a record of violations encountered while validating an entire TaxiFeed.",
+            "id": "FeedViolations",
+            "properties": {
+                "allNamedAreaViolations": {
+                    "description": "Records of violations encountered while validating each named area in this\nfeed.",
+                    "items": {
+                        "$ref": "NamedAreaViolations"
+                    },
+                    "type": "array"
+                },
+                "allProductViolations": {
+                    "description": "Records of violations encountered while validating each product in this\nfeed, including region-bounded products.",
+                    "items": {
+                        "$ref": "ProductViolations"
+                    },
+                    "type": "array"
+                },
+                "failures": {
+                    "description": "Feed-scope violations encountered while validating this feed.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "feedId": {
+                    "description": "A human readable identifier for this feed that is stable across feed\nversions. Equivalent to TaxiFeedMetaData.feed_id.",
+                    "type": "string"
+                },
+                "providerToken": {
+                    "description": "The human-readable identifier for the provider that supplied this feed.\nEquivalent to RideProvider.provider_token in ride_provider.proto.\nREQUIRED.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FirstRideFree": {
+            "description": "Offers a free ride for new users up to a certain amount. Example: \"Free\nfirst ride (up to $15)\".",
+            "id": "FirstRideFree",
+            "properties": {
+                "coupon": {
+                    "description": "The amount up to which the first ride is offered for free.\nGiven in the currency that is specified in TaxiProduct.currency_code.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "promoCode": {
+                    "description": "The promo code (e.g., GOOG35) which must be applied by the user to get\nthe discount. If empty, no code is required.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FlatRate": {
+            "description": "FlatRate fares are used to model rides that are offered for a fixed\namount, provided that pickup and dropoff points fall into specific areas,\ne.g., from an airport to a city center.\nA flat rate is applicable if the pickup point of the ride is within the\npickup area, and the dropoff point is within the dropoff area. In such a\ncase, the StandardRate does not apply.",
+            "id": "FlatRate",
+            "properties": {
+                "amount": {
+                    "description": "The total fare for a ride, i.e., the fare estimate is not a range but\na single amount.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "dropoffAreaIndex": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "pickupAreaIndex": {
+                    "description": "The zero-based index of the TaxiArea in TaxiFeed.areas that describes the\nvalid pickup (or dropoff) points for this flat rate.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "FlatRateMapData": {
+            "id": "FlatRateMapData",
+            "properties": {
+                "amount": {
+                    "description": "Flat rate associated with a pickup and dropoff area.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "dropoffName": {
+                    "description": "Name of the dropoff area for the surcharge.",
+                    "type": "string"
+                },
+                "dropoffS2Tokens": {
+                    "description": "S2 tokens mapping to s2 cells that together make up the dropoff area.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "Name of the area for which the flat rate is applicable.",
+                    "type": "string"
+                },
+                "pickupName": {
+                    "description": "Name of the pickup area for the surcharge.",
+                    "type": "string"
+                },
+                "pickupS2Tokens": {
+                    "description": "S2 tokens mapping to s2 cells that together make up the pickup area.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "FreeRides": {
+            "description": "Promotional discount offering a number of discounted rides. Example: \"3\nrides free, up to $5 each (use code GOOGLE315)\".",
+            "id": "FreeRides",
+            "properties": {
+                "coupon": {
+                    "description": "The amount up to which the rides are offered for free. Given in the\ncurrency that is specified in TaxiProduct.currency_code.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "numRides": {
+                    "description": "The number of rides for which the discount is offered.\nRequired; must be >= 1.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "promoCode": {
+                    "description": "The promo code (e.g., GOOG35) which must be applied by the user to get\nthe discount.\nRequired.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GeoData": {
+            "description": "Data related to location dependent properties, that will be rendered on a\nmap.\nNEXT_TAG = 4",
+            "id": "GeoData",
+            "properties": {
+                "fareMultiplier": {
+                    "description": "Fare multipliers for a specific s2 cell.",
+                    "items": {
+                        "format": "float",
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "s2Tokens": {
+                    "description": "S2 Tokens each of which map to an s2 cell that has a waiting time and/or\nfare multiplier associated with it.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "waitingTime": {
+                    "description": "Waiting time in minutes for a specific s2 cell.\nUsing int32 as opposed to google.protobuf.Duration to limit data being\nsent to the client.",
+                    "items": {
+                        "format": "int32",
+                        "type": "integer"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GeoDataFlags": {
+            "description": "Flags to identify the GeoData available for the product.\nNEXT_TAG: 6",
+            "id": "GeoDataFlags",
+            "properties": {
+                "hasEndpointSurcharges": {
+                    "description": "Whether or not endpoint surcharges are available for the product.",
+                    "type": "boolean"
+                },
+                "hasFareMultipliers": {
+                    "description": "Whether or not fare multipliers are available for the product.",
+                    "type": "boolean"
+                },
+                "hasFlatRates": {
+                    "description": "Whether or not flat rates are available for the product.",
+                    "type": "boolean"
+                },
+                "hasTollSurcharges": {
+                    "description": "Whether or not toll surcharges are available for the product.",
+                    "type": "boolean"
+                },
+                "hasWaitingTimes": {
+                    "description": "Whether or not waiting times are available for the product.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "GetTripEstimateRequest": {
+            "description": "NEXT_TAG = 5",
+            "id": "GetTripEstimateRequest",
+            "properties": {
+                "dropoffPoint": {
+                    "$ref": "LatLng",
+                    "description": "Latitude and longitude of the dropoff point."
+                },
+                "intentType": {
+                    "description": "Platform for which an intent should be fetched. The underlying API\ncan fetch only Android or iOS in a call.",
+                    "enum": [
+                        "UNKNOWN",
+                        "ANDROID",
+                        "IOS"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "pickupPoint": {
+                    "$ref": "LatLng",
+                    "description": "Latitude and longitude of the pickup point."
+                },
+                "providerToken": {
+                    "description": "Provider token of the partner for which we will be fetching trip details.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GetTripEstimateResponse": {
+            "description": "NEXT_TAG = 9",
+            "id": "GetTripEstimateResponse",
+            "properties": {
+                "taxiTrips": {
+                    "items": {
+                        "$ref": "TaxiTrip"
+                    },
+                    "type": "array"
+                },
+                "tripRoute": {
+                    "$ref": "TripRoute",
+                    "description": "The driving route that was used to calculate fare estimates for every taxi\ntrip in this response."
+                }
+            },
+            "type": "object"
+        },
+        "InteractionDoubleData": {
+            "description": "Data for recording conversion rates for user interactions in Monthly Reports.\n(This is intended to provide legacy support for data collected prior to\nBookARide v2.)\nNEXT_TAG: 3.",
+            "id": "InteractionDoubleData",
+            "properties": {
+                "isSet": {
+                    "description": "The isSet boolean verifies that data was recorded for the corresponding\ndata field. Fixes the problem of not being able to differentiate\n0/null/undefined. True means a 0 on the server is truly a 0. False means\nthat a 0 signifies no data was specified (i.e. no input in that field in\nthe form).",
+                    "type": "boolean"
+                },
+                "value": {
+                    "description": "The conversion rate for these interactions, as input by partners.",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "InteractionIntData": {
+            "description": "Data for recording user interaction counts in Monthly Reports.\nNEXT_TAG: 3.",
+            "id": "InteractionIntData",
+            "properties": {
+                "isSet": {
+                    "description": "The isSet boolean verifies that data was recorded for the corresponding\ndata field. Fixes the problem of not being able to differentiate\n0/null/undefined. True means a 0 on the server is truly a 0. False means\nthat a 0 signifies no data was specified (i.e. no input in that field in\nthe form).",
+                    "type": "boolean"
+                },
+                "value": {
+                    "description": "The number of these interactions, as input by partners.",
+                    "format": "uint32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "IosIntent": {
+            "description": "Contains deep link for iOS.",
+            "id": "IosIntent",
+            "properties": {
+                "url": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "LatLng": {
+            "description": "An object representing a latitude/longitude pair. This is expressed as a pair\nof doubles representing degrees latitude and degrees longitude. Unless\nspecified otherwise, this must conform to the\n<a href=\"http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf\">WGS84\nstandard</a>. Values must be within normalized ranges.",
+            "id": "LatLng",
+            "properties": {
+                "latitude": {
+                    "description": "The latitude in degrees. It must be in the range [-90.0, +90.0].",
+                    "format": "double",
+                    "type": "number"
+                },
+                "longitude": {
+                    "description": "The longitude in degrees. It must be in the range [-180.0, +180.0].",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "ListExternalAccountsResponse": {
+            "description": "Response containing all external accounts for a partner.\nNEXT_TAG : 3.",
+            "id": "ListExternalAccountsResponse",
+            "properties": {
+                "externalAccounts": {
+                    "description": "The list of external accounts.",
+                    "items": {
+                        "$ref": "ExternalAccount"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "Token to retrieve next page of results.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListFeedsResponse": {
+            "description": "Response containing last uploaded feed results for a partner.\nNEXT_TAG : 2",
+            "id": "ListFeedsResponse",
+            "properties": {
+                "feeds": {
+                    "items": {
+                        "$ref": "Feed"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListMonthlyReportsResponse": {
+            "description": "Response containing all monthly reports for a partner.\n(Fetches all monthly reports for a partner when user is a Googler.\nFetches partner's most recent monthly reports if user is a Partner.)\nNEXT_TAG : 3.",
+            "id": "ListMonthlyReportsResponse",
+            "properties": {
+                "monthlyReports": {
+                    "description": "The list of monthly reports.",
+                    "items": {
+                        "$ref": "MonthlyReport"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "Token to retrieve next page of results.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListMonthlyReportsStatusResponse": {
+            "description": "Response containing monthly reports status for all report periods for a\nPartner.\nNEXT_TAG : 3.",
+            "id": "ListMonthlyReportsStatusResponse",
+            "properties": {
+                "monthlyReportsStatus": {
+                    "description": "The list of monthly reports' status.",
+                    "items": {
+                        "$ref": "MonthlyReportStatus"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "Token to retrieve next page of results.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListMonthlyReportsTemplatesResponse": {
+            "description": "Response containing all monthly report templates for a partner.\nNEXT_TAG : 3.",
+            "id": "ListMonthlyReportsTemplatesResponse",
+            "properties": {
+                "monthlyReportsTemplates": {
+                    "description": "The list of monthly reports templates.",
+                    "items": {
+                        "$ref": "MonthlyReportTemplate"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "Token to retrieve next page of results.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListPartnerConfigurationsResponse": {
+            "description": "Response containing all partner configurations for a partner.\nNEXT_TAG: 3.",
+            "id": "ListPartnerConfigurationsResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "Token to retrieve next page of results.",
+                    "type": "string"
+                },
+                "partnerConfigurations": {
+                    "description": "The list of partner configurations.",
+                    "items": {
+                        "$ref": "PartnerConfiguration"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListProductsError": {
+            "description": "Surfaces any type of error that may have occurred when parsing all the\nfeeds for a partner.",
+            "id": "ListProductsError",
+            "properties": {
+                "errorType": {
+                    "enum": [
+                        "UNKNOWN",
+                        "SERVER_ERROR",
+                        "FEED_FAILED_VALIDATION"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "Occurs for an invalid feed file name or error in parsing a feed.",
+                        "Occurs when feed has failed validation on the Limo server."
+                    ],
+                    "type": "string"
+                },
+                "feedId": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListProductsResponse": {
+            "description": "Response containing all the products for a partner.\nNEXT_TAG : 3",
+            "id": "ListProductsResponse",
+            "properties": {
+                "errors": {
+                    "items": {
+                        "$ref": "ListProductsError"
+                    },
+                    "type": "array"
+                },
+                "products": {
+                    "description": "List of all the products in the response. Can contain both\nrange-bounded and region-bounded products. Metadata is available\nat the product level.",
+                    "items": {
+                        "$ref": "Product"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListTripSearchListsResponse": {
+            "description": "Response containing all trip lists created by a user.\nNEXT_TAG = 2;",
+            "id": "ListTripSearchListsResponse",
+            "properties": {
+                "tripSearchList": {
+                    "items": {
+                        "$ref": "TripSearchList"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Money": {
+            "description": "Represents an amount of money with its currency type.",
+            "id": "Money",
+            "properties": {
+                "currencyCode": {
+                    "description": "The 3-letter currency code defined in ISO 4217.",
+                    "type": "string"
+                },
+                "nanos": {
+                    "description": "Number of nano (10^-9) units of the amount.\nThe value must be between -999,999,999 and +999,999,999 inclusive.\nIf `units` is positive, `nanos` must be positive or zero.\nIf `units` is zero, `nanos` can be positive, zero, or negative.\nIf `units` is negative, `nanos` must be negative or zero.\nFor example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "units": {
+                    "description": "The whole units of the amount.\nFor example if `currencyCode` is `\"USD\"`, then 1 unit is one US dollar.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MonthlyReport": {
+            "description": "Monthly Report (partner-supplied customer-interaction data (supplied via\nMonthlyReport form) and Googler-supplied fee data).\nNEXT_TAG: 14.",
+            "id": "MonthlyReport",
+            "properties": {
+                "country": {
+                    "description": "Country covered by the report.",
+                    "type": "string"
+                },
+                "engagementFees": {
+                    "$ref": "Money",
+                    "description": "Price and currency of fee per user engaged."
+                },
+                "existingUserClicks": {
+                    "$ref": "InteractionIntData",
+                    "description": "Partner-saved count data for clicks by existing user."
+                },
+                "existingUserConversionRate": {
+                    "$ref": "InteractionDoubleData",
+                    "description": "Existing user conversion rate (existing user rides / existing user clicks).\n(This is intended to provide legacy support for data collected prior to\nBookARide v2.)"
+                },
+                "existingUserRides": {
+                    "$ref": "InteractionIntData",
+                    "description": "Partner-saved count data for existing users who booked ride."
+                },
+                "month": {
+                    "description": "Month covered by the report.",
+                    "format": "uint32",
+                    "type": "integer"
+                },
+                "newUserClicks": {
+                    "$ref": "InteractionIntData",
+                    "description": "Partner-saved count data for clicks by new user."
+                },
+                "newUserFees": {
+                    "$ref": "Money",
+                    "description": "Price and currency of fee charged per new user."
+                },
+                "newUserRides": {
+                    "$ref": "InteractionIntData",
+                    "description": "Partner-saved count data for users who booked first ride."
+                },
+                "newUserSignUps": {
+                    "$ref": "InteractionIntData",
+                    "description": "Partner-saved count data for new user sign-ups."
+                },
+                "providerToken": {
+                    "description": "Partner covered by the report.",
+                    "type": "string"
+                },
+                "surface": {
+                    "description": "Surface covered by the report.",
+                    "enum": [
+                        "UNKNOWN_SURFACE",
+                        "GMM",
+                        "ASSISTANT",
+                        "SEARCH"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown Surface.",
+                        "Google Mobile Maps.",
+                        "Google Assistant.",
+                        "Google Search."
+                    ],
+                    "type": "string"
+                },
+                "year": {
+                    "description": "Year covered by the report.",
+                    "format": "uint32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "MonthlyReportStatus": {
+            "description": "Monthly Report Status (e.g. IN_PROGRESS or COMPLETE for a particular report\nperiod for a partner).\nNEXT_TAG : 6.",
+            "id": "MonthlyReportStatus",
+            "properties": {
+                "month": {
+                    "description": "Month of monthly report.",
+                    "format": "uint32",
+                    "type": "integer"
+                },
+                "status": {
+                    "description": "Status of Monthly report;",
+                    "enum": [
+                        "UNKNOWN_STATUS",
+                        "IN_PROGRESS",
+                        "COMPLETE"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown status.",
+                        "Changes saved, but updates still in progress.",
+                        "Monthly report submitted and saved as final."
+                    ],
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "description": "Commit / update time",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "updatedBy": {
+                    "description": "Updated by",
+                    "type": "string"
+                },
+                "year": {
+                    "description": "Year of monthly report.",
+                    "format": "uint32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "MonthlyReportTemplate": {
+            "description": "Data for pre-populating partner's MonthlyReport form.\nNEXT_TAG: 8.",
+            "id": "MonthlyReportTemplate",
+            "properties": {
+                "country": {
+                    "description": "Country for which template is being provided",
+                    "type": "string"
+                },
+                "effectiveMonth": {
+                    "description": "Month of effective date (year coupled with month).",
+                    "format": "uint32",
+                    "type": "integer"
+                },
+                "effectiveYear": {
+                    "description": "Year of effective date (year coupled with month).",
+                    "format": "uint32",
+                    "type": "integer"
+                },
+                "engagementFees": {
+                    "$ref": "Money",
+                    "description": "Price and currency of fee per user engaged."
+                },
+                "newUserFees": {
+                    "$ref": "Money",
+                    "description": "Price and currency of fee charged per new user."
+                },
+                "providerToken": {
+                    "description": "Partner for which template is being provided.",
+                    "type": "string"
+                },
+                "surface": {
+                    "description": "Surface covered by the report.",
+                    "enum": [
+                        "UNKNOWN_SURFACE",
+                        "GMM",
+                        "ASSISTANT",
+                        "SEARCH"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown Surface.",
+                        "Google Mobile Maps.",
+                        "Google Assistant.",
+                        "Google Search."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "NamedAreaViolations": {
+            "description": "Holds a record of violations encountered while validating a single TaxiArea.",
+            "id": "NamedAreaViolations",
+            "properties": {
+                "index": {
+                    "description": "The zero-based index of this named area within the containing feed.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "warnings": {
+                    "description": "Violations encountered while validating this named area.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "PartnerConfiguration": {
+            "description": "Partner configuration -- Configurations for setting up the MonthlyReports and\nMonthlyReportsTemplates' data needs.  This is the masterlist for partners'\nreporting schedules (monthly v quarterly), their collection of user\ninteraction and surface data, and countries in which they operate).\nNEXT_TAG: 9;",
+            "id": "PartnerConfiguration",
+            "properties": {
+                "effectiveMonth": {
+                    "description": "Month of effective date (year coupled with month) for the configuration.",
+                    "format": "uint32",
+                    "type": "integer"
+                },
+                "effectiveYear": {
+                    "description": "Year of effective date (year coupled with month) for the configuration.",
+                    "format": "uint32",
+                    "type": "integer"
+                },
+                "existingUserFeeBasis": {
+                    "description": "The user interaction which will be charged engagement fees.",
+                    "enum": [
+                        "UNKNOWN_EXISTING_USER_INTERACTION",
+                        "EXISTING_USER_CLICKS",
+                        "EXISTING_USER_RIDES"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "newUserFeeBasis": {
+                    "description": "The user interaction which will be charged new user fees.",
+                    "enum": [
+                        "UNKNOWN_NEW_USER_INTERACTION",
+                        "NEW_USER_CLICKS",
+                        "NEW_USER_RIDES",
+                        "NEW_USER_SIGN_UPS"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "reportSchedule": {
+                    "description": "Partner's schedule for submitting Reports.",
+                    "enum": [
+                        "UNKNOWN_SCHEDULE",
+                        "MONTHLY",
+                        "QUARTERLY"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown schedule.",
+                        "Monthly schedule for submitting reports.",
+                        "Quarterly schedule for submitting reports."
+                    ],
+                    "type": "string"
+                },
+                "trackedCountries": {
+                    "$ref": "TrackedCountries",
+                    "description": "Country codes for the countries in which the partner operates."
+                },
+                "trackedInteractions": {
+                    "$ref": "TrackedInteractions",
+                    "description": "User interactions."
+                },
+                "trackedSurfaces": {
+                    "$ref": "TrackedSurfaces",
+                    "description": "Surfaces."
+                }
+            },
+            "type": "object"
+        },
+        "PiecewiseLinearFunction": {
+            "description": "Models a piecewise linear function that maps between either driven km or\ndriven minutes to total fare, given in the TaxiProduct.currency_code.",
+            "id": "PiecewiseLinearFunction",
+            "properties": {
+                "segments": {
+                    "description": "A piecewise linear price function, where the line Segments are given in\nstrictly increasing order of 'start', beginning with a 'start' of 0.\nFor example, given the Segments (start, price)\n  (0 km, $0.60), (5 km, $0.50), (15 km, $0.30)\nthe price for a distance of 17 km is\n  $8.60 = 5 * $0.60 + 10 * $0.50 + 2 * $0.30.",
+                    "items": {
+                        "$ref": "Segment"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "PiecewiseLinearRate": {
+            "description": "Just as StandardRate, but with piecewise linear functions for price per km\nand priece per minute. Given the duration and distance of a ride, the\nestimate is computed as follows:\nlow = max(minimum_fixed,\n          fare_multiplier *\n          max(minimum,\n              base + (low_range_estimate_multiplier\n                      * (price_per_km_function(distance_km) +\n                         price_per_minute_function(duration_minutes)))))\n      + fees;\n\nhigh = max(minimum_fixed,\n           fare_multiplier *\n           max(minimum,\n               base + (high_range_estimate_multiplier\n                       * (price_per_km_function(distance_km) +\n                          price_per_minute_function(duration_minutes)))))\n       + fees;\nwhere f(x) is a piecewise linear function in x.",
+            "id": "PiecewiseLinearRate",
+            "properties": {
+                "pricePerKmFunction": {
+                    "$ref": "PiecewiseLinearFunction",
+                    "description": "A piecewise linear function mapping from distance in km to price."
+                },
+                "pricePerMinuteFunction": {
+                    "$ref": "PiecewiseLinearFunction",
+                    "description": "A piecewise linear function mapping from duration in minutes to price."
+                },
+                "standardRate": {
+                    "$ref": "StandardRate",
+                    "description": "The underlying rate, where all fields are applicable except price_per_km\nand price_per_minute, which are both ignored."
+                }
+            },
+            "type": "object"
+        },
+        "PlatformIntent": {
+            "description": "Platform specific deep links.\nNEXT_TAG = 4",
+            "id": "PlatformIntent",
+            "properties": {
+                "androidIntent": {
+                    "$ref": "AndroidIntent"
+                },
+                "iosIntent": {
+                    "$ref": "IosIntent"
+                },
+                "webIntent": {
+                    "$ref": "WebIntent"
+                }
+            },
+            "type": "object"
+        },
+        "Product": {
+            "description": "A validated product with feed-level metadata and a list of\nproduct violations (if any).\nNEXT_TAG : 8",
+            "id": "Product",
+            "properties": {
+                "fareData": {
+                    "$ref": "FareData",
+                    "description": "Fare properties (surcharge and flat rate) mapped to the pickup and dropoff\nareas they cover."
+                },
+                "geoData": {
+                    "$ref": "GeoData",
+                    "description": "Fare multiplier and waiting time data mapped to the s2 cell regions\nthey cover."
+                },
+                "geoDataFlags": {
+                    "$ref": "GeoDataFlags",
+                    "description": "Flags to identify that types of GeoData available for the contained\nTaxiProduct or TaxiRegionBoundedProduct."
+                },
+                "metadata": {
+                    "$ref": "TaxiFeedMetaData",
+                    "description": "Metadata associated with a product."
+                },
+                "product": {
+                    "$ref": "TaxiProduct",
+                    "description": "Range-bounded product."
+                },
+                "regionBoundedProduct": {
+                    "$ref": "TaxiRegionBoundedProduct",
+                    "description": "Region-bounded product. Should be empty if the product field is non-empty."
+                },
+                "violations": {
+                    "$ref": "ProductViolations",
+                    "description": "List of violations associated with a product_id. This is subject to change\nsince the current phrasing around violations may not\nbe external-friendly."
+                }
+            },
+            "type": "object"
+        },
+        "ProductViolations": {
+            "description": "Holds a record of violations encountered while validating a single\nTaxiProduct.",
+            "id": "ProductViolations",
+            "properties": {
+                "errors": {
+                    "description": "Violations encountered while validating this product.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "productId": {
+                    "description": "A unique product identifier within the feeds from the same partner that is\nstable across feed versions. Does not need to be human readable.\nEquivalent to TaxiProduct.product_id.",
+                    "type": "string"
+                },
+                "warnings": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "RideCredits": {
+            "description": "Promotional discount offering ride credits that may be applied across a\nnumber of discounted rides. Example: \"$20 in ride credits (use code\nGOOGLE20)\".",
+            "id": "RideCredits",
+            "properties": {
+                "coupon": {
+                    "description": "The value of the ride credits. Given in the currency that is specified in\nTaxiProduct.currency_code.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "promoCode": {
+                    "description": "The promo code (e.g., GOOG35) which must be applied by the user to get\nthe discount.\nRequired.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "S2QuadTrees": {
+            "description": "A set of six quad trees (one for each \"face\" of the Earth), derived from S2\ncell IDs, that define the area. Each node in the quad tree is encoded as a\n4-bit value indicating which of its child nodes are populated. These 4-bit\nvalues are written using depth-first traversal to a list of (LSB-encoded)\npacked bytes.",
+            "id": "S2QuadTrees",
+            "properties": {
+                "face0": {
+                    "format": "byte",
+                    "type": "string"
+                },
+                "face1": {
+                    "format": "byte",
+                    "type": "string"
+                },
+                "face2": {
+                    "format": "byte",
+                    "type": "string"
+                },
+                "face3": {
+                    "format": "byte",
+                    "type": "string"
+                },
+                "face4": {
+                    "format": "byte",
+                    "type": "string"
+                },
+                "face5": {
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Segment": {
+            "id": "Segment",
+            "properties": {
+                "price": {
+                    "description": "The price per unit that is to be applied along this Segment. The\ntotal price is the sum of price times units (km or minute) driven\nalong a Segment, taken over all Segments.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "start": {
+                    "description": "The start of the Segment gives the total number of units (km or\nminute) that have to be driven since the start of the ride before\nthis Segment applies. If there is a Segment following this one, the\n(implicit) end of this Segment is the start of the next one.",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "StandardRate": {
+            "description": "Describes parameters of a formula used to compute a fare estimate in form\nof a range from \"low\" to \"high\". Given the duration and distance of a ride,\nthe estimate is computed as follows:\nlow = max(minimum_fixed,\n          fare_multiplier *\n          max(minimum,\n              base + (low_range_estimate_multiplier\n                      * (distance_km * price_per_km\n                         + duration_minutes * price_per_minute))))\n      + fees;\n\nhigh = max(minimum_fixed,\n           fare_multiplier *\n           max(minimum,\n               base + (high_range_estimate_multiplier\n                       * (distance_km * price_per_km\n                          + duration_minutes * price_per_minute))))\n       + fees;\nNext tag: 9",
+            "id": "StandardRate",
+            "properties": {
+                "base": {
+                    "description": "The base fare for a ride.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "fees": {
+                    "description": "Fees that are added on top of the fare and that are not subject to the\nfare multiplier. Cannot be used for tolls which are trip dependent.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "highRangeEstimateMultiplier": {
+                    "$ref": "DoubleValue"
+                },
+                "lowRangeEstimateMultiplier": {
+                    "$ref": "DoubleValue",
+                    "description": "Multipliers used to compute the price range that is presented to the\nuser. To that end, we require that:\n  0 < low_range_estimate_multiplier <= high_range_estimate_multiplier\n  low_range_estimate_multiplier >= 0.9\n  high_range_estimate_multiplier >= 1.2"
+                },
+                "minimum": {
+                    "description": "The minimum fare for a ride. Comes in two flavors, one subject to the\nfare multiplier, the other not. Providers may populate either one (or\neven both) of these fields, in order to represent their fare model more\naccurately.\nSubject to the fare multiplier.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "minimumFixed": {
+                    "description": "Not subject to the fare multiplier.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "pricePerKm": {
+                    "description": "The price per driven km for a ride.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "pricePerMinute": {
+                    "description": "The price per minute for a ride.",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "TaxiFare": {
+            "description": "Describes parameters for one or more fare formulas that are used to calculate\nan estimated range for the fare of a ride.",
+            "id": "TaxiFare",
+            "properties": {
+                "endpointsSurcharges": {
+                    "description": "The set of surcharges that may apply to this product, depending on the\npickup and dropoff points.",
+                    "items": {
+                        "$ref": "EndpointsSurcharge"
+                    },
+                    "type": "array"
+                },
+                "flatRates": {
+                    "items": {
+                        "$ref": "FlatRate"
+                    },
+                    "type": "array"
+                },
+                "piecewiseLinearRate": {
+                    "$ref": "PiecewiseLinearRate"
+                },
+                "standardRate": {
+                    "$ref": "StandardRate"
+                },
+                "tollSurcharges": {
+                    "description": "The set of surcharges that may apply to this product, depending on the\nroute of the trip.",
+                    "items": {
+                        "$ref": "TollSurcharge"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "TaxiFeedMetaData": {
+            "description": "Contains data that allows version management.\nNext tag: 5",
+            "id": "TaxiFeedMetaData",
+            "properties": {
+                "creationDate": {
+                    "$ref": "Timestamp",
+                    "description": "A point in time that is representative for the data in the feed.\nDefines the order of different feed versions."
+                },
+                "feedId": {
+                    "description": "A human readable identifier for the feed that is stable across feed\nversions, with the purpose of replacing outdated versions of a\nfeed with the latest known version.\nMust match the following regex: \"[-_ A-Za-z0-9]+\".\nE.g., \"us\", \"US West\", or \"Europe_France\".",
+                    "type": "string"
+                },
+                "versionLabel": {
+                    "description": "A label that, if set, will be included when deep linking into the app of\nthe partner for all results that are based on the corresponding version of\nthe feed.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TaxiGeoData": {
+            "description": "Describes properties of a taxi product that are location dependent.\n\nSee cs/symbol:maps_limo.external.TaxiGeoData for details.",
+            "id": "TaxiGeoData",
+            "properties": {
+                "encodedFareMultipliers": {
+                    "description": "Encoded fare multipliers, sequenced in the depth-first traversal order of\ns2_quad_trees.\nEach byte represents a single fare multiplier of a quad tree node:\n- Value of 0 indicates that no value has been specified.\n- Values of 1..200 represent the multiplier scaled up by a factor of 20.\n- Other values are reserved.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "encodedWaitingTimes": {
+                    "description": "Encoded waiting times, sequenced in the depth-first traversal order of\ns2_quad_trees.\nEach byte represents a single waiting time of a quad tree node:\n- Value of 0 indicates that no value has been specified.\n- Values of 1..120 represent the number of minutes.\n- Other values are reserved.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "s2QuadTrees": {
+                    "$ref": "S2QuadTrees",
+                    "description": "The union of the areas covered by the waiting time and fare multiplier\nvalues. As the contents of this field are traversed (faces 0 -> 5,\ndepth-first), the fields encoded_waiting_times and encoded_fare_multipliers\nbelow will be read, defining the values (if any) at each S2 cell."
+                }
+            },
+            "type": "object"
+        },
+        "TaxiProduct": {
+            "description": "A range-bounded product, which offers trips from some point within its area\nof coverage, to any destination point within some range of the trip origin.\nCoverage of each product is defined as the union of all S2 cells used as the\nkeys of TaxiGeoData.waiting_times_seconds map.\nNext tag: 13",
+            "id": "TaxiProduct",
+            "properties": {
+                "carIconId": {
+                    "description": "The icon identifier for this product, for cars to display on the map.\nShould be short and meaningful, e.g. \u201chooli-xyz\u201d, and will be provided by\nGoogle.\nMust match the regex /[-_A-Za-z0-9]+/.",
+                    "type": "string"
+                },
+                "currencyCode": {
+                    "description": "The currency in which fares and promotions are given.\nAn ISO 4217 alphabetic currency code, e.g., USD, EUR, CHF.\nSee: http://www.iso.org/iso/home/standards/currency_codes.htm",
+                    "type": "string"
+                },
+                "deepLinkProductId": {
+                    "description": "An identifier that is used when deep linking into a partner app, e.g.,\n\"product_id=bb4133cd-7020-48e1-ab54-c3418a2eeb4c\", with the purpose of\nselecting the right product in the partner app. If not set, the value of\nproduct_id will be used instead in the deep link.\nThis field allows partners to model a product via several TaxiProduct\nmessages. This is useful in situations where the fare depends on the pickup\nlocation, e.g., city center vs suburbs, but the partner app expects the\nsame product id regardless of the fare/pickup location.\nDoes not need to be unique w.r.t. TaxiProduct.",
+                    "type": "string"
+                },
+                "fare": {
+                    "$ref": "TaxiFare",
+                    "description": "Describes applicable fare models for this product."
+                },
+                "geoData": {
+                    "$ref": "TaxiGeoData",
+                    "description": "Describes properties of the taxi product that are location dependent, e.g.,\nthe estimated waiting time."
+                },
+                "internalName": {
+                    "description": "A human readable identifier for the product, e.g., \"Yellow Cab, New York\".\nUsed only for monitoring and debugging.",
+                    "type": "string"
+                },
+                "localizedNames": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Describes how to display the product name to the user in specific locales.\nMaps from language to localized name.\nThe language is given as a BCP-47 language tag, e.g., \"en\", \"de-CH\", or\n\"zh-Hant-HK\". See http://www.w3.org/International/articles/language-tags/\nor http://www.rfc-editor.org/rfc/bcp/bcp47.txt for details.\nThe localized names are shown to the user and must be consistent with the\nbranding of the taxi provider.\nOptional, provider's name is used if no suitable localization is provided.",
+                    "type": "object"
+                },
+                "productId": {
+                    "description": "A unique identifier within the feeds from the same partner that is stable\nacross feed versions. Does not need to be human readable.\nExample: \"de304e54-4711-431b-adc2-eb6b8e546013\".",
+                    "type": "string"
+                },
+                "promotion": {
+                    "$ref": "TaxiPromotion",
+                    "description": "Used to model promotions for this product, if available.\nOptional."
+                }
+            },
+            "type": "object"
+        },
+        "TaxiPromotion": {
+            "description": "Contains details to trigger promotional results.",
+            "id": "TaxiPromotion",
+            "properties": {
+                "firstRideFree": {
+                    "$ref": "FirstRideFree"
+                },
+                "freeRides": {
+                    "$ref": "FreeRides"
+                },
+                "rideCredits": {
+                    "$ref": "RideCredits"
+                }
+            },
+            "type": "object"
+        },
+        "TaxiRegionBoundedProduct": {
+            "description": "A region-bounded taxi product, which offers trips between a fixed set of\norigin regions to a fixed set of destination regions.\nUnlike TaxiProduct, which describes a range-bounded product (destination must\nbe within a fixed range of the origin), region-bounded products explicitly\nspecify both origin and destination regions.\n\nThis product proto defines properties shared by all its trips, e.g., the\ncurrency and product category.",
+            "id": "TaxiRegionBoundedProduct",
+            "properties": {
+                "currencyCode": {
+                    "description": "The currency in which fares and promotions are given.\nAn ISO 4217 alphabetic currency code, e.g., USD, EUR, CHF.\nSee: http://www.iso.org/iso/home/standards/currency_codes.htm\nRequired.",
+                    "type": "string"
+                },
+                "internalName": {
+                    "description": "A human readable identifier for the product, e.g., \"Yellow Cab, New York\".\nOptional, used only for monitoring and debugging.",
+                    "type": "string"
+                },
+                "localizedNames": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Describes how to display the product name to the user in specific locales.\nMaps from language to localized name.\nThe language is given as a BCP-47 language tag, e.g., \"en\", \"de-CH\", or\n\"zh-Hant-HK\". See http://www.w3.org/International/articles/language-tags/\nor http://www.rfc-editor.org/rfc/bcp/bcp47.txt for details.\nThe localized name is shown to the user and must be consistent with the\nbranding of the taxi provider.\nOptional, provider's name is used if no suitable localization is provided.",
+                    "type": "object"
+                },
+                "productCategory": {
+                    "description": "The product category.\nOptional.",
+                    "enum": [
+                        "UNKNOWN_CATEGORY",
+                        "CARPOOL_CATEGORY",
+                        "ECONOMY_CATEGORY",
+                        "PREMIUM_CATEGORY",
+                        "HIGH_CAPACITY_CATEGORY",
+                        "LICENSED_TAXI_CATEGORY",
+                        "MOTORCYCLE_CATEGORY",
+                        "AUTO_RICKSHAW_CATEGORY",
+                        "OFFLINE_AUTO_RICKSHAW_CATEGORY"
+                    ],
+                    "enumDescriptions": [
+                        "A generic product category, used to lump together products that belong to\na category not specified below, or to no category at all. Use this as the\ndefault field value.",
+                        "A single ride may be shared between multiple bookings by several users.",
+                        "A middle tier product.",
+                        "A premium tier product.",
+                        "A product with increased passenger capacity.",
+                        "A government-licensed taxicab product.",
+                        "A motorcycle product, suitable for one passenger.",
+                        "Auto rickshaw, a three-wheeled vehicle suitable for up to two passengers.",
+                        "AUTO_RICKSHAW_CATEGORY product that can only be used by hailing off the\nstreet (i.e. cannot be booked online)."
+                    ],
+                    "type": "string"
+                },
+                "productId": {
+                    "description": "A unique identifier within the feeds from the same partner that is stable\nacross feed versions. Does not need to be human readable.\nExample: \"de304e54-4711-431b-adc2-eb6b8e546013\".\nRequired.",
+                    "type": "string"
+                },
+                "promotion": {
+                    "$ref": "TaxiPromotion",
+                    "description": "Promotion model for this product, if available.\nOptional."
+                },
+                "trips": {
+                    "description": "All currently-available trips that match this product offering.\nRequired, products without any valid trips are considered invalid.",
+                    "items": {
+                        "$ref": "TaxiRegionBoundedTrip"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "TaxiRegionBoundedTrip": {
+            "description": "Describes an available region-bounded taxi trip. Each trip has its own pickup\nand dropoff regions, and its own fare model. The currency and promotion\napplicable to a trip are determined by its TaxiRegionBoundedProduct -- every\ntrip is associated with a single product.",
+            "id": "TaxiRegionBoundedTrip",
+            "properties": {
+                "deepLinkTripId": {
+                    "description": "An identifier that is used as part of an intent that links into a partner\napp, e.g. \"bb4133cd-7020-48e1-ab54-c3418a2eeb4c\", with the purpose of\nselecting the right trip in the partner app.\nRequired.",
+                    "type": "string"
+                },
+                "dropoffAreaIndex": {
+                    "description": "The zero-based indexes of the TaxiAreas in TaxiFeed.areas that describe the\nvalid dropoff areas for this trip.\nEach value must be unique and form a valid index into TaxiFeed.areas.\nRequired, trips without any dropoff areas are considered invalid.",
+                    "items": {
+                        "format": "uint32",
+                        "type": "integer"
+                    },
+                    "type": "array"
+                },
+                "fare": {
+                    "$ref": "TaxiFare",
+                    "description": "Describes applicable fare models for this product. The currency is\ndetermined by the TaxiRegionBoundedProduct to which this trip belongs.\n\nThis TaxiFare model must not contain surcharges.\nRequired."
+                },
+                "pickupAreaIndex": {
+                    "description": "The zero-based indexes of the TaxiAreas in TaxiFeed.areas that describe the\nvalid pickup areas for this trip.\nEach value must be unique and form a valid index into TaxiFeed.areas.\nRequired, trips without any pickup areas are considered invalid.",
+                    "items": {
+                        "format": "uint32",
+                        "type": "integer"
+                    },
+                    "type": "array"
+                },
+                "tripSchedule": {
+                    "$ref": "TripSchedule",
+                    "description": "The trip's schedule. It should be provided for trips that have a fixed\ndeparture time (e.g., scheduled by the driver), rather than an\nalways-available offering (e.g., a daily, fixed intercity route).\nOptional."
+                }
+            },
+            "type": "object"
+        },
+        "TaxiTrip": {
+            "id": "TaxiTrip",
+            "properties": {
+                "categoryIconId": {
+                    "description": "Icon identifier for the product.",
+                    "type": "string"
+                },
+                "currencyCode": {
+                    "description": "Currency code for fare estimates.",
+                    "type": "string"
+                },
+                "fareHigh": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "fareLow": {
+                    "description": "Estimated fare range, given in the currency of fare_estimate. If given,\nit holds that fare_low <= fare_estimate.amount <= fare_high.\nUse these amounts in the front-end.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "intent": {
+                    "$ref": "PlatformIntent",
+                    "description": "All platform intents that apply to a trip."
+                },
+                "productId": {
+                    "description": "Unique identifier for the product related to the taxi trip.",
+                    "type": "string"
+                },
+                "productName": {
+                    "description": "The name of the product (e.g, \"uberX\", \"UberBLACK\", \"UberLUX\") on which\nthe estimates are based.\nFor the purpose of the Uber integration, this string is a parameter for\na localized disclaimer that is presented to the user on the card, e.g.,\n\"Estimate for uberX\".",
+                    "type": "string"
+                },
+                "waitingTimeSeconds": {
+                    "description": "Estimated pickup time around a given location, usually the user's\nlocation.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "Timestamp": {
+            "id": "Timestamp",
+            "properties": {
+                "nanos": {
+                    "description": "Non-negative fractions of a second at nanosecond resolution. Negative\nsecond values with fractions must still have non-negative nanos values\nthat count forward in time. Must be from 0 to 999,999,999\ninclusive.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "seconds": {
+                    "description": "Represents seconds of UTC time since Unix epoch\n1970-01-01T00:00:00Z. Must be from from 0001-01-01T00:00:00Z to\n9999-12-31T23:59:59Z inclusive.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TollSurcharge": {
+            "description": "A surcharge that is to be added to the fare, FlatRate or not, iff either of\nthe following holds:\n  a) The entrance area of the surcharge, defined below, is the same (by\n     index) as the exit area, and some part of the route of the trip\n     intersects that area.\n  b) The entrance area is distinct from the exit area, and the route of the\n     trip crosses the pickup area first, and then the dropoff area. In such\n     a case, the aforementioned two areas must not overlap.\nThis message is intended to model tolls, where each of the referenced areas\nrepresents a toll barrier/plaza.",
+            "id": "TollSurcharge",
+            "properties": {
+                "amount": {
+                    "description": "The amount that should be added to the fare of any trip for which this\nsurcharge is applicable. Not subject to the fare multiplier.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "entranceAreaIndex": {
+                    "description": "The zero based index of the TaxiArea in TaxiFeed.areas that describes\nthe entrance area for the surcharge.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "exitAreaIndex": {
+                    "description": "The zero based index of the TaxiArea in TaxiFeed.areas that describes\nthe exit area for the surcharge.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "A human readable identifier that is used only for monitoring and\ndebugging. For example, \u201cAirport surcharge\u201d, \u201cInter city surcharge\u201d.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TollSurchargeMapData": {
+            "id": "TollSurchargeMapData",
+            "properties": {
+                "amount": {
+                    "description": "Surcharge amount associated with a pickup and dropoff area.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "dropoffName": {
+                    "description": "Name of the dropoff area for the surcharge.",
+                    "type": "string"
+                },
+                "entranceS2Tokens": {
+                    "description": "S2 tokens mapping to s2 cells that together make up the entrance area.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "exitS2Tokens": {
+                    "description": "S2 tokens mapping to s2 cells that together make up the exit area.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "Name of the area for which the surcharge is applicable.",
+                    "type": "string"
+                },
+                "pickupName": {
+                    "description": "Name of the pickup area for the surcharge.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TrackedCountries": {
+            "description": "Configuration of countries for which a Partner reports data in\nMonthlyReports.\nNEXT_TAG: 2;",
+            "id": "TrackedCountries",
+            "properties": {
+                "countryCodes": {
+                    "description": "Country codes for the countries for which a Partner reports data in\nMonthlyReports. Uses country code masterlist at\n//depot/google3/javascript/closure/locale/defaultlocalenameconstants.js",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "TrackedInteractions": {
+            "description": "Configuration of user interactions for which a Partner reports data in\nMonthlyReports.\nNEXT_TAG: 7;",
+            "id": "TrackedInteractions",
+            "properties": {
+                "existingUserClicks": {
+                    "description": "Number of clicks by existing user.",
+                    "enum": [
+                        "UNKNOWN_DATA_COLLECTION_SETTING",
+                        "DO_NOT_COLLECT",
+                        "REQUESTED",
+                        "REQUIRED"
+                    ],
+                    "enumDescriptions": [
+                        "Collection Setting is unknown.",
+                        "Data should not be requested in MonthlyReports form. (Data field will\nnot be displayed in form.)",
+                        "Data collection is requested, but not required (or billable).\n(e.g. if User interaction field and surface are requested, a field for\nthat user interaction & surface would be displayed in the form, but would\nnot trigger 'required' in form validation on MonthlyReports.)",
+                        "Where surface and interaction are both required, 'required' will be\ntriggered in form validation on MonthlyReports."
+                    ],
+                    "type": "string"
+                },
+                "existingUserConversionRate": {
+                    "description": "Conversion rate for existing users.",
+                    "enum": [
+                        "UNKNOWN_DATA_COLLECTION_SETTING",
+                        "DO_NOT_COLLECT",
+                        "REQUESTED",
+                        "REQUIRED"
+                    ],
+                    "enumDescriptions": [
+                        "Collection Setting is unknown.",
+                        "Data should not be requested in MonthlyReports form. (Data field will\nnot be displayed in form.)",
+                        "Data collection is requested, but not required (or billable).\n(e.g. if User interaction field and surface are requested, a field for\nthat user interaction & surface would be displayed in the form, but would\nnot trigger 'required' in form validation on MonthlyReports.)",
+                        "Where surface and interaction are both required, 'required' will be\ntriggered in form validation on MonthlyReports."
+                    ],
+                    "type": "string"
+                },
+                "existingUserRides": {
+                    "description": "Number of existing users who booked a ride.",
+                    "enum": [
+                        "UNKNOWN_DATA_COLLECTION_SETTING",
+                        "DO_NOT_COLLECT",
+                        "REQUESTED",
+                        "REQUIRED"
+                    ],
+                    "enumDescriptions": [
+                        "Collection Setting is unknown.",
+                        "Data should not be requested in MonthlyReports form. (Data field will\nnot be displayed in form.)",
+                        "Data collection is requested, but not required (or billable).\n(e.g. if User interaction field and surface are requested, a field for\nthat user interaction & surface would be displayed in the form, but would\nnot trigger 'required' in form validation on MonthlyReports.)",
+                        "Where surface and interaction are both required, 'required' will be\ntriggered in form validation on MonthlyReports."
+                    ],
+                    "type": "string"
+                },
+                "newUserClicks": {
+                    "description": "Number of clicks by new user.",
+                    "enum": [
+                        "UNKNOWN_DATA_COLLECTION_SETTING",
+                        "DO_NOT_COLLECT",
+                        "REQUESTED",
+                        "REQUIRED"
+                    ],
+                    "enumDescriptions": [
+                        "Collection Setting is unknown.",
+                        "Data should not be requested in MonthlyReports form. (Data field will\nnot be displayed in form.)",
+                        "Data collection is requested, but not required (or billable).\n(e.g. if User interaction field and surface are requested, a field for\nthat user interaction & surface would be displayed in the form, but would\nnot trigger 'required' in form validation on MonthlyReports.)",
+                        "Where surface and interaction are both required, 'required' will be\ntriggered in form validation on MonthlyReports."
+                    ],
+                    "type": "string"
+                },
+                "newUserRides": {
+                    "description": "Number of first rides by new users.",
+                    "enum": [
+                        "UNKNOWN_DATA_COLLECTION_SETTING",
+                        "DO_NOT_COLLECT",
+                        "REQUESTED",
+                        "REQUIRED"
+                    ],
+                    "enumDescriptions": [
+                        "Collection Setting is unknown.",
+                        "Data should not be requested in MonthlyReports form. (Data field will\nnot be displayed in form.)",
+                        "Data collection is requested, but not required (or billable).\n(e.g. if User interaction field and surface are requested, a field for\nthat user interaction & surface would be displayed in the form, but would\nnot trigger 'required' in form validation on MonthlyReports.)",
+                        "Where surface and interaction are both required, 'required' will be\ntriggered in form validation on MonthlyReports."
+                    ],
+                    "type": "string"
+                },
+                "newUserSignUps": {
+                    "description": "Number of new user sign-ups.",
+                    "enum": [
+                        "UNKNOWN_DATA_COLLECTION_SETTING",
+                        "DO_NOT_COLLECT",
+                        "REQUESTED",
+                        "REQUIRED"
+                    ],
+                    "enumDescriptions": [
+                        "Collection Setting is unknown.",
+                        "Data should not be requested in MonthlyReports form. (Data field will\nnot be displayed in form.)",
+                        "Data collection is requested, but not required (or billable).\n(e.g. if User interaction field and surface are requested, a field for\nthat user interaction & surface would be displayed in the form, but would\nnot trigger 'required' in form validation on MonthlyReports.)",
+                        "Where surface and interaction are both required, 'required' will be\ntriggered in form validation on MonthlyReports."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TrackedSurfaces": {
+            "description": "Configuration of surfaces for which Partner's user interactions are\nreported in MonthlyReports.\nNEXT_TAG: 4;",
+            "id": "TrackedSurfaces",
+            "properties": {
+                "assistant": {
+                    "description": "Google Assistant.",
+                    "enum": [
+                        "UNKNOWN_DATA_COLLECTION_SETTING",
+                        "DO_NOT_COLLECT",
+                        "REQUESTED",
+                        "REQUIRED"
+                    ],
+                    "enumDescriptions": [
+                        "Collection Setting is unknown.",
+                        "Data should not be requested in MonthlyReports form. (Data field will\nnot be displayed in form.)",
+                        "Data collection is requested, but not required (or billable).\n(e.g. if User interaction field and surface are requested, a field for\nthat user interaction & surface would be displayed in the form, but would\nnot trigger 'required' in form validation on MonthlyReports.)",
+                        "Where surface and interaction are both required, 'required' will be\ntriggered in form validation on MonthlyReports."
+                    ],
+                    "type": "string"
+                },
+                "gmm": {
+                    "description": "Google Mobile Maps.",
+                    "enum": [
+                        "UNKNOWN_DATA_COLLECTION_SETTING",
+                        "DO_NOT_COLLECT",
+                        "REQUESTED",
+                        "REQUIRED"
+                    ],
+                    "enumDescriptions": [
+                        "Collection Setting is unknown.",
+                        "Data should not be requested in MonthlyReports form. (Data field will\nnot be displayed in form.)",
+                        "Data collection is requested, but not required (or billable).\n(e.g. if User interaction field and surface are requested, a field for\nthat user interaction & surface would be displayed in the form, but would\nnot trigger 'required' in form validation on MonthlyReports.)",
+                        "Where surface and interaction are both required, 'required' will be\ntriggered in form validation on MonthlyReports."
+                    ],
+                    "type": "string"
+                },
+                "search": {
+                    "description": "Google Search.",
+                    "enum": [
+                        "UNKNOWN_DATA_COLLECTION_SETTING",
+                        "DO_NOT_COLLECT",
+                        "REQUESTED",
+                        "REQUIRED"
+                    ],
+                    "enumDescriptions": [
+                        "Collection Setting is unknown.",
+                        "Data should not be requested in MonthlyReports form. (Data field will\nnot be displayed in form.)",
+                        "Data collection is requested, but not required (or billable).\n(e.g. if User interaction field and surface are requested, a field for\nthat user interaction & surface would be displayed in the form, but would\nnot trigger 'required' in form validation on MonthlyReports.)",
+                        "Where surface and interaction are both required, 'required' will be\ntriggered in form validation on MonthlyReports."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Trip": {
+            "description": "Saved configuration of a trip.\nNEXT_TAG: 6;",
+            "id": "Trip",
+            "properties": {
+                "dropoffAddress": {
+                    "description": "Address of the dropoff point.",
+                    "type": "string"
+                },
+                "dropoffPoint": {
+                    "$ref": "LatLng",
+                    "description": "Latitude and longitude of the dropoff point."
+                },
+                "name": {
+                    "description": "Name of the trip, should be unique within a trip list.",
+                    "type": "string"
+                },
+                "pickupAddress": {
+                    "description": "Address of the pickup point.",
+                    "type": "string"
+                },
+                "pickupPoint": {
+                    "$ref": "LatLng",
+                    "description": "Latitude and longitude of the pickup point."
+                }
+            },
+            "type": "object"
+        },
+        "TripRoute": {
+            "id": "TripRoute",
+            "properties": {
+                "coordinates": {
+                    "description": "Coordinates representing the route for rendering a polyline.",
+                    "items": {
+                        "$ref": "LatLng"
+                    },
+                    "type": "array"
+                },
+                "distanceMeters": {
+                    "description": "Estimated distance.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "durationSeconds": {
+                    "description": "Estimated duration, taking into account traffic conditions.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "TripSchedule": {
+            "description": "Describes this trip's schedule.",
+            "id": "TripSchedule",
+            "properties": {
+                "expirationTime": {
+                    "description": "The time after which this trip can no longer be booked.\nThis value must describe a time in the future.\nThis value must describe a time at or before start_time.\nRequired.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "startTime": {
+                    "description": "The time when the trip will start.\nThis value must describe a time in the future.\nRequired.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TripSearchList": {
+            "description": "Trip list created by a user, with some metadata.\nNEXT_TAG = 5;",
+            "id": "TripSearchList",
+            "properties": {
+                "lastModifiedAt": {
+                    "description": "Timestamp of when the list was last modified.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Name of the list.",
+                    "type": "string"
+                },
+                "trip": {
+                    "description": "Trips contained in the list.",
+                    "items": {
+                        "$ref": "Trip"
+                    },
+                    "type": "array"
+                },
+                "uuid": {
+                    "description": "Identifier of the trip list.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateTripSearchListRequest": {
+            "description": "Request for updating a trip list.\nNEXT_TAG = 5",
+            "id": "UpdateTripSearchListRequest",
+            "properties": {
+                "tripSearchList": {
+                    "$ref": "TripSearchList",
+                    "description": "Resource being updated."
+                },
+                "updateMask": {
+                    "description": "Field mask with paths of fields to be updated.",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "WebIntent": {
+            "description": "Contains deep link for a desktop client.",
+            "id": "WebIntent",
+            "properties": {
+                "url": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Alkali Book A Ride Private API (Nightly)",
+    "version": "v1",
+    "version_module": true
+}

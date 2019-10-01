@@ -1,0 +1,888 @@
+{
+    "basePath": "",
+    "baseUrl": "https://preprod-firebaseextensions-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Firebase Extensions",
+    "description": "A boq-generated 1P API. For more information, see http://boq/FirebaseExtensionsApiService.",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://boq/FirebaseExtensionsApiService",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "preprod_firebaseextensions_pa_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "preprod_firebaseextensions_pa_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "jira": {
+            "resources": {
+                "deployment_type": {
+                    "methods": {
+                        "get": {
+                            "description": "",
+                            "flatPath": "v1/jira/deployment_type/{jiraProjectUrl}",
+                            "httpMethod": "GET",
+                            "id": "preprod_firebaseextensions_pa_sandbox.jira.deployment_type.get",
+                            "parameterOrder": [
+                                "jiraProjectUrl"
+                            ],
+                            "parameters": {
+                                "jiraProjectUrl": {
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/jira/deployment_type/{jiraProjectUrl}",
+                            "response": {
+                                "$ref": "GetJiraDeploymentTypeResponse"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "project_config": {
+            "methods": {
+                "update": {
+                    "description": "",
+                    "flatPath": "v1/project_config/{projectConfigId}",
+                    "httpMethod": "PUT",
+                    "id": "preprod_firebaseextensions_pa_sandbox.project_config.update",
+                    "parameterOrder": [
+                        "projectConfigId"
+                    ],
+                    "parameters": {
+                        "projectConfigId": {
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/project_config/{projectConfigId}",
+                    "request": {
+                        "$ref": "UpdateProjectConfigRequest"
+                    },
+                    "response": {
+                        "$ref": "UpdateProjectConfigResponse"
+                    }
+                }
+            }
+        },
+        "service_provider_crashlytics_link": {
+            "methods": {
+                "create": {
+                    "description": "",
+                    "flatPath": "v1/service_provider_crashlytics_link",
+                    "httpMethod": "POST",
+                    "id": "preprod_firebaseextensions_pa_sandbox.service_provider_crashlytics_link.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/service_provider_crashlytics_link",
+                    "request": {
+                        "$ref": "CreateServiceProviderCrashlyticsLinkRequest"
+                    },
+                    "response": {
+                        "$ref": "CreateServiceProviderCrashlyticsLinkResponse"
+                    }
+                },
+                "delete": {
+                    "description": "",
+                    "flatPath": "v1/service_provider_crashlytics_link:delete",
+                    "httpMethod": "POST",
+                    "id": "preprod_firebaseextensions_pa_sandbox.service_provider_crashlytics_link.delete",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/service_provider_crashlytics_link:delete",
+                    "request": {
+                        "$ref": "DeleteServiceProviderCrashlyticsLinkRequest"
+                    },
+                    "response": {
+                        "$ref": "DeleteServiceProviderCrashlyticsLinkResponse"
+                    }
+                }
+            }
+        },
+        "service_provider_values": {
+            "methods": {
+                "create": {
+                    "description": "",
+                    "flatPath": "v1/service_provider_values",
+                    "httpMethod": "POST",
+                    "id": "preprod_firebaseextensions_pa_sandbox.service_provider_values.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/service_provider_values",
+                    "request": {
+                        "$ref": "CreateServiceProviderValuesRequest"
+                    },
+                    "response": {
+                        "$ref": "CreateServiceProviderValuesResponse"
+                    }
+                },
+                "delete": {
+                    "description": "",
+                    "flatPath": "v1/service_provider_values:delete",
+                    "httpMethod": "POST",
+                    "id": "preprod_firebaseextensions_pa_sandbox.service_provider_values.delete",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/service_provider_values:delete",
+                    "request": {
+                        "$ref": "DeleteServiceProviderValuesRequest"
+                    },
+                    "response": {
+                        "$ref": "DeleteServiceProviderValuesResponse"
+                    }
+                },
+                "update": {
+                    "description": "",
+                    "flatPath": "v1/service_provider_values/{serviceProviderValuesId}",
+                    "httpMethod": "PUT",
+                    "id": "preprod_firebaseextensions_pa_sandbox.service_provider_values.update",
+                    "parameterOrder": [
+                        "serviceProviderValuesId"
+                    ],
+                    "parameters": {
+                        "serviceProviderValuesId": {
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/service_provider_values/{serviceProviderValuesId}",
+                    "request": {
+                        "$ref": "UpdateServiceProviderValuesRequest"
+                    },
+                    "response": {
+                        "$ref": "UpdateServiceProviderValuesResponse"
+                    }
+                }
+            }
+        },
+        "v1": {
+            "methods": {
+                "app_event_configs": {
+                    "description": "",
+                    "flatPath": "v1/app_event_configs",
+                    "httpMethod": "POST",
+                    "id": "preprod_firebaseextensions_pa_sandbox.app_event_configs",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/app_event_configs",
+                    "request": {
+                        "$ref": "UpsertAppEventConfigsRequest"
+                    },
+                    "response": {
+                        "$ref": "UpsertAppEventConfigsResponse"
+                    }
+                },
+                "getProject_config": {
+                    "description": "",
+                    "flatPath": "v1/project_config",
+                    "httpMethod": "GET",
+                    "id": "preprod_firebaseextensions_pa_sandbox.getProject_config",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "projectNumber": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "serviceProvider": {
+                            "enum": [
+                                "UNKNOWN_EXTENSION_SERVICE_PROVIDER",
+                                "SLACK",
+                                "JIRA",
+                                "PAGERDUTY"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/project_config",
+                    "response": {
+                        "$ref": "GetProjectConfigResponse"
+                    }
+                },
+                "getService_provider_crashlytics_link": {
+                    "description": "",
+                    "flatPath": "v1/service_provider_crashlytics_link",
+                    "httpMethod": "GET",
+                    "id": "preprod_firebaseextensions_pa_sandbox.getService_provider_crashlytics_link",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "crashlyticsIssueId": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "gmpAppId": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "projectNumber": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "serviceProvider": {
+                            "enum": [
+                                "UNKNOWN_EXTENSION_SERVICE_PROVIDER",
+                                "SLACK",
+                                "JIRA",
+                                "PAGERDUTY"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/service_provider_crashlytics_link",
+                    "response": {
+                        "$ref": "GetServiceProviderCrashlyticsLinkResponse"
+                    }
+                },
+                "send_test_event": {
+                    "description": "",
+                    "flatPath": "v1/send_test_event",
+                    "httpMethod": "POST",
+                    "id": "preprod_firebaseextensions_pa_sandbox.send_test_event",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/send_test_event",
+                    "request": {
+                        "$ref": "SendTestEventRequest"
+                    },
+                    "response": {
+                        "$ref": "SendTestEventResponse"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190910",
+    "rootUrl": "https://preprod-firebaseextensions-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "AppEventConfig": {
+            "id": "AppEventConfig",
+            "properties": {
+                "appEventConfigId": {
+                    "type": "string"
+                },
+                "clientId": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "eventType": {
+                    "enum": [
+                        "UNKNOWN_EXTENSION_EVENT_TYPE",
+                        "CRASHLYTICS_NEW_ISSUE",
+                        "CRASHLYTICS_VELOCITY_ALERT",
+                        "CRASHLYTICS_REGRESSED_ISSUE",
+                        "CRASHLYTICS_NEW_NONFATAL_ISSUE",
+                        "FIREPERF_NEW_ISSUES",
+                        "FIREPERF_REGRESSION_ISSUES"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "gmpAppId": {
+                    "type": "string"
+                },
+                "serviceProvider": {
+                    "enum": [
+                        "UNKNOWN_EXTENSION_SERVICE_PROVIDER",
+                        "SLACK",
+                        "JIRA",
+                        "PAGERDUTY"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "serviceProviderValuesId": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CreateServiceProviderCrashlyticsLinkRequest": {
+            "id": "CreateServiceProviderCrashlyticsLinkRequest",
+            "properties": {
+                "appNamespace": {
+                    "type": "string"
+                },
+                "appPlatform": {
+                    "type": "string"
+                },
+                "clientId": {
+                    "type": "string"
+                },
+                "crashlyticsIssueAppVersion": {
+                    "type": "string"
+                },
+                "crashlyticsIssueId": {
+                    "type": "string"
+                },
+                "crashlyticsIssueSubtitle": {
+                    "type": "string"
+                },
+                "crashlyticsIssueTitle": {
+                    "type": "string"
+                },
+                "externalResourceKey": {
+                    "type": "string"
+                },
+                "externalResourceUrl": {
+                    "type": "string"
+                },
+                "gmpAppId": {
+                    "type": "string"
+                },
+                "projectId": {
+                    "type": "string"
+                },
+                "projectName": {
+                    "type": "string"
+                },
+                "projectNumber": {
+                    "type": "string"
+                },
+                "serviceProvider": {
+                    "enum": [
+                        "UNKNOWN_EXTENSION_SERVICE_PROVIDER",
+                        "SLACK",
+                        "JIRA",
+                        "PAGERDUTY"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "serviceProviderValuesId": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CreateServiceProviderCrashlyticsLinkResponse": {
+            "id": "CreateServiceProviderCrashlyticsLinkResponse",
+            "properties": {
+                "serviceProviderCrashlyticsLink": {
+                    "$ref": "ServiceProviderCrashlyticsLink"
+                }
+            },
+            "type": "object"
+        },
+        "CreateServiceProviderValuesRequest": {
+            "id": "CreateServiceProviderValuesRequest",
+            "properties": {
+                "projectConfig": {
+                    "$ref": "ProjectConfig"
+                },
+                "projectName": {
+                    "type": "string"
+                },
+                "serviceProviderValues": {
+                    "$ref": "ServiceProviderValues"
+                }
+            },
+            "type": "object"
+        },
+        "CreateServiceProviderValuesResponse": {
+            "id": "CreateServiceProviderValuesResponse",
+            "properties": {
+                "projectConfig": {
+                    "$ref": "ProjectConfig"
+                },
+                "serviceProviderValues": {
+                    "$ref": "ServiceProviderValues"
+                }
+            },
+            "type": "object"
+        },
+        "DeleteServiceProviderCrashlyticsLinkRequest": {
+            "id": "DeleteServiceProviderCrashlyticsLinkRequest",
+            "properties": {
+                "projectNumber": {
+                    "type": "string"
+                },
+                "serviceProviderCrashlyticsLink": {
+                    "$ref": "ServiceProviderCrashlyticsLink"
+                }
+            },
+            "type": "object"
+        },
+        "DeleteServiceProviderCrashlyticsLinkResponse": {
+            "id": "DeleteServiceProviderCrashlyticsLinkResponse",
+            "properties": {
+                "projectNumber": {
+                    "type": "string"
+                },
+                "serviceProviderCrashlyticsLink": {
+                    "$ref": "ServiceProviderCrashlyticsLink"
+                }
+            },
+            "type": "object"
+        },
+        "DeleteServiceProviderValuesRequest": {
+            "id": "DeleteServiceProviderValuesRequest",
+            "properties": {
+                "projectConfig": {
+                    "$ref": "ProjectConfig"
+                },
+                "serviceProviderValues": {
+                    "$ref": "ServiceProviderValues"
+                }
+            },
+            "type": "object"
+        },
+        "DeleteServiceProviderValuesResponse": {
+            "id": "DeleteServiceProviderValuesResponse",
+            "properties": {
+                "appEventConfigs": {
+                    "items": {
+                        "$ref": "AppEventConfig"
+                    },
+                    "type": "array"
+                },
+                "projectConfig": {
+                    "$ref": "ProjectConfig"
+                },
+                "serviceProviderValues": {
+                    "items": {
+                        "$ref": "ServiceProviderValues"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GetJiraDeploymentTypeResponse": {
+            "id": "GetJiraDeploymentTypeResponse",
+            "properties": {
+                "deploymentType": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GetProjectConfigResponse": {
+            "id": "GetProjectConfigResponse",
+            "properties": {
+                "appEventConfigs": {
+                    "items": {
+                        "$ref": "AppEventConfig"
+                    },
+                    "type": "array"
+                },
+                "projectConfig": {
+                    "$ref": "ProjectConfig"
+                },
+                "serviceProviderValues": {
+                    "items": {
+                        "$ref": "ServiceProviderValues"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GetServiceProviderCrashlyticsLinkResponse": {
+            "id": "GetServiceProviderCrashlyticsLinkResponse",
+            "properties": {
+                "serviceProviderCrashlyticsLink": {
+                    "$ref": "ServiceProviderCrashlyticsLink"
+                },
+                "serviceProviderValues": {
+                    "$ref": "ServiceProviderValues"
+                }
+            },
+            "type": "object"
+        },
+        "JiraError": {
+            "id": "JiraError",
+            "properties": {
+                "httpStatusCode": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "invalidCustomFieldNames": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "jiraErrorType": {
+                    "enum": [
+                        "UNKNOWN",
+                        "NOT_FOUND",
+                        "UNAUTHORIZED",
+                        "FORBIDDEN",
+                        "INTERNAL",
+                        "UNAVAILABLE",
+                        "SSL_VALIDATION_FAILED",
+                        "UNKNOWN_DEPLOYMENT_TYPE",
+                        "PROJECT_KEY_NOT_FOUND",
+                        "ISSUE_TYPE_NAME_NOT_FOUND",
+                        "INVALID_CUSTOM_FIELDS",
+                        "PROJECT_URL_PARSE_ERROR"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ProjectConfig": {
+            "id": "ProjectConfig",
+            "properties": {
+                "defaultServiceProviderValuesId": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "enabledEventTypes": {
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "items": {
+                        "enum": [
+                            "UNKNOWN_EXTENSION_EVENT_TYPE",
+                            "CRASHLYTICS_NEW_ISSUE",
+                            "CRASHLYTICS_VELOCITY_ALERT",
+                            "CRASHLYTICS_REGRESSED_ISSUE",
+                            "CRASHLYTICS_NEW_NONFATAL_ISSUE",
+                            "FIREPERF_NEW_ISSUES",
+                            "FIREPERF_REGRESSION_ISSUES"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "projectConfigId": {
+                    "type": "string"
+                },
+                "projectId": {
+                    "type": "string"
+                },
+                "projectNumber": {
+                    "type": "string"
+                },
+                "serviceProvider": {
+                    "enum": [
+                        "UNKNOWN_EXTENSION_SERVICE_PROVIDER",
+                        "SLACK",
+                        "JIRA",
+                        "PAGERDUTY"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SendTestEventRequest": {
+            "id": "SendTestEventRequest",
+            "properties": {
+                "projectName": {
+                    "type": "string"
+                },
+                "projectNumber": {
+                    "type": "string"
+                },
+                "serviceProvider": {
+                    "enum": [
+                        "UNKNOWN_EXTENSION_SERVICE_PROVIDER",
+                        "SLACK",
+                        "JIRA",
+                        "PAGERDUTY"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "serviceProviderValuesId": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SendTestEventResponse": {
+            "id": "SendTestEventResponse",
+            "properties": {
+                "testEventUrl": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ServiceProviderCrashlyticsLink": {
+            "id": "ServiceProviderCrashlyticsLink",
+            "properties": {
+                "crashlyticsIssueId": {
+                    "type": "string"
+                },
+                "externalResourceUrl": {
+                    "type": "string"
+                },
+                "serviceProvider": {
+                    "enum": [
+                        "UNKNOWN_EXTENSION_SERVICE_PROVIDER",
+                        "SLACK",
+                        "JIRA",
+                        "PAGERDUTY"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "serviceProviderCrashlyticsLinkId": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ServiceProviderValues": {
+            "id": "ServiceProviderValues",
+            "properties": {
+                "serviceProvider": {
+                    "enum": [
+                        "UNKNOWN_EXTENSION_SERVICE_PROVIDER",
+                        "SLACK",
+                        "JIRA",
+                        "PAGERDUTY"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "serviceProviderValuesId": {
+                    "type": "string"
+                },
+                "values": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "SlackError": {
+            "id": "SlackError",
+            "properties": {
+                "errorDetails": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateProjectConfigRequest": {
+            "id": "UpdateProjectConfigRequest",
+            "properties": {
+                "projectConfig": {
+                    "$ref": "ProjectConfig"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateProjectConfigResponse": {
+            "id": "UpdateProjectConfigResponse",
+            "properties": {
+                "projectConfig": {
+                    "$ref": "ProjectConfig"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateServiceProviderValuesRequest": {
+            "id": "UpdateServiceProviderValuesRequest",
+            "properties": {
+                "projectName": {
+                    "type": "string"
+                },
+                "projectNumber": {
+                    "type": "string"
+                },
+                "serviceProviderValues": {
+                    "$ref": "ServiceProviderValues"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateServiceProviderValuesResponse": {
+            "id": "UpdateServiceProviderValuesResponse",
+            "properties": {
+                "serviceProviderValues": {
+                    "$ref": "ServiceProviderValues"
+                }
+            },
+            "type": "object"
+        },
+        "UpsertAppEventConfigsRequest": {
+            "id": "UpsertAppEventConfigsRequest",
+            "properties": {
+                "appEventConfigs": {
+                    "items": {
+                        "$ref": "AppEventConfig"
+                    },
+                    "type": "array"
+                },
+                "projectNumber": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpsertAppEventConfigsResponse": {
+            "id": "UpsertAppEventConfigsResponse",
+            "properties": {
+                "appEventConfigs": {
+                    "items": {
+                        "$ref": "AppEventConfig"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Firebase Extensions Private API - Preprod",
+    "version": "v1",
+    "version_module": true
+}

@@ -1,0 +1,867 @@
+{
+    "basePath": "",
+    "baseUrl": "https://staging-onegoogle-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "OneGoogle Private API",
+    "description": "This project defines code for an internal API to access OneGoogle Service (go/onegooglebar).",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://go/onegooglebar",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "onegoogle_pa:v1",
+    "kind": "discovery#restDescription",
+    "name": "onegoogle_pa",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "v1": {
+            "methods": {
+                "echo": {
+                    "description": "",
+                    "flatPath": "v1/echo",
+                    "httpMethod": "POST",
+                    "id": "onegoogle_pa.echo",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/echo",
+                    "request": {
+                        "$ref": "EchoRequest"
+                    },
+                    "response": {
+                        "$ref": "EchoResponse"
+                    }
+                },
+                "getbar": {
+                    "description": "",
+                    "flatPath": "v1/getbar",
+                    "httpMethod": "POST",
+                    "id": "onegoogle_pa.getbar",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/getbar",
+                    "request": {
+                        "$ref": "OneGoogleBarRequest"
+                    },
+                    "response": {
+                        "$ref": "OneGoogleBarResponse"
+                    }
+                },
+                "getbarparts": {
+                    "description": "",
+                    "flatPath": "v1/getbarparts",
+                    "httpMethod": "POST",
+                    "id": "onegoogle_pa.getbarparts",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/getbarparts",
+                    "request": {
+                        "$ref": "OneGoogleBarRequest"
+                    },
+                    "response": {
+                        "$ref": "OneGoogleBarPartsResponse"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190919",
+    "rootUrl": "https://staging-onegoogle-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "Color": {
+            "id": "Color",
+            "properties": {
+                "alpha": {
+                    "format": "float",
+                    "type": "number"
+                },
+                "blue": {
+                    "format": "float",
+                    "type": "number"
+                },
+                "green": {
+                    "format": "float",
+                    "type": "number"
+                },
+                "red": {
+                    "format": "float",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "EchoRequest": {
+            "id": "EchoRequest",
+            "properties": {
+                "in": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "EchoResponse": {
+            "id": "EchoResponse",
+            "properties": {
+                "out": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GmOptions": {
+            "id": "GmOptions",
+            "properties": {
+                "allGmFeaturesEnabled": {
+                    "type": "boolean"
+                },
+                "darkModeEnabled": {
+                    "type": "boolean"
+                },
+                "darkModeMenuEnabled": {
+                    "type": "boolean"
+                },
+                "gmColorsEnabled": {
+                    "type": "boolean"
+                },
+                "gmIconsEnabled": {
+                    "type": "boolean"
+                },
+                "gmPaddingEnabled": {
+                    "type": "boolean"
+                },
+                "gmSignInButtonEnabled": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "OneGoogleBar": {
+            "id": "OneGoogleBar",
+            "properties": {
+                "html": {
+                    "$ref": "SafeHtmlProto"
+                },
+                "leftProductControlPlaceholderLabel": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "menuPlaceholderLabel": {
+                    "type": "string"
+                },
+                "metadata": {
+                    "$ref": "OneGoogleMetadata"
+                },
+                "pageHooks": {
+                    "$ref": "OneGooglePageHooks"
+                },
+                "pageTitlePlaceholderLabel": {
+                    "type": "string"
+                },
+                "productControlPlaceholderLabel": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "secondRowPlaceholderLabel": {
+                    "type": "string"
+                },
+                "spliceableHtml": {
+                    "$ref": "SpliceableSafeHtmlProto"
+                }
+            },
+            "type": "object"
+        },
+        "OneGoogleBarMaterialOptions": {
+            "id": "OneGoogleBarMaterialOptions",
+            "properties": {
+                "brandSectionMinWidth": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "disableGoogleFontsImport": {
+                    "type": "boolean"
+                },
+                "disableMovingUserpanelToMenu": {
+                    "type": "boolean"
+                },
+                "enableDasherChip": {
+                    "type": "boolean"
+                },
+                "enableGsuiteBrandingSection": {
+                    "type": "boolean"
+                },
+                "gmOptions": {
+                    "$ref": "GmOptions"
+                },
+                "leftProductControl": {
+                    "items": {
+                        "$ref": "OneGoogleControl"
+                    },
+                    "type": "array"
+                },
+                "logoOptions": {
+                    "$ref": "OneGoogleLogoOptions"
+                },
+                "menuButtonType": {
+                    "enum": [
+                        "DEFAULT",
+                        "BACK",
+                        "CLOSE",
+                        "NONE"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "menuOptions": {
+                    "$ref": "OneGoogleMenuOptions"
+                },
+                "mode": {
+                    "enum": [
+                        "STANDARD",
+                        "SETUP",
+                        "ACCOUNT_ONLY",
+                        "AVATAR_ONLY"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "newTabOptions": {
+                    "$ref": "OneGoogleTabsOptions"
+                },
+                "pageTitle": {
+                    "type": "string"
+                },
+                "pageTitlePlaceholder": {
+                    "type": "boolean"
+                },
+                "positionFixed": {
+                    "type": "boolean"
+                },
+                "productControl": {
+                    "items": {
+                        "$ref": "OneGoogleControl"
+                    },
+                    "type": "array"
+                },
+                "searchFormOptions": {
+                    "$ref": "OneGoogleSearchFormOptions"
+                },
+                "secondRowContent": {
+                    "$ref": "SafeHtmlProto"
+                },
+                "secondRowContentPlaceholder": {
+                    "type": "boolean"
+                },
+                "showBackButton": {
+                    "type": "boolean"
+                },
+                "stylingOptions": {
+                    "$ref": "OneGoogleBarStylingOptions"
+                },
+                "userPanelMinimalPadding": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "OneGoogleBarParts": {
+            "id": "OneGoogleBarParts",
+            "properties": {
+                "headerHtml": {
+                    "$ref": "SafeHtmlProto"
+                },
+                "leftHtml": {
+                    "$ref": "SafeHtmlProto"
+                },
+                "metadata": {
+                    "$ref": "OneGoogleMetadata"
+                },
+                "pageHooks": {
+                    "$ref": "OneGooglePageHooks"
+                },
+                "rightHtml": {
+                    "$ref": "SafeHtmlProto"
+                }
+            },
+            "type": "object"
+        },
+        "OneGoogleBarPartsResponse": {
+            "id": "OneGoogleBarPartsResponse",
+            "properties": {
+                "oneGoogleBarParts": {
+                    "$ref": "OneGoogleBarParts"
+                }
+            },
+            "type": "object"
+        },
+        "OneGoogleBarRequest": {
+            "id": "OneGoogleBarRequest",
+            "properties": {
+                "acceptLanguage": {
+                    "type": "string"
+                },
+                "authuser": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "debugParam": {
+                    "type": "string"
+                },
+                "enableMultilogin": {
+                    "type": "boolean"
+                },
+                "materialOptions": {
+                    "$ref": "OneGoogleBarMaterialOptions"
+                },
+                "nonce": {
+                    "type": "string"
+                },
+                "originalRemoteAddr": {
+                    "type": "string"
+                },
+                "originalRequestUrl": {
+                    "type": "string"
+                },
+                "subproduct": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "userAgent": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "OneGoogleBarResponse": {
+            "id": "OneGoogleBarResponse",
+            "properties": {
+                "oneGoogleBar": {
+                    "$ref": "OneGoogleBar"
+                }
+            },
+            "type": "object"
+        },
+        "OneGoogleBarStylingOptions": {
+            "id": "OneGoogleBarStylingOptions",
+            "properties": {
+                "backgroundColor": {
+                    "$ref": "Color"
+                },
+                "foreground": {
+                    "enum": [
+                        "COLOR",
+                        "LIGHT",
+                        "DARK"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "productAreaAlignment": {
+                    "enum": [
+                        "UNSPECIFIED",
+                        "LEFT",
+                        "RIGHT",
+                        "CENTER",
+                        "ALIGNED_TO_EDGES"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "shadowMode": {
+                    "enum": [
+                        "NONE",
+                        "SCROLL_ONLY",
+                        "ALWAYS"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "OneGoogleControl": {
+            "id": "OneGoogleControl",
+            "properties": {
+                "content": {
+                    "$ref": "SafeHtmlProto"
+                },
+                "controlledElementId": {
+                    "type": "string"
+                },
+                "href": {
+                    "$ref": "SafeUrlProto"
+                },
+                "iconUrl": {
+                    "$ref": "SafeUrlProto"
+                },
+                "iconUrlOff": {
+                    "$ref": "SafeUrlProto"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "label": {
+                    "type": "string"
+                },
+                "positioning": {
+                    "enum": [
+                        "IN_BAR",
+                        "IN_OVERFLOW"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "selected": {
+                    "type": "boolean"
+                },
+                "toggleOn": {
+                    "type": "boolean"
+                },
+                "tooltipText": {
+                    "type": "string"
+                },
+                "tooltipTextOff": {
+                    "type": "string"
+                },
+                "type": {
+                    "enum": [
+                        "BUTTON",
+                        "TOGGLE",
+                        "MENU_STANDARD_ITEM",
+                        "TAB",
+                        "MENU_ITEM",
+                        "CUSTOM",
+                        "PLACEHOLDER"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "OneGoogleHiddenInput": {
+            "id": "OneGoogleHiddenInput",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "OneGoogleLogoOptions": {
+            "id": "OneGoogleLogoOptions",
+            "properties": {
+                "alwaysShowGoogleLogoOnBar": {
+                    "type": "boolean"
+                },
+                "height": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "initiallyHidden": {
+                    "type": "boolean"
+                },
+                "menuUrl1x": {
+                    "$ref": "SafeUrlProto"
+                },
+                "menuUrl2x": {
+                    "$ref": "SafeUrlProto"
+                },
+                "url1x": {
+                    "$ref": "SafeUrlProto"
+                },
+                "url1xDarkForeground": {
+                    "$ref": "SafeUrlProto"
+                },
+                "url1xLightForeground": {
+                    "$ref": "SafeUrlProto"
+                },
+                "url2x": {
+                    "$ref": "SafeUrlProto"
+                },
+                "url2xDarkForeground": {
+                    "$ref": "SafeUrlProto"
+                },
+                "url2xLightForeground": {
+                    "$ref": "SafeUrlProto"
+                },
+                "width": {
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "OneGoogleMenuGroup": {
+            "id": "OneGoogleMenuGroup",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "item": {
+                    "items": {
+                        "$ref": "OneGoogleControl"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "OneGoogleMenuOptions": {
+            "id": "OneGoogleMenuOptions",
+            "properties": {
+                "avoidAutoCloseInPage": {
+                    "type": "boolean"
+                },
+                "bottomGroup": {
+                    "items": {
+                        "$ref": "OneGoogleMenuGroup"
+                    },
+                    "type": "array"
+                },
+                "content": {
+                    "$ref": "SafeHtmlProto"
+                },
+                "contentPlaceholder": {
+                    "type": "boolean"
+                },
+                "group": {
+                    "items": {
+                        "$ref": "OneGoogleMenuGroup"
+                    },
+                    "type": "array"
+                },
+                "hasIndirectSubmenus": {
+                    "type": "boolean"
+                },
+                "initiallyOpen": {
+                    "type": "boolean"
+                },
+                "popupMode": {
+                    "enum": [
+                        "DEFAULT",
+                        "NO_POPUP"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "productContentClassName": {
+                    "type": "string"
+                },
+                "style": {
+                    "enum": [
+                        "OVERLAPPING",
+                        "IN_PAGE"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "OneGoogleMetadata": {
+            "id": "OneGoogleMetadata",
+            "properties": {
+                "barHeight": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "experimentId": {
+                    "items": {
+                        "format": "int32",
+                        "type": "integer"
+                    },
+                    "type": "array"
+                },
+                "isBackupBar": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "OneGooglePageHooks": {
+            "id": "OneGooglePageHooks",
+            "properties": {
+                "afterBarScript": {
+                    "$ref": "SafeScriptProto"
+                },
+                "endOfBodyHtml": {
+                    "$ref": "SafeHtmlProto"
+                },
+                "endOfBodyScript": {
+                    "$ref": "SafeScriptProto"
+                },
+                "inHeadNoscript": {
+                    "$ref": "SafeHtmlProto"
+                },
+                "inHeadScript": {
+                    "$ref": "SafeScriptProto"
+                },
+                "inHeadStyle": {
+                    "$ref": "SafeStyleSheetProto"
+                }
+            },
+            "type": "object"
+        },
+        "OneGoogleSearchFormOptions": {
+            "id": "OneGoogleSearchFormOptions",
+            "properties": {
+                "action": {
+                    "$ref": "SafeUrlProto"
+                },
+                "hiddenInput": {
+                    "items": {
+                        "$ref": "OneGoogleHiddenInput"
+                    },
+                    "type": "array"
+                },
+                "initiallyHidden": {
+                    "type": "boolean"
+                },
+                "input": {
+                    "$ref": "SafeHtmlProto"
+                },
+                "placeholder": {
+                    "type": "string"
+                },
+                "productControl": {
+                    "$ref": "OneGoogleControl"
+                },
+                "searchFormMinWidth": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "OneGoogleTabControl": {
+            "id": "OneGoogleTabControl",
+            "properties": {
+                "controlledElementId": {
+                    "type": "string"
+                },
+                "href": {
+                    "$ref": "SafeUrlProto"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "label": {
+                    "type": "string"
+                },
+                "selected": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "OneGoogleTabsOptions": {
+            "id": "OneGoogleTabsOptions",
+            "properties": {
+                "tab": {
+                    "items": {
+                        "$ref": "OneGoogleTabControl"
+                    },
+                    "type": "array"
+                },
+                "tabSelectionStateOn": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "SafeHtmlProto": {
+            "id": "SafeHtmlProto",
+            "properties": {
+                "privateDoNotAccessOrElseSafeHtmlWrappedValue": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SafeScriptProto": {
+            "id": "SafeScriptProto",
+            "properties": {
+                "privateDoNotAccessOrElseSafeScriptWrappedValue": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SafeStyleSheetProto": {
+            "id": "SafeStyleSheetProto",
+            "properties": {
+                "privateDoNotAccessOrElseSafeStyleSheetWrappedValue": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SafeUrlProto": {
+            "id": "SafeUrlProto",
+            "properties": {
+                "privateDoNotAccessOrElseSafeUrlWrappedValue": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Segment": {
+            "id": "Segment",
+            "properties": {
+                "placeholderLabel": {
+                    "type": "string"
+                },
+                "safeHtml": {
+                    "$ref": "SafeHtmlProto"
+                }
+            },
+            "type": "object"
+        },
+        "SpliceableSafeHtmlProto": {
+            "id": "SpliceableSafeHtmlProto",
+            "properties": {
+                "segment": {
+                    "items": {
+                        "$ref": "Segment"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "OneGoogle Private API",
+    "version": "v1",
+    "version_module": true
+}

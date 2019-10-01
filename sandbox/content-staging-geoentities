@@ -1,0 +1,2511 @@
+{
+    "basePath": "",
+    "baseUrl": "https://staging-geoentities.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Geoentities",
+    "description": "",
+    "discoveryVersion": "v1",
+    "documentationLink": "https://www.google.com",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "geoentities:v1",
+    "kind": "discovery#restDescription",
+    "name": "geoentities",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "v1": {
+            "methods": {
+                "batchLookupGeoEntities": {
+                    "description": "Looks up multiple `GeoEntity` objects.",
+                    "flatPath": "v1:batchLookupGeoEntities",
+                    "httpMethod": "POST",
+                    "id": "geoentities.batchLookupGeoEntities",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1:batchLookupGeoEntities",
+                    "request": {
+                        "$ref": "GoogleGeoEntitiesV1BatchLookupGeoEntitiesRequest"
+                    },
+                    "response": {
+                        "$ref": "GoogleGeoEntitiesV1BatchLookupGeoEntitiesResponse"
+                    }
+                },
+                "lookupGeoEntity": {
+                    "description": "Looks up a single `GeoEntity` object.",
+                    "flatPath": "v1:lookupGeoEntity",
+                    "httpMethod": "POST",
+                    "id": "geoentities.lookupGeoEntity",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1:lookupGeoEntity",
+                    "request": {
+                        "$ref": "GoogleGeoEntitiesV1LookupGeoEntityRequest"
+                    },
+                    "response": {
+                        "$ref": "GoogleGeoEntitiesV1GeoEntity"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190913",
+    "rootUrl": "https://staging-geoentities.sandbox.googleapis.com/",
+    "schemas": {
+        "GoogleGeoEntitiesV1AccessPoint": {
+            "description": "Information about an access point associated with a `GeoEntity`. This message\ndefines a single access point. An access point establishes a relationship\nbetween an entity (like a building) and some other entity (like a road).\nFor example, an entity like Seattle has the entity for Seattle-Tacoma\nInternational Airport as an access point. The airport entity defines the\naccess point to gain air access to Seattle.\n\nAn entity like Seattle typically has multiple access points. You can get to\nSeattle by plane, public transit, or car. Thus Seattle has multiple access\npoints.\n\nMany access points are from the road network. The access point for a building\nat 123 Main Street could be a segment that defines the 100-200 block of Main\nStreet. An entity at the corner of Hollywood and Vine streets might have\naccess points from both named streets.",
+            "id": "GoogleGeoEntitiesV1AccessPoint",
+            "properties": {
+                "geoTypeId": {
+                    "description": "Geo type of the `GeoEntity` mentioned above.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "ID of the `GeoEntity` that defines this access point. The ID in question is\npurely for convenience and may not be available in cases where the access\npoint hasn't been snapped to the road network. Clients are advised to rely\non the `point_on_segment` and `point_off_segment` fields instead.",
+                    "type": "string"
+                },
+                "levelId": {
+                    "description": "For indoor access points, this represents the building level (or floor)\nthat the access point is on.",
+                    "type": "string"
+                },
+                "point": {
+                    "$ref": "GoogleGeoEntitiesV1Point",
+                    "description": "Access point for non-segment `GeoEntity`s."
+                },
+                "pointOffSegment": {
+                    "$ref": "GoogleGeoEntitiesV1Point",
+                    "description": "If the access point is defined by a segment, this is the location of the\naccess point displaced slightly to the correct side of the segment. This\noffset is in a direction perpendicular to the direction of travel along the\nsegment."
+                },
+                "pointOnSegment": {
+                    "$ref": "GoogleGeoEntitiesV1Point",
+                    "description": "If the access point is defined by a segment, this is the point on the\ncenter line of the segment that's closest to the actual access point."
+                },
+                "travelModes": {
+                    "description": "The supported `TravelMode`s.",
+                    "enumDescriptions": [
+                        "Default value.",
+                        "This mode allows four-wheel vehicles.",
+                        "This mode allows bicycles.",
+                        "This mode supports pedestrian walking.",
+                        "This mode allows two-wheel vehicles."
+                    ],
+                    "items": {
+                        "enum": [
+                            "TRAVEL_MODE_UNSPECIFIED",
+                            "AUTO",
+                            "BICYCLE",
+                            "PEDESTRIAN",
+                            "TWO_WHEELER"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1AccessPointArgs": {
+            "description": "Arguments to the `access_points` functional field of a `GeoEntity`.",
+            "id": "GoogleGeoEntitiesV1AccessPointArgs",
+            "properties": {
+                "encoding": {
+                    "description": "Required. The encoding to be used for the access point. Supported values\nare LATLNG and S2. Any other value results in an INVALID_ARGUMENT error.",
+                    "enum": [
+                        "ENCODING_UNSPECIFIED",
+                        "LATLNG",
+                        "S2",
+                        "GEO_JSON",
+                        "ST"
+                    ],
+                    "enumDescriptions": [
+                        "The encoding is unspecified.",
+                        "The geometry is represented by {latitude,longitude} coordinates using the\n`google.type.LatLng` type. Only relevant for point geometry.",
+                        "The geometry is returned as an encoding of the relevant S2 format, e.g.\nS2CellId/S2Point, S2Polyline, or S2Polygon. (See\nhttp://s2geometry.io/devguide/basic_types.html for details.)",
+                        "The geometry is returned as a proto encoding of the geometry section\nof the GeoJSON 2016 format. (See https://tools.ietf.org/html/rfc7946 for\ndetails.)",
+                        "The geometry is returned in the `STGeography` format. (See\nutil/geometry/st_lib/stgeography.h for details. This format is not yet\npublic, but there are plans to open-source it as part of the S2 library\nor alongside it.)"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1AccessPoints": {
+            "description": "Container proto for multiple access points.",
+            "id": "GoogleGeoEntitiesV1AccessPoints",
+            "properties": {
+                "values": {
+                    "description": "Individual access points.",
+                    "items": {
+                        "$ref": "GoogleGeoEntitiesV1AccessPoint"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1AdditionalGeoTypeIdArgs": {
+            "description": "Arguments to the `additional_geo_type_ids` field.\n\nNext available tag: 2",
+            "id": "GoogleGeoEntitiesV1AdditionalGeoTypeIdArgs",
+            "properties": {
+                "minRightsLevel": {
+                    "description": "If this is specified, the `additional_geo_type_ids` field is returned only\nif it has rights at this minimum level or above.\n\nIf this is not specified, the `additional_geo_type_ids` field is returned\nonly if it has rights at `default_min_rights_level` or above.\n\nIf `default_min_rights_level` is not specified either, the\n`additional_geo_type_ids` field is only returned if data is available to\ncompute it.",
+                    "enum": [
+                        "RIGHTS_LEVEL_UNSPECIFIED",
+                        "UNKNOWN_RIGHTS",
+                        "GT_RIGHTS",
+                        "FULL_RIGHTS"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified rights level. Should not be used.",
+                        "Indicates that the rights level is unknown. This should always be the\ndefault value of any RightsLevel field in any proto.",
+                        "GT-rights or GT-level rights is a level of data ownership that Google has\nretained as defined by the Ground Truth project. GT rights include but may\nnot be limited to:\n\n  - Data may be used perpetually in any Google product or service.\n\n  - No requirement for any on-screen attribution requirements (although\n    there may be softer attribution requirements, like display on a legal\n    notices page).\n\n  - No display, distribution, or storage restrictions - other than that the\n    content may not be redistributed on a standalone basis, independent of\n    a Google product or service.",
+                        "Full rights refers to data for which Google has no usage restrictions."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1AssociationReference": {
+            "description": "A reference to an associated `GeoEntity`.",
+            "id": "GoogleGeoEntitiesV1AssociationReference",
+            "properties": {
+                "geoTypeId": {
+                    "description": "One of the geo type IDs of the associated `GeoEntity`. This is either the\n`primary_geo_type_id` of the associated `GeoEntity` or one of its\n`additional_geo_type_ids`. This value may be stale - clients who care about\nconsistency can call `LookupGeoEntity` to fetch the `GeoEntity` specified\nby the given `id` to get the most current geo type ID.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "The ID of the associated `GeoEntity`.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1AssociationReferenceArgs": {
+            "description": "Arguments to fields of a `GeoEntity` described by AssociationReference.",
+            "id": "GoogleGeoEntitiesV1AssociationReferenceArgs",
+            "properties": {
+                "geoTypeIds": {
+                    "description": "Association references are restricted to the set of geo types described by\nthese IDs. The IDs can be used to look up information about the geo types\n(e.g. subtypes) using the Geo Types API.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1AssociationReferences": {
+            "description": "Container proto for multiple association references.",
+            "id": "GoogleGeoEntitiesV1AssociationReferences",
+            "properties": {
+                "values": {
+                    "description": "Individual association references.",
+                    "items": {
+                        "$ref": "GoogleGeoEntitiesV1AssociationReference"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1BatchLookupGeoEntitiesRequest": {
+            "description": "Lookup request for multiple `GeoEntity`s. Semantically equivalent to making\nmultiple `LookupGeoEntity()` calls. An INVALID_ARGUMENT error is returned if\nmore than 100 `GeoEntity`s are requested.",
+            "id": "GoogleGeoEntitiesV1BatchLookupGeoEntitiesRequest",
+            "properties": {
+                "args": {
+                    "$ref": "GoogleGeoEntitiesV1GeoEntityArgs",
+                    "description": "Arguments to the requested functional fields. Not all fields take\narguments and, of those that do, only some allow defaults. For others,\narguments must be specified."
+                },
+                "ids": {
+                    "description": "`GeoEntity` IDs specifying which `GeoEntity`s are being requested. Binary\ncompatible with Place IDs, including support for synthetic `GeoEntity`s.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "readMask": {
+                    "description": "Required. Read mask that specifies the `GeoEntity` fields being requested.\nPaths are relative to `GeoEntity::Field`. If no fields are set, the\nreturned `GeoEntity` contains the ID, but no fields. If requested fields\naren't applicable to the `primary_geo_type_id` of the returned `GeoEntity`,\nthen they may not be returned. Only top-level fields are supported by\n`fields`, while sub-selections are not.",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1BatchLookupGeoEntitiesResponse": {
+            "description": "Response to requests for multiple `GeoEntity`s.",
+            "id": "GoogleGeoEntitiesV1BatchLookupGeoEntitiesResponse",
+            "properties": {
+                "results": {
+                    "description": "Results of the equivalent `LookupGeoEntity` calls. The number of results is\nthe same as the number of IDs in the request (and the results are returned\nin the same order). Note that the Geo Entities API supports ID forwarding,\nmeaning that the `GeoEntity` objects returned may have different IDs from\nthe IDs requested. But since the array of IDs in the request and the array\nof results are 1:1, clients can easily map the IDs in the request to the\n`GeoEntity` objects returned.",
+                    "items": {
+                        "$ref": "GoogleGeoEntitiesV1BatchLookupGeoEntitiesResponseResult"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1BatchLookupGeoEntitiesResponseResult": {
+            "description": "An individual result.",
+            "id": "GoogleGeoEntitiesV1BatchLookupGeoEntitiesResponseResult",
+            "properties": {
+                "error": {
+                    "$ref": "GoogleRpcStatus",
+                    "description": "If the status of the equivalent `LookupGeoEntity` call is not OK, this\nfield contains the relevant status."
+                },
+                "geoEntity": {
+                    "$ref": "GoogleGeoEntitiesV1GeoEntity",
+                    "description": "If a `GeoEntity` was successfully fetched, it is returned in this\nfield.  Note that this `GeoEntity` may have a different ID than the one\nrequested (due to forwarding)."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1ClosingTimeArgs": {
+            "description": "Arguments to the 'closing_time' field.",
+            "id": "GoogleGeoEntitiesV1ClosingTimeArgs",
+            "properties": {
+                "time": {
+                    "description": "The `closing_time` field will be set to the first time when the `GeoEntity`\nis closed after the time specified by this field.  If the `GeoEntity` is\nalready closed, `closing_time` will be set to the value given by this\nfield.  If this field is not specified, the value computed for\n`closing_time` will be as if this was set to the current time.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1ContainmentReference": {
+            "description": "A reference to a containing `GeoEntity`.",
+            "id": "GoogleGeoEntitiesV1ContainmentReference",
+            "properties": {
+                "geoTypeId": {
+                    "description": "One of the geo type IDs of the associated `GeoEntity`. This is either the\n`primary_geo_type_id` of the associated `GeoEntity` or one of its\n`additional_geo_type_ids`. This value may be stale - clients who care about\nconsistency can call `LookupGeoEntity` to fetch the `GeoEntity` specified\nby the given `id` to get the most current geo type ID.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "The ID of the containing `GeoEntity`.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1ContainmentReferenceArgs": {
+            "description": "Arguments to fields of a `GeoEntity` described by ContainmentReference.",
+            "id": "GoogleGeoEntitiesV1ContainmentReferenceArgs",
+            "properties": {
+                "geoTypeIds": {
+                    "description": "Containment references are restricted to the set of geo types described by\nthese IDs. The IDs can be used to look up information about the geo types\n(e.g. subtypes) using the Geo Types API.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1ContainmentReferences": {
+            "description": "Container proto for multiple containment references.",
+            "id": "GoogleGeoEntitiesV1ContainmentReferences",
+            "properties": {
+                "values": {
+                    "description": "Individual containment references.",
+                    "items": {
+                        "$ref": "GoogleGeoEntitiesV1ContainmentReference"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1Covering": {
+            "description": "S2 covering for a `GeoEntity`. (See also [S2 Covering\nExamples](http://s2geometry.io/devguide/examples/coverings).)",
+            "id": "GoogleGeoEntitiesV1Covering",
+            "properties": {
+                "cellIds": {
+                    "description": "The list of cells covering the requested `GeoEntity`.",
+                    "items": {
+                        "format": "uint64",
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1CoveringArgs": {
+            "description": "*****************************************************************************\nWARNING: The `CoveringArgs` fields below can only be set in the Geo Entities\nBatch API (via SQL) and have not been implemented for the Geo Entities Online\nAPI. Setting any of the fields below in an online request will result in an\nUNIMPLEMENTED error.\n*****************************************************************************\n\nArguments to `Covering` fields. For a `Covering` bounded by specific cell\nlevels, set `min_level` and `max_level`. The default is a `Covering` across\nall levels with the maximum number of cells proportional to the size of the\nentity.  (See http://s2geometry.io/devguide/examples/coverings.html for\ndetails.)\n\nExample 1: To return a reasonable `Covering` across all levels, simply leave\nthe options unset.\n\nExample 2: To return a `Covering` between levels 10 and 25:\n      covering_args {\n         min_level: 10\n         max_level: 25\n      }\n\nExample 3: To return a `Covering` on level 20 only:\n      covering_args {\n         min_level: 20\n         max_level: 20\n      }\n\nExample 4: To return a `Covering` of at most 25 cells up to level 20:\n      covering_args {\n         max_level: 20\n         max_cells: 25\n      }",
+            "id": "GoogleGeoEntitiesV1CoveringArgs",
+            "properties": {
+                "maxCells": {
+                    "description": "Restrict the covering to no more than the number of cells specified.\nHowever, note the following:\n\n- If unset, a reasonable number of cells proportional to the size of the\n  entity will be returned.  Otherwise, should be set to a positive number.\n\n- `min_level` takes priority over `max_cells` for exterior coverings, i.e.\n  cells below the given level will never be used even if this causes a\n  large number of cells to be returned.  This doesn't apply to interior\n  coverings, since interior coverings make no completeness guarantees;\n  the result is simply a set of cells that covers as much of the interior\n  as possible while satisfying the given restrictions.\n\n- If set to an unreasonably small number (e.g. 1 or 2), a few more cells\n  may be returned if required by the entity's geography.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "maxLevel": {
+                    "description": "The maximum S2 cell level to be returned for this `Covering`. Can be set to\nup to the maximum value of 30, which is also the default value and\ncorresponds to cells smaller than a centimeter square.  (See\nhttp://s2geometry.io/resources/s2cell_statistics). Should be set to a\nnumber equal to or larger than 0, but greater than or equal to `min_level`.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "minLevel": {
+                    "description": "The minimum S2 cell level to be returned for this `Covering`.  Should be\nset to a number equal to or larger than 0, but less than or equal to\n`max_level`.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1DisplayPolygonArgs": {
+            "description": "Arguments to the `display_polygon` functional field of a `GeoEntity`.",
+            "id": "GoogleGeoEntitiesV1DisplayPolygonArgs",
+            "properties": {
+                "encoding": {
+                    "description": "Required. The encoding format, which encodes each polygon, as follows:\n\n- GeometryOptions::S2: Encodes the polygon in S2 format.\n  (See also http://s2geometry.io/devguide/basic_types#s2polygon.)\n- GeometryOptions::ST: Encodes the polygon into an STGeography object.\n\nAny other value results in an INVALID_ARGUMENT error.",
+                    "enum": [
+                        "ENCODING_UNSPECIFIED",
+                        "LATLNG",
+                        "S2",
+                        "GEO_JSON",
+                        "ST"
+                    ],
+                    "enumDescriptions": [
+                        "The encoding is unspecified.",
+                        "The geometry is represented by {latitude,longitude} coordinates using the\n`google.type.LatLng` type. Only relevant for point geometry.",
+                        "The geometry is returned as an encoding of the relevant S2 format, e.g.\nS2CellId/S2Point, S2Polyline, or S2Polygon. (See\nhttp://s2geometry.io/devguide/basic_types.html for details.)",
+                        "The geometry is returned as a proto encoding of the geometry section\nof the GeoJSON 2016 format. (See https://tools.ietf.org/html/rfc7946 for\ndetails.)",
+                        "The geometry is returned in the `STGeography` format. (See\nutil/geometry/st_lib/stgeography.h for details. This format is not yet\npublic, but there are plans to open-source it as part of the S2 library\nor alongside it.)"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1EditorialSummaries": {
+            "description": "Container proto for multiple editorial summaries.",
+            "id": "GoogleGeoEntitiesV1EditorialSummaries",
+            "properties": {
+                "values": {
+                    "description": "Individual editorial summaries.",
+                    "items": {
+                        "$ref": "GoogleGeoEntitiesV1EditorialSummary"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1EditorialSummary": {
+            "description": "An editorial summary for a `GeoEntity`.",
+            "id": "GoogleGeoEntitiesV1EditorialSummary",
+            "properties": {
+                "languageCode": {
+                    "description": "The BCP-47 language code, such as \"en-US\" or \"sr-Latn\", corresponding to\nthe language of the review.\n\nFor more information, see\nhttp://www.unicode.org/reports/tr35/#Unicode_locale_identifier.",
+                    "type": "string"
+                },
+                "mediumFormText": {
+                    "description": "A curated summary that is no more than 150 Latin characters.",
+                    "type": "string"
+                },
+                "shortFormText": {
+                    "description": "A curated summary that is no more than 40 Latin characters.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1EditorialSummaryArgs": {
+            "description": "Args for requesting editorial summaries for a `GeoEntity`.",
+            "id": "GoogleGeoEntitiesV1EditorialSummaryArgs",
+            "properties": {
+                "languageCodes": {
+                    "description": "The BCP-47 language code, such as \"en-US\" or \"sr-Latn\", corresponding to\nthe languages requested.\n\nEditorial summaries written in both the specified languages and in more\nspecific languages are returned. For example, if 'zh' is requested,\neditorial summaries in 'zh-Hans' and 'zh-Hans-HK' are also returned.\n\nFor more information, see\nhttp://www.unicode.org/reports/tr35/#Unicode_locale_identifier.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1FormattedLocationDescription": {
+            "description": "User-readable collection of strings that represents the location of a\n`GeoEntity`. Differs from address in that it can also apply to natural\nfeatures that typically don't have official addresses. See\n`FormattedLocationDescriptionArgs` for more on how to specify the\ndescription.",
+            "id": "GoogleGeoEntitiesV1FormattedLocationDescription",
+            "properties": {
+                "lines": {
+                    "description": "Lines of text that describe the location.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1FormattedLocationDescriptionArgs": {
+            "description": "Arguments to the `formatted_location_description_field`. Corresponds to\nconfigurations for the location description formatter, which renders a\n`GeoEntity`'s location as a sequence of human-readable strings.",
+            "id": "GoogleGeoEntitiesV1FormattedLocationDescriptionArgs",
+            "properties": {
+                "format": {
+                    "description": "Formatting for a location description. Determines which kinds of terms are\nused. If unspecified, defaults to DISPLAY.",
+                    "enum": [
+                        "FORMAT_UNSPECIFIED",
+                        "SHORT_DESCRIPTION",
+                        "DISPLAY"
+                    ],
+                    "enumDescriptions": [
+                        "Format is unspecified.",
+                        "Compact format for location descriptions, used in space-limited APIs. Not\nsuitable for producing mailing addresses and unlikely to suit navigation\npurposes.",
+                        "Format for use on a map or when describing a location geographically.\nNot suitable for producing mailing addresses."
+                    ],
+                    "type": "string"
+                },
+                "languageCode": {
+                    "description": "The BCP-47 language code, such as \"en-US\" or \"sr-Latn\", corresponding to\nthe language to format the location description in.\n\nFor more information, see\nhttp://www.unicode.org/reports/tr35/#Unicode_locale_identifier.",
+                    "type": "string"
+                },
+                "limitLevel": {
+                    "description": "Any location description component at or above this level is excluded from\nthe description. For example, if this is set to TOWN_OR_CITY, then\ntown-/city-, state-/province-, and country-level components are excluded.\n\nIf unspecified, there will be no upper-bound description on included\ncomponents. If specified, the value must be greater than the\n`start_level` level, assuming it's specified.",
+                    "enum": [
+                        "LEVEL_UNSPECIFIED",
+                        "STREET_LEVEL",
+                        "NEIGHBORHOOD_LEVEL",
+                        "TOWN_OR_CITY_LEVEL",
+                        "STATE_OR_PROVINCE_LEVEL",
+                        "COUNTRY_LEVEL"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Street-level granularity, such as street name and number, building name,\ncross streets, etc.",
+                        "Neighborhood-level granularity. Often derived from entities with the geo\ntypes `/geo/type/neighborhood` or `/geo/type/sublocality1` in most\ncountries.",
+                        "Town- or city-level granularity. Often derived from entities with the\ngeo type `/geo/type/sublocality` in most countries. However, some\ncountries do not have this type.",
+                        "State or province level granularity. Often derived from entities with\nthe geo type `/geo/type/administrative_area1` or\n`/geo/type/administrative_area2`/",
+                        "Country- or region-level granularity."
+                    ],
+                    "type": "string"
+                },
+                "maxLines": {
+                    "description": "Maximum number of description lines to render.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "regionCode": {
+                    "description": "Required. Common Locale Data Repository (CLDR) region code for where the\nrequest is coming from.",
+                    "type": "string"
+                },
+                "requestDomain": {
+                    "description": "Domain where the user's request originated, e.g. \"google.com\". This is\nnecessary because location descriptions can vary depending on where the\nuser is. Particularly relevant for disputed areas.",
+                    "type": "string"
+                },
+                "startLevel": {
+                    "description": "Any location description component below this level is excluded from the\ndescription. For example, if this is set to TOWN_OR_CITY, then\nneighborhood- and street-level components are excluded.\n\nIf unspecified, there will be no lower-bound description on included\ncomponents. If specified, the value must be less than the\n`limit_level` level, assuming it's specified.",
+                    "enum": [
+                        "LEVEL_UNSPECIFIED",
+                        "STREET_LEVEL",
+                        "NEIGHBORHOOD_LEVEL",
+                        "TOWN_OR_CITY_LEVEL",
+                        "STATE_OR_PROVINCE_LEVEL",
+                        "COUNTRY_LEVEL"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Street-level granularity, such as street name and number, building name,\ncross streets, etc.",
+                        "Neighborhood-level granularity. Often derived from entities with the geo\ntypes `/geo/type/neighborhood` or `/geo/type/sublocality1` in most\ncountries.",
+                        "Town- or city-level granularity. Often derived from entities with the\ngeo type `/geo/type/sublocality` in most countries. However, some\ncountries do not have this type.",
+                        "State or province level granularity. Often derived from entities with\nthe geo type `/geo/type/administrative_area1` or\n`/geo/type/administrative_area2`/",
+                        "Country- or region-level granularity."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1FormattedPostalAddress": {
+            "description": "User-readable collection of strings that represents the postal address of a\n`GeoEntity`.",
+            "id": "GoogleGeoEntitiesV1FormattedPostalAddress",
+            "properties": {
+                "lines": {
+                    "description": "The lines of text that describe the postal address.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1FormattedPostalAddressArgs": {
+            "description": "Arguments to the `formatted_postal_address` field. Corresponds to\nconfigurations for the postal address formatter, which renders a\n`GeoEntity`'s postal address into a sequence of human-readable strings.",
+            "id": "GoogleGeoEntitiesV1FormattedPostalAddressArgs",
+            "properties": {
+                "languageCode": {
+                    "description": "The BCP-47 language code corresponding to the language in which the address\nmust be formatted, such as \"en-US\" or \"sr-Latn\".\n\nFor more information, see\nhttp://www.unicode.org/reports/tr35/#Unicode_locale_identifier.",
+                    "type": "string"
+                },
+                "maxLines": {
+                    "description": "Maximum number of description lines to render. Default is uncapped.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "regionCode": {
+                    "description": "Required. The Unicode country/region code (CLDR) of the location from which\nthe request is coming from, such as \"US\" and \"419\".\n\nFor more information, see\nhttp://www.unicode.org/reports/tr35/#unicode_region_subtag.",
+                    "type": "string"
+                },
+                "requestDomain": {
+                    "description": "Domain where the user's request originated, e.g. \"google.com\". This is\nnecessary because location descriptions can vary depending on where the\nuser is. Particularly relevant for disputed areas.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1FullStGeography": {
+            "description": "ST (go/stlib) encoding of a `GeoEntity`'s geometry.",
+            "id": "GoogleGeoEntitiesV1FullStGeography",
+            "properties": {
+                "encoding": {
+                    "description": "The ST encoding.",
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1GeoEntity": {
+            "description": "A `GeoEntity` (or geographic entity) models anything that can be put on a\nmap. This includes natural features (lakes, mountains, rivers), political\nregions (countries, provinces, cities), and businesses, among others.\n\nA `GeoEntity` is represented as a distinct union of all fields that are\napplicable to the types that `GeoEntity` is a part of. The types are\nspecified in the `primary_geo_type_id` and `additional_geo_type_ids` fields.\nEvery `GeoEntity` has a globally unique ID that can be used to refer to it\nfrom other `GeoEntity`s.",
+            "id": "GoogleGeoEntitiesV1GeoEntity",
+            "properties": {
+                "fields": {
+                    "additionalProperties": {
+                        "$ref": "GoogleGeoEntitiesV1GeoEntityField"
+                    },
+                    "description": "Union of all fields supported by the associated types. The key is the name\nof the field as it appears in the proto.\n\nWhile this is an unusual way to define a proto, it saves a significant\namount of memory in most protocol buffer implementations when a small\nnumber of fields are included. For example, in C++ each non-primitive field\ndefined in a proto requires 8 bytes of memory, even if the field isn't set.\nBy using a map, only fields that are set consume memory. Additionally, the\nlarge oneof in the Field proto is space-efficient since all the fields are\ndefined inside a single C++ union. Protocol buffer compilers for other\nlanguages use similar approaches to save memory.\n\nWhile this structure decreases the in-memory size of sparsely populated\nentities, it always increases the serialized size and it also increases the\nin-memory size of densely populated entities. These are acceptable trade\noffs for the typical expected use cases.",
+                    "type": "object"
+                },
+                "id": {
+                    "description": "This `GeoEntity`'s ID.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1GeoEntityArgs": {
+            "description": "`GeoEntity` arguments used by `LookupGeoEntity` and `BatchLookupGeoEntities`.\nContains the set of `GeoEntity` functional field arguments specified by the\nuser for a particular call.",
+            "id": "GoogleGeoEntitiesV1GeoEntityArgs",
+            "properties": {
+                "fieldArgs": {
+                    "additionalProperties": {
+                        "$ref": "GoogleGeoEntitiesV1GeoEntityArgsFieldArg"
+                    },
+                    "description": "The set of all `FieldArgs`. The key is the name of the field in the oneof,\ne.g. \"name_args\".",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1GeoEntityArgsFieldArg": {
+            "description": "Arguments for functional fields. Each argument applies to the field whose\nname results from the removal of the `_args` suffix.",
+            "id": "GoogleGeoEntitiesV1GeoEntityArgsFieldArg",
+            "properties": {
+                "accessPointArgs": {
+                    "$ref": "GoogleGeoEntitiesV1AccessPointArgs",
+                    "description": "Args to control the format of the returned access points. If args are\nunspecified, the points within the access points are returned in\n`google.type.LatLng` format at full fidelity."
+                },
+                "additionalGeoTypeIdArgs": {
+                    "$ref": "GoogleGeoEntitiesV1AdditionalGeoTypeIdArgs",
+                    "description": "Args to control how `additional_geo_type_ids` is fetched."
+                },
+                "chainArgs": {
+                    "$ref": "GoogleGeoEntitiesV1AssociationReferenceArgs",
+                    "description": "Args to specify what types are requested. Only `chains` relations of\nthe requested types are returned. If not specified, then all `chains`\nrelations are returned."
+                },
+                "closingTimeArgs": {
+                    "$ref": "GoogleGeoEntitiesV1ClosingTimeArgs",
+                    "description": "Args that specify how to look up when a business will be closed in the\nnear future."
+                },
+                "containedByArgs": {
+                    "$ref": "GoogleGeoEntitiesV1ContainmentReferenceArgs",
+                    "description": "Args to specify what types are requested. Only `contained_by` relations\nof the requested types are returned. If not specified, then all\n`contained_by` relations are returned."
+                },
+                "departmentOfArgs": {
+                    "$ref": "GoogleGeoEntitiesV1ContainmentReferenceArgs",
+                    "description": "Args to specify what types are requested. Only `department_of`\nrelations of the requested types will be returned. If not specified,\nthen all `department_of` relations will be returned."
+                },
+                "displayPolygonArgs": {
+                    "$ref": "GoogleGeoEntitiesV1DisplayPolygonArgs",
+                    "description": "Args required if the 'display_polygon' field is requested. Controls the\nformat of the polygon returned."
+                },
+                "editorialSummaryArgs": {
+                    "$ref": "GoogleGeoEntitiesV1EditorialSummaryArgs",
+                    "description": "Args to determine the language of the returned editorial summaries. If\nunspecified, summaries in English are returned, if they exist."
+                },
+                "exteriorCoveringArgs": {
+                    "$ref": "GoogleGeoEntitiesV1CoveringArgs",
+                    "description": "Args required if the `exterior_covering` field is requested. These args\ncontrol how the exterior cell covering of the `GeoEntity` is\nconstructed. See `CoveringArgs` for more details. (See also\n[S2 Covering\nExamples](http://s2geometry.io/devguide/examples/coverings).)"
+                },
+                "formattedLocationDescriptionArgs": {
+                    "$ref": "GoogleGeoEntitiesV1FormattedLocationDescriptionArgs",
+                    "description": "Args to determine how the `formatted_location_description` field is\nformatted. (Optional)"
+                },
+                "formattedPostalAddressArgs": {
+                    "$ref": "GoogleGeoEntitiesV1FormattedPostalAddressArgs",
+                    "description": "Args to determine how the `formatted_postal_address` field is\nformatted, if requested. If args are unspecified, the result is\ncomputed using default values."
+                },
+                "geometry25dArgs": {
+                    "$ref": "GoogleGeoEntitiesV1Geometry25DArgs",
+                    "description": "Args required if the 'geometry_25d' field is requested. Controls the\nformat of the polygons used to model the 2.5D geometry."
+                },
+                "hoursOpenArgs": {
+                    "$ref": "GoogleGeoEntitiesV1HoursOpenArgs",
+                    "description": "Args to specify the time interval for which the hours when the\nestablishment is open are requested."
+                },
+                "independentEstablishmentInArgs": {
+                    "$ref": "GoogleGeoEntitiesV1ContainmentReferenceArgs",
+                    "description": "Args to specify what types are requested. Only\n`independent_establishment_of` relations of the requested types will be\nreturned. If not specified, then all `independent_establishment_in`\nrelations will be returned."
+                },
+                "interiorCoveringArgs": {
+                    "$ref": "GoogleGeoEntitiesV1CoveringArgs",
+                    "description": "Args required if the `interior_covering` field is requested. These args\ncontrol how the interior cell covering of the `GeoEntity` is\nconstructed. See `CoveringArgs` for more details. (See also\n[S2 Covering\nExamples](http://s2geometry.io/devguide/examples/coverings).)"
+                },
+                "isOpenArgs": {
+                    "$ref": "GoogleGeoEntitiesV1IsOpenArgs",
+                    "description": "Args to determine if a business is open at a designated timestamp."
+                },
+                "nameArgs": {
+                    "$ref": "GoogleGeoEntitiesV1NameArgs",
+                    "description": "Allows the caller to specify how the `name` field in the `GeoEntity` is\npopulated. See `NameArgs` and `name` for more details."
+                },
+                "occupiesArgs": {
+                    "$ref": "GoogleGeoEntitiesV1ContainmentReferenceArgs",
+                    "description": "Args to specify what types are requested. Only `occupies` relations of\nthe requested types are returned. If not specified, then all `occupies`\nrelations are returned."
+                },
+                "onLevelArgs": {
+                    "$ref": "GoogleGeoEntitiesV1ContainmentReferenceArgs",
+                    "description": "Args to specify what types are requested. Only `on_level` relations of\nthe requested types are returned. If not specified, then all `on_level`\nrelations are returned."
+                },
+                "openingTimeArgs": {
+                    "$ref": "GoogleGeoEntitiesV1OpeningTimeArgs",
+                    "description": "Args that specify how to look up when a business will be open in the\nnear future."
+                },
+                "phoneNumberArgs": {
+                    "$ref": "GoogleGeoEntitiesV1PhoneNumberArgs",
+                    "description": "Args that affect how the `phone_numbers` field in `GeoEntity` is\npopulated. See `PhoneNumberArgs` and `phone_numbers` for more details."
+                },
+                "plusCodeArgs": {
+                    "$ref": "GoogleGeoEntitiesV1PlusCodeArgs",
+                    "description": "Args to determine how the `plus_code` field is formatted, if requested.\nIf args are unspecified, the result is formatted using default values."
+                },
+                "pointArgs": {
+                    "$ref": "GoogleGeoEntitiesV1PointArgs",
+                    "description": "Args required if the 'points' field is requested. Controls the format\nof the provided points."
+                },
+                "polygonArgs": {
+                    "$ref": "GoogleGeoEntitiesV1PolygonArgs",
+                    "description": "Args required if the 'polygons' field is requested. Controls the format\nof the provided polygons."
+                },
+                "polylineArgs": {
+                    "$ref": "GoogleGeoEntitiesV1PolylineArgs",
+                    "description": "Args required if the 'polylines' field is requested. Controls the\nformat of the provided polylines."
+                },
+                "primarilyOccupiedByArgs": {
+                    "$ref": "GoogleGeoEntitiesV1ContainmentReferenceArgs",
+                    "description": "Args to specify what types are requested. Only `primarily_occupied_by`\nrelations of the requested types are returned. If not specified,\nthen all `primarily_occupied_by` relations are returned."
+                },
+                "primaryGeoTypeIdArgs": {
+                    "$ref": "GoogleGeoEntitiesV1PrimaryGeoTypeIdArgs",
+                    "description": "Args to control how `primary_geo_type_id` is fetched."
+                },
+                "propertyArgs": {
+                    "$ref": "GoogleGeoEntitiesV1PropertyArgs",
+                    "description": "Args to determine the `property`s to be fetched. Conceptually, this is\na read mask for these properties and allows you to choose which\nproperties are returned. For a description of property, see\n`GeoEntity.Field.property`."
+                },
+                "regionSpecificRestrictionArgs": {
+                    "$ref": "GoogleGeoEntitiesV1RegionSpecificRestrictionArgs",
+                    "description": "Args for the region specific driving restrictions - for example, a\ntraffic restriction in downtown Jakarta for cars with an even license\nplate."
+                },
+                "segmentArgs": {
+                    "$ref": "GoogleGeoEntitiesV1SegmentArgs",
+                    "description": "Args to control the way `segment` and `traffic_restrictions`\ninformation are fetched."
+                },
+                "userQuoteArgs": {
+                    "$ref": "GoogleGeoEntitiesV1UserQuoteArgs",
+                    "description": "Args to determine the language of the returned user quotes. If\nunspecified, user quotes in English are returned, if they exist."
+                },
+                "websiteArgs": {
+                    "$ref": "GoogleGeoEntitiesV1WebsiteArgs",
+                    "description": "Args to determine the language of the returned `website`. If the\nreturned language doesn't match exactly, the closest match is returned.\nIf unspecified, default is `en`."
+                },
+                "worksAtArgs": {
+                    "$ref": "GoogleGeoEntitiesV1AssociationReferenceArgs",
+                    "description": "Args to specify what types are requested. Only `works_at` relations of\nthe requested types will be returned. If not specified, then all\n`works_at` relations will be returned."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1GeoEntityField": {
+            "description": "A `GeoEntity` field.",
+            "id": "GoogleGeoEntitiesV1GeoEntityField",
+            "properties": {
+                "accessPoints": {
+                    "$ref": "GoogleGeoEntitiesV1AccessPoints",
+                    "description": "Access points associated with this `GeoEntity`."
+                },
+                "additionalGeoTypeIds": {
+                    "$ref": "GoogleGeoEntitiesV1GeoTypeIds",
+                    "description": "Additional geo types for this `GeoEntity`, excluding the primary type.\nUsers shouldn't infer meaning from the ordering of IDs, which is\nsubject to change. Also note that the additional geo type IDs aren't\nnecessarily connected to the primary geo type ID in the types graph."
+                },
+                "airportIataCode": {
+                    "description": "`GeoEntity`'s airport code. This field only exists on airports.",
+                    "type": "string"
+                },
+                "chains": {
+                    "$ref": "GoogleGeoEntitiesV1AssociationReferences",
+                    "description": "Chains that this `GeoEntity` is a member of. A `GeoEntity` is\nconsidered a member of a chain if it represents a single location of a\nlarger brand or franchise (e.g. a single Starbucks or McDonald's). This\nisn't restricted to commercial chains but can also be used to model\norganizations like the Red Cross or the United Nations."
+                },
+                "closingTime": {
+                    "description": "Specifies the first time an establishment is closed after the time\nspecified in `closing_time_args`.  For example, if an establishment is\nopen weekly from 9am to 5pm and the request is for the first closing\ntime after Friday at 10pm, this field will be set to  Friday at 5pm.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "containedBy": {
+                    "$ref": "GoogleGeoEntitiesV1ContainmentReferences",
+                    "description": "Information about the `GeoEntity`s that contain this entity, such as a\nbusiness district and a historic district that contain the same\nbuilding."
+                },
+                "countryCode": {
+                    "description": "`GeoEntity`'s country code in the [Unicode\nCLDR](http://unicode.org/cldr) format.",
+                    "type": "string"
+                },
+                "departmentOf": {
+                    "$ref": "GoogleGeoEntitiesV1ContainmentReferences",
+                    "description": "Information about the `GeoEntity`s that this entity is a department of,\nsuch as universities, hospitals, department stores, etc., if this\nentity is a subsidiary department of them."
+                },
+                "displayPolygon": {
+                    "$ref": "GoogleGeoEntitiesV1Polygon",
+                    "description": "Polygon that approximates the surface area of the earth covered by this\n`GeoEntity` and has been made suitable for display, i.e. has been\nsubjected to water removal and (possibly) moderate simplification.\n\nIf this field is requested, then the returned format must be specified\nusing `display_polygon_args`."
+                },
+                "editorialSummaries": {
+                    "$ref": "GoogleGeoEntitiesV1EditorialSummaries",
+                    "description": "Editorial summaries for this `GeoEntity`."
+                },
+                "entrances": {
+                    "$ref": "GoogleGeoEntitiesV1AssociationReferences",
+                    "description": "Locations tied to this `GeoEntity` that represent an entrance or exit."
+                },
+                "exteriorCovering": {
+                    "$ref": "GoogleGeoEntitiesV1Covering",
+                    "description": "S2 exterior covering that consists of cells whose every point is also\npresent in the `GeoEntity`'s geometry. (See also [S2 Covering\nExamples](http://s2geometry.io/devguide/examples/coverings).)"
+                },
+                "formattedLocationDescription": {
+                    "$ref": "GoogleGeoEntitiesV1FormattedLocationDescription",
+                    "description": "If the `GeoEntity` has a generic location description, this is the\nformatted view of that location description."
+                },
+                "formattedPostalAddress": {
+                    "$ref": "GoogleGeoEntitiesV1FormattedPostalAddress",
+                    "description": "The formatted postal address of this `GeoEntity`."
+                },
+                "fullStGeography": {
+                    "$ref": "GoogleGeoEntitiesV1FullStGeography",
+                    "description": "ST (go/stlib) encoding of the `GeoEntity`'s geometry. Contains all\ngeometric features as encoded by\ngoogle3/util/geometry/st_lib/stgeography_coder.h. The geometry has been\nflattened as described in google3/util/geometry/st_lib/flatten.h. The\nname doesn't indicate that it has been made 2D or otherwise altered."
+                },
+                "geometry25d": {
+                    "$ref": "GoogleGeoEntitiesV1Geometry25D",
+                    "description": "The `GeoEntity`'s 2.5D geometry, which is an estimate based on the\nheight and extruded shapes of a building. The 2.5D model used is an\nestimate built by translating the flat polygon upward some distance\n(base) then extruding it upward some additional distance (height).\n\nIf a `GeoEntity` contains 2.5D geometry, it can be requested as such\nor projected to 2D geometry using the polygons read mask.\n\nIf this field is requested, then the returned format must be specified\nusing `geometry_25d_args`."
+                },
+                "hoursOpen": {
+                    "$ref": "GoogleGeoEntitiesV1HoursOpen",
+                    "description": "Set of time intervals that describe the hours an establishment is open\nas requested by the user. Empty if the establishment is not\noperational."
+                },
+                "independentEstablishmentIn": {
+                    "$ref": "GoogleGeoEntitiesV1ContainmentReferences",
+                    "description": "Information about `GeoEntity`s that physically contain this entity, but\nare operated independently from this entity, for example, a mall this\nstore is located in."
+                },
+                "interiorCovering": {
+                    "$ref": "GoogleGeoEntitiesV1Covering",
+                    "description": "S2 interior covering that consists of cells whose every point is also\npresent in the `GeoEntity`'s geometry. If the `GeoEntity` doesn't have\nany polygons, this covering isn't set. (See also [S2\nCovering Examples](http://s2geometry.io/devguide/examples/coverings).)\n\nAn interior covering makes no guarantees about the percentage of the\n`GeoEntity` covered or how close it gets to the edges, depending on\nwhich args the user specifies."
+                },
+                "intersection": {
+                    "$ref": "GoogleGeoEntitiesV1Intersection",
+                    "description": "For `GeoEntity`s whose type is /geo/type/intersection, this describes\nthe intersection in question."
+                },
+                "isOpen": {
+                    "description": "Whether this `GeoEntity` is open at the time specified in\n`is_open_args`.",
+                    "type": "boolean"
+                },
+                "level": {
+                    "$ref": "GoogleGeoEntitiesV1Level",
+                    "description": "Information about the level (e.g. floor) associated with this\n`GeoEntity`, if applicable."
+                },
+                "name": {
+                    "$ref": "GoogleGeoEntitiesV1Name",
+                    "description": "Representative name of this `GeoEntity`."
+                },
+                "occupies": {
+                    "$ref": "GoogleGeoEntitiesV1ContainmentReferences",
+                    "description": "If this `GeoEntity` physically occupies other `GeoEntity`s, they're\nreferenced here."
+                },
+                "onLevels": {
+                    "$ref": "GoogleGeoEntitiesV1ContainmentReferences",
+                    "description": "Information about the `GeoEntity` that represents the levels or floors\nthat the requested `GeoEntity` is on. A level typically belongs to a\nsingle building, but can also be shared by multiple buildings (e.g. a\nlarge underground parking lot)."
+                },
+                "openingTime": {
+                    "description": "Specifies the first time an establishment is open after the time\nspecified in `opening_time_args`.  For example, if an establishment is\nopen weekly from 9am to 5pm and the request is for the first opening\ntime after Tuesday at 10pm, this field will be set to Friday at 9am.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "operatingStatus": {
+                    "$ref": "GoogleGeoEntitiesV1OperatingStatus",
+                    "description": "Current operating status of this business `GeoEntity`. Can be in\none of three states: operational, temporarily closed, or permanently\nclosed. If operational, business hours for the next week are included."
+                },
+                "phoneNumbers": {
+                    "$ref": "GoogleGeoEntitiesV1PhoneNumbers",
+                    "description": "Phone numbers in different formats for this `GeoEntity`."
+                },
+                "plusCode": {
+                    "$ref": "GoogleGeoEntitiesV1PlusCode",
+                    "description": "Plus Code or Open Location Code associated with the `GeoEntity`. See\nalso [Plus Codes](https://plus.codes/) and\n[Open Location Code](https://en.wikipedia.org/wiki/Open_Location_Code)."
+                },
+                "points": {
+                    "$ref": "GoogleGeoEntitiesV1Points",
+                    "description": "An arbitrary collection of points that specify this `GeoEntity`'s\ngeometry, representing regions of unspecified size or width (not\nregions of zero area).\n\nIf this field is requested, then the returned format must be specified\nusing `point_args`."
+                },
+                "polygons": {
+                    "$ref": "GoogleGeoEntitiesV1Polygons",
+                    "description": "Polygons that approximate the surface area of the Earth covered by\nthis `GeoEntity`. Note that many `GeoEntity`s are only represented by a\nprojected `point` or `polyline`. The number of allowed polygons varies\nby `GeoEntity` type.\n\nIf this field is requested, then the returned format must be specified\nusing `polygon_args`."
+                },
+                "polylines": {
+                    "$ref": "GoogleGeoEntitiesV1Polylines",
+                    "description": "A polyline is one form of geometry that can be used to describe a\n`GeoEntity`. It's used when a line makes sense as the representation of\nthe geometry of a `GeoEntity`. Polylines represent a region of\nunspecified size or width, rather than a region of zero area. Common\nexamples of polylines are country borders and road segments. The number\nof allowed polylines varies by `GeoEntity` type.\n\nIf this field is requested, then the returned format must be specified\nusing `polyline_args`."
+                },
+                "preferredLocaleLanguages": {
+                    "$ref": "GoogleGeoEntitiesV1PreferredLocaleLanguages",
+                    "description": "Local language preferences for this `GeoEntity`."
+                },
+                "preferredViewport": {
+                    "$ref": "GoogleGeoTypeViewport",
+                    "description": "A latitude-longitude rectangle suitable for a map showing this\n`GeoEntity`."
+                },
+                "priceLevel": {
+                    "description": "This `GeoEntity`'s price level.",
+                    "enum": [
+                        "PRICE_LEVEL_UNSPECIFIED",
+                        "PRICE_LEVEL_FREE",
+                        "PRICE_LEVEL_INEXPENSIVE",
+                        "PRICE_LEVEL_MODERATE",
+                        "PRICE_LEVEL_EXPENSIVE",
+                        "PRICE_LEVEL_VERY_EXPENSIVE"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified.",
+                        "`GeoEntity` provides free services.",
+                        "`GeoEntity` provides inexpensive services.",
+                        "`GeoEntity` provides moderately priced services.",
+                        "`GeoEntity` provides expensive services.",
+                        "`GeoEntity` provides very expensive services."
+                    ],
+                    "type": "string"
+                },
+                "primarilyOccupiedBy": {
+                    "$ref": "GoogleGeoEntitiesV1ContainmentReference",
+                    "description": "If there is a primary occupant of this `GeoEntity`, it is referenced\nhere."
+                },
+                "primaryGeoTypeId": {
+                    "description": "ID of this `GeoEntity`'s primary geo type. Geo types describe concepts\nmodeled by `GeoEntity`s and form a DAG, with each node assigned a\nunique identifier (an opaque string).  Geo types are useful for\nfiltering and categorizing `GeoEntity`s. Each `GeoEntity` has exactly\none primary geo type, but may have a number of additional geo types.\n\nA geo type ID can be used to fetch information about the corresponding\ngeo type by calling the Geo Types API.",
+                    "type": "string"
+                },
+                "properties": {
+                    "$ref": "GoogleGeoEntitiesV1Properties",
+                    "description": "A set of simple properties of this `GeoEntity`, such as \"dog-friendly\"\nor \"has wifi\". Only properties whose value type can be represented in\nthe `Property` proto can be read on a `GeoEntity`.\n\nThe set of properties that may be set on a `GeoEntity` depends on the\nentity's primary/additional types. For example, a country can have the\n\"/geo/type/country/currency_used\" property, but a road cannot.\n"
+                },
+                "regionSpecificRestriction": {
+                    "$ref": "GoogleGeoEntitiesV1RegionSpecificRestriction",
+                    "description": "Information about whether or not a region specific driving restriction\nis active on this restriction group or segment. Restrictions apply to\ngeographical zones. For example, there might be a restriction on\ntraffic through downtown Jakarta based on whether a vehicle has an odd\nor even license plate."
+                },
+                "segment": {
+                    "$ref": "GoogleGeoEntitiesV1Segment",
+                    "description": "For `GeoEntity`s whose type is /geo/type/segment, this describes the\nsegment in question as well as any associated restrictions as requested\nby the user."
+                },
+                "serviceAreaBusinessType": {
+                    "description": "Service type describing whether the `GeoEntity` has a storefront and\nwhether it can provide services at the customer's location.",
+                    "enum": [
+                        "SERVICE_AREA_BUSINESS_TYPE_UNSPECIFIED",
+                        "STOREFRONT",
+                        "HYBRID_SERVICE",
+                        "LOCAL_SERVICE",
+                        "LOCATIONLESS"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "A standard POI.",
+                        "A business that services customers at its location, but also travels to\nthe customer, e.g. restaurant with delivery.",
+                        "A \"pure\" service area business that usually travels to the customer, e.g.\nplumber.",
+                        "A business that is purely locationless, e.g. a Spanish tutor via Skype.\nThis is currently not supported."
+                    ],
+                    "type": "string"
+                },
+                "serviceAreas": {
+                    "$ref": "GoogleGeoEntitiesV1ServiceAreas",
+                    "description": "The geographical areas where this `GeoEntity` does business. One\nexample is a restaurant that delivers food within a certain distance of\nits location. Other examples are plumbers, locksmiths, taxi services,\nand others who don't have a physical location that is open for\nbusiness, but instead travel to customer locations to provide a\nservice."
+                },
+                "terminalPoints": {
+                    "$ref": "GoogleGeoEntitiesV1AssociationReferences",
+                    "description": "A terminal point is a pickup or dropoff location suitable for a taxi or\nride-sharing service. The `GeoEntity` representing the terminal point\nhas the information needed to determine whether a location is a pickup\nor dropoff spot and for which services it is appropriate.\n\n`terminal_points` specifiy `GeoEntity`s that are appropriate terminal\npoints to access this `GeoEntity`. For example, a person who wants to\ncome to or leave from this `GeoEntity` could use one of these terminal\npoints to take a car to or from the same point."
+                },
+                "timeZones": {
+                    "$ref": "GoogleGeoEntitiesV1TimeZones",
+                    "description": "Contains time zones known to be associated with this `GeoEntity`. Most\n`GeoEntity`s are associated with the single time zone that contains\nthem. However, some larger `GeoEntity`s (countries, continents, etc.)\nare associated with all of the time zones they contain. Most\n`GeoEntity`s can have any number of time zones associated with them,\nbut `GeoEntity`s of types /geo/type/segment and\n/geo/type/establishment_poi can have at most one."
+                },
+                "userQuotes": {
+                    "$ref": "GoogleGeoEntitiesV1UserQuotes",
+                    "description": "User quotes about this `GeoEntity`."
+                },
+                "website": {
+                    "$ref": "GoogleGeoEntitiesV1Website",
+                    "description": "Official website for this `GeoEntity`, e.g. a business's homepage."
+                },
+                "worksAt": {
+                    "$ref": "GoogleGeoEntitiesV1AssociationReferences",
+                    "description": "Information about `GeoEntity`s that this entity, as an individual\npractitioner (doctor, lawyer, etc.), works at (hospital, law firm,\netc.)."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1GeoTypeIds": {
+            "description": "Container proto for multiple geo type IDs.",
+            "id": "GoogleGeoEntitiesV1GeoTypeIds",
+            "properties": {
+                "values": {
+                    "description": "Individual geo type IDs.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1Geometry25D": {
+            "description": "For `GeoEntity`s representing an area in space, this provides a simplified\npolygonal representation of {polygon, base_meters, height_meters}.\n",
+            "id": "GoogleGeoEntitiesV1Geometry25D",
+            "properties": {
+                "layers": {
+                    "description": "Layers that represent the 2.5D geometry. In this model, a layer is built by\ntranslating a flat polygon upward some distance (base) then extruding it\nupward some additional distance (height). The `GeoEntity`s 2.5D geometry is\nthe union of these layers.",
+                    "items": {
+                        "$ref": "GoogleGeoEntitiesV1Geometry25DLayer"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1Geometry25DArgs": {
+            "description": "Arguments specifying how the `geometry_25d` field is requested.",
+            "id": "GoogleGeoEntitiesV1Geometry25DArgs",
+            "properties": {
+                "encoding": {
+                    "description": "Required. Supported values are S2 and ST. Any other value results in an\nINVALID_ARGUMENT error.",
+                    "enum": [
+                        "ENCODING_UNSPECIFIED",
+                        "LATLNG",
+                        "S2",
+                        "GEO_JSON",
+                        "ST"
+                    ],
+                    "enumDescriptions": [
+                        "The encoding is unspecified.",
+                        "The geometry is represented by {latitude,longitude} coordinates using the\n`google.type.LatLng` type. Only relevant for point geometry.",
+                        "The geometry is returned as an encoding of the relevant S2 format, e.g.\nS2CellId/S2Point, S2Polyline, or S2Polygon. (See\nhttp://s2geometry.io/devguide/basic_types.html for details.)",
+                        "The geometry is returned as a proto encoding of the geometry section\nof the GeoJSON 2016 format. (See https://tools.ietf.org/html/rfc7946 for\ndetails.)",
+                        "The geometry is returned in the `STGeography` format. (See\nutil/geometry/st_lib/stgeography.h for details. This format is not yet\npublic, but there are plans to open-source it as part of the S2 library\nor alongside it.)"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1Geometry25DLayer": {
+            "description": "A layer is built by translating the flat polygon upward some distance\n(base) then extruding it upward some additional distance (height). The 2.5D\nmodel used is the union of all its layers.",
+            "id": "GoogleGeoEntitiesV1Geometry25DLayer",
+            "properties": {
+                "baseMeters": {
+                    "description": "Elevation of the bottom of the extruded polygon (above ground level).",
+                    "format": "double",
+                    "type": "number"
+                },
+                "heightMeters": {
+                    "description": "Distance from the bottom of the extruded polygon to the top.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "polygon": {
+                    "$ref": "GoogleGeoEntitiesV1Polygon",
+                    "description": "Polygon representing the horizontal shape of this layer."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1HoursOpen": {
+            "description": "Collection of time intervals during which a `GeoEntity` is open within a\nrequested time period.",
+            "id": "GoogleGeoEntitiesV1HoursOpen",
+            "properties": {
+                "timeIntervals": {
+                    "description": "Time intervals during which the establishment is open within the requested\ntime period.",
+                    "items": {
+                        "$ref": "GoogleGeoEntitiesV1TimeInterval"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1HoursOpenArgs": {
+            "description": "Arguments to the `hours_open` field. Specifies the time interval for which\nclient wants to know if the establishment is open. For example, if a business\nis open from 9 to 5, Mon to Fri, and the args query for times when the\nbusiness is open between Tue and Thu, then the result would be 9 to 5, Tue to\nThu.",
+            "id": "GoogleGeoEntitiesV1HoursOpenArgs",
+            "properties": {
+                "timeInterval": {
+                    "$ref": "GoogleGeoEntitiesV1TimeInterval",
+                    "description": "Returns the hours when the establishment is open for times in the interval\nrequested. If unset, defaults to a 7-day interval starting from the current\ntime."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1Intersection": {
+            "description": "The common endpoint of one or more segments in a transportation network at\nwhich the segments are connected.\n\nThe center of the intersection is modeled in `GeoEntity.fields.points`\n(which, for intersections, is guaranteed to contain a single point) and\nrepresents the last vertex of all the segments that terminate at this\nintersection.",
+            "id": "GoogleGeoEntitiesV1Intersection",
+            "properties": {
+                "segmentIds": {
+                    "description": "IDs of the segments associated with this intersection, in any order. This\nis never empty because an intersection with no associated segments is\nmeaningless.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1IsOpenArgs": {
+            "description": "Arguments to the `is_open` field. Specifies whether or not the establishment\nis open, given a time request. For example, if the establishment is open from\n9 to 5, Mon to Fri, and the request is for \"is_open\" on Monday at midnight,\nthen the response would be false.",
+            "id": "GoogleGeoEntitiesV1IsOpenArgs",
+            "properties": {
+                "time": {
+                    "description": "Timestamp request for the `GeoEntity`'s open status. Defaults to the\ncurrent time if not specified.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1Level": {
+            "description": "Information about a logical level, e.g. floor.",
+            "id": "GoogleGeoEntitiesV1Level",
+            "properties": {
+                "buildingIds": {
+                    "description": "IDs of the buildings to which this level belongs. A level typically belongs\nto a single building, but a single level can also be shared by multiple\nbuildings (for example, a large underground parking lot).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "number": {
+                    "description": "The level associated with the buildings or compounds. Note: The ground\nfloor has a value of 0, even in locales that call the ground floor \"1st\nfloor.\" In addition, 0.5 indicates the space between the ground and first\nfloors (e.g. a mezzanine).\n\nThis number can be negative to indicate a level below the ground floor. For\nexample, -3 indicates a level three levels below the ground floor, and 1\nindicates one level above the ground floor.",
+                    "format": "float",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1LookupGeoEntityRequest": {
+            "description": "A lookup request for a single `GeoEntity`.",
+            "id": "GoogleGeoEntitiesV1LookupGeoEntityRequest",
+            "properties": {
+                "args": {
+                    "$ref": "GoogleGeoEntitiesV1GeoEntityArgs",
+                    "description": "Arguments to the requested functional fields. Not all fields take\narguments and, of those that do, only some allow defaults. For others,\narguments must be specified."
+                },
+                "id": {
+                    "description": "`GeoEntity` ID specifying which `GeoEntity` is being requested. Binary\ncompatible with Place IDs, including support for synthetic `GeoEntity`s.",
+                    "type": "string"
+                },
+                "readMask": {
+                    "description": "Required. Read mask that specifies the `GeoEntity` fields being requested.\nPaths correspond to `GeoEntity::Field`. If no fields are set, the returned\n`GeoEntity` contains the ID, but no fields. If requested fields aren't\napplicable to the `primary_geo_type_id` of the returned `GeoEntity`, then\nthey may not be returned. Only top-level fields are supported by `fields`,\nwhile sub-selections are not.",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1Name": {
+            "description": "A structured representation of a `GeoEntity`'s name.",
+            "id": "GoogleGeoEntitiesV1Name",
+            "properties": {
+                "languageCode": {
+                    "description": "The BCP-47 language code, such as \"en-US\" or \"sr-Latn\".\n\nFor more information, see\nhttp://www.unicode.org/reports/tr35/#Unicode_locale_identifier.",
+                    "type": "string"
+                },
+                "text": {
+                    "description": "The name's text (UTF-8 encoding).",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1NameArgs": {
+            "description": "Arguments to the `name` field.\n",
+            "id": "GoogleGeoEntitiesV1NameArgs",
+            "properties": {
+                "languageCode": {
+                    "description": "The BCP-47 language code corresponding to the language in which the name\nwas requested, such as \"en-US\" or \"sr-Latn\". If not specified, returns a\nname in any language, with a preference for English if such a name exists.\n\nFor more information, see\nhttp://www.unicode.org/reports/tr35/#Unicode_locale_identifier.",
+                    "type": "string"
+                },
+                "regionCode": {
+                    "description": "Required. The Unicode country/region code (CLDR) of the location from which\nthe request is coming from, such as \"US\" and \"419\".\n\nFor more information, see\nhttp://www.unicode.org/reports/tr35/#unicode_region_subtag.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1OpeningTimeArgs": {
+            "description": "Arguments to the 'opening_time' field.",
+            "id": "GoogleGeoEntitiesV1OpeningTimeArgs",
+            "properties": {
+                "time": {
+                    "description": "The `opening_time` field will be set to the first time when the `GeoEntity`\nis open after the time specified by this field.  If the `GeoEntity` is\nalready open, `opening_time` will be set to the value given by this field.\nIf this field is not specified, the value computed for `opening_time` will\nbe as if this was set to the current time.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1OperatingStatus": {
+            "description": "Operating status of a `GeoEntity` that represents a business.",
+            "id": "GoogleGeoEntitiesV1OperatingStatus",
+            "properties": {
+                "operational": {
+                    "$ref": "GoogleGeoEntitiesV1OperatingStatusOperational",
+                    "description": "The `GeoEntity` is following its normal operating procedures and is open\nduring its defined hours."
+                },
+                "permanentlyClosed": {
+                    "$ref": "GoogleGeoEntitiesV1OperatingStatusPermanentlyClosed",
+                    "description": "The `GeoEntity` is no longer in business."
+                },
+                "temporarilyClosed": {
+                    "$ref": "GoogleGeoEntitiesV1OperatingStatusTemporarilyClosed",
+                    "description": "The `GeoEntity` is temporarily closed and expected to reopen in the\nfuture."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1OperatingStatusOperational": {
+            "description": "Operating normally. Open during defined business hours.",
+            "id": "GoogleGeoEntitiesV1OperatingStatusOperational",
+            "properties": {
+                "hoursOpen": {
+                    "$ref": "GoogleGeoEntitiesV1HoursOpen",
+                    "description": "Business hours."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1OperatingStatusPermanentlyClosed": {
+            "description": "No longer in business.",
+            "id": "GoogleGeoEntitiesV1OperatingStatusPermanentlyClosed",
+            "properties": {},
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1OperatingStatusTemporarilyClosed": {
+            "description": "Temporarily closed, but expected to reopen in the future. Reasons include\nboth planned and unplanned events (e.g. if the business is undergoing\nrenovations or a pipe has burst).",
+            "id": "GoogleGeoEntitiesV1OperatingStatusTemporarilyClosed",
+            "properties": {},
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1PhoneNumber": {
+            "description": "Phone number of a `GeoEntity`, in various formats.\n",
+            "id": "GoogleGeoEntitiesV1PhoneNumber",
+            "properties": {
+                "e164Format": {
+                    "description": "Phone number in e164 format. Same as international format but with no\nformatting applied, e.g. +41446681800.",
+                    "type": "string"
+                },
+                "flags": {
+                    "description": "The set of flags that apply to this phone number.",
+                    "enumDescriptions": [
+                        "Unspecified flag, should not be used.",
+                        "Indicates that the number is (one of) the preferred numbers to call, such\nas the primary customer service number, reservation hot line, etc."
+                    ],
+                    "items": {
+                        "enum": [
+                            "FLAG_UNSPECIFIED",
+                            "FLAG_PREFERRED"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "internationalFormat": {
+                    "description": "Phone number in international format. Consistent with the definition in\nITU-T Recommendation E.123. (See also https://en.wikipedia.org/wiki/E.123.)",
+                    "type": "string"
+                },
+                "nationalFormat": {
+                    "description": "Phone number in national format. Consistent with the definition in ITU-T\nRecommendation E.123. (See also https://en.wikipedia.org/wiki/E.123.)",
+                    "type": "string"
+                },
+                "outOfCountryFormat": {
+                    "description": "Phone number formatted as if dialed from the region specified in\n`phone_number_args.calling_region_code`. If value isn't provided or is\ninvalid, this field is left empty.",
+                    "type": "string"
+                },
+                "rfc3966Format": {
+                    "description": "Same as international format, but with spaces and other separating symbols\nreplaced by hyphens, and with extensions appended with \";ext=\". This format\nalso provides a \"tel:\" prefix, e.g. tel:+41-44-668-1800.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "Type of communication this phone number is intended for.",
+                    "enum": [
+                        "TYPE_UNSPECIFIED",
+                        "VOICE",
+                        "FAX",
+                        "TDD"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Numbers that a person can call to interact with a party on the other end\nusing audio or their phone's keypad.",
+                        "Numbers that connect directly to a fax machine.",
+                        "Special numbers for connecting Telecommunication Devices for the Deaf\n(TDD) or teletypewriter (TTY) devices."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1PhoneNumberArgs": {
+            "description": "Arguments to the `phone_numbers` field.",
+            "id": "GoogleGeoEntitiesV1PhoneNumberArgs",
+            "properties": {
+                "callerRegionCode": {
+                    "description": "The Unicode country/region code (CLDR) of the caller's location, such as\n\"US\" and \"419\". Used to format `phone_number.out_of_country`. If\nunspecified or invalid, the `phone_number.out_of_country` field is left\nempty.\n\nFor more information, see\nhttp://www.unicode.org/reports/tr35/#unicode_region_subtag.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "Type of phone number requested. If unspecified, all available phone numbers\nare returned.",
+                    "enum": [
+                        "TYPE_UNSPECIFIED",
+                        "VOICE",
+                        "FAX",
+                        "TDD"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Numbers that a person can call to interact with a party on the other end\nusing audio or their phone's keypad.",
+                        "Numbers that connect directly to a fax machine.",
+                        "Special numbers for connecting Telecommunication Devices for the Deaf\n(TDD) or teletypewriter (TTY) devices."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1PhoneNumbers": {
+            "description": "Container proto for multiple phone numbers.",
+            "id": "GoogleGeoEntitiesV1PhoneNumbers",
+            "properties": {
+                "values": {
+                    "description": "Individual phone numbers.",
+                    "items": {
+                        "$ref": "GoogleGeoEntitiesV1PhoneNumber"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1PlusCode": {
+            "description": "A geo entity's plus code. Plus codes are address-like location references.\nSee https://plus.codes for details.",
+            "id": "GoogleGeoEntitiesV1PlusCode",
+            "properties": {
+                "compoundCode": {
+                    "description": "GeoEntity's compound code, such as \"33GV+HQ, Ramberg, Norway\", containing\nthe suffix of the global code and replacing the prefix with a formatted\nname of a reference entity.",
+                    "type": "string"
+                },
+                "globalCode": {
+                    "description": "GeoEntity's global (full) code, such as \"9FWM33GV+HQ\", representing an\n1/8000 by 1/8000 degree area (~14 by 14 meters).",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1PlusCodeArgs": {
+            "description": "Arguments to the `plus_code` field. Corresponds to configurations for the\nplus code address formatter, which formats the locality part of a\n`GeoEntity`'s plus code field.",
+            "id": "GoogleGeoEntitiesV1PlusCodeArgs",
+            "properties": {
+                "languageCode": {
+                    "description": "The BCP-47 language code, such as \"en-US\" or \"sr-Latn\", corresponding to\nthe language to format the address in.\n\nThe plus code address formatter will attempt to use this or a related\nlanguage, but may use some other language when that is not possible.\n\nFor more information, see\nhttp://www.unicode.org/reports/tr35/#Unicode_locale_identifier.",
+                    "type": "string"
+                },
+                "regionCode": {
+                    "description": "The Unicode country code (CLDR) for where the request is coming from , such\nas \"US\". Used for localization purposes, not for policy restrictions.\n\nFor more information, see\nhttp://www.unicode.org/reports/tr35/#unicode_region_subtag.\n\n\nNote that 3-digit region codes are not currently supported.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1Point": {
+            "description": "Points in the `GeoEntity`'s geometry. If a point exists for an entity, it's\nguaranteed to have both a latitude and a longitude.\n\nMost `GeoEntity`s have some sort of geometry. If the geometry is a point,\nit's specified here and is assumed to represent a region of unspecified size,\nrather than a region of zero area.",
+            "id": "GoogleGeoEntitiesV1Point",
+            "properties": {
+                "latlngEncoding": {
+                    "$ref": "GoogleTypeLatLng",
+                    "description": "Encoding of the point in Google Cloud format."
+                },
+                "s2Encoding": {
+                    "description": "Encoding of the point as its `S2CellId`. (See also\n[S2CellId](https://s2geometry.io/devguide/s2cell_hierarchy#s2cellid).)",
+                    "format": "uint64",
+                    "type": "string"
+                },
+                "stEncoding": {
+                    "description": "Encoding of the point using `STGeographyEncoder::Encode()`. Each point is\nencoded in its own `STGeography` object.",
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1PointArgs": {
+            "description": "Arguments to the `points` functional field of a `GeoEntity`.",
+            "id": "GoogleGeoEntitiesV1PointArgs",
+            "properties": {
+                "encoding": {
+                    "description": "Required. Supported values are LATLNG, S2, and ST. Any other other value\nresults in an INVALID_ARGUMENT error.",
+                    "enum": [
+                        "ENCODING_UNSPECIFIED",
+                        "LATLNG",
+                        "S2",
+                        "GEO_JSON",
+                        "ST"
+                    ],
+                    "enumDescriptions": [
+                        "The encoding is unspecified.",
+                        "The geometry is represented by {latitude,longitude} coordinates using the\n`google.type.LatLng` type. Only relevant for point geometry.",
+                        "The geometry is returned as an encoding of the relevant S2 format, e.g.\nS2CellId/S2Point, S2Polyline, or S2Polygon. (See\nhttp://s2geometry.io/devguide/basic_types.html for details.)",
+                        "The geometry is returned as a proto encoding of the geometry section\nof the GeoJSON 2016 format. (See https://tools.ietf.org/html/rfc7946 for\ndetails.)",
+                        "The geometry is returned in the `STGeography` format. (See\nutil/geometry/st_lib/stgeography.h for details. This format is not yet\npublic, but there are plans to open-source it as part of the S2 library\nor alongside it.)"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1Points": {
+            "description": "Container proto for multiple points.",
+            "id": "GoogleGeoEntitiesV1Points",
+            "properties": {
+                "values": {
+                    "description": "Individual points.",
+                    "items": {
+                        "$ref": "GoogleGeoEntitiesV1Point"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1Polygon": {
+            "description": "The polygonal areas of a 'GeoEntity'.",
+            "id": "GoogleGeoEntitiesV1Polygon",
+            "properties": {
+                "s2Encoding": {
+                    "description": "Encoding of the polygon using `S2Polygon::Encode()`'s compressed\nrepresentation. (See also [S2Polygon](\nhttp://s2geometry.io/devguide/basic_types#s2polygon).)",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "stEncoding": {
+                    "description": "Encoding of the polygon using ST format. Each polygon is encoded in its\nown `STGeography` object.",
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1PolygonArgs": {
+            "description": "Arguments to the `polygons` functional field of a `GeoEntity`.",
+            "id": "GoogleGeoEntitiesV1PolygonArgs",
+            "properties": {
+                "encoding": {
+                    "description": "Required. Supported values are S2 and ST. Any other value results in an\nINVALID_ARGUMENT error.",
+                    "enum": [
+                        "ENCODING_UNSPECIFIED",
+                        "LATLNG",
+                        "S2",
+                        "GEO_JSON",
+                        "ST"
+                    ],
+                    "enumDescriptions": [
+                        "The encoding is unspecified.",
+                        "The geometry is represented by {latitude,longitude} coordinates using the\n`google.type.LatLng` type. Only relevant for point geometry.",
+                        "The geometry is returned as an encoding of the relevant S2 format, e.g.\nS2CellId/S2Point, S2Polyline, or S2Polygon. (See\nhttp://s2geometry.io/devguide/basic_types.html for details.)",
+                        "The geometry is returned as a proto encoding of the geometry section\nof the GeoJSON 2016 format. (See https://tools.ietf.org/html/rfc7946 for\ndetails.)",
+                        "The geometry is returned in the `STGeography` format. (See\nutil/geometry/st_lib/stgeography.h for details. This format is not yet\npublic, but there are plans to open-source it as part of the S2 library\nor alongside it.)"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1Polygons": {
+            "description": "Container proto for multiple polygons.",
+            "id": "GoogleGeoEntitiesV1Polygons",
+            "properties": {
+                "values": {
+                    "description": "Individual polygons.",
+                    "items": {
+                        "$ref": "GoogleGeoEntitiesV1Polygon"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1Polyline": {
+            "description": "Polylines in the `GeoEntity`'s geometry. Polylines represent regions of\nunspecified size, rather than regions of zero area.\n\nA polyline consists of a sequence of vertices connected by geodesics (the\nequivalent of straight lines on the sphere). Adjacent vertices are connected\nby the shorter of the two geodesics that connect them, i.e. all edges are 180\ndegrees or less. Note that the edge definition becomes numerically unstable\nas the arc length approaches 180 degrees. Polylines are generally expected to\nbe non-self-intersecting, but that is not guaranteed.",
+            "id": "GoogleGeoEntitiesV1Polyline",
+            "properties": {
+                "latlngEncoding": {
+                    "$ref": "GoogleGeoEntitiesV1PolylineLatLngPolyline",
+                    "description": "Encoding of the polyline as a sequence of connected points in Google\nCloud format."
+                },
+                "s2Encoding": {
+                    "description": "Encoding of the polyline using `S2Polyline::Encode()`'s compressed\nrepresentation. (See also\n[S2Polyline](http://s2geometry.io/devguide/basic_types#s2polyline).)",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "stEncoding": {
+                    "description": "Encoding of the polyline using `STGeographyEncoder::Encode()`. Each\npolyline is encoded in its own `STGeography` object.",
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1PolylineArgs": {
+            "description": "Arguments to the `polylines` functional field of a `GeoEntity`.",
+            "id": "GoogleGeoEntitiesV1PolylineArgs",
+            "properties": {
+                "encoding": {
+                    "description": "Required. Supported values are LATLNG, S2, and ST. Any other value results\nin an INVALID_ARGUMENT error.",
+                    "enum": [
+                        "ENCODING_UNSPECIFIED",
+                        "LATLNG",
+                        "S2",
+                        "GEO_JSON",
+                        "ST"
+                    ],
+                    "enumDescriptions": [
+                        "The encoding is unspecified.",
+                        "The geometry is represented by {latitude,longitude} coordinates using the\n`google.type.LatLng` type. Only relevant for point geometry.",
+                        "The geometry is returned as an encoding of the relevant S2 format, e.g.\nS2CellId/S2Point, S2Polyline, or S2Polygon. (See\nhttp://s2geometry.io/devguide/basic_types.html for details.)",
+                        "The geometry is returned as a proto encoding of the geometry section\nof the GeoJSON 2016 format. (See https://tools.ietf.org/html/rfc7946 for\ndetails.)",
+                        "The geometry is returned in the `STGeography` format. (See\nutil/geometry/st_lib/stgeography.h for details. This format is not yet\npublic, but there are plans to open-source it as part of the S2 library\nor alongside it.)"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1PolylineLatLngPolyline": {
+            "description": "A polyline representation as a sequence of connected vertices.",
+            "id": "GoogleGeoEntitiesV1PolylineLatLngPolyline",
+            "properties": {
+                "points": {
+                    "description": "A vertex on the polyline.",
+                    "items": {
+                        "$ref": "GoogleTypeLatLng"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1Polylines": {
+            "description": "Container proto for multiple polylines.",
+            "id": "GoogleGeoEntitiesV1Polylines",
+            "properties": {
+                "values": {
+                    "description": "Individual polylines.",
+                    "items": {
+                        "$ref": "GoogleGeoEntitiesV1Polyline"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1PreferredLocaleLanguages": {
+            "description": "The preferred languages for a `GeoEntity`'s locale.",
+            "id": "GoogleGeoEntitiesV1PreferredLocaleLanguages",
+            "properties": {
+                "values": {
+                    "description": "List of language codes, most preferred first.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1PrimaryGeoTypeIdArgs": {
+            "description": "Arguments to the `primary_geo_type_ids` field.\n\nNext available tag: 2",
+            "id": "GoogleGeoEntitiesV1PrimaryGeoTypeIdArgs",
+            "properties": {
+                "minRightsLevel": {
+                    "description": "If this is specified, the `primary_geo_type_ids` field is returned only if\nit has rights at this minimum level or above.\n\nIf this is not specified, the `primary_geo_type_ids` field is returned only\nif it has rights at `default_min_rights_level` or above.\n\nIf `default_min_rights_level` is not specified either, the\n`primary_geo_type_ids` field is only returned if data is available to\ncompute it.",
+                    "enum": [
+                        "RIGHTS_LEVEL_UNSPECIFIED",
+                        "UNKNOWN_RIGHTS",
+                        "GT_RIGHTS",
+                        "FULL_RIGHTS"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified rights level. Should not be used.",
+                        "Indicates that the rights level is unknown. This should always be the\ndefault value of any RightsLevel field in any proto.",
+                        "GT-rights or GT-level rights is a level of data ownership that Google has\nretained as defined by the Ground Truth project. GT rights include but may\nnot be limited to:\n\n  - Data may be used perpetually in any Google product or service.\n\n  - No requirement for any on-screen attribution requirements (although\n    there may be softer attribution requirements, like display on a legal\n    notices page).\n\n  - No display, distribution, or storage restrictions - other than that the\n    content may not be redistributed on a standalone basis, independent of\n    a Google product or service.",
+                        "Full rights refers to data for which Google has no usage restrictions."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1Properties": {
+            "description": "Container proto for multiple properties.",
+            "id": "GoogleGeoEntitiesV1Properties",
+            "properties": {
+                "values": {
+                    "description": "Individual properties.",
+                    "items": {
+                        "$ref": "GoogleGeoEntitiesV1Property"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1Property": {
+            "description": "Properties of this `GeoEntity`. Used to return Knowledge Graph properties as\nwell as other properties.",
+            "id": "GoogleGeoEntitiesV1Property",
+            "properties": {
+                "id": {
+                    "description": "The Knowledge Graph ID of the `Property`, e.g.\n\"/geo/type/establishment_poi/feels_lively\".",
+                    "type": "string"
+                },
+                "values": {
+                    "description": "Values associated with the `Property`.",
+                    "items": {
+                        "$ref": "GoogleGeoEntitiesV1PropertyValue"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1PropertyArgs": {
+            "description": "Arguments to the `properties` field. Conceptually, this is a read mask for\ngenerically typed properties.",
+            "id": "GoogleGeoEntitiesV1PropertyArgs",
+            "properties": {
+                "propertyIds": {
+                    "description": "The Knowledge Graph IDs of the properties requested, e.g.\n\"/geo/type/establishment_poi/feels_lively\".",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1PropertyValue": {
+            "id": "GoogleGeoEntitiesV1PropertyValue",
+            "properties": {
+                "boolValue": {
+                    "description": "A boolean value.",
+                    "type": "boolean"
+                },
+                "deepLink": {
+                    "$ref": "GoogleGeoEntitiesV1PropertyValueDeepLink",
+                    "description": "A deep link."
+                },
+                "floatValue": {
+                    "description": "A floating point number.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "id": {
+                    "description": "The ID of a referenced Knowledge Graph entity.",
+                    "type": "string"
+                },
+                "intValue": {
+                    "description": "An unsigned 64-bit integer.",
+                    "format": "uint64",
+                    "type": "string"
+                },
+                "text": {
+                    "$ref": "GoogleGeoEntitiesV1PropertyValueText",
+                    "description": "Some text."
+                },
+                "time": {
+                    "description": "A timestamp.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "uri": {
+                    "description": "A URI string.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1PropertyValueDeepLink": {
+            "description": "A DeepLink value - an internationalized URI used to model local\nattributes, such as menu and reservation links, click to chat, events\ncalendar, interior map URLs, etc.\n\nFor example, the \"/geo/type/establishment_poi/url_menu\" Knowledge Graph\nproperty could have a DeepLink pointing to the\n\"http://www.moustachepitza.com/food.php\" URL, and the UI-appropriate\n\"moustachepitza.com\" domain.",
+            "id": "GoogleGeoEntitiesV1PropertyValueDeepLink",
+            "properties": {
+                "domain": {
+                    "description": "Domain name of the URL, with common subdomains removed. Suitable for\nuse as an UI indication of the deep link's destination.",
+                    "type": "string"
+                },
+                "languageCodes": {
+                    "description": "The BCP-47 language code, such as \"en-US\" or \"sr-Latn\".\n\nFor more information, see\nhttp://www.unicode.org/reports/tr35/#Unicode_locale_identifier.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "url": {
+                    "description": "A [URL](https://en.wikipedia.org/wiki/URL).",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1PropertyValueText": {
+            "description": "A text value.",
+            "id": "GoogleGeoEntitiesV1PropertyValueText",
+            "properties": {
+                "languageCode": {
+                    "description": "The BCP-47 language code, such as \"en-US\" or \"sr-Latn\", associated with\nthe text field.\n\nFor more information, see\nhttp://www.unicode.org/reports/tr35/#Unicode_locale_identifier.",
+                    "type": "string"
+                },
+                "text": {
+                    "description": "A string containing the text value.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1RegionSpecificRestriction": {
+            "description": "Representation of a region specific restriction.",
+            "id": "GoogleGeoEntitiesV1RegionSpecificRestriction",
+            "properties": {
+                "intervals": {
+                    "description": "Intervals during which the restriction applies. All intervals contained are\nbound by the time_interval in the arguments.",
+                    "items": {
+                        "$ref": "GoogleGeoEntitiesV1TimeInterval"
+                    },
+                    "type": "array"
+                },
+                "zoneBasedRestrictionType": {
+                    "description": "The type of region specific restriction.",
+                    "enum": [
+                        "ZONE_RESTRICTION_TYPE_UNSPECIFIED",
+                        "JAKARTA_ODD_EVEN",
+                        "SAO_PAULO_RODIZIO",
+                        "MEXICO_CITY_HOY_NO_CIRCULA"
+                    ],
+                    "enumDescriptions": [
+                        "Default value. Should never be set.",
+                        "Jakarta, Indonesia's, odd/even type restrictions.",
+                        "Sao Paolo, Brazil's Rodizio restriction.",
+                        "Mexico City, Mexico's Hoy No Circula restriction."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1RegionSpecificRestrictionArgs": {
+            "description": "Arguments to the functional fields that describe region specific\nrestrictions.",
+            "id": "GoogleGeoEntitiesV1RegionSpecificRestrictionArgs",
+            "properties": {
+                "rawCarInfo": {
+                    "$ref": "GoogleGeoEntitiesV1RegionSpecificRestrictionArgsRawCarInfo",
+                    "description": "Required. The relevant vehicle information needed to compute region\nspecific traffic restrictions functional fields."
+                },
+                "restrictionTimeInterval": {
+                    "$ref": "GoogleGeoEntitiesV1TimeInterval",
+                    "description": "Required. Restrictions will apply if they are valid at any point during\nthis interval. start_time must be provided, end_time will be start_time + 1\nhour if not provided."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1RegionSpecificRestrictionArgsRawCarInfo": {
+            "description": "Proto message that describes the vehicle, providing the minimal information\nneeded for functional fields related to region specific traffic\nrestrictions.",
+            "id": "GoogleGeoEntitiesV1RegionSpecificRestrictionArgsRawCarInfo",
+            "properties": {
+                "licensePlate": {
+                    "description": "A string describing the license plate of the car.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1Segment": {
+            "description": "A segment within a transportation network represents travel between two\nintersections in a particular direction. The segment specifies properties of\ntravel in that direction (number of lanes, etc.) and also information about\nhow the segment is terminated (e.g. stop sign).",
+            "id": "GoogleGeoEntitiesV1Segment",
+            "properties": {
+                "avgSpeedKph": {
+                    "description": "Average speed expected along this route under normal conditions.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "barrierTypes": {
+                    "description": "Type of barrier (if known) at the inside edge of the `segment`. In the US\nand countries that drive on the right, this is the left edge of the\nleftmost lane. In the UK and countries that drive on the left, this is the\nright edge of the rightmost lane. This lets routing code figure out whether\nturns to start/stop points can be made in the middle of a `segment`. If\nsuch turns are desired but a barrier exists, then routing code must\nsuggest a route to the end of the `segment` and through a U-turn, or find a\nsuitable alternate route.",
+                    "enumDescriptions": [
+                        "Default value.",
+                        "No barrier present.",
+                        "A barrier that prevents turns in the middle of a `segment`, but the\ndetails are unknown (or the tester doesn't care to distinguish between\nlegal and physical barriers).",
+                        "Indicates that all turns are legally prohibited. A US example would be a\npair of double-yellow lines.",
+                        "A concrete strip, island, planter, or other physical barrier. This type\nis also used to indicate that the roadways are separated."
+                    ],
+                    "items": {
+                        "enum": [
+                            "BARRIER_TYPE_UNSPECIFIED",
+                            "BARRIER_NONE",
+                            "BARRIER_PRESENT",
+                            "BARRIER_LEGAL",
+                            "BARRIER_PHYSICAL"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "elevationTypes": {
+                    "description": "Gives information about the elevation of this segment relative to its\nsurroundings.",
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Indicates the `segment` has the same elevation as its surroundings.",
+                        "Indicates the `segment` is a bridge.",
+                        "Indicates the `segment` is a tunnel.",
+                        "Indicates the `segment` is a skyway (a road that is raised on supports\nfor an extended length). Only expected to be seen on segments with\n`PRIORITY_NON_TRAFFIC` priority.",
+                        "Indicates the `segment` is a stairway. Only expected on `segments`s with\n`PRIORITY_NON_TRAFFIC` priority.",
+                        "Indicates the `segment` is an escalator. Only expected on `segment`s with\n`PRIORITY_NON_TRAFFIC` priority.",
+                        "Indicates the `segment` is an elevator. Only expected on `segment`s with\n`PRIORITY_NON_TRAFFIC` priority.",
+                        "Indicates the `segment` is a slope way. Only expected on `segment`s with\n`PRIORITY_NON_TRAFFIC` priority.",
+                        "Indicates the `segment` is a moving walkway. Only expected on `segment`s\nwith `PRIORITY_NON_TRAFFIC` priority."
+                    ],
+                    "items": {
+                        "enum": [
+                            "ELEVATION_TYPE_UNSPECIFIED",
+                            "ELEVATION_NORMAL",
+                            "ELEVATION_BRIDGE",
+                            "ELEVATION_TUNNEL",
+                            "ELEVATION_SKYWAY",
+                            "ELEVATION_STAIRWAY",
+                            "ELEVATION_ESCALATOR",
+                            "ELEVATION_ELEVATOR",
+                            "ELEVATION_SLOPEWAY",
+                            "ELEVATION_MOVING_WALKWAY"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "endpointTypes": {
+                    "description": "How this `segment` is terminated: stop sign, yield sign, three-way\nsignal, etc.\n\nOne-way streets are indicated by tagging the wrong direction with a\n`TrafficRestriction` of type `WRONG_WAY`. Streets that can't be used for\nrouting have both of their directions marked with an `endpoint_category`\nvalue of `ENDPOINT_TYPE_UNSPECIFIED` (the default) and a priority\nvalue of `PRIORITY_NON_TRAFFIC`.",
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Used when traffic on this `segment` always has the right of way (e.g.\npassing a side street, fork in road).",
+                        "This `segment` leads to an uncontrolled intersection (e.g. no traffic\nlight or stop sign).",
+                        "This `segment` leads to a stop sign.",
+                        "Subcategory of `ENDPOINT_STOP_SIGN`. This `segment` leads to an all-way\nstop.",
+                        "This `segment` leads to a traffic light.",
+                        "Subcategory of `ENDPOINT_TRAFFIC_LIGHT`. This `segment` leads to a\ntraffic light that's three-way in this direction.",
+                        "Subcategory of `ENDPOINT_TRAFFIC_LIGHT`. This `segment` leads to a\ntraffic light that's flashing red (stop).",
+                        "Subcategory of `ENDPOINT_TRAFFIC_LIGHT`. This `segment` leads to a\ntraffic light that's flashing yellow (yield).",
+                        "Traffic on this `segment` must yield to oncoming traffic but doesn't\nnecessarily have to come to a full stop. This category is used when\nthere's a physical yield sign or road painting (e.g. triangles). It's\nalso used when circumstances and local traffic laws require traffic on\nthis `segment` to yield (e.g. when coming from a dirt road onto a paved\nroad).",
+                        "This `segment` merges onto another `segment`.",
+                        "This `segment` leads to a roundabout entrance. This category isn't used\nfor `segment`s within a roundabout. See `USAGE_ROUNDABOUT` for those.",
+                        "This `segment` leads to a railroad crossing.",
+                        "This category indicates a dead end. Useful to explicitly exclude\nconnections to other data-sets, for example at country borders and\nbuilding entrances in countries where the indoor and outdoor routing\nnetworks are supplied by different providers.",
+                        "This `segment` ends at a toll booth. The intersection capturing these\n`segment`s represents the location of the toll booth. If it has a\nname, this is captured in the `TYPE_INTERSECTION_GROUP` that contains the\nintersection."
+                    ],
+                    "items": {
+                        "enum": [
+                            "ENDPOINT_TYPE_UNSPECIFIED",
+                            "ENDPOINT_UNRESTRICTED",
+                            "ENDPOINT_UNCONTROLLED",
+                            "ENDPOINT_STOP_SIGN",
+                            "ENDPOINT_ALL_WAY_STOP",
+                            "ENDPOINT_TRAFFIC_LIGHT",
+                            "ENDPOINT_THREE_WAY",
+                            "ENDPOINT_FLASHING_RED",
+                            "ENDPOINT_FLASHING_YELLOW",
+                            "ENDPOINT_YIELD",
+                            "ENDPOINT_MERGE",
+                            "ENDPOINT_ROUNDABOUT",
+                            "ENDPOINT_RAILROAD_CROSSING",
+                            "ENDPOINT_NO_EXIT",
+                            "ENDPOINT_TOLL_BOOTH"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "intersectionId": {
+                    "description": "Intersection corresponding to the final vertex of this `segment`.",
+                    "type": "string"
+                },
+                "maxPermittedSpeedKph": {
+                    "description": "Maximum speed permitted on this `segment`.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "onRight": {
+                    "description": "Specifies whether this segment is on the right-hand side of the roadway.\nThis is true for US roads and false for UK roads, for example.",
+                    "type": "boolean"
+                },
+                "onTollRoad": {
+                    "description": "Indicates whether this `segment` is part of a toll road.",
+                    "type": "boolean"
+                },
+                "pedestrianFacility": {
+                    "description": "Describes the availability of the pedestrian facility on this `segment`,\nlike a sidewalk or a wide shoulder.",
+                    "enum": [
+                        "PEDESTRIAN_FACILITY_UNSPECIFIED",
+                        "PEDESTRIAN_FACILITY_NONE",
+                        "PEDESTRIAN_FACILITY_PRESENT"
+                    ],
+                    "enumDescriptions": [
+                        "No data about pedestrian facility is available.",
+                        "No special pedestrian facilities are available on this `segment`.",
+                        "The `segment` has some kind of pedestrian facility, like a sidewalk or\nwide shoulder, that separates pedestrians from traffic."
+                    ],
+                    "type": "string"
+                },
+                "priority": {
+                    "description": "The priority of a road or ferry `segment` describes its importance for\ncarrying traffic. Priorities are assigned on a linear scale where higher\npriorities correspond to more major roads. All `segment`s have a priority.\n\nThe priority of a road `segment` isn't dictated by the route type that it\nbelongs to. For example, US Highway 101 has a prominent highway type, but\nindividual `segment`s may have priorities that vary from \"controlled\naccess\" to \"major arterial\" (e.g. the portions that follow city streets in\nSan Francisco).",
+                    "enum": [
+                        "PRIORITY_UNSPECIFIED",
+                        "PRIORITY_NON_TRAFFIC",
+                        "PRIORITY_TERMINAL",
+                        "PRIORITY_LOCAL",
+                        "PRIORITY_MINOR_ARTERIAL",
+                        "PRIORITY_MAJOR_ARTERIAL",
+                        "PRIORITY_SECONDARY_ROAD",
+                        "PRIORITY_PRIMARY_HIGHWAY",
+                        "PRIORITY_LIMITED_ACCESS",
+                        "PRIORITY_CONTROLLED_ACCESS"
+                    ],
+                    "enumDescriptions": [
+                        "The default value.",
+                        "`Segment` is not intended for normal vehicles, e.g. a pedestrian mall.",
+                        "`Segment` is not intended to carry through traffic, e.g. a narrow\nresidential street or an access road to a point of interest.",
+                        "A small city street, typically for travel in a residential neighborhood\nor a small rural road. This is the lowest priority suitable for through\ntraffic.",
+                        "A moderate-capacity \"collector\" that funnels traffic from local roads\nto arterial roads or business areas.",
+                        "A high-capacity road that carries large volumes of traffic between\ndifferent neighborhoods or towns.",
+                        "Roads that act as conduits a) between primary highways (and highways of\neven larger scale), or b) from major/minor arterial roads to primary\nhighways (and highways of even larger scale). For example, state\nhighways.",
+                        "Major preferred roads that connect between regions and have no\nsignificant access restrictions. Most crossings are level grade (traffic\nlight, stop sign). There may be driveways and local roads that connect\ndirectly to the highway. NOTE: Where a dense network of\nlimited/controlled access roads carries most of the traffic between\nregions, this priority may be infrequent.",
+                        "Highways that have some access restrictions but aren't fully access\ncontrolled. Typically driveways and local roads connect to a separate\nfrontage road that's connected to the highway via spaced traffic lights,\ninterchanges, or stop signs. Limited access roads are sometimes called\nexpressways.",
+                        "Controlled-access highways that have grade-separated crossings and are\naccessed exclusively by ramps. Often called freeways or motorways."
+                    ],
+                    "type": "string"
+                },
+                "routeIds": {
+                    "description": "Route(s) this `segment` belongs to.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "separatedRoadways": {
+                    "description": "Indicates whether the `segment`'s opposing lanes of traffic are separated\nfrom this `segment`, and hence have been represented as a separate pairs of\n`GeoEntity`s.  This means that there are two pairs of siblings instead of\none.",
+                    "type": "boolean"
+                },
+                "siblingId": {
+                    "description": "The ID of the segment's sibling.  Every segment has an associated 'sibling'\nthat represents travel in the opposite direction. This is true even for\none-way streets, because the sibling is the only convenient way to work\nbackwards through a transportation network (i.e. how do I get to this\nsegment, rather than where can I go from here).\n\nThe segment that is referenced by this ID refers back to this GeoEntity via\nthe same sibling ID field. Both segment and sibling should have the same\nvalue for most properties such as country code, elevation, level relation,\npriority etc, but different in some properties such as polyline, which is\nin reverse order. Since routes are required to have segment and sibling at\nthe same time, the set of routes on a segment is same to that of the\nsibling.",
+                    "type": "string"
+                },
+                "surfaceCondition": {
+                    "description": "Describes whether the surface condition of this road is good or poor.\nCould be used to warn of poor road conditions, independently of other\nsignals.\n\nHowever, the combination of `surface_condition` with the value\n`SURFACE_CONDITION_POOR`, and `surface_category` with the value\n`SURFACE_UNPAVED`, `SURFACE_GRAVEL`, `SURFACE_DIRT`, or `SURFACE_SAND` is\n*defined* as \"May not be suitable for normal passenger vehicles.\" So these\nsurfaces may be more appropriate for vehicles with four-wheel drive or\nhigher ground clearance. As such, they should be avoided for routing and\nmay be rendered differently on tiles.\n\nAs of June 2013, there is no explicit definition of what\n`SURFACE_CONDITION_POOR` means for `SURFACE_PAVED` roads.",
+                    "enum": [
+                        "SURFACE_CONDITION_UNSPECIFIED",
+                        "SURFACE_CONDITION_GOOD",
+                        "SURFACE_CONDITION_POOR"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Indicates the `segment` surface is in good condition.",
+                        "Indicates the `segment` surface is in poor condition."
+                    ],
+                    "type": "string"
+                },
+                "surfaceTypes": {
+                    "description": "Provides information about the surface, either paved (e.g. brick, asphalt)\nor unpaved (e.g. gravel, dirt). The combination of `surface` with the value\n`SURFACE_UNPAVED`, `SURFACE_GRAVEL`, `SURFACE_DIRT`, `SURFACE_DIRT`, or\n`SURFACE_SAND`, and `surface_condition_category` with the value\n`SURFACE_CONDITION_POOR` is *defined* as \"May not be suitable for normal\npassenger vehicles.\" So these surfaces may be more appropriate for vehicles\nwith four-wheel drive or higher ground clearance. As such, they should be\navoided for routing and may be rendered differently on tiles.",
+                    "enumDescriptions": [
+                        "The default value.",
+                        "Indicates the surface is paved.",
+                        "Indicates the surface is paved with asphalt.",
+                        "Indicates the surface is paved with concrete.",
+                        "Indicates the surface is paved with chipseal.",
+                        "Indicates the surface is paved with brick.",
+                        "Indicates the surface is paved with sett.",
+                        "Indicates the surface is paved with cobblestone.",
+                        "Indicates the surface is unpaved.",
+                        "Indicates the surface is unpaved and covered in gravel.",
+                        "Indicates the surface is unpaved and covered in dirt.",
+                        "Indicates the surface is unpaved and covered in sand."
+                    ],
+                    "items": {
+                        "enum": [
+                            "SURFACE_TYPE_UNSPECIFIED",
+                            "SURFACE_PAVED",
+                            "SURFACE_ASPHALT",
+                            "SURFACE_CONCRETE",
+                            "SURFACE_CHIPSEAL",
+                            "SURFACE_BRICK",
+                            "SURFACE_SETT",
+                            "SURFACE_COBBLESTONE",
+                            "SURFACE_UNPAVED",
+                            "SURFACE_GRAVEL",
+                            "SURFACE_DIRT",
+                            "SURFACE_SAND"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "trafficRestrictions": {
+                    "description": "Information about any traffic restrictions that might be in effect at\nthe `GeoEntity`. Might indicate restrictions on traversing the `segment`.",
+                    "items": {
+                        "$ref": "GoogleGeoEntitiesV1SegmentTrafficRestriction"
+                    },
+                    "type": "array"
+                },
+                "usageTypes": {
+                    "description": "Optional additional information about the purpose of a road `segment`.",
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Connecting `segment`s to or between limited access roads. Often called\nslip roads in Europe.",
+                        "Indicates the `segment` is an on-ramp.",
+                        "Indicates the `segment` is an off-ramp.",
+                        "Indicates the `segment` is an on-off ramp.",
+                        "Indicates the `segment` is an interchange.",
+                        "Connecting `segment`s between lower-priority roads that bypass the\nperpendicular intersection of the roads. These may constitute the\npreferred route, or perhaps the only valid route, for turns between the\nroads. For example, in the US this could be a `segment` that allows a\nvehicle to make a right turn without having to go through the\nintersection. In the UK, this could be a `segment` that allows a left\nturn in a similar situation.\n\nAlso, the small `segment` next to the island of a channelized turn\nlane falls under this category.",
+                        "Road `segment` that's part of a special traffic figure, like a\nroundabout or traffic circle, but doesn't meet all of the requirements of\n`USAGE_ROUNDABOUT`. This `segment` is round, but there may be\nhigher-priority roads within the figure (aka a hamburger roundabout) or\nthe figure doesn't complete an entire circuit, etc.",
+                        "Road `segment` that forms part of a roundabout or traffic circle. (These\nterms don't have the exact same meaning, but the schema doesn't\ndistinguish and captures both). Roundabouts complete one entire\ncircuit and are one-way through their entire circuit. Sample wording\nin directions: \"At the roundabout, take the 2nd exit\" or \"Go through\n1 roundabout\".",
+                        "Road `segment` that's part of a bypass associated with, but not part of,\na roundabout or traffic circle, and shortcuts the outer ring.",
+                        "Road `segment` that's part of a special traffic figure that allows\ntraffic to go straight through the roundabout without entering the\ncircular part of the roundabout. Divides the roundabout into two halves.",
+                        "Shortcut from the entrance of a roundabout to the same destination as\nthe first exit from the roundabout relative to that entrance.",
+                        "Parking lot or parking structure, possibly with multiple entrances that\ncan be significant for routing.",
+                        "Stretch of road closed to normal traffic (trams, buses, delivery vehicles\nmay be allowed).",
+                        "Indicates the `segment` is a major pedestrian mall.",
+                        "Indicates the `segment` is a minor pedestrian mall.",
+                        "Non-traffic `segment`s roughly associated with the road network but\nmodeled separately, e.g. a sidewalk or wide shoulder. In  contrast,\nwalkways modeled using `segment`s that are part of the road network\nshould be marked with pedestrian and bicycle facilities.\n\nNOTE: Separately modeled walkways are unusual and can pose problems.\nConsult the Schema team before using this in new data.",
+                        "Non-road `segment` that can be described as a major path or a trail. A\ntrail is often part of a dedicated network of named biking or walking\ntrails, is not particularly short, and typically has scenic value or\nfacilitates crossing rough terrain.\n\n`USAGE_TRAIL` implies that `PRIORITY_NON_TRAFFIC` must be set but,\ncompared to a `segment` with no usage at all, this label suits clients\nwho want to stress that this is a more desirable `segment` to travel on.\nMinor paths, like pedestrian shortcuts, walkways through building\ncomplexes, and short walkways through a city park, should be modeled as\n`PRIORITY_NON_TRAFFIC` with no usage.\n\nSample path description: \"Take the trail.\"",
+                        "`Segment` between toll gate and station center that represents the\nlogical location where trains stop. The `segment`'s `AddressComponent`\nshould have a route name that includes the station name when possible.\nThis `segment` is usually restricted by `RESTRICTION_USAGE_FEE_REQUIRED'\nto penalize walking directions that go through this `segment`.\n\nSample path description: \"Enter Shibuya station and take the path to the\nplatform.\"\n\nNOTE: This attribute is unusual and should not be set in new data.",
+                        "Alley in a park, backyard of a communal facility like a museum, or a type\nof private property open to public. The `segment`'s `AddressComponent`\nshould have a route name that includes the property's name when possible.\nThis is different from trails, as the purpose of the access path is more\nspecific.\n\nSample path description: \"Go through the access path to the National\nMuseum.\"\n\nNOTE: This attribute is unusual and not clearly defined. It should not be\nset in new data.",
+                        "`Segment` that connects separately modeled walkways (or other non-traffic\nsegments) across a road.\n\nNOTE: `USAGE_CROSSING` `segment`s make sense only where pedestrian\n`segment`s are modeled separately. They can't be used in the common case\nof sidewalks modeled as pedestrian facilities on a road. It's wrong to\nuse a `USAGE_CROSSING` `segment` without a connection to other\nnon-traffic `segment`s only to mark the location of a crossing.",
+                        "Crossing with some kind of marking. Zebra marking is assumed.\n\nSample path description: \"Take the crosswalk.\"",
+                        "Crossing with no marking.\n\nSample path description: \"Cross the road.\"",
+                        "Different from `ELEVATION_SKYWAY` as this implies non-traffic.\n\nSample path description: \"Take the pedestrian overpass.\"",
+                        "Underground crossing paths that imply non-traffic.\n\nSample path description: \"Take the pedestrian underpass.\"",
+                        "Sample path description: \"Go through the hallway.\"\n\nNOTE: This attribute is unusual and not clearly defined. It should not be\nset in new data."
+                    ],
+                    "items": {
+                        "enum": [
+                            "USAGE_TYPE_UNSPECIFIED",
+                            "USAGE_RAMP",
+                            "USAGE_ON_RAMP",
+                            "USAGE_OFF_RAMP",
+                            "USAGE_ON_OFF_RAMP",
+                            "USAGE_INTERCHANGE",
+                            "USAGE_TURN_SEGMENT",
+                            "USAGE_SPECIAL_TRAFFIC_FIGURE",
+                            "USAGE_ROUNDABOUT",
+                            "USAGE_ROUNDABOUT_BYPASS",
+                            "USAGE_ROUNDABOUT_INTERNAL_BYPASS",
+                            "USAGE_ROUNDABOUT_EXTERNAL_BYPASS",
+                            "USAGE_ENCLOSED_TRAFFIC_AREA",
+                            "USAGE_PEDESTRIAN_MALL",
+                            "USAGE_MAJOR_PEDESTRIAN_MALL",
+                            "USAGE_MINOR_PEDESTRIAN_MALL",
+                            "USAGE_WALKWAY",
+                            "USAGE_TRAIL",
+                            "USAGE_STATION_PATH",
+                            "USAGE_ACCESS_PATH",
+                            "USAGE_CROSSING",
+                            "USAGE_MARKED_CROSSING",
+                            "USAGE_UNMARKED_CROSSING",
+                            "USAGE_OVERPASS",
+                            "USAGE_UNDERPASS",
+                            "USAGE_HALLWAY"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1SegmentArgs": {
+            "description": "Arguments to the `segment` field, describing the navigable graph.",
+            "id": "GoogleGeoEntitiesV1SegmentArgs",
+            "properties": {
+                "allowDerivedMaxSpeed": {
+                    "description": "Allows the returned max speed to be a value derived from defaults rather\nthan a value known to apply to the segment. If this is false and no such\nsegment-specific value is known, the returned max speed would be unset.",
+                    "type": "boolean"
+                },
+                "trafficRestrictionsFilter": {
+                    "$ref": "GoogleGeoEntitiesV1SegmentArgsTrafficRestrictionsFilter",
+                    "description": "Filter that specifies which restrictions for traffic along a segment the\nclient is interested in. If unspecified, no `TrafficRestrictions` are\nprovided."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1SegmentArgsTrafficRestrictionsFilter": {
+            "description": "Arguments to determine how traffic restrictions (restrictions that apply to\na single segment) are filtered.",
+            "id": "GoogleGeoEntitiesV1SegmentArgsTrafficRestrictionsFilter",
+            "properties": {
+                "serviceTypes": {
+                    "description": "Types of services provided by the traffic traversing the segment. If\nunspecified, then either `traffic_type` or `travel_options` should be\nspecified.",
+                    "enumDescriptions": [
+                        "The default value.",
+                        "A restriction that applies to delivery vehicles.",
+                        "A restriction that applies to taxis.",
+                        "A restriction that applies to emergency vehicles."
+                    ],
+                    "items": {
+                        "enum": [
+                            "SERVICE_TYPE_UNSPECIFIED",
+                            "DELIVERY",
+                            "TAXI",
+                            "EMERGENCY"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "time": {
+                    "description": "If set, the restrictions returned are those in effect at the given\ntime.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "timeInterval": {
+                    "$ref": "GoogleGeoEntitiesV1TimeInterval",
+                    "description": "If set, the restrictions returned are those in effect at any point\nduring the given time interval."
+                },
+                "trafficTypes": {
+                    "description": "Types of traffic that traverse the segment. If unspecified, then either\n`service_type` or `travel_options` should be specified.",
+                    "enumDescriptions": [
+                        "The default value.",
+                        "Any 4-wheeled vehicle traffic that isn't a truck or bus.",
+                        "2-wheeler motor vehicle traffic.",
+                        "Traffic of vehicles that carry large groups of people, usually used in\npublic transportation.",
+                        "Traffic of vehicles that carry large loads, usually used to move cargo.",
+                        "2-wheel engineless vehicle traffic.",
+                        "Pedestrian traffic."
+                    ],
+                    "items": {
+                        "enum": [
+                            "TRAFFIC_TYPE_UNSPECIFIED",
+                            "AUTO",
+                            "MOTORCYCLE",
+                            "BUS",
+                            "TRUCK",
+                            "BICYCLE",
+                            "PEDESTRIAN"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "travelOptions": {
+                    "description": "Other options describing the traffic traversing the segment. If\nunspecified, then either `traffic_type` or `travel_options` should be\nspecified.",
+                    "enumDescriptions": [
+                        "The default value.",
+                        "Indicates vehicles that carry more than one person.",
+                        "Indicates the intention of vehicles to traverse the entirety of a\nrestricted segment, for example, a street that's closed to through\ntraffic that residents must use to get home."
+                    ],
+                    "items": {
+                        "enum": [
+                            "TRAVEL_OPTIONS_UNSPECIFIED",
+                            "CARPOOL",
+                            "THROUGH_TRAFFIC"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1SegmentTrafficRestriction": {
+            "description": "Describes a restriction on traffic through a `segment`. Restrictions apply\nto travel with specific characteristics, and in some cases could apply to\nmaneuvers like U-turns or lane merging.\n\nRestrictions are always negative. For example, if travel through a\n`segment` is only allowed from 5 to 7 pm, this restriction could indicate\nthat travel isn't allowed from midnight to 5 pm or from 7 pm to midnight.",
+            "id": "GoogleGeoEntitiesV1SegmentTrafficRestriction",
+            "properties": {
+                "endTime": {
+                    "description": "Time that the restriction expires. If the restriction doesn't end,\ntimestamp is set to `proto2::util::TimeUtil::kTimestampMaxSeconds`.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "startTime": {
+                    "description": "Time that the restriction takes effect. If the restriction doesn't have a\nstarting time (for example, it's been in effect since the road was\nopened) timestamp is set to\n`proto2::util::TimeUtil::kTimestampMinSeconds`.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "types": {
+                    "description": "Traffic restriction types. Must always have at least one value.",
+                    "enumDescriptions": [
+                        "Type must not be unspecified.",
+                        "Travel or maneuver prohibited or extremely limited. Used for\nrestrictions outside of a more specific subcategory.",
+                        "Travel or maneuver prohibited by traffic regulations. Includes\nrestrictions due to explicit road markings, e.g. U-turns prohibited in\nmarked intersections.\n\nNOTE: If a regulatory restriction is enforced by a physical barrier,\nuse `PHYSICAL` instead.",
+                        "Permanent physical barrier that prevents a maneuver.",
+                        "Road closed for maintenance (e.g. repaving, adding lanes) and can't be\nused for routing.",
+                        "Travel prohibited for the duration of some season, e.g. ice or snow in\nwinter.",
+                        "Road has signage discouraging or prohibiting use by the general public,\ne.g. roads with \"Private\" or \"No Trespassing\" signs.\n\nNOTE: Use if travel is still allowed in certain circumstances, e.g.\nlegitimate visits to a place reachable by restricted roads only.\n\nUse `ILLEGAL` if travel is forbidden under all circumstances.",
+                        "Travel over this `segment` is prohibited because of signs indicating\none-way directionality in the opposite direction.",
+                        "Traffic permitted but requires a fee.",
+                        "Travel on the associated `segment` requires a fee.",
+                        "Similar to `USAGE_FEE_REQUIRED`, but instead of a fee for usage, a fee\nis required for entry to a specific area (e.g. an amusement park).\nAlso, in contrast to `USAGE_FEE_REQUIRED`, this restriction applies\nonly to the `segment`s that enter the restricted area from the outside\nworld. So there are two important points to consider when modeling data\nthis way:\n\n1) Every path that enters the restricted area exactly once must have\n   exactly one such restriction, whether or not it's a `segment`\n   restriction.\n\n2) All entrances must be modeled consistently. It's recommended that\n   the restriction be consistently applied to paths entering the area\n   and not to paths leaving the area.",
+                        "Restrictions to paths where travel is permitted, but may be imprudent\nor cumbersome. Since this is often a matter of opinion, clients may\navoid using this information or displaying it to users.",
+                        "Traffic is inadvisable because of high crime in the area.",
+                        "Traffic is inadvisable because of a politically sensitive situation.",
+                        "Road undergoes maintenance, but, unlike `CONSTRUCTION`, the segment\nis used for routing.",
+                        "Inland location where travel is expected to be interrupted by\nauthorities inspecting passengers and/or goods."
+                    ],
+                    "items": {
+                        "enum": [
+                            "TYPE_UNSPECIFIED",
+                            "TRAVEL_RESTRICTED",
+                            "ILLEGAL",
+                            "PHYSICAL",
+                            "CONSTRUCTION",
+                            "SEASONAL_CLOSURE",
+                            "PRIVATE",
+                            "WRONG_WAY",
+                            "PAYMENT_REQUIRED",
+                            "USAGE_FEE_REQUIRED",
+                            "ENTRANCE_FEE_REQUIRED",
+                            "ADVISORY",
+                            "HIGH_CRIME",
+                            "POLITICALLY_SENSITIVE",
+                            "DISTURBED_BY_MAINTENANCE",
+                            "CHECKPOINT"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1ServiceArea": {
+            "description": "This proto represents one of the geographic areas served by an establishment.",
+            "id": "GoogleGeoEntitiesV1ServiceArea",
+            "properties": {
+                "servedGeoEntityId": {
+                    "description": "The ID of the `GeoEntity` that covers the geographic area being served.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1ServiceAreas": {
+            "description": "Container proto for multiple service areas.",
+            "id": "GoogleGeoEntitiesV1ServiceAreas",
+            "properties": {
+                "values": {
+                    "description": "Individual service areas.",
+                    "items": {
+                        "$ref": "GoogleGeoEntitiesV1ServiceArea"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1TimeInterval": {
+            "description": "A half-open time interval, i.e. [min, max), inclusive at min and exclusive at\nmax.",
+            "id": "GoogleGeoEntitiesV1TimeInterval",
+            "properties": {
+                "endTime": {
+                    "description": "Time that the interval ends. Required.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "startTime": {
+                    "description": "Time that the interval starts. Required.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1TimeZone": {
+            "description": "Information about a time zone.",
+            "id": "GoogleGeoEntitiesV1TimeZone",
+            "properties": {
+                "id": {
+                    "description": "Common Locale Data Repository (CLDR) identifier for the time zone.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1TimeZones": {
+            "description": "Container proto for multiple time zones.",
+            "id": "GoogleGeoEntitiesV1TimeZones",
+            "properties": {
+                "values": {
+                    "description": "Individual time zones.",
+                    "items": {
+                        "$ref": "GoogleGeoEntitiesV1TimeZone"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1UserQuote": {
+            "description": "User quote about a `GeoEntity`.",
+            "id": "GoogleGeoEntitiesV1UserQuote",
+            "properties": {
+                "authorId": {
+                    "description": "Author's unique and stable ID.",
+                    "type": "string"
+                },
+                "highlights": {
+                    "description": "Sections of the quoted passage that are of particular interest.",
+                    "items": {
+                        "$ref": "GoogleGeoEntitiesV1UserQuoteQuoteHighlight"
+                    },
+                    "type": "array"
+                },
+                "languageCode": {
+                    "description": "The BCP-47 language code, such as \"en-US\" or \"sr-Latn\".\n\nFor more information, see\nhttp://www.unicode.org/reports/tr35/#Unicode_locale_identifier.",
+                    "type": "string"
+                },
+                "text": {
+                    "description": "The text of a user quote.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1UserQuoteArgs": {
+            "description": "Args for requesting user quotes for a `GeoEntity`.",
+            "id": "GoogleGeoEntitiesV1UserQuoteArgs",
+            "properties": {
+                "languageCodes": {
+                    "description": "The BCP-47 language codes, such as \"en-US\" or \"sr-Latn\", of the languages\nin which users quotes were asked.\n\nUser quotes written in both the specified languages and in more specific\nlanguages are returned. For example, if 'zh' is requested, user quotes in\n'zh-Hans' and 'zh-Hans-HK' are also returned.\n\nFor more information, see\nhttp://www.unicode.org/reports/tr35/#Unicode_locale_identifier.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1UserQuoteQuoteHighlight": {
+            "description": "A section of a quoted passage that is of particular interest. Clients may\ndecide to emphasize these regions in frontends via markup.",
+            "id": "GoogleGeoEntitiesV1UserQuoteQuoteHighlight",
+            "properties": {
+                "begin": {
+                    "description": "Unicode code point offset, indicating the start of the highlight within\nthe quote it is part of (i.e. relative to `UserQuote.text`).",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "end": {
+                    "description": "Unicode code point offset, indicating the end of the highlight within\nthe quote it is part of (i.e. relative to `UserQuote.text`).",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1UserQuotes": {
+            "description": "Container proto for multiple user quotes.",
+            "id": "GoogleGeoEntitiesV1UserQuotes",
+            "properties": {
+                "values": {
+                    "description": "Individual user quotes.",
+                    "items": {
+                        "$ref": "GoogleGeoEntitiesV1UserQuote"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1Website": {
+            "description": "Structured representation of a website. Mirrors geostore::UrlProto.",
+            "id": "GoogleGeoEntitiesV1Website",
+            "properties": {
+                "languageCode": {
+                    "description": "The BCP-47 language code, such of the URL as \"en-US\" or \"sr-Latn\".\n\nFor more information, see\nhttp://www.unicode.org/reports/tr35/#Unicode_locale_identifier.",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "The website's URL.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoEntitiesV1WebsiteArgs": {
+            "description": "Arguments to the `website` field.\n",
+            "id": "GoogleGeoEntitiesV1WebsiteArgs",
+            "properties": {
+                "languageCode": {
+                    "description": "The BCP-47 language code, such as \"en-US\" or \"sr-Latn\", corresponding to\nthe language in which the name was requested. The URL returned is in the\nlanguage closest to the one requested. If none is requested, then it\ndefaults to English, followed by whatever other language is available.\n\nFor more information, see\nhttp://www.unicode.org/reports/tr35/#Unicode_locale_identifier.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleGeoTypeViewport": {
+            "description": "A latitude-longitude viewport, represented as two diagonally opposite `low`\nand `high` points. A viewport is considered a closed region, i.e. it includes\nits boundary. The latitude bounds must range between -90 to 90 degrees\ninclusive, and the longitude bounds must range between -180 to 180 degrees\ninclusive. Various cases include:\n\n - If `low` = `high`, the viewport consists of that single point.\n\n - If `low.longitude` > `high.longitude`, the longitude range is inverted\n   (the viewport crosses the 180 degree longitude line).\n\n - If `low.longitude` = -180 degrees and `high.longitude` = 180 degrees,\n   the viewport includes all longitudes.\n\n - If `low.longitude` = 180 degrees and `high.longitude` = -180 degrees,\n   the longitude range is empty.\n\n - If `low.latitude` > `high.latitude`, the latitude range is empty.\n\nBoth `low` and `high` must be populated, and the represented box cannot be\nempty (as specified by the definitions above). An empty viewport will result\nin an error.\n\nFor example, this viewport fully encloses New York City:\n\n{\n    \"low\": {\n        \"latitude\": 40.477398,\n        \"longitude\": -74.259087\n    },\n    \"high\": {\n        \"latitude\": 40.91618,\n        \"longitude\": -73.70018\n    }\n}",
+            "id": "GoogleGeoTypeViewport",
+            "properties": {
+                "high": {
+                    "$ref": "GoogleTypeLatLng",
+                    "description": "Required. The high point of the viewport."
+                },
+                "low": {
+                    "$ref": "GoogleTypeLatLng",
+                    "description": "Required. The low point of the viewport."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleRpcStatus": {
+            "description": "The `Status` type defines a logical error model that is suitable for\ndifferent programming environments, including REST APIs and RPC APIs. It is\nused by [gRPC](https://github.com/grpc). Each `Status` message contains\nthree pieces of data: error code, error message, and error details.\n\nYou can find out more about this error model and how to work with it in the\n[API Design Guide](https://cloud.google.com/apis/design/errors).",
+            "id": "GoogleRpcStatus",
+            "properties": {
+                "code": {
+                    "description": "The status code, which should be an enum value of google.rpc.Code.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "details": {
+                    "description": "A list of messages that carry the error details.  There is a common set of\nmessage types for APIs to use.",
+                    "items": {
+                        "additionalProperties": {
+                            "description": "Properties of the object. Contains field @type with type URL.",
+                            "type": "any"
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "message": {
+                    "description": "A developer-facing error message, which should be in English. Any\nuser-facing error message should be localized and sent in the\ngoogle.rpc.Status.details field, or localized by the client.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleTypeLatLng": {
+            "description": "An object representing a latitude/longitude pair. This is expressed as a pair\nof doubles representing degrees latitude and degrees longitude. Unless\nspecified otherwise, this must conform to the\n<a href=\"http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf\">WGS84\nstandard</a>. Values must be within normalized ranges.",
+            "id": "GoogleTypeLatLng",
+            "properties": {
+                "latitude": {
+                    "description": "The latitude in degrees. It must be in the range [-90.0, +90.0].",
+                    "format": "double",
+                    "type": "number"
+                },
+                "longitude": {
+                    "description": "The longitude in degrees. It must be in the range [-180.0, +180.0].",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Geo Entities API (staging)",
+    "version": "v1",
+    "version_module": true
+}

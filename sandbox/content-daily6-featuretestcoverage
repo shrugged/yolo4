@@ -1,0 +1,546 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/plus.me": {
+                    "description": "Associate you with your personal info on Google"
+                },
+                "https://www.googleapis.com/auth/userinfo.email": {
+                    "description": "View your email address"
+                },
+                "https://www.googleapis.com/auth/userinfo.profile": {
+                    "description": "See your personal info, including any personal info you've made publicly available"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://daily-6-featuretestcoverage-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Feature Test Coverage",
+    "description": "FeatureTestCoverage API is a private API that allows Googlers to monitor and configure Feature Test Coverage for internal projects.",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://go/screenplay",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "daily_6_featuretestcoverage_pa_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "daily_6_featuretestcoverage_pa_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "coverage": {
+            "methods": {
+                "get": {
+                    "description": "Query for ONLY the coverage numbers of the specified document. A less\ndetailed, but sometimes easier to consume, entry point than\nGetDocumentMetrics.",
+                    "flatPath": "v1/coverage/{documentId}",
+                    "httpMethod": "GET",
+                    "id": "daily_6_featuretestcoverage_pa_sandbox.coverage.get",
+                    "parameterOrder": [
+                        "documentId"
+                    ],
+                    "parameters": {
+                        "documentId": {
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/coverage/{documentId}",
+                    "response": {
+                        "$ref": "GetDocumentCoverageResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/plus.me",
+                        "https://www.googleapis.com/auth/userinfo.email",
+                        "https://www.googleapis.com/auth/userinfo.profile"
+                    ]
+                }
+            }
+        },
+        "document": {
+            "methods": {
+                "createFeatures": {
+                    "description": "Create features with newly assigned UUIDs for a particular document.",
+                    "flatPath": "v1/document/{documentId}:createFeatures",
+                    "httpMethod": "POST",
+                    "id": "daily_6_featuretestcoverage_pa_sandbox.document.createFeatures",
+                    "parameterOrder": [
+                        "documentId"
+                    ],
+                    "parameters": {
+                        "documentId": {
+                            "description": "The ID of the document containing the features to create. Can be found from\nhttps://docs.google.com/document/d/<doc_id>.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/document/{documentId}:createFeatures",
+                    "request": {
+                        "$ref": "CreateFeaturesRequest"
+                    },
+                    "response": {
+                        "$ref": "CreateFeaturesResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/plus.me",
+                        "https://www.googleapis.com/auth/userinfo.email",
+                        "https://www.googleapis.com/auth/userinfo.profile"
+                    ]
+                },
+                "get": {
+                    "description": "Query for the feature coverage metrics of all features defined in a\nparticular document. Primary entry point for the serving API.",
+                    "flatPath": "v1/document/{documentId}",
+                    "httpMethod": "GET",
+                    "id": "daily_6_featuretestcoverage_pa_sandbox.document.get",
+                    "parameterOrder": [
+                        "documentId"
+                    ],
+                    "parameters": {
+                        "documentId": {
+                            "description": "The ID of the document containing the features whose coverage metrics are\nbeing requested. Can be found from\nhttps://docs.google.com/document/d/<doc_id>.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/document/{documentId}",
+                    "response": {
+                        "$ref": "GetDocumentMetricsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/plus.me",
+                        "https://www.googleapis.com/auth/userinfo.email",
+                        "https://www.googleapis.com/auth/userinfo.profile"
+                    ]
+                },
+                "update": {
+                    "description": "Update document metadata and feature information for a particular document.\nPrimary entry point for the ingestion API.",
+                    "flatPath": "v1/document/{documentId}:update",
+                    "httpMethod": "POST",
+                    "id": "daily_6_featuretestcoverage_pa_sandbox.document.update",
+                    "parameterOrder": [
+                        "documentId"
+                    ],
+                    "parameters": {
+                        "documentId": {
+                            "description": "The document ID of the doc setting these settings. Can be found from\nhttps://docs.google.com/document/d/<doc_id>.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/document/{documentId}:update",
+                    "request": {
+                        "$ref": "UpdateDocumentRequest"
+                    },
+                    "response": {
+                        "$ref": "UpdateDocumentResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/plus.me",
+                        "https://www.googleapis.com/auth/userinfo.email",
+                        "https://www.googleapis.com/auth/userinfo.profile"
+                    ]
+                }
+            }
+        }
+    },
+    "revision": "20190913",
+    "rootUrl": "https://daily-6-featuretestcoverage-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "CreateFeaturesError": {
+            "description": "Message defining an error that occurred during the Feature creation process.",
+            "id": "CreateFeaturesError",
+            "properties": {
+                "additionalInfo": {
+                    "description": "Optional extra information to accompany the error code to make debugging\neasier.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "The error type being surfaced with this message.",
+                    "enum": [
+                        "UNDEFINED",
+                        "UNKNOWN",
+                        "INVALID_INPUT"
+                    ],
+                    "enumDescriptions": [
+                        "Default, undefined error type. Should never actually be used. If this\nsurfaces it means this field was not actually set when it should have\nbeen.",
+                        "Denotes an error that occurred from an unknown situation. This should be\nused barely more than UNDEFINED. If you use this field, strongly consider\ninstead adding another member to this enum.",
+                        "Essentially translates to Java's IllegalArgumentException. Should be used\nwhen the error stemmed from invalid input being sent to the server."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CreateFeaturesErrorList": {
+            "description": "Container to hold repeated fundamental values for oneof's.",
+            "id": "CreateFeaturesErrorList",
+            "properties": {
+                "error": {
+                    "description": "List of CreateFeaturesError in this container.",
+                    "items": {
+                        "$ref": "CreateFeaturesError"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CreateFeaturesRequest": {
+            "description": "Request to create features with newly assigned UUIDs for a particular\ndocument.",
+            "id": "CreateFeaturesRequest",
+            "properties": {
+                "feature": {
+                    "description": "The features to create. Each one will be associated with document_id.\nFeatures should NOT have feature_id field set because we will be assigning\nnew UUIDs to them. If any Features have feature_id set, we reject the\nrequest.",
+                    "items": {
+                        "$ref": "Feature"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CreateFeaturesResponse": {
+            "description": "Response containing information about the features that were created.",
+            "id": "CreateFeaturesResponse",
+            "properties": {
+                "errorList": {
+                    "$ref": "CreateFeaturesErrorList",
+                    "description": "A list of rich error information explaining any issues related to the\nrequested creations. If this list is empty, the user can assume the\ncreation went through successfully."
+                },
+                "featureList": {
+                    "$ref": "FeatureList",
+                    "description": "The features that were created, in the same order from the request. The\nfeature_id field contains the newly assigned  UUID."
+                }
+            },
+            "type": "object"
+        },
+        "DocumentMetadata": {
+            "description": "Non-feature setting information from the document.",
+            "id": "DocumentMetadata",
+            "properties": {
+                "documentName": {
+                    "description": "The human readable name of the document setting these settings.",
+                    "type": "string"
+                },
+                "screenplayProjectId": {
+                    "description": "The Screenplay project this doc should be considered associated with.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Feature": {
+            "description": "Description of a single feature being covered.",
+            "id": "Feature",
+            "properties": {
+                "dimensions": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Dimension name/value pairs that define the feature.",
+                    "type": "object"
+                },
+                "featureId": {
+                    "description": "Unique ID for this feature.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FeatureList": {
+            "description": "Container to hold repeated fundamental values for oneof's.",
+            "id": "FeatureList",
+            "properties": {
+                "feature": {
+                    "description": "List of Feature in this container.",
+                    "items": {
+                        "$ref": "Feature"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "FeatureMetadata": {
+            "description": "Metadata about a feature being covered.",
+            "id": "FeatureMetadata",
+            "properties": {
+                "dimensions": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Dimension name/value pairs that define the feature.",
+                    "type": "object"
+                },
+                "featureId": {
+                    "description": "Unique ID for this feature.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FeatureMetrics": {
+            "description": "Message containing metric data for all tests covering a single feature.",
+            "id": "FeatureMetrics",
+            "properties": {
+                "metadata": {
+                    "$ref": "FeatureMetadata",
+                    "description": "Metadata describing the feature that this message has feature coverage for."
+                },
+                "testMetrics": {
+                    "description": "Test metrics (one message per test) for each test generating feature\ncoverage for this feature.",
+                    "items": {
+                        "$ref": "TestMetrics"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GetDocumentCoverageErrorList": {
+            "description": "Container to hold repeated fundamental values for oneof's.",
+            "id": "GetDocumentCoverageErrorList",
+            "properties": {
+                "error": {
+                    "description": "List of GetDocumentCoverageError in this container.",
+                    "enumDescriptions": [
+                        "Default, undefined error type. Should never actually be used. If this\nsurfaces it means this field was not actually set when it should have\nbeen.",
+                        "Denotes an error that occurred from an unknown situation. This should be\nused barely more than UNDEFINED. If you use this field, strongly consider\ninstead adding another member to this enum.",
+                        "Returned when coverage is requested for a document that has not yet been\ningested into Screenplay"
+                    ],
+                    "items": {
+                        "enum": [
+                            "GET_DOCUMENT_COVERAGE_ERROR_UNDEFINED",
+                            "UNKNOWN",
+                            "DOCUMENT_NOT_FOUND"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GetDocumentCoverageResponse": {
+            "description": "Response containing a simple view of the coverage metrics for a document.",
+            "id": "GetDocumentCoverageResponse",
+            "properties": {
+                "documentCoverage": {
+                    "description": "What percent of the features in the document are considered covered.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "errors": {
+                    "$ref": "GetDocumentCoverageErrorList",
+                    "description": "Any errors that occurred during coverage retrieval."
+                }
+            },
+            "type": "object"
+        },
+        "GetDocumentMetricsResponse": {
+            "description": "Response containing feature coverage metrics.",
+            "id": "GetDocumentMetricsResponse",
+            "properties": {
+                "featureMetrics": {
+                    "description": "Repeated containing all metrics for all features associated with the\ndocument specified in the request.",
+                    "items": {
+                        "$ref": "FeatureMetrics"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "TestMetadata": {
+            "description": "Metadata about a test that is generating (or should be generating) some\nfeature coverage.",
+            "id": "TestMetadata",
+            "properties": {
+                "testTrackerMetadata": {
+                    "$ref": "TestTrackerMetadata",
+                    "description": "Backend metadata specific to tests tracked in TestTracker."
+                }
+            },
+            "type": "object"
+        },
+        "TestMetrics": {
+            "description": "Message with test metrics from a single test that is generating coverage for\nsome feature.",
+            "id": "TestMetrics",
+            "properties": {
+                "isPassing": {
+                    "description": "Whether or not the test passed the last time it was run. Should only be\nread if is_run is true.",
+                    "type": "boolean"
+                },
+                "isRun": {
+                    "description": "Whether or not the test has been run within a recent period (the exact\nwindow size will be configurable on the server side).",
+                    "type": "boolean"
+                },
+                "metadata": {
+                    "$ref": "TestMetadata",
+                    "description": "Metadata about the test generating these metrics."
+                }
+            },
+            "type": "object"
+        },
+        "TestTrackerMetadata": {
+            "description": "Test case metadata for only tests tracked via TestTracker.",
+            "id": "TestTrackerMetadata",
+            "properties": {
+                "testCaseId": {
+                    "description": "The particular test case ID for this TestTracker test.",
+                    "type": "string"
+                },
+                "testEffortId": {
+                    "description": "The test effort that this particular TestTracker test case came from.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateDocumentError": {
+            "description": "Message defining an error that occurred during the update process.",
+            "id": "UpdateDocumentError",
+            "properties": {
+                "additionalInfo": {
+                    "description": "Optional extra information to accompany the error code to make debugging\neasier.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "The error type being surfaced with this message.",
+                    "enum": [
+                        "UNDEFINED",
+                        "UNKNOWN",
+                        "INVALID_INPUT"
+                    ],
+                    "enumDescriptions": [
+                        "Default, undefined error type. Should never actually be used. If this\nsurfaces it means this field was not actually set when it should have\nbeen.",
+                        "Denotes an error that occurred from an unknown situation. This should be\nused barely more than UNDEFINED. If you use this field, strongly consider\ninstead adding another member to this enum.",
+                        "Essentially translates to Java's IllegalArgumentException. Should be used\nwhen the error stemmed from invalid input being sent to the server."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateDocumentRequest": {
+            "description": "Request to update ALL information (metadata + features) for a single\ndocument. This should always be the full proto-form description of the doc\ndata, even if only a single field has changed.",
+            "id": "UpdateDocumentRequest",
+            "properties": {
+                "documentMetadata": {
+                    "$ref": "DocumentMetadata",
+                    "description": "The non-feature data stored in the document."
+                },
+                "feature": {
+                    "description": "All data for each feature described in this document.",
+                    "items": {
+                        "$ref": "Feature"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateDocumentResponse": {
+            "description": "Response containing information about the resultant state of the update\nrequest.",
+            "id": "UpdateDocumentResponse",
+            "properties": {
+                "error": {
+                    "description": "A list of rich error information explaining any issues related to the\nrequested update. If this list is empty, the user can assume the update\nwent through successfully.",
+                    "items": {
+                        "$ref": "UpdateDocumentError"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "FeatureTestCoverage API (daily-6)",
+    "version": "v1",
+    "version_module": true
+}

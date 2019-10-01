@@ -1,0 +1,557 @@
+{
+    "basePath": "",
+    "baseUrl": "https://nightly-alkaliauthorexpertise-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Alkali AuthorExpertise",
+    "description": "Links authors to their areas of expertise",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://go/alkali",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "nightly_alkaliauthorexpertise_pa_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "nightly_alkaliauthorexpertise_pa_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "v1": {
+            "methods": {
+                "autocomplete": {
+                    "description": "Returns the list of autocomplete suggestions for a text substring.",
+                    "flatPath": "v1/autocomplete",
+                    "httpMethod": "POST",
+                    "id": "nightly_alkaliauthorexpertise_pa_sandbox.autocomplete",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/autocomplete",
+                    "request": {
+                        "$ref": "AutocompleteRequest"
+                    },
+                    "response": {
+                        "$ref": "Autocomplete"
+                    }
+                },
+                "categoryGraph": {
+                    "description": "Returns the list of evidence URLs of the requested author.",
+                    "flatPath": "v1/categoryGraph",
+                    "httpMethod": "POST",
+                    "id": "nightly_alkaliauthorexpertise_pa_sandbox.categoryGraph",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/categoryGraph",
+                    "request": {
+                        "$ref": "CategoryGraphRequest"
+                    },
+                    "response": {
+                        "$ref": "Graph"
+                    }
+                },
+                "evidence": {
+                    "description": "Returns the list of evidence URLs of the requested author.",
+                    "flatPath": "v1/evidence",
+                    "httpMethod": "POST",
+                    "id": "nightly_alkaliauthorexpertise_pa_sandbox.evidence",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/evidence",
+                    "request": {
+                        "$ref": "EvidenceRequest"
+                    },
+                    "response": {
+                        "$ref": "Evidence"
+                    }
+                },
+                "expertise": {
+                    "description": "Returns the list of expertise entities of the requested author.",
+                    "flatPath": "v1/expertise",
+                    "httpMethod": "POST",
+                    "id": "nightly_alkaliauthorexpertise_pa_sandbox.expertise",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/expertise",
+                    "request": {
+                        "$ref": "ExpertiseRequest"
+                    },
+                    "response": {
+                        "$ref": "Expertise"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190913",
+    "rootUrl": "https://nightly-alkaliauthorexpertise-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "Autocomplete": {
+            "description": "Autocomplete entity name/mid/url, stored in Bigtable with key = all possible\nsubstrings of the name, or complete mid/url, and value = this proto that\ncontains reference to the full entity key.",
+            "id": "Autocomplete",
+            "properties": {
+                "reference": {
+                    "description": "Top 100 keys based on the reference's stats.",
+                    "items": {
+                        "$ref": "Entity"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AutocompleteRequest": {
+            "description": "Autocomplete request.",
+            "id": "AutocompleteRequest",
+            "properties": {
+                "text": {
+                    "description": "Substring of entity name.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CDocMetadata": {
+            "description": "Basic cdoc information.",
+            "id": "CDocMetadata",
+            "properties": {
+                "docId": {
+                    "description": "The doc id of the document.",
+                    "type": "string"
+                },
+                "docUrl": {
+                    "description": "The url of the document.",
+                    "type": "string"
+                },
+                "language": {
+                    "description": "The language of the document.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "pagerank": {
+                    "description": "The pagerank of the document.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "title": {
+                    "description": "The title of the document.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CategoryGraphRequest": {
+            "description": "Category Graph request.",
+            "id": "CategoryGraphRequest",
+            "properties": {
+                "entityKey": {
+                    "$ref": "EntityKey",
+                    "description": "The entity key of the category graph to be requested."
+                }
+            },
+            "type": "object"
+        },
+        "Document": {
+            "description": "The documents that contains the first entity \"a\" and the second entity \"b\"\nordered by their scores DESC, then by document pagerank DESC.",
+            "id": "Document",
+            "properties": {
+                "a": {
+                    "$ref": "Entity",
+                    "description": "The first entity."
+                },
+                "b": {
+                    "$ref": "Entity",
+                    "description": "The second entity."
+                },
+                "metadata": {
+                    "$ref": "CDocMetadata",
+                    "description": "The document info."
+                }
+            },
+            "type": "object"
+        },
+        "Edge": {
+            "description": "An edge to another connected node.",
+            "id": "Edge",
+            "properties": {
+                "id": {
+                    "description": "The id of the connected node of this edge.",
+                    "type": "string"
+                },
+                "main": {
+                    "description": "Whether the connected node is the main article/category node.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "Entity": {
+            "description": "Entity info.",
+            "id": "Entity",
+            "properties": {
+                "mid": {
+                    "description": "Entity mid.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Entity name.",
+                    "type": "string"
+                },
+                "source": {
+                    "description": "From where the entity was detected.",
+                    "enum": [
+                        "UNKNOWN",
+                        "LA_ARTICLE",
+                        "LA_COMMENT",
+                        "LA_REVIEW",
+                        "LA_FORUM_POST",
+                        "LA_FORUM_THREAD",
+                        "LA_RECIPE",
+                        "LA_QUESTION",
+                        "LA_ANSWER",
+                        "FH_PARSER",
+                        "BOOK_AUTHOR",
+                        "KG_PERSON",
+                        "BOOK_SUBJECT",
+                        "BOOK",
+                        "OFFICIAL_WEBSITE",
+                        "WEBREF",
+                        "KG_BATCH"
+                    ],
+                    "enumDescriptions": [
+                        "This value is not used.",
+                        "From LatticeAnnotations article.",
+                        "From LatticeAnnotations comment.",
+                        "From LatticeAnnotations review.",
+                        "From LatticeAnnotations post.",
+                        "From LatticeAnnotations thread.",
+                        "From LatticeAnnotations recipe.",
+                        "From LatticeAnnotations question.",
+                        "From LatticeAnnotations answer.",
+                        "From felixhalim@'s custom parser.",
+                        "From KG batch.",
+                        "From KG Batch.",
+                        "From the ocean bigtable.",
+                        "From KG batch.",
+                        "From KG batch.",
+                        "From WebrefAnnotation.",
+                        "From KG batch that is not yet classified."
+                    ],
+                    "type": "string"
+                },
+                "stats": {
+                    "$ref": "Stats",
+                    "description": "Entity statistics."
+                },
+                "url": {
+                    "description": "Entity profile url.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "EntityKey": {
+            "description": "The key of an entity.",
+            "id": "EntityKey",
+            "properties": {
+                "mid": {
+                    "description": "The entity mid.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The entity name.",
+                    "type": "string"
+                },
+                "source": {
+                    "description": "The origin of the entity.",
+                    "enum": [
+                        "UNKNOWN",
+                        "LA_ARTICLE",
+                        "LA_COMMENT",
+                        "LA_REVIEW",
+                        "LA_FORUM_POST",
+                        "LA_FORUM_THREAD",
+                        "LA_RECIPE",
+                        "LA_QUESTION",
+                        "LA_ANSWER",
+                        "FH_PARSER",
+                        "BOOK_AUTHOR",
+                        "KG_PERSON",
+                        "BOOK_SUBJECT",
+                        "BOOK",
+                        "OFFICIAL_WEBSITE",
+                        "WEBREF",
+                        "KG_BATCH"
+                    ],
+                    "enumDescriptions": [
+                        "This value is not used.",
+                        "From LatticeAnnotations article.",
+                        "From LatticeAnnotations comment.",
+                        "From LatticeAnnotations review.",
+                        "From LatticeAnnotations post.",
+                        "From LatticeAnnotations thread.",
+                        "From LatticeAnnotations recipe.",
+                        "From LatticeAnnotations question.",
+                        "From LatticeAnnotations answer.",
+                        "From felixhalim@'s custom parser.",
+                        "From KG batch.",
+                        "From KG Batch.",
+                        "From the ocean bigtable.",
+                        "From KG batch.",
+                        "From KG batch.",
+                        "From WebrefAnnotation.",
+                        "From KG batch that is not yet classified."
+                    ],
+                    "type": "string"
+                },
+                "url": {
+                    "description": "The entity url.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Evidence": {
+            "description": "The evidences that two entities appeared on the same document.",
+            "id": "Evidence",
+            "properties": {
+                "document": {
+                    "description": "List of documents that shows two entities appeared together.",
+                    "items": {
+                        "$ref": "Document"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "EvidenceRequest": {
+            "description": "Evidence request.",
+            "id": "EvidenceRequest",
+            "properties": {
+                "colocatedKey": {
+                    "$ref": "EntityKey",
+                    "description": "The colocated entity key be requested."
+                },
+                "entityKey": {
+                    "$ref": "EntityKey",
+                    "description": "The main entity key to be requested."
+                }
+            },
+            "type": "object"
+        },
+        "Expertise": {
+            "description": "Expertise of an entity. Stored in Bigtable with key = [name, mid, url]",
+            "id": "Expertise",
+            "properties": {
+                "colocated": {
+                    "description": "Entities that appeared in the same document with this entity.",
+                    "items": {
+                        "$ref": "Entity"
+                    },
+                    "type": "array"
+                },
+                "entity": {
+                    "$ref": "Entity",
+                    "description": "The entity owner of this expertise."
+                }
+            },
+            "type": "object"
+        },
+        "ExpertiseRequest": {
+            "description": "Expertise request.",
+            "id": "ExpertiseRequest",
+            "properties": {
+                "entityKey": {
+                    "$ref": "EntityKey",
+                    "description": "The entity key of the expertise to be requested."
+                }
+            },
+            "type": "object"
+        },
+        "Graph": {
+            "description": "A graph.",
+            "id": "Graph",
+            "properties": {
+                "node": {
+                    "description": "List of nodes in the graph.",
+                    "items": {
+                        "$ref": "Node"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Language": {
+            "description": "The language and its score.",
+            "id": "Language",
+            "properties": {
+                "language": {
+                    "description": "The language id.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "totalScore": {
+                    "description": "Cumulative language score.",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "Node": {
+            "description": "A graph node.",
+            "id": "Node",
+            "properties": {
+                "id": {
+                    "description": "The id of the node.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name of the mid or article or category.",
+                    "type": "string"
+                },
+                "parent": {
+                    "description": "Edges to the parent nodes.",
+                    "items": {
+                        "$ref": "Edge"
+                    },
+                    "type": "array"
+                },
+                "score": {
+                    "description": "The score of the node: combination of topicality, pagerank, and frequency.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "type": {
+                    "description": "The node type.",
+                    "enum": [
+                        "INVALID",
+                        "ARTICLE",
+                        "CATEGORY",
+                        "MID"
+                    ],
+                    "enumDescriptions": [
+                        "Invalid type. None of the node should have this.",
+                        "This node is a wikipedia article page.",
+                        "This node is a wikipedia category page.",
+                        "This node is a mid inside an article or category."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Stats": {
+            "description": "Cumulative statistics on topicality and pagerank, and most frequent language.\nIt is used to rank Colocated entity evidence and Autocomplete reference.",
+            "id": "Stats",
+            "properties": {
+                "documentCount": {
+                    "description": "The number of document occurrences.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "language": {
+                    "description": "Top languages by their score.",
+                    "items": {
+                        "$ref": "Language"
+                    },
+                    "type": "array"
+                },
+                "pagerankSum": {
+                    "description": "Cumulative pagerank.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "topicalitySum": {
+                    "description": "Cumulative topicality score.",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Alkali Author Expertise Private API (Nightly)",
+    "version": "v1",
+    "version_module": true
+}

@@ -1,0 +1,369 @@
+{
+    "basePath": "",
+    "baseUrl": "https://staging-ap-rcscustomersupportrequest.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "RCS Customer Support",
+    "description": "RCS Customer Support Request API.",
+    "discoveryVersion": "v1",
+    "documentationLink": "https://jibe.google.com",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "ap_rcscustomersupportrequest:v1",
+    "kind": "discovery#restDescription",
+    "name": "ap_rcscustomersupportrequest",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "users": {
+            "methods": {
+                "batchDeactivate": {
+                    "description": "Deactivate one or more users by phone number, IMSI, and date. Deactivation\nof an account that does not exist is considered to be successful, including\nphone number in wrong format or IMSI does not match with the phone number.\nIf one or more of the valid users cannot be deactivated, the response\nwill include error code and reason for each of the failed users. Users\nthat are successfully deactivated are not included in the response.",
+                    "flatPath": "v1/users:batchDeactivate",
+                    "httpMethod": "POST",
+                    "id": "ap_rcscustomersupportrequest.users.batchDeactivate",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/users:batchDeactivate",
+                    "request": {
+                        "$ref": "BatchDeactivateRequest"
+                    },
+                    "response": {
+                        "$ref": "BatchDeactivateResponse"
+                    }
+                },
+                "get": {
+                    "description": "Retrieve the status information of an end-user, including device\ninformation, registration information, and current device status of online\nor offline.",
+                    "flatPath": "v1/users/{usersId}",
+                    "httpMethod": "GET",
+                    "id": "ap_rcscustomersupportrequest.users.get",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "End user name. Format is \"users/xxx\", where xxx is user's phone number\nin E.164 format.",
+                            "location": "path",
+                            "pattern": "^users/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "User"
+                    }
+                },
+                "sendTestMessage": {
+                    "description": "Send a test RCS chat message to a given end-user. For example, it might be\ndesirable for a CRM application to check whether a user is able to receive\na test message. Message is: \"Test chat message from Jibe CSR. Hello!!\".",
+                    "flatPath": "v1/users/{usersId}:sendTestMessage",
+                    "httpMethod": "POST",
+                    "id": "ap_rcscustomersupportrequest.users.sendTestMessage",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "End user name. Format is \"users/xxx\", where xxx is user's phone number in\nE.164 format.",
+                            "location": "path",
+                            "pattern": "^users/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "testMessage": {
+                            "description": "Test message body.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}:sendTestMessage",
+                    "response": {
+                        "$ref": "SendTestMessageResponse"
+                    }
+                },
+                "setConfiguration": {
+                    "description": "Reset the ACS configuration of the Jibe application running on the given\nend-user\u2019s device. Configuration SMS messages are sent in binary format.",
+                    "flatPath": "v1/users/{usersId}:setConfiguration",
+                    "httpMethod": "POST",
+                    "id": "ap_rcscustomersupportrequest.users.setConfiguration",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "End user name. Format is \"users/xxx\", where xxx is user's phone number in\nE.164 format.",
+                            "location": "path",
+                            "pattern": "^users/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}:setConfiguration",
+                    "request": {
+                        "$ref": "SetConfigurationRequest"
+                    },
+                    "response": {
+                        "$ref": "SetConfigurationResponse"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190919",
+    "rootUrl": "https://staging-ap-rcscustomersupportrequest.sandbox.googleapis.com/",
+    "schemas": {
+        "BatchDeactivateRequest": {
+            "description": "Request of user deactivation service.",
+            "id": "BatchDeactivateRequest",
+            "properties": {
+                "users": {
+                    "description": "The list of users to be deactivated.",
+                    "items": {
+                        "$ref": "UserInfo"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BatchDeactivateResponse": {
+            "description": "Response of user deactivation request.",
+            "id": "BatchDeactivateResponse",
+            "properties": {
+                "errors": {
+                    "description": "Only shows up in unsuccessful response, where one or more of the submitted\nusers cannot be deactivated, the response will include error code and\nreason for each of the failed users.",
+                    "items": {
+                        "$ref": "DeactivationErrorStatus"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "DeactivationErrorStatus": {
+            "description": "Used by unsuccessful response.",
+            "id": "DeactivationErrorStatus",
+            "properties": {
+                "errorStatus": {
+                    "$ref": "Status",
+                    "description": "Status for unsuccessful response."
+                },
+                "name": {
+                    "description": "End user name. Format is \"users/xxx\", where xxx is user's phone number in\nE.164 format.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SendTestMessageResponse": {
+            "description": "Response of sending test chat message to an end-user.",
+            "id": "SendTestMessageResponse",
+            "properties": {},
+            "type": "object"
+        },
+        "SetConfigurationRequest": {
+            "description": "Request of sending configuration to an end-user.",
+            "id": "SetConfigurationRequest",
+            "properties": {
+                "configOption": {
+                    "description": "Optional. Default is RECONFIG.",
+                    "enum": [
+                        "CONFIG_OPTION_UNSPECIFIED",
+                        "RECONFIG",
+                        "INITIATE"
+                    ],
+                    "enumDescriptions": [
+                        "Default.",
+                        "Sends reconfiguration SMS.",
+                        "Sends first configuration SMS."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SetConfigurationResponse": {
+            "description": "Response of sending configuration to an end-user.",
+            "id": "SetConfigurationResponse",
+            "properties": {},
+            "type": "object"
+        },
+        "Status": {
+            "description": "The `Status` type defines a logical error model that is suitable for\ndifferent programming environments, including REST APIs and RPC APIs. It is\nused by [gRPC](https://github.com/grpc). Each `Status` message contains\nthree pieces of data: error code, error message, and error details.\n\nYou can find out more about this error model and how to work with it in the\n[API Design Guide](https://cloud.google.com/apis/design/errors).",
+            "id": "Status",
+            "properties": {
+                "code": {
+                    "description": "The status code, which should be an enum value of google.rpc.Code.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "details": {
+                    "description": "A list of messages that carry the error details.  There is a common set of\nmessage types for APIs to use.",
+                    "items": {
+                        "additionalProperties": {
+                            "description": "Properties of the object. Contains field @type with type URL.",
+                            "type": "any"
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "message": {
+                    "description": "A developer-facing error message, which should be in English. Any\nuser-facing error message should be localized and sent in the\ngoogle.rpc.Status.details field, or localized by the client.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "User": {
+            "description": "End-user information.",
+            "id": "User",
+            "properties": {
+                "clientVendor": {
+                    "description": "RCS client vendor.",
+                    "type": "string"
+                },
+                "clientVersion": {
+                    "description": "RCS client version.",
+                    "type": "string"
+                },
+                "createTime": {
+                    "description": "Registration time.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "device": {
+                    "description": "Retrieved from the User Agent.",
+                    "type": "string"
+                },
+                "msisdn": {
+                    "description": "User's phone number in E.164 format.",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "Current device status.",
+                    "enum": [
+                        "DEVICE_STATE_UNSPECIFIED",
+                        "NOT_FOUND",
+                        "ONLINE",
+                        "OFFLINE",
+                        "UNREGISTERED"
+                    ],
+                    "enumDescriptions": [
+                        "Default status.",
+                        "User is not found in RCS.",
+                        "User is currently available.",
+                        "User is currently unavailable.",
+                        "User is not registered yet or registration is expired."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UserInfo": {
+            "description": "End user information.",
+            "id": "UserInfo",
+            "properties": {
+                "deactivateTime": {
+                    "description": "Optional. The date user was deactivated by the carrier. Date is logged by\nthe server for auditing purpose.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "imsi": {
+                    "description": "Optional. The IMSI of the target end-user e.g. 310009132798000. Check if\nIMSI match with the MSISDN of the end-user only when IMSI is provided.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "End user name. Format is \"users/xxx\", where xxx is user's phone number in\nE.164 format.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "RCS Customer Support Request API (staging-ap)",
+    "version": "v1",
+    "version_module": true
+}

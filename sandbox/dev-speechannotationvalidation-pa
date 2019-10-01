@@ -1,0 +1,906 @@
+{
+    "basePath": "",
+    "baseUrl": "https://dev-speechannotationvalidation-pa.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Speech Annotation Validation Service",
+    "description": "",
+    "discoveryVersion": "v1",
+    "documentationLink": "",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "dev_speechannotationvalidation_pa:v1",
+    "kind": "discovery#restDescription",
+    "name": "dev_speechannotationvalidation_pa",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "v1": {
+            "methods": {
+                "validate": {
+                    "description": "Validates the speech annotation tasks.",
+                    "flatPath": "v1:validate",
+                    "httpMethod": "POST",
+                    "id": "dev_speechannotationvalidation_pa.validate",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1:validate",
+                    "request": {
+                        "$ref": "ValidationRequest"
+                    },
+                    "response": {
+                        "$ref": "ValidationResponse"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190919",
+    "rootUrl": "https://dev-speechannotationvalidation-pa.googleapis.com/",
+    "schemas": {
+        "Category": {
+            "id": "Category",
+            "properties": {
+                "labelPath": {
+                    "description": "Label path that specifies a specific category, Use [a-z0-9_] for category\nlabels and use '/' to a transition to a subcategory.\nExample: \"high_pitch\", \"noise/cafe\" (\"cafe\" is an immediate subcategory\nof \"noise\").",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ChainedValidationResult": {
+            "id": "ChainedValidationResult",
+            "properties": {
+                "individualResult": {
+                    "items": {
+                        "$ref": "ValidationResult"
+                    },
+                    "type": "array"
+                },
+                "overallResult": {
+                    "$ref": "ValidationResult",
+                    "description": "The highest level suggestion (greatest enum value) is the overall result\nif multiple validators are chained."
+                }
+            },
+            "type": "object"
+        },
+        "DialogueAnnotation": {
+            "description": "Proto for annotation of dialogue data, to be used both in the scope of a\nwhole dialogue transcription, and within dialogue turns.",
+            "id": "DialogueAnnotation",
+            "properties": {
+                "annotationId": {
+                    "description": "Unique ID for this annotation.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "channel": {
+                    "description": "The channel associated with the annotation. An annotation be across\nmultiple channels, e.g. stereo audio.",
+                    "items": {
+                        "format": "int32",
+                        "type": "integer"
+                    },
+                    "type": "array"
+                },
+                "characterOffset": {
+                    "description": "Time offsets would be the default for audio, but character offsets can be\nused for dialogue without audio, or for annotations within turns.",
+                    "format": "uint64",
+                    "type": "string"
+                },
+                "endCharacterOffset": {
+                    "format": "uint64",
+                    "type": "string"
+                },
+                "endTimeOffsetMs": {
+                    "description": "Users can optionally specify an end time in order to associate the\nannotation with a span of audio or dialogue.",
+                    "format": "uint64",
+                    "type": "string"
+                },
+                "goudaDialogueAct": {
+                    "$ref": "GoudaDialogAct"
+                },
+                "involvedWorkerId": {
+                    "description": "IDs of the worker who edited the annotation. This is used to help\ncalculating billing. This includes the worker who last edited the\nannotation. Order is not guaranteed.",
+                    "items": {
+                        "format": "byte",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "nextAnnotationId": {
+                    "items": {
+                        "format": "int64",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "prevAnnotationId": {
+                    "format": "int64",
+                    "type": "string"
+                },
+                "speechDialogueAnnotation": {
+                    "$ref": "SpeechDialogueAnnotation"
+                },
+                "temporaryId": {
+                    "description": "A temporary unique ID similar to the annotation_id. This ID is set in the\nclient and before requests. It's used to associate the correct annotation\nin the front end model to update.",
+                    "type": "string"
+                },
+                "timeOffsetMs": {
+                    "format": "uint64",
+                    "type": "string"
+                },
+                "workerId": {
+                    "description": "ID of the worker who last edited the annotation.",
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DialogueTurn": {
+            "description": "Proto defining a dialogue turn, which is one continuous segment of speech\nby a single speaker.\nuse Next Id: 18",
+            "id": "DialogueTurn",
+            "properties": {
+                "channel": {
+                    "description": "This field records the audio channel number associated with this\ntranscript. Note that there is the possibility that one device could\ncontribute multiple channels. This field is thus, repeated to accommodate\nthis scenario.",
+                    "items": {
+                        "format": "int32",
+                        "type": "integer"
+                    },
+                    "type": "array"
+                },
+                "inTimestampMs": {
+                    "description": "In cue in parent audio in milliseconds since the start of the audio.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "involvedWorkerId": {
+                    "description": "IDs of the worker who edited the text field of the turn. This is used to\nhelp calculating billing. This includes the worker who last edited the\nturn. Order is not guaranteed.",
+                    "items": {
+                        "format": "byte",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "label": {
+                    "description": "Non-speech audio label.",
+                    "enum": [
+                        "UNKNOWN",
+                        "NOISE",
+                        "MUSIC"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "Add more here..."
+                    ],
+                    "type": "string"
+                },
+                "meta": {
+                    "$ref": "TurnMeta",
+                    "description": "Turn metadata."
+                },
+                "nextTurnId": {
+                    "items": {
+                        "format": "int64",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "outTimestampMs": {
+                    "description": "Out cue in parent audio in milliseconds since the start of the audio.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "prevTurnId": {
+                    "format": "int64",
+                    "type": "string"
+                },
+                "speakerId": {
+                    "description": "Unique id for the speaker of this turn. This should have a corresponding\nSpeakerMeta in the parent dialogue.",
+                    "type": "string"
+                },
+                "speakerName": {
+                    "description": "Not to be treated as data. Used as a placeholder for creating new speakers\non-the-fly, while editing or creating turns. A Turn without a speaker_id is\ninterpreted as an implicit request to create a new speaker, at the Dialogue\nlevel, with the provided speaker_name, if it's populated.",
+                    "type": "string"
+                },
+                "speakerTemporaryId": {
+                    "description": "A temporary unique ID similar to the speaker_id. This ID is set in the\nclient and before requests. It's used to associate the correct speaker meta\nin the front end model to update.",
+                    "type": "string"
+                },
+                "temporaryId": {
+                    "description": "A temporary unique ID similar to the turn_id. This ID is set in the\nclient and before requests. It's used to associate the correct turn in the\nfront end model to update.",
+                    "type": "string"
+                },
+                "text": {
+                    "description": "The 'transcript' of the turn.",
+                    "type": "string"
+                },
+                "transcriberId": {
+                    "description": "ID of any annotator/transcriber for this turn.",
+                    "type": "string"
+                },
+                "turnAnnotation": {
+                    "description": "Annotations of the dialogue, eg. non-speech annotations, GOUDA, etc.",
+                    "items": {
+                        "$ref": "DialogueAnnotation"
+                    },
+                    "type": "array"
+                },
+                "turnId": {
+                    "description": "Unique ID for this turn.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "workerId": {
+                    "description": "ID of the worker who last edited the text field of the turn. This is used\nfor incremental change history.",
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoudaDialogAct": {
+            "description": "Specification of a dialog act according to the GOUDA scheme (go/gouda,\ngo/gouda-for-developers).",
+            "id": "GoudaDialogAct",
+            "properties": {
+                "implicit": {
+                    "type": "boolean"
+                },
+                "primary": {
+                    "description": "Whether the dialog act corresponds to the main goal of the speaker, or is\nan additional dialog act.",
+                    "type": "boolean"
+                },
+                "value": {
+                    "description": "Actually required",
+                    "enum": [
+                        "UNKNOWN_VALUE",
+                        "REQUEST",
+                        "REQUEST_INSTRUCT",
+                        "REQUEST_INSTRUCT_TASK",
+                        "REQUEST_INSTRUCT_CANCEL",
+                        "REQUEST_INSTRUCT_BACKTRACK",
+                        "REQUEST_INSTRUCT_OTHER",
+                        "REQUEST_PROPOSE",
+                        "REQUEST_PROPOSE_OFFER",
+                        "REQUEST_PROPOSE_SUGGEST",
+                        "REQUEST_PROPOSE_OTHER",
+                        "REQUEST_CHECK",
+                        "REQUEST_CHECK_ALIGN",
+                        "REQUEST_CHECK_CONFIRMATION",
+                        "REQUEST_CHECK_REPEAT",
+                        "REQUEST_CHECK_OTHER",
+                        "REQUEST_QUERY",
+                        "REQUEST_QUERY_OPEN",
+                        "REQUEST_QUERY_YN",
+                        "REQUEST_QUERY_SELECT",
+                        "REQUEST_QUERY_OTHER",
+                        "REQUEST_OTHER",
+                        "RESPOND",
+                        "RESPOND_YES",
+                        "RESPOND_YES_AGREE",
+                        "RESPOND_YES_ACCEPT",
+                        "RESPOND_YES_OTHER",
+                        "RESPOND_NO",
+                        "RESPOND_NO_DISAGREE",
+                        "RESPOND_NO_REJECT",
+                        "RESPOND_NO_OTHER",
+                        "RESPOND_REPLY",
+                        "RESPOND_REPLY_OPEN",
+                        "RESPOND_REPLY_SELECT",
+                        "RESPOND_REPLY_OTHER",
+                        "RESPOND_NOTIFY",
+                        "RESPOND_NOTIFY_ACKNOWLEDGE",
+                        "RESPOND_NOTIFY_BUYTIME",
+                        "RESPOND_NOTIFY_SUCCESS",
+                        "RESPOND_NOTIFY_FAILURE",
+                        "RESPOND_NOTIFY_NOUNDERSTANDING",
+                        "RESPOND_NOTIFY_OTHER",
+                        "RESPOND_OTHER",
+                        "ASSERT",
+                        "ASSERT_PROVIDE",
+                        "ASSERT_PROVIDE_ELABORATION",
+                        "ASSERT_PROVIDE_STATEMENT",
+                        "ASSERT_PROVIDE_OPINION",
+                        "ASSERT_PROVIDE_OTHER",
+                        "ASSERT_OTHER",
+                        "SOCIAL",
+                        "SOCIAL_GREETINGS",
+                        "SOCIAL_GREETINGS_OPENING",
+                        "SOCIAL_GREETINGS_CLOSING",
+                        "SOCIAL_GREETINGS_OTHER",
+                        "SOCIAL_POLITENESS",
+                        "SOCIAL_POLITENESS_APOLOGY",
+                        "SOCIAL_POLITENESS_THANKS",
+                        "SOCIAL_POLITENESS_ACKNOWLEDGETHANKS",
+                        "SOCIAL_POLITENESS_OTHER",
+                        "SOCIAL_INTERPERSONAL",
+                        "SOCIAL_INTERPERSONAL_FEEDBACK",
+                        "SOCIAL_INTERPERSONAL_OTHER",
+                        "SOCIAL_OTHER",
+                        "ADDON",
+                        "ADDON_GOESWITH",
+                        "ADDON_GOESWITH_GOESWITH",
+                        "ADDON_CORRECT",
+                        "ADDON_CORRECT_CORRECT",
+                        "OTHER",
+                        "OTHER_NOINTENT",
+                        "OTHER_NOINTENT_NOINTENT",
+                        "OTHER_OTHERINTENT",
+                        "OTHER_OTHERINTENT_OTHERINTENT"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "InputValidatorConfig": {
+            "id": "InputValidatorConfig",
+            "properties": {
+                "groupingKey": {
+                    "description": "A general key used to identify a validation unit.",
+                    "type": "string"
+                },
+                "platform": {
+                    "description": "Base configuration information regarding the project or group of utterances\nwhere we'd consider validation as a single unit.\nMaybe enum?",
+                    "type": "string"
+                },
+                "project": {
+                    "type": "string"
+                },
+                "speakerTagMatchParams": {
+                    "$ref": "SpeakerLabelValidatorParams"
+                },
+                "specialTurnMatchParams": {
+                    "$ref": "SpecialTurnValidatorParams"
+                },
+                "textValidatorByRegexpMatchParams": {
+                    "$ref": "TextValidatorByRegexpParams"
+                }
+            },
+            "type": "object"
+        },
+        "OptionalValidationResult": {
+            "description": "A pair of message name & value for any additional results\nExample: one can include the source of the validation rule be applied\nresult_name = \"source\"\nresult_content = \"http://go/annotationguideline#noise_tag\"",
+            "id": "OptionalValidationResult",
+            "properties": {
+                "resultContent": {
+                    "type": "string"
+                },
+                "resultName": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SpeakerLabelValidatorParams": {
+            "id": "SpeakerLabelValidatorParams",
+            "properties": {
+                "matchingExpressions": {
+                    "description": "Regular expressions to compare with the speaker labels. Labels must match\nat least 1 matching_expression to be accepted.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "SpecialTurnValidatorParams": {
+            "id": "SpecialTurnValidatorParams",
+            "properties": {
+                "invalidSpecialTurnRegex": {
+                    "description": "Regular expressions representing common incorrect formats for special\nturns. If any of these regular expressions are matched, the validator will\ndeny the transcript.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "specialTurnFormat": {
+                    "description": "String format representing the format that a special turn should\nappear in. If any of these are matched, the contents of the transcript must\nbe one of the special_turn_strings, and nothing else can appear in the\ntranscript. Must contain 1 and only 1 string placeholder like '\\\\[%s\\\\]'.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "specialTurnStrings": {
+                    "description": "Strings to match against a transcript that matches special_turn_format.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "SpeechDialogueAnnotation": {
+            "id": "SpeechDialogueAnnotation",
+            "properties": {
+                "label": {
+                    "enum": [
+                        "UNKNOWN_LABEL",
+                        "NOISE",
+                        "SILENCE",
+                        "PII",
+                        "FOREIGN_SPEECH",
+                        "UNINTELLIGIBLE",
+                        "LAUGHTER",
+                        "MUSIC",
+                        "APPLAUSE",
+                        "RING_TONE",
+                        "DTMF",
+                        "SINGING"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "Speech researchers specifically requested adding ring-tone and DTMF\nlabels.",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SpeechDialogueTurn": {
+            "description": "SpeechDialogueTurn is a wrapper for LongPlay's DialogueTurn and\nDialogueAnnotation. This proto is used to hold dialogue transcriptions or\nother annotations for long audio.",
+            "id": "SpeechDialogueTurn",
+            "properties": {
+                "annotation": {
+                    "$ref": "DialogueAnnotation",
+                    "description": "Holds various metadata about a segment of audio (likely without words)."
+                },
+                "longplayDialogueId": {
+                    "description": "LongPlay dialogue ID that the turn or annotation belongs to. Corresponds to\ncrowd9.DialogueTranscription.dialogue_id.",
+                    "type": "string"
+                },
+                "turn": {
+                    "$ref": "DialogueTurn",
+                    "description": "Holds the speaker, transcript, etc. for a segment of audio with words.\nNote that this turn may itself contain DialogueAnnotations, which would\nannotate specific segments of the turn."
+                }
+            },
+            "type": "object"
+        },
+        "SpeechTurnMeta": {
+            "description": "Metadata for a specific turn that is only relevant to speech consumers.\nuse Next Id: 2",
+            "id": "SpeechTurnMeta",
+            "properties": {
+                "deletionTimestamp": {
+                    "description": "Non-zero only if this turn was deleted by the worker.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SpudsSource": {
+            "description": "Or, we can ask spuds to load (some of) these fields for us.",
+            "id": "SpudsSource",
+            "properties": {
+                "utteranceDurationMs": {
+                    "format": "int64",
+                    "type": "string"
+                },
+                "utteranceId": {
+                    "type": "string"
+                },
+                "utteranceOffsetMs": {
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TextValidatorByRegexpParams": {
+            "id": "TextValidatorByRegexpParams",
+            "properties": {
+                "patternFilename": {
+                    "description": "required the name of the file that contains the patterns",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Transcript": {
+            "description": "Everything a particular entity (usually a vendor worker) has told us about an\nutterance.\n\nThe text field is of primary importance. It's the actual transcript of an\nutterance. Typically, this is a non-normative textual representation of an\nutterance. Sometimes it is a rejection, meaning for whatever reason there is\nno textual representation.\nThe text itself could be a hypothesis generated by ASR, it could be a\nhypothesis provided by a human transcriber, or it could be the ~arbitrarily\nselected 'truth' for use in a test or training set. This message doesn't care\nwhich.\n\nNext ID: 19",
+            "id": "Transcript",
+            "properties": {
+                "batchLabel": {
+                    "description": "Custom label passed on from the transcription tool. This is used to group\ntranscriptions together for analysis or to aid the delivery process. A\ntranscription project has one or more batches of transcriptions, and each\nbatch has different label.",
+                    "type": "string"
+                },
+                "category": {
+                    "description": "Categories as classified by the transcriber.",
+                    "items": {
+                        "$ref": "Category"
+                    },
+                    "type": "array"
+                },
+                "channel": {
+                    "description": "This field records the audio channel number associated with this\ntranscript. Note that there is the possibility that one device could\ncontribute multiple channels. This field is thus, repeated to accommodate\nthis scenario.",
+                    "items": {
+                        "format": "int32",
+                        "type": "integer"
+                    },
+                    "type": "array"
+                },
+                "customAnnotation": {
+                    "items": {
+                        "additionalProperties": {
+                            "description": "Properties of the object. Contains field @type with type URL.",
+                            "type": "any"
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "dialogueTurn": {
+                    "$ref": "SpeechDialogueTurn"
+                },
+                "endTimestampMs": {
+                    "format": "int64",
+                    "type": "string"
+                },
+                "preambleText": {
+                    "description": "Transcript text of the preamble part, e.g. 'Hey Google', 'Okay Google'.\nNot applicable to all utterances (such as youtube video utterances).",
+                    "type": "string"
+                },
+                "reject": {
+                    "description": "Whether this utterance should be rejected instead of being recognized. If\nset to true, the preamble_text and text should be empty and ignored.",
+                    "type": "boolean"
+                },
+                "rejectReason": {
+                    "description": "Optional reason this utterance is not annotated. If this is set, reject\nfield should also be set to true.",
+                    "enum": [
+                        "UNKNOWN_REJECT_REASON",
+                        "NO_AUDIO",
+                        "UNINTENDED_SPEECH",
+                        "OTHER_LOCALE",
+                        "UNCLEAR_SPEECH",
+                        "NON_SPEECH",
+                        "PROFANITY"
+                    ],
+                    "enumDescriptions": [
+                        "Used for unknown or if it does not fit into other categories.",
+                        "Nothing can be heard due to silence, or no audio data is loaded at all.",
+                        "Speech is clear. But the speaker wasn't speaking to the machine, or\nwasn't aware the machine was listening. This should not be transcribed.",
+                        "Speech is clear. But it's not in the expected language.",
+                        "Speech is not clear enough to be recognized, e.g. distant conversations.",
+                        "Not speech, e.g. dog barking, traffic, background music.",
+                        "Profanity: Audio contains profanity (porn queries, violent threats,\noffensive language)."
+                    ],
+                    "type": "string"
+                },
+                "rejectReasonExplanation": {
+                    "description": "(Optional) Text to further clarify the reject reason especially when\nreject_reason is set to UNKNOWN_REJECT_REASON.",
+                    "type": "string"
+                },
+                "speaker": {
+                    "$ref": "TranscriptSpeaker",
+                    "description": "This field will be populated by Spuds as part of the read request flow\nby resolving the stored speaker_link."
+                },
+                "speakerLink": {
+                    "$ref": "TranscriptMetadataIdentifier",
+                    "description": "A link to the speaker information stored separately. Populated by clients\nas part of the write request flow. Spuds should never return this field\nto read clients."
+                },
+                "startTimestampMs": {
+                    "description": "The timestamps of the utterance to which this transcript corresponds,\nmeasured in milliseconds since the start of the audio. If both are 0, then\nassume that the transcript applies to the entire utterance.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "taskGroupingId": {
+                    "description": "Optional identifier for the annotation task that this transcript was part\nof. Can be used to group together transcripts within a project, e.g.\nsegments of the same utterance which were transcribed by different\npeople (like LongPlay's dialogue_id).",
+                    "type": "string"
+                },
+                "text": {
+                    "description": "Transcript text of the utterance. For older projects and some unusual\ncircumstances, this will contain the merged preamble + query transcript.\n\nWe use ST_USER_CONTENT to represent the general concept of the user's data\nhere. While some SAS databases might have more sensitive data in this\nfield, we'll rely on MDB membership to gate access. See\ngo/speech-audio-access-dd#heading=h.l04irevx54q7 for more information.",
+                    "type": "string"
+                },
+                "transcriptId": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TranscriptMetadataIdentifier": {
+            "description": "Identifies a TranscriptMetadata.",
+            "id": "TranscriptMetadataIdentifier",
+            "properties": {
+                "client": {
+                    "description": "A client scope used to ensure uniqueness of transcript_metadata_id across\ncallers. For example, \"longplay\".",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Per-client unique ID for this piece of transcript metadata. For example,\n\"8b7f9e8ca92784\".",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TranscriptSpeaker": {
+            "description": "Information about the speaker of a portion of an utterance.",
+            "id": "TranscriptSpeaker",
+            "properties": {
+                "age": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "gender": {
+                    "enum": [
+                        "UNKNOWN",
+                        "OTHER",
+                        "FEMALE",
+                        "MALE"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "id": {
+                    "description": "The speaker identifier (e.g., a name, title, etc.).",
+                    "type": "string"
+                },
+                "longplaySpeakerIdWillBeDeprecated": {
+                    "description": "This is a temporary hack to store the actual longplay internal speaker id.\n(The id field above is more like longplay's name field.) Normally, this\ndata is in the speaker_link, but we don't return that.\n",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TurnMeta": {
+            "description": "use Next Id: 3",
+            "id": "TurnMeta",
+            "properties": {
+                "isPrefill": {
+                    "description": "Indicates whether it is a prefill turn, so that it will not be counted as\ncompletion coverage.",
+                    "type": "boolean"
+                },
+                "speechMeta": {
+                    "$ref": "SpeechTurnMeta"
+                }
+            },
+            "type": "object"
+        },
+        "ValidationInput": {
+            "id": "ValidationInput",
+            "properties": {
+                "audio": {
+                    "format": "byte",
+                    "type": "string"
+                },
+                "spudsSource": {
+                    "$ref": "SpudsSource"
+                },
+                "transcript": {
+                    "$ref": "Transcript"
+                }
+            },
+            "type": "object"
+        },
+        "ValidationRequest": {
+            "id": "ValidationRequest",
+            "properties": {
+                "validationInput": {
+                    "$ref": "ValidationInput"
+                },
+                "validatorConfig": {
+                    "items": {
+                        "$ref": "InputValidatorConfig"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ValidationResponse": {
+            "id": "ValidationResponse",
+            "properties": {
+                "chainedValidationResult": {
+                    "$ref": "ChainedValidationResult"
+                }
+            },
+            "type": "object"
+        },
+        "ValidationResult": {
+            "id": "ValidationResult",
+            "properties": {
+                "additionalResults": {
+                    "items": {
+                        "$ref": "OptionalValidationResult"
+                    },
+                    "type": "array"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "suggestion": {
+                    "enum": [
+                        "UNSPECIFIED",
+                        "ACCEPT",
+                        "DOUBLE_CHECK",
+                        "DENY"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Speech Annotation Validation Private API",
+    "version": "v1",
+    "version_module": true
+}

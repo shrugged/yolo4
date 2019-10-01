@@ -1,0 +1,1110 @@
+{
+    "basePath": "",
+    "baseUrl": "https://face2cartoon.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "description": "Face2Cartoon Library API.",
+    "discoveryVersion": "v1",
+    "documentationLink": "",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "face2cartoon_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "face2cartoon_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "v1": {
+            "methods": {
+                "compute_cartoon": {
+                    "description": "Computes cartoon parameters of a given selfie.",
+                    "flatPath": "v1/compute_cartoon",
+                    "httpMethod": "POST",
+                    "id": "face2cartoon_sandbox.compute_cartoon",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/compute_cartoon",
+                    "request": {
+                        "$ref": "SelfieToCartoonParametersApiRequest"
+                    },
+                    "response": {
+                        "$ref": "SelfieToCartoonParametersApiResponse"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20181102",
+    "rootUrl": "https://face2cartoon.sandbox.googleapis.com/",
+    "schemas": {
+        "AgeClassifierResults": {
+            "id": "AgeClassifierResults",
+            "properties": {
+                "age": {
+                    "enum": [
+                        "UNKNOWN",
+                        "BABY",
+                        "KID",
+                        "ADULT",
+                        "OLD"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "predictedAge": {
+                    "format": "float",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "ChinLengthClassifierResults": {
+            "id": "ChinLengthClassifierResults",
+            "properties": {
+                "chinLength": {
+                    "enum": [
+                        "UNKNOWN",
+                        "SHORT",
+                        "AVERAGE",
+                        "LONG"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "confidence": {
+                    "format": "float",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "EyeColorClassifierResults": {
+            "id": "EyeColorClassifierResults",
+            "properties": {
+                "color": {
+                    "enum": [
+                        "UNKNOWN",
+                        "BROWN_OR_BLACK",
+                        "BLUE_OR_GREEN"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "confidence": {
+                    "format": "float",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "EyeEyebrowDistanceClassifierResults": {
+            "description": "The measurement underlying this assumes fixed ear positions, so applying this\ncombined with the FaceWidthClassifierResults may have an unintended outcome.",
+            "id": "EyeEyebrowDistanceClassifierResults",
+            "properties": {
+                "confidence": {
+                    "format": "float",
+                    "type": "number"
+                },
+                "eyeEyebrowDistance": {
+                    "enum": [
+                        "UNKNOWN",
+                        "SMALL",
+                        "AVERAGE",
+                        "LARGE"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "EyeShapeClassifierResults": {
+            "id": "EyeShapeClassifierResults",
+            "properties": {
+                "confidence": {
+                    "format": "float",
+                    "type": "number"
+                },
+                "shape": {
+                    "enum": [
+                        "UNKNOWN",
+                        "DOUBLE_FOLD_EYELID",
+                        "SINGLE_FOLD_EYELID"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "EyeSlantClassifierResults": {
+            "id": "EyeSlantClassifierResults",
+            "properties": {
+                "confidence": {
+                    "format": "float",
+                    "type": "number"
+                },
+                "eyeSlant": {
+                    "enum": [
+                        "UNKNOWN",
+                        "OUTWARDS",
+                        "AVERAGE",
+                        "INWARDS"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "EyeVerticalPositionClassifierResults": {
+            "description": "The measurement underlying this assumes fixed ear positions, so applying this\ncombined with the FaceWidthClassifierResults may have an unintended outcome.",
+            "id": "EyeVerticalPositionClassifierResults",
+            "properties": {
+                "confidence": {
+                    "format": "float",
+                    "type": "number"
+                },
+                "eyeVerticalPosition": {
+                    "enum": [
+                        "UNKNOWN",
+                        "HIGH",
+                        "AVERAGE",
+                        "LOW"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "EyebrowShapeClassifierResults": {
+            "id": "EyebrowShapeClassifierResults",
+            "properties": {
+                "confidence": {
+                    "format": "float",
+                    "type": "number"
+                },
+                "eyebrowShape": {
+                    "enum": [
+                        "UNKNOWN",
+                        "ST_BREAK",
+                        "ST_BEND",
+                        "HIGH_DIAGONAL",
+                        "TILT",
+                        "ROUND",
+                        "ANGULAR",
+                        "HIGH_CURVY",
+                        "ROUND_UNEVEN",
+                        "BUSHY_ST",
+                        "UNI"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "EyebrowThicknessClassifierResults": {
+            "id": "EyebrowThicknessClassifierResults",
+            "properties": {
+                "confidence": {
+                    "format": "float",
+                    "type": "number"
+                },
+                "eyebrowThickness": {
+                    "enum": [
+                        "UNKNOWN",
+                        "THIN",
+                        "NORMAL",
+                        "THICK",
+                        "VERY_THICK"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "EyebrowWidthClassifierResults": {
+            "description": "The measurement underlying this assumes fixed ear positions, so applying this\ncombined with the FaceWidthClassifierResults may have an unintended outcome.",
+            "id": "EyebrowWidthClassifierResults",
+            "properties": {
+                "confidence": {
+                    "format": "float",
+                    "type": "number"
+                },
+                "eyebrowWidth": {
+                    "enum": [
+                        "UNKNOWN",
+                        "NARROW",
+                        "AVERAGE",
+                        "WIDE"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Face2CartoonResults": {
+            "description": "Results of the Face2Cartoon pipeline.",
+            "id": "Face2CartoonResults",
+            "properties": {
+                "ageClassifierResults": {
+                    "items": {
+                        "$ref": "AgeClassifierResults"
+                    },
+                    "type": "array"
+                },
+                "chinLengthClassifierResults": {
+                    "items": {
+                        "$ref": "ChinLengthClassifierResults"
+                    },
+                    "type": "array"
+                },
+                "eyeColorClassifierResults": {
+                    "items": {
+                        "$ref": "EyeColorClassifierResults"
+                    },
+                    "type": "array"
+                },
+                "eyeEyebrowDistanceClassifierResults": {
+                    "items": {
+                        "$ref": "EyeEyebrowDistanceClassifierResults"
+                    },
+                    "type": "array"
+                },
+                "eyeShapeClassifierResults": {
+                    "items": {
+                        "$ref": "EyeShapeClassifierResults"
+                    },
+                    "type": "array"
+                },
+                "eyeSlantClassifierResults": {
+                    "items": {
+                        "$ref": "EyeSlantClassifierResults"
+                    },
+                    "type": "array"
+                },
+                "eyeVerticalPositionClassifierResults": {
+                    "items": {
+                        "$ref": "EyeVerticalPositionClassifierResults"
+                    },
+                    "type": "array"
+                },
+                "eyebrowShapeClassifierResults": {
+                    "items": {
+                        "$ref": "EyebrowShapeClassifierResults"
+                    },
+                    "type": "array"
+                },
+                "eyebrowThicknessClassifierResults": {
+                    "items": {
+                        "$ref": "EyebrowThicknessClassifierResults"
+                    },
+                    "type": "array"
+                },
+                "eyebrowWidthClassifierResults": {
+                    "items": {
+                        "$ref": "EyebrowWidthClassifierResults"
+                    },
+                    "type": "array"
+                },
+                "faceWidthClassifierResults": {
+                    "items": {
+                        "$ref": "FaceWidthClassifierResults"
+                    },
+                    "type": "array"
+                },
+                "facialHairClassifierResults": {
+                    "items": {
+                        "$ref": "FacialHairClassifierResults"
+                    },
+                    "type": "array"
+                },
+                "genderClassifierResults": {
+                    "items": {
+                        "$ref": "GenderClassifierResults"
+                    },
+                    "type": "array"
+                },
+                "glassesClassifierResults": {
+                    "items": {
+                        "$ref": "GlassesClassifierResults"
+                    },
+                    "type": "array"
+                },
+                "hairColorClassifierResults": {
+                    "items": {
+                        "$ref": "HairColorClassifierResults"
+                    },
+                    "type": "array"
+                },
+                "hairStyleClassifierResults": {
+                    "items": {
+                        "$ref": "HairStyleClassifierResults"
+                    },
+                    "type": "array"
+                },
+                "interEyeDistanceClassifierResults": {
+                    "items": {
+                        "$ref": "InterEyeDistanceClassifierResults"
+                    },
+                    "type": "array"
+                },
+                "jawShapeClassifierResults": {
+                    "items": {
+                        "$ref": "JawShapeClassifierResults"
+                    },
+                    "type": "array"
+                },
+                "lipThicknessClassifierResults": {
+                    "items": {
+                        "$ref": "LipThicknessClassifierResults"
+                    },
+                    "type": "array"
+                },
+                "mouthVerticalPositionClassifierResults": {
+                    "items": {
+                        "$ref": "MouthVerticalPositionClassifierResults"
+                    },
+                    "type": "array"
+                },
+                "mouthWidthClassifierResults": {
+                    "items": {
+                        "$ref": "MouthWidthClassifierResults"
+                    },
+                    "type": "array"
+                },
+                "noseVerticalPositionClassifierResults": {
+                    "items": {
+                        "$ref": "NoseVerticalPositionClassifierResults"
+                    },
+                    "type": "array"
+                },
+                "noseWidthClassifierResults": {
+                    "items": {
+                        "$ref": "NoseWidthClassifierResults"
+                    },
+                    "type": "array"
+                },
+                "skinToneClassifierResults": {
+                    "items": {
+                        "$ref": "SkinToneClassifierResults"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "FaceWidthClassifierResults": {
+            "id": "FaceWidthClassifierResults",
+            "properties": {
+                "confidence": {
+                    "format": "float",
+                    "type": "number"
+                },
+                "faceWidth": {
+                    "enum": [
+                        "UNKNOWN",
+                        "NARROW",
+                        "AVERAGE",
+                        "WIDE"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FacialHairClassifierResults": {
+            "id": "FacialHairClassifierResults",
+            "properties": {
+                "confidence": {
+                    "format": "float",
+                    "type": "number"
+                },
+                "facialHair": {
+                    "enum": [
+                        "UNKNOWN",
+                        "NO_FACIAL_HAIR",
+                        "CLOSE_SHAVE",
+                        "SHORT_BEARD_2",
+                        "SHORT_BEARD_1",
+                        "MED_BEARD",
+                        "SHORT_BEARD_5",
+                        "GOATEE",
+                        "MOUSTACHE",
+                        "MOUSTACHE_GOATEE"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GenderClassifierResults": {
+            "id": "GenderClassifierResults",
+            "properties": {
+                "confidence": {
+                    "description": "Uses a scaled version of the FaceSDK classifier's probability as the\nconfidence (since the probability for the selected gender is between\n(0.5, 1] we scale it to be between (0, 1]).",
+                    "format": "float",
+                    "type": "number"
+                },
+                "gender": {
+                    "enum": [
+                        "UNKNOWN",
+                        "FEMALE",
+                        "MALE"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GlassesClassifierResults": {
+            "id": "GlassesClassifierResults",
+            "properties": {
+                "confidence": {
+                    "description": "Uses a scaled version of the FaceSDK classifier's probability as the\nconfidence (since the probability for the selected glasses is between\n(0.5, 1] we scale it to be between (0, 1]).",
+                    "format": "float",
+                    "type": "number"
+                },
+                "glassesType": {
+                    "enum": [
+                        "UNKNOWN",
+                        "NO_GLASSES",
+                        "GLASSES",
+                        "DARK_GLASSES"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "HairColorClassifierResults": {
+            "id": "HairColorClassifierResults",
+            "properties": {
+                "confidence": {
+                    "format": "float",
+                    "type": "number"
+                },
+                "hairColor": {
+                    "enum": [
+                        "UNKNOWN",
+                        "BLACK",
+                        "DARK_BROWN",
+                        "LIGHT_BROWN",
+                        "AUBURN",
+                        "ORANGE",
+                        "STRAWBERRY_BLONDE",
+                        "DIRTY_BLONDE",
+                        "BLEACHED_BLONDE",
+                        "GREY",
+                        "WHITE"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "HairStyleClassifierResults": {
+            "id": "HairStyleClassifierResults",
+            "properties": {
+                "confidence": {
+                    "format": "float",
+                    "type": "number"
+                },
+                "hairStyle": {
+                    "enum": [
+                        "UNKNOWN",
+                        "BALD_1",
+                        "BALD_2",
+                        "BALD_3",
+                        "SHAVE_1",
+                        "FRONT_CREW_1",
+                        "SHORT_STRAIGHT_9",
+                        "SHORT_STRAIGHT_17",
+                        "BUN_1",
+                        "SHORT_STRAIGHT_2",
+                        "SHORT_STRAIGHT_10",
+                        "SHORT_STRAIGHT_1",
+                        "SHORT_STRAIGHT_19",
+                        "SHORT_STRAIGHT_4",
+                        "SHORT_STRAIGHT_20",
+                        "SHORT_STRAIGHT_18",
+                        "SHORT_STRAIGHT_11",
+                        "MEDIUM_STRAIGHT_5",
+                        "MEDIUM_STRAIGHT_6",
+                        "MEDIUM_STRAIGHT_3",
+                        "LONG_STRAIGHT_6",
+                        "LONG_STRAIGHT_4",
+                        "LONG_STRAIGHT_2",
+                        "LONG_STRAIGHT_PONYTAIL_2",
+                        "LONG_STRAIGHT_PONYTAIL_1",
+                        "SHORT_WAVY_2",
+                        "MEDIUM_WAVY_1",
+                        "MEDIUM_WAVY_4",
+                        "MEDIUM_WAVY_2",
+                        "LONG_WAVY_1",
+                        "LONG_WAVY_3",
+                        "LONG_WAVY_2",
+                        "LONG_WAVY_4",
+                        "LONG_WAVY_PONYTAIL_4",
+                        "SHORT_CURLY_6",
+                        "SHORT_CURLY_5",
+                        "MEDIUM_CURLY_3",
+                        "SHORT_CURLY_8",
+                        "MEDIUM_CURLY_4",
+                        "LONG_CURLY_3",
+                        "LONG_CURLY_1",
+                        "LONG_CURLY_5",
+                        "LONG_CURLY_4",
+                        "LONG_CURLY_2",
+                        "LONG_CURLY_PONYTAIL_1",
+                        "SHORT_COILY_1",
+                        "SHORT_COILY_5",
+                        "SHORT_COILY_4",
+                        "SHORT_COILY_2",
+                        "MEDIUM_COILY_1",
+                        "LONG_COILY_2",
+                        "LONG_COILY_PONYTAIL_1",
+                        "SHORT_COILY_3",
+                        "LONG_COILY_1",
+                        "BOX_BRAIDS",
+                        "BUN_2",
+                        "COILY_PONYTAIL",
+                        "LONG_COILY_3",
+                        "LONG_COILY_4",
+                        "LONG_COILY_5",
+                        "LONG_COILY_PONYTAIL",
+                        "OTT",
+                        "SHORT_CORNROWS",
+                        "TIGHT_BRAID",
+                        "TIGHT_BRAIDS"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "InterEyeDistanceClassifierResults": {
+            "description": "The measurement underlying this assumes fixed ear positions, so applying this\ncombined with the FaceWidthClassifierResults may have an unintended outcome.",
+            "id": "InterEyeDistanceClassifierResults",
+            "properties": {
+                "confidence": {
+                    "format": "float",
+                    "type": "number"
+                },
+                "interEyeDistance": {
+                    "enum": [
+                        "UNKNOWN",
+                        "WIDE",
+                        "AVERAGE",
+                        "CLOSE"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "JawShapeClassifierResults": {
+            "id": "JawShapeClassifierResults",
+            "properties": {
+                "confidence": {
+                    "format": "float",
+                    "type": "number"
+                },
+                "jawShape": {
+                    "enum": [
+                        "UNKNOWN",
+                        "TRIANGLE",
+                        "OVAL",
+                        "SQUARE",
+                        "ROUND"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "LipThicknessClassifierResults": {
+            "id": "LipThicknessClassifierResults",
+            "properties": {
+                "confidence": {
+                    "format": "float",
+                    "type": "number"
+                },
+                "lipThickness": {
+                    "enum": [
+                        "UNKNOWN",
+                        "THIN",
+                        "AVERAGE",
+                        "THICK"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MouthVerticalPositionClassifierResults": {
+            "description": "The measurement underlying this assumes fixed ear positions, so applying this\ncombined with the FaceWidthClassifierResults may have an unintended outcome.",
+            "id": "MouthVerticalPositionClassifierResults",
+            "properties": {
+                "confidence": {
+                    "format": "float",
+                    "type": "number"
+                },
+                "mouthVerticalPosition": {
+                    "enum": [
+                        "UNKNOWN",
+                        "HIGH",
+                        "AVERAGE",
+                        "LOW"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MouthWidthClassifierResults": {
+            "description": "The measurement underlying this assumes fixed ear positions, so applying this\ncombined with the FaceWidthClassifierResults may have an unintended outcome.",
+            "id": "MouthWidthClassifierResults",
+            "properties": {
+                "confidence": {
+                    "format": "float",
+                    "type": "number"
+                },
+                "mouthWidth": {
+                    "enum": [
+                        "UNKNOWN",
+                        "NARROW",
+                        "AVERAGE",
+                        "WIDE"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "NoseVerticalPositionClassifierResults": {
+            "description": "The measurement underlying this assumes fixed ear positions, so applying this\ncombined with the FaceWidthClassifierResults may have an unintended outcome.",
+            "id": "NoseVerticalPositionClassifierResults",
+            "properties": {
+                "confidence": {
+                    "format": "float",
+                    "type": "number"
+                },
+                "noseVerticalPosition": {
+                    "enum": [
+                        "UNKNOWN",
+                        "HIGH",
+                        "AVERAGE",
+                        "LOW"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "NoseWidthClassifierResults": {
+            "description": "The measurement underlying this assumes fixed ear positions, so applying this\ncombined with the FaceWidthClassifierResults may have an unintended outcome.",
+            "id": "NoseWidthClassifierResults",
+            "properties": {
+                "confidence": {
+                    "format": "float",
+                    "type": "number"
+                },
+                "noseWidth": {
+                    "enum": [
+                        "UNKNOWN",
+                        "NARROW",
+                        "AVERAGE",
+                        "WIDE"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SelfieToCartoonParametersApiRequest": {
+            "id": "SelfieToCartoonParametersApiRequest",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "request": {
+                    "$ref": "SelfieToCartoonParametersRequest"
+                }
+            },
+            "type": "object"
+        },
+        "SelfieToCartoonParametersApiResponse": {
+            "id": "SelfieToCartoonParametersApiResponse",
+            "properties": {
+                "response": {
+                    "$ref": "SelfieToCartoonParametersResponse"
+                }
+            },
+            "type": "object"
+        },
+        "SelfieToCartoonParametersRequest": {
+            "description": "Request message to the selfie to cartoon parameters service.",
+            "id": "SelfieToCartoonParametersRequest",
+            "properties": {
+                "imageData": {
+                    "description": "The encoded selfie image data.",
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SelfieToCartoonParametersResponse": {
+            "description": "Response message from the selfie to cartoon parameters service.",
+            "id": "SelfieToCartoonParametersResponse",
+            "properties": {
+                "results": {
+                    "description": "Face2CartoonResults for each detected face in the input image.",
+                    "items": {
+                        "$ref": "Face2CartoonResults"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "SkinToneClassifierResults": {
+            "id": "SkinToneClassifierResults",
+            "properties": {
+                "confidence": {
+                    "format": "float",
+                    "type": "number"
+                },
+                "skinToneType": {
+                    "enum": [
+                        "UNKNOWN",
+                        "TYPE_1",
+                        "TYPE_2",
+                        "TYPE_3",
+                        "TYPE_4",
+                        "TYPE_5",
+                        "TYPE_6",
+                        "TYPE_7",
+                        "TYPE_8",
+                        "TYPE_9",
+                        "TYPE_10",
+                        "TYPE_11"
+                    ],
+                    "enumDescriptions": [
+                        "See the images from the links at:\nhttps://storage.googleapis.com/cc_8e814306-f840-4e2e-9415-36b06251cf8e/\nskin_tone_exemplars/skin-*.png",
+                        "(darkest) RGB: #603d30",
+                        "RGB: #88594b",
+                        "RGB: #aa7454",
+                        "RGB: #c78b5d",
+                        "RGB: #d9a16e",
+                        "RGB: #e3b47e",
+                        "RGB: #eeaf94",
+                        "RGB: #f0c092",
+                        "RGB: #f6d8c1",
+                        "RGB: #fbcdb6",
+                        "(lightest) RGB: #fbdbd1"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Face2Cartoon Library API",
+    "version": "v1",
+    "version_module": true
+}

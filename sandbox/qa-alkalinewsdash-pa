@@ -1,0 +1,2978 @@
+{
+    "basePath": "",
+    "baseUrl": "https://qa-alkalinewsdash-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Alkali News Dash",
+    "description": "Internal Google News support application",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://go/alkali",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "qa_alkalinewsdash_pa_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "qa_alkalinewsdash_pa_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "articles": {
+            "methods": {
+                "get": {
+                    "description": "Fetches a single article.",
+                    "flatPath": "v1/articles/{articlesId}",
+                    "httpMethod": "GET",
+                    "id": "qa_alkalinewsdash_pa_sandbox.articles.get",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "fieldMask": {
+                            "description": "Fields to return (all if empty).",
+                            "format": "google-fieldmask",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Relative resource name of the article.",
+                            "location": "path",
+                            "pattern": "^articles/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "Article"
+                    }
+                }
+            }
+        },
+        "campaigns": {
+            "methods": {
+                "batchLaunch": {
+                    "description": "Launches multiple campaigns.\n\nChanges the status of each campaign to \"launched\" which makes each campaign\npublicly visible.",
+                    "flatPath": "v1/campaigns:batchLaunch",
+                    "httpMethod": "POST",
+                    "id": "qa_alkalinewsdash_pa_sandbox.campaigns.batchLaunch",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/campaigns:batchLaunch",
+                    "request": {
+                        "$ref": "LaunchCampaignsRequest"
+                    },
+                    "response": {
+                        "$ref": "CampaignsResult"
+                    }
+                },
+                "batchSuspend": {
+                    "description": "Suspends multiple campaigns.",
+                    "flatPath": "v1/campaigns:batchSuspend",
+                    "httpMethod": "POST",
+                    "id": "qa_alkalinewsdash_pa_sandbox.campaigns.batchSuspend",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/campaigns:batchSuspend",
+                    "request": {
+                        "$ref": "SuspendCampaignsRequest"
+                    },
+                    "response": {
+                        "$ref": "CampaignsResult"
+                    }
+                },
+                "create": {
+                    "description": "Inserts a new campaign.",
+                    "flatPath": "v1/campaigns",
+                    "httpMethod": "POST",
+                    "id": "qa_alkalinewsdash_pa_sandbox.campaigns.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/campaigns",
+                    "request": {
+                        "$ref": "Campaign"
+                    },
+                    "response": {
+                        "$ref": "Campaign"
+                    }
+                },
+                "get": {
+                    "description": "Fetches a single campaign.",
+                    "flatPath": "v1/campaigns/{campaignsId}",
+                    "httpMethod": "GET",
+                    "id": "qa_alkalinewsdash_pa_sandbox.campaigns.get",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Relative resource name of the campaign.",
+                            "location": "path",
+                            "pattern": "^campaigns/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "Campaign"
+                    }
+                },
+                "getAssignees": {
+                    "description": "Get the list of users that have at least one campaign assigned to them.",
+                    "flatPath": "v1/campaigns/assignees",
+                    "httpMethod": "GET",
+                    "id": "qa_alkalinewsdash_pa_sandbox.campaigns.getAssignees",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/campaigns/assignees",
+                    "response": {
+                        "$ref": "GetAssigneesResponse"
+                    }
+                },
+                "getSchema": {
+                    "description": "Fetches the schema needed to manage the campaign data.",
+                    "flatPath": "v1/campaigns/schema",
+                    "httpMethod": "GET",
+                    "id": "qa_alkalinewsdash_pa_sandbox.campaigns.getSchema",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/campaigns/schema",
+                    "response": {
+                        "$ref": "CampaignSchema"
+                    }
+                },
+                "launch": {
+                    "description": "Launches a campaign.\n\nChanges the status of the campaign to \"launched\" which makes the campaign\npublicly visible.",
+                    "flatPath": "v1/campaigns/{campaignsId}:launch",
+                    "httpMethod": "POST",
+                    "id": "qa_alkalinewsdash_pa_sandbox.campaigns.launch",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Relative resource name of the campaign.",
+                            "location": "path",
+                            "pattern": "^campaigns/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}:launch",
+                    "request": {
+                        "$ref": "LaunchCampaignRequest"
+                    },
+                    "response": {
+                        "$ref": "Campaign"
+                    }
+                },
+                "patch": {
+                    "description": "Updates a campaign (partial or complete update). Returns the updated\nCampaign.",
+                    "flatPath": "v1/campaigns/{campaignsId}",
+                    "httpMethod": "PATCH",
+                    "id": "qa_alkalinewsdash_pa_sandbox.campaigns.patch",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Relative resource name of the campaign to update.",
+                            "location": "path",
+                            "pattern": "^campaigns/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "request": {
+                        "$ref": "UpdateCampaignRequest"
+                    },
+                    "response": {
+                        "$ref": "Campaign"
+                    }
+                },
+                "suspend": {
+                    "description": "Suspends a campaign.",
+                    "flatPath": "v1/campaigns/{campaignsId}:suspend",
+                    "httpMethod": "POST",
+                    "id": "qa_alkalinewsdash_pa_sandbox.campaigns.suspend",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Relative resource name of the campaign.",
+                            "location": "path",
+                            "pattern": "^campaigns/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}:suspend",
+                    "request": {
+                        "$ref": "SuspendCampaignRequest"
+                    },
+                    "response": {
+                        "$ref": "Campaign"
+                    }
+                }
+            }
+        },
+        "debug": {
+            "resources": {
+                "entities": {
+                    "methods": {
+                        "get": {
+                            "description": "Returns an entity as a generic RawEntity.",
+                            "flatPath": "v1/debug/entities/{entitiesId}",
+                            "httpMethod": "GET",
+                            "id": "qa_alkalinewsdash_pa_sandbox.debug.entities.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Relative resource name of the entity (\"entities/:id\").",
+                                    "location": "path",
+                                    "pattern": "^debug/entities/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "response": {
+                                "$ref": "RawEntity"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "editions": {
+            "methods": {
+                "get": {
+                    "description": "Fetches a single edition.",
+                    "flatPath": "v1/editions/{editionsId}",
+                    "httpMethod": "GET",
+                    "id": "qa_alkalinewsdash_pa_sandbox.editions.get",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "fieldMask": {
+                            "description": "Fields to return (all if empty).",
+                            "format": "google-fieldmask",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Relative resource name of the edition.",
+                            "location": "path",
+                            "pattern": "^editions/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "Edition"
+                    }
+                },
+                "getSections": {
+                    "description": "Fetches the sections of an edition.",
+                    "flatPath": "v1/editions/{editionsId}/sections",
+                    "httpMethod": "GET",
+                    "id": "qa_alkalinewsdash_pa_sandbox.editions.getSections",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "fieldMask": {
+                            "description": "Fields of the sections to return (all if empty).",
+                            "format": "google-fieldmask",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Relative resource name of the edition.",
+                            "location": "path",
+                            "pattern": "^editions/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}/sections",
+                    "response": {
+                        "$ref": "SectionSet"
+                    }
+                },
+                "patch": {
+                    "description": "Updates a edition (partial or complete update). Returns the updated\nEdition.",
+                    "flatPath": "v1/editions/{editionsId}",
+                    "httpMethod": "PATCH",
+                    "id": "qa_alkalinewsdash_pa_sandbox.editions.patch",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Relative resource name of the edition to update.",
+                            "location": "path",
+                            "pattern": "^editions/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "request": {
+                        "$ref": "UpdateEditionRequest"
+                    },
+                    "response": {
+                        "$ref": "Edition"
+                    }
+                }
+            },
+            "resources": {
+                "sections": {
+                    "methods": {
+                        "create": {
+                            "description": "Creates a new section.",
+                            "flatPath": "v1/editions/{editionsId}/sections",
+                            "httpMethod": "POST",
+                            "id": "qa_alkalinewsdash_pa_sandbox.editions.sections.create",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "Relative resource name of the edition or publication issue this section\nshould be added to.",
+                                    "location": "path",
+                                    "pattern": "^editions/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/sections",
+                            "request": {
+                                "$ref": "Section"
+                            },
+                            "response": {
+                                "$ref": "Section"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "entities": {
+            "methods": {
+                "batchGet": {
+                    "description": "Looks for entities by id and returns the entities that have been found.",
+                    "flatPath": "v1/entities:batchGet",
+                    "httpMethod": "GET",
+                    "id": "qa_alkalinewsdash_pa_sandbox.entities.batchGet",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "ids": {
+                            "description": "Ids of the entities to get.",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/entities:batchGet",
+                    "response": {
+                        "$ref": "BatchGetEntitiesResponse"
+                    }
+                }
+            }
+        },
+        "media": {
+            "methods": {
+                "getItems": {
+                    "description": "Fetches media resources identified by the query, using pagination if\nrequested.",
+                    "flatPath": "v1/media/items",
+                    "httpMethod": "GET",
+                    "id": "qa_alkalinewsdash_pa_sandbox.media.getItems",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "ids": {
+                            "description": "Optional list of ids of the sections to return.",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        },
+                        "pageSize": {
+                            "description": "Maximal number of results to return.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageToken": {
+                            "description": "Optional page token received in a previous response and indicating where\nto start the results.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "parentId": {
+                            "description": "Optional id of the parent entity the media items are associated with.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/media/items",
+                    "response": {
+                        "$ref": "MediaResourceSet"
+                    }
+                }
+            }
+        },
+        "permissions": {
+            "methods": {
+                "has": {
+                    "description": "Checks if the current user is allowed to perform an action.",
+                    "flatPath": "v1/permissions:has",
+                    "httpMethod": "POST",
+                    "id": "qa_alkalinewsdash_pa_sandbox.permissions.has",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/permissions:has",
+                    "request": {
+                        "$ref": "HasPermissionRequest"
+                    },
+                    "response": {
+                        "$ref": "HasPermissionResponse"
+                    }
+                }
+            }
+        },
+        "sections": {
+            "methods": {
+                "get": {
+                    "description": "Fetches a single section.",
+                    "flatPath": "v1/sections/{sectionsId}",
+                    "httpMethod": "GET",
+                    "id": "qa_alkalinewsdash_pa_sandbox.sections.get",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "fieldMask": {
+                            "description": "Fields to return (all if empty).",
+                            "format": "google-fieldmask",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Relative resource name of the section.",
+                            "location": "path",
+                            "pattern": "^sections/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "Section"
+                    }
+                },
+                "getArticles": {
+                    "description": "Fetches the articles of a section.",
+                    "flatPath": "v1/sections/{sectionsId}/articles",
+                    "httpMethod": "GET",
+                    "id": "qa_alkalinewsdash_pa_sandbox.sections.getArticles",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Relative resource name of the section.",
+                            "location": "path",
+                            "pattern": "^sections/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "pageSize": {
+                            "description": "Maximal number of results to return.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageToken": {
+                            "description": "Optional page token received in a previous response and indicating where\nto start the results.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}/articles",
+                    "response": {
+                        "$ref": "ArticleSet"
+                    }
+                },
+                "getRefreshes": {
+                    "description": "Fetches the refreshes of a section.",
+                    "flatPath": "v1/sections/{sectionsId}/refreshes",
+                    "httpMethod": "GET",
+                    "id": "qa_alkalinewsdash_pa_sandbox.sections.getRefreshes",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Relative resource name of the section.",
+                            "location": "path",
+                            "pattern": "^sections/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "pageSize": {
+                            "description": "Maximal number of results to return.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageToken": {
+                            "description": "Optional page token received in a previous response and indicating where\nto start the results.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}/refreshes",
+                    "response": {
+                        "$ref": "FeedRefreshResultSet"
+                    }
+                }
+            }
+        },
+        "users": {
+            "methods": {
+                "addRole": {
+                    "description": "Adds a role to a user. Returns the updated user.",
+                    "flatPath": "v1/users/{usersId}:addRole",
+                    "httpMethod": "POST",
+                    "id": "qa_alkalinewsdash_pa_sandbox.users.addRole",
+                    "parameterOrder": [
+                        "userName"
+                    ],
+                    "parameters": {
+                        "userName": {
+                            "description": "Relative resource name of the user to add the role to.",
+                            "location": "path",
+                            "pattern": "^users/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+userName}:addRole",
+                    "request": {
+                        "$ref": "AddUserRoleRequest"
+                    },
+                    "response": {
+                        "$ref": "AuthUser"
+                    }
+                },
+                "create": {
+                    "description": "Inserts a new user.",
+                    "flatPath": "v1/users",
+                    "httpMethod": "POST",
+                    "id": "qa_alkalinewsdash_pa_sandbox.users.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/users",
+                    "request": {
+                        "$ref": "AuthUser"
+                    },
+                    "response": {
+                        "$ref": "AuthUser"
+                    }
+                },
+                "getManagedRoles": {
+                    "description": "Gets the roles that the current user is allowed to manage.",
+                    "flatPath": "v1/users/managedRoles",
+                    "httpMethod": "GET",
+                    "id": "qa_alkalinewsdash_pa_sandbox.users.getManagedRoles",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/users/managedRoles",
+                    "response": {
+                        "$ref": "AuthRoleSet"
+                    }
+                },
+                "patch": {
+                    "description": "Updates a user (partial or complete update). Returns the updated user.",
+                    "flatPath": "v1/users/{usersId}",
+                    "httpMethod": "PATCH",
+                    "id": "qa_alkalinewsdash_pa_sandbox.users.patch",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Relative resource name of the user to update.",
+                            "location": "path",
+                            "pattern": "^users/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "request": {
+                        "$ref": "UpdateUserRequest"
+                    },
+                    "response": {
+                        "$ref": "AuthUser"
+                    }
+                },
+                "removeRole": {
+                    "description": "Removes a role from a user. Returns the updated user.",
+                    "flatPath": "v1/users/{usersId}:removeRole",
+                    "httpMethod": "POST",
+                    "id": "qa_alkalinewsdash_pa_sandbox.users.removeRole",
+                    "parameterOrder": [
+                        "userName"
+                    ],
+                    "parameters": {
+                        "userName": {
+                            "description": "Relative resource name of the user to remove the role from.",
+                            "location": "path",
+                            "pattern": "^users/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+userName}:removeRole",
+                    "request": {
+                        "$ref": "RemoveUserRoleRequest"
+                    },
+                    "response": {
+                        "$ref": "AuthUser"
+                    }
+                }
+            }
+        },
+        "v1": {
+            "methods": {
+                "getArticles": {
+                    "description": "Fetches articles matching the query (with optional pagination).",
+                    "flatPath": "v1/articles",
+                    "httpMethod": "GET",
+                    "id": "qa_alkalinewsdash_pa_sandbox.getArticles",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "fieldMask": {
+                            "description": "Fields to return (all if not set).",
+                            "format": "google-fieldmask",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "filter": {
+                            "description": "Filter expression using cloud API filter syntax (go/filtering).",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "ids": {
+                            "description": "Optional list of ids of the articles to return.",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        },
+                        "pageSize": {
+                            "description": "Maximal number of results to return.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageToken": {
+                            "description": "Optional page token received in a previous response and indicating where\nto start the results.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/articles",
+                    "response": {
+                        "$ref": "ArticleSet"
+                    }
+                },
+                "getCampaigns": {
+                    "description": "Fetches campaigns matching the query (possibly with pagination).",
+                    "flatPath": "v1/campaigns",
+                    "httpMethod": "GET",
+                    "id": "qa_alkalinewsdash_pa_sandbox.getCampaigns",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "filter": {
+                            "description": "OnePlatform filter expression specifying which campaigns to fetch.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "pageSize": {
+                            "description": "Maximal number of results to return.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageToken": {
+                            "description": "Token identifying where to start the results.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "sortOrder": {
+                            "description": "Sort order for the results as a space separated list of fields, optionally\npreceded with '+' (ascending, the default) or '-' (descending).",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/campaigns",
+                    "response": {
+                        "$ref": "CampaignSet"
+                    }
+                },
+                "getConfig": {
+                    "description": "Gets the frontend configuration (for example, options lists).",
+                    "flatPath": "v1/config",
+                    "httpMethod": "GET",
+                    "id": "qa_alkalinewsdash_pa_sandbox.getConfig",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/config",
+                    "response": {
+                        "$ref": "FrontendConfig"
+                    }
+                },
+                "getEditions": {
+                    "description": "Fetches editions matching the query (with optional pagination).",
+                    "flatPath": "v1/editions",
+                    "httpMethod": "GET",
+                    "id": "qa_alkalinewsdash_pa_sandbox.getEditions",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "fieldMask": {
+                            "description": "Fields to return (all if not set).",
+                            "format": "google-fieldmask",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "filter": {
+                            "description": "Filter expression using cloud API filter syntax (go/filtering).\n\nThe supported filter fields are:\n  type, t:       edition type\n  flag, f:       flags (combined with \"or\")\n  category, c:   categories (combined with \"and\")\n  title:         tokenized title (default field)\n  language, hl:  language code\n  country, c:    allowed country",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "ids": {
+                            "description": "Optional list of ids of the editions to return.",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        },
+                        "pageSize": {
+                            "description": "Maximal number of results to return.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageToken": {
+                            "description": "Optional page token received in a previous response and indicating where\nto start the results.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/editions",
+                    "response": {
+                        "$ref": "EditionSet"
+                    }
+                },
+                "getPermissions": {
+                    "description": "Gets the permissions of the current user.",
+                    "flatPath": "v1/permissions",
+                    "httpMethod": "GET",
+                    "id": "qa_alkalinewsdash_pa_sandbox.getPermissions",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "roleCodes": {
+                            "description": "Optional list of codes of the roles to get the permissions for.",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/permissions",
+                    "response": {
+                        "$ref": "AuthRoleSet"
+                    }
+                },
+                "getSections": {
+                    "description": "Fetches sections identified by the query, using pagination if requested.",
+                    "flatPath": "v1/sections",
+                    "httpMethod": "GET",
+                    "id": "qa_alkalinewsdash_pa_sandbox.getSections",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "fieldMask": {
+                            "description": "Fields to return (all if not set).",
+                            "format": "google-fieldmask",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "filter": {
+                            "description": "Filter expression using cloud API filter syntax (go/filtering).\n\nThe supported filter fields are:\n  flag, f:       flags (combined with \"or\")\n  title:         tokenized title (default field)",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "ids": {
+                            "description": "Optional list of ids of the sections to return.",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        },
+                        "pageSize": {
+                            "description": "Maximal number of results to return.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageToken": {
+                            "description": "Optional page token received in a previous response and indicating where\nto start the results.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/sections",
+                    "response": {
+                        "$ref": "SectionSet"
+                    }
+                },
+                "getUsers": {
+                    "description": "Gets the users matching the query.",
+                    "flatPath": "v1/users",
+                    "httpMethod": "GET",
+                    "id": "qa_alkalinewsdash_pa_sandbox.getUsers",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "filter": {
+                            "description": "OnePlatform filter expression specifying which users to fetch.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "pageSize": {
+                            "description": "Maximal number of results to return.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageToken": {
+                            "description": "Token identifying where to start the results.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "sortOrder": {
+                            "description": "Sort order for the results as a space separated list of fields, optionally\npreceded with '+' (ascending, the default) or '-' (descending).",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/users",
+                    "response": {
+                        "$ref": "AuthUserSet"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190917",
+    "rootUrl": "https://qa-alkalinewsdash-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "AddUserRoleRequest": {
+            "description": "Request message for AddUserRole.",
+            "id": "AddUserRoleRequest",
+            "properties": {
+                "roleCode": {
+                    "description": "Code of the role to add to the user.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Article": {
+            "description": "Data of a single article.",
+            "id": "Article",
+            "properties": {
+                "attribution": {
+                    "$ref": "ContentAttribution",
+                    "description": "Attribution for this Article."
+                },
+                "content": {
+                    "$ref": "HtmlContent",
+                    "description": "HTML markup of this article."
+                },
+                "externalIds": {
+                    "description": "Ids identifying this Article in external systems.",
+                    "items": {
+                        "$ref": "ExternalId"
+                    },
+                    "type": "array"
+                },
+                "externalUpdateInfo": {
+                    "$ref": "UpdateInfo",
+                    "description": "Update information according to the external source."
+                },
+                "id": {
+                    "description": "Unique id of this Article.\n\nThis is the long id encapsulating the path of the article within the\ndots hierarchy (publication, section, article).",
+                    "type": "string"
+                },
+                "mediaItems": {
+                    "description": "Media items belonging to this article.",
+                    "items": {
+                        "$ref": "MediaItem"
+                    },
+                    "type": "array"
+                },
+                "summary": {
+                    "description": "Summary text (abstract) provided by publisher.",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Title provided by publisher.",
+                    "type": "string"
+                },
+                "updateInfo": {
+                    "$ref": "IngestionUpdateInfo",
+                    "description": "Describes when and how this item was created."
+                },
+                "urls": {
+                    "description": "URLs pointing to this article.",
+                    "items": {
+                        "$ref": "Url"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ArticleCounts": {
+            "description": "Stats of the article changes during a refresh.",
+            "id": "ArticleCounts",
+            "properties": {
+                "added": {
+                    "description": "Number of new articles added to the section.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "received": {
+                    "description": "Number of articles (RSS items) received in the feed.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "updated": {
+                    "description": "Number of existing articles updated with the content from the feed.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "ArticleSet": {
+            "description": "Collection of Articles.",
+            "id": "ArticleSet",
+            "properties": {
+                "articles": {
+                    "description": "The articles belonging to this collection.",
+                    "items": {
+                        "$ref": "Article"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "Token for retrieving the next page. Empty if there are no more results.",
+                    "type": "string"
+                },
+                "totalSize": {
+                    "description": "Total count of articles irrespective of pagination.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AuthAction": {
+            "description": "Action a user wants to perform.\n\nThe Action provides the data needed by the authorization component to check\nif the user has the permission to perform the action.",
+            "id": "AuthAction",
+            "properties": {
+                "operation": {
+                    "$ref": "AuthOperation",
+                    "description": "Operation to be performed on the resource."
+                },
+                "resource": {
+                    "$ref": "AuthResource",
+                    "description": "Resource the operation will be performed on."
+                }
+            },
+            "type": "object"
+        },
+        "AuthOperation": {
+            "description": "Describes the operation performed on the resource.",
+            "id": "AuthOperation",
+            "properties": {
+                "accessLevel": {
+                    "description": "Coarse grained access level of the operation.",
+                    "enum": [
+                        "UNSPECIFIED_ACCESS_LEVEL",
+                        "READ",
+                        "WRITE",
+                        "MANAGE"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Read-only operations that do not change the state of a resource.",
+                        "Operations that may change the state of a resource.",
+                        "Operations that may create or destroy resources."
+                    ],
+                    "type": "string"
+                },
+                "operationName": {
+                    "description": "Name of the operation to be performed.\n\nIn order to match an operation spec, this name must match one of the\n`operation_names` in an operation spec.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AuthOperationSpec": {
+            "description": "An OperationSpec specifies a set operations.",
+            "id": "AuthOperationSpec",
+            "properties": {
+                "accessLevel": {
+                    "description": "Level of access of the specified operations.\n\nAn operation (AuthOperation) matches the access level if the access level\nof the operation is set and greater or equal to the access level of this\noperation spec.",
+                    "enum": [
+                        "UNSPECIFIED_ACCESS_LEVEL",
+                        "READ",
+                        "WRITE",
+                        "MANAGE"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Read-only operations that do not change the state of a resource.",
+                        "Operations that may change the state of a resource.",
+                        "Operations that may create or destroy resources."
+                    ],
+                    "type": "string"
+                },
+                "operationNames": {
+                    "description": "Names of the operations included in the set.\n\nThe operation names are application specific. If applicable, they should\nuse the standard REST API operation names such as LIST, GET, CREATE,\nUPDATE, or DELETE (see go/api-style). Other typical operation names are\nCANCEL, MOVE, APPROVE, BLOCK, or NOTIFY.\n\nA single operation name ANY may be used as a wild card matching all\noperation names. To match, the operation (AuthOperation) must have a\nnon-empty operation name.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AuthResource": {
+            "description": "Describes the resource the operation is performed on.",
+            "id": "AuthResource",
+            "properties": {
+                "properties": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Generic properties of the resource the operation is performed on.\n\nThese properties may be used by the resource restrictions to control\naccess depending on the value of the resource being accessed.",
+                    "type": "object"
+                },
+                "resourceType": {
+                    "description": "Type of resource the operation is performed on.",
+                    "type": "string"
+                },
+                "resourceUserAssociations": {
+                    "description": "Names of the associations that the user has with the resource.\n\nIn order to a match a resource spec, one of the\n`resource_user_associations` in the resource must match the\n`resource_user_association` in the resource spec.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AuthResourceSpec": {
+            "description": "A ResourceSpec specifies a set of resources.\n\nAs an example, a ResourceSpec may be defined as the \"publications\nfor which the current user is an editor\".",
+            "id": "AuthResourceSpec",
+            "properties": {
+                "fieldMask": {
+                    "description": "Field mask restricting the access to a subset of fields of a resource.\n\nIf set, the operation associated with this resource spec in a permission\napplies only to fields matching this `field_mask`.",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                },
+                "resourceTypes": {
+                    "description": "Types of the resources to give access to.\n\nA type is typically the name of a domain type such as PUBLICATION or\nARTICLE.\n\nMultiple types may be used for broad access, for example, read access to\ncontent objects. Fine grained permissions typically apply to a single\nresource type.\n\nA single resource type ANY may be used as a wild card matching all resource\ntypes.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "resourceUserAssociation": {
+                    "description": "Relationship between the user and the resource.\n\nThe set of resources on which a user may perform an operation often\ndepends on a relationship between the resource and the user that is kept\nand managed outside of the authorization component. As an example, a\npublisher may assign another user as an editor of a publication. Once\nthe user has become an editor, they may perform certain operations such\nas creating new sections for this publication.",
+                    "type": "string"
+                },
+                "restrictions": {
+                    "description": "Restrictions that the resources have to satisfy in order to match this\nresource spec.",
+                    "items": {
+                        "$ref": "AuthRestriction"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AuthRestriction": {
+            "description": "Condition that restricts the resources or operations that a permission gives\naccess to.",
+            "id": "AuthRestriction",
+            "properties": {
+                "operator": {
+                    "description": "Operation this restriction is checking.",
+                    "enum": [
+                        "UNKNOWN",
+                        "EQ",
+                        "IN"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Equality.",
+                        "\"contains\" operator."
+                    ],
+                    "type": "string"
+                },
+                "property": {
+                    "description": "Name of the resource property being checked (left hand side).",
+                    "type": "string"
+                },
+                "values": {
+                    "description": "Arguments passed to the restriction (right hand side).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AuthRole": {
+            "description": "A role is a named set of permissions and/or other roles.\n\nThe set of permissions associated with a role is the union of the permissions\nin the role itself and its children.\n\nThe top-level roles typically represent job families such as \"editor\" while\nthe lower level roles are used to group permissions that are often used\ntogether.",
+            "id": "AuthRole",
+            "properties": {
+                "childRoleCodes": {
+                    "description": "Codes of sub roles whose permissions are included in this role.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "code": {
+                    "description": "Unique code of this role. This code uniquely identifies this role in the\nconfiguration.",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "Short English description of this role.",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "English name of this role to display in a UI.",
+                    "type": "string"
+                },
+                "externalIds": {
+                    "description": "Ids identifying this role in other systems. This can be used to map roles\nto entities in other systems that assigned their own ids. As an example,\na role can be mapped to an Alkali user label.",
+                    "items": {
+                        "$ref": "ExternalId"
+                    },
+                    "type": "array"
+                },
+                "permissions": {
+                    "description": "Permissions that users with this role have.",
+                    "items": {
+                        "$ref": "Permission"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AuthRoleSet": {
+            "description": "A set of roles.\n\nA role set captures the authorization configuration.",
+            "id": "AuthRoleSet",
+            "properties": {
+                "roles": {
+                    "description": "Role definitions.",
+                    "items": {
+                        "$ref": "AuthRole"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AuthUser": {
+            "description": "An (internal) user of the newsdesk application in the authorization context.\n\nCombines a user identification with the roles associated with the user.",
+            "id": "AuthUser",
+            "properties": {
+                "roleCodes": {
+                    "description": "Codes of the roles associated with the user.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "username": {
+                    "description": "Username (ldap) identifying the newsdesk user.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AuthUserSet": {
+            "description": "Wrapper for a collection of AuthUsers.",
+            "id": "AuthUserSet",
+            "properties": {
+                "nextPageToken": {
+                    "description": "Token for retrieving the next page. Empty if there are no more results.",
+                    "type": "string"
+                },
+                "totalSize": {
+                    "description": "Total count of results irrespective of pagination.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "users": {
+                    "description": "Collection of AuthUsers.",
+                    "items": {
+                        "$ref": "AuthUser"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BatchGetEntitiesResponse": {
+            "description": "Response message for the BatchGetEntities method.",
+            "id": "BatchGetEntitiesResponse",
+            "properties": {
+                "entityRefs": {
+                    "description": "List of entity references that have been found.",
+                    "items": {
+                        "$ref": "EntityRef"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BorgTaskInfo": {
+            "description": "Data about the current borg job (obtained from BorgletInfo).\n\nThis data is, for example, stored with the user audit information in the\nhistory bigtable.",
+            "id": "BorgTaskInfo",
+            "properties": {
+                "cell": {
+                    "description": "Data center borg cell the job is running in.",
+                    "type": "string"
+                },
+                "jobName": {
+                    "description": "Name of the borg job.",
+                    "type": "string"
+                },
+                "taskNumber": {
+                    "description": "Zero-based task number.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "Campaign": {
+            "description": "A Campaign promotes a publication or topic for a given market (country and\nlanguage) and time period.",
+            "id": "Campaign",
+            "properties": {
+                "assigneeUsername": {
+                    "description": "Username (\"ldap\") of the assignee of this campaign. The assignee is the\nperson currently working on the campaign. It may be empty.",
+                    "type": "string"
+                },
+                "campaignData": {
+                    "additionalProperties": {
+                        "description": "Properties of the object.",
+                        "type": "any"
+                    },
+                    "description": "Data configuring the campaign.\n\nThe data depends on the campaign type as defined in the metadata.",
+                    "type": "object"
+                },
+                "distribution": {
+                    "$ref": "CampaignDistribution",
+                    "description": "Where this campaign is shown."
+                },
+                "effectiveTimeRange": {
+                    "$ref": "TimeRange",
+                    "description": "Time range when this campaign is active."
+                },
+                "id": {
+                    "description": "Unique id of this campaign.",
+                    "type": "string"
+                },
+                "languageCode": {
+                    "description": "DEPRECATED. Use distribution.region_code instead.",
+                    "type": "string"
+                },
+                "launched": {
+                    "description": "If true, this campaign is publicly visible. If false, this campaign is only\nreturned in debug mode.\n\nDEPRECATED. Use status instead.",
+                    "type": "boolean"
+                },
+                "metadata": {
+                    "$ref": "CampaignMetadata",
+                    "description": "Metadata attached to this campaign."
+                },
+                "ownerUsername": {
+                    "description": "Username (\"ldap\") of the owner of this campaign. The owner is the member\nof the merchandising team who created this campaign. The owner may change\nduring the lifetime of a campaign.",
+                    "type": "string"
+                },
+                "priority": {
+                    "description": "Priority of this campaign as a number in [0,1].",
+                    "format": "double",
+                    "type": "number"
+                },
+                "regionCode": {
+                    "description": "DEPRECATED. Use distribution.region_code instead.",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "Current status of this campaign.",
+                    "enum": [
+                        "UNSPECIFIED",
+                        "DRAFT",
+                        "LAUNCHED"
+                    ],
+                    "enumDescriptions": [
+                        "Null value.",
+                        "Campaign is being edited.",
+                        "Campaign has been launched and is publicly visible."
+                    ],
+                    "type": "string"
+                },
+                "type": {
+                    "description": "Campaign type as defined in the metadata.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CampaignDistribution": {
+            "description": "Conditions controlling the distribution of a campaign.",
+            "id": "CampaignDistribution",
+            "properties": {
+                "languageCode": {
+                    "description": "BCP-47 code of the language this campaign is run in.",
+                    "type": "string"
+                },
+                "regionCodes": {
+                    "description": "CLDR codes of the countries or regions this campaign is run in.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "targetPlatforms": {
+                    "description": "Platforms (web, iOS, Android) on which the campaign is shown.\n\nThe available platforms (and their display names) are defined in the\ncampaign configuration.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CampaignMetadata": {
+            "description": "Metadata for campaigns.",
+            "id": "CampaignMetadata",
+            "properties": {
+                "notes": {
+                    "description": "Notes used by the merchandising team to store information about a campaign.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CampaignSchema": {
+            "description": "Metadata for the merchandising UI.",
+            "id": "CampaignSchema",
+            "properties": {
+                "availableLocales": {
+                    "description": "Locales for which campaigns can be defined.\n\nThis list is used to populate the country and language selector in the\ncampaign user interface.",
+                    "items": {
+                        "$ref": "Locale"
+                    },
+                    "type": "array"
+                },
+                "campaignTypes": {
+                    "description": "Supported campaign types.",
+                    "items": {
+                        "$ref": "CampaignType"
+                    },
+                    "type": "array"
+                },
+                "countrySets": {
+                    "description": "Sets of countries for which campaigns can be defined.\n\nThis list is used for shortcuts in merchandising.",
+                    "items": {
+                        "$ref": "CountrySet"
+                    },
+                    "type": "array"
+                },
+                "filterTypes": {
+                    "description": "Types of filters that can be applied to campaigns to decide whether they\nwill be recommended or not.\n\nThis list is used to populate the filter type selector in the campaign\nuser interface.",
+                    "items": {
+                        "$ref": "FilterType"
+                    },
+                    "type": "array"
+                },
+                "formTypes": {
+                    "description": "Types shared across the campaign types. A campaign type may reference\nthese shared form types and adds its own form types.",
+                    "items": {
+                        "$ref": "FormTypeSpec"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CampaignSet": {
+            "description": "Wrapper for a collection of Campaigns.",
+            "id": "CampaignSet",
+            "properties": {
+                "campaigns": {
+                    "description": "Collection of Campaigns.",
+                    "items": {
+                        "$ref": "Campaign"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "Token for retrieving the next page. Empty if there are no more results.",
+                    "type": "string"
+                },
+                "totalSize": {
+                    "description": "Total count of results irrespective of pagination.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CampaignType": {
+            "description": "Metadata describing a campaign type and the data used to define it.",
+            "id": "CampaignType",
+            "properties": {
+                "displayName": {
+                    "description": "Name to show for this campaign type in the UI.",
+                    "type": "string"
+                },
+                "formSpec": {
+                    "$ref": "FormSpec",
+                    "description": "Description of the campaign data and how to edit them."
+                },
+                "id": {
+                    "description": "Unique identifier for this campaign type (Enum on backend side).",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CampaignsResult": {
+            "description": "Wrapper for a collection of successful Campaigns and failed Campaigns with\nerror information for some action.",
+            "id": "CampaignsResult",
+            "properties": {
+                "failedCampaigns": {
+                    "description": "Campaigns for which the action failed",
+                    "items": {
+                        "$ref": "FailedCampaign"
+                    },
+                    "type": "array"
+                },
+                "successfulCampaigns": {
+                    "description": "Campaigns for which the action succeeded",
+                    "items": {
+                        "$ref": "Campaign"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ColorInfo": {
+            "description": "Information about the colors in an image or video.",
+            "id": "ColorInfo",
+            "properties": {
+                "dominantArgbColors": {
+                    "description": "Dominant colors encoded as 32 bit ARGB values.",
+                    "items": {
+                        "format": "uint32",
+                        "type": "integer"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ContentAttribution": {
+            "description": "Attribution that should be shown for the content.",
+            "id": "ContentAttribution",
+            "properties": {
+                "copyright": {
+                    "description": "Copyright text to be shown with the content.",
+                    "type": "string"
+                },
+                "credits": {
+                    "description": "Credits for content.",
+                    "items": {
+                        "$ref": "ContentCredit"
+                    },
+                    "type": "array"
+                },
+                "licenses": {
+                    "description": "Licenses under which the content is published.",
+                    "items": {
+                        "$ref": "ContentLicense"
+                    },
+                    "type": "array"
+                },
+                "text": {
+                    "description": "Plain text describing the attribution.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ContentCategorization": {
+            "description": "Categorization of content.\n\nFor now, this is just a set of categories with one primary category.",
+            "id": "ContentCategorization",
+            "properties": {
+                "categories": {
+                    "description": "Optional additional categories reflecting the content.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "primaryCategory": {
+                    "description": "Main category of the content.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ContentCredit": {
+            "description": "Describes the role of a person (or group) in producing content.",
+            "id": "ContentCredit",
+            "properties": {
+                "displayName": {
+                    "description": "Name of the credited person or group.",
+                    "type": "string"
+                },
+                "role": {
+                    "description": "Role of the person in producing the ContentItem.",
+                    "enum": [
+                        "UNSPECIFIED",
+                        "PRODUCER",
+                        "AUTHOR",
+                        "PERFORMER"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Producer of a content item.",
+                        "Author of a content item.",
+                        "Performer of a content item (for example, a song)."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ContentFeedSource": {
+            "description": "Describes where feed content can be found.",
+            "id": "ContentFeedSource",
+            "properties": {
+                "connectorType": {
+                    "description": "API used to fetch the feed.",
+                    "enum": [
+                        "UNSPECIFIED",
+                        "FEEDS_SYSTEM",
+                        "DIRECT_RSS",
+                        "CUSTOM_FEED_API"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Feed content is obtained from Google feeds system (garmr API).",
+                        "Feed content is obtained by fetching RSS/Atom directly from publisher.",
+                        "Feed content is obtained by calling a publisher-specific API."
+                    ],
+                    "type": "string"
+                },
+                "refreshConfig": {
+                    "$ref": "ContentRefreshConfig",
+                    "description": "Defines how the feed is refreshed."
+                },
+                "url": {
+                    "description": "URL to fetch the feed from.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ContentLicense": {
+            "description": "License under which the content is published.",
+            "id": "ContentLicense",
+            "properties": {
+                "displayName": {
+                    "description": "Name of the License.",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "URL pointing to the license.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ContentRefreshConfig": {
+            "description": "Information about how a Section's content is refreshed.",
+            "id": "ContentRefreshConfig",
+            "properties": {
+                "refreshMethod": {
+                    "description": "Refresh method to use.",
+                    "enum": [
+                        "UNSPECIFIED",
+                        "PERIODIC_POLL",
+                        "CONTENT_PUSH"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Feed is polled with a fixed period.",
+                        "Content is pushed by the feeds system (via goops)."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CountrySet": {
+            "description": "Set of countries specified either as an inclusion or an exclusion list.",
+            "id": "CountrySet",
+            "properties": {
+                "excludes": {
+                    "description": "Two-letter code of the countries excluded from the set.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "includes": {
+                    "description": "Two-letter code of the countries included in the set.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "Display name of this country set.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Edition": {
+            "description": "Entry point for a collection of news content.\n\nAn edition may be a news or magazine publication published by a publisher\nor an \"artificial\" edition such as a curation created by our editorial team.",
+            "id": "Edition",
+            "properties": {
+                "admin": {
+                    "$ref": "EditionAdmin",
+                    "description": "Google-internal support data."
+                },
+                "categorization": {
+                    "$ref": "ContentCategorization",
+                    "description": "Categorization of the content of this publication."
+                },
+                "description": {
+                    "description": "Short description of the edition.",
+                    "type": "string"
+                },
+                "distribution": {
+                    "$ref": "EditionDistribution",
+                    "description": "Defines where this edition can be viewed or sold."
+                },
+                "externalIds": {
+                    "description": "Identifiers for this edition defined by external systems.",
+                    "items": {
+                        "$ref": "ExternalId"
+                    },
+                    "type": "array"
+                },
+                "flags": {
+                    "description": "Flags associated with this edition.\n\nThe flags values are encoded as enums on the backend side. The behavior\nof the support frontends (permissions, possible values) is driven by the\nconfig and does not depend on specific flag values so that we can leave\nthem as strings.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "Internal id that uniquely identifies this edition.",
+                    "type": "string"
+                },
+                "issues": {
+                    "description": "Issues associated with this edition. In case of a news publication or\ncuration, an edition has exactly one issue. Periodic publications such\nas magazines (\"titles\") have multiple issues.",
+                    "items": {
+                        "$ref": "EditionIssue"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "Relative resource name of this edition as used by the API and the UI.",
+                    "type": "string"
+                },
+                "ranking": {
+                    "$ref": "EditionRanking",
+                    "description": "Google-internal ranking of this edition."
+                },
+                "title": {
+                    "description": "Short title to display for this edition.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "Type of this edition.",
+                    "enum": [
+                        "UNSPECIFIED",
+                        "NEWS",
+                        "MAGAZINE",
+                        "CURATION"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "News publication.",
+                        "Magazine publication.",
+                        "Curation created by editorial team."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "EditionAdmin": {
+            "description": "Information regarding the support of the edition on the Google side.",
+            "id": "EditionAdmin",
+            "properties": {
+                "notes": {
+                    "description": "Free form internal notes.",
+                    "type": "string"
+                },
+                "simbaId": {
+                    "description": "Id in the simba tracking system.",
+                    "type": "string"
+                },
+                "spmUsername": {
+                    "description": "User name (LDAP) of the SPM (strategic account manager) managing the\nedition.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "EditionDistribution": {
+            "description": "Data related to the distribution (regions, language) of an edition.",
+            "id": "EditionDistribution",
+            "properties": {
+                "allowedCountries": {
+                    "description": "Two-letter code of the countries where an edition can be viewed.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "languageCode": {
+                    "description": "BCP47 language code of the edition.",
+                    "type": "string"
+                },
+                "sellableCountries": {
+                    "description": "Two-letter code of the countries where an edition can be sold.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "EditionIssue": {
+            "description": "Issue of an edition holding the content.",
+            "id": "EditionIssue",
+            "properties": {
+                "id": {
+                    "description": "Internal id that uniquely identifies this issue.",
+                    "type": "string"
+                },
+                "issueDate": {
+                    "description": "Nominal publication date of this issue.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "sections": {
+                    "description": "Content of this issue organized in sections.",
+                    "items": {
+                        "$ref": "Section"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "EditionRanking": {
+            "description": "Data describing the quality of an edition.\n\nSee go/nswiki-approving-edition regarding the scoring of editions.",
+            "id": "EditionRanking",
+            "properties": {
+                "categoryRank": {
+                    "description": "Quality within the category as a number between 0 and 100 (in steps of 5).",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "globalRank": {
+                    "description": "Global quality as a number between 0 and 100 (in steps of 5).",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "score": {
+                    "description": "Quality score between 0 and 5.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "EditionSet": {
+            "description": "A collection of editions.",
+            "id": "EditionSet",
+            "properties": {
+                "editions": {
+                    "description": "Editions in this set.",
+                    "items": {
+                        "$ref": "Edition"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "Token for retrieving the next page. Empty if there are no more editions.",
+                    "type": "string"
+                },
+                "totalSize": {
+                    "description": "Total count of editions irrespective of pagination.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "EntityRef": {
+            "description": "Generic reference for a Newsdesk entity.\n\nAn EntityRef contains enough information to present the id in the UI using\na user-friendly text (title).",
+            "id": "EntityRef",
+            "properties": {
+                "children": {
+                    "description": "Optional references to the children of the entity.",
+                    "items": {
+                        "$ref": "EntityRef"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "Optional description of the entity.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Unique id of the entity.\n\nFor Google News entities, this id is the object id string.",
+                    "type": "string"
+                },
+                "parent": {
+                    "$ref": "EntityRef",
+                    "description": "Optional reference to the parent of the entity."
+                },
+                "title": {
+                    "description": "Short descriptive text to show for the entity.\n\nFor content entities, the title is the title assigned to the entity by the\npublisher.",
+                    "type": "string"
+                },
+                "typeCode": {
+                    "description": "Identifies the type of entity.\n\nThe type codes are up to the producers and consumers of the references.\n\nWe don't use an enum because this generic message should not need to be\nchanged when new types are needed. The consumers and producers can share\none or more enums or configuration data containing the domain specific\ncodes.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "EntityUpdateInfo": {
+            "description": "Describes the update that resulting in a version of an entity.",
+            "id": "EntityUpdateInfo",
+            "properties": {
+                "borgTaskInfo": {
+                    "$ref": "BorgTaskInfo",
+                    "description": "Identification of the borg task performing the update."
+                },
+                "sourceCodeLocation": {
+                    "description": "Description of the location of the source code that updated the data.",
+                    "type": "string"
+                },
+                "updateOperation": {
+                    "description": "Kind of operation.",
+                    "enum": [
+                        "UNSPECIFIED_UPDATE_OPERATION",
+                        "CREATE",
+                        "UPDATE",
+                        "DELETE"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "A new entity (new id) is stored.",
+                        "An existing entity is updated.",
+                        "An existing entity is deleted."
+                    ],
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "Time of the update (bigtable_history_version in the entity objects).",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "updateUserTimestamp": {
+                    "$ref": "UserTimestamp",
+                    "description": "Time when the version was stored."
+                }
+            },
+            "type": "object"
+        },
+        "ExternalId": {
+            "description": "External id of an object item as assigned by some external system.\n\nIn case of a YouTube video, for example, the system is \"YOUTUBE\" and the\nvalue the (external) YOUTUBE video id. For a publication, we may have the\nISSN as an external id with system \"ISSN\".",
+            "id": "ExternalId",
+            "properties": {
+                "system": {
+                    "description": "Identifies the external system that assigned the id.",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "Value identifying the object in the external system.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FailedCampaign": {
+            "description": "Wrapper for a campaign for which some action failed",
+            "id": "FailedCampaign",
+            "properties": {
+                "campaignId": {
+                    "description": "The campaign's id",
+                    "type": "string"
+                },
+                "errorMessage": {
+                    "description": "Error message for failed action",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FeedRefreshResult": {
+            "description": "Describes the result of the refresh of a feed-based section.",
+            "id": "FeedRefreshResult",
+            "properties": {
+                "articleCounts": {
+                    "$ref": "ArticleCounts",
+                    "description": "Article stats of this refresh."
+                },
+                "endTime": {
+                    "description": "Time when the refresh finished.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "errorMessage": {
+                    "description": "Optional free text error message in case the refresh failed.",
+                    "type": "string"
+                },
+                "outcome": {
+                    "description": "Outcome of this feed refresh.",
+                    "enum": [
+                        "UNSPECIFIED",
+                        "FEED_FETCH_FAILED",
+                        "FEED_UNCHANGED",
+                        "REFRESHED"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown outcome. Should never occur.",
+                        "Feed could not be fetched.",
+                        "Feed content has not changed since the last fetch (checked via\nfingerprint of the feed content).",
+                        "Feed has changed and the section was refreshed. This does not mean that\nany articles were changed."
+                    ],
+                    "type": "string"
+                },
+                "sectionId": {
+                    "description": "Id of the section being refreshed.",
+                    "type": "string"
+                },
+                "startTime": {
+                    "description": "Time when the refresh started.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FeedRefreshResultSet": {
+            "description": "Collection of feed refresh results.",
+            "id": "FeedRefreshResultSet",
+            "properties": {
+                "nextPageToken": {
+                    "description": "Token for retrieving the next page. Empty if there are no more results.",
+                    "type": "string"
+                },
+                "results": {
+                    "description": "Refresh results for a section.",
+                    "items": {
+                        "$ref": "FeedRefreshResult"
+                    },
+                    "type": "array"
+                },
+                "totalSize": {
+                    "description": "Total count of editions irrespective of pagination.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FilterType": {
+            "description": "Representation of a filter used for recommendation.",
+            "id": "FilterType",
+            "properties": {
+                "id": {
+                    "description": "ID for type of filter",
+                    "type": "string"
+                },
+                "label": {
+                    "description": "Label to show in the UI",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FormFieldSpec": {
+            "description": "A FormFieldSpec describes a single field.\n\nThe field may contain a scalar value or a list of scalar values.",
+            "id": "FormFieldSpec",
+            "properties": {
+                "displayName": {
+                    "description": "Name to display for this field in the UI.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Unique identifier of the field within the form spec.",
+                    "type": "string"
+                },
+                "typeId": {
+                    "description": "Id of the FormTypeSpec describing the type of this field.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FormSpec": {
+            "description": "A FormSpec describes a simple form consisting of a linear list of fields.",
+            "id": "FormSpec",
+            "properties": {
+                "fields": {
+                    "description": "Fields the form consists of.",
+                    "items": {
+                        "$ref": "FormFieldSpec"
+                    },
+                    "type": "array"
+                },
+                "types": {
+                    "description": "Types used in the form.",
+                    "items": {
+                        "$ref": "FormTypeSpec"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "FormTypeSpec": {
+            "description": "A FormTypeSpec defines the validation rules for a scalar form field.",
+            "id": "FormTypeSpec",
+            "properties": {
+                "fields": {
+                    "description": "Form fields for a FormTypeSpec for an object.",
+                    "items": {
+                        "$ref": "FormFieldSpec"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "Unique identifier of this form domain.",
+                    "type": "string"
+                },
+                "incValue": {
+                    "description": "Increment value of the number value(s).",
+                    "format": "float",
+                    "type": "number"
+                },
+                "maxLength": {
+                    "description": "Maximal length of the string value(s).",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "maxValue": {
+                    "description": "Maximum value of the number value(s).",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "minLength": {
+                    "description": "Minimal length of the string value(s).",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "minRows": {
+                    "description": "Minimum number of rows of the string value(s) to be displayed in the UI.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "minValue": {
+                    "description": "Minimum value of the number value(s).",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "options": {
+                    "$ref": "OptionList",
+                    "description": "List of options for a selection (enum, select box)."
+                },
+                "type": {
+                    "description": "Name of the base type, which determines what validation the frontend will\nperform on the FormFieldSpec that uses this FormTypeSpec.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FrontendConfig": {
+            "description": "Response message for GetConfig.",
+            "id": "FrontendConfig",
+            "properties": {
+                "backendEnvironment": {
+                    "description": "Name of the Google News backend environment the Newsdesk server is using.",
+                    "type": "string"
+                },
+                "optionLists": {
+                    "description": "Option lists that may be shown to a user.",
+                    "items": {
+                        "$ref": "OptionList"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GetAssigneesResponse": {
+            "description": "Response message for getting all assignees.",
+            "id": "GetAssigneesResponse",
+            "properties": {
+                "usernames": {
+                    "description": "List of assignee usernames (\"ldap\").",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "HasPermissionRequest": {
+            "description": "Request message for HasPermission.",
+            "id": "HasPermissionRequest",
+            "properties": {
+                "action": {
+                    "$ref": "AuthAction",
+                    "description": "Action for which the permission should be checked."
+                }
+            },
+            "type": "object"
+        },
+        "HasPermissionResponse": {
+            "description": "Response message for HasPermission.",
+            "id": "HasPermissionResponse",
+            "properties": {
+                "allowed": {
+                    "description": "If true, the current user is allowed to perform the action.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "HtmlContent": {
+            "description": "HTML content.",
+            "id": "HtmlContent",
+            "properties": {
+                "content": {
+                    "description": "Sanitized HTML markup.",
+                    "type": "string"
+                },
+                "debugRawContent": {
+                    "description": "Original HTML markup. Only for debugging purposes. Never shown to users.",
+                    "type": "string"
+                },
+                "ingestionOrigin": {
+                    "description": "Describes where the HTML content was extracted from.",
+                    "enum": [
+                        "UNSPECIFIED_ORIGIN",
+                        "FEED_DATA",
+                        "FEED_CONTENT",
+                        "CRAWLED_CONTENT"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Data was explicitly provided as a (XML, JSON) element in feed. Examples\nare the RSS media elements media:group, media:content.",
+                        "Data was extracted from the (HTML) content.",
+                        "Data was extracted from the (HTML) web page that a feed item linked to."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ImageInfo": {
+            "description": "Information about the content of an image.",
+            "id": "ImageInfo",
+            "properties": {
+                "animated": {
+                    "description": "If true, the image is animated (animated GIF).",
+                    "type": "boolean"
+                },
+                "colorInfo": {
+                    "$ref": "ColorInfo",
+                    "description": "Color information extracted from an image."
+                }
+            },
+            "type": "object"
+        },
+        "IngestionInfo": {
+            "description": "Describes how and when content data was obtained.",
+            "id": "IngestionInfo",
+            "properties": {
+                "ingestTime": {
+                    "description": "Time when the data was obtained.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "origin": {
+                    "description": "Origin of the data.",
+                    "enum": [
+                        "UNSPECIFIED_ORIGIN",
+                        "FEED_DATA",
+                        "FEED_CONTENT",
+                        "CRAWLED_CONTENT"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Data was explicitly provided as a (XML, JSON) element in feed. Examples\nare the RSS media elements media:group, media:content.",
+                        "Data was extracted from the (HTML) content.",
+                        "Data was extracted from the (HTML) web page that a feed item linked to."
+                    ],
+                    "type": "string"
+                },
+                "trigger": {
+                    "description": "Trigger for the ingestion.",
+                    "enum": [
+                        "UNSPECIFIED_TRIGGER",
+                        "CONTENT_PUSH",
+                        "PERIODIC_POLL",
+                        "USER_TRIGGERED",
+                        "SYSTEM_TRIGGERED"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Update was triggered by a content update pushed to the ingestion system.",
+                        "Update was triggered by a periodic poll fetching feed content.",
+                        "Update was triggered by a user (through a user interface).",
+                        "Update was triggered by a system call."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "IngestionUpdateInfo": {
+            "description": "Describes the first and last update of content data.",
+            "id": "IngestionUpdateInfo",
+            "properties": {
+                "createInfo": {
+                    "$ref": "IngestionInfo",
+                    "description": "Describes when and how the data was created."
+                },
+                "updateInfo": {
+                    "$ref": "IngestionInfo",
+                    "description": "Describes when and how the data was last updated."
+                }
+            },
+            "type": "object"
+        },
+        "LaunchCampaignRequest": {
+            "description": "Request message for launching a campaign.",
+            "id": "LaunchCampaignRequest",
+            "properties": {},
+            "type": "object"
+        },
+        "LaunchCampaignsRequest": {
+            "description": "Request message for launching multiple campaigns.",
+            "id": "LaunchCampaignsRequest",
+            "properties": {
+                "names": {
+                    "description": "Relative resource names of the campaigns.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Locale": {
+            "description": "Locale of a user or locale that a piece of content is targeting.\n\nSee https://cloud.google.com/apis/design/standard_fields for the standard\nfields region_code and language_code used in this message.",
+            "id": "Locale",
+            "properties": {
+                "languageCode": {
+                    "description": "BCP-47 language code.\nSee http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.",
+                    "type": "string"
+                },
+                "regionCode": {
+                    "description": "CLDR country or region code.\nSee http://www.unicode.org/reports/tr35/#unicode_region_subtag.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MediaDescription": {
+            "description": "Descriptive text for a MediaItem.",
+            "id": "MediaDescription",
+            "properties": {
+                "longText": {
+                    "description": "Long descriptive text.",
+                    "type": "string"
+                },
+                "shortText": {
+                    "description": "Short descriptive text.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MediaItem": {
+            "description": "Logical media item.\n\nThe MediaItem has one or more MediaResources containing the actual content.",
+            "id": "MediaItem",
+            "properties": {
+                "attribution": {
+                    "$ref": "ContentAttribution",
+                    "description": "Attribution to show with this MediaItem."
+                },
+                "description": {
+                    "$ref": "MediaDescription",
+                    "description": "Description that can be presented with this MediaItem."
+                },
+                "externalIds": {
+                    "description": "Ids identifying this MediaItem in internal or external systems.",
+                    "items": {
+                        "$ref": "ExternalId"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "Internal id identifying this MediaItem in the Google News system.\n\nIf this MediaItem has been processes and stored as an \"attachment\" in the\nGoogle News backend (social-magazines-attachments bigtable), this id is the\nattachment id.\n\nThis id may be empty, for example, if this MediaItem describes data from\na feed that has not been processed yet.",
+                    "type": "string"
+                },
+                "imageInfo": {
+                    "$ref": "ImageInfo",
+                    "description": "Specific information for images."
+                },
+                "resources": {
+                    "description": "MediaResources containing the data for this MediaItem.",
+                    "items": {
+                        "$ref": "MediaResource"
+                    },
+                    "type": "array"
+                },
+                "tags": {
+                    "description": "Tags associated with this MediaItem.",
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Indicates that the Media item should be shown as the primary media item\nfor an article."
+                    ],
+                    "items": {
+                        "enum": [
+                            "UNSPECIFIED_TAG",
+                            "PRIMARY"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "description": "Type of this MediaItem.",
+                    "enum": [
+                        "UNSPECIFIED_TYPE",
+                        "VIDEO",
+                        "AUDIO",
+                        "IMAGE"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Video includes YouTube videos and \"streaming\" video hosted on other\nplatforms and provided as links to video files (for example, mp4 files).",
+                        "Audio files, for example, mp3 files.",
+                        "Images originally provided as URLs pointing to image files and usually\ningested into FIFE so that they can be served from Google's edge and\nreformatted (for example, scaled) depending on the client."
+                    ],
+                    "type": "string"
+                },
+                "updateInfo": {
+                    "$ref": "IngestionUpdateInfo",
+                    "description": "Describes when and how this item was created."
+                }
+            },
+            "type": "object"
+        },
+        "MediaResolution": {
+            "description": "Resolution (screen resolution, frame rate) of a media item.",
+            "id": "MediaResolution",
+            "properties": {
+                "frameRate": {
+                    "description": "Frame rate in frames per second.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "height": {
+                    "description": "Height in pixels.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "sizeInBytes": {
+                    "description": "Total size in bytes.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "width": {
+                    "description": "Width in pixels.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "MediaResource": {
+            "description": "Physical resource of a MediaItem.\n\nMediaResources may serve different purposes such as thumbnail for a video.",
+            "id": "MediaResource",
+            "properties": {
+                "externalId": {
+                    "$ref": "ExternalId",
+                    "description": "Identifies this MediaResource in some system."
+                },
+                "id": {
+                    "description": "Internal identifier for this MediaResource.",
+                    "type": "string"
+                },
+                "mimeType": {
+                    "description": "MIME type of the data.",
+                    "type": "string"
+                },
+                "resolution": {
+                    "$ref": "MediaResolution",
+                    "description": "Resolution of the media data."
+                },
+                "url": {
+                    "description": "URL pointing to the data.",
+                    "type": "string"
+                },
+                "use": {
+                    "description": "Purpose of this MediaResource for the MediaItem it is associated with.",
+                    "enum": [
+                        "UNSPECIFIED",
+                        "MAIN",
+                        "THUMBNAIL",
+                        "TEASER"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Main representation of a media item.",
+                        "Thumbnail for a video or image.",
+                        "Teaser video for a longer video."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MediaResourceSet": {
+            "description": "A collection of media resources.",
+            "id": "MediaResourceSet",
+            "properties": {
+                "mediaResources": {
+                    "description": "Resources in this set.",
+                    "items": {
+                        "$ref": "MediaResource"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "Token for retrieving the next page. Empty if there are no more resources.",
+                    "type": "string"
+                },
+                "totalSize": {
+                    "description": "Total count of resources irrespective of pagination.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Option": {
+            "description": "Option in an option list that may be presented to a user.",
+            "id": "Option",
+            "properties": {
+                "description": {
+                    "description": "Optional longer description of this option.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Id of the option (unique within the option list).",
+                    "type": "string"
+                },
+                "label": {
+                    "description": "Display name. If not provided, the id will be used.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "OptionList": {
+            "description": "List of options to present to a user, for example, in a select box.",
+            "id": "OptionList",
+            "properties": {
+                "description": {
+                    "description": "Short description.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Unique identifier of this option list.",
+                    "type": "string"
+                },
+                "label": {
+                    "description": "Display name of this option list.",
+                    "type": "string"
+                },
+                "options": {
+                    "description": "Options to select from.",
+                    "items": {
+                        "$ref": "Option"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Permission": {
+            "description": "A Permission allows for performing operations on a set of resources.",
+            "id": "Permission",
+            "properties": {
+                "operations": {
+                    "description": "Specifies which operations may be performed on the resources.",
+                    "items": {
+                        "$ref": "AuthOperationSpec"
+                    },
+                    "type": "array"
+                },
+                "resource": {
+                    "$ref": "AuthResourceSpec",
+                    "description": "Specifies which resources the operation may be performed on."
+                }
+            },
+            "type": "object"
+        },
+        "RawEntity": {
+            "description": "Raw data of an entity.\n\nAn entity (identified by an id) may be stored as one or more objects\n(protos). A `RawEntity` contains these objects as `items`. Each item contains\nthe raw data and optionally previous version in the history.",
+            "id": "RawEntity",
+            "properties": {
+                "items": {
+                    "description": "Items (value objects) associated with the entity.",
+                    "items": {
+                        "$ref": "RawEntityItem"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "RawEntityData": {
+            "description": "Raw data (wrapped in its own message so that we can add to or change the\nrepresentation later.",
+            "id": "RawEntityData",
+            "properties": {
+                "rawMessage": {
+                    "additionalProperties": {
+                        "description": "Properties of the object.",
+                        "type": "any"
+                    },
+                    "description": "Raw proto converted to a generic Struct.",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "RawEntityItem": {
+            "description": "Data associated with a single (proto) type.",
+            "id": "RawEntityItem",
+            "properties": {
+                "protoMessageName": {
+                    "description": "Fully qualified name of the proto message.",
+                    "type": "string"
+                },
+                "versions": {
+                    "description": "Versions of the data (different source and/or time).",
+                    "items": {
+                        "$ref": "RawEntityVersion"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "RawEntityVersion": {
+            "description": "Version of the entity data.",
+            "id": "RawEntityVersion",
+            "properties": {
+                "data": {
+                    "$ref": "RawEntityData",
+                    "description": "Actual data."
+                },
+                "source": {
+                    "description": "Source the data was obtained from.",
+                    "enum": [
+                        "RAW_ENTITY_SOURCE_UNSPECIFIED",
+                        "DATABASE",
+                        "HISTORY",
+                        "CACHE"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "Entity was read from the (spanner) database.",
+                        "Entity was read from history store (history bigtable).",
+                        "Entity was read from cache (memcacheg)."
+                    ],
+                    "type": "string"
+                },
+                "updateInfo": {
+                    "$ref": "EntityUpdateInfo",
+                    "description": "Information about when, where, and by whom the data was updated."
+                }
+            },
+            "type": "object"
+        },
+        "RemoveUserRoleRequest": {
+            "description": "Request message for RemoveUserRole.",
+            "id": "RemoveUserRoleRequest",
+            "properties": {
+                "roleCode": {
+                    "description": "Code of the role to add to the user.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Section": {
+            "description": "Collection of news articles.\n\nA section is the smallest unit above individual articles. Sections can be\nsection in a publication (news or magazine issue) as provided by the\npublisher, curated sections defined by an editor, or algorithmically\nconstructed sections, for example, covering a particular topic.",
+            "id": "Section",
+            "properties": {
+                "articles": {
+                    "description": "Articles contained in this section.\n\nAs the retrieval of a section's articles may be expensive, this field is\nonly filled if explicitly requested.",
+                    "items": {
+                        "$ref": "Article"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "Short description of the section.",
+                    "type": "string"
+                },
+                "feedSource": {
+                    "$ref": "ContentFeedSource",
+                    "description": "Source of the content of this Section."
+                },
+                "flags": {
+                    "description": "Flags associated with this section.\n\nThe flags values are encoded as enums on the backend side. The behavior\nof the support frontends (permissions, possible values) is driven by the\nconfig and does not depend on specific flag values so that we can leave\nthem as strings.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "Internal id that uniquely identified this section.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Relative resource name of this section as used by the API and the UI.",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Short title to display for this section.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SectionSet": {
+            "description": "A collection of sections.",
+            "id": "SectionSet",
+            "properties": {
+                "nextPageToken": {
+                    "description": "Token for retrieving the next page. Empty if there are no more sections.",
+                    "type": "string"
+                },
+                "sections": {
+                    "description": "Sections in this set.",
+                    "items": {
+                        "$ref": "Section"
+                    },
+                    "type": "array"
+                },
+                "totalSize": {
+                    "description": "Total count of sections irrespective of pagination.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SuspendCampaignRequest": {
+            "description": "Request message for suspending a campaign.",
+            "id": "SuspendCampaignRequest",
+            "properties": {},
+            "type": "object"
+        },
+        "SuspendCampaignsRequest": {
+            "description": "Request message for suspending multiple campaigns.",
+            "id": "SuspendCampaignsRequest",
+            "properties": {
+                "names": {
+                    "description": "Relative resource names of the campaigns.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "TimeRange": {
+            "description": "Range between two Timestamps.",
+            "id": "TimeRange",
+            "properties": {
+                "endTime": {
+                    "description": "End of the time range (exclusive).",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "startTime": {
+                    "description": "Start of the time range (inclusive).",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateCampaignRequest": {
+            "description": "Partial update request for a campaign.",
+            "id": "UpdateCampaignRequest",
+            "properties": {
+                "campaign": {
+                    "$ref": "Campaign",
+                    "description": "New data."
+                },
+                "updateMask": {
+                    "description": "Fields to update. If empty, all fields will be updated with the new data.",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateEditionRequest": {
+            "description": "Partial update request for a edition.",
+            "id": "UpdateEditionRequest",
+            "properties": {
+                "edition": {
+                    "$ref": "Edition",
+                    "description": "New data."
+                },
+                "updateMask": {
+                    "description": "Fields to update. If empty, all fields will be updated with the new data.",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateInfo": {
+            "description": "Update information obtained from the external source (feed).",
+            "id": "UpdateInfo",
+            "properties": {
+                "createTime": {
+                    "description": "Time the data was created (according to the external source).",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "Time the data was last updated (according to the external source).",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateUserRequest": {
+            "description": "Partial update request for a user.",
+            "id": "UpdateUserRequest",
+            "properties": {
+                "updateMask": {
+                    "description": "Fields to update. If not set, all fields will be updated with the new data.",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                },
+                "user": {
+                    "$ref": "AuthUser",
+                    "description": "New data."
+                }
+            },
+            "type": "object"
+        },
+        "Url": {
+            "description": "URL with its origin.",
+            "id": "Url",
+            "properties": {
+                "origin": {
+                    "description": "Origin of this Url.",
+                    "enum": [
+                        "UNSPECIFIED",
+                        "FEED",
+                        "RESOLVED",
+                        "CANONICAL",
+                        "SEARCH_INDEX",
+                        "AMP"
+                    ],
+                    "enumDescriptions": [
+                        "Default value.",
+                        "URL was provided by publisher in feed.",
+                        "Feed URL after following redirects.",
+                        "Canonicalized URL.",
+                        "URL obtained from the search index (Raffia).",
+                        "URL pointing to the AMP version."
+                    ],
+                    "type": "string"
+                },
+                "url": {
+                    "description": "URL value.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UserTimestamp": {
+            "description": "User identification combined with a timestamp.\n\nThis is used to keep track of actions performed by a user such as verifying\na domain. It corresponds to the UserWhen message in the Google News backend.",
+            "id": "UserTimestamp",
+            "properties": {
+                "timestamp": {
+                    "description": "Time when the action was performed by the user.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "userId": {
+                    "description": "Google News user id.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Alkali News Dash Private API (QA)",
+    "version": "v1",
+    "version_module": true
+}

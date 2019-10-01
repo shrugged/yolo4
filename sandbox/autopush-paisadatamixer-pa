@@ -1,0 +1,731 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/cloudcast": {
+                    "description": "Launch and manage remote applications in the cloud"
+                },
+                "https://www.googleapis.com/auth/drive.readonly": {
+                    "description": "See and download all your Google Drive files"
+                },
+                "https://www.googleapis.com/auth/photos": {
+                    "description": "Manage your photos and videos"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://autopush-datamixer-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "DataMixer",
+    "description": "DataMixer API is an internal (0p/1p) API for generically accessing or mutating data from Google clients such as first party mobile applications. That data is served by FEDS nodes as part of the Boq Data platform (go/boq-data).",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://go/boq-data",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "autopush_datamixer_pa_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "autopush_datamixer_pa_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "datamixer": {
+            "resources": {
+                "v1": {
+                    "methods": {
+                        "fetch": {
+                            "description": "Will be deprecated and removed soon\nFetches a set of data keys",
+                            "flatPath": "datamixer/v1/fetch",
+                            "httpMethod": "POST",
+                            "id": "autopush_datamixer_pa_sandbox.datamixer.v1.fetch",
+                            "parameterOrder": [],
+                            "parameters": {},
+                            "path": "datamixer/v1/fetch",
+                            "request": {
+                                "$ref": "BatchDataRequest"
+                            },
+                            "response": {
+                                "$ref": "BatchDataResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloudcast",
+                                "https://www.googleapis.com/auth/drive.readonly",
+                                "https://www.googleapis.com/auth/photos"
+                            ]
+                        },
+                        "mutateonekey": {
+                            "description": "Will be deprecated and removed soon\nMutates a data key",
+                            "flatPath": "datamixer/v1/mutateonekey",
+                            "httpMethod": "POST",
+                            "id": "autopush_datamixer_pa_sandbox.datamixer.v1.mutateonekey",
+                            "parameterOrder": [],
+                            "parameters": {},
+                            "path": "datamixer/v1/mutateonekey",
+                            "request": {
+                                "$ref": "MutateOperation"
+                            },
+                            "response": {
+                                "$ref": "MutateDataResponseWithError"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloudcast",
+                                "https://www.googleapis.com/auth/drive.readonly",
+                                "https://www.googleapis.com/auth/photos"
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "plusdatamixer": {
+            "resources": {
+                "autopush_v1": {
+                    "methods": {
+                        "batchfetch": {
+                            "description": "Fetches a set of data keys",
+                            "flatPath": "plusdatamixer/autopush_v1/batchfetch",
+                            "httpMethod": "POST",
+                            "id": "autopush_datamixer_pa_sandbox.plusdatamixer.autopush_v1.batchfetch",
+                            "parameterOrder": [],
+                            "parameters": {},
+                            "path": "plusdatamixer/autopush_v1/batchfetch",
+                            "request": {
+                                "$ref": "BatchDataFetchRequest"
+                            },
+                            "response": {
+                                "$ref": "BatchDataFetchResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloudcast",
+                                "https://www.googleapis.com/auth/drive.readonly",
+                                "https://www.googleapis.com/auth/photos"
+                            ]
+                        },
+                        "mutate": {
+                            "description": "Mutates a data key",
+                            "flatPath": "plusdatamixer/autopush_v1/mutate",
+                            "httpMethod": "POST",
+                            "id": "autopush_datamixer_pa_sandbox.plusdatamixer.autopush_v1.mutate",
+                            "parameterOrder": [],
+                            "parameters": {},
+                            "path": "plusdatamixer/autopush_v1/mutate",
+                            "request": {
+                                "$ref": "BatchDataMutateRequest"
+                            },
+                            "response": {
+                                "$ref": "BatchDataMutateResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloudcast",
+                                "https://www.googleapis.com/auth/drive.readonly",
+                                "https://www.googleapis.com/auth/photos"
+                            ]
+                        }
+                    }
+                },
+                "v1": {
+                    "methods": {
+                        "fetch": {
+                            "description": "Will be deprecated and removed soon\nFetches a set of data keys",
+                            "flatPath": "plusdatamixer/v1/fetch",
+                            "httpMethod": "POST",
+                            "id": "autopush_datamixer_pa_sandbox.plusdatamixer.v1.fetch",
+                            "parameterOrder": [],
+                            "parameters": {},
+                            "path": "plusdatamixer/v1/fetch",
+                            "request": {
+                                "$ref": "BatchDataRequest"
+                            },
+                            "response": {
+                                "$ref": "BatchDataResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloudcast",
+                                "https://www.googleapis.com/auth/drive.readonly",
+                                "https://www.googleapis.com/auth/photos"
+                            ]
+                        },
+                        "mutateonekey": {
+                            "description": "Will be deprecated and removed soon\nMutates a data key",
+                            "flatPath": "plusdatamixer/v1/mutateonekey",
+                            "httpMethod": "POST",
+                            "id": "autopush_datamixer_pa_sandbox.plusdatamixer.v1.mutateonekey",
+                            "parameterOrder": [],
+                            "parameters": {},
+                            "path": "plusdatamixer/v1/mutateonekey",
+                            "request": {
+                                "$ref": "MutateOperation"
+                            },
+                            "response": {
+                                "$ref": "MutateDataResponseWithError"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloudcast",
+                                "https://www.googleapis.com/auth/drive.readonly",
+                                "https://www.googleapis.com/auth/photos"
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "v1": {
+            "methods": {
+                "batchfetch": {
+                    "description": "Fetches a set of data keys",
+                    "flatPath": "v1/batchfetch",
+                    "httpMethod": "POST",
+                    "id": "autopush_datamixer_pa_sandbox.batchfetch",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/batchfetch",
+                    "request": {
+                        "$ref": "BatchDataFetchRequest"
+                    },
+                    "response": {
+                        "$ref": "BatchDataFetchResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloudcast",
+                        "https://www.googleapis.com/auth/drive.readonly",
+                        "https://www.googleapis.com/auth/photos"
+                    ]
+                },
+                "fetch": {
+                    "description": "Will be deprecated and removed soon\nFetches a set of data keys",
+                    "flatPath": "v1/fetch",
+                    "httpMethod": "POST",
+                    "id": "autopush_datamixer_pa_sandbox.fetch",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/fetch",
+                    "request": {
+                        "$ref": "BatchDataRequest"
+                    },
+                    "response": {
+                        "$ref": "BatchDataResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloudcast",
+                        "https://www.googleapis.com/auth/drive.readonly",
+                        "https://www.googleapis.com/auth/photos"
+                    ]
+                },
+                "mutate": {
+                    "description": "Mutates a data key",
+                    "flatPath": "v1/mutate",
+                    "httpMethod": "POST",
+                    "id": "autopush_datamixer_pa_sandbox.mutate",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/mutate",
+                    "request": {
+                        "$ref": "BatchDataMutateRequest"
+                    },
+                    "response": {
+                        "$ref": "BatchDataMutateResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloudcast",
+                        "https://www.googleapis.com/auth/drive.readonly",
+                        "https://www.googleapis.com/auth/photos"
+                    ]
+                },
+                "mutateonekey": {
+                    "description": "Will be deprecated and removed soon\nMutates a data key",
+                    "flatPath": "v1/mutateonekey",
+                    "httpMethod": "POST",
+                    "id": "autopush_datamixer_pa_sandbox.mutateonekey",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/mutateonekey",
+                    "request": {
+                        "$ref": "MutateOperation"
+                    },
+                    "response": {
+                        "$ref": "MutateDataResponseWithError"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloudcast",
+                        "https://www.googleapis.com/auth/drive.readonly",
+                        "https://www.googleapis.com/auth/photos"
+                    ]
+                }
+            }
+        }
+    },
+    "revision": "20190917",
+    "rootUrl": "https://autopush-datamixer-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "ApiaryConsistencyTokenResponseHeader": {
+            "description": "*\nMessage sent from the servers to the clients containing a new consistency\ntoken jar to be sent on subsequent requests if the client wants to perform\nconsistent reads after writes.",
+            "id": "ApiaryConsistencyTokenResponseHeader",
+            "properties": {
+                "maxAgeSecs": {
+                    "description": "The maximum age in seconds for this consistency information. Clients\nconsuming this message need to handle this field in a similar way to\nCookie#getMaxAge. In other words:\n1. Positive values indicate the time in seconds that the clients need to\npersist the token jar. The value is not the current age for the jar, but\nthe maximum age when it is supposed to be expired.\n2. Negative values indicate that the token jar should be persisted until\nthe app closes, in other words, there is not maximum age associated with\nit.\n3. A zero value indicated that the token jar should be expired now, i.e. be\ndeleted.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "newConsistencyTokenJar": {
+                    "description": "The consistency token jar to be sent by the client in case it wants/needs\nto perform consistent read-after-writes. This should be considered as a\nblob by the clients (see http://go/apidosanddonts).",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "BatchDataFetchRequest": {
+            "description": "A batch request to fetch one or more data keys.",
+            "id": "BatchDataFetchRequest",
+            "properties": {
+                "dataFetch": {
+                    "description": "One or more data items to fetch.",
+                    "items": {
+                        "$ref": "DataFetch"
+                    },
+                    "type": "array"
+                },
+                "header": {
+                    "$ref": "BatchDataRequestHeader",
+                    "description": "Contains side-channel information about the request."
+                }
+            },
+            "type": "object"
+        },
+        "BatchDataFetchResponse": {
+            "description": "Wrapper to encapsulate multiple (non-streaming) responses.",
+            "id": "BatchDataFetchResponse",
+            "properties": {
+                "dataResponseWithError": {
+                    "description": "One or more response or error results.",
+                    "items": {
+                        "$ref": "DataResponseWithError"
+                    },
+                    "type": "array"
+                },
+                "header": {
+                    "$ref": "BatchDataResponseHeader",
+                    "description": "Contains side-channel information about this response."
+                }
+            },
+            "type": "object"
+        },
+        "BatchDataMutateRequest": {
+            "description": "A batch request to mutate a data key.",
+            "id": "BatchDataMutateRequest",
+            "properties": {
+                "header": {
+                    "$ref": "BatchDataRequestHeader",
+                    "description": "Contains side-channel information about the request."
+                },
+                "mutateOperation": {
+                    "$ref": "MutateOperation",
+                    "description": "Contains a request to mutate data."
+                }
+            },
+            "type": "object"
+        },
+        "BatchDataMutateResponse": {
+            "description": "Response from mutating a data key.",
+            "id": "BatchDataMutateResponse",
+            "properties": {
+                "header": {
+                    "$ref": "BatchDataResponseHeader",
+                    "description": "Contains side-channel information about this response."
+                },
+                "mutateDataResponseWithError": {
+                    "$ref": "MutateDataResponseWithError",
+                    "description": "One or more response or error results for the mutation."
+                }
+            },
+            "type": "object"
+        },
+        "BatchDataRequest": {
+            "description": "Wrapper message to batch multiple data fetches together.",
+            "id": "BatchDataRequest",
+            "properties": {
+                "dataFetch": {
+                    "description": "One or more data items to fetch.",
+                    "items": {
+                        "$ref": "DataFetch"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BatchDataRequestHeader": {
+            "description": "Side-channel data.",
+            "id": "BatchDataRequestHeader",
+            "properties": {
+                "clientInfo": {
+                    "$ref": "ClientInfo",
+                    "description": "Contains optional details about the client application for server-side\nmonitoring and experimentation. See go/boq-data-app-version-propagation."
+                },
+                "consistencyTokenJar": {
+                    "description": "An optional opaque consistency token jar so that users can perform\nconsistent reads. This value should be gathered from the field\nconsistency_header contained in BatchDataResponseHeader.\n\nDEPRECATED. Start using the repeated field below.\n",
+                    "type": "string"
+                },
+                "consistencyTokenJars": {
+                    "description": "A list of opaque consistency token JARs that should be merged and the\nresulting merged tokens used by the server to read consistently from a\nspecific state of stored data.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "customExtensions": {
+                    "$ref": "MessageSet",
+                    "description": "Contains custom request extensions sent alongside with request header."
+                },
+                "effectiveUser": {
+                    "description": "The obfuscated effective user id. Used to delegate actions to a +page.\nFor more information look at go/boq-data-plus-pages.",
+                    "type": "string"
+                },
+                "encryptedSelectedExperiments": {
+                    "$ref": "EncryptedSelectedExperiments",
+                    "description": "An EncryptedSelectedExperiments proto containing an encrypted blob with\nexperiment IDs enabled on the client.\nCurrently, this supports Heterodyne server tokens containing the list of\nexperiments IDs selected for the client.\nThese experiments will be forced on the server (forcing any server\nexperiments with matching IDs).\nIn addition, server experiments use the HasClientExperiment condition to\ntrigger based on these IDs.\nSee http://go/boq-data-ph-experiments."
+                },
+                "experimentOverride": {
+                    "description": "Callers can override experiments with it, similar to e=* param for web,\nalthough this one is not sticky across requests.\nAll google.com accounts can use this, see experiment_selection_access\nfor more details.\nThis is meant to help testing, do not ship any code using it.\nExample values:\n  \"ExperimentOne\": enables ExperimentOne\n  \"ExperimentOne,-ExperimentTwo\": enables ExperimentOne and\n      disables ExperimentTwo",
+                    "type": "string"
+                },
+                "requestQos": {
+                    "$ref": "RequestQoS",
+                    "description": "RequestQoS specifies the specific Criticality bands, their global order\nand criteria for when requests to a system can be shed (aka dropped).\nFor more information see http://goto/request-qos-2.0"
+                },
+                "socialClientBytes": {
+                    "description": "Social client info (http://google3/logs/proto/social/social_client.proto)\nthat is serialized as a byte array.\nFor more details see go/boq-data-social-client.",
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "BatchDataResponse": {
+            "description": "Wrapper to encapsulate multiple (non-streaming) responses. Deprecated in\nfavor of BatchDataFetchResponse.",
+            "id": "BatchDataResponse",
+            "properties": {
+                "dataResponseWithError": {
+                    "description": "One or more response or error results.",
+                    "items": {
+                        "$ref": "DataResponseWithError"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BatchDataResponseHeader": {
+            "description": "Side-channel data.",
+            "id": "BatchDataResponseHeader",
+            "properties": {
+                "consistencyHeader": {
+                    "$ref": "ApiaryConsistencyTokenResponseHeader",
+                    "description": "Includes the consistency information to be persisted on the client so\nlater consistent requests can be made."
+                }
+            },
+            "type": "object"
+        },
+        "ClientInfo": {
+            "description": "Describes attributes of the client application making the request, for use in\nmetrics and experiments.\nNOTE: Experiments and metrics should not rely exclusively on app_version\nwithout also considering attributes such as application or cloud project id.\nBe sure to consider the possibility that multiple applications will send\nversion information. They may not all be the intended target of your\nexperiment and they may not use a consistent versioning scheme.",
+            "id": "ClientInfo",
+            "properties": {
+                "appVersion": {
+                    "description": "The version of the application sending the request. E.g. \"4.0.1\".",
+                    "type": "string"
+                },
+                "projectNumber": {
+                    "description": "The project id of the client sending the request. This is inferred from\nAPI key or auth token and is not sent by the client. This value is from\ngoogle.rpc.context.ProjectContext.project_number for the API frontend.",
+                    "format": "uint64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DataFetch": {
+            "description": "Represents one data key to fetch from the server.\nOnly one extension should be set in this request, and the type\nshould match the type registered for that ID.",
+            "id": "DataFetch",
+            "properties": {
+                "id": {
+                    "description": "The extension field number of the Response protocol buffer.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "request": {
+                    "$ref": "DataRequest",
+                    "description": "Instance of the input params for this data key. This field is optional if\nthe data key does not require input params."
+                },
+                "serial": {
+                    "description": "A unique id that is copied to the corresponding field in DataResponse by\nbackends in order to allow distinguishing the response of a data request\nfrom other data requests in a batch or streaming data request\nIn the case of batching requests it is possible that the implicit request\nindex (instead of this field value) is used for the convenience of client\ncode",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "DataRequest": {
+            "description": "Abstract class for request protos to extend from. Each request proto that\nextends from this class must use a unique field number.",
+            "id": "DataRequest",
+            "properties": {},
+            "type": "object"
+        },
+        "DataResponse": {
+            "description": "A response from the server for a data key. The response will have exactly one\nextension set, which type corresponds to the type registered with the request\nID from the server.\nAll response protos must extend this proto and must use a unique field number\nfor the extension.",
+            "id": "DataResponse",
+            "properties": {
+                "serial": {
+                    "description": "The index that the request had in the data_fetch list.\nThis is used to match request and response protos for batched requests.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "DataResponseWithError": {
+            "description": "Wrapper in case we need to put extra information in a streaming response.",
+            "id": "DataResponseWithError",
+            "properties": {
+                "dataResponse": {
+                    "$ref": "DataResponse",
+                    "description": "Contains the data response, if available."
+                },
+                "errorStatus": {
+                    "$ref": "StatusProto",
+                    "description": "Stores information about an occurred error (if any)."
+                }
+            },
+            "type": "object"
+        },
+        "EncryptedSelectedExperiments": {
+            "description": "DEPRECATED: this proto is Apps Framework specific and not widely used.\nInstead use the standard\ngoogle3/experiments/framework/extensions/heterodyne/proto/server_tokens.proto",
+            "id": "EncryptedSelectedExperiments",
+            "properties": {
+                "blobType": {
+                    "description": "Type of data that is encrypted in selected_experiments field. Apps\nFramework will take care of decrypting the blob and applying its contents\nappropriately.",
+                    "enum": [
+                        "BLOB_TYPE_UNKNOWN",
+                        "BLOB_TYPE_APPS_FRAMEWORK",
+                        "BLOB_TYPE_HETERODYNE"
+                    ],
+                    "enumDescriptions": [
+                        "BlobType is unknown or unspecified.",
+                        "Apps Framework experiment.",
+                        "Heterodyne (go/ph)."
+                    ],
+                    "type": "string"
+                },
+                "selectedExperiments": {
+                    "description": "Encrypted blob containing selected experiments. Each type of blob type will\ndo both the encryption and the representation of the experiments is a\nspecific way. Apps Framework will be able to deal with all of them and\napply their contents appropriately.",
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MessageSet": {
+            "description": "This is proto2's version of MessageSet.",
+            "id": "MessageSet",
+            "properties": {},
+            "type": "object"
+        },
+        "MutateDataRequest": {
+            "description": "Abstract class for mutation request protos to extend from. Each request proto\nthat extends from this class must use a unique field number.",
+            "id": "MutateDataRequest",
+            "properties": {},
+            "type": "object"
+        },
+        "MutateDataResponse": {
+            "description": "Abstract class for mutation request protos to extend from. Each request proto\nthat extends from this class must use a unique field number.",
+            "id": "MutateDataResponse",
+            "properties": {},
+            "type": "object"
+        },
+        "MutateDataResponseWithError": {
+            "description": "Wrapper in case we need to put extra information in a streaming response.",
+            "id": "MutateDataResponseWithError",
+            "properties": {
+                "dataResponse": {
+                    "$ref": "MutateDataResponse",
+                    "description": "Contains the mutate data response, if available."
+                },
+                "errorStatus": {
+                    "$ref": "StatusProto",
+                    "description": "Stores information about an occurred error (if any)."
+                }
+            },
+            "type": "object"
+        },
+        "MutateOperation": {
+            "description": "Envelope proto for mutation calls.",
+            "id": "MutateOperation",
+            "properties": {
+                "id": {
+                    "description": "The id of this operation. This is the MutateRequest extension number\nfor the mutate request proto.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "mutateRequest": {
+                    "$ref": "MutateDataRequest",
+                    "description": "The data mutation requested."
+                }
+            },
+            "type": "object"
+        },
+        "RequestQoS": {
+            "description": "RequestQoS specifies the specific Criticality bands, their global order and\ncriteria for when requests to a system can be shed (aka dropped).\n\nFor more information see http://goto/request-qos-2.0\n\n****************************************************************************\nRequestQoS is automatically propagated down the stack. Most likely you don't\nwant to add it explicitly to your message. Please talk to load-shedding@\nbefore adding it as a field of any proto. See go/request-qos-propagation\n****************************************************************************",
+            "id": "RequestQoS",
+            "properties": {
+                "criticality": {
+                    "description": "The Criticality for a request.",
+                    "enum": [
+                        "CRITICAL_PLUS",
+                        "CRITICAL",
+                        "SHEDDABLE_PLUS",
+                        "SHEDDABLE"
+                    ],
+                    "enumDescriptions": [
+                        "Any outage is a pageable event.\n  * Services must provision to handle all traffic in CRITICAL* bands\n    during planned outages.\n  * The guideline is for < 50% of requests to a service to be in this\n    band.\n  * During a production outage requests in this band will be prioritized\n    above all others.\n  * Opt-in to CRITICAL_PLUS by identifying a small fraction of most\n    critical traffic to attempt to serve during an outage.",
+                        "Any outage is a pageable event.\n  * Services must provision to handle all traffic in CRITICAL* bands\n    during planned outages.\n  * During a production outage requests in this band will only be shed\n    before CRITICAL_PLUS.\n  * This is the default QoS for RPCs sent from production jobs.",
+                        "Partial unavailability is expected and is not necessarily pageable.\n  * Requests to this band will be shed before any critical traffic.\n  * This is the default QoS for RPCs sent from batch jobs.",
+                        "Frequent partial and occasional full unavailability is expected and not\npageable.\n  * Requests to this band will be shed before all other requests."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "StatusProto": {
+            "description": "Wire-format for a Status object",
+            "id": "StatusProto",
+            "properties": {
+                "canonicalCode": {
+                    "description": "The canonical error code (see codes.proto) that most closely\ncorresponds to this status. May be missing.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "code": {
+                    "description": "Numeric code drawn from the space specified below. Often, this is the\ncanonical error space, and code is drawn from google3/util/task/codes.proto",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Detail message",
+                    "type": "string"
+                },
+                "messageSet": {
+                    "$ref": "MessageSet",
+                    "description": "message_set associates an arbitrary proto message with the status."
+                },
+                "payload": {
+                    "$ref": "TypedMessage",
+                    "description": "DEPRECATED.\n\nThis field was deprecated in 2011 with cl/20297133.  Java support\nfor the field was moved to a proto1 backward compatibility class\nin April 2017 with cl/142615857 and cl/154123203.  There was\nnever support for this field in Go; if set Go will ignore it.\nC++ stopped setting StatusProto::payload in October 2015 with cl/106347055,\nand stopped reading the field in October 2017 with cl/173324114.\n\nIn general, newly written code should use only \"message_set\". If you need\nto maintain backward compatibility with code written before 3/25/2011, do\nthe following:\n\n- During the transition period, either (1) set both \"payload\" and\n  \"message_set\", or (2) write the consumer of StatusProto so that it can\n  forge a MessageSet object from \"payload\" if \"message_set\" is missing.\n  The C++ util::Status implementation does (2).\n\n- Once all the consumers are converted to accept \"message_set\", then\n  remove the use of \"payload\" on the producer side."
+                },
+                "space": {
+                    "description": "The following are usually only present when code != 0\nSpace to which this status belongs",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TypedMessage": {
+            "description": "Message that groups a protocol type_id (as defined by MessageSet),\nwith an encoded message of that type.  Its use is similar to\nMessageSet, except it represents a single (type, encoded message)\ninstead of a set.\n\nTo fill for known protocol type:\n  MyProtocolMsg proto;\n  TypedMessage typed_msg;\n  typed_msg.set_type_id(MyProtocolMsg::MESSAGE_TYPE_ID);\n  proto.AppendToCord(typed_msg.mutable_message());\n\nTo fill for unknown protocol type:\n  ProtocolMessage proto;\n  TypedMessage typed_msg;\n  typed_msg.set_type_id(proto.GetMapper()->type_id());\n  proto.AppendToCord(typed_msg.mutable_message());",
+            "id": "TypedMessage",
+            "properties": {
+                "message": {
+                    "description": "Message bytes.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "typeId": {
+                    "description": "Identifier for the type.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "DataMixer Private API",
+    "version": "v1",
+    "version_module": true
+}

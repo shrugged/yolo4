@@ -1,0 +1,3213 @@
+{
+    "basePath": "",
+    "baseUrl": "https://autopush-sensorsuite-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Autopush_sensorsuite_sandbox",
+    "description": "",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://g3doc/lifescience/sensors/registry",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "autopush_sensorsuite_pa_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "autopush_sensorsuite_pa_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "deviceClaims": {
+            "methods": {
+                "list": {
+                    "description": "Lists the devices that are/were claimed to the calling user.",
+                    "flatPath": "v1/deviceClaims",
+                    "httpMethod": "GET",
+                    "id": "autopush_sensorsuite_pa_sandbox.deviceClaims.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "filter": {
+                            "description": "Used to optionally filter the listed device claims. Supports filtering by\ndevice type.\n\nExamples:\n  - \"device_type=csp:3\" filters devices with the device_type of \"csp:3\".",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/deviceClaims",
+                    "response": {
+                        "$ref": "ListDeviceClaimsResponse"
+                    }
+                }
+            }
+        },
+        "deviceSpecs": {
+            "methods": {
+                "list": {
+                    "description": "Lists all available DeviceSpecs. Any authenticated user can call this.",
+                    "flatPath": "v1/deviceSpecs",
+                    "httpMethod": "GET",
+                    "id": "autopush_sensorsuite_pa_sandbox.deviceSpecs.list",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/deviceSpecs",
+                    "response": {
+                        "$ref": "ListDeviceSpecsResponse"
+                    }
+                }
+            }
+        },
+        "devices": {
+            "methods": {
+                "legacyDeviceToCloud": {
+                    "description": "Provides a communication channel between a Rye device (e.g. Coppa) and the\ncloud, while keeping details opaque to the bridge device (Rialto). This is\na legacy method that can be used until Coppas have been updated to use the\nstandard `GetConfig` method above.",
+                    "flatPath": "v1/devices/{devicesId}:legacyDeviceToCloud",
+                    "httpMethod": "POST",
+                    "id": "autopush_sensorsuite_pa_sandbox.devices.legacyDeviceToCloud",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Required. Name of the Coppa to get the config for. E.g. \"devices/xyz\".",
+                            "location": "path",
+                            "pattern": "^devices/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}:legacyDeviceToCloud",
+                    "request": {
+                        "$ref": "LegacyDeviceToCloudRequest"
+                    },
+                    "response": {
+                        "$ref": "LegacyDeviceToCloudResponse"
+                    }
+                }
+            },
+            "resources": {
+                "configurations": {
+                    "methods": {
+                        "get": {
+                            "description": "Called by a device to retrieve a configuration at a given version.\n\nIn the case where a firmware version change occurs between configuration\nversions, a device must not report that it has applied the latest\nconfiguration (using the CreateReport method) until it has successfully\napplied the firmware update.",
+                            "flatPath": "v1/devices/{devicesId}/configurations/{configurationsId}",
+                            "httpMethod": "GET",
+                            "id": "autopush_sensorsuite_pa_sandbox.devices.configurations.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Name of the configuration to get. Must be of the form\n\"devices/{deviceId}/configurations/{configVersion}\". E.g.\n\"devices/abcxyz/configurations/5\".",
+                                    "location": "path",
+                                    "pattern": "^devices/[^/]+/configurations/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "response": {
+                                "$ref": "Config"
+                            }
+                        }
+                    }
+                },
+                "reports": {
+                    "methods": {
+                        "create": {
+                            "description": "Reports the status of a device to the registry.\n\nDepending on the payload, this method may trigger side-effects such as\nextending firmware history records or firing off pubsub notifications in\nresponse to a discovery of a status change. Repeated calls to this method\nwill only trigger side-effects on the first detection of a status change.\nIf the status provided matches the previous one, no side-effects will be\ntriggered (except for book keeping: recording of timestamps or logging).\n\nCreateReport responds with the target configuration that the device needs\nto work towards. For example, the response may contain a\ntarget_config_version that is greater than the one just reported. In this\ncase, the device should download that configuration version and apply it.\nAfter the device achieves any of these targets, it should issue another\nCreateReport call to report the achievements.",
+                            "flatPath": "v1/devices/{devicesId}/reports",
+                            "httpMethod": "POST",
+                            "id": "autopush_sensorsuite_pa_sandbox.devices.reports.create",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "Name of the device to create the status for.",
+                                    "location": "path",
+                                    "pattern": "^devices/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/reports",
+                            "request": {
+                                "$ref": "Report"
+                            },
+                            "response": {
+                                "$ref": "CreateReportResponse"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "masterKeys": {
+            "methods": {
+                "get": {
+                    "description": "Retrieve a DMK for a given device identifier (serial number in practice).",
+                    "flatPath": "v1/masterKeys/{masterKeysId}",
+                    "httpMethod": "GET",
+                    "id": "autopush_sensorsuite_pa_sandbox.masterKeys.get",
+                    "parameterOrder": [
+                        "deviceIdentifier"
+                    ],
+                    "parameters": {
+                        "deviceIdentifier": {
+                            "description": "Required. The device identifier.",
+                            "location": "path",
+                            "pattern": "^[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/masterKeys/{+deviceIdentifier}",
+                    "response": {
+                        "$ref": "GetMasterKeyResponse"
+                    }
+                }
+            }
+        },
+        "participantDevices": {
+            "methods": {
+                "create": {
+                    "description": "Creates a device in a registry and claims it to the caller. The caller must\nbe authorized to manage devices in the registry.",
+                    "flatPath": "v1/participantDevices",
+                    "httpMethod": "POST",
+                    "id": "autopush_sensorsuite_pa_sandbox.participantDevices.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/participantDevices",
+                    "request": {
+                        "$ref": "ParticipantDevice"
+                    },
+                    "response": {
+                        "$ref": "ParticipantDevice"
+                    }
+                },
+                "delete": {
+                    "description": "Deletes a device from a registry. The caller must be currently assigned to\nthe device and they must be authorized to manage devices in the registry.",
+                    "flatPath": "v1/participantDevices/{participantDevicesId}",
+                    "httpMethod": "DELETE",
+                    "id": "autopush_sensorsuite_pa_sandbox.participantDevices.delete",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Name of the device to delete in the form \"participantDevices/<device global\nID>\". E.g. \"participantDevices/XYZ123\".",
+                            "location": "path",
+                            "pattern": "^participantDevices/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "Empty"
+                    }
+                },
+                "list": {
+                    "description": "Lists the devices that are currently claimed to the calling user. Similar\nto the ListDeviceClaims method except does not show historical devices that\nare no longer claimed to the caller, and returned devices include\nadditional metadata.\n\nThe method does not support pagination as the number of devices currently\nassigned to the caller is expected to be small (i.e. less than 100).",
+                    "flatPath": "v1/participantDevices",
+                    "httpMethod": "GET",
+                    "id": "autopush_sensorsuite_pa_sandbox.participantDevices.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "participant.id": {
+                            "description": "ID of the participant within the namespace. Note that unlike the analogous\nfield in the ManagementService, this ID is the externally visible ID. For\nexample, email address for GAIA, or external ID for CSP accounts.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "participant.participantNamespace": {
+                            "description": "Namespace of the participant.",
+                            "enum": [
+                                "UNKNOWN",
+                                "GAIA",
+                                "MPOWER",
+                                "HASHED_STRING",
+                                "CSP",
+                                "ANON_STUDY_DEVICE",
+                                "SENSOR_REGISTRY_CUSTOM",
+                                "DMI",
+                                "CSP_UUID"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/participantDevices",
+                    "response": {
+                        "$ref": "ListParticipantDevicesResponse"
+                    }
+                },
+                "patch": {
+                    "description": "Updates a device in a registry and returns the updated device. The caller\nmust be currently assigned to the device and they must be authorized to\nmanage devices in the registry.",
+                    "flatPath": "v1/participantDevices/{participantDevicesId}",
+                    "httpMethod": "PATCH",
+                    "id": "autopush_sensorsuite_pa_sandbox.participantDevices.patch",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Name of the participant device in the form\n\"participantDevices/<device global ID>\". E.g. \"participantDevices/XYZ123\".\nUnlike device names in the management API, these device names do not\ninclude the Registry that they are currently registered to.",
+                            "location": "path",
+                            "pattern": "^participantDevices/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "request": {
+                        "$ref": "UpdateParticipantDeviceRequest"
+                    },
+                    "response": {
+                        "$ref": "ParticipantDevice"
+                    }
+                }
+            }
+        },
+        "partners": {
+            "methods": {
+                "data": {
+                    "description": "Receive and store data from a partner\ne.g. POST /v1/partners/bodytrace/write",
+                    "flatPath": "v1/partners/{partner}/data",
+                    "httpMethod": "POST",
+                    "id": "autopush_sensorsuite_pa_sandbox.partners.data",
+                    "parameterOrder": [
+                        "partner"
+                    ],
+                    "parameters": {
+                        "partner": {
+                            "description": "The partner who sent the request.",
+                            "enum": [
+                                "UNKNOWN_PARTNER",
+                                "BODY_TRACE",
+                                "RESMED"
+                            ],
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/partners/{partner}/data",
+                    "request": {
+                        "$ref": "HttpBody"
+                    },
+                    "response": {
+                        "$ref": "WriteDataResponse"
+                    }
+                },
+                "fetch": {
+                    "description": "Request and store data from a partner.",
+                    "flatPath": "v1/partners/{partner}/fetch",
+                    "httpMethod": "POST",
+                    "id": "autopush_sensorsuite_pa_sandbox.partners.fetch",
+                    "parameterOrder": [
+                        "partner"
+                    ],
+                    "parameters": {
+                        "deviceId": {
+                            "description": "The device ID to request data for.\nFor ResMed, this is an ECN ID (*not* a CPAP device ID/serial number).",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "duration": {
+                            "description": "The window of time prior to end_time for which data should be fetched.\nMust be >= 0 (i.e. do not use the negative sign).",
+                            "format": "google-duration",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "endTime": {
+                            "description": "The time for which data should be fetched (inclusive).\nAn empty value means \"fetch the most recent possible data\".",
+                            "format": "google-datetime",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "partner": {
+                            "description": "The partner to request data from.",
+                            "enum": [
+                                "UNKNOWN_PARTNER",
+                                "BODY_TRACE",
+                                "RESMED"
+                            ],
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/partners/{partner}/fetch",
+                    "response": {
+                        "$ref": "FetchDataResponse"
+                    }
+                },
+                "fetchurl": {
+                    "description": "Request a URL from a partner and return the HTTP response.",
+                    "flatPath": "v1/partners/{partner}/fetchurl",
+                    "httpMethod": "POST",
+                    "id": "autopush_sensorsuite_pa_sandbox.partners.fetchurl",
+                    "parameterOrder": [
+                        "partner"
+                    ],
+                    "parameters": {
+                        "httpMethod": {
+                            "description": "Whether the request should be a GET or POST.",
+                            "enum": [
+                                "UNKNOWN_HTTP_METHOD",
+                                "GET",
+                                "POST",
+                                "PUT"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "partner": {
+                            "description": "The partner to request data from.\n(Implicitly, this defines the hostname for the request).",
+                            "enum": [
+                                "UNKNOWN_PARTNER",
+                                "BODY_TRACE",
+                                "RESMED"
+                            ],
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "path": {
+                            "description": "The path to request, starting with a /.\nE.g. \"/v1/patients/123-abc/data/sessions?noOfDays=1",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "postBody": {
+                            "description": "A body to include in the HTTP POST. The body is expected to be JSON,\nand will have a header \"Content-Type: application/json\"\nIt is an error to specify on a GET request.",
+                            "format": "byte",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/partners/{partner}/fetchurl",
+                    "response": {
+                        "$ref": "FetchUrlResponse"
+                    }
+                }
+            }
+        },
+        "registries": {
+            "methods": {
+                "create": {
+                    "description": "Creates a registry. If ACL entries are provided, the caller must be listed\nas an `OWNER`.",
+                    "flatPath": "v1/registries",
+                    "httpMethod": "POST",
+                    "id": "autopush_sensorsuite_pa_sandbox.registries.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/registries",
+                    "request": {
+                        "$ref": "Registry"
+                    },
+                    "response": {
+                        "$ref": "Registry"
+                    }
+                },
+                "delete": {
+                    "description": "Deletes a device registry. The caller must have `OWNER` role.",
+                    "flatPath": "v1/registries/{registriesId}",
+                    "httpMethod": "DELETE",
+                    "id": "autopush_sensorsuite_pa_sandbox.registries.delete",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Required. E.g. \"registries/xyz\"",
+                            "location": "path",
+                            "pattern": "^registries/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "Empty"
+                    }
+                },
+                "list": {
+                    "description": "Lists the device registries that the caller has at least `VIEWER` access\nto.",
+                    "flatPath": "v1/registries",
+                    "httpMethod": "GET",
+                    "id": "autopush_sensorsuite_pa_sandbox.registries.list",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/registries",
+                    "response": {
+                        "$ref": "ListRegistriesResponse"
+                    }
+                },
+                "patch": {
+                    "description": "Updates fields of a device registry. The caller must have `OWNER` access to\nthe registry.",
+                    "flatPath": "v1/registries/{registriesId}",
+                    "httpMethod": "PATCH",
+                    "id": "autopush_sensorsuite_pa_sandbox.registries.patch",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "The resource name of this Registry in the format\n\"registries/<Registry GUID>\".\nE.g. \"registries/e3bc11dc-1a06-06d7-5bab-ffd8e884fe59\".",
+                            "location": "path",
+                            "pattern": "^registries/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "request": {
+                        "$ref": "UpdateRegistryRequest"
+                    },
+                    "response": {
+                        "$ref": "Registry"
+                    }
+                }
+            },
+            "resources": {
+                "devices": {
+                    "methods": {
+                        "create": {
+                            "description": "Creates a device within a device registry. The caller must have at least\n`PROVISIONER` access to the registry.",
+                            "flatPath": "v1/registries/{registriesId}/devices",
+                            "httpMethod": "POST",
+                            "id": "autopush_sensorsuite_pa_sandbox.registries.devices.create",
+                            "parameterOrder": [
+                                "registriesId"
+                            ],
+                            "parameters": {
+                                "registriesId": {
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/registries/{registriesId}/devices",
+                            "request": {
+                                "$ref": "Device"
+                            },
+                            "response": {
+                                "$ref": "Device"
+                            }
+                        },
+                        "delete": {
+                            "description": "Deletes a device from a registry. The caller must have at least\n`PROVISIONER` access to the registry.",
+                            "flatPath": "v1/registries/{registriesId}/devices/{devicesId}",
+                            "httpMethod": "DELETE",
+                            "id": "autopush_sensorsuite_pa_sandbox.registries.devices.delete",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Required. Resource name of the device to delete. E.g.\n\"registries/xyz/devices/abc\".",
+                                    "location": "path",
+                                    "pattern": "^registries/[^/]+/devices/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "response": {
+                                "$ref": "Empty"
+                            }
+                        },
+                        "get": {
+                            "description": "Gets all the details about a device. The caller must have at least `VIEWER`\npermission on the registry.",
+                            "flatPath": "v1/registries/{registriesId}/devices/{devicesId}",
+                            "httpMethod": "GET",
+                            "id": "autopush_sensorsuite_pa_sandbox.registries.devices.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Required. Name of the device to get. E.g.\n\"registries/{registryId}/devices/{deviceId}\".",
+                                    "location": "path",
+                                    "pattern": "^registries/[^/]+/devices/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "response": {
+                                "$ref": "Device"
+                            }
+                        },
+                        "list": {
+                            "description": "Lists devices in a device registry. The caller must have at least `VIEWER`\npermission on the registry.",
+                            "flatPath": "v1/registries/{registriesId}/devices",
+                            "httpMethod": "GET",
+                            "id": "autopush_sensorsuite_pa_sandbox.registries.devices.list",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "filter": {
+                                    "description": "Used to filter the listed devices. Supports filtering by device ID regexp,\nparticipant and firmware tracks.\n\nExamples:\n  - \"regexp=C2Q.*\" filters devices with a serial number that matches the\n    regular expression.\n  - \"participant=gaia:24738924792,mpower:4280943\" filters devices assigned\n    to gaia participant 24738924792 or mpower participant 4280943.\n  - \"firmware_track=3243-432a-43cd3\" filters devices that are assigned to\n    firmware track \"3243-432a-43cd3\".\n  - \"participant=hashed_string:2133543 firmware_track=43543-2324ac-234de\"\n    filters devices claimed by hashed string participant \"2133543\" and\n    assigned to firmware track \"43543-2324ac-234de\".",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "pageSize": {
+                                    "description": "Optional. Any call without a page size will default to 10000.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "Optional. Any call without page token will return the first page.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "parent": {
+                                    "description": "Required. Name of the Registry that the devices are in. E.g.\n\"registries/{registryId}\"",
+                                    "location": "path",
+                                    "pattern": "^registries/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/devices",
+                            "response": {
+                                "$ref": "ListDevicesResponse"
+                            }
+                        },
+                        "patch": {
+                            "description": "Updates the credentials or user association of a device. The caller must\nhave at least `MANAGER` access to the registry.",
+                            "flatPath": "v1/registries/{registriesId}/devices/{devicesId}",
+                            "httpMethod": "PATCH",
+                            "id": "autopush_sensorsuite_pa_sandbox.registries.devices.patch",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The resource name of this device. E.g. `\"registries/xyz/devices/abc\"`.",
+                                    "location": "path",
+                                    "pattern": "^registries/[^/]+/devices/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "request": {
+                                "$ref": "UpdateDeviceRequest"
+                            },
+                            "response": {
+                                "$ref": "Device"
+                            }
+                        }
+                    },
+                    "resources": {
+                        "configurations": {
+                            "methods": {
+                                "create": {
+                                    "description": "Updates the current config of a device and increments its version number\nby 1. The caller must have at least `MANAGER` access to the registry.",
+                                    "flatPath": "v1/registries/{registriesId}/devices/{devicesId}/configurations",
+                                    "httpMethod": "POST",
+                                    "id": "autopush_sensorsuite_pa_sandbox.registries.devices.configurations.create",
+                                    "parameterOrder": [
+                                        "parent"
+                                    ],
+                                    "parameters": {
+                                        "parent": {
+                                            "description": "Required. Resource name of the device to create the config for.",
+                                            "location": "path",
+                                            "pattern": "^registries/[^/]+/devices/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/{+parent}/configurations",
+                                    "request": {
+                                        "$ref": "DeviceConfig"
+                                    },
+                                    "response": {
+                                        "$ref": "DeviceConfig"
+                                    }
+                                },
+                                "list": {
+                                    "description": "Returns the config history of a device. The caller must have at least\n`VIEWER` permission on the registry. Returned device configurations include\nthose that were created for this device while allocated to its current\nregistry.",
+                                    "flatPath": "v1/registries/{registriesId}/devices/{devicesId}/configurations",
+                                    "httpMethod": "GET",
+                                    "id": "autopush_sensorsuite_pa_sandbox.registries.devices.configurations.list",
+                                    "parameterOrder": [
+                                        "parent"
+                                    ],
+                                    "parameters": {
+                                        "parent": {
+                                            "description": "Required. Device name to the list the configs for. E.g.\n\"registries/xyz/devices/abc\".",
+                                            "location": "path",
+                                            "pattern": "^registries/[^/]+/devices/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/{+parent}/configurations",
+                                    "response": {
+                                        "$ref": "ListDeviceConfigsResponse"
+                                    }
+                                }
+                            }
+                        },
+                        "deviceHistory": {
+                            "methods": {
+                                "list": {
+                                    "description": "Returns the device history of a device. The caller must have at least\n`VIEWER` permission on the registry. Returned device history includes\nprevious changes of the device in current registry, including creations,\ndeletions, and updates.",
+                                    "flatPath": "v1/registries/{registriesId}/devices/{devicesId}/deviceHistory",
+                                    "httpMethod": "GET",
+                                    "id": "autopush_sensorsuite_pa_sandbox.registries.devices.deviceHistory.list",
+                                    "parameterOrder": [
+                                        "parent"
+                                    ],
+                                    "parameters": {
+                                        "parent": {
+                                            "description": "Required. Device name of the device to the list the device history for.\nE.g. \"registries/xyz/devices/abc\".",
+                                            "location": "path",
+                                            "pattern": "^registries/[^/]+/devices/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/{+parent}/deviceHistory",
+                                    "response": {
+                                        "$ref": "ListDeviceHistoryResponse"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "firmwareTracks": {
+                    "methods": {
+                        "create": {
+                            "description": "Creates a track. The caller must have at least `MANAGER` access in the\nparent registry.",
+                            "flatPath": "v1/registries/{registriesId}/firmwareTracks",
+                            "httpMethod": "POST",
+                            "id": "autopush_sensorsuite_pa_sandbox.registries.firmwareTracks.create",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "Required. Resource name of the parent registry e.g.\n\"registries/xyz\"",
+                                    "location": "path",
+                                    "pattern": "^registries/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/firmwareTracks",
+                            "request": {
+                                "$ref": "FirmwareTrack"
+                            },
+                            "response": {
+                                "$ref": "FirmwareTrack"
+                            }
+                        },
+                        "delete": {
+                            "description": "Deletes a firmware track. The caller must have at least `MANAGER` access in\nthe parent registry.",
+                            "flatPath": "v1/registries/{registriesId}/firmwareTracks/{firmwareTracksId}",
+                            "httpMethod": "DELETE",
+                            "id": "autopush_sensorsuite_pa_sandbox.registries.firmwareTracks.delete",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Required. Resource name of the firmware track e.g.\n\"registries/xyz/firmwareTracks/foo\"",
+                                    "location": "path",
+                                    "pattern": "^registries/[^/]+/firmwareTracks/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "response": {
+                                "$ref": "Empty"
+                            }
+                        },
+                        "list": {
+                            "description": "Lists the firmware tracks. The caller must have at least `VIEWER` access in\nthe parent registry.",
+                            "flatPath": "v1/registries/{registriesId}/firmwareTracks",
+                            "httpMethod": "GET",
+                            "id": "autopush_sensorsuite_pa_sandbox.registries.firmwareTracks.list",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "Required. Resource name of the parent registry e.g.\n\"registries/xyz\"",
+                                    "location": "path",
+                                    "pattern": "^registries/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/firmwareTracks",
+                            "response": {
+                                "$ref": "ListFirmwareTracksResponse"
+                            }
+                        },
+                        "patch": {
+                            "description": "Updates fields of a firmware track. The caller must have at least `MANAGER`\naccess in the parent registry.",
+                            "flatPath": "v1/registries/{registriesId}/firmwareTracks/{firmwareTracksId}",
+                            "httpMethod": "PATCH",
+                            "id": "autopush_sensorsuite_pa_sandbox.registries.firmwareTracks.patch",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The resource name of the FirmwareTrack. E.g.\n`\"registries/xyz/firmwareTracks/abc\"`.",
+                                    "location": "path",
+                                    "pattern": "^registries/[^/]+/firmwareTracks/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "request": {
+                                "$ref": "UpdateFirmwareTrackRequest"
+                            },
+                            "response": {
+                                "$ref": "FirmwareTrack"
+                            }
+                        }
+                    }
+                },
+                "registrars": {
+                    "methods": {
+                        "create": {
+                            "description": "Adds a member to a device registry. The caller must have at least `OWNER`\naccess to the registry.",
+                            "flatPath": "v1/registries/{registriesId}/registrars",
+                            "httpMethod": "POST",
+                            "id": "autopush_sensorsuite_pa_sandbox.registries.registrars.create",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "Required. Name of the Registry to authorize the Registrar for. E.g.\n\"registries/xyz\".",
+                                    "location": "path",
+                                    "pattern": "^registries/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/registrars",
+                            "request": {
+                                "$ref": "Registrar"
+                            },
+                            "response": {
+                                "$ref": "Registrar"
+                            }
+                        },
+                        "delete": {
+                            "description": "Removes a member from a device registry. The caller must have at least\n`OWNER` access to the registry.",
+                            "flatPath": "v1/registries/{registriesId}/registrars/{registrarsId}",
+                            "httpMethod": "DELETE",
+                            "id": "autopush_sensorsuite_pa_sandbox.registries.registrars.delete",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Required.",
+                                    "location": "path",
+                                    "pattern": "^registries/[^/]+/registrars/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "response": {
+                                "$ref": "Empty"
+                            }
+                        },
+                        "list": {
+                            "description": "Lists the members of a device registry. The caller must have at least\n`VIEWER` access to the registry.",
+                            "flatPath": "v1/registries/{registriesId}/registrars",
+                            "httpMethod": "GET",
+                            "id": "autopush_sensorsuite_pa_sandbox.registries.registrars.list",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "Required. Resource name of the parent registry.",
+                                    "location": "path",
+                                    "pattern": "^registries/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/registrars",
+                            "response": {
+                                "$ref": "ListRegistrarsResponse"
+                            }
+                        },
+                        "patch": {
+                            "description": "Updates a registrar's role.",
+                            "flatPath": "v1/registries/{registriesId}/registrars/{registrarsId}",
+                            "httpMethod": "PATCH",
+                            "id": "autopush_sensorsuite_pa_sandbox.registries.registrars.patch",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The resource name of this registrar. It consists of the\nparent device registry's name followed by the email address of the\nregistrar. E.g. `\"registries/xyz/registrars/foo@bar.com\"`.",
+                                    "location": "path",
+                                    "pattern": "^registries/[^/]+/registrars/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "request": {
+                                "$ref": "UpdateRegistrarRequest"
+                            },
+                            "response": {
+                                "$ref": "Registrar"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "repositories": {
+            "methods": {
+                "create": {
+                    "description": "Creates a repository. The caller will be added as an `OWNER`.",
+                    "flatPath": "v1/repositories",
+                    "httpMethod": "POST",
+                    "id": "autopush_sensorsuite_pa_sandbox.repositories.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/repositories",
+                    "request": {
+                        "$ref": "Repository"
+                    },
+                    "response": {
+                        "$ref": "Repository"
+                    }
+                },
+                "delete": {
+                    "description": "Deletes a firmware repository. The caller must have `OWNER` role.",
+                    "flatPath": "v1/repositories/{repositoriesId}",
+                    "httpMethod": "DELETE",
+                    "id": "autopush_sensorsuite_pa_sandbox.repositories.delete",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Required.",
+                            "location": "path",
+                            "pattern": "^repositories/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "Empty"
+                    }
+                },
+                "list": {
+                    "description": "Lists the firmware repositories that the caller has at least `VIEWER`\naccess to.",
+                    "flatPath": "v1/repositories",
+                    "httpMethod": "GET",
+                    "id": "autopush_sensorsuite_pa_sandbox.repositories.list",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/repositories",
+                    "response": {
+                        "$ref": "ListRepositoriesResponse"
+                    }
+                },
+                "patch": {
+                    "description": "Updates fields of a firmware repository. The caller must have `owner`\naccess to the repository.",
+                    "flatPath": "v1/repositories/{repositoriesId}",
+                    "httpMethod": "PATCH",
+                    "id": "autopush_sensorsuite_pa_sandbox.repositories.patch",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "The resource name of this Repository. E.g. `\"repositories/xyz\"`.",
+                            "location": "path",
+                            "pattern": "^repositories/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "request": {
+                        "$ref": "UpdateRepositoryRequest"
+                    },
+                    "response": {
+                        "$ref": "Repository"
+                    }
+                }
+            },
+            "resources": {
+                "developers": {
+                    "methods": {
+                        "create": {
+                            "description": "Adds a developer to a firmware repository. The caller must have at\nleast `OWNER` access to the repository.",
+                            "flatPath": "v1/repositories/{repositoriesId}/developers",
+                            "httpMethod": "POST",
+                            "id": "autopush_sensorsuite_pa_sandbox.repositories.developers.create",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "Required.",
+                                    "location": "path",
+                                    "pattern": "^repositories/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/developers",
+                            "request": {
+                                "$ref": "Developer"
+                            },
+                            "response": {
+                                "$ref": "Developer"
+                            }
+                        },
+                        "delete": {
+                            "description": "Removes a member from a firmware repository. The caller must have at least\n`OWNER` access to the repository.",
+                            "flatPath": "v1/repositories/{repositoriesId}/developers/{developersId}",
+                            "httpMethod": "DELETE",
+                            "id": "autopush_sensorsuite_pa_sandbox.repositories.developers.delete",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Required.",
+                                    "location": "path",
+                                    "pattern": "^repositories/[^/]+/developers/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "response": {
+                                "$ref": "Empty"
+                            }
+                        },
+                        "list": {
+                            "description": "Lists the members of a firmware repository. The caller must have at least\n`VIEWER` access to the repository.",
+                            "flatPath": "v1/repositories/{repositoriesId}/developers",
+                            "httpMethod": "GET",
+                            "id": "autopush_sensorsuite_pa_sandbox.repositories.developers.list",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "Required. Resource name of the parent repository.",
+                                    "location": "path",
+                                    "pattern": "^repositories/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/developers",
+                            "response": {
+                                "$ref": "ListDevelopersResponse"
+                            }
+                        },
+                        "patch": {
+                            "description": "Updates a developer's role.",
+                            "flatPath": "v1/repositories/{repositoriesId}/developers/{developersId}",
+                            "httpMethod": "PATCH",
+                            "id": "autopush_sensorsuite_pa_sandbox.repositories.developers.patch",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The resource name of this user. It consists of the parent device\nrepository's name followed by the email address of the developer. E.g.\n`\"repositories/xyz/developers/foo@bar.com\"`.",
+                                    "location": "path",
+                                    "pattern": "^repositories/[^/]+/developers/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "request": {
+                                "$ref": "UpdateDeveloperRequest"
+                            },
+                            "response": {
+                                "$ref": "Developer"
+                            }
+                        }
+                    }
+                },
+                "firmwareLabels": {
+                    "methods": {
+                        "create": {
+                            "description": "Creates a firmware label. The caller must have at least `UPLOADER` access\nto the repository.",
+                            "flatPath": "v1/repositories/{repositoriesId}/firmwareLabels",
+                            "httpMethod": "POST",
+                            "id": "autopush_sensorsuite_pa_sandbox.repositories.firmwareLabels.create",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "Required. Resource name of the parent repository.",
+                                    "location": "path",
+                                    "pattern": "^repositories/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/firmwareLabels",
+                            "request": {
+                                "$ref": "FirmwareLabel"
+                            },
+                            "response": {
+                                "$ref": "FirmwareLabel"
+                            }
+                        },
+                        "delete": {
+                            "description": "Removes a label from the specified repository by disassociating it from the\nfirmware it was assigned to. The caller must have at least `UPLOADER`\naccess to the repository.",
+                            "flatPath": "v1/repositories/{repositoriesId}/firmwareLabels/{firmwareLabelsId}",
+                            "httpMethod": "DELETE",
+                            "id": "autopush_sensorsuite_pa_sandbox.repositories.firmwareLabels.delete",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Required. Resource name of the label. E.g.\n\"repositories/{repositoryId}/firmwareLabels/{label}\".",
+                                    "location": "path",
+                                    "pattern": "^repositories/[^/]+/firmwareLabels/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "response": {
+                                "$ref": "Empty"
+                            }
+                        },
+                        "get": {
+                            "description": "Gets a firmware label. The caller must have at least `VIEWER`\naccess to the repository.",
+                            "flatPath": "v1/repositories/{repositoriesId}/firmwareLabels/{firmwareLabelsId}",
+                            "httpMethod": "GET",
+                            "id": "autopush_sensorsuite_pa_sandbox.repositories.firmwareLabels.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Required. Name of the firmware label to get. E.g.\n\"repositories/{repositoryId}/firmwareLabels/{label}\".",
+                                    "location": "path",
+                                    "pattern": "^repositories/[^/]+/firmwareLabels/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "response": {
+                                "$ref": "FirmwareLabel"
+                            }
+                        },
+                        "patch": {
+                            "description": "Updates a firmware label. The caller must have at least `UPLOADER` access\nto the repository.",
+                            "flatPath": "v1/repositories/{repositoriesId}/firmwareLabels/{firmwareLabelsId}",
+                            "httpMethod": "PATCH",
+                            "id": "autopush_sensorsuite_pa_sandbox.repositories.firmwareLabels.patch",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The resource name of this firmware label. E.g.\n`\"repositories/xyz/firmwareLabels/foo\"`.",
+                                    "location": "path",
+                                    "pattern": "^repositories/[^/]+/firmwareLabels/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "request": {
+                                "$ref": "UpdateFirmwareLabelRequest"
+                            },
+                            "response": {
+                                "$ref": "FirmwareLabel"
+                            }
+                        }
+                    }
+                },
+                "firmwarePackages": {
+                    "methods": {
+                        "create": {
+                            "description": "Creates a firmware mapping within a Repository. The caller must have at\nleast `UPLOADER` access to the Repository.",
+                            "flatPath": "v1/repositories/{repositoriesId}/firmwarePackages",
+                            "httpMethod": "POST",
+                            "id": "autopush_sensorsuite_pa_sandbox.repositories.firmwarePackages.create",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "Required.",
+                                    "location": "path",
+                                    "pattern": "^repositories/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/firmwarePackages",
+                            "request": {
+                                "$ref": "FirmwarePackage"
+                            },
+                            "response": {
+                                "$ref": "FirmwarePackage"
+                            }
+                        },
+                        "delete": {
+                            "description": "Deletes a FirmwarePackage from a Repository. The caller must have at least\n`UPLOADER` access to the Repository.\nDoesn't actually delete the FirmwarePackage, only marks it as deleted and\nprevents it from being referenced by a FirmwareTrack. NOTE: Does not modify\nFirmwareTracks that point to this FirmwarePackage.",
+                            "flatPath": "v1/repositories/{repositoriesId}/firmwarePackages/{firmwarePackagesId}",
+                            "httpMethod": "DELETE",
+                            "id": "autopush_sensorsuite_pa_sandbox.repositories.firmwarePackages.delete",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Required. Name of the FirmwarePackage to delete. E.g.\n\"repositories/{repositoryId}/firmwarePackages/{firmwareVersion}\".",
+                                    "location": "path",
+                                    "pattern": "^repositories/[^/]+/firmwarePackages/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "response": {
+                                "$ref": "Empty"
+                            }
+                        },
+                        "get": {
+                            "description": "Gets all the details for a FirmwarePackage. The caller must have at least\n`VIEWER` permission on the Repository.",
+                            "flatPath": "v1/repositories/{repositoriesId}/firmwarePackages/{firmwarePackagesId}",
+                            "httpMethod": "GET",
+                            "id": "autopush_sensorsuite_pa_sandbox.repositories.firmwarePackages.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Required. Name of the FirmwarePackage to get. E.g.\n\"repositories/{repositoryId}/firmwarePackages/{firmwareVersion}\".",
+                                    "location": "path",
+                                    "pattern": "^repositories/[^/]+/firmwarePackages/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "response": {
+                                "$ref": "FirmwarePackage"
+                            }
+                        },
+                        "list": {
+                            "description": "Lists FirmwarePackages in a Repository. The caller must have at least\n`VIEWER` permission on the Repository.",
+                            "flatPath": "v1/repositories/{repositoriesId}/firmwarePackages",
+                            "httpMethod": "GET",
+                            "id": "autopush_sensorsuite_pa_sandbox.repositories.firmwarePackages.list",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "Required. Resource name of the parent repository.",
+                                    "location": "path",
+                                    "pattern": "^repositories/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/firmwarePackages",
+                            "response": {
+                                "$ref": "ListFirmwarePackagesResponse"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "rialtos": {
+            "methods": {
+                "get": {
+                    "description": "GetRialto returns debug info for the specified Rialto.",
+                    "flatPath": "v1/rialtos/{rialtosId}",
+                    "httpMethod": "GET",
+                    "id": "autopush_sensorsuite_pa_sandbox.rialtos.get",
+                    "parameterOrder": [
+                        "serialNumber"
+                    ],
+                    "parameters": {
+                        "serialNumber": {
+                            "description": "Serial number of the Rialto to get.",
+                            "location": "path",
+                            "pattern": "^[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/rialtos/{+serialNumber}",
+                    "response": {
+                        "$ref": "Rialto"
+                    }
+                }
+            }
+        },
+        "signedUploadUrls": {
+            "methods": {
+                "create": {
+                    "description": "CreateSignedUploadUrl returns a URL with secret to which a Rialto can\nupload its logs. Rialtos are authenticated by API key.",
+                    "flatPath": "v1/signedUploadUrls",
+                    "httpMethod": "POST",
+                    "id": "autopush_sensorsuite_pa_sandbox.signedUploadUrls.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/signedUploadUrls",
+                    "request": {
+                        "$ref": "CreateSignedUploadUrlRequest"
+                    },
+                    "response": {
+                        "$ref": "CreateSignedUploadUrlResponse"
+                    }
+                }
+            }
+        },
+        "v1": {
+            "methods": {
+                "getIdToken": {
+                    "description": "Returns the ID token that is generated by Firebase from the HTTP header.\n\nThis method is for test only.",
+                    "flatPath": "v1/getIdToken",
+                    "httpMethod": "GET",
+                    "id": "autopush_sensorsuite_pa_sandbox.getIdToken",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/getIdToken",
+                    "response": {
+                        "$ref": "GetIdTokenResponse"
+                    }
+                },
+                "getTime": {
+                    "description": "GetTime returns the current server time in milliseconds since the UNIX\nepoch. Rialtos are authenticated by API key.",
+                    "flatPath": "v1/time",
+                    "httpMethod": "GET",
+                    "id": "autopush_sensorsuite_pa_sandbox.getTime",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/time",
+                    "response": {
+                        "$ref": "GetTimeResponse"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190917",
+    "rootUrl": "https://autopush-sensorsuite-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "AsymKeyHolderAuthority": {
+            "description": "The authority of something that holds the private key. Authentication is\nperformed with JWTs.",
+            "id": "AsymKeyHolderAuthority",
+            "properties": {
+                "publicKey": {
+                    "description": "Public key used to verify the signature of the JWT.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "BleConnection": {
+            "description": "Defines the information necessary for creating a secure BLE connection\nto BLE peripherals (e.g. EarlySense).",
+            "id": "BleConnection",
+            "properties": {
+                "config": {
+                    "$ref": "BlePeripheralDeviceConfig",
+                    "description": "The BLE device configuration of the peripheral. This field is\nused by hosts to connect to implementation-agnostic BLE peripherals.\nHosts can use the information in the peripheral's configuration to\nconnect and parse data coming from the peripheral."
+                },
+                "deviceId": {
+                    "description": "The cross-registry unique identifier of this device. Same as\n`Device.global_id`.",
+                    "type": "string"
+                },
+                "macAddress": {
+                    "description": "Required. MAC address of the BLE device.",
+                    "type": "string"
+                },
+                "passkey": {
+                    "description": "Optional. Passkey for pairing with the BLE device; an integer between\n0-999999 per `chrome.bluetoothPrivate` API.\nSee:\nhttp://cs.chromium.org/chromium/src/extensions/common/api/bluetooth_private.idl",
+                    "format": "uint32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "BleFlagEnumFieldConfig": {
+            "description": "Bit-masked flag values for the measurement. Used in parsing packed BLE data.\nFor example, whether or not a field value is packed or omitted from BLE data.\nFor a concrete example see the \"Flags\" field in\nhttps://www.bluetooth.com/specifications/gatt/viewer?attributeXmlFile=org.bluetooth.characteristic.blood_pressure_measurement.xml.",
+            "id": "BleFlagEnumFieldConfig",
+            "properties": {
+                "dataSpecName": {
+                    "description": "The name of the Sensor Suite data spec containing data points to populate\nwith values from this enum. If not set, no data points will be populated.",
+                    "type": "string"
+                },
+                "fieldName": {
+                    "description": "The field name for the enum. If not set, this field will not be returned\n(we just skip past the bits.)",
+                    "type": "string"
+                },
+                "numBits": {
+                    "description": "The number of bits used to represent this enum from the value of the parent\nfield.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "valueMappings": {
+                    "description": "Mappings from flag values to names. If this is empty, the field name will\nuse the numeric value of the bits; this is most useful for simple boolean\nflag fields.",
+                    "items": {
+                        "$ref": "BleFlagEnumValueMapping"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BleFlagEnumValueMapping": {
+            "description": "Mapping of flag value to names.",
+            "id": "BleFlagEnumValueMapping",
+            "properties": {
+                "flagsValue": {
+                    "description": "A numeric value for a flag enum field.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "The string value that the bit value maps to; this is what will be returned\nin the Datum for the field when the value for the bits matches flags_value.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "BlePeripheralCharacteristicConfig": {
+            "description": "Configuration of a BLE characteristic of a peripheral device.",
+            "id": "BlePeripheralCharacteristicConfig",
+            "properties": {
+                "characteristicUuid": {
+                    "description": "Identifier of the BLE characteristic.",
+                    "type": "string"
+                },
+                "fields": {
+                    "description": "The fields to be read from the bytes returned for this characteristic,\nin the order that they should be read.\nCan be empty if this doesn\u2019t populate anything.",
+                    "items": {
+                        "$ref": "BlePeripheralFieldConfig"
+                    },
+                    "type": "array"
+                },
+                "serviceUuid": {
+                    "description": "Identifier of the BLE service that this characteristic is a part of.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "BlePeripheralDeviceConfig": {
+            "description": "Configuration of a BLE peripheral sensor device.",
+            "id": "BlePeripheralDeviceConfig",
+            "properties": {
+                "features": {
+                    "description": "Features that the BLE peripheral provides.",
+                    "items": {
+                        "$ref": "BlePeripheralFeatureConfig"
+                    },
+                    "type": "array"
+                },
+                "manufacturerId": {
+                    "description": "Manufacturer ID to filter by when discovering devices of this type.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "scanServiceUuid": {
+                    "description": "Service UUID to scan for when discovering devices of this type.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "BlePeripheralFeatureConfig": {
+            "description": "Configuration of a BLE feature of a peripheral sensor device.",
+            "id": "BlePeripheralFeatureConfig",
+            "properties": {
+                "notifications": {
+                    "description": "The characteristics to register for notifications about, after all reads\nare processed. May or may not be used to populate anything.",
+                    "items": {
+                        "$ref": "BlePeripheralCharacteristicConfig"
+                    },
+                    "type": "array"
+                },
+                "reads": {
+                    "description": "The characteristics to read. May or may not be used to populate anything.",
+                    "items": {
+                        "$ref": "BlePeripheralCharacteristicConfig"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BlePeripheralFieldConfig": {
+            "description": "The field that is being populated. If this is \"_TIMESTAMP\",\nthe field is the timestamp for the reading. If this is \"_FLAGS\",\nthe field is the flags used to evaluate the rest of the reading.",
+            "id": "BlePeripheralFieldConfig",
+            "properties": {
+                "dataSpecName": {
+                    "description": "The name of the Sensor Suite data spec that this field should be\nadded as a data point for. If not set, this field will not populate\na data point.",
+                    "type": "string"
+                },
+                "enumFields": {
+                    "description": "If not empty, one or more enum fields are calculated based on the value\nof this field, based on the bits of the value of this field.\nThese wind up in Datum.enum_values.",
+                    "items": {
+                        "$ref": "BleFlagEnumFieldConfig"
+                    },
+                    "type": "array"
+                },
+                "fieldName": {
+                    "description": "Note that the same field name can be used multiple times, but should have\ndifferent values for flag_bitmask each time that are mutually exclusive.",
+                    "type": "string"
+                },
+                "flagsBitmask": {
+                    "description": "A bitmask that when ANDed with the flags for the characteristic must match\nflag_value in order for this field to be used.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "flagsValue": {
+                    "description": "The value that the flags ANDed with flag_bitmask must match.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "formatType": {
+                    "description": "The format of the value for this field in the data.",
+                    "enum": [
+                        "UNSPECIFIED_FORMAT_TYPE",
+                        "FLOAT",
+                        "SFLOAT",
+                        "SINT32",
+                        "SINT64",
+                        "UINT8",
+                        "UINT16",
+                        "UINT32"
+                    ],
+                    "enumDescriptions": [
+                        "For unparsable data. Do not use.",
+                        "32-bit float",
+                        "16-bit float",
+                        "Signed 32-bit integer",
+                        "Signed 64-bit integer",
+                        "Unsigned 8-bit byte",
+                        "Unsigned 16-bit short",
+                        "Unsigned 32-bit integer"
+                    ],
+                    "type": "string"
+                },
+                "multiplier": {
+                    "description": "Multiplier for values for this field. Combines multiplier and exponent\nfrom Bluetooth spec.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "unitType": {
+                    "description": "The unit of measurement.",
+                    "enum": [
+                        "UNIT_TYPE_UNSPECIFIED",
+                        "COUNT",
+                        "RATIO",
+                        "METER",
+                        "GRAM",
+                        "SECOND",
+                        "AMPERE",
+                        "KELVIN",
+                        "MOLE",
+                        "CANDELA",
+                        "PERCENT",
+                        "LITER",
+                        "VOLT",
+                        "PASCAL",
+                        "NEWTON",
+                        "JOULE",
+                        "RADIAN",
+                        "DEGREE",
+                        "STERADIAN",
+                        "CELSIUS",
+                        "VELOCITY",
+                        "ACCELERATION",
+                        "LUMEN",
+                        "LUX",
+                        "OHM",
+                        "WATT",
+                        "BIT",
+                        "BYTE",
+                        "TESLA",
+                        "MMHG",
+                        "CMH2O",
+                        "MINUTE",
+                        "HOUR"
+                    ],
+                    "enumDescriptions": [
+                        "For unparsable data. Do not use.",
+                        "Special unit to indicate some counting metric (unitless).",
+                        "Special unit to indicate a ratio (unitless).",
+                        "Unit of length.",
+                        "Unit of mass.",
+                        "Unit of time.",
+                        "Unit of electric current.",
+                        "Unit of thermodynamic temperature.",
+                        "Unit of amount of substance.",
+                        "Unit of luminous intensity.",
+                        "Derived special unit. HECTO * RATIO",
+                        "Derived unit of volume. MILLI * METER^3",
+                        "Derived unit of electrical potential difference.\n(KILO * GRAM) * METER^2 * AMPERE^-1 * SECOND^-3",
+                        "Derived unit of pressure or stress.\n(KILO * GRAM) * METER^-1 * SECOND^-2",
+                        "Derived unit of force.\n(KILO * GRAM) * METER * SECOND^-2",
+                        "Derived unit of energy, work or heat.\n(KILO * GRAM) * METER^2 * SECOND^-2",
+                        "Derived unit of angle.",
+                        "Derived unit of angle. \u03c0 / 180 * RADIAN",
+                        "Derived unit of solid angle.",
+                        "Derived unit of temperature. KELVIN - 273.15",
+                        "Derived unit. METER * SECOND^-1",
+                        "Derived unit. METER * SECOND^-2",
+                        "Derived unit of luminous flux. CANDELA * STERADIAN",
+                        "Derived unit of illuminance. LUMEN * METER^-2",
+                        "Derived unit of electrical resistance. VOLT * AMPERE^-1",
+                        "Derived unit of power. JOULE * SECOND^-1.",
+                        "Unit of information.",
+                        "Derived unit of information. 8 * BIT",
+                        "Derived unit. NEWTON / (AMPERE * METER)",
+                        "Derived unit of pressure or stress. 133.322387415 * PASCAL",
+                        "Derived unit of pressure or stress. 0.0101972 * PASCAL",
+                        "Derived unit of time. 60 * SECOND",
+                        "Derived unit of time. 3600 * SECOND"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "BleProtocol": {
+            "description": "Defines the information necessary for creating a secure BleConnection\nbetween devices (e.g. EarlySense connecting to a Rialto).",
+            "id": "BleProtocol",
+            "properties": {
+                "macAddress": {
+                    "description": "Required. MAC address of the BLE device.",
+                    "type": "string"
+                },
+                "passkey": {
+                    "description": "Optional. Passkey for pairing with the BLE device; an integer between\n0-999999 per `chrome.bluetoothPrivate` API.\nSee:\nhttp://cs.chromium.org/chromium/src/extensions/common/api/bluetooth_private.idl",
+                    "format": "uint32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "BleSupport": {
+            "description": "Defines the host device's supported BLE protocol.",
+            "id": "BleSupport",
+            "properties": {
+                "maxConnections": {
+                    "description": "The maximum number of supported BLE clients. 0 means unlimited.",
+                    "format": "uint32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "CommitResponse": {
+            "description": "CommitResponse is sent from device to host after receiving a\nFirmwareCommitRequest message. If the |response_code| is SUCCESS the device\nwill reboot to apply the new firmware after the response has been\ntransmitted.",
+            "id": "CommitResponse",
+            "properties": {
+                "responseCode": {
+                    "description": "Type of the commit response.",
+                    "enum": [
+                        "UNKNOWN",
+                        "INCOMPLETE",
+                        "INVALID_SIGNATURE",
+                        "METADATA_NOT_FOUND",
+                        "INVALID_METADATA",
+                        "INVALID_VERSION",
+                        "INVALID_HARDWARE_MAGIC",
+                        "OTA_NOT_ALLOWED",
+                        "SUCCESS"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown error.",
+                        "A complete firmware image was not received by device.",
+                        "Firmware image signature verification failed.",
+                        "Metadata not found in the OTA image.",
+                        "Firmware metadata magic is not 0xDEADBEEF.",
+                        "Firmware version not acceptable.",
+                        "Hardware magic did not match the last 4",
+                        "bytes of Google Part Number of the device.\nUpgrading via OTA image is not allowed.",
+                        "Firmware verified successfully."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Config": {
+            "description": "This is a lighter-weight version of DeviceConfig from the ManagementService.",
+            "id": "Config",
+            "properties": {
+                "data": {
+                    "description": "Binary blob which represents the configuration data.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "firmwareUrl": {
+                    "description": "Firmware url for the corresponding firmware version.",
+                    "type": "string"
+                },
+                "firmwareVersion": {
+                    "description": "Firmware version that the sensor should have installed.",
+                    "type": "string"
+                },
+                "hostConfig": {
+                    "$ref": "DeviceHostConfig",
+                    "description": "Host device connection information."
+                },
+                "name": {
+                    "description": "The resource name of this configuration. E.g.\n`\"devices/abc/configurations/3\"`.",
+                    "type": "string"
+                },
+                "updateStatus": {
+                    "$ref": "Status",
+                    "description": "If the device had previously attempted an update to this config, status of\nthe attempt."
+                },
+                "version": {
+                    "description": "Version of the configuration. Must match the suffix of `name`.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "ConnectionProtocol": {
+            "description": "Defines connection protocol used by client devices to connect to its host\ndevice.",
+            "id": "ConnectionProtocol",
+            "properties": {
+                "ble": {
+                    "$ref": "BleProtocol",
+                    "description": "Defines BLE connection to the host device."
+                }
+            },
+            "type": "object"
+        },
+        "CreateReportResponse": {
+            "description": "Response of a status report.",
+            "id": "CreateReportResponse",
+            "properties": {
+                "report": {
+                    "$ref": "Report",
+                    "description": "Sensor status that was reported."
+                },
+                "targetConfigVersion": {
+                    "description": "Configuration version that the device should be at. The device can use the\nGetConfig method to download this version.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "CreateSignedUploadUrlRequest": {
+            "description": "Request for the CreateSignedUploadUrl method.",
+            "id": "CreateSignedUploadUrlRequest",
+            "properties": {
+                "filename": {
+                    "description": "Desired base name of the file. The server may append a random suffix to the\nactual filename. The field is named `filename` for backwards compatibility\ndespite being misleading since the actual filename will be different.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CreateSignedUploadUrlResponse": {
+            "description": "Response for the CreateSignedUploadUrl method.",
+            "id": "CreateSignedUploadUrlResponse",
+            "properties": {
+                "signedUrl": {
+                    "description": "Signed upload URL to upload logs to. URL is valid for 1 minute.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Developer": {
+            "description": "A user who has access to a firmware repository.",
+            "id": "Developer",
+            "properties": {
+                "email": {
+                    "description": "Email address of the developer.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The resource name of this user. It consists of the parent device\nrepository's name followed by the email address of the developer. E.g.\n`\"repositories/xyz/developers/foo@bar.com\"`.",
+                    "type": "string"
+                },
+                "role": {
+                    "description": "This registrar's access level in the registry.",
+                    "enum": [
+                        "UNKNOWN",
+                        "OWNER",
+                        "UPLOADER",
+                        "VIEWER"
+                    ],
+                    "enumDescriptions": [
+                        "Reserved.",
+                        "Owns the repository, can rename or delete the repository.",
+                        "Allowed to add/delete firmware to/from this repository.",
+                        "Read-only access to the repository"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Device": {
+            "description": "Devices are identified by a client-provided identifier (serial number in\npractice). Each device can represent either an end-user device (e.g. Coppa)\nor a gateway device (e.g. Rialto) although they most likely will have\ndifferent configuration schemas.\n\nLINT.IfChange(device)",
+            "id": "Device",
+            "properties": {
+                "blePeripheralConfig": {
+                    "$ref": "BlePeripheralDeviceConfig",
+                    "description": "Optional sub-field for BLE peripheral Devices that holds its\nBLE-related configuration. This field is mutually exclusive with the `host`\nfield."
+                },
+                "currentConfig": {
+                    "$ref": "DeviceConfig",
+                    "description": "The most recent configuration acknowledged by the device."
+                },
+                "deviceSpec": {
+                    "description": "Optional name of a DeviceSpec to pre-populate Device fields. E.g.\n\"deviceSpecs/com.verily.study_watch\". Available DeviceSpecs can be\ndiscovered using the CatalogService.ListDeviceSpecs method. This field is\nonly used on device creation and is immutable (re-creating the device will\nallow for a change to the device_spec).",
+                    "type": "string"
+                },
+                "deviceType": {
+                    "description": "Optional free form field writable by the client. Empty by default.",
+                    "type": "string"
+                },
+                "explicitHostPairings": {
+                    "description": "List of (peripheral) device IDs (global IDs) that this host is explicitly\npaired with. This field applies when `host.scope` is PARTICIPANT_EXPLICIT.\nDevices in this list which do not exist in the same scope as this host\nare ignored. Likewise, devices not in the list, but in the same scope as\nthe host, are also ignored.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "firmwareTrack": {
+                    "description": "The name of firmware track this device is following e.g\n`\"a24f0d68-55cf-4a11-93ff-e85aa3c02af9\"`.",
+                    "type": "string"
+                },
+                "globalId": {
+                    "description": "The cross-registry unique identifier of this device. It is the\nsame as the last part of `name`.",
+                    "type": "string"
+                },
+                "hardwareVersion": {
+                    "description": "Hardware version as reported by the device itself, i.e. via\n`Device.CreateReport()`.",
+                    "type": "string"
+                },
+                "host": {
+                    "$ref": "DeviceHost",
+                    "description": "Optional sub-field that describes how a device behaves as a host."
+                },
+                "lastReportTime": {
+                    "description": "The most recent time a device made a successful Device.CreateReport\nrequest, or 0 if there has never been a request. In milliseconds since UNIX\nepoch.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "metadata": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Extra metadata of a device. Can be used by clients to store opaque data\nthat will be persisted.",
+                    "type": "object"
+                },
+                "name": {
+                    "description": "The resource name of this device. E.g. `\"registries/xyz/devices/abc\"`.",
+                    "type": "string"
+                },
+                "participant": {
+                    "$ref": "Participant",
+                    "description": "The subject or patient using the device."
+                },
+                "secPolicy": {
+                    "$ref": "DeviceSecurityPolicy",
+                    "description": "Policy for how to authenticate requests coming from a device."
+                }
+            },
+            "type": "object"
+        },
+        "DeviceAuthority": {
+            "description": "An entity or principal that is the source of a device request.",
+            "id": "DeviceAuthority",
+            "properties": {
+                "asymKeyHolder": {
+                    "$ref": "AsymKeyHolderAuthority",
+                    "description": "Info about an asymetric key holder device authority."
+                },
+                "gaia": {
+                    "$ref": "GaiaAuthority",
+                    "description": "Info about a GAIA device authority."
+                },
+                "legacy": {
+                    "$ref": "LegacyRialtoAppAuthority",
+                    "description": "Info about a legacy Rialto app device authority."
+                },
+                "obfuscatedGaia": {
+                    "$ref": "ObfuscatedGaiaAuthority",
+                    "description": "Info about an obfuscated GAIA device authority."
+                }
+            },
+            "type": "object"
+        },
+        "DeviceClaim": {
+            "description": "Device metadata related to a device claimed to a user.",
+            "id": "DeviceClaim",
+            "properties": {
+                "claimIntervals": {
+                    "description": "Sequence of time intervals that the device was claimed to the calling user.\nThere will always be at least one interval present. If an interval\nrepresents a current claim, then interval's `end` field will be left unset.",
+                    "items": {
+                        "$ref": "TimeInterval"
+                    },
+                    "type": "array"
+                },
+                "globalDeviceId": {
+                    "description": "The cross-registry unique identifier of this device (serial number in\npractice).",
+                    "type": "string"
+                },
+                "lastReportTime": {
+                    "description": "If the device is currently claimed to the caller, this field contains the\nmost recent time a device made a successful Device.CreateReport request.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DeviceConfig": {
+            "description": "A Configuration represents the configuration of a device as intended by the\nservice. Configuration flows one-way from cloud to device. A configuration's\nformat is unknown to the Sensor Registry and is stored as an opaque binary.\nNote that the configuration of a device may differ from device to device even\nwithin the same Registry.\n\nLINT.IfChange(device_config)",
+            "id": "DeviceConfig",
+            "properties": {
+                "ackTime": {
+                    "description": "Output only. The time at which the device first acknowledged the\napplication of the DeviceConfig. In milliseconds since UNIX epoch.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "configStatus": {
+                    "$ref": "Status",
+                    "description": "The status of the device applying this configuration. Status = OK is\nassumed if this field is not specified."
+                },
+                "createTime": {
+                    "description": "Output only. In milliseconds since UNIX epoch.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "data": {
+                    "description": "Blackbox data set by client. In practice, this field is set to a serialized\nprotobuf controlled by client.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "firmwareUrl": {
+                    "description": "Firmware url that the device should be configured to. In practice, this\nshould be updated at the same time firmware_version is updated.",
+                    "type": "string"
+                },
+                "firmwareVersion": {
+                    "description": "Firmware version that the device should be configured to.",
+                    "type": "string"
+                },
+                "hostConfig": {
+                    "$ref": "DeviceHostConfig",
+                    "description": "Defines connections supported by this host device. This field is only\npresent for devices that are marked as device hosts. The field is\nread-only."
+                },
+                "name": {
+                    "description": "The resource name of this configuration. E.g.\n`\"registries/xyz/devices/abc/configurations/3\"`.",
+                    "type": "string"
+                },
+                "version": {
+                    "description": "Integer version of the configuration. This value is generated by the server\nand is monotonically increasing.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "DeviceHistoryRecord": {
+            "description": "A DeviceHistoryRecord contains the information within the context of a\nregistry of the previous change of a device, like creations, deletions, and\nupdates. This record also includes the agent who changes the device.",
+            "id": "DeviceHistoryRecord",
+            "properties": {
+                "changeType": {
+                    "description": "The type of the change.",
+                    "enum": [
+                        "UNKNOWN",
+                        "CREATE",
+                        "DELETE",
+                        "UPDATE"
+                    ],
+                    "enumDescriptions": [
+                        "Reserved",
+                        "The device is created in the registry.",
+                        "The device is deleted from the registry.",
+                        "The device's information is updated, e.g. assigned to a new participant."
+                    ],
+                    "type": "string"
+                },
+                "firmwareTrack": {
+                    "description": "The name of firmware track after the change, e.g\n`\"a24f0d68-55cf-4a11-93ff-e85aa3c02af9\"`.",
+                    "type": "string"
+                },
+                "host": {
+                    "$ref": "DeviceHost",
+                    "description": "Optional sub-field that describes how a device behaves as a host after the\nchange."
+                },
+                "name": {
+                    "description": "The name of this device history record, e.g.\n\"registries/xyz/devices/abc/deviceHistory/timestamp\"\n\"timestamp\" is represented in milliseconds since UNIX epoch.",
+                    "type": "string"
+                },
+                "participant": {
+                    "$ref": "Participant",
+                    "description": "The subject or patient using the device after the change."
+                },
+                "participantAgent": {
+                    "description": "The name of the participant who changed the device, e.g.\n\"participants/733t@gmail.com\".",
+                    "type": "string"
+                },
+                "recordTime": {
+                    "description": "Output only. The time of change in milliseconds since UNIX epoch.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "registrar": {
+                    "description": "The resource name of the registrar who changed the device, e.g.\n\"registries/xyz/registrars/foo@example.com\"",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DeviceHost": {
+            "description": "Defines host device behavior including the restricted set of allowed client\ndevices and supported connection protocols.",
+            "id": "DeviceHost",
+            "properties": {
+                "scope": {
+                    "description": "The set of devices the device can act as a host for.",
+                    "enum": [
+                        "UNKNOWN_SCOPE",
+                        "PARTICIPANT",
+                        "PARTICIPANT_EXPLICIT"
+                    ],
+                    "enumDescriptions": [
+                        "Reserved.",
+                        "Device may host any device assigned to the same participant.",
+                        "Device may host any explicitly specified device assigned to the same\nparticipant. Devices can be specified in the `explicit_host_pairings`\nfield."
+                    ],
+                    "type": "string"
+                },
+                "supportedProtocols": {
+                    "description": "List of possible connection protocols supported by this host.",
+                    "items": {
+                        "$ref": "SupportedProtocol"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "DeviceHostConfig": {
+            "description": "Host device connection information.",
+            "id": "DeviceHostConfig",
+            "properties": {
+                "bleConnections": {
+                    "description": "List of all BLE connections supported by this host device.",
+                    "items": {
+                        "$ref": "BleConnection"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "DeviceSecurityPolicy": {
+            "description": "Security policy for handling requests on behalf of a device.",
+            "id": "DeviceSecurityPolicy",
+            "properties": {
+                "allowedAuthorities": {
+                    "description": "Principals that are allowed authorities for the authentication of device\nrequests.",
+                    "items": {
+                        "$ref": "DeviceAuthority"
+                    },
+                    "type": "array"
+                },
+                "connectionProtocols": {
+                    "description": "List of client device connection protocols for connecting to host device.",
+                    "items": {
+                        "$ref": "ConnectionProtocol"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "DeviceSpec": {
+            "description": "DeviceSpecs represent types of devices (e.g. StudyWatch, StudyHub) and\ncontain metadata about those types.",
+            "id": "DeviceSpec",
+            "properties": {
+                "blePeripheralConfig": {
+                    "$ref": "BlePeripheralDeviceConfig",
+                    "description": "Optional BLE peripheral configuration template for the Device. Maps to the\nDevice.ble_peripheral_config field."
+                },
+                "dataSpecs": {
+                    "description": "IDs of SensorStore DataSpecs that are expected to be produced by this\ndevice. E.g. \"com.verily.battery_level\". This is informational only and\ndoes not prohibit the device from not producing these data or producing\ndifferent DataSpecs. Applications can use this value perhaps to\npre-populate which DataSpecs to retrieve for a given device.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "Human-readable description of this DeviceSpec. Required.",
+                    "type": "string"
+                },
+                "deviceHost": {
+                    "$ref": "DeviceHost",
+                    "description": "Optional DeviceHost template for Devices referencing this DeviceSpec.\nMaps to Device.host field."
+                },
+                "deviceIdRegexp": {
+                    "description": "Optional regular expression defining the set of valid Device IDs that can\nreference this DataSpec. Regexp format is Java's standard format:\nhttps://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html.\nMaps to Device.global_id field.",
+                    "type": "string"
+                },
+                "deviceType": {
+                    "description": "Optional display name for the device type. Maps to Device.device_type\nfield.",
+                    "type": "string"
+                },
+                "manufacturerName": {
+                    "description": "Name of the manufacturer of this DeviceSpec. E.g. \"Verily\". This\nis informational only and does not get copied to Devices.",
+                    "type": "string"
+                },
+                "modelNumber": {
+                    "description": "Optional model number of this DeviceSpec. E.g. \"v2\". This\nis informational only and does not get copied to Devices.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Name of the DeviceSpec in the format \"deviceSpecs/<reverse-domain ID>\".\nE.g. \"deviceSpecs/com.verily.study_watch\".",
+                    "type": "string"
+                },
+                "secPolicy": {
+                    "$ref": "DeviceSecurityPolicy",
+                    "description": "Optional DeviceSecurityPolicy template for Devices referencing this\nDeviceSpec. Maps to Device.sec_policy field."
+                }
+            },
+            "type": "object"
+        },
+        "Empty": {
+            "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+            "id": "Empty",
+            "properties": {},
+            "type": "object"
+        },
+        "FetchDataResponse": {
+            "description": "Response for a request to fetch data.",
+            "id": "FetchDataResponse",
+            "properties": {},
+            "type": "object"
+        },
+        "FetchUrlResponse": {
+            "description": "Response for a request to fetch URL.",
+            "id": "FetchUrlResponse",
+            "properties": {
+                "body": {
+                    "$ref": "HttpBody",
+                    "description": "The body of the response from the partner."
+                }
+            },
+            "type": "object"
+        },
+        "FirmwareLabel": {
+            "description": "A reference to a firmware. In practice labels represent references to the\nlatest prod firmware or QA firmware.",
+            "id": "FirmwareLabel",
+            "properties": {
+                "firmwareVersion": {
+                    "description": "Firmware version this label is associated with, i.e.\n`FirmwarePackage.version`.",
+                    "type": "string"
+                },
+                "label": {
+                    "description": "Client-provided string used as the label. Also used as part\nof the resource name.\nMust be unique within a repository and match the regex \"^[a-zA-Z0-9_.\\-]+$\"",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The resource name of this firmware label. E.g.\n`\"repositories/xyz/firmwareLabels/foo\"`.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FirmwareMapping": {
+            "description": "Maps a given firmware binary to a specific device_type and hardware_version.\nFor now, device_type is ignored.",
+            "id": "FirmwareMapping",
+            "properties": {
+                "deviceType": {
+                    "description": "Optional. Maps to registry's `Device.device_type`.",
+                    "type": "string"
+                },
+                "hardwareVersion": {
+                    "description": "Optional. Maps to registry's `Device.hardware_version`.",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "Required. Full HTTPS URL pointing to firmware data.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FirmwarePackage": {
+            "description": "A particular firmware package with associated metadata. A firmware package is\na group of firmware binaries all with the same version string, with logic to\nmap each binary to a given device type and hardware version. It is expected\nthat the process of uploading firmware is automated. Each firmware package\ncan have a label assigned to it in the same approach as MPM labels.",
+            "id": "FirmwarePackage",
+            "properties": {
+                "deleted": {
+                    "description": "If true, a FirmwareTrack will be unable to include this firmware. However,\nthis firmware will still appear in a ListFirmwareResponse",
+                    "type": "boolean"
+                },
+                "labels": {
+                    "description": "If true, a FirmwareTrack will be unable to include this firmware. However,\nthis firmware will still appear in a ListFirmwareResponse",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "mappings": {
+                    "description": "FirmwareMappings contained in this package. There should be one mapping for\neach firmware binary in this package.",
+                    "items": {
+                        "$ref": "FirmwareMapping"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "The resource name of this firmware package. E.g.\n`\"repositories/xyz/firmwarePackage/bar\"`.",
+                    "type": "string"
+                },
+                "uploadTime": {
+                    "description": "Server time when this firmware was uploaded",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "uploaderEmail": {
+                    "description": "The email of the Developer who uploaded this Firmware",
+                    "type": "string"
+                },
+                "version": {
+                    "description": "Client-provided version string used as the Firmware Package ID. Also used\nas part of the resource name. Must be unique within a repository and match\nthe regex \"^[a-zA-Z0-9.]+$\"",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FirmwareTrack": {
+            "description": "A editable reference to firmware controlled by firmware distributors. A\nFirmwareTrack is contained within a device Registry and access is controlled\nby its ACL.\n\nWhen devices sync with the cloud, the Sensor Firmware service decides which\nfirmware to provide to the device based on its FirmwareTrack.\n\nIn practice, FirmwareTracks usually represent:\n* production builds of a firmware used in a study\n* experimental builds that need to be tested on prototype devices\n* firmware builds for A/B testing among cohorts within a study\n\nThe decision of which devices belong to which FirmwareTracks is left up to\nthe client running a study.",
+            "id": "FirmwareTrack",
+            "properties": {
+                "deviceCount": {
+                    "description": "Number of devices assigned to this track",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "Display-friendly name of this FirmwareTrack.",
+                    "type": "string"
+                },
+                "firmwarePackageName": {
+                    "description": "The resource name of the FirmwarePackage this FirmwareTrack is tracking.\nE.g.\n`\"repositories/xyz/firmwarePackages/abc\"`.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The resource name of the FirmwareTrack. E.g.\n`\"registries/xyz/firmwareTracks/abc\"`.",
+                    "type": "string"
+                },
+                "targetLabel": {
+                    "description": "Optional. The Repository label this FirmwareTrack is tracking. E.g.\n`\"repositories/xyz/firmwareLabels/abc\"`.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GaiaAuthority": {
+            "description": "The authority of a GAIA user/service account. Authentication is performed\nwith OAuth2.",
+            "id": "GaiaAuthority",
+            "properties": {
+                "email": {
+                    "description": "A GAIA user is identified by its email address. This is mutually\nexclusive with `id`, so exactly one can be provided.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "A GAIA user is also identified by its numeric GAIA ID. This is mutually\nexclusive with `email`, so exactly one can be provided.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GetIdTokenResponse": {
+            "description": "Response of the ParticipantService.GetIdToken method.",
+            "id": "GetIdTokenResponse",
+            "properties": {
+                "email": {
+                    "description": "The email of the Gaia user, if provided.",
+                    "type": "string"
+                },
+                "idToken": {
+                    "description": "The ID token in the HTTP header. This was generated by Firebase Auth and\nused in one platform authentication.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GetMasterKeyResponse": {
+            "description": "Response message for the GetMasterKey method.",
+            "id": "GetMasterKeyResponse",
+            "properties": {
+                "hexMasterKey": {
+                    "description": "Required. The device master key for the given identifier.",
+                    "type": "string"
+                },
+                "masterKey": {
+                    "description": "Required. The device master key for the given identifier.",
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GetTimeResponse": {
+            "description": "Response for the GetTime method.",
+            "id": "GetTimeResponse",
+            "properties": {
+                "currentTimeMillis": {
+                    "description": "Current server time in milliseconds since the UNIX epoch.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Group": {
+            "description": "A Registrar that represents a group of end-users.",
+            "id": "Group",
+            "properties": {
+                "email": {
+                    "description": "Email identifier of the group.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "HttpBody": {
+            "description": "Message that represents an arbitrary HTTP body. It should only be used for\npayload formats that can't be represented as JSON, such as raw binary or\nan HTML page.\n\n\nThis message can be used both in streaming and non-streaming API methods in\nthe request as well as the response.\n\nIt can be used as a top-level request field, which is convenient if one\nwants to extract parameters from either the URL or HTTP template into the\nrequest fields and also want access to the raw HTTP body.\n\nExample:\n\n    message GetResourceRequest {\n      // A unique request id.\n      string request_id = 1;\n\n      // The raw HTTP body is bound to this field.\n      google.api.HttpBody http_body = 2;\n    }\n\n    service ResourceService {\n      rpc GetResource(GetResourceRequest) returns (google.api.HttpBody);\n      rpc UpdateResource(google.api.HttpBody) returns\n      (google.protobuf.Empty);\n    }\n\nExample with streaming methods:\n\n    service CaldavService {\n      rpc GetCalendar(stream google.api.HttpBody)\n        returns (stream google.api.HttpBody);\n      rpc UpdateCalendar(stream google.api.HttpBody)\n        returns (stream google.api.HttpBody);\n    }\n\nUse of this type only changes how the request and response bodies are\nhandled, all other features will continue to work unchanged.",
+            "id": "HttpBody",
+            "properties": {
+                "contentType": {
+                    "description": "The HTTP Content-Type header value specifying the content type of the body.",
+                    "type": "string"
+                },
+                "data": {
+                    "description": "The HTTP request/response body as raw binary.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "extensions": {
+                    "description": "Application specific response metadata. Must be set in the first response\nfor streaming APIs.",
+                    "items": {
+                        "additionalProperties": {
+                            "description": "Properties of the object. Contains field @type with type URL.",
+                            "type": "any"
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "LegacyDeviceToCloudRequest": {
+            "description": "Request to the LegacyDeviceToCloud method.",
+            "id": "LegacyDeviceToCloudRequest",
+            "properties": {
+                "deviceRequest": {
+                    "description": "Required. The serialized pancetta.fw.Cloud message provided by Coppa which\ndescribes what the device is requesting from the cloud.",
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "LegacyDeviceToCloudResponse": {
+            "description": "Response of the LegacyDeviceToCloud method.",
+            "id": "LegacyDeviceToCloudResponse",
+            "properties": {
+                "cloudResponse": {
+                    "description": "Required. The serialized pancetta.fw.Cloud message, containing the cloud's\nresponse to the device.",
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "LegacyRialtoAppAuthority": {
+            "description": "The authority of a Rialto application. Authentication is performed by\ncomparing the Google Cloud Project API key provided in the request with the\none stored in keystore. This authority should be limited to Coppa devices.\nNo fields.",
+            "id": "LegacyRialtoAppAuthority",
+            "properties": {},
+            "type": "object"
+        },
+        "ListDevelopersResponse": {
+            "description": "Response of the ListDevelopers method.",
+            "id": "ListDevelopersResponse",
+            "properties": {
+                "developers": {
+                    "description": "Listed developers.",
+                    "items": {
+                        "$ref": "Developer"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListDeviceClaimsResponse": {
+            "description": "Response of the ListDeviceClaims method.",
+            "id": "ListDeviceClaimsResponse",
+            "properties": {
+                "deviceClaims": {
+                    "description": "The filtered set of DeviceClaims.",
+                    "items": {
+                        "$ref": "DeviceClaim"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListDeviceConfigsResponse": {
+            "description": "Response for the ListDeviceConfigs method.",
+            "id": "ListDeviceConfigsResponse",
+            "properties": {
+                "configs": {
+                    "description": "Filtered device configurations.",
+                    "items": {
+                        "$ref": "DeviceConfig"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListDeviceHistoryResponse": {
+            "description": "Response for the ListDeviceHistory method.",
+            "id": "ListDeviceHistoryResponse",
+            "properties": {
+                "deviceHistoryRecords": {
+                    "description": "Filtered device history.",
+                    "items": {
+                        "$ref": "DeviceHistoryRecord"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListDeviceSpecsResponse": {
+            "description": "Response message of the ListDeviceSpecs method.",
+            "id": "ListDeviceSpecsResponse",
+            "properties": {
+                "deviceSpecs": {
+                    "description": "Available DataSpecs. No ordering is defined.",
+                    "items": {
+                        "$ref": "DeviceSpec"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListDevicesResponse": {
+            "description": "Response to the ListDevices method.",
+            "id": "ListDevicesResponse",
+            "properties": {
+                "devices": {
+                    "description": "Filtered paged list of devices from the specified Registry.",
+                    "items": {
+                        "$ref": "Device"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "Token for the next page of devices.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListFirmwarePackagesResponse": {
+            "description": "Response of the ListFirmware method.",
+            "id": "ListFirmwarePackagesResponse",
+            "properties": {
+                "firmwarePackages": {
+                    "description": "Listed FirmwarePackages.",
+                    "items": {
+                        "$ref": "FirmwarePackage"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListFirmwareTracksResponse": {
+            "description": "Response of the ListFirmwareTracks method.",
+            "id": "ListFirmwareTracksResponse",
+            "properties": {
+                "tracks": {
+                    "description": "Firmware tracks listed.",
+                    "items": {
+                        "$ref": "FirmwareTrack"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListParticipantDevicesResponse": {
+            "description": "Response of the ParticipantService.ListDevices method.",
+            "id": "ListParticipantDevicesResponse",
+            "properties": {
+                "devices": {
+                    "description": "Devices currently assigned to the caller.",
+                    "items": {
+                        "$ref": "ParticipantDevice"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListRegistrarsResponse": {
+            "description": "Response to the ListRegistrars method.",
+            "id": "ListRegistrarsResponse",
+            "properties": {
+                "registrars": {
+                    "description": "List of Registrars authorized for specified Registry.",
+                    "items": {
+                        "$ref": "Registrar"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListRegistriesResponse": {
+            "description": "Response of the ListRegistries method.",
+            "id": "ListRegistriesResponse",
+            "properties": {
+                "registries": {
+                    "description": "Registries that the caller has at least `VIEWER` access to.",
+                    "items": {
+                        "$ref": "Registry"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListRepositoriesResponse": {
+            "description": "Response of the ListRepositories method.",
+            "id": "ListRepositoriesResponse",
+            "properties": {
+                "repositories": {
+                    "description": "Listed firmware repositories.",
+                    "items": {
+                        "$ref": "Repository"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "MdbUser": {
+            "description": "A Registrar that is represented by a service. Any end-user using this\nservice will be authorized by its own authority as well as the authority of\nthe service.",
+            "id": "MdbUser",
+            "properties": {
+                "userName": {
+                    "description": "Name of the MDB user that the service runs as. E.g. \"verily-sensors-eng\".",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ObfuscatedGaiaAuthority": {
+            "description": "The authority of a GAIA user/service account. Authentication is performed\nwith OAuth2. The GAIA ID is obfuscated on the client.",
+            "id": "ObfuscatedGaiaAuthority",
+            "properties": {
+                "id": {
+                    "description": "A GAIA user is identified by its obfuscated GAIA ID.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Participant": {
+            "description": "A subject or patient who uses a device.\n\nLINT.IfChange(participant)",
+            "id": "Participant",
+            "properties": {
+                "collectData": {
+                    "description": "Whether data should be collected from the associated device. Deprecated.",
+                    "type": "boolean"
+                },
+                "id": {
+                    "description": "Identifier of the participant within its namespace.",
+                    "type": "string"
+                },
+                "participantNamespace": {
+                    "description": "Type of the participant.",
+                    "enum": [
+                        "UNKNOWN",
+                        "GAIA",
+                        "MPOWER",
+                        "HASHED_STRING",
+                        "CSP",
+                        "ANON_STUDY_DEVICE",
+                        "SENSOR_REGISTRY_CUSTOM",
+                        "OBFUSCATED_GAIA",
+                        "DMI",
+                        "CSP_UUID"
+                    ],
+                    "enumDescriptions": [
+                        "Reserved.",
+                        "GAIA user identified by a id of the decimal representation of the user's\nGAIA ID.",
+                        "MPower namespace.",
+                        "Hashed string namespace.",
+                        "CSP namespace.",
+                        "Anonymous study device namespace. Used when synthetic participants are\nneeded.",
+                        "Custom id space for the registry. Will be prefixed by the registry ID and\na colon (\":\"). For example if the Registry ID is \"1-xxx-xxx\" then the\n`id` should start with \"1-xxx-xxx:\".",
+                        "An obfuscated GAIA ID. For now, this is used only to support conversion\nfrom obfuscated GAIA IDs on clients registering devices to unobfuscated\nGAIA IDs in sensor registry.",
+                        "Users in the DMI system. Uses Userid.user_string. Caller must be\nauthenticated with the DMI system.",
+                        "Chinese version of CSP namespace."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ParticipantDevice": {
+            "description": "A Device that is claimed to the caller. This is a limited view of\nlifescience.sensors.registry.management.Device fields that are available to\nRegistrars via the ManagementService API.\n\nLINT.IfChange(device)",
+            "id": "ParticipantDevice",
+            "properties": {
+                "deviceSpec": {
+                    "description": "Optional name of a lifescience.sensors.registry.DeviceSpec to associate the\ndevice with in the form \"deviceSpecs/<reverse-domain ID>\". Note that some\nregistries specify a whitelist of DeviceSpecs.",
+                    "type": "string"
+                },
+                "globalId": {
+                    "description": "The device's globally unique identifier. Must be consistent with `name`.",
+                    "type": "string"
+                },
+                "hardwareVersion": {
+                    "description": "Hardware version of the device. For devices that can receive firmware OTA\nupdates, this string will be used to determine the appropriate firmware\nbinary to serve to the device.",
+                    "type": "string"
+                },
+                "metadata": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Extra metadata for a device. The data structure is represented as\nmap<key, value>.",
+                    "type": "object"
+                },
+                "name": {
+                    "description": "Name of the participant device in the form\n\"participantDevices/<device global ID>\". E.g. \"participantDevices/XYZ123\".\nUnlike device names in the management API, these device names do not\ninclude the Registry that they are currently registered to.",
+                    "type": "string"
+                },
+                "participant": {
+                    "$ref": "SelfParticipant",
+                    "description": "Participant associated with the device. The participant must be associated\nwith the caller in the relevant identity system. If not specified, the GAIA\nparticipant associated with the caller will be used."
+                },
+                "registryName": {
+                    "description": "Name of the Registry that the device is registered in in the form\n\"registries/<registry GUID>\".",
+                    "type": "string"
+                },
+                "secPolicy": {
+                    "$ref": "DeviceSecurityPolicy",
+                    "description": "Security policy for the device that restricts who can upload sensor data\nfor this device among other things. In practice, devices created via the\nParticipantService should include the caller in the security policy."
+                }
+            },
+            "type": "object"
+        },
+        "Registrar": {
+            "description": "Registrar represents a user entity that has some access to a device registry.",
+            "id": "Registrar",
+            "properties": {
+                "group": {
+                    "$ref": "Group",
+                    "description": "If the Registrar is a group, this field contains info about the\nRegistrar."
+                },
+                "mdbUser": {
+                    "$ref": "MdbUser",
+                    "description": "Only suitable for internal Google use. If the calling service uses this\nMDB user then any effective user is authorized at this Registrar's role.\nThis implies that authorized requests must include an effective (gaia)\nuser for auditing purposes. Note that the effective user's relationship\nto the MDB user is irrelevant."
+                },
+                "name": {
+                    "description": "The resource name of this registrar. It consists of the\nparent device registry's name followed by the email address of the\nregistrar. E.g. `\"registries/xyz/registrars/foo@bar.com\"`.",
+                    "type": "string"
+                },
+                "role": {
+                    "description": "This registrar's access level in the registry.",
+                    "enum": [
+                        "UNKNOWN",
+                        "OWNER",
+                        "PROVISIONER",
+                        "MANAGER",
+                        "VIEWER"
+                    ],
+                    "enumDescriptions": [
+                        "Reserved.",
+                        "Owns the registry, can rename or delete the registry.",
+                        "Allowed to add/remove devices to/from the registry.",
+                        "Allowed to modify properties of the devices within a registry.",
+                        "Read-only access to the registry."
+                    ],
+                    "type": "string"
+                },
+                "user": {
+                    "$ref": "User",
+                    "description": "If the Registrar is an end-user, this field contains info about the\nRegistrar."
+                }
+            },
+            "type": "object"
+        },
+        "Registry": {
+            "description": "A registry is a grouping of devices that are associated with a common ACL.\nWhen a device is created it must be created within an existing registry.\nRegistries can be arbitrarily created by clients. In practice, the concept of\nRegistry aligns with a set of devices intended to be used by a large study\n(e.g. Baseline).",
+            "id": "Registry",
+            "properties": {
+                "creationTime": {
+                    "description": "Output only. In milliseconds since UNIX epoch.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "Display-friendly name of this Registry.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The resource name of this Registry in the format\n\"registries/<Registry GUID>\".\nE.g. \"registries/e3bc11dc-1a06-06d7-5bab-ffd8e884fe59\".",
+                    "type": "string"
+                },
+                "policy": {
+                    "$ref": "RegistryPolicy",
+                    "description": "Policy to control custom behavior for this Registry."
+                },
+                "studyId": {
+                    "description": "The resource name of the study that this registry is associated with.",
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "Output only. In milliseconds since UNIX epoch.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RegistryPolicy": {
+            "description": "RegistryPolicy allows registries to enforce certain behaviors e.g. all\nparticipants must be in FOO namespace.",
+            "id": "RegistryPolicy",
+            "properties": {
+                "deviceSpecs": {
+                    "description": "Whitelist of DeviceSpecs required by this Registry. Devices created without\na whitelisted DeviceSpec will be rejected. If the list is empty, then no\nDeviceSpec is required and any DeviceSpec can be used. Field values are\nDeviceSpec names. E.g. \"deviceSpecs/com.verily.study_watch\".",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "legacyAnonymousStudyPrefix": {
+                    "description": "When required_participant_namespace is ANON_STUDY_DEVICE, this prefix must\nbe non-empty, and all subsequent participant creation and updates will\nverify that the participant id contains this prefix.",
+                    "type": "string"
+                },
+                "requiredParticipantNamespace": {
+                    "description": "If set, all participants created/updated in this registry must belong to\nthis namespace.",
+                    "enum": [
+                        "UNKNOWN",
+                        "GAIA",
+                        "MPOWER",
+                        "HASHED_STRING",
+                        "CSP",
+                        "ANON_STUDY_DEVICE",
+                        "SENSOR_REGISTRY_CUSTOM",
+                        "OBFUSCATED_GAIA",
+                        "DMI",
+                        "CSP_UUID"
+                    ],
+                    "enumDescriptions": [
+                        "Reserved.",
+                        "GAIA user identified by a id of the decimal representation of the user's\nGAIA ID.",
+                        "MPower namespace.",
+                        "Hashed string namespace.",
+                        "CSP namespace.",
+                        "Anonymous study device namespace. Used when synthetic participants are\nneeded.",
+                        "Custom id space for the registry. Will be prefixed by the registry ID and\na colon (\":\"). For example if the Registry ID is \"1-xxx-xxx\" then the\n`id` should start with \"1-xxx-xxx:\".",
+                        "An obfuscated GAIA ID. For now, this is used only to support conversion\nfrom obfuscated GAIA IDs on clients registering devices to unobfuscated\nGAIA IDs in sensor registry.",
+                        "Users in the DMI system. Uses Userid.user_string. Caller must be\nauthenticated with the DMI system.",
+                        "Chinese version of CSP namespace."
+                    ],
+                    "type": "string"
+                },
+                "topicConfigs": {
+                    "description": "The description of how SensorStore publishes to the Cloud Pub/Sub Service\nfor notifications about when a device in this registry uploads data.",
+                    "items": {
+                        "$ref": "TopicConfig"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Report": {
+            "description": "Status report of a sensor device.",
+            "id": "Report",
+            "properties": {
+                "configVersion": {
+                    "description": "Required.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "hardwareVersion": {
+                    "description": "Required.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Name of the Report resource of the form\n\"devices/{deviceId}/reports/{reportId}\". Where `deviceId` is the device's\nserial number, and `reportId` is a server generated integer. E.g.\n\"devices/xyzabc/reports/4658343489\"",
+                    "type": "string"
+                },
+                "reportTime": {
+                    "description": "Read-only. Time that the report was recorded. In milliseconds since UNIX\nepoch.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "targetConfigStatus": {
+                    "$ref": "Status",
+                    "description": "The status of the device applying the latest configuration, if an update\nwas attempted. Status = OK is assumed if this field is not specified."
+                },
+                "targetConfigVersion": {
+                    "description": "The most recent configuration version that the device attempted to apply.\nIn case of an unsuccessful update, this will be a newer version than\n`config_version` above and `target_config_status` will contain the error\nstatus.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "Repository": {
+            "description": "A container of firmware build references and firmware labels that is ACLed to\na specific MDB group.",
+            "id": "Repository",
+            "properties": {
+                "creationTime": {
+                    "description": "Output only. In milliseconds since UNIX epoch.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "Display-friendly name of this Repository.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The resource name of this Repository. E.g. `\"repositories/xyz\"`.",
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "Output only. In milliseconds since UNIX epoch.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Rialto": {
+            "description": "Debug info about a Rialto device.",
+            "id": "Rialto",
+            "properties": {
+                "deviceId": {
+                    "description": "Chrome OS device identifier.",
+                    "type": "string"
+                },
+                "firmwareVersion": {
+                    "description": "Firmware version of the Rialto.",
+                    "type": "string"
+                },
+                "orgUnitPath": {
+                    "description": "OU of the Rialto.",
+                    "type": "string"
+                },
+                "osVersion": {
+                    "description": "Chrome OS version of the Rialto.",
+                    "type": "string"
+                },
+                "platformVersion": {
+                    "description": "Chromebook platform version.",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "Status of the device.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SelfParticipant": {
+            "description": "A participant that is associated with a device. The participant should\nrepresent the caller (hence \"self\").\n\nLINT.IfChange(self_participant)",
+            "id": "SelfParticipant",
+            "properties": {
+                "id": {
+                    "description": "ID of the participant within the namespace. Note that unlike the analogous\nfield in the ManagementService, this ID is the externally visible ID. For\nexample, email address for GAIA, or external ID for CSP accounts.",
+                    "type": "string"
+                },
+                "participantNamespace": {
+                    "description": "Namespace of the participant.",
+                    "enum": [
+                        "UNKNOWN",
+                        "GAIA",
+                        "MPOWER",
+                        "HASHED_STRING",
+                        "CSP",
+                        "ANON_STUDY_DEVICE",
+                        "SENSOR_REGISTRY_CUSTOM",
+                        "DMI",
+                        "CSP_UUID"
+                    ],
+                    "enumDescriptions": [
+                        "Reserved.",
+                        "GAIA user identified by a id of the decimal representation of the user's\nGAIA ID.",
+                        "MPower namespace.",
+                        "Hashed string namespace.",
+                        "CSP namespace.",
+                        "Anonymous study device namespace. Used when synthetic participants are\nneeded.",
+                        "Custom id space for the registry. Will be prefixed by the registry ID and\na colon (\":\"). For example if the Registry ID is \"1-xxx-xxx\" then the\n`id` should start with \"1-xxx-xxx:\".",
+                        "DMI namespace.",
+                        "CSP namespace used in the China version of the Baseline platform version."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Status": {
+            "description": "The `Status` type defines a logical error model that is suitable for\ndifferent programming environments, including REST APIs and RPC APIs. It is\nused by [gRPC](https://github.com/grpc). Each `Status` message contains\nthree pieces of data: error code, error message, and error details.\n\nYou can find out more about this error model and how to work with it in the\n[API Design Guide](https://cloud.google.com/apis/design/errors).",
+            "id": "Status",
+            "properties": {
+                "code": {
+                    "description": "The status code, which should be an enum value of google.rpc.Code.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "details": {
+                    "description": "A list of messages that carry the error details.  There is a common set of\nmessage types for APIs to use.",
+                    "items": {
+                        "additionalProperties": {
+                            "description": "Properties of the object. Contains field @type with type URL.",
+                            "type": "any"
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "message": {
+                    "description": "A developer-facing error message, which should be in English. Any\nuser-facing error message should be localized and sent in the\ngoogle.rpc.Status.details field, or localized by the client.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SupportedProtocol": {
+            "description": "Defines the type of connection protocols a host can use to connect to\nclient devices.",
+            "id": "SupportedProtocol",
+            "properties": {
+                "ble": {
+                    "$ref": "BleSupport",
+                    "description": "If present, host can support BLE protocol."
+                }
+            },
+            "type": "object"
+        },
+        "TimeInterval": {
+            "description": "An interval in time.",
+            "id": "TimeInterval",
+            "properties": {
+                "end": {
+                    "description": "When the device was unclaimed from the user. If the device has not yet been\nclaimed, then this field will be left unset.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "start": {
+                    "description": "When the device was claimed to the user.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TopicConfig": {
+            "description": "The description of how SensorStore publishes to the Cloud Pub/Sub Service\nfor notifications about when a device uploads data. TopicConfigs are\nconfigured in a Registry's RegistryPolicy.",
+            "id": "TopicConfig",
+            "properties": {
+                "dataSpecs": {
+                    "description": "List of DataSpecs to publish on this topic. DataSpecs are defined in\nSensorStore. If left empty, all DataSpecs will be published on this topic.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "The name of topic. e.g. \"projects/myproject/topics/mytopic\".",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateDeveloperRequest": {
+            "description": "Request for the UpdateDeveloper method.",
+            "id": "UpdateDeveloperRequest",
+            "properties": {
+                "developer": {
+                    "$ref": "Developer",
+                    "description": "Required."
+                },
+                "updateMask": {
+                    "description": "Required.",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateDeviceRequest": {
+            "description": "Request to the UpdateDevice method.",
+            "id": "UpdateDeviceRequest",
+            "properties": {
+                "device": {
+                    "$ref": "Device",
+                    "description": "Required."
+                },
+                "updateMask": {
+                    "description": "Required.",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateFirmwareLabelRequest": {
+            "description": "Request for the UpdateFirmwareLabel method.",
+            "id": "UpdateFirmwareLabelRequest",
+            "properties": {
+                "firmwareLabel": {
+                    "$ref": "FirmwareLabel",
+                    "description": "Required."
+                },
+                "updateMask": {
+                    "description": "Required.",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateFirmwareTrackRequest": {
+            "description": "Request for the UpdateFirmwareTrack method.",
+            "id": "UpdateFirmwareTrackRequest",
+            "properties": {
+                "track": {
+                    "$ref": "FirmwareTrack",
+                    "description": "Required. Identifies the firmware track to update as well as contains\nvalues to update."
+                },
+                "updateMask": {
+                    "description": "Required. Identifies which fields to update.",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateParticipantDeviceRequest": {
+            "description": "Request of the ParticipantService.UpdateDevice method.",
+            "id": "UpdateParticipantDeviceRequest",
+            "properties": {
+                "device": {
+                    "$ref": "ParticipantDevice",
+                    "description": "Required ParticipantDevice containing new field values. `name` must always\nbe populated."
+                },
+                "updateMask": {
+                    "description": "Required field mask to identify which fields of the `device` to update.",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateRegistrarRequest": {
+            "description": "Request to the UpdateRegistrar method.",
+            "id": "UpdateRegistrarRequest",
+            "properties": {
+                "registrar": {
+                    "$ref": "Registrar",
+                    "description": "Required."
+                },
+                "updateMask": {
+                    "description": "Required.",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateRegistryRequest": {
+            "description": "Request for the UpdateRegistry method. The caller need only provide the\n`registry.name` field as well as any fields they wish to change. The\n`update_mask` should contain the names of the fields to change.",
+            "id": "UpdateRegistryRequest",
+            "properties": {
+                "registry": {
+                    "$ref": "Registry",
+                    "description": "Required. Contains the new field values."
+                },
+                "updateMask": {
+                    "description": "Required. Identifies the fields to update.",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateRepositoryRequest": {
+            "description": "Request for the UpdateRepository method.",
+            "id": "UpdateRepositoryRequest",
+            "properties": {
+                "repository": {
+                    "$ref": "Repository",
+                    "description": "Required."
+                },
+                "updateMask": {
+                    "description": "Required.",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "User": {
+            "description": "A Registrar that represents an end-user.",
+            "id": "User",
+            "properties": {
+                "email": {
+                    "description": "Email identifier of the end-user.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "WriteDataResponse": {
+            "description": "Response for a request to write data.",
+            "id": "WriteDataResponse",
+            "properties": {
+                "body": {
+                    "$ref": "HttpBody",
+                    "description": "The body of the response.  The format of this is defined by the partner."
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "SensorSuite Private API (Autopush)",
+    "version": "v1",
+    "version_module": true
+}

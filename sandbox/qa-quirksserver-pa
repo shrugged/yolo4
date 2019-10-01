@@ -1,0 +1,356 @@
+{
+    "basePath": "",
+    "baseUrl": "https://qa-quirksserver-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "description": "API for Chrome OS Quirks Server to provide Chrome OS devices the device quirks.",
+    "discoveryVersion": "v1",
+    "documentationLink": "go/quirks-api",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "qa_quirksserver_pa_sandbox:v2",
+    "kind": "discovery#restDescription",
+    "name": "qa_quirksserver_pa_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "display": {
+            "resources": {
+                "clients": {
+                    "methods": {
+                        "get": {
+                            "description": "Get the quirks for a specified display.",
+                            "flatPath": "v2/display/{displayId}/clients/{clientId}/{clientVersion}",
+                            "httpMethod": "GET",
+                            "id": "qa_quirksserver_pa_sandbox.display.clients.get",
+                            "parameterOrder": [
+                                "displayId",
+                                "clientId",
+                                "clientVersion"
+                            ],
+                            "parameters": {
+                                "clientId": {
+                                    "description": "An identifier assigned to the client (\u201cchrome_os\u201d, \u201candroid\u201d, etc).",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "clientVersion": {
+                                    "description": "A client specific version string.",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "displayId": {
+                                    "description": "EDID bytes 8-11 (Manufacturer ID + Product Code).",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "displayName": {
+                                    "description": "A human-readable display name.",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v2/display/{displayId}/clients/{clientId}/{clientVersion}",
+                            "response": {
+                                "$ref": "DisplayQuirks"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "printer": {
+            "resources": {
+                "list": {
+                    "methods": {
+                        "list": {
+                            "description": "List all supported printer quirks.",
+                            "flatPath": "v2/printer/list",
+                            "httpMethod": "GET",
+                            "id": "qa_quirksserver_pa_sandbox.printer.list.list",
+                            "parameterOrder": [],
+                            "parameters": {},
+                            "path": "v2/printer/list",
+                            "response": {
+                                "$ref": "ListPrinterQuirksResponse"
+                            }
+                        }
+                    }
+                },
+                "manufacturers": {
+                    "resources": {
+                        "models": {
+                            "methods": {
+                                "get": {
+                                    "description": "Get the quirks for a specified printer model.\nNote that manufacturer and model names are case-sensitive.\n404 error is returned if no matching quirks is found.",
+                                    "flatPath": "v2/printer/manufacturers/{manufacturer}/models/{model}",
+                                    "httpMethod": "GET",
+                                    "id": "qa_quirksserver_pa_sandbox.printer.manufacturers.models.get",
+                                    "parameterOrder": [
+                                        "manufacturer",
+                                        "model"
+                                    ],
+                                    "parameters": {
+                                        "isAutoConfigurable": {
+                                            "description": "Whether or not the printer model is auto configurable.\nRight now this is just for logging purposes.",
+                                            "location": "query",
+                                            "type": "boolean"
+                                        },
+                                        "lastUpdatedTime": {
+                                            "description": "When client's display quirks was last updated, in milliseconds since epoch.\nIf the request last_update_time matches the server last_updated_time,\nthe compressed_ppd will be omitted from the reply.",
+                                            "format": "int64",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "manufacturer": {
+                                            "description": "Printer manufacturer.",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "model": {
+                                            "description": "Printer model.",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v2/printer/manufacturers/{manufacturer}/models/{model}",
+                                    "response": {
+                                        "$ref": "PrinterQuirks"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20181109",
+    "rootUrl": "https://qa-quirksserver-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "DisplayQuirks": {
+            "description": "Quirks for a display.\n\nBecause proto3 doesn't support presence checking for primitive types, we\nuse strings to represent them. An empty string represents an unset field.\n\nFor boolean fields, \"0\" means false; \"1\" means true. The server guarantees\nto not return any other values (except empty string for unset field).\n\nOur client is the ChromeOs team which uses JSON everywhere, and they worry\nabout introducing extra hasXXX field for such fields. They also don't like\nto use wrappers. We agreed on using string for such fields.",
+            "id": "DisplayQuirks",
+            "properties": {
+                "blacklistVideoModes": {
+                    "description": "Blacklisted video modes.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "extraVideoModes": {
+                    "description": "Extra video modes.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "icc": {
+                    "description": "BASE64 encoded ICC v2 profile.",
+                    "type": "string"
+                },
+                "lastUpdatedTime": {
+                    "description": "When the display quirks was last updated, in milliseconds since epoch.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "maxVideoClock": {
+                    "description": "Maximum pixel clock (sometimes broken in the EDID, or to allow working\naround signal integrity bugs).",
+                    "type": "string"
+                },
+                "overscan": {
+                    "$ref": "Overscan",
+                    "description": "Pixels lost to overscan."
+                },
+                "physicalDimensions": {
+                    "$ref": "PhysicalDimensions",
+                    "description": "Display physical dimensions."
+                },
+                "reportsBrightness": {
+                    "description": "\"1\" if the display will show a confirmation if the display brightness is\nadjusted via DDC/CI.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListPrinterQuirksResponse": {
+            "id": "ListPrinterQuirksResponse",
+            "properties": {
+                "manufacturers": {
+                    "description": "Sorted by manufacturers.",
+                    "items": {
+                        "$ref": "PrinterManufacturer"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Overscan": {
+            "description": "Top, Bottom, Left, Right - Integer numbers of pixels lost to overscan on\neach edge.",
+            "id": "Overscan",
+            "properties": {
+                "bottom": {
+                    "description": "Number of pixels lost to overscan on bottom edge.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "left": {
+                    "description": "Number of pixels lost to overscan on left edge.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "right": {
+                    "description": "Number of pixels lost to overscan on right edge.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "top": {
+                    "description": "Number of pixels lost to overscan on top edge.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "PhysicalDimensions": {
+            "description": "Two integers with the display physical dimensions in mm (sometimes this\nis broken in the EDID, we need to override).",
+            "id": "PhysicalDimensions",
+            "properties": {
+                "height": {
+                    "description": "Display height in mm.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "width": {
+                    "description": "Display width in mm.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "PrinterManufacturer": {
+            "description": "List of printer models supported by a manufacturer.",
+            "id": "PrinterManufacturer",
+            "properties": {
+                "manufacturer": {
+                    "description": "Printer manufacturer.",
+                    "type": "string"
+                },
+                "models": {
+                    "description": "Sorted list of printer models owned by the manufacturer.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "PrinterQuirks": {
+            "id": "PrinterQuirks",
+            "properties": {
+                "compressedPpd": {
+                    "description": "Gzipped PostScript Printer Definition",
+                    "type": "string"
+                },
+                "lastUpdatedTime": {
+                    "description": "When the configuration was last updated, in milliseconds since\nepoch.  If you are doing this manually, the current milliseconds\ntime can be generated from the command line using 'date +%s%3N'.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Chrome OS Quirks Server API",
+    "version": "v2",
+    "version_module": true
+}

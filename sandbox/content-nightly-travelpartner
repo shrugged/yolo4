@@ -1,0 +1,1151 @@
+{
+    "basePath": "",
+    "baseUrl": "https://nightly-travelpartner.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "description": "Programmatically access pricing, hotel, and diagnostic data with version 3.0 of this REST-based API. Bidding and reporting data are available through the [Google Ads API](/google-ads/api/docs/hotel-ads/overview).",
+    "discoveryVersion": "v1",
+    "documentationLink": "",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "nightly_travelpartner_sandbox:v3",
+    "kind": "discovery#restDescription",
+    "name": "nightly_travelpartner_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "accounts": {
+            "resources": {
+                "hotelViews": {
+                    "methods": {
+                        "list": {
+                            "description": "Returns the list of hotel views.",
+                            "flatPath": "v3/accounts/{accountsId}/hotelViews",
+                            "httpMethod": "GET",
+                            "id": "nightly_travelpartner_sandbox.accounts.hotelViews.list",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "pageSize": {
+                                    "description": "Number of elements to retrieve in a single page.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "Token of the page to retrieve.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "parent": {
+                                    "description": "The resource name of the account being queried.\nThe format is `accounts/{account_id}`.",
+                                    "location": "path",
+                                    "pattern": "^accounts/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v3/{+parent}/hotelViews",
+                            "response": {
+                                "$ref": "ListHotelViewsResponse"
+                            }
+                        },
+                        "summarize": {
+                            "description": "Returns summarized information about hotels.",
+                            "flatPath": "v3/accounts/{accountsId}/hotelViews:summarize",
+                            "httpMethod": "GET",
+                            "id": "nightly_travelpartner_sandbox.accounts.hotelViews.summarize",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "The resource name of the account being queried.\nThe format is `accounts/{account_id}`.",
+                                    "location": "path",
+                                    "pattern": "^accounts/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v3/{+parent}/hotelViews:summarize",
+                            "response": {
+                                "$ref": "SummarizeHotelViewsResponse"
+                            }
+                        }
+                    }
+                },
+                "priceAccuracyViews": {
+                    "methods": {
+                        "get": {
+                            "description": "Returns the requested price accuracy view in full detail.",
+                            "flatPath": "v3/accounts/{accountsId}/priceAccuracyViews/{priceAccuracyViewsId}",
+                            "httpMethod": "GET",
+                            "id": "nightly_travelpartner_sandbox.accounts.priceAccuracyViews.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "includeMatchedPrices": {
+                                    "description": "Set to true if matched prices are to be included in the report.",
+                                    "location": "query",
+                                    "type": "boolean"
+                                },
+                                "includePixels": {
+                                    "description": "Set to true if pixel signals are to be included in the report.",
+                                    "location": "query",
+                                    "type": "boolean"
+                                },
+                                "name": {
+                                    "description": "The resource name of price accuracy view being queried.",
+                                    "location": "path",
+                                    "pattern": "^accounts/[^/]+/priceAccuracyViews/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "pageSize": {
+                                    "description": "Number of elements to retrieve in a single page.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "Token of the page to retrieve.",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v3/{+name}",
+                            "response": {
+                                "$ref": "PriceAccuracyView"
+                            }
+                        },
+                        "list": {
+                            "description": "Lists available price accuracy views.",
+                            "flatPath": "v3/accounts/{accountsId}/priceAccuracyViews",
+                            "httpMethod": "GET",
+                            "id": "nightly_travelpartner_sandbox.accounts.priceAccuracyViews.list",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "pageSize": {
+                                    "description": "Number of elements to retrieve in a single page.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "Token of the page to retrieve.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "parent": {
+                                    "description": "The resource name of the account being queried.\nThe format is `accounts/{account_id}`.",
+                                    "location": "path",
+                                    "pattern": "^accounts/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v3/{+parent}/priceAccuracyViews",
+                            "response": {
+                                "$ref": "ListPriceAccuracyViewsResponse"
+                            }
+                        },
+                        "summarize": {
+                            "description": "Returns the price accuracy summary.",
+                            "flatPath": "v3/accounts/{accountsId}/priceAccuracyViews:summarize",
+                            "httpMethod": "GET",
+                            "id": "nightly_travelpartner_sandbox.accounts.priceAccuracyViews.summarize",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "The resource name of the account being queried.\nThe format is `accounts/{account_id}`.",
+                                    "location": "path",
+                                    "pattern": "^accounts/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v3/{+parent}/priceAccuracyViews:summarize",
+                            "response": {
+                                "$ref": "SummarizePriceAccuracyResponse"
+                            }
+                        }
+                    }
+                },
+                "priceCoverageViews": {
+                    "methods": {
+                        "getLatest": {
+                            "description": "Returns the latest price coverage view in full detail.",
+                            "flatPath": "v3/accounts/{accountsId}/priceCoverageViews:latest",
+                            "httpMethod": "GET",
+                            "id": "nightly_travelpartner_sandbox.accounts.priceCoverageViews.getLatest",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "The resource name of the account being queried.\nThe format is `accounts/{account_id}`.",
+                                    "location": "path",
+                                    "pattern": "^accounts/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v3/{+parent}/priceCoverageViews:latest",
+                            "response": {
+                                "$ref": "PriceCoverageView"
+                            }
+                        },
+                        "list": {
+                            "description": "Returns the entire price coverage history.",
+                            "flatPath": "v3/accounts/{accountsId}/priceCoverageViews",
+                            "httpMethod": "GET",
+                            "id": "nightly_travelpartner_sandbox.accounts.priceCoverageViews.list",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "The resource name of the account being queried.\nThe format is `accounts/{account_id}`.",
+                                    "location": "path",
+                                    "pattern": "^accounts/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v3/{+parent}/priceCoverageViews",
+                            "response": {
+                                "$ref": "ListPriceCoverageViewsResponse"
+                            }
+                        }
+                    }
+                },
+                "priceViews": {
+                    "methods": {
+                        "get": {
+                            "description": "Returns the requested price view in full detail.",
+                            "flatPath": "v3/accounts/{accountsId}/priceViews/{priceViewsId}",
+                            "httpMethod": "GET",
+                            "id": "nightly_travelpartner_sandbox.accounts.priceViews.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The resource name of price view being queried.\nThe format is `accounts/{account_id}/priceViews/{partner_hotel_id}`.",
+                                    "location": "path",
+                                    "pattern": "^accounts/[^/]+/priceViews/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v3/{+name}",
+                            "response": {
+                                "$ref": "PriceView"
+                            }
+                        }
+                    }
+                },
+                "reconciliationReports": {
+                    "methods": {
+                        "create": {
+                            "description": "Creates a reconciliation report and uploads it to Google.",
+                            "flatPath": "v3/accounts/{accountsId}/reconciliationReports",
+                            "httpMethod": "POST",
+                            "id": "nightly_travelpartner_sandbox.accounts.reconciliationReports.create",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "The resource name of the account being queried.\nThe format is `accounts/{account_id}`.",
+                                    "location": "path",
+                                    "pattern": "^accounts/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v3/{+parent}/reconciliationReports",
+                            "request": {
+                                "$ref": "ReconciliationReport"
+                            },
+                            "response": {
+                                "$ref": "CreateReconciliationReportResponse"
+                            }
+                        },
+                        "get": {
+                            "description": "Returns a reconciliation report.",
+                            "flatPath": "v3/accounts/{accountsId}/reconciliationReports/{reconciliationReportsId}",
+                            "httpMethod": "GET",
+                            "id": "nightly_travelpartner_sandbox.accounts.reconciliationReports.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The resource name of the reconciliation report to fetch.\nThe format is\n`accounts/{account_id}/reconciliationReports/{datetime}~{filename}`.",
+                                    "location": "path",
+                                    "pattern": "^accounts/[^/]+/reconciliationReports/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v3/{+name}",
+                            "response": {
+                                "$ref": "ReconciliationReport"
+                            }
+                        },
+                        "list": {
+                            "description": "Returns a list of created reconciliation reports.",
+                            "flatPath": "v3/accounts/{accountsId}/reconciliationReports",
+                            "httpMethod": "GET",
+                            "id": "nightly_travelpartner_sandbox.accounts.reconciliationReports.list",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "endDate": {
+                                    "description": "End of date range to fetch files for. Format is\nyyyy-mm-dd[THH[:MM[:SS]]]. If empty, reports until the end of\ntime are fetched.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "parent": {
+                                    "description": "The resource name of the account being queried.\nThe format is `accounts/{account_id}`.",
+                                    "location": "path",
+                                    "pattern": "^accounts/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "startDate": {
+                                    "description": "Beginning of date range to fetch files for. Format is\nyyyy-MM-dd[THH[:mm[:SS]]]. If empty, reports from the beginning\nof time onwards are fetched.",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v3/{+parent}/reconciliationReports",
+                            "response": {
+                                "$ref": "ListReconciliationReportsResponse"
+                            }
+                        },
+                        "validate": {
+                            "description": "Validates a reconciliation report.",
+                            "flatPath": "v3/accounts/{accountsId}/reconciliationReports:validate",
+                            "httpMethod": "POST",
+                            "id": "nightly_travelpartner_sandbox.accounts.reconciliationReports.validate",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "The resource name of the account being queried.\nThe format is `accounts/{account_id}`.",
+                                    "location": "path",
+                                    "pattern": "^accounts/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v3/{+parent}/reconciliationReports:validate",
+                            "request": {
+                                "$ref": "ReconciliationReport"
+                            },
+                            "response": {
+                                "$ref": "ValidateReconciliationReportResponse"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190925",
+    "rootUrl": "https://nightly-travelpartner.sandbox.googleapis.com/",
+    "schemas": {
+        "CreateReconciliationReportResponse": {
+            "description": "Response message for\nReconciliationReportService.CreateReconciliationReport.",
+            "id": "CreateReconciliationReportResponse",
+            "properties": {
+                "issues": {
+                    "description": "Issues that were encountered when validating the file.",
+                    "items": {
+                        "$ref": "ReconciliationReportValidationIssue"
+                    },
+                    "type": "array"
+                },
+                "reconciliationReport": {
+                    "$ref": "ReconciliationReport",
+                    "description": "Resource name of the new reconciliation report.\nThe format is `accounts/{account_id}`."
+                },
+                "successfulRecordCount": {
+                    "description": "The number of commission records that were successfully saved.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "Date": {
+            "description": "Represents a whole or partial calendar date, e.g. a birthday. The time of day\nand time zone are either specified elsewhere or are not significant. The date\nis relative to the Proleptic Gregorian Calendar. This can represent:\n\n* A full date, with non-zero year, month and day values\n* A month and day value, with a zero year, e.g. an anniversary\n* A year on its own, with zero month and day values\n* A year and month value, with a zero day, e.g. a credit card expiration date\n\nRelated types are google.type.TimeOfDay and `google.protobuf.Timestamp`.",
+            "id": "Date",
+            "properties": {
+                "day": {
+                    "description": "Day of month. Must be from 1 to 31 and valid for the year and month, or 0\nif specifying a year by itself or a year and month where the day is not\nsignificant.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "month": {
+                    "description": "Month of year. Must be from 1 to 12, or 0 if specifying a year without a\nmonth and day.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "year": {
+                    "description": "Year of date. Must be from 1 to 9999, or 0 if specifying a date without\na year.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "HotelPricePerItinerary": {
+            "description": "Hotel price for a given itinerary.",
+            "id": "HotelPricePerItinerary",
+            "properties": {
+                "allInclusive": {
+                    "description": "If true, `price` is inclusive of all taxes and fees.",
+                    "type": "boolean"
+                },
+                "checkinDate": {
+                    "$ref": "Date",
+                    "description": "Check-in date."
+                },
+                "currencyCode": {
+                    "description": "Currency for `price`, `taxes`, and `fees`.",
+                    "type": "string"
+                },
+                "fees": {
+                    "description": "Fees for this itinerary.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "lengthOfStayDays": {
+                    "description": "Number of nights for the itinerary.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "price": {
+                    "description": "Hotel price for this itinerary.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "roomAvailable": {
+                    "description": "True if hotel is visible for the current itinerary.",
+                    "type": "boolean"
+                },
+                "taxes": {
+                    "description": "Taxes for this itinerary.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "updateTime": {
+                    "description": "Update timestamp for this hotel price.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "HotelView": {
+            "description": "A hotel view. Covers the Hotel and `hotel_list_stats` Scorecard\nfunctionalities in pre-v3.0 API versions. For more information, refer to <a\nhref=\"/hotels/hotel-ads/xml-reference/hotel-list-feed\">Hotel List Feed</a>.",
+            "id": "HotelView",
+            "properties": {
+                "dataIssues": {
+                    "description": "Indicates that the hotel has data quality issues. The value of this field\nis an array of error codes associated with the listing.\n\nIf your feed contains data issues, update the feed and resubmit it. For\nmore information, refer to\n<a href=\"//support.google.com/hotelprices/answer/6329692\">this\narticle</a>.",
+                    "enumDescriptions": [
+                        "Not specified.",
+                        "The value is unknown in this version.",
+                        "No data issues found.",
+                        "The address is the same as another property in the Hotel List Feed.",
+                        "The provided address appears to contain a postal box instead of a\nphysical street address.",
+                        "The address does not appear to contain a street name.",
+                        "The address does not appear to contain a street number.",
+                        "The address does not appear to contain a street number, street name, or\nsupported country code.",
+                        "An invalid but recognized country code was provided.",
+                        "The address contains an invalid postal code.",
+                        "The address contains an invalid postal code suffix.",
+                        "The address contains a postal code suffix when unsupported by the\ncountry's postal code system.",
+                        "The address contains a postal code when unsupported by the country's\npostal code system.",
+                        "The name and value at 'listing.content.attributes.attr' is either\nunsupported or has an invalid value.",
+                        "The email at 'listing.content.attributes.attr[name='email']' is not a\nvalid email address.",
+                        "The latitude/longitude pair is the same as another property in the Hotel\nList Feed.",
+                        "The latitude/longitude pair provided for the address is more than 500\nmeters away from the Google latitude/longitude generated from the\naddress.",
+                        "A valid pair of latitude/longitude fields is missing and Google\nlatitude/longitude generation is disabled.",
+                        "A valid pair of latitude/longitude fields is missing and Google could not\ngenerate them from the address.",
+                        "No hotel name is provided.",
+                        "An empty or whitespace only name is provided, but no valid name.",
+                        "An invalid name is provided, but no valid name.",
+                        "The hotel name exceeds 200 characters.",
+                        "Google encountered an error while importing your Hotel List Feed.",
+                        "Google encountered an unknown error while importing your Hotel List Feed.",
+                        "The phone number you provided for this property is the same as the phone\nnumber for another property. More than one listing in the Hotel List Feed\ncannot have the same phone number.",
+                        "No valid phone number for this property found.",
+                        "Only invalid or fax phone numbers found.",
+                        "The phone number format is not valid.",
+                        "The phone number is not valid.",
+                        "The country code of the phone number is not valid.",
+                        "The phone number contains too many digits.",
+                        "The phone number contains has too few digits.",
+                        "The specified `content.attributes.attr[name='website']` element is not a\nvalid URL.",
+                        "The category or `content.attributes.client_attr[name='hotel_brand']`\nelement exceeds 70 Unicode characters, and/or\n`content.attributes.client_attr[name='custom_*']` exceeds 100 Unicode\ncharacters."
+                    ],
+                    "items": {
+                        "enum": [
+                            "FEED_DATA_ISSUE_UNSPECIFIED",
+                            "FEED_DATA_ISSUE_UNKNOWN",
+                            "NO_DATA_ISSUE",
+                            "DUPLICATE_ADDRESS",
+                            "MISSING_PHYSICAL_STREET_ADDRESS",
+                            "MISSING_STREET_NAME",
+                            "MISSING_STREET_NUMBER",
+                            "MISSING_ADDRESS",
+                            "MISSING_COUNTRY",
+                            "INVALID_POSTAL_CODE",
+                            "INVALID_POSTAL_CODE_SUFFIX",
+                            "UNEXPECTED_POSTAL_CODE_SUFFIX",
+                            "UNEXPECTED_POSTAL_CODE",
+                            "INVALID_AMENITIES",
+                            "INVALID_EMAIL_ADDRESS",
+                            "DUPLICATE_LATLONG",
+                            "LATLONG_INCONSISTENT_WITH_ADDRESS",
+                            "MISSING_LATLONG",
+                            "COULD_NOT_GEOCODE",
+                            "MISSING_HOTEL_NAME",
+                            "HOTEL_NAME_EMPTY",
+                            "INVALID_HOTEL_NAME",
+                            "HOTEL_NAME_TOO_LONG",
+                            "PARSE_ERROR_IN_XML",
+                            "UNEXPECTED_ATTRIBUTE_IN_XML",
+                            "DUPLICATE_PHONE_NUMBER",
+                            "MISSING_PHONE_NUMBER",
+                            "MISSING_VOICE_PHONE_NUMBER",
+                            "INVALID_PHONE_NUMBER_FORMAT",
+                            "INVALID_PHONE_NUMBER",
+                            "INVALID_PHONE_NUMBER_COUNTRY_CODE",
+                            "PHONE_NUMBER_TOO_LONG",
+                            "PHONE_NUMBER_TOO_SHORT",
+                            "INVALID_WEBSITE_URL",
+                            "ADWORDS_ATTRIBUTE_TOO_LONG"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "googleClusterId": {
+                    "description": "The Google Maps identifier for the hotel.",
+                    "format": "uint64",
+                    "type": "string"
+                },
+                "googleHotelDisplayName": {
+                    "description": "Google's hotel name.",
+                    "type": "string"
+                },
+                "googleHotelId": {
+                    "description": "Google's canonical ID for the hotel.",
+                    "format": "uint64",
+                    "type": "string"
+                },
+                "overclusteredPartnerHotelIds": {
+                    "description": "Other hotels with which the hotel is overclustered.\n\nIf your feed contains overclustered hotels, update the feed and resubmit\nit. To do this, you can use the\n<a href=\"//support.google.com/hotelprices/answer/6329692\">manual match\ntool</a>.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "partnerHotelDisplayName": {
+                    "description": "Partner's hotel name.",
+                    "type": "string"
+                },
+                "partnerHotelId": {
+                    "description": "The unique ID of the hotel that the partner provides in their Hotel List\nFeed.",
+                    "type": "string"
+                },
+                "primaryOverclusteredPartnerHotelId": {
+                    "description": "The primary hotel in the overclustered set.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListHotelViewsResponse": {
+            "description": "Response message for HotelViewService.ListHotelViews.",
+            "id": "ListHotelViewsResponse",
+            "properties": {
+                "hotelViews": {
+                    "description": "The list of rows that match the query.",
+                    "items": {
+                        "$ref": "HotelView"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "Pagination token used to retrieve the next page of results.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListPriceAccuracyViewsResponse": {
+            "description": "Response message for PriceAccuracyViewService.ListPriceAccuracyViews.",
+            "id": "ListPriceAccuracyViewsResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "Pagination token used to retrieve the next page of results.",
+                    "type": "string"
+                },
+                "priceAccuracyViews": {
+                    "description": "The list of rows that match the query.",
+                    "items": {
+                        "$ref": "PriceAccuracyView"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListPriceCoverageViewsResponse": {
+            "description": "Response message for\nPriceCoverageViewService.ListPriceCoverageViews.",
+            "id": "ListPriceCoverageViewsResponse",
+            "properties": {
+                "priceCoverageViews": {
+                    "description": "Hotel price coverage stats.",
+                    "items": {
+                        "$ref": "PriceCoverageView"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListReconciliationReportsResponse": {
+            "description": "Response message for\nReconciliationReportService.ListReconciliationReports.",
+            "id": "ListReconciliationReportsResponse",
+            "properties": {
+                "reconciliationReports": {
+                    "description": "The list of reconciliation reports.",
+                    "items": {
+                        "$ref": "ReconciliationReport"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "PriceAccuracyRow": {
+            "description": "A price accuracy row.",
+            "id": "PriceAccuracyRow",
+            "properties": {
+                "affectsScore": {
+                    "description": "True if this row affects the overall price accuracy score.",
+                    "type": "boolean"
+                },
+                "cachedPriceRecord": {
+                    "$ref": "PriceRecord",
+                    "description": "Price as advertised."
+                },
+                "checkinDate": {
+                    "$ref": "Date",
+                    "description": "Check-in date."
+                },
+                "correctionTime": {
+                    "description": "Time at which an incorrect price is updated to a correct price.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "deal": {
+                    "description": "True if the price is eligible for \"Deal badge\".",
+                    "type": "boolean"
+                },
+                "deviceType": {
+                    "description": "The user's device type.",
+                    "enum": [
+                        "DEVICE_UNSPECIFIED",
+                        "DEVICE_UNKNOWN",
+                        "DESKTOP",
+                        "MOBILE",
+                        "TABLET"
+                    ],
+                    "enumDescriptions": [
+                        "Not specified.",
+                        "The value is unknown in this version.",
+                        "Computers.",
+                        "Mobile devices with full browsers.",
+                        "Tablets with full browsers."
+                    ],
+                    "type": "string"
+                },
+                "fetchedPriceRecord": {
+                    "$ref": "PriceRecord",
+                    "description": "Price as read from the partner website."
+                },
+                "finalDomain": {
+                    "description": "The domain of the final page from which prices are read.",
+                    "type": "string"
+                },
+                "hotel": {
+                    "description": "Partner-defined hotel ID.",
+                    "type": "string"
+                },
+                "hotelCountryCode": {
+                    "description": "The country of the hotel (based on address).",
+                    "type": "string"
+                },
+                "lengthOfStayDays": {
+                    "description": "Length of stay.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "mismatchReason": {
+                    "description": "The reason why the fetched price didn't match the cached price.",
+                    "type": "string"
+                },
+                "rateRuleId": {
+                    "description": "The rate rule of the advertised price for non-public rates.",
+                    "type": "string"
+                },
+                "signalSource": {
+                    "description": "Source of the price accuracy signal.",
+                    "enum": [
+                        "SIGNAL_SOURCE_UNSPECIFIED",
+                        "SIGNAL_SOURCE_UNKNOWN",
+                        "FETCHED",
+                        "PIXEL"
+                    ],
+                    "enumDescriptions": [
+                        "Not specified.",
+                        "The value is unknown in this version.",
+                        "The price is read directly from the partner's website.",
+                        "The price is provided by the partner via a price accuracy pixel."
+                    ],
+                    "type": "string"
+                },
+                "url": {
+                    "description": "Initial URL visited on the partner website.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PriceAccuracyView": {
+            "description": "A price accuracy view. Covers the price accuracy reports functionality in\npre-v3.0 API versions. For more information, refer to\n<a href=\"//support.google.com/hotelprices/answer/6318506\">Price Accuracy\nreport</a>.",
+            "id": "PriceAccuracyView",
+            "properties": {
+                "name": {
+                    "description": "Resource name in the format\n`accounts/{account_id}/priceAccuracyViews/{report_date}`.",
+                    "type": "string"
+                },
+                "nextPageToken": {
+                    "description": "Pagination token used to retrieve the next page of results.",
+                    "type": "string"
+                },
+                "results": {
+                    "description": "The list of rows that match the query.",
+                    "items": {
+                        "$ref": "PriceAccuracyRow"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "PriceCoverageBucket": {
+            "description": "Coverage stats for one combination of advance booking window and length of\nstay.",
+            "id": "PriceCoverageBucket",
+            "properties": {
+                "advanceBookingWindowRange": {
+                    "description": "Advance booking window range.",
+                    "enum": [
+                        "ADVANCE_BOOKING_WINDOW_RANGE_UNSPECIFIED",
+                        "ADVANCE_BOOKING_WINDOW_RANGE_UNKNOWN",
+                        "DAYS_0_TO_30",
+                        "DAYS_31_TO_60",
+                        "DAYS_61_TO_90",
+                        "DAYS_91_TO_120",
+                        "DAYS_121_TO_150",
+                        "DAYS_151_TO_180",
+                        "DAYS_181_TO_210",
+                        "DAYS_211_TO_240",
+                        "DAYS_241_TO_270",
+                        "DAYS_271_TO_300",
+                        "DAYS_301_TO_330"
+                    ],
+                    "enumDescriptions": [
+                        "Not specified.",
+                        "The value is unknown in this version.",
+                        "Represents advance booking window between 0 and 30 days.",
+                        "Represents advance booking window between 31 and 60 days.",
+                        "Represents advance booking window between 61 and 90 days.",
+                        "Represents advance booking window between 91 and 120 days.",
+                        "Represents advance booking window between 121 and 150 days.",
+                        "Represents advance booking window between 151 and 180 days.",
+                        "Represents advance booking window between 181 and 210 days.",
+                        "Represents advance booking window between 211 and 240 days.",
+                        "Represents advance booking window between 241 and 270 days.",
+                        "Represents advance booking window between 271 and 300 days.",
+                        "Represents advance booking window between 301 and 330 days."
+                    ],
+                    "type": "string"
+                },
+                "availablePriceCount": {
+                    "description": "Number of prices for this advance booking window bucket and length of\nstay bucket.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "lengthOfStayRange": {
+                    "description": "Length of stay range.",
+                    "enum": [
+                        "LENGTH_OF_STAY_RANGE_UNSPECIFIED",
+                        "LENGTH_OF_STAY_RANGE_UNKNOWN",
+                        "LENGTH_OF_STAY_1_TO_7",
+                        "LENGTH_OF_STAY_8_TO_14"
+                    ],
+                    "enumDescriptions": [
+                        "Not specified.",
+                        "The value is unknown in this version.",
+                        "Represents length of stay from 1 to 7 nights.",
+                        "Represents length of stay from 8 to 14 nights."
+                    ],
+                    "type": "string"
+                },
+                "priceCoveragePercent": {
+                    "description": "The percent of itineraries for which you have coverage for this advance\nbooking window bucket and length of stay bucket.",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "PriceCoverageView": {
+            "description": "A price coverage view. Covers the `price_coverage_stats` Scorecard\nfunctionality in pre-v3.0 API versions. For more information, refer to\n<a href=\"//support.google.com/hotelprices/answer/6317686\">Price Coverage for\nPush and Hint partners</a>.",
+            "id": "PriceCoverageView",
+            "properties": {
+                "calculationDate": {
+                    "$ref": "Date",
+                    "description": "The date on which the calculations were made."
+                },
+                "matchedPropertyCount": {
+                    "description": "The total number of properties that have prices for the given itineraries.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "priceCoverageBinaryPercent": {
+                    "description": "The ratio between the number of hotels which have at least one price for\nthe calculation period and `matched_property_count`.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "priceCoverageBuckets": {
+                    "description": "Price coverage stats for combinations of advance booking window and\nlength of stay ranges.",
+                    "items": {
+                        "$ref": "PriceCoverageBucket"
+                    },
+                    "type": "array"
+                },
+                "priceCoveragePercent": {
+                    "description": "The overall price coverage for an account. This value is the ratio between\nthe number of hotel prices for the calculation booking window and length of\nstay range divided by the number of all possible prices, which is\n`matched_property_count` times 330 (for advance book window) times 30 (for\nlength of stay).",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "PriceRecord": {
+            "description": "A price record.",
+            "id": "PriceRecord",
+            "properties": {
+                "basePrice": {
+                    "description": "Base price.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "currencyCode": {
+                    "description": "ISO 4217 currency code.",
+                    "type": "string"
+                },
+                "taxesAndFees": {
+                    "description": "Taxes and fees.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "time": {
+                    "description": "Timestamp of this price record.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PriceView": {
+            "description": "A price view. Covers the Prices functionality in pre-v3.0 API versions.",
+            "id": "PriceView",
+            "properties": {
+                "name": {
+                    "description": "Resource name in the format\n`accounts/{account_id}/priceViews/{partner_hotel_id}`.",
+                    "type": "string"
+                },
+                "perItineraryPrices": {
+                    "description": "Price for each itinerary.",
+                    "items": {
+                        "$ref": "HotelPricePerItinerary"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ReconciliationReport": {
+            "description": "Reconciliation report. Covers the Reconciliation Reports functionality in\npre-v3.0 API versions. Lets you see the status, validate, and upload your\nCommissions reconciliation reports. This only applies if you are in the\nGoogle Hotel Ads Commissions Program (GHACP). For more information about\nworking with reconciliation reports in the Hotel Ads Center, refer to\n<a\nhref=\"//support.google.com/hotelprices/answer/7019060#sending\">Reconciliation\nreports</a>.",
+            "id": "ReconciliationReport",
+            "properties": {
+                "contents": {
+                    "description": "The contents of the commission report.",
+                    "type": "string"
+                },
+                "fileName": {
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Resource name in the format\n`accounts/{account_id}/reconciliationReports/{datetime}~{filename}`.",
+                    "type": "string"
+                },
+                "processed": {
+                    "description": "True if this report has been processed by Google.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "ReconciliationReportValidationIssue": {
+            "description": "Represents an issue encountered when validating a reconciliation report.",
+            "id": "ReconciliationReportValidationIssue",
+            "properties": {
+                "description": {
+                    "description": "Text description of the issue, typically including what was seen and why it\nwas invalid.",
+                    "type": "string"
+                },
+                "fieldName": {
+                    "description": "Name of the invalid field. If no field name is given, this issue applies to\nthe whole line (or file).",
+                    "type": "string"
+                },
+                "lineNum": {
+                    "description": "The line number on which the issue was detected. If this field is 0, the\nissue applies to the whole file.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "SummarizeHotelViewsResponse": {
+            "description": "Response message for HotelViewService.SummarizeHotelViews.",
+            "id": "SummarizeHotelViewsResponse",
+            "properties": {
+                "lastFeedSubmissionTime": {
+                    "description": "Timestamp of the last hotel feed submission.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "lastManifestUpdateTime": {
+                    "description": "Timestamp of the last hotel manifest update.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "matchedPropertyCount": {
+                    "description": "The number of properties that match Google's manifest.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "overclusteredPropertyCount": {
+                    "description": "The number of hotels that are considered overclustered.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "overclusteredPropertyWithErrorsCount": {
+                    "description": "The number of overclustered properties that have data-related errors.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "unmatchedPropertyCount": {
+                    "description": "The number of properties that are considered unmatched.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "unmatchedPropertyWithErrorsCount": {
+                    "description": "The number of unmatched properties that have data-related errors.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SummarizePriceAccuracyResponse": {
+            "description": "Response message for PriceAccuracyViewService.SummarizePriceAccuracy.",
+            "id": "SummarizePriceAccuracyResponse",
+            "properties": {
+                "currentScore": {
+                    "description": "The current price accuracy score.",
+                    "enum": [
+                        "PRICE_ACCURACY_STATE_UNSPECIFIED",
+                        "PRICE_ACCURACY_STATE_UNKNOWN",
+                        "EXCELLENT",
+                        "GOOD",
+                        "POOR",
+                        "AT_RISK",
+                        "FAILED"
+                    ],
+                    "enumDescriptions": [
+                        "Not specified.",
+                        "The value is unknown in this version.",
+                        "Average score exceeds the positioning threshold.",
+                        "Average score is slightly below the positioning threshold.",
+                        "Average score is well below the positioning threshold.",
+                        "Average score is close to the account suspension threshold.",
+                        "Average score is below the account suspension threshold."
+                    ],
+                    "type": "string"
+                },
+                "predictedScore": {
+                    "description": "The predicted price accuracy score.",
+                    "enum": [
+                        "PRICE_ACCURACY_STATE_UNSPECIFIED",
+                        "PRICE_ACCURACY_STATE_UNKNOWN",
+                        "EXCELLENT",
+                        "GOOD",
+                        "POOR",
+                        "AT_RISK",
+                        "FAILED"
+                    ],
+                    "enumDescriptions": [
+                        "Not specified.",
+                        "The value is unknown in this version.",
+                        "Average score exceeds the positioning threshold.",
+                        "Average score is slightly below the positioning threshold.",
+                        "Average score is well below the positioning threshold.",
+                        "Average score is close to the account suspension threshold.",
+                        "Average score is below the account suspension threshold."
+                    ],
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "The update timestamp for the current score.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ValidateReconciliationReportResponse": {
+            "description": "Response message for\nReconciliationReportService.ValidateReconciliationReport.",
+            "id": "ValidateReconciliationReportResponse",
+            "properties": {
+                "issues": {
+                    "description": "Issues that were encountered when validating the file.",
+                    "items": {
+                        "$ref": "ReconciliationReportValidationIssue"
+                    },
+                    "type": "array"
+                },
+                "successfulRecordCount": {
+                    "description": "The number of commission records that were successfully validated.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Travel Partner API",
+    "version": "v3",
+    "version_module": true
+}

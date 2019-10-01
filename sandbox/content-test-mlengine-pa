@@ -1,0 +1,555 @@
+{
+    "basePath": "",
+    "baseUrl": "https://test-mlengine-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Machine Learning Engine Private Service",
+    "description": "Private API to manages internal resources for Cloud ML Engine.",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://go/cloud-mlengine-private",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "mlengine_pa:v1",
+    "kind": "discovery#restDescription",
+    "name": "mlengine_pa",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "projects": {
+            "resources": {
+                "trainingJob": {
+                    "resources": {
+                        "trainingWorker": {
+                            "methods": {
+                                "reportStatus": {
+                                    "description": "ReportStatus reports the status of the worker to the control\nplane.",
+                                    "flatPath": "v1/projects/{projectId}/trainingJob/{trainingJobId}/trainingWorker/{trainingWorkerId}:reportStatus",
+                                    "httpMethod": "POST",
+                                    "id": "mlengine_pa.projects.trainingJob.trainingWorker.reportStatus",
+                                    "parameterOrder": [
+                                        "projectId",
+                                        "trainingJobId",
+                                        "trainingWorkerId"
+                                    ],
+                                    "parameters": {
+                                        "projectId": {
+                                            "description": "The ID of the project where the Cloud ML compute resources are running (\na.k.a. the shadow project).",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "trainingJobId": {
+                                            "description": "The ID of the Cloud ML training job.",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "trainingWorkerId": {
+                                            "description": "The ID of the worker (i.e., the instance ID of the virtual machine\nrunning the Cloud ML worker process).",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/projects/{projectId}/trainingJob/{trainingJobId}/trainingWorker/{trainingWorkerId}:reportStatus",
+                                    "request": {
+                                        "$ref": "ReportStatusRequest"
+                                    },
+                                    "response": {
+                                        "$ref": "ReportStatusResponse"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "v1": {
+            "methods": {
+                "getAvailableAccelerators": {
+                    "description": "Get the available accelerators for each region",
+                    "flatPath": "v1/availableAccelerators",
+                    "httpMethod": "GET",
+                    "id": "mlengine_pa.getAvailableAccelerators",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/availableAccelerators",
+                    "response": {
+                        "$ref": "AvailableAccelerators"
+                    }
+                },
+                "getAvailableMachines": {
+                    "description": "Get the available GCE Machine Types with available accelerators and their\ncount. This is only for training resources.",
+                    "flatPath": "v1/availableMachines",
+                    "httpMethod": "GET",
+                    "id": "mlengine_pa.getAvailableMachines",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/availableMachines",
+                    "response": {
+                        "$ref": "AvailableMachines"
+                    }
+                },
+                "getConfig": {
+                    "description": "Get the API configuration.",
+                    "flatPath": "v1/config",
+                    "httpMethod": "GET",
+                    "id": "mlengine_pa.getConfig",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/config",
+                    "response": {
+                        "$ref": "Config"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190924",
+    "rootUrl": "https://test-mlengine-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "AcceleratorSpecs": {
+            "id": "AcceleratorSpecs",
+            "properties": {
+                "acceleratorType": {
+                    "description": "Required. The type of GPU.",
+                    "enum": [
+                        "ACCELERATOR_TYPE_UNSPECIFIED",
+                        "NVIDIA_TESLA_K80",
+                        "NVIDIA_TESLA_P100",
+                        "NVIDIA_TESLA_V100",
+                        "NVIDIA_TESLA_P4",
+                        "NVIDIA_TESLA_T4",
+                        "TPU_V2",
+                        "TPU_V3"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified accelerator type. Default to no GPU.",
+                        "Nvidia Tesla K80 GPU.",
+                        "Nvidia Tesla P100 GPU.",
+                        "Nvidia Tesla V100 GPU.",
+                        "Nvidia Tesla P4 GPU.",
+                        "Nvidia Tesla T4 GPU.",
+                        "TPU v2.",
+                        "TPU v3."
+                    ],
+                    "type": "string"
+                },
+                "allowedCount": {
+                    "description": "Required. The number of GPUs allowed in this combination. Cannot be zero.",
+                    "items": {
+                        "format": "double",
+                        "type": "number"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AcceleratorsListByRegion": {
+            "description": "For each region, the list of eccelerators available.",
+            "id": "AcceleratorsListByRegion",
+            "properties": {
+                "accelerators": {
+                    "enumDescriptions": [
+                        "Unspecified accelerator type. Default to no GPU.",
+                        "Nvidia Tesla K80 GPU.",
+                        "Nvidia Tesla P100 GPU.",
+                        "Nvidia Tesla V100 GPU.",
+                        "Nvidia Tesla P4 GPU.",
+                        "Nvidia Tesla T4 GPU.",
+                        "TPU v2.",
+                        "TPU v3."
+                    ],
+                    "items": {
+                        "enum": [
+                            "ACCELERATOR_TYPE_UNSPECIFIED",
+                            "NVIDIA_TESLA_K80",
+                            "NVIDIA_TESLA_P100",
+                            "NVIDIA_TESLA_V100",
+                            "NVIDIA_TESLA_P4",
+                            "NVIDIA_TESLA_T4",
+                            "TPU_V2",
+                            "TPU_V3"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "region": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AvailableAccelerators": {
+            "id": "AvailableAccelerators",
+            "properties": {
+                "acceleratorsListByRegion": {
+                    "description": "List of all accelerators per region.",
+                    "items": {
+                        "$ref": "AcceleratorsListByRegion"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AvailableMachines": {
+            "id": "AvailableMachines",
+            "properties": {
+                "availableGceMachineTypes": {
+                    "description": "List of all GCE machine Types with available accelerators.",
+                    "items": {
+                        "$ref": "MachineSpecs"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Config": {
+            "description": "Api configuration of Cloud ML frontend. Contains information that the\nend user need to know such as supported machine types, and information about\nCMLE runtime versions.",
+            "id": "Config",
+            "properties": {
+                "machineTypes": {
+                    "description": "List of all available machine types.",
+                    "items": {
+                        "$ref": "MachineType"
+                    },
+                    "type": "array"
+                },
+                "runtimeVersions": {
+                    "description": "List of all available CMLE runtime versions.",
+                    "items": {
+                        "$ref": "RuntimeVersion"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ContainerState": {
+            "description": "ContainerState stores the current state of the container.\nSee this reference for more details:\nhttps://docs.docker.com/engine/api/v1.30/#",
+            "id": "ContainerState",
+            "properties": {
+                "dead": {
+                    "description": "Whether the container is dead.",
+                    "type": "boolean"
+                },
+                "diskUsagePercentage": {
+                    "description": "Disk usage percentage of \"/\". The value is between [0, 100].",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "error": {
+                    "description": "The error returned by the container",
+                    "type": "string"
+                },
+                "exitCode": {
+                    "description": "The exit code if the container finished.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "finishedAt": {
+                    "description": "When the container finished.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "oomKilled": {
+                    "description": "Whether the container has run out of memory.",
+                    "type": "boolean"
+                },
+                "paused": {
+                    "description": "Whether the container is paused.",
+                    "type": "boolean"
+                },
+                "pid": {
+                    "description": "The PID of the container.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "restarting": {
+                    "description": "Whether the container is restarting.",
+                    "type": "boolean"
+                },
+                "running": {
+                    "description": "Whether the container is running.",
+                    "type": "boolean"
+                },
+                "startedAt": {
+                    "description": "When the container started.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "The current status.",
+                    "type": "string"
+                },
+                "terminationLog": {
+                    "description": "The termination log generated by that container.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ContainerStatus": {
+            "description": "ContainerStatusReport provides information about a single container",
+            "id": "ContainerStatus",
+            "properties": {
+                "args": {
+                    "description": "The arguments to the command being run.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "containerId": {
+                    "description": "The container ID used in the Spanner table key.\nIt is identical for all training containers.",
+                    "type": "string"
+                },
+                "createdAt": {
+                    "description": "When the container was created.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "dockerId": {
+                    "description": "The ID of this container, according to Docker.",
+                    "type": "string"
+                },
+                "dockerName": {
+                    "description": "The name of this container, according to Docker.",
+                    "type": "string"
+                },
+                "image": {
+                    "description": "The container's image.",
+                    "type": "string"
+                },
+                "lastUpdatedAt": {
+                    "description": "When the status of the container was last updated.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "path": {
+                    "description": "The path to the command being run.",
+                    "type": "string"
+                },
+                "restartCount": {
+                    "description": "The number of times the container restarted.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "state": {
+                    "$ref": "ContainerState",
+                    "description": "The state of the container."
+                }
+            },
+            "type": "object"
+        },
+        "FrameworkVersion": {
+            "description": "Represents a specific version of a framework.",
+            "id": "FrameworkVersion",
+            "properties": {
+                "framework": {
+                    "enum": [
+                        "FRAMEWORK_UNSPECIFIED",
+                        "TENSORFLOW",
+                        "SCIKIT_LEARN",
+                        "XGBOOST"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified framework. Assigns a value based on the file suffix.",
+                        "Tensorflow framework.",
+                        "Scikit-learn framework.",
+                        "XGBoost framework."
+                    ],
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MachineSpecs": {
+            "id": "MachineSpecs",
+            "properties": {
+                "availableAccelerators": {
+                    "description": "Optional. Different accelerator configurations allowed.",
+                    "items": {
+                        "$ref": "AcceleratorSpecs"
+                    },
+                    "type": "array"
+                },
+                "cpus": {
+                    "description": "Available number of CPUs",
+                    "format": "double",
+                    "type": "number"
+                },
+                "gceMachineName": {
+                    "description": "Required. GCE machine name.",
+                    "type": "string"
+                },
+                "ramBytes": {
+                    "description": "Available RAM size.",
+                    "format": "uint64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MachineType": {
+            "id": "MachineType",
+            "properties": {
+                "name": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ReportStatusRequest": {
+            "description": "ReportStatusRequest is a request to report the status of\na worker to the control plane.",
+            "id": "ReportStatusRequest",
+            "properties": {
+                "clusterName": {
+                    "description": "The name of the JMS cluster on which the container is running.",
+                    "type": "string"
+                },
+                "consumerProjectId": {
+                    "description": "The ID of the consumer project associated with the shadow project.",
+                    "type": "string"
+                },
+                "containerStatuses": {
+                    "description": "The status of the containers running on the virtual machine.",
+                    "items": {
+                        "$ref": "ContainerStatus"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ReportStatusResponse": {
+            "description": "ReportStatusTrainingWorkerResponse is the response from the control\nplane to worker status reports.",
+            "id": "ReportStatusResponse",
+            "properties": {},
+            "type": "object"
+        },
+        "RuntimeVersion": {
+            "description": "Cloud Machine Learning Engine uses images, based on runtime version\ndesignation, to configure cloud resources to service your training and\nprediction requests. Each `RuntimeVersion` contains information about its\nconstituent packages.",
+            "id": "RuntimeVersion",
+            "properties": {
+                "frameworks": {
+                    "description": "List of all supported frameworks in this `RuntimeVersion` and their\ncorresponding versions.",
+                    "items": {
+                        "$ref": "FrameworkVersion"
+                    },
+                    "type": "array"
+                },
+                "libraries": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of each library and its corresponding version that is available in this\nruntime_version, similar to what is available in:\nhttps://cloud.google.com/ml-engine/docs/tensorflow/runtime-version-list\nExample: \"numpy\": \"1.13.3\", \"pandas\": \"0.19.2\", etc.",
+                    "type": "object"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "supportedPythonVersions": {
+                    "description": "List of all supported python versions for this runtime version.\nNote that these python versions are supported by all `frameworks`.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Cloud Machine Learning Engine Private API (Test)",
+    "version": "v1",
+    "version_module": true
+}

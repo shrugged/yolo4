@@ -1,0 +1,2259 @@
+{
+    "basePath": "",
+    "baseUrl": "https://uat-alkalikronos-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Alkali Kronos",
+    "description": "Work-unit management tool",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://go/alkali",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "uat_alkalikronos_pa_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "uat_alkalikronos_pa_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "attachments": {
+            "methods": {
+                "create": {
+                    "description": "Creates a new attachment.",
+                    "flatPath": "v1/attachments",
+                    "httpMethod": "POST",
+                    "id": "uat_alkalikronos_pa_sandbox.attachments.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/attachments",
+                    "request": {
+                        "$ref": "CreateAttachmentRequest"
+                    },
+                    "response": {
+                        "$ref": "CreateAttachmentResponse"
+                    }
+                }
+            }
+        },
+        "note": {
+            "methods": {
+                "create": {
+                    "description": "Creates a new note.",
+                    "flatPath": "v1/note",
+                    "httpMethod": "POST",
+                    "id": "uat_alkalikronos_pa_sandbox.note.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/note",
+                    "request": {
+                        "$ref": "CreateNoteRequest"
+                    },
+                    "response": {
+                        "$ref": "CreateNoteResponse"
+                    }
+                },
+                "list": {
+                    "description": "Gets a list of notes from parent_id and note_parent.",
+                    "flatPath": "v1/note",
+                    "httpMethod": "GET",
+                    "id": "uat_alkalikronos_pa_sandbox.note.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "noteParent": {
+                            "description": "Specifies the type of parent entity.",
+                            "enum": [
+                                "NOTE_PARENT_UNSPECIFIED",
+                                "TASK",
+                                "PROJECT"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "pageSize": {
+                            "description": "Requested page size. Server may return fewer notes than requested.\nIf unspecified, server will pick an appropriate default.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageToken": {
+                            "description": "A token identifying a page of results the server should return.\nTypically, this is the value of\nListNotesResponse.next_page_token.\nreturned from the previous call to `ListNotes` method.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "parentId": {
+                            "description": "ID of parent entity whose notes/comments need to be fetched.\nUnique identifier for Task or Project.",
+                            "format": "int64",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/note",
+                    "response": {
+                        "$ref": "ListNotesResponse"
+                    }
+                }
+            }
+        },
+        "projects": {
+            "methods": {
+                "create": {
+                    "description": "Creates a new project.",
+                    "flatPath": "v1/projects",
+                    "httpMethod": "POST",
+                    "id": "uat_alkalikronos_pa_sandbox.projects.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/projects",
+                    "request": {
+                        "$ref": "ProjectPb"
+                    },
+                    "response": {
+                        "$ref": "CreateProjectResponse"
+                    }
+                },
+                "get": {
+                    "description": "Gets a project.",
+                    "flatPath": "v1/projects/{id}",
+                    "httpMethod": "GET",
+                    "id": "uat_alkalikronos_pa_sandbox.projects.get",
+                    "parameterOrder": [
+                        "id"
+                    ],
+                    "parameters": {
+                        "id": {
+                            "description": "ID of the project to fetch.",
+                            "format": "int64",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/projects/{id}",
+                    "response": {
+                        "$ref": "GetProjectResponse"
+                    }
+                },
+                "getChangelog": {
+                    "description": "Change history of a project.",
+                    "flatPath": "v1/projects/{id}/changelog",
+                    "httpMethod": "GET",
+                    "id": "uat_alkalikronos_pa_sandbox.projects.getChangelog",
+                    "parameterOrder": [
+                        "id"
+                    ],
+                    "parameters": {
+                        "id": {
+                            "description": "Identifier of project for which change history needs to fetched.",
+                            "format": "int64",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "maxResultsSize": {
+                            "description": "Maximum number of entries to report in change history, with upper limit of\n500 results.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        }
+                    },
+                    "path": "v1/projects/{id}/changelog",
+                    "response": {
+                        "$ref": "GetProjectChangelogResponse"
+                    }
+                },
+                "list": {
+                    "description": "List project matching the list filter.",
+                    "flatPath": "v1/projects",
+                    "httpMethod": "GET",
+                    "id": "uat_alkalikronos_pa_sandbox.projects.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "filter": {
+                            "description": "Filter criteria for the list of projects to match.\nSyntax and grammar are based on go/filtering and\ncloud/api/filter/filter.proto.\nCurrently supported filter attributes are\nLDAP_ROLLS_UPTO, PROJECT_NAME, PROJECT_MANAGER.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "maxResultsSize": {
+                            "description": "Specified maximum size of the result set. Any additional results beyond the\nspecified max size will be discarded. If not set, a default max size of 500\nis enforced.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "sortKey": {
+                            "description": "Attribute based on which results should be sorted.\nSort results are based on sort semantics of underlying type.\nFor example, when sorting based on ENUM, results are ordered by integer\nassociated to the ENUM value.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "sortOrder": {
+                            "description": "Sort order to apply for the sort attribute.\nDefaults to Ascending if not specified.\nHas no effect, if set without a sort_key.",
+                            "enum": [
+                                "SORT_ORDER_UNSPECIFIED",
+                                "ASC",
+                                "DESC"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/projects",
+                    "response": {
+                        "$ref": "ListProjectsResponse"
+                    }
+                },
+                "patch": {
+                    "description": "Updates a project.",
+                    "flatPath": "v1/projects/{id}",
+                    "httpMethod": "PATCH",
+                    "id": "uat_alkalikronos_pa_sandbox.projects.patch",
+                    "parameterOrder": [
+                        "id"
+                    ],
+                    "parameters": {
+                        "id": {
+                            "description": "Unique identifier for project.",
+                            "format": "int64",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/projects/{id}",
+                    "request": {
+                        "$ref": "UpdateProjectRequest"
+                    },
+                    "response": {
+                        "$ref": "UpdateProjectResponse"
+                    }
+                }
+            }
+        },
+        "tasks": {
+            "methods": {
+                "bulkUpdate": {
+                    "description": "Updates a batch of tasks.",
+                    "flatPath": "v1/tasks:bulkUpdate",
+                    "httpMethod": "POST",
+                    "id": "uat_alkalikronos_pa_sandbox.tasks.bulkUpdate",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/tasks:bulkUpdate",
+                    "request": {
+                        "$ref": "BulkUpdateTaskRequest"
+                    },
+                    "response": {
+                        "$ref": "BulkUpdateTaskResponse"
+                    }
+                },
+                "create": {
+                    "description": "Creates a  new task.",
+                    "flatPath": "v1/tasks",
+                    "httpMethod": "POST",
+                    "id": "uat_alkalikronos_pa_sandbox.tasks.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/tasks",
+                    "request": {
+                        "$ref": "TaskPb"
+                    },
+                    "response": {
+                        "$ref": "CreateTaskResponse"
+                    }
+                },
+                "get": {
+                    "description": "Gets a task.",
+                    "flatPath": "v1/tasks/{id}",
+                    "httpMethod": "GET",
+                    "id": "uat_alkalikronos_pa_sandbox.tasks.get",
+                    "parameterOrder": [
+                        "id"
+                    ],
+                    "parameters": {
+                        "id": {
+                            "description": "ID of the task to fetch.",
+                            "format": "int64",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/tasks/{id}",
+                    "response": {
+                        "$ref": "GetTaskResponse"
+                    }
+                },
+                "getChangelog": {
+                    "description": "Change history of a task.",
+                    "flatPath": "v1/tasks/{id}/changelog",
+                    "httpMethod": "GET",
+                    "id": "uat_alkalikronos_pa_sandbox.tasks.getChangelog",
+                    "parameterOrder": [
+                        "id"
+                    ],
+                    "parameters": {
+                        "id": {
+                            "description": "Identifier of task for which change history needs to fetched.",
+                            "format": "int64",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "maxResultsSize": {
+                            "description": "Maximum number of entries to report in change history, with upper limit of\n500 results.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        }
+                    },
+                    "path": "v1/tasks/{id}/changelog",
+                    "response": {
+                        "$ref": "GetTaskChangelogResponse"
+                    }
+                },
+                "list": {
+                    "description": "List tasks matching the list filter.",
+                    "flatPath": "v1/tasks",
+                    "httpMethod": "GET",
+                    "id": "uat_alkalikronos_pa_sandbox.tasks.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "filter": {
+                            "description": "Filter criteria for the list of tasks to match.\nSyntax and grammar are based on go/filtering and\ncloud/api/filter/filter.proto.\nFor supported attributes, refer TasksListFilterAttributes in\ngoogle/internal/alkali/applications/kronos/v1/task/types.proto",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "maxResultsSize": {
+                            "description": "Specified maximum size of the result set. Any additional results beyond the\nspecified max size will be discarded. If not set, a default max size of 500\nis enforced.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "sortKey": {
+                            "description": "Attribute based on which results should be sorted.\nSort results are based on sort semantics of underlying type.\nFor example, when sorting based on ENUM, results are ordered by integer\nassociated to the ENUM value.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "sortOrder": {
+                            "description": "Sort order to apply for the sort attribute.\nDefaults to Ascending if not specified.\nHas no effect, if set without a sort_key.",
+                            "enum": [
+                                "SORT_ORDER_UNSPECIFIED",
+                                "ASC",
+                                "DESC"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/tasks",
+                    "response": {
+                        "$ref": "ListTasksResponse"
+                    }
+                },
+                "patch": {
+                    "description": "Updates a task.",
+                    "flatPath": "v1/tasks/{id}",
+                    "httpMethod": "PATCH",
+                    "id": "uat_alkalikronos_pa_sandbox.tasks.patch",
+                    "parameterOrder": [
+                        "id"
+                    ],
+                    "parameters": {
+                        "id": {
+                            "description": "Unique identifier for the task.",
+                            "format": "int64",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/tasks/{id}",
+                    "request": {
+                        "$ref": "UpdateTaskRequest"
+                    },
+                    "response": {
+                        "$ref": "UpdateTaskResponse"
+                    }
+                }
+            }
+        },
+        "teams": {
+            "methods": {
+                "list": {
+                    "description": "Fetches complete map of categories and sub categories for each team",
+                    "flatPath": "v1/teams",
+                    "httpMethod": "GET",
+                    "id": "uat_alkalikronos_pa_sandbox.teams.list",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/teams",
+                    "response": {
+                        "$ref": "ListTeamsMetadataResponse"
+                    }
+                }
+            }
+        },
+        "uploads": {
+            "methods": {
+                "submit": {
+                    "description": "Process an upload submitted by the app frontend's Uploader Widget.",
+                    "flatPath": "v1/uploads:submit",
+                    "httpMethod": "POST",
+                    "id": "uat_alkalikronos_pa_sandbox.uploads.submit",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/uploads:submit",
+                    "request": {
+                        "$ref": "SubmitUploadRequest"
+                    },
+                    "response": {
+                        "$ref": "SubmitUploadResponse"
+                    }
+                }
+            }
+        },
+        "user": {
+            "methods": {
+                "getType": {
+                    "description": "Rpc endpoint to fetch employee type for a username",
+                    "flatPath": "v1/user:type",
+                    "httpMethod": "GET",
+                    "id": "uat_alkalikronos_pa_sandbox.user.getType",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/user:type",
+                    "response": {
+                        "$ref": "GetUserEmployeeTypeResponse"
+                    }
+                }
+            }
+        },
+        "users": {
+            "methods": {
+                "suggest": {
+                    "description": "Rpc endpoint to fetch autocomplete suggestions",
+                    "flatPath": "v1/users:suggest",
+                    "httpMethod": "GET",
+                    "id": "uat_alkalikronos_pa_sandbox.users.suggest",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "includeGoogleGroups": {
+                            "description": "Boolean to indicate if google groups should be included in suggestions",
+                            "location": "query",
+                            "type": "boolean"
+                        },
+                        "maxSuggestions": {
+                            "description": "Maximum number of suggestions to be returned",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "query": {
+                            "description": "Query string representing username prefix",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/users:suggest",
+                    "response": {
+                        "$ref": "UserAutocompleteResponse"
+                    }
+                }
+            }
+        },
+        "v1": {
+            "methods": {
+                "batchGetDashboardData": {
+                    "description": "This method needs to be called repeatedly until all of the responses in\nthe batch response are complete. Essentially, even though we're rendering\nonly one dashboard, we could have multiple data sources that we need to\nquery (especially if we have multiple widgets), so the response sequence\ncould look something like this:\nfirst response [\n   {id: 1, status: PENDING, ...},\n   {id: 2, status: PENDING, ...}]\nsecond response [\n   {id: 1, status: COMPLETE, ...},\n   {id: 2, status: PENDING, ...}]\nthird response [\n   {id: 2: status: COMPLETE, ...}]",
+                    "flatPath": "v1/batchGetDashboardData",
+                    "httpMethod": "POST",
+                    "id": "uat_alkalikronos_pa_sandbox.batchGetDashboardData",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/batchGetDashboardData",
+                    "request": {
+                        "$ref": "BatchRequest"
+                    },
+                    "response": {
+                        "$ref": "BatchResponse"
+                    }
+                },
+                "getDashboardSpec": {
+                    "description": "The dashboard spec is the first piece of data that should go to the viewer.\nAfter the spec is loaded, BatchGetDashboardData should be called. These\nmethods are not combined because loading the spec and all the data for\nevery data source can take a while.",
+                    "flatPath": "v1/getDashboardSpec",
+                    "httpMethod": "POST",
+                    "id": "uat_alkalikronos_pa_sandbox.getDashboardSpec",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/getDashboardSpec",
+                    "request": {
+                        "$ref": "GetDashboardSpecRequest"
+                    },
+                    "response": {
+                        "$ref": "GetDashboardSpecResponse"
+                    }
+                },
+                "getPreferences": {
+                    "description": "Fetch recently accessed kronos entities for the current user",
+                    "flatPath": "v1/preferences",
+                    "httpMethod": "GET",
+                    "id": "uat_alkalikronos_pa_sandbox.getPreferences",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "type": {
+                            "description": "List of type of kronos entities for which recently accessed ids must be\nfetched",
+                            "enum": [
+                                "KRONOS_ENTITY_UNSPECIFIED",
+                                "TASK",
+                                "PROJECT",
+                                "TEAM"
+                            ],
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/preferences",
+                    "response": {
+                        "$ref": "GetRecentlyAccessedEntitiesResponse"
+                    }
+                },
+                "getSearch": {
+                    "description": "Enables user to search on projects (using name) and tasks (using title)",
+                    "flatPath": "v1/search",
+                    "httpMethod": "GET",
+                    "id": "uat_alkalikronos_pa_sandbox.getSearch",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "maxSuggestions": {
+                            "description": "Maximum number of results to fetch per entity, defaults to 10",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "query": {
+                            "description": "Search query provided by the user, must have at least 3 characters",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "type": {
+                            "description": "Type of entities to return in response, required",
+                            "enum": [
+                                "KRONOS_ENTITY_UNSPECIFIED",
+                                "TASK",
+                                "PROJECT",
+                                "TEAM"
+                            ],
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/search",
+                    "response": {
+                        "$ref": "KronosSearchResponse"
+                    }
+                },
+                "preferences": {
+                    "description": "Adds recently accessed kronos entity to user preferences",
+                    "flatPath": "v1/preferences",
+                    "httpMethod": "POST",
+                    "id": "uat_alkalikronos_pa_sandbox.preferences",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/preferences",
+                    "request": {
+                        "$ref": "AddRecentlyAccessedEntityRequest"
+                    },
+                    "response": {
+                        "$ref": "Empty"
+                    }
+                },
+                "share": {
+                    "description": "Shares a Kronos entity with given usernames.",
+                    "flatPath": "v1/share",
+                    "httpMethod": "POST",
+                    "id": "uat_alkalikronos_pa_sandbox.share",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/share",
+                    "request": {
+                        "$ref": "ShareEntityRequest"
+                    },
+                    "response": {
+                        "$ref": "ShareEntityResponse"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190913",
+    "rootUrl": "https://uat-alkalikronos-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "AddRecentlyAccessedEntityRequest": {
+            "description": "Request message to associate recently accessed item with user's preferences",
+            "id": "AddRecentlyAccessedEntityRequest",
+            "properties": {
+                "recentItem": {
+                    "$ref": "RecentItem",
+                    "description": "Represents recently accessed kronos entity"
+                }
+            },
+            "type": "object"
+        },
+        "AttachmentPb": {
+            "description": "Wire proto corresponding to database table for storing attachment metadata",
+            "id": "AttachmentPb",
+            "properties": {
+                "id": {
+                    "description": "Unique identifier for attachment",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Name of the uploaded file",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "URL where the file was uploaded",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AttachmentsResponse": {
+            "description": "Additional details returned along with\ncom.google.internal.alkali.uploads.v1.SubmitUploadResponse",
+            "id": "AttachmentsResponse",
+            "properties": {
+                "attachments": {
+                    "description": "URL where the file was uploaded",
+                    "items": {
+                        "$ref": "AttachmentPb"
+                    },
+                    "type": "array"
+                },
+                "errorMessage": {
+                    "description": "Error message, if upload request failed",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "BatchRequest": {
+            "id": "BatchRequest",
+            "properties": {
+                "request": {
+                    "items": {
+                        "$ref": "QueryRequest"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BatchResponse": {
+            "id": "BatchResponse",
+            "properties": {
+                "response": {
+                    "items": {
+                        "$ref": "QueryResponse"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BernoulliSampleSpec": {
+            "id": "BernoulliSampleSpec",
+            "properties": {
+                "percentage": {
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "BulkUpdateTaskRequest": {
+            "description": "The request message for\n[com.google.internal.alkali.applications.kronos.v1.task.KronosTaskService.BulkUpdateTask]",
+            "id": "BulkUpdateTaskRequest",
+            "properties": {
+                "ids": {
+                    "description": "Ids of tasks which should be updated.",
+                    "items": {
+                        "format": "int64",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "updateMask": {
+                    "description": "Indicates which fields in the provided task to update. Must be specified\nand non-empty",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                },
+                "updatedTask": {
+                    "$ref": "TaskPb",
+                    "description": "Updated field values for all tasks, wrapped in TaskPb"
+                }
+            },
+            "type": "object"
+        },
+        "BulkUpdateTaskResponse": {
+            "description": "The response message for\n[com.google.internal.alkali.applications.kronos.v1.task.KronosTaskService.BulkUpdateTask]",
+            "id": "BulkUpdateTaskResponse",
+            "properties": {
+                "taskIds": {
+                    "description": "List of updated task ids",
+                    "items": {
+                        "format": "int64",
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CategoryMetadata": {
+            "description": "Category details to be returned as part of team metadata.",
+            "id": "CategoryMetadata",
+            "properties": {
+                "id": {
+                    "description": "Category id.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Category Name.",
+                    "type": "string"
+                },
+                "subCategories": {
+                    "description": "Subcategories that belong to the category.",
+                    "items": {
+                        "$ref": "SubCategoryMetadata"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ChangeItem": {
+            "id": "ChangeItem",
+            "properties": {
+                "metadata": {
+                    "description": "Metadata associated with the change",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "Value of the change",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ChangePb": {
+            "description": "Represents change made to an entity",
+            "id": "ChangePb",
+            "properties": {
+                "fieldName": {
+                    "description": "Name of the field that changed",
+                    "type": "string"
+                },
+                "modifiedAtSeconds": {
+                    "description": "Timestamp at which the change was made",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "newValue": {
+                    "$ref": "ChangeItem",
+                    "description": "New value of the field"
+                },
+                "oldValue": {
+                    "$ref": "ChangeItem",
+                    "description": "Old value of the field"
+                },
+                "username": {
+                    "description": "Username of the person who made the change",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CreateAttachmentRequest": {
+            "description": "The request message for\n[com.google.internal.alkali.applications.kronos.v1.attachments.KronosAttachmentsService.CreateAttachment]",
+            "id": "CreateAttachmentRequest",
+            "properties": {
+                "entityId": {
+                    "description": "Id of the entity with which the file is attached, if available.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "entityType": {
+                    "description": "Tells if the file is attached to a task or project.",
+                    "enum": [
+                        "ENTITY_TYPE_UNSPECIFIED",
+                        "TASK",
+                        "PROJECT",
+                        "NOTE"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "fileContent": {
+                    "description": "Content of the file.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "fileMimeType": {
+                    "description": "The content mime type of file. Optional.",
+                    "type": "string"
+                },
+                "fileName": {
+                    "description": "Name of the file.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CreateAttachmentResponse": {
+            "description": "The response message for\n[com.google.internal.alkali.applications.kronos.v1.attachments.KronosAttachmentsService.CreateAttachment]",
+            "id": "CreateAttachmentResponse",
+            "properties": {
+                "attachments": {
+                    "description": "URL where the file was uploaded",
+                    "items": {
+                        "$ref": "AttachmentPb"
+                    },
+                    "type": "array"
+                },
+                "errorMessage": {
+                    "description": "Error message, if upload request failed",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CreateNoteRequest": {
+            "description": "The request message for\n[com.google.internal.alkali.applications.kronos.v1.note.KronosNoteService.CreateNote]",
+            "id": "CreateNoteRequest",
+            "properties": {
+                "note": {
+                    "$ref": "NotePb",
+                    "description": "The note to create."
+                },
+                "noteParent": {
+                    "description": "Specifies the type of parent entity.",
+                    "enum": [
+                        "NOTE_PARENT_UNSPECIFIED",
+                        "TASK",
+                        "PROJECT"
+                    ],
+                    "enumDescriptions": [
+                        "Catch-all for unrecognized enum values.",
+                        "Note parent is\n[com.google.internal.alkali.applications.kronos.v1.task.TaskPb]",
+                        "Note parent is\n[com.google.internal.alkali.applications.kronos.v1.project.ProjectPb]"
+                    ],
+                    "type": "string"
+                },
+                "parentId": {
+                    "description": "Parent Entity ID under which this note/comment will be created.\nUnique identifier for Task or Project.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CreateNoteResponse": {
+            "description": "The response message for\n[com.google.internal.alkali.applications.kronos.v1.note.KronosNoteService.CreateNote]",
+            "id": "CreateNoteResponse",
+            "properties": {
+                "noteId": {
+                    "description": "Created note id.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CreateProjectResponse": {
+            "description": "The response message for\n[com.google.internal.alkali.applications.kronos.v1.project.KronosProjectService.CreateProject]",
+            "id": "CreateProjectResponse",
+            "properties": {
+                "projectId": {
+                    "description": "Created project ID.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CreateTaskResponse": {
+            "description": "The response message for\n[com.google.internal.alkali.applications.kronos.v1.task.KronosTaskService.CreateTask]",
+            "id": "CreateTaskResponse",
+            "properties": {
+                "taskId": {
+                    "description": "Id of the created task.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DashboardDataSource": {
+            "id": "DashboardDataSource",
+            "properties": {
+                "dashboardId": {
+                    "type": "string"
+                },
+                "dataSpecId": {
+                    "type": "string"
+                },
+                "parameter": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "type": "object"
+                },
+                "version": {
+                    "enum": [
+                        "PUBLISHED",
+                        "DRAFT"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DashboardParameter": {
+            "id": "DashboardParameter",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "EmailResponse": {
+            "description": "This message holds information regarding the response that was obtained after\nemails were dispatched.",
+            "id": "EmailResponse",
+            "properties": {
+                "failureReason": {
+                    "description": "Reason for failure, if any.",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "Status of the email dispatch.",
+                    "enum": [
+                        "UNSPECIFIED",
+                        "SUCCESS",
+                        "FAILURE"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified status.",
+                        "Email was successfully dispatched to all the required users.",
+                        "Dispatching of emails failed. Check 'failure_reason' for more info."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Empty": {
+            "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+            "id": "Empty",
+            "properties": {},
+            "type": "object"
+        },
+        "ExpressionField": {
+            "description": "An object that contains the unparsed string representation of an expression.",
+            "id": "ExpressionField",
+            "properties": {
+                "expression": {
+                    "description": "Required. String representation of a simple or custom expression used in\ndimensions, simple selected columns or measures.",
+                    "type": "string"
+                },
+                "outputColumn": {
+                    "description": "Required. The column name to output values as.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FileKey": {
+            "description": "A unique File Key to identify an uploaded file.",
+            "id": "FileKey",
+            "properties": {
+                "keyId": {
+                    "description": "The name (UUID) of this file key.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FilterSpec": {
+            "description": "A data filter specification.",
+            "id": "FilterSpec",
+            "properties": {
+                "expression": {
+                    "description": "Required: The expression that this filter is applied to. It can either be\na column name or a custom expression. Examples:\n<ul>\n<li>column_1\n<li>column_1 + column_2\n<li>FLOOR(column_1) * column_3\n<li>CONCAT('string', column_1)\n<li>MAX(column_1)\n</ul>\nIf the expression only contains non-aggregated input columns, it will be\napplied pre-aggregation (e.g. sql where clause). If it contains\naggregations it will be applied post aggregation (e.g. sql having clause).",
+                    "type": "string"
+                },
+                "operation": {
+                    "description": "Required: The filtering operation to perform.",
+                    "enum": [
+                        "UNKNOWN_OPERATION",
+                        "EQ",
+                        "NOT_EQ",
+                        "LESS_THAN",
+                        "LESS_THAN_OR_EQ",
+                        "GREATER_THAN",
+                        "GREATER_THAN_OR_EQ",
+                        "IS_NULL",
+                        "IS_NOT_NULL",
+                        "IS_INF",
+                        "IS_NOT_INF",
+                        "IS_NAN",
+                        "IS_NOT_NAN",
+                        "IN",
+                        "NOT_IN",
+                        "BETWEEN",
+                        "NOT_BETWEEN"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "inclusive at both ends.",
+                        "exclusive at both ends."
+                    ],
+                    "type": "string"
+                },
+                "value": {
+                    "description": "Required: The values to be passed to the filter.\nIf more values are provided than the filter Operation requires, then they\nwill be ignored.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GetDashboardSpecRequest": {
+            "id": "GetDashboardSpecRequest",
+            "properties": {
+                "id": {
+                    "description": "ID of the dashboard, e.g., \"google::_e866f518_8e5a_4461_b1a2_1dfdf80b52f8\".",
+                    "type": "string"
+                },
+                "parameter": {
+                    "description": "Additional custom parameters set in the client element.",
+                    "items": {
+                        "$ref": "DashboardParameter"
+                    },
+                    "type": "array"
+                },
+                "version": {
+                    "description": "Version of the dashboard, default to \"PUBLISHED\" if not set.",
+                    "enum": [
+                        "PUBLISHED",
+                        "DRAFT"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GetDashboardSpecResponse": {
+            "id": "GetDashboardSpecResponse",
+            "properties": {
+                "parameter": {
+                    "description": "Additional custom parameters provided in the server-side configuration.",
+                    "items": {
+                        "$ref": "DashboardParameter"
+                    },
+                    "type": "array"
+                },
+                "spec": {
+                    "description": "Spec of the dashboard, in JavaScript Apiary proto JSON format.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GetProjectChangelogResponse": {
+            "description": "Response message containing project change history details",
+            "id": "GetProjectChangelogResponse",
+            "properties": {
+                "projectChange": {
+                    "description": "List of changes to project",
+                    "items": {
+                        "$ref": "ChangePb"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GetProjectResponse": {
+            "description": "The response message for\n[com.google.internal.alkali.applications.kronos.v1.project.KronosProjectService.GetProject]",
+            "id": "GetProjectResponse",
+            "properties": {
+                "aggregatedFields": {
+                    "$ref": "ProjectAggregateFieldsPb",
+                    "description": "Aggregated fields for requested project id"
+                },
+                "project": {
+                    "$ref": "ProjectPb",
+                    "description": "Details for requested project id"
+                }
+            },
+            "type": "object"
+        },
+        "GetRecentlyAccessedEntitiesResponse": {
+            "description": "Response containing potential kronos entities which the user would prefer to\naccess",
+            "id": "GetRecentlyAccessedEntitiesResponse",
+            "properties": {
+                "recentItems": {
+                    "description": "List of recently accessed kronos entities for the current user",
+                    "items": {
+                        "$ref": "RecentItem"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GetTaskChangelogResponse": {
+            "description": "Response message containing task change history details",
+            "id": "GetTaskChangelogResponse",
+            "properties": {
+                "taskChange": {
+                    "description": "List of changes to task",
+                    "items": {
+                        "$ref": "ChangePb"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GetTaskResponse": {
+            "description": "The response message for\n[com.google.internal.alkali.applications.kronos.v1.task.KronosTaskService.GetTask]",
+            "id": "GetTaskResponse",
+            "properties": {
+                "category": {
+                    "description": "Category to which this task belongs.",
+                    "type": "string"
+                },
+                "notes": {
+                    "$ref": "ListNotesResponse",
+                    "description": "Notes associated with the task."
+                },
+                "projectDetails": {
+                    "$ref": "GetProjectResponse",
+                    "description": "Project details."
+                },
+                "projectName": {
+                    "description": "Name of the project to which the task belongs.",
+                    "type": "string"
+                },
+                "subCategory": {
+                    "description": "Subcategory to which this task belongs.",
+                    "type": "string"
+                },
+                "task": {
+                    "$ref": "TaskPb",
+                    "description": "Task corresponding to the given ID."
+                }
+            },
+            "type": "object"
+        },
+        "GetUserEmployeeTypeResponse": {
+            "id": "GetUserEmployeeTypeResponse",
+            "properties": {
+                "isGoogler": {
+                    "description": "True if username in request is a Googler, false otherwise",
+                    "type": "boolean"
+                },
+                "isManager": {
+                    "description": "True if username in request is a manager, false otherwise",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "KronosSearchResponse": {
+            "description": "Response message representing search results for user query",
+            "id": "KronosSearchResponse",
+            "properties": {
+                "results": {
+                    "description": "List of projects and tasks matching search query",
+                    "items": {
+                        "$ref": "KronosSearchResult"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "KronosSearchResult": {
+            "description": "Message to hold key information about returned search result",
+            "id": "KronosSearchResult",
+            "properties": {
+                "id": {
+                    "description": "Unique identifier for entity returned as search result",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Name or title of the entity returned as search result",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "Type of entity",
+                    "enum": [
+                        "KRONOS_ENTITY_UNSPECIFIED",
+                        "TASK",
+                        "PROJECT",
+                        "TEAM"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified kronos entity",
+                        "Represents task in kronos",
+                        "Represents project in kronos",
+                        "Represents team to which to user belongs"
+                    ],
+                    "type": "string"
+                },
+                "user": {
+                    "description": "Assignee or owner of the entity",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListNotesResponse": {
+            "description": "The response message for\n[com.google.internal.alkali.applications.kronos.v1.note.KronosNoteService.ListNotes]",
+            "id": "ListNotesResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "A token to retrieve next page of results.\nPass this value in the\nListNotesRequest.page_token\nfield in the subsequent call to `ListNotes` method to retrieve the next\npage of results.\nIt will be empty if there are no more results to be fetched.",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "The list of notes.",
+                    "items": {
+                        "$ref": "NotePb"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListProjectsPb": {
+            "description": "Message type representing details returned by ListProjects.\nThis message currently only holds values that are required per the UI mocks.\nWe don't intend to return all task attributes at this point and current set\nof fields will undergo change as requirements evolve.\nNext tag : 6",
+            "id": "ListProjectsPb",
+            "properties": {
+                "id": {
+                    "description": "Id of the project.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Name of the project.",
+                    "type": "string"
+                },
+                "projectManager": {
+                    "description": "Project manager.",
+                    "type": "string"
+                },
+                "totalHoursSpent": {
+                    "description": "Total hours spent on the tasks associated with the project.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "totalTasks": {
+                    "description": "Total number of tasks associated with the project.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListProjectsResponse": {
+            "description": "The response message for\n[com.google.internal.alkali.applications.kronos.v1.project.KronosProjectService.ListProjects]",
+            "id": "ListProjectsResponse",
+            "properties": {
+                "projects": {
+                    "description": "The list of projects matching to the filter criteria.",
+                    "items": {
+                        "$ref": "ListProjectsPb"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListTasksPb": {
+            "description": "Message type representing details returned by ListTasks.\nThis message currently only holds values that are required per the UI mocks.\nWe don't intend to return all task attributes at this point and current set\nof fields will undergo change as requirements evolve.\nNext tag : 12",
+            "id": "ListTasksPb",
+            "properties": {
+                "actualEffortHours": {
+                    "description": "Actual hours for task completion.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "assignee": {
+                    "description": "Assignee of the task.",
+                    "type": "string"
+                },
+                "category": {
+                    "description": "Category of task.",
+                    "type": "string"
+                },
+                "estimatedEffortHours": {
+                    "description": "Estimated hours for task completion.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "goalEndTimestampMicros": {
+                    "description": "Planned end time of the task.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Id of the task.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "projectId": {
+                    "description": "Id of the associated project.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "projectName": {
+                    "description": "Name of the associated project.",
+                    "type": "string"
+                },
+                "startTimestampMicros": {
+                    "description": "start time of the task.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "Status of the task.",
+                    "enum": [
+                        "TASK_STATUS_UNSPECIFIED",
+                        "NEW",
+                        "WORK_IN_PROGRESS",
+                        "COMPLETE",
+                        "ARCHIVE",
+                        "DEFER",
+                        "DELETE"
+                    ],
+                    "enumDescriptions": [
+                        "Catch-all for unrecognized enum values.",
+                        "Work is not yet started on the task.",
+                        "Work is being done on the task.",
+                        "Work has finished on the task.",
+                        "Task is archived.",
+                        "Task is currently not being worked on and postponed to a later time.",
+                        "LINT.IfChange\nTask is deleted and will no longer be available.\nLINT.ThenChange(//depot/google3/java/com/google/alkali/applications/kronos/server/dao/queries/project/GetProjectAggregateFields.sql)"
+                    ],
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Title of the task.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListTasksResponse": {
+            "description": "The response message for\n[com.google.internal.alkali.applications.kronos.v1.task.KronosTaskService.ListTasks]",
+            "id": "ListTasksResponse",
+            "properties": {
+                "tasks": {
+                    "description": "The list of tasks matching the filter criteria.",
+                    "items": {
+                        "$ref": "ListTasksPb"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListTeamsMetadataResponse": {
+            "description": "Response message containing zero or more teams along with their\ncategory and sub category details",
+            "id": "ListTeamsMetadataResponse",
+            "properties": {
+                "preferredTeamId": {
+                    "description": "Preferred team for user, if available",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "teams": {
+                    "description": "List of teams containing respective categories and sub categories",
+                    "items": {
+                        "$ref": "TeamMetadata"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "NotePb": {
+            "description": "Note represents notes/comments associated with\n[com.google.internal.alkali.applications.kronos.v1.task.TaskPb]\nor\n[com.google.internal.alkali.applications.kronos.v1.project.ProjectPb].",
+            "id": "NotePb",
+            "properties": {
+                "attachments": {
+                    "description": "List of attachments associated with the note.",
+                    "items": {
+                        "$ref": "AttachmentPb"
+                    },
+                    "type": "array"
+                },
+                "createdAtMicros": {
+                    "description": "Microseconds since epoch when this note was created.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "createdBy": {
+                    "description": "Username of the person who created the note.",
+                    "type": "string"
+                },
+                "creatorFullName": {
+                    "description": "The full name of the creator of this note.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Unique identifier for the note.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "note": {
+                    "description": "User entered comment.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "OrderingSpec": {
+            "description": "A data ordering specification.",
+            "id": "OrderingSpec",
+            "properties": {
+                "columnName": {
+                    "description": "Required: The name of the column to sort by. Only output columns are\ncurrently supported.",
+                    "type": "string"
+                },
+                "order": {
+                    "description": "Required: The filtering operation to perform.",
+                    "enum": [
+                        "UNKNOWN_ORDER",
+                        "ASC",
+                        "DESC"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ProjectAggregateFieldsPb": {
+            "description": "Message to hold project properties derived using aggregate operations on\ntasks under the project.",
+            "id": "ProjectAggregateFieldsPb",
+            "properties": {
+                "actualEffortHours": {
+                    "description": "Total actual effort for all tasks under this project",
+                    "format": "double",
+                    "type": "number"
+                },
+                "endTimestampMicros": {
+                    "description": "End date for project",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "estimatedEffortHours": {
+                    "description": "Total estimated effort for all tasks under this project",
+                    "format": "double",
+                    "type": "number"
+                },
+                "id": {
+                    "description": "Unique identifier for project",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "startTimestampMicros": {
+                    "description": "Start date for project",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ProjectPb": {
+            "description": "A \u201cproject\u2019 is a hierarchical entity which consists of tasks.\nUsers will create project to group several tasks.\nNext available tag: 6;",
+            "id": "ProjectPb",
+            "properties": {
+                "description": {
+                    "description": "Description of the project.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Unique identifier for project.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Name of the project.",
+                    "type": "string"
+                },
+                "noteIds": {
+                    "description": "Notes/comments Id's associated with the project.\nThese ID's are primary key for\n[com.google.internal.alkali.applications.kronos.v1.note.NotePb]",
+                    "items": {
+                        "format": "int64",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "projectManager": {
+                    "description": "Owner/manager of the project.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ProjectionSpec": {
+            "description": "A data projection specification.",
+            "id": "ProjectionSpec",
+            "properties": {
+                "bernoulli": {
+                    "$ref": "BernoulliSampleSpec",
+                    "description": "All rows have equal probability of being included in the sample. Whether\neach row is included or not is independent of one another."
+                },
+                "field": {
+                    "description": "String expressions that represent dimensions or measures. For example:\nfields : {output: \"output_col1\" expression:\"col1\"},\n{output:\"output_col2\" expression: \"col2\"},\n{output: \"output_col3\" expression: \"SUM(col3 + col4)\" }\nwill result in two dimensions and one aggregation.",
+                    "items": {
+                        "$ref": "ExpressionField"
+                    },
+                    "type": "array"
+                },
+                "filter": {
+                    "description": "Optional: Any filters which are to be applied to the input.",
+                    "items": {
+                        "$ref": "FilterSpec"
+                    },
+                    "type": "array"
+                },
+                "isGrouped": {
+                    "description": "Optional: Flag to indicate whether dimensions should be grouped in the\nabsence of any aggregations.",
+                    "type": "boolean"
+                },
+                "limitToNumRows": {
+                    "description": "Optional: Number of rows to limit the output to.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "ordering": {
+                    "description": "Optional: The ordering to be applied, if any.",
+                    "items": {
+                        "$ref": "OrderingSpec"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "QueryCacheControl": {
+            "description": "Cache control equivalent to\nhttp://google3/datawarehouse/plx/api/public/v1/common.proto?l=81&rcl=170603851.",
+            "id": "QueryCacheControl",
+            "properties": {
+                "minCacheTimestampMs": {
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "QueryExecutionIdentifier": {
+            "id": "QueryExecutionIdentifier",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "token": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "QueryExecutionState": {
+            "id": "QueryExecutionState",
+            "properties": {
+                "errorCode": {
+                    "description": "The canonical error code enum in string format. Present only if the\nexecution failed.",
+                    "type": "string"
+                },
+                "errorDetail": {
+                    "description": "Detail about the error, if the execution failed.",
+                    "type": "string"
+                },
+                "percentComplete": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "state": {
+                    "enum": [
+                        "UNKNOWN_EXECUTION_STATE",
+                        "PENDING",
+                        "RUNNING",
+                        "DONE"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "An entity that has been submitted but not processed yet.",
+                        "An entity that is currently being executed.",
+                        "An entity that has been successfully or unsuccessfully completed."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "QueryRequest": {
+            "id": "QueryRequest",
+            "properties": {
+                "cacheControl": {
+                    "$ref": "QueryCacheControl"
+                },
+                "dataSource": {
+                    "$ref": "DashboardDataSource"
+                },
+                "executionId": {
+                    "$ref": "QueryExecutionIdentifier"
+                },
+                "projection": {
+                    "$ref": "ProjectionSpec"
+                },
+                "type": {
+                    "enum": [
+                        "QUERY_TYPE_UNKNOWN",
+                        "CREATE",
+                        "GET"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "QueryResponse": {
+            "id": "QueryResponse",
+            "properties": {
+                "data": {
+                    "type": "string"
+                },
+                "executionId": {
+                    "$ref": "QueryExecutionIdentifier"
+                },
+                "fieldMetadata": {
+                    "items": {
+                        "$ref": "ResultFieldMetadata"
+                    },
+                    "type": "array"
+                },
+                "state": {
+                    "$ref": "QueryExecutionState"
+                }
+            },
+            "type": "object"
+        },
+        "RecentItem": {
+            "description": "Represents recently used kronos entities like tasks/projects or associated\nmetadata like user team",
+            "id": "RecentItem",
+            "properties": {
+                "description": {
+                    "description": "Description of the recently accessed kronos entity",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Id of recently accessed kronos entity (task/project) or data (team)",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "Type of kronos entity associated with ids passed in this message",
+                    "enum": [
+                        "KRONOS_ENTITY_UNSPECIFIED",
+                        "TASK",
+                        "PROJECT",
+                        "TEAM"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified kronos entity",
+                        "Represents task in kronos",
+                        "Represents project in kronos",
+                        "Represents team to which to user belongs"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Recipient": {
+            "id": "Recipient",
+            "properties": {
+                "isGroup": {
+                    "description": "Specifies whether the current receiver is a Google group or an\nindividual username. The value would be 'true' for a Google group.",
+                    "type": "boolean"
+                },
+                "username": {
+                    "description": "The group name or username of the receiver. For e.g., 'kronos-eng',\n'shravanmurali' ..etc.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ResultFieldMetadata": {
+            "description": "Metadata of the fields in the output data in Projection.",
+            "id": "ResultFieldMetadata",
+            "properties": {
+                "dataType": {
+                    "description": "The data value type of the field",
+                    "enum": [
+                        "UNKNOWN_FIELD_DATA_TYPE",
+                        "TYPE_INT32",
+                        "TYPE_INT64",
+                        "TYPE_UINT32",
+                        "TYPE_UINT64",
+                        "TYPE_BOOL",
+                        "TYPE_FLOAT",
+                        "TYPE_DOUBLE",
+                        "TYPE_STRING",
+                        "TYPE_BYTES",
+                        "TYPE_DATE",
+                        "TYPE_TIMESTAMP",
+                        "TYPE_TIMESTAMP_MICROS",
+                        "TYPE_TIMESTAMP_MILLIS",
+                        "TYPE_TIMESTAMP_SECONDS",
+                        "TYPE_TIMESTAMP_NANOS",
+                        "TYPE_ENUM"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "Consistent with GoogleSql TIMESTAMP in micros.",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The fully qualified name of this field.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ShareEntityRequest": {
+            "description": "The request message for\n[com.google.internal.alkali.applications.kronos.v1.entity.KronosShareService]",
+            "id": "ShareEntityRequest",
+            "properties": {
+                "entityId": {
+                    "description": "ID of the entity to be shared. This can only be a task or project.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "entityType": {
+                    "description": "Specifies the type of entity to be shared.",
+                    "enum": [
+                        "KRONOS_ENTITY_UNSPECIFIED",
+                        "TASK",
+                        "PROJECT",
+                        "TEAM"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified kronos entity",
+                        "Represents task in kronos",
+                        "Represents project in kronos",
+                        "Represents team to which to user belongs"
+                    ],
+                    "type": "string"
+                },
+                "recipients": {
+                    "description": "The usernames or groups to which the current entity would have to be\nshared.",
+                    "items": {
+                        "$ref": "Recipient"
+                    },
+                    "type": "array"
+                },
+                "usernames": {
+                    "description": "Usernames of employees to share the entity with.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ShareEntityResponse": {
+            "description": "The response message for\n[com.google.internal.alkali.applications.kronos.v1.entity.KronosShareService]",
+            "id": "ShareEntityResponse",
+            "properties": {
+                "emailResponse": {
+                    "$ref": "EmailResponse",
+                    "description": "The response details obtained after emails were dispatched to shared users."
+                },
+                "entityId": {
+                    "description": "The id of the entity that was shared.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SubCategoryMetadata": {
+            "description": "Sub category details to be returned as part of team metadata.",
+            "id": "SubCategoryMetadata",
+            "properties": {
+                "id": {
+                    "description": "Sub category id.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Sub category name.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SubmitUploadRequest": {
+            "description": "Request for submitting an upload and processing the uploaded files.",
+            "id": "SubmitUploadRequest",
+            "properties": {
+                "files": {
+                    "description": "The details of each uploaded file.",
+                    "items": {
+                        "$ref": "UploadedFile"
+                    },
+                    "type": "array"
+                },
+                "uploadDetails": {
+                    "additionalProperties": {
+                        "description": "Properties of the object. Contains field @type with type URL.",
+                        "type": "any"
+                    },
+                    "description": "This is an Any proto to allow each frontend app to provide contextually\nrelevant information about the upload session to its upload handler.\nThis type must be added to your Alkali app's OnePlatform config file\n(cs/internal/alkali/applications/APP_NAME/APP_NAME.yaml) for the upload\nhandler to correctly handle the request.",
+                    "type": "object"
+                },
+                "uploadKey": {
+                    "$ref": "UploadKey",
+                    "description": "A unique Upload Key identifying the upload session."
+                }
+            },
+            "type": "object"
+        },
+        "SubmitUploadResponse": {
+            "description": "Result of submitting an upload. This response is set by the upload handler\nand gets passed through the Alkali Uploader to the frontend.",
+            "id": "SubmitUploadResponse",
+            "properties": {
+                "response": {
+                    "additionalProperties": {
+                        "description": "Properties of the object. Contains field @type with type URL.",
+                        "type": "any"
+                    },
+                    "description": "This is an Any proto to allow each upload handler to determine its own\nresponse type. This type must be added to your Alkali app's OnePlatform\nconfig file (cs/internal/alkali/applications/APP_NAME/APP_NAME.yaml)\nfor the frontend to correctly handle the response.",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "Suggestion": {
+            "description": "Wrapper message for an item in autocomplete response",
+            "id": "Suggestion",
+            "properties": {
+                "displayName": {
+                    "description": "Display name of person or google group matching autocomplete query",
+                    "type": "string"
+                },
+                "email": {
+                    "description": "Email of person or google group matching autocomplete query",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "Type of suggestion",
+                    "enum": [
+                        "SUGGESTION_TYPE_UNSPECIFIED",
+                        "PERSON",
+                        "GOOGLE_GROUP"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified type",
+                        "When suggestion is a person",
+                        "When suggestion is a google group"
+                    ],
+                    "type": "string"
+                },
+                "username": {
+                    "description": "Username of the person or google group matching autocomplete query",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TaskPb": {
+            "description": "TaskPb is corresponding proto for Task table defined in storage.\nRepresents collection of actions for work undertaken by the user.\nNext available tag: 15",
+            "id": "TaskPb",
+            "properties": {
+                "actualEffortHours": {
+                    "description": "Actual effort put in to complete the task, in hours.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "actualEndTimestampMicros": {
+                    "description": "Actual end date for task.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "assignee": {
+                    "description": "Username of the person to which this task is currently assigned.",
+                    "type": "string"
+                },
+                "categoryId": {
+                    "description": "Id of category under which task is created.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "Description of the task.",
+                    "type": "string"
+                },
+                "estimatedEffortHours": {
+                    "description": "Estimated effort required to complete the task, in hours.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "goalEndTimestampMicros": {
+                    "description": "Expected end date for task.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Unique identifier for the task.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "noteIds": {
+                    "description": "Notes/comments Id's associated with the task.\nThese ID's are primary key for\n[com.google.internal.alkali.applications.kronos.v1.note.NotePb]",
+                    "items": {
+                        "format": "int64",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "projectId": {
+                    "description": "Id of the\n[com.google.internal.alkali.applications.kronos.v1.project.ProjectPb] with\nwhich this task is associated. Is nullable.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "startTimestampMicros": {
+                    "description": "Start date for task.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "Current status of the task.",
+                    "enum": [
+                        "TASK_STATUS_UNSPECIFIED",
+                        "NEW",
+                        "WORK_IN_PROGRESS",
+                        "COMPLETE",
+                        "ARCHIVE",
+                        "DEFER",
+                        "DELETE"
+                    ],
+                    "enumDescriptions": [
+                        "Catch-all for unrecognized enum values.",
+                        "Work is not yet started on the task.",
+                        "Work is being done on the task.",
+                        "Work has finished on the task.",
+                        "Task is archived.",
+                        "Task is currently not being worked on and postponed to a later time.",
+                        "LINT.IfChange\nTask is deleted and will no longer be available.\nLINT.ThenChange(//depot/google3/java/com/google/alkali/applications/kronos/server/dao/queries/project/GetProjectAggregateFields.sql)"
+                    ],
+                    "type": "string"
+                },
+                "subcategoryId": {
+                    "description": "Id of subcategory under which task is created.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Title of the task.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TeamMetadata": {
+            "description": "Details of team to be returned when querying for metadata.",
+            "id": "TeamMetadata",
+            "properties": {
+                "categories": {
+                    "description": "Categories  that belong to the team.",
+                    "items": {
+                        "$ref": "CategoryMetadata"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "Unique identifier for team.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Name of the team.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateProjectRequest": {
+            "description": "The request message for\n[com.google.internal.alkali.applications.kronos.v1.project.KronosProjectService.UpdateProject]",
+            "id": "UpdateProjectRequest",
+            "properties": {
+                "project": {
+                    "$ref": "ProjectPb",
+                    "description": "Project to be updated."
+                },
+                "updateMask": {
+                    "description": "Indicates which fields in the provided task to update. Must be specified\nand non-empty.",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateProjectResponse": {
+            "description": "The response message for\n[com.google.internal.alkali.applications.kronos.v1.project.KronosProjectService.UpdateProject]",
+            "id": "UpdateProjectResponse",
+            "properties": {
+                "project": {
+                    "$ref": "ProjectPb",
+                    "description": "Updated project."
+                }
+            },
+            "type": "object"
+        },
+        "UpdateTaskRequest": {
+            "description": "The request message for\n[com.google.internal.alkali.applications.kronos.v1.task.KronosTaskService.UpdateTask]",
+            "id": "UpdateTaskRequest",
+            "properties": {
+                "task": {
+                    "$ref": "TaskPb",
+                    "description": "Task to be updated."
+                },
+                "updateMask": {
+                    "description": "Indicates which fields in the provided task to update. Must be specified\nand non-empty.",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateTaskResponse": {
+            "description": "The response message for\n[com.google.internal.alkali.applications.kronos.v1.task.KronosTaskService.UpdateTask]",
+            "id": "UpdateTaskResponse",
+            "properties": {
+                "task": {
+                    "$ref": "TaskPb",
+                    "description": "Updated Task."
+                }
+            },
+            "type": "object"
+        },
+        "UploadKey": {
+            "description": "A unique Upload Key to identify this upload session.",
+            "id": "UploadKey",
+            "properties": {
+                "dropzone": {
+                    "description": "The dropzone used for temporarily store files.",
+                    "enum": [
+                        "UNKNOWN_DROPZONE",
+                        "BIGSTORE",
+                        "BLOBSTORE"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown dropzone.",
+                        "Use Bigstore. This is the default dropzone.",
+                        "Use Blobstore."
+                    ],
+                    "type": "string"
+                },
+                "keyId": {
+                    "description": "The name (UUID) of this upload key.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UploadedFile": {
+            "description": "Details about an uploaded file.",
+            "id": "UploadedFile",
+            "properties": {
+                "fileKey": {
+                    "$ref": "FileKey",
+                    "description": "The unique File Key for an uploaded file. To get a url for this file, call\nUploadService.AcquireFileUrls with this along with the Upload key."
+                },
+                "filename": {
+                    "description": "The file's original filename; does not include original path or directory.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UserAutocompleteResponse": {
+            "description": "Response message containing list of users matching prefix query",
+            "id": "UserAutocompleteResponse",
+            "properties": {
+                "suggestions": {
+                    "description": "List of suggested users",
+                    "items": {
+                        "$ref": "Suggestion"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Alkali Kronos Private API (UAT)",
+    "version": "v1",
+    "version_module": true
+}

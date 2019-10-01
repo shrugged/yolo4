@@ -1,0 +1,2071 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/cloud-platform": {
+                    "description": "View and manage your data across Google Cloud Platform services"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://staging-quantum.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Quantum Engine",
+    "description": "An API for scheduing jobs to run programs on Quantum Engine.\n",
+    "discoveryVersion": "v1",
+    "documentationLink": "https://cloud.google.com/quantum",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "quantum:v1alpha1",
+    "kind": "discovery#restDescription",
+    "name": "quantum",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "projects": {
+            "resources": {
+                "processors": {
+                    "methods": {
+                        "get": {
+                            "description": "Gets a QuantumProcessor.",
+                            "flatPath": "v1alpha1/projects/{projectsId}/processors/{processorsId}",
+                            "httpMethod": "GET",
+                            "id": "quantum.projects.processors.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The resource name of the processor to get, including the project id and\nprocessor id.\n\nFor example:\n`projects/`<var>project_id</var>`/processors/`<var>processor_id</var>",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/processors/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha1/{+name}",
+                            "response": {
+                                "$ref": "QuantumProcessor"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "list": {
+                            "description": "Lists the QuantumProcessors available for QuantumJobs to schedule\non. This list request can be filtered to find appropriate processors.",
+                            "flatPath": "v1alpha1/projects/{projectsId}/processors",
+                            "httpMethod": "GET",
+                            "id": "quantum.projects.processors.list",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "filter": {
+                                    "description": "An expression for filtering the QuantumProcessors returned by the list\ncommand. The fields eligible for filtering are:\n\n+ `processor_id`\n+ `supported_languages`\n\nExamples:\n\n+ `supported_languages:\n    \"type.googleapis.com/cirq.api.google.v2.RunContext\"`",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "pageSize": {
+                                    "description": "Optional. Number of processors to return. The default is 20.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "The `ListQuantumProcessorsResponse.next_page_token` value returned from a\nprevious list request, if any.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "parent": {
+                                    "description": "The resource name of the parent project under which to list available\nprocessors.\n\nFor example: `projects/`<var>project_id</var>",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha1/{+parent}/processors",
+                            "response": {
+                                "$ref": "ListQuantumProcessorsResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        }
+                    },
+                    "resources": {
+                        "calibrations": {
+                            "methods": {
+                                "get": {
+                                    "description": "Gets a QuantumCalibration.",
+                                    "flatPath": "v1alpha1/projects/{projectsId}/processors/{processorsId}/calibrations/{calibrationsId}",
+                                    "httpMethod": "GET",
+                                    "id": "quantum.projects.processors.calibrations.get",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "name": {
+                                            "description": "The resource name of the processor calibration to get, including the\nproject id, processor id, and calibration timestamp.\n\nFor example:\n`projects/`<var>project_id</var>`/processors/`<var>processor_id</var>`/calibrations/`<var>timestamp</var>",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/processors/[^/]+/calibrations/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1alpha1/{+name}",
+                                    "response": {
+                                        "$ref": "QuantumCalibration"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                },
+                                "list": {
+                                    "description": "Lists the QuantumCalibrations available for QuantumProcessor.",
+                                    "flatPath": "v1alpha1/projects/{projectsId}/processors/{processorsId}/calibrations",
+                                    "httpMethod": "GET",
+                                    "id": "quantum.projects.processors.calibrations.list",
+                                    "parameterOrder": [
+                                        "parent"
+                                    ],
+                                    "parameters": {
+                                        "filter": {
+                                            "description": "An expression for filtering the QuantumCalibrations returned by the\nlist command. The fields eligible for filtering are:\n\n+ timestamp\n\nExamples:\n\n+ `timestamp >= 2017-01-02`: Jobs created on or after Jan 2nd 2017.\n+ `timestamp >= 2017-01-02 15:21:15.142`: Jobs created on or after Jan 2nd\n                                          2017 15:21:15.142 UTC.\n+ `timestamp >= 1483370475`: Jobs created on or after Jan 2nd 2017\n                             15:21:15.142 UTC.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "pageSize": {
+                                            "description": "Optional. Number of calibrations to return. The default is 20.",
+                                            "format": "int32",
+                                            "location": "query",
+                                            "type": "integer"
+                                        },
+                                        "pageToken": {
+                                            "description": "The `ListQuantumCalibrationsResponse.next_page_token` value returned from a\nprevious list request, if any.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "parent": {
+                                            "description": "The resource name of the parent processor under which to list available\ncalibrations.\n\nFor example:\n`projects/`<var>project_id</var>`/processors/`<var>processor_id</var>",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/processors/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1alpha1/{+parent}/calibrations",
+                                    "response": {
+                                        "$ref": "ListQuantumCalibrationsResponse"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "programs": {
+                    "methods": {
+                        "create": {
+                            "description": "Creates a QuantumProgram and returns the newly created\nQuantumProgram.",
+                            "flatPath": "v1alpha1/projects/{projectsId}/programs",
+                            "httpMethod": "POST",
+                            "id": "quantum.projects.programs.create",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "overwriteExistingSourceCode": {
+                                    "description": "If a file already exists at the `source_code_location` and `code` is set,\nthen setting this flag to true will overwrite the file. If the flag is\nfalse, and the file exists, then an error of ALREADY_EXISTS will be\nreturned.",
+                                    "location": "query",
+                                    "type": "boolean"
+                                },
+                                "parent": {
+                                    "description": "The resource name of the parent project under which the program will be\ncreated.\n\nFor example: `projects/`<var>project_id</var>",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha1/{+parent}/programs",
+                            "request": {
+                                "$ref": "QuantumProgram"
+                            },
+                            "response": {
+                                "$ref": "QuantumProgram"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "delete": {
+                            "description": "Deletes the QuantumProgram for a project. Programs can only be deleted\nif any of the following hold:\n  * they are associated with no QuantumJobs\n  * all QuantumJobs that they have been associated with have been\n  deleted\n  * `delete_jobs` is set to true\nIf none of these is true, this method will return a status with code\n`FAILED_PRECONDITION`. If `delete_jobs` is set to true, all jobs\nwill first be deleted. In this case the call blocks while waiting for the\ndeletions to occur.\n\nThe list of QuantumJobs for a program can be obtained via a call to\nQuantumEngineService.ListQuantumJobsByProgram.",
+                            "flatPath": "v1alpha1/projects/{projectsId}/programs/{programsId}",
+                            "httpMethod": "DELETE",
+                            "id": "quantum.projects.programs.delete",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "deleteExternalResources": {
+                                    "description": "If this is true, this will also delete all referenced programs and results\nbeing stored on Google Cloud Storage.",
+                                    "location": "query",
+                                    "type": "boolean"
+                                },
+                                "deleteJobs": {
+                                    "description": "If this is true, the request will also delete all jobs associated with this\nQuantumProgram.\n\nIf this is false (which is the default), then the program will be deleted\nonly if it is associated with no QuantumJobs. In this case if the\ncondition of there being no QuantumJobs is not true, the request will\nfail with code `FAILED_PRECONDITION`.",
+                                    "location": "query",
+                                    "type": "boolean"
+                                },
+                                "name": {
+                                    "description": "The resource name of the program to delete, including the project id and\nprogram id.\n\nFor example:\n`projects/`<var>project_id</var>`/programs/`<var>program_id</var>\n\nDeleted program ids can be reused, though this is not considered best\npractice.",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/programs/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha1/{+name}",
+                            "response": {
+                                "$ref": "Empty"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "get": {
+                            "description": "Gets a QuantumProgram for a given project id and program id. This\nreturns the program location as well as the actual program instructions.",
+                            "flatPath": "v1alpha1/projects/{projectsId}/programs/{programsId}",
+                            "httpMethod": "GET",
+                            "id": "quantum.projects.programs.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The resource name of the program to get, including the project id and\nprogram id.\n\nFor example:\n`projects/`<var>project_id</var>`/programs/`<var>program_id</var>",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/programs/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "returnCode": {
+                                    "description": "If true then code will be loaded from the program's `source_code_location`\nand set on the returned QuantumProgram.",
+                                    "location": "query",
+                                    "type": "boolean"
+                                }
+                            },
+                            "path": "v1alpha1/{+name}",
+                            "response": {
+                                "$ref": "QuantumProgram"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "list": {
+                            "description": "Lists all QuantumPrograms for a project. In contrast to\nQuantumEngineService.GetQuantumProgram the returned QuantumPrograms\ndo not contain the actual program instructions, but only their location.",
+                            "flatPath": "v1alpha1/projects/{projectsId}/programs",
+                            "httpMethod": "GET",
+                            "id": "quantum.projects.programs.list",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "filter": {
+                                    "description": "An expression for filtering the results of the request. The fields eligible\nfor filtering are:\n\n+ `create_time`\n+ `labels`\n+ `update_time`\n\nThese labels are filtered by key, so the string will be\n`labels.`<var>key</var> where <var>key</var> is the key in the label map.\n\nExamples:\n\n+ `create_time >= 2017-01-02`: Jobs created on or after Jan 2nd 2017.\n+ `create_time >= 2017-01-02 15:21:15.142`: Jobs created on or after Jan\n                                            2nd 2017 15:21:15.142 UTC.\n+ `create_time >= 1483370475`: Jobs created on or after Jan 2nd 2017\n                               15:21:15.142 UTC.\n+ `labels.color:*` : The job has the label `color`.\n+ `labels.color:red`: The job has the label `color` and its value is `red`.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "pageSize": {
+                                    "description": "Optional. Number of programs to return. The default is 20.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "The ListQuantumProgramsResponse.next_page_token value returned from a\nprevious list request, if any.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "parent": {
+                                    "description": "The resource name of the parent project under which the programs will be\nlisted.\n\nFor example: `projects/`<var>project_id</var>",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha1/{+parent}/programs",
+                            "response": {
+                                "$ref": "ListQuantumProgramsResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "patch": {
+                            "description": "Updates a QuantumPrograms mutable fields.",
+                            "flatPath": "v1alpha1/projects/{projectsId}/programs/{programsId}",
+                            "httpMethod": "PATCH",
+                            "id": "quantum.projects.programs.patch",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The resource name of the program to update, including the project id and\nprogram id.\n\nFor example:\n`projects/`<var>project_id</var>`/programs/`<var>program_id</var>",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/programs/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "updateMask": {
+                                    "description": "The update mask describing which fields should be updated in the\nQuantumProgram. Only the following fields can be updated:\n\n+ `description`\n+ `labels`\n\nA field will be written if, and only if, it is in the mask.\n\nIf the field that is being set is labels, then a `label_fingerprint`\nMUST be set on the `quantum_program`.",
+                                    "format": "google-fieldmask",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha1/{+name}",
+                            "request": {
+                                "$ref": "QuantumProgram"
+                            },
+                            "response": {
+                                "$ref": "QuantumProgram"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        }
+                    },
+                    "resources": {
+                        "jobs": {
+                            "methods": {
+                                "cancel": {
+                                    "description": "Sets the QuantumJob to the `CANCELLING` state. The job will transition\nfrom this point to a terminal `CANCELLED` state once the job has been\ncancelled. If the job is already in the state `CANCELLING` this will have\nno effect. If the job has already transitioned to the `DONE` state, the\ncall will return a `FAILED_PRECONDITION` error.",
+                                    "flatPath": "v1alpha1/projects/{projectsId}/programs/{programsId}/jobs/{jobsId}:cancel",
+                                    "httpMethod": "POST",
+                                    "id": "quantum.projects.programs.jobs.cancel",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "name": {
+                                            "description": "The resource name of the job to cancel, including the project id,\nprogram id, and job id.\n\nFor example:\n`projects/`<var>project_id</var>`/programs/`<var>program_id</var>`/jobs/`<var>job_id</var>",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/programs/[^/]+/jobs/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1alpha1/{+name}:cancel",
+                                    "request": {
+                                        "$ref": "CancelQuantumJobRequest"
+                                    },
+                                    "response": {
+                                        "$ref": "Empty"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                },
+                                "create": {
+                                    "description": "Creates a QuantumJob, and returns the newly created QuantumJob.",
+                                    "flatPath": "v1alpha1/projects/{projectsId}/programs/{programsId}/jobs",
+                                    "httpMethod": "POST",
+                                    "id": "quantum.projects.programs.jobs.create",
+                                    "parameterOrder": [
+                                        "parent"
+                                    ],
+                                    "parameters": {
+                                        "overwriteExistingRunContext": {
+                                            "description": "If a file already exists at the `run_context_location` and `run_context` is\nset, then setting this flag to true will overwrite the file. If the flag is\nfalse, and the file exists, then an error of ALREADY_EXISTS will be\nreturned.",
+                                            "location": "query",
+                                            "type": "boolean"
+                                        },
+                                        "parent": {
+                                            "description": "The resource name of the parent program under which the job will be\ncreated.\n\nFor example:\n`projects/`<var>project_id</var>`/programs/`<var>program_id</var>",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/programs/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1alpha1/{+parent}/jobs",
+                                    "request": {
+                                        "$ref": "QuantumJob"
+                                    },
+                                    "response": {
+                                        "$ref": "QuantumJob"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                },
+                                "delete": {
+                                    "description": "Deletes a QuantumJob.",
+                                    "flatPath": "v1alpha1/projects/{projectsId}/programs/{programsId}/jobs/{jobsId}",
+                                    "httpMethod": "DELETE",
+                                    "id": "quantum.projects.programs.jobs.delete",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "deleteExternalResources": {
+                                            "description": "If this is true, this will also delete all referenced results being stored\non Google Cloud Storage.",
+                                            "location": "query",
+                                            "type": "boolean"
+                                        },
+                                        "name": {
+                                            "description": "The resource name of the job to delete, including the project id,\nprogram_id, and job id.\n\nFor example:\n`projects/`<var>project_id</var>`/programs/`<var>program_id</var>`/jobs/`<var>job_id</var>\n\nDeleted job ids can be reused, though this is not considered best practice.",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/programs/[^/]+/jobs/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1alpha1/{+name}",
+                                    "response": {
+                                        "$ref": "Empty"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                },
+                                "get": {
+                                    "description": "Gets a QuantumJob.",
+                                    "flatPath": "v1alpha1/projects/{projectsId}/programs/{programsId}/jobs/{jobsId}",
+                                    "httpMethod": "GET",
+                                    "id": "quantum.projects.programs.jobs.get",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "name": {
+                                            "description": "The resource name of the job to get, including the project id, program_id,\nand job id.\n\nFor example:\n`projects/`<var>project_id</var>`/programs/`<var>program_id</var>`/jobs/`<var>job_id</var>",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/programs/[^/]+/jobs/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "returnRunContext": {
+                                            "description": "If true then the run context will be loaded from job's\n`run_context_location` and set on the returned QuantumJob.",
+                                            "location": "query",
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "path": "v1alpha1/{+name}",
+                                    "response": {
+                                        "$ref": "QuantumJob"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                },
+                                "getResult": {
+                                    "description": "Gets the QuantumResult associate with a QuantumJob. This will only\nbe available if the QuantumJob has completed successfully and is in\nstate `DONE`. If the result is no longer at the location described by the\nresult message in the QuantumJob, this will return an error\n`NOT_FOUND`.",
+                                    "flatPath": "v1alpha1/projects/{projectsId}/programs/{programsId}/jobs/{jobsId}/result",
+                                    "httpMethod": "GET",
+                                    "id": "quantum.projects.programs.jobs.getResult",
+                                    "parameterOrder": [
+                                        "parent"
+                                    ],
+                                    "parameters": {
+                                        "parent": {
+                                            "description": "The name of the job whose QuantumResult will be returned, including\nthe project id and job id.\n\nFor example:\n`projects/`<var>project_id</var>`/programs/`<var>program_id</var>`/jobs/`<var>job_id</var>",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/programs/[^/]+/jobs/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1alpha1/{+parent}/result",
+                                    "response": {
+                                        "$ref": "QuantumResult"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                },
+                                "list": {
+                                    "description": "Lists all QuantumJobs for a project.",
+                                    "flatPath": "v1alpha1/projects/{projectsId}/programs/{programsId}/jobs",
+                                    "httpMethod": "GET",
+                                    "id": "quantum.projects.programs.jobs.list",
+                                    "parameterOrder": [
+                                        "parent"
+                                    ],
+                                    "parameters": {
+                                        "filter": {
+                                            "description": "An expression for filtering the results of the request. The fields eligible\nfor filtering are:\n\n+ `create_time`\n+ `execution_status.state`\n+ `labels`\n+ `update_time`\n+ `scheduling_config.priority`\n\nThese labels are filtered by key, so the string will be\n`labels.`<var>key<var>` where <var>key</var> is the key in the label map.\n\nExamples:\n+ `create_time >= 2017-01-02`: Jobs created on or after Jan 2nd 2017.\n+ `create_time >= 2017-01-02 15:21:15.142`: Jobs created on or after Jan\n                                            2nd 2017 15:21:15.142 UTC.\n+ `create_time >= 1483370475`: Jobs created on or after Jan 2nd 2017\n                               15:21:15.142 UTC.\n+ `labels.color:*`: The job has the label `color`.\n+ `labels.color:red`: The job has the label `color` and its value is `red`.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "pageSize": {
+                                            "description": "Optional. Number of jobs to return. The default is 20.",
+                                            "format": "int32",
+                                            "location": "query",
+                                            "type": "integer"
+                                        },
+                                        "pageToken": {
+                                            "description": "The ListQuantumJobsResponse.next_page_token value returned from a\nprevious list request, if any.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "parent": {
+                                            "description": "The resource name of the parent program under which the jobs will be\nlisted.\n\nFor example:\n`projects/`<var>project_id</var>`/programs/`<var>program_id</var>\n\nTo list all jobs under a project use a hyphen for the program_id,\ni.e. `projects/`<var>project_id</var>`/programs/-`",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/programs/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1alpha1/{+parent}/jobs",
+                                    "response": {
+                                        "$ref": "ListQuantumJobsResponse"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                },
+                                "patch": {
+                                    "description": "Updates a QuantumJob's mutable fields.",
+                                    "flatPath": "v1alpha1/projects/{projectsId}/programs/{programsId}/jobs/{jobsId}",
+                                    "httpMethod": "PATCH",
+                                    "id": "quantum.projects.programs.jobs.patch",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "name": {
+                                            "description": "The resource name of the job to update, including the project id,\nprogram_id, and job id.\n\nFor example:\n`projects/`<var>project_id</var>`/programs/`<var>program_id</var>`/jobs/`<var>job_id</var>",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/programs/[^/]+/jobs/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "updateMask": {
+                                            "description": "The update mask describing which fields should be updated on the\nQuantumJob. Only the following fields can be updated:\n\n+ `description`\n+ `labels`\n\nA field will be written if, and only if, it is in the mask.\n\nIf the field that is being set is labels, then a `label_fingerprint`\nMUST be set on the `quantum_job`.",
+                                            "format": "google-fieldmask",
+                                            "location": "query",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1alpha1/{+name}",
+                                    "request": {
+                                        "$ref": "QuantumJob"
+                                    },
+                                    "response": {
+                                        "$ref": "QuantumJob"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                }
+                            },
+                            "resources": {
+                                "events": {
+                                    "methods": {
+                                        "list": {
+                                            "description": "Lists QuantumJobEvents for a QuantumJob which represents changes in\nthe state of a QuantumJob.",
+                                            "flatPath": "v1alpha1/projects/{projectsId}/programs/{programsId}/jobs/{jobsId}/events",
+                                            "httpMethod": "GET",
+                                            "id": "quantum.projects.programs.jobs.events.list",
+                                            "parameterOrder": [
+                                                "parent"
+                                            ],
+                                            "parameters": {
+                                                "pageSize": {
+                                                    "description": "Optional. Number of events to return. The default is 20.",
+                                                    "format": "int32",
+                                                    "location": "query",
+                                                    "type": "integer"
+                                                },
+                                                "pageToken": {
+                                                    "description": "The ListQuantumJobEventsResponse.next_page_token value returned from a\nprevious list request, if any.",
+                                                    "location": "query",
+                                                    "type": "string"
+                                                },
+                                                "parent": {
+                                                    "description": "The resource name of the job whose QuantumJobEvents will be returned,\nincluding the project id, program id, and job id.\n\nFor example:\n`projects/`<var>project_id</var>`/programs/`<var>program_id</var>`/jobs/`<var>job_id</var>",
+                                                    "location": "path",
+                                                    "pattern": "^projects/[^/]+/programs/[^/]+/jobs/[^/]+$",
+                                                    "required": true,
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "path": "v1alpha1/{+parent}/events",
+                                            "response": {
+                                                "$ref": "ListQuantumJobEventsResponse"
+                                            },
+                                            "scopes": [
+                                                "https://www.googleapis.com/auth/cloud-platform"
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190919",
+    "rootUrl": "https://staging-quantum.sandbox.googleapis.com/",
+    "schemas": {
+        "Arg": {
+            "description": "Arguments needed to specify a gate.",
+            "id": "Arg",
+            "properties": {
+                "argValue": {
+                    "$ref": "ArgValue"
+                },
+                "func": {
+                    "$ref": "ArgFunction"
+                },
+                "symbol": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ArgFunction": {
+            "description": "A function of arguments. This is an s-expression tree representing\nmathematically the function being evaluated.\n\nWhat language is supported is specified by the arg_function_language\nin the language message.",
+            "id": "ArgFunction",
+            "properties": {
+                "args": {
+                    "description": "The arguments to the function.",
+                    "items": {
+                        "$ref": "Arg"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "description": "The name of the function. I.e. if the function is the sum of two symbols,\nthis could be '+', and the args would be two string symbol values.\n\nValid values for the type are given in cirq/google/arg_func_langs.py\nand must be consistent with the arg_function_language specified in the\nlanguage field of the program.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ArgValue": {
+            "description": "Value that can be passed as an argument to a gate.",
+            "id": "ArgValue",
+            "properties": {
+                "boolValues": {
+                    "$ref": "RepeatedBoolean"
+                },
+                "floatValue": {
+                    "format": "float",
+                    "type": "number"
+                },
+                "stringValue": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CancelQuantumJobRequest": {
+            "description": "A request message to cancel a QuantumJob.",
+            "id": "CancelQuantumJobRequest",
+            "properties": {},
+            "type": "object"
+        },
+        "Circuit": {
+            "description": "The quantum circuit, specified as a series of moments (abstract\nslices of times with gates acting on disjoint sets of qubits).",
+            "id": "Circuit",
+            "properties": {
+                "moments": {
+                    "description": "The moments of the circuit, with the first element corresponding to the\nfirst set of operations to apply, etc.",
+                    "items": {
+                        "$ref": "Moment"
+                    },
+                    "type": "array"
+                },
+                "schedulingStrategy": {
+                    "enum": [
+                        "SCHEDULING_STRATEGY_UNSPECIFIED",
+                        "MOMENT_BY_MOMENT"
+                    ],
+                    "enumDescriptions": [
+                        "The scheduling strategy is unspecified.",
+                        "Each operation in a moment starts at the same time. The start of the\nnext moment is given by the duration of the longest operation in\nthe current moment."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CirqApiGoogleV1Exp11": {
+            "description": "A two qubit rotation which acts to phase only the |11> state.\n\nThis gate is exp(i * pi * H  * t) where H = |11><11| or in matrix form\n  H = diag(0, 0, 0, 1)",
+            "id": "CirqApiGoogleV1Exp11",
+            "properties": {
+                "halfTurns": {
+                    "$ref": "CirqApiGoogleV1ParameterizedFloat",
+                    "description": "The amount of the rotation in units of pi, i.e. the t in\nexp(i * pi * |11><11| * t).\nNote that this is periodic with period 2 (including global phase)."
+                },
+                "target1": {
+                    "$ref": "CirqApiGoogleV1Qubit",
+                    "description": "The first qubit to interact."
+                },
+                "target2": {
+                    "$ref": "CirqApiGoogleV1Qubit",
+                    "description": "The other qubit to interact."
+                }
+            },
+            "type": "object"
+        },
+        "CirqApiGoogleV1ExpW": {
+            "description": "A single-qubit rotation around an axis on the XY equator of the Bloch sphere.\n\nThis gate is exp(-i * pi * W(theta) * t / 2) where\n  W(theta) = cos(pi * theta) X + sin(pi * theta) Y\nor in matrix form\n  W(theta) = [[0, cos(pi * theta) - i sin(pi * theta)],\n              [cos(pi * theta) + i sin(pi * theta), 0]]",
+            "id": "CirqApiGoogleV1ExpW",
+            "properties": {
+                "axisHalfTurns": {
+                    "$ref": "CirqApiGoogleV1ParameterizedFloat",
+                    "description": "The angle of the rotation axis' facing in the XY plane, expressed in\nunits of pi. In other words, this is the theta in exp(i pi W(theta) t / 2).\n   - 0 is positive-ward along X.\n   - 0.5 is positive-ward along Y.\n   - 1.0 is negative-ward along X.\n   - 1.5 is negative-ward along Y.\nNote that this is periodic with period 2."
+                },
+                "halfTurns": {
+                    "$ref": "CirqApiGoogleV1ParameterizedFloat",
+                    "description": "The amount to rotate by expressed in units of pi / 2, i.e. the t in\nexp(i pi W(theta) t / 2).\nNote that this is periodic with period 4 (or 2 when ignoring global phase)."
+                },
+                "target": {
+                    "$ref": "CirqApiGoogleV1Qubit",
+                    "description": "The qubit to rotate."
+                }
+            },
+            "type": "object"
+        },
+        "CirqApiGoogleV1ExpZ": {
+            "description": "A single-qubit rotation around the Z axis of the Bloch sphere.\n\nThis gate is exp(-i * pi * Z * t / 2) where Z is the Pauli Z matrix,\n  Z = [[1, 0], [0, -1]]",
+            "id": "CirqApiGoogleV1ExpZ",
+            "properties": {
+                "halfTurns": {
+                    "$ref": "CirqApiGoogleV1ParameterizedFloat",
+                    "description": "The amount of the rotation in radians, i.e. the t in\nexp(i * pi * Z * t / 2).\nNote that this is periodic with period 4 (or 2 when ignoring global phase)."
+                },
+                "target": {
+                    "$ref": "CirqApiGoogleV1Qubit",
+                    "description": "The qubit to rotate."
+                }
+            },
+            "type": "object"
+        },
+        "CirqApiGoogleV1Linspace": {
+            "description": "A range of evenly-spaced values.\n\nExample: if the first_point is 1.0, the last_point is 2.0 ,\nand the num_points is 5, thi corresponds to the points\n  1.0, 1.25, 1.5, 1.75, 2.0",
+            "id": "CirqApiGoogleV1Linspace",
+            "properties": {
+                "firstPoint": {
+                    "description": "The start of the range.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "lastPoint": {
+                    "description": "The end of the range.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "numPoints": {
+                    "description": "The number of points in the range (including first and last). Must be\ngreater than zero. If it is 1, the first_point and last_point must be\nthe same.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CirqApiGoogleV1Measurement": {
+            "description": "A multi-qubit measurement in the computational basis (|0>, |1>).",
+            "id": "CirqApiGoogleV1Measurement",
+            "properties": {
+                "invertMask": {
+                    "description": "If not empty, a list of booleans describing whether the results should\nbe flipped for each of the qubits above. The length of this vector must\nmatch the length of the qubits, and the interpretation of whether to\ninvert or not matches component-wise this list and the qubits' list.",
+                    "items": {
+                        "type": "boolean"
+                    },
+                    "type": "array"
+                },
+                "key": {
+                    "description": "The key that this measurement's bit will be grouped under.\nMeasurement keys must be unique across the circuit.",
+                    "type": "string"
+                },
+                "targets": {
+                    "description": "The qubits to measure.",
+                    "items": {
+                        "$ref": "CirqApiGoogleV1Qubit"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CirqApiGoogleV1MeasurementKey": {
+            "description": "A message which represents a measurement key, along with the qubits\nupon which the measurement acts. This measurement is in the computational\nbasis.",
+            "id": "CirqApiGoogleV1MeasurementKey",
+            "properties": {
+                "key": {
+                    "description": "The measurement key.",
+                    "type": "string"
+                },
+                "qubits": {
+                    "description": "The qubits upon which this measurement is performed.",
+                    "items": {
+                        "$ref": "CirqApiGoogleV1Qubit"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CirqApiGoogleV1Operation": {
+            "description": "An operation to apply: either a gate or a measurement.",
+            "id": "CirqApiGoogleV1Operation",
+            "properties": {
+                "exp11": {
+                    "$ref": "CirqApiGoogleV1Exp11",
+                    "description": "An operation that interacts two qubits, phasing only the 11 state."
+                },
+                "expW": {
+                    "$ref": "CirqApiGoogleV1ExpW",
+                    "description": "A single-qubit rotation around an axis on the XY equator."
+                },
+                "expZ": {
+                    "$ref": "CirqApiGoogleV1ExpZ",
+                    "description": "A single-qubit rotation around the Z axis."
+                },
+                "incrementalDelayPicoseconds": {
+                    "description": "When this operation should be done, relative to the previous operation.\nUse a delay of 0 to apply simultaneous with previous operation.\n(Implies operations must be sorted by application order.)",
+                    "format": "uint64",
+                    "type": "string"
+                },
+                "measurement": {
+                    "$ref": "CirqApiGoogleV1Measurement",
+                    "description": "Measures a qubit and indicates where to store the result."
+                }
+            },
+            "type": "object"
+        },
+        "CirqApiGoogleV1ParameterDict": {
+            "description": "A point sampled during a parameter sweep.",
+            "id": "CirqApiGoogleV1ParameterDict",
+            "properties": {
+                "assignments": {
+                    "additionalProperties": {
+                        "format": "float",
+                        "type": "number"
+                    },
+                    "description": "Maps parameter names to values.",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "CirqApiGoogleV1ParameterSweep": {
+            "description": "Specifies how to repeatedly sample a circuit, with or without sweeping over\nvarying parameter-dicts.",
+            "id": "CirqApiGoogleV1ParameterSweep",
+            "properties": {
+                "repetitions": {
+                    "description": "How many times to sample, for each parameter-dict that is swept over.\nThis must be set to a value strictly greater than zero.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "sweep": {
+                    "$ref": "CirqApiGoogleV1ProductSweep",
+                    "description": "Which parameters, that control gates in the circuit, to try.\n\nThe keys of the parameters generated by this sweep must be a superset\nof the keys in the program's operations.  When this is not specified,\nno parameterization is assumed (and the program must have no\nParameterizedFloat's with keys."
+                }
+            },
+            "type": "object"
+        },
+        "CirqApiGoogleV1ParameterizedFloat": {
+            "description": "A number specified as a constant plus an optional parameter lookup.",
+            "id": "CirqApiGoogleV1ParameterizedFloat",
+            "properties": {
+                "parameterKey": {
+                    "description": "A variable value stored under some parameter key.\nThis cannot be the empty string.",
+                    "type": "string"
+                },
+                "raw": {
+                    "description": "A constant value.",
+                    "format": "float",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "CirqApiGoogleV1ParameterizedResult": {
+            "description": "The parameters used to generate result along with the results for this\nset of parameters.",
+            "id": "CirqApiGoogleV1ParameterizedResult",
+            "properties": {
+                "measurementResults": {
+                    "description": "The measurement results. This is a packed representation of all of the\nmeasurements for fixed set of parameters (specified by params above)\nacross all of the repetitions for the set of parameters given the\nparams field.\n\nThe result of a measurement gate is a list of bits, one for each qubit\nthat has been measured. Every Program has a fixed set of measurement gates.\nThese gates are labeled by a key (this key is unique across the Program).\nThe results of a single run of the program should consist of bits for\neach of the measurement gates. To order these bits we use the\nmeasurement_keys field of the SweepResult. This is an ordered list of\nmeasurement keys, each of which includes a list of qubits that the\nmeasurement acts on. We use the ordering of the measurement_keys and then\nthe ordering of the qubits to define the order of the bit string for a\nsingle run of the measurement.\n\nIf the keys are (k_i), for i \\in {0, 1, ..., m-1}, and the measurement\nacts on qubits q_{i,0}, q_{i,1}, ..., q_{i,n_i-1} (so that ith key\ncorresponds to n_i qubits), then the measurements bit results are\ndefined as\n r_0[0] r_0[1] ... r_0[n_i-1] r_1[0] r_1[1] ... r_1[n_1-1] ...\n  ... r_{m-1}[0] r_{m-1}[1] ... r_{m-1}[n_{m-1}-1]\nHere r_i are the measurement result for the ith key (order defined by\nmeasurement keys).  Since the ith key has n_i qubits, r_i is a length\nn_i bit string, and r_i[j] is the jth bit in this string (order\nfollowing the list order of the qubits).\n\nThe above describes a bit string for a single run of a program with\nfixed parameters. This program however may be repeated, the number\nof times the program was run for these parameters is defined by the\nnum_repetitions field of the SweepResult. If R_l is the bit string\nfor the lth repetition of the program (defined by the r_0[0]... bit\nstring above), then the full results is the concatenation of these\nbit strings\n  R_0 R_1 ... R_{num_repetitions - 1}\n\nFinally this entire bit string is encoded into the bytes of this field\nusing little endian notation. That is, the least significant bit of the\nbytes is the first bit of the bit string, the second-least significant\nbit of the bytes is the second bit of the bit string, etc.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "params": {
+                    "$ref": "CirqApiGoogleV1ParameterDict",
+                    "description": "The parameter dict that was used when generating these results."
+                }
+            },
+            "type": "object"
+        },
+        "CirqApiGoogleV1Points": {
+            "description": "A list of explicit values.",
+            "id": "CirqApiGoogleV1Points",
+            "properties": {
+                "points": {
+                    "description": "The values.",
+                    "items": {
+                        "format": "float",
+                        "type": "number"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CirqApiGoogleV1ProductSweep": {
+            "description": "A cartesian product of parameter sweeps.",
+            "id": "CirqApiGoogleV1ProductSweep",
+            "properties": {
+                "factors": {
+                    "description": "A list of parameter sweeps to combine into a cartesian sweep.\n\nExample: if one of the factors assigns\n\"a\": 0.0\n\"a\": 1.0\nand another assigns\n\"b\": 2.0\n\"b\": 3.0\nthen the product of these assigns\n\"a\": 0.0, \"b\": 2.0\n\"a\": 0.0, \"b\": 3.0\n\"a\": 1.0, \"b\": 2.0\n\"a\": 1.0, \"b\": 3.0",
+                    "items": {
+                        "$ref": "CirqApiGoogleV1ZipSweep"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CirqApiGoogleV1Program": {
+            "description": "A quantum program. This includes a quantum circuit and also a set of circuit\nparameters over which the circuit should be run.",
+            "id": "CirqApiGoogleV1Program",
+            "properties": {
+                "operations": {
+                    "description": "Gates and measurements that make up the circuit.",
+                    "items": {
+                        "$ref": "CirqApiGoogleV1Operation"
+                    },
+                    "type": "array"
+                },
+                "parameterSweeps": {
+                    "description": "The circuit parameters for the operations above will be evaluated for\neach parameter in parameter sweeps.",
+                    "items": {
+                        "$ref": "CirqApiGoogleV1ParameterSweep"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CirqApiGoogleV1Qubit": {
+            "description": "Identifies a qubit.",
+            "id": "CirqApiGoogleV1Qubit",
+            "properties": {
+                "col": {
+                    "description": "column number in grid.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "row": {
+                    "description": "row number in grid.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "CirqApiGoogleV1Result": {
+            "description": "The overall results of running a Program.",
+            "id": "CirqApiGoogleV1Result",
+            "properties": {
+                "sweepResults": {
+                    "description": "The results for each ParameterSweep. These will be in the same order\nas the parameter_sweeps repeated field in the Program that generated\nthese results.",
+                    "items": {
+                        "$ref": "CirqApiGoogleV1SweepResult"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CirqApiGoogleV1RunContext": {
+            "description": "The context for running a quantum program.",
+            "id": "CirqApiGoogleV1RunContext",
+            "properties": {
+                "parameterSweeps": {
+                    "description": "The parameters for operations in a program.",
+                    "items": {
+                        "$ref": "CirqApiGoogleV1ParameterSweep"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CirqApiGoogleV1SingleSweep": {
+            "description": "A set of values to try for a particular parameter.",
+            "id": "CirqApiGoogleV1SingleSweep",
+            "properties": {
+                "linspace": {
+                    "$ref": "CirqApiGoogleV1Linspace",
+                    "description": "Uniformly-spaced sampling over a range."
+                },
+                "parameterKey": {
+                    "description": "The parameter key being varied. This cannot be the empty string.",
+                    "type": "string"
+                },
+                "points": {
+                    "$ref": "CirqApiGoogleV1Points",
+                    "description": "An explicit list of points to try."
+                }
+            },
+            "type": "object"
+        },
+        "CirqApiGoogleV1SweepResult": {
+            "description": "The measurement results for a particular ParameterSweep.",
+            "id": "CirqApiGoogleV1SweepResult",
+            "properties": {
+                "measurementKeys": {
+                    "description": "A list of measurement keys (string) along with the qubits that have been\nmeasured. The size of the measurement key is the total number of\nmeasurements in the list of operations for the Program. The measurement\nkeys are all unique.",
+                    "items": {
+                        "$ref": "CirqApiGoogleV1MeasurementKey"
+                    },
+                    "type": "array"
+                },
+                "parameterizedResults": {
+                    "description": "The results along with the parameters that generated these results.\nThese represent the expanded parameters defined int he ParameterSweep\nwhich this SweepResult corresponds to.",
+                    "items": {
+                        "$ref": "CirqApiGoogleV1ParameterizedResult"
+                    },
+                    "type": "array"
+                },
+                "repetitions": {
+                    "description": "The total number of repetitions that were performed for this sweep.\nThis is reported in order to make it possible to decode the bytes\nin the measurement results.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "CirqApiGoogleV1ZipSweep": {
+            "description": "A pairwise-joining of parameter sweeps.",
+            "id": "CirqApiGoogleV1ZipSweep",
+            "properties": {
+                "sweeps": {
+                    "description": "Note: if one sweep is shorter, the others will be truncated.\n\nExample: if one of the factors assigns\n\"a\": 0.0\n\"a\": 1.0\nand another assigns\n\"b\": 2.0\n\"b\": 3.0\nthen the product of these assigns\n\"a\": 0.0, \"b\": 2.0\n\"a\": 1.0, \"b\": 3.0",
+                    "items": {
+                        "$ref": "CirqApiGoogleV1SingleSweep"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Empty": {
+            "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+            "id": "Empty",
+            "properties": {},
+            "type": "object"
+        },
+        "ExecutionStatus": {
+            "description": "A message containing state about a job being processed by the scheduler.",
+            "id": "ExecutionStatus",
+            "properties": {
+                "calibrationName": {
+                    "description": "This is the resource name for the most recent calibration for the processor\nat the time the job was run. It will be set only when the job is complete.",
+                    "type": "string"
+                },
+                "failure": {
+                    "$ref": "Failure",
+                    "description": "Job failure information."
+                },
+                "processorName": {
+                    "description": "This is the resource name of the actual processor on which the program was\nscheduled. It will be set only when the job passes through the `RUNNING`\nstate.",
+                    "type": "string"
+                },
+                "state": {
+                    "description": "The current state of the execution.",
+                    "enum": [
+                        "STATE_UNSPECIFIED",
+                        "READY",
+                        "RUNNING",
+                        "CANCELLING",
+                        "CANCELLED",
+                        "SUCCESS",
+                        "FAILURE"
+                    ],
+                    "enumDescriptions": [
+                        "The state is not specified.",
+                        "State for the job when it has just been created. It is ready to be\nscheduled.",
+                        "State for the job when the job is running on a processor.",
+                        "State of the job when a cancel request has been made and the job\nneeds to be cancelled (potentially at the processor).",
+                        "State of the job when it has actually been canceled. This is a\nterminal state.",
+                        "State of the job when it has finished successfully. This is a\nterminal state.",
+                        "State of the job when the job has failed. This is a terminal state."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Failure": {
+            "description": "A message detailing a job failure.",
+            "id": "Failure",
+            "properties": {
+                "errorCode": {
+                    "description": "Detailed error code.",
+                    "enum": [
+                        "CODE_UNSPECIFIED",
+                        "SYSTEM_ERROR",
+                        "INVALID_PROGRAM",
+                        "INVALID_RUN_CONTEXT",
+                        "READ_PROGRAM_NOT_FOUND_IN_GCS",
+                        "READ_PROGRAM_PERMISSION_DENIED",
+                        "READ_PROGRAM_UNKNOWN_ERROR",
+                        "READ_RUN_CONTEXT_NOT_FOUND_IN_GCS",
+                        "READ_RUN_CONTEXT_PERMISSION_DENIED",
+                        "READ_RUN_CONTEXT_UNKNOWN_ERROR",
+                        "WRITE_RESULT_ALREADY_EXISTS_IN_GCS",
+                        "WRITE_RESULT_GCS_PERMISSION_DENIED",
+                        "SCHEDULING_EXPIRED"
+                    ],
+                    "enumDescriptions": [
+                        "The code is unspecified.",
+                        "A general system error that may be due to system health issues and does\nnot fit into another category.",
+                        "The program is invalid or not supported.",
+                        "The parameters like repetitions or parameter sweeps are invalid or\nexceed limits.",
+                        "The program does not exist on Google Cloud Storage.\nThis is not in use since code is not currently stored in\nGoogle Cloud Storage.",
+                        "The system does not have permission to read the program from Google\nCloud Storage. This is not in use since code is not currently\nstored in Google Cloud Storage.",
+                        "An unknown error occurred attempting to read the program. This error is\nnot currently in use.",
+                        "The run context does not exist on Google Cloud Storage.\nThis is not in use since RunContext is not currently stored in\nGoogle Cloud Storage.",
+                        "The system does not have permission to read the run context from Google\nCloud Storage. This is not in use since RunContext is not currently\nstored in Google Cloud Storage.",
+                        "An unknown error occurred attempting to read the run context. This\nerror is not currently in use.",
+                        "An object already exists in the result location on Google Cloud\nStorage.",
+                        "The system does not have write access to the result location on Google\nCloud Storage.",
+                        "Job has expired the reservation."
+                    ],
+                    "type": "string"
+                },
+                "errorMessage": {
+                    "description": "Error message.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Gate": {
+            "description": "The instruction identifying the action taken on the quantum computer.",
+            "id": "Gate",
+            "properties": {
+                "id": {
+                    "description": "Name for the Gate.\n\nThese names must match those specified in the gate set.  This is found\nin cirq/google/gate_sets.py.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GcsLocation": {
+            "description": "The location of a resource stored in Google Cloud Storage along with the\nresources serialization type.",
+            "id": "GcsLocation",
+            "properties": {
+                "typeUrl": {
+                    "description": "A URL/resource name whose content describes the type of the serialized\nobject stored at the uri. The semantics of this string follow those of\n`google.protobuf.Any`. Valid values depend on the type of object the\nlocation refers to: see QuantumResult.result and\nQuantumProgram.code for valid values.",
+                    "type": "string"
+                },
+                "uri": {
+                    "description": "The Google Cloud Storage URI where results are stored.\nSee https://cloud.google.com/storage/docs/reference-uris for how\nGoogle Cloud Storage objects are referenced.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "InlineData": {
+            "description": "Metadata pertaining to binary data stored and maintained by the Quantum\nEngine.",
+            "id": "InlineData",
+            "properties": {
+                "typeUrl": {
+                    "description": "A URL/resource name whose content describes the type of the serialized\nobject stored by the service. The semantics of this string follow those of\n`google.protobuf.Any`. Valid values depend on the type of object the\nlocation refers to: see QuantumJob.run_context for valid values.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Language": {
+            "description": "The language in which the program is expressed.",
+            "id": "Language",
+            "properties": {
+                "argFunctionLanguage": {
+                    "description": "The language supported by ArgFunctions. These specifies what allowed\nArgFunction types there are.\n\nValid names for the arg function language can be found in\ncirq/google/arg_func_langs.py",
+                    "type": "string"
+                },
+                "gateSet": {
+                    "description": "The name of the gate set being used.\n\nValid names for the gate sets can be found in cirq/google/gate_sets.py.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Linspace": {
+            "description": "A range of evenly-spaced values.\n\nExample: if the first_point is 1.0, the last_point is 2.0 ,\nand the num_points is 5, thi corresponds to the points\n  1.0, 1.25, 1.5, 1.75, 2.0",
+            "id": "Linspace",
+            "properties": {
+                "firstPoint": {
+                    "description": "The start of the range.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "lastPoint": {
+                    "description": "The end of the range.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "numPoints": {
+                    "description": "The number of points in the range (including first and last). Must be\ngreater than zero. If it is 1, the first_point and last_point must be\nthe same.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListQuantumCalibrationsResponse": {
+            "description": "A response message listing calibrations for a processor.",
+            "id": "ListQuantumCalibrationsResponse",
+            "properties": {
+                "calibrations": {
+                    "description": "The returned QuantumCalibrations. There will be a maximum of\nListQuantumCalibrationsRequest.page_size results.",
+                    "items": {
+                        "$ref": "QuantumCalibration"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "Token to retrieve the next page of results, or empty if there are no more\nresults to list.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListQuantumJobEventsResponse": {
+            "description": "A response message returning QuantumJobEvents for a QuantumJob.",
+            "id": "ListQuantumJobEventsResponse",
+            "properties": {
+                "events": {
+                    "description": "The events for changes in a QuantumJob.\nThese will be returned in descending `update_time` order.",
+                    "items": {
+                        "$ref": "QuantumJobEvent"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "The token to retrieve the next page of results, or empty if there are no\nmore results to list.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListQuantumJobsResponse": {
+            "description": "A response message contain a list of QuantumJobs.",
+            "id": "ListQuantumJobsResponse",
+            "properties": {
+                "jobs": {
+                    "description": "The returned jobs. There will be a maximum of\nListQuantumJobsRequest.page_size elements.",
+                    "items": {
+                        "$ref": "QuantumJob"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "The token to retrieve the next page of results, or empty if there are no\nmore results to list.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListQuantumProcessorsResponse": {
+            "description": "A response message listing processors available to run jobs on.",
+            "id": "ListQuantumProcessorsResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "Token to retrieve the next page of results, or empty if there are no\nmore results to list.",
+                    "type": "string"
+                },
+                "processors": {
+                    "description": "The returned QuantumProcessors. There will be a maximum of\nListQuantumProcessorsRequest.page_size results.",
+                    "items": {
+                        "$ref": "QuantumProcessor"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListQuantumProgramsResponse": {
+            "description": "A response message containing a list of QuantumPrograms.",
+            "id": "ListQuantumProgramsResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "Token to retrieve the next page of results, or empty if there are no\nmore results to list.",
+                    "type": "string"
+                },
+                "programs": {
+                    "description": "The returned programs. There will be a maximum of\nListQuantumProgramsRequest.page_size. They will not have their `code`\nfield set, even if code exists for the program. To retrieve the code\nsee QuantumEngineService.GetQuantumProgram.",
+                    "items": {
+                        "$ref": "QuantumProgram"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "MeasurementResult": {
+            "description": "The results of a measurement for a specific measurement key.",
+            "id": "MeasurementResult",
+            "properties": {
+                "key": {
+                    "description": "The measurement key for the measurement.",
+                    "type": "string"
+                },
+                "qubitMeasurementResults": {
+                    "description": "For each qubit that is measured, these are the measurement results.",
+                    "items": {
+                        "$ref": "QubitMeasurementResult"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Metric": {
+            "description": "The actual metrics.",
+            "id": "Metric",
+            "properties": {
+                "name": {
+                    "description": "The name of the metric. This is the type of metric, i.e. 't1' or\n'randomized_benchmarking'.",
+                    "type": "string"
+                },
+                "targets": {
+                    "description": "The targets of the metrics. Targets include things like the qubits (i.e.\nstrings like `q0_1`), but may also be empty when the metric applies\nglobally.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "values": {
+                    "description": "The values of this Metrics. Repeated to support multivalued metrics like\ntomography.",
+                    "items": {
+                        "$ref": "Value"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "MetricsSnapshot": {
+            "description": "A snapshot of the performance metrics for a quantum processor at a\nparticular time.",
+            "id": "MetricsSnapshot",
+            "properties": {
+                "metrics": {
+                    "description": "All of the metrics collected during this snapshot.",
+                    "items": {
+                        "$ref": "Metric"
+                    },
+                    "type": "array"
+                },
+                "timestampMs": {
+                    "description": "The time the metrics were collected, in unix time (milliseconds since\nEpoch minus leap seconds). Metric collection take time, so this is the\ntime at which all of the metrics have been collected.",
+                    "format": "uint64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Moment": {
+            "description": "A moment is a collection of operations that operate on a disjoint set of\nqubits. Conceptually a moment represents operations that all occurring\nthe same finite period of time.",
+            "id": "Moment",
+            "properties": {
+                "operations": {
+                    "description": "All of the operations in the moment. Each operation must act on different\nqubits.",
+                    "items": {
+                        "$ref": "Operation"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Operation": {
+            "description": "An operation acts on a set of qubits.",
+            "id": "Operation",
+            "properties": {
+                "args": {
+                    "additionalProperties": {
+                        "$ref": "Arg"
+                    },
+                    "description": "Map from the argument name to the Argument needed to fully specify\nthe gate.",
+                    "type": "object"
+                },
+                "gate": {
+                    "$ref": "Gate",
+                    "description": "Which gate this operation corresponds to."
+                },
+                "qubits": {
+                    "description": "Which qubits the operation acts on.",
+                    "items": {
+                        "$ref": "Qubit"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "OutputConfig": {
+            "description": "The location of the result of an execution of a quantum program on a\nprocessor. This is required.",
+            "id": "OutputConfig",
+            "properties": {
+                "gcsResultsLocation": {
+                    "$ref": "GcsLocation",
+                    "description": "The results are stored in Google Cloud Storage. If this is pointing to a\nlocation that has result data, the type_url will be appropriately set.\nIf this is set to indicate just where the result should be stored, the\ntype_url should not be set. In this later case the type_url will be set\nwhen the result is stored in the given location."
+                },
+                "overwriteExisting": {
+                    "description": "If the output already exists at the `output_destination`, then setting\nthis flag to true will overwrite this output. If the flag is false, and the\noutput exists, then an error of ALREADY_EXISTS will be returned.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "ParameterDict": {
+            "description": "A point sampled during a parameter sweep.",
+            "id": "ParameterDict",
+            "properties": {
+                "assignments": {
+                    "additionalProperties": {
+                        "format": "float",
+                        "type": "number"
+                    },
+                    "description": "Maps parameter names to values.",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "ParameterSweep": {
+            "description": "Specifies how to repeatedly sample a circuit, with or without sweeping over\nvarying parameter-dicts.",
+            "id": "ParameterSweep",
+            "properties": {
+                "repetitions": {
+                    "description": "How many times to sample, for each parameter-dict that is swept over.\nThis must be set to a value strictly greater than zero.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "sweep": {
+                    "$ref": "Sweep",
+                    "description": "Which parameters, that control gates in the circuit, to try.\n\nThe keys of the parameters generated by this sweep must be a superset\nof the keys in the program's operation's Args. When this is not specified,\nno parameterization is assumed (and the program must have no\nargs with symbols)."
+                }
+            },
+            "type": "object"
+        },
+        "ParameterizedResult": {
+            "description": "The parameters used to generate result along with the results for this\nset of parameters.",
+            "id": "ParameterizedResult",
+            "properties": {
+                "measurementResults": {
+                    "description": "The results of the measurement. There is one of these results per\nmeasurement key in the program. Measurement keys in the program are\nunique.",
+                    "items": {
+                        "$ref": "MeasurementResult"
+                    },
+                    "type": "array"
+                },
+                "params": {
+                    "$ref": "ParameterDict",
+                    "description": "The parameter dict that was used when generating these results."
+                }
+            },
+            "type": "object"
+        },
+        "Points": {
+            "description": "A list of explicit values.",
+            "id": "Points",
+            "properties": {
+                "points": {
+                    "description": "The values.",
+                    "items": {
+                        "format": "float",
+                        "type": "number"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ProcessorSelector": {
+            "description": "Selection criteria for determining which processors are eligible to execute\nthe job.",
+            "id": "ProcessorSelector",
+            "properties": {
+                "processorNames": {
+                    "description": "Collection of allowed processor names.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Program": {
+            "description": "A quantum program.",
+            "id": "Program",
+            "properties": {
+                "circuit": {
+                    "$ref": "Circuit",
+                    "description": "A circuit is an abstract representation as a series of moments, each\nmoment having a set of gates that act on disjoint qubits. Circuits don't\nhave absolute times for their operations (gates acting on qubits)."
+                },
+                "language": {
+                    "$ref": "Language",
+                    "description": "The language in which the program is written."
+                },
+                "schedule": {
+                    "$ref": "Schedule",
+                    "description": "Schedules are a list of operations (gates acting on qubits) that specify\nabsolute start times for the operations."
+                }
+            },
+            "type": "object"
+        },
+        "QuantumCalibration": {
+            "description": "A resource representing a calibration of a quantum processor.",
+            "id": "QuantumCalibration",
+            "properties": {
+                "data": {
+                    "additionalProperties": {
+                        "description": "Properties of the object. Contains field @type with type URL.",
+                        "type": "any"
+                    },
+                    "description": "The result data for this calibration. The `type_url` of the\n`google.protobuf.Any` message describes the result. Supported type_urls\nare:\n+ `type.googleapis.com/cirq.api.google.v2.MetricsSnapshot`",
+                    "type": "object"
+                },
+                "name": {
+                    "description": "The resource name of the calibration. Calibrations are for a specific\nprocessor, so a calibration is identified by a project id, a processor id,\nand a timestamp. The timestamp is an indicator of when the result was\nobtained and is a number of seconds since January 1 1970 UTC.\n\nFor example:\n`projects/`<var>project_id</var>`/processors/`<var>processor_id</var>`/calibrations/`<var>timestamp</var>",
+                    "type": "string"
+                },
+                "timestamp": {
+                    "description": "Output only. When the calibration was obtained.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "QuantumJob": {
+            "description": "A job that has been scheduled and potentially run on the Quantum Engine.",
+            "id": "QuantumJob",
+            "properties": {
+                "createTime": {
+                    "description": "Output only. When the job was created.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A user supplied string that describes the job in more detail. Can be\nmutated by a user. This has a maximum length of 1024 characters.",
+                    "type": "string"
+                },
+                "executionStatus": {
+                    "$ref": "ExecutionStatus",
+                    "description": "The information about the state of scheduling and executing the job."
+                },
+                "gcsRunContextLocation": {
+                    "$ref": "GcsLocation",
+                    "description": "The location of the run context in Google Cloud Storage. This is unused\nat present."
+                },
+                "labelFingerprint": {
+                    "description": "A fingerprint for the labels. This is a token which is required to be\npassed back when updating labels. Its purpose is to ensure that the new\nlabels that will clobber the old labels are clobbering the correct labels\n(and that these have not changed by a separate update). Note: the empty\nstring is the fingerprint for no labels, so this field is technically not\nrequired for adding labels when a job doesn't have any.",
+                    "type": "string"
+                },
+                "labels": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Jobs can be labeled for better grouping. These can be mutated using\nQuantumEngineService.UpdateQuantumJob.",
+                    "type": "object"
+                },
+                "name": {
+                    "description": "The resource name of the job, including the project id, program id, and\njob id. The program id and job id are alphanumeric plus dash and underscore\nand of length between 1 and 64 characters. The program id is unique per\nproject id and the job id is unique per project id and program id.\n\nFor example:\n`projects/`<var>project_id</var>`/programs/`<var>program_id</var>`/jobs/`<var>job_id</var>",
+                    "type": "string"
+                },
+                "outputConfig": {
+                    "$ref": "OutputConfig",
+                    "description": "Describes where the results of the program will be stored."
+                },
+                "runContext": {
+                    "additionalProperties": {
+                        "description": "Properties of the object. Contains field @type with type URL.",
+                        "type": "any"
+                    },
+                    "description": "The run context. This is only set when a direct `GET` is called to\nQuantumJob with the `return_run_context` set to true, or when a\nQuantumJob is being created. During create this MUST be set, unless the\n`run_context_location` points to already existing run context.\n\nThe Any proto `type_url`s that are supported are:\n\n+ `type.googleapis.com/cirq.api.google.v1.RunContext`\n+ `type.googleapis.com/cirq.api.google.v2.RunContext`\n\nThe maximum size of this is limited to 10 MegaBytes.",
+                    "type": "object"
+                },
+                "runContextInlineData": {
+                    "$ref": "InlineData",
+                    "description": "Describes metadata about the run context of the job. The type_url for the\nlocation determines the language in which the specification is encoded.\nThis is set by the engine and will be ignored if set by the client.\nSupported type_urls are:\n+ `type.googleapis.com/cirq.api.google.v1.RunContext`\n+ `type.googleapis.com/cirq.api.google.v2.RunContext`"
+                },
+                "schedulingConfig": {
+                    "$ref": "SchedulingConfig",
+                    "description": "The information used to configure the scheduling of the job. This message,\nin contrast to QuantumJob.execution_status should consist of immutable\ndata supplied when initially scheduling a job."
+                },
+                "updateTime": {
+                    "description": "Output only. The last time the job was updated.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "QuantumJobEvent": {
+            "description": "An event (mutation) of a QuantumJob.",
+            "id": "QuantumJobEvent",
+            "properties": {
+                "eventTime": {
+                    "description": "Output only. The time when the event occurred.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "job": {
+                    "$ref": "QuantumJob",
+                    "description": "The state of the job *after* the event occurred."
+                },
+                "modifiedFieldMask": {
+                    "description": "Output only. Which fields changed from the previous QuantumJob to the\nnew QuantumJob.",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "QuantumProcessor": {
+            "description": "A resource representing a machine on which a quantum computation can be run.\nThis includes both quantum computers and classical simulators of quantum\ncomputations.",
+            "id": "QuantumProcessor",
+            "properties": {
+                "expectedDownTime": {
+                    "description": "The start time of the next expected down time.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "expectedRecoveryTime": {
+                    "description": "If there is an expected_down_time or the health is `DOWN` then this is the\nexpected time by which the processor will be transitioned back to the `OK`\nstate.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "hardwareSpec": {
+                    "additionalProperties": {
+                        "description": "Properties of the object. Contains field @type with type URL.",
+                        "type": "any"
+                    },
+                    "description": "Output only. Specification of the hardware given as an\ngoogle.protobuf.Any message. This includes the constraints of the\nhardware as well as the current performance details of this hardware.\nThe `type_url` of the `google.protobuf.Any` message describes the type of\nthe processor.",
+                    "type": "object"
+                },
+                "health": {
+                    "description": "Output only. The health of the processor.",
+                    "enum": [
+                        "HEALTH_UNSPECIFIED",
+                        "OK",
+                        "DOWN",
+                        "UNAVAILABLE"
+                    ],
+                    "enumDescriptions": [
+                        "The health is unspecified.",
+                        "The processor is healthy.",
+                        "The processor is in a scheduled down time.",
+                        "The processor is unavailable. In contrast to DOWN which is a planned\ntime when the processor is not accessible, in this case the processor\nis not available due to an unexpected event."
+                    ],
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The resource name of the processor. Processors are available on a per\nproject level, so a processor is identified by a project id and a\nprocessor id. The processor id is an alphanumeric string of length\nbetween 1 and 64 characters.\n\nFor example:\n`projects/`<var>project_id</var>`/processors/`<var>processor_id</var>`",
+                    "type": "string"
+                },
+                "supportedLanguages": {
+                    "description": "Output only. A list of the quantum computing languages supported by the\nprocessor.\n\nThis elements of this list follow the same semantics as the `url` field\nof `google.protobuf.Any` and match the allowed values of\nQuantumProgram.code's `type_url` field.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "QuantumProgram": {
+            "description": "A program that can be run on quantum computing hardware (or on a classical\nsimulator of a quantum computer).",
+            "id": "QuantumProgram",
+            "properties": {
+                "code": {
+                    "additionalProperties": {
+                        "description": "Properties of the object. Contains field @type with type URL.",
+                        "type": "any"
+                    },
+                    "description": "The program code itself. This is only set when a direct `GET` is called\nto QuantumProgram with the `return_code` set to true, or when a\nQuantumProgram is being created. During create this MUST be set, unless\nthe `source_code_location` points to an already existing set of program\ninstructions.\n\nThe Any proto `type_url`s that are supported are:\n\n+ `type.googleapis.com/cirq.api.google.v1.Program`\n+ `type.googleapis.com/cirq.api.google.v2.Program`\n\nThe maximum size of this is limited to 10 MegaBytes.",
+                    "type": "object"
+                },
+                "codeInlineData": {
+                    "$ref": "InlineData",
+                    "description": "The type_url for the location determines the language in which the\ncode is encoded. Supported type_urls are:\n+ `type.googleapis.com/cirq.api.google.v1.Program`\n+ `type.googleapis.com/cirq.api.google.v2.Program`"
+                },
+                "createTime": {
+                    "description": "Output only. When the program was created.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A program can have a user supplied string that describes the job in more\ndetail. Can be user mutated. Has a maximum length of 1024 characters.",
+                    "type": "string"
+                },
+                "gcsCodeLocation": {
+                    "$ref": "GcsLocation",
+                    "description": "The location of the code in Google Cloud Storage."
+                },
+                "labelFingerprint": {
+                    "description": "A fingerprint for the labels. This is a token which is required to be\npassed back when updating labels. Its purpose is to ensure that the new\nlabels that will clobber the old labels are clobbering the correct labels\n(and that these have not changed by a separate update). Note: the empty\nstring is the fingerprint for no labels, so this field is technically not\nrequired for adding labels when a program doesn't have any.",
+                    "type": "string"
+                },
+                "labels": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Programs can be labeled for better grouping. These can be mutated\nusing QuantumEngineService.UpdateQuantumProgram.",
+                    "type": "object"
+                },
+                "name": {
+                    "description": "The resource name of the program, including the project id and program id.\nThe program id is alphanumeric plus dash and underscore and of length\nbetween 1 and 64 characters. It is unique per project id.\n\nFor example:\n`projects/`<var>project_id</var>`/programs/`<var>program_id</var>",
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "Output only. The last time the program was updated.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "QuantumResult": {
+            "description": "The result of running a QuantumProgram for a given QuantumJob.",
+            "id": "QuantumResult",
+            "properties": {
+                "parent": {
+                    "description": "The resource name of the job that produced this result, including the\nproject id and job id, for which the result was generated.",
+                    "type": "string"
+                },
+                "result": {
+                    "additionalProperties": {
+                        "description": "Properties of the object. Contains field @type with type URL.",
+                        "type": "any"
+                    },
+                    "description": "The results.\n\nThe Any proto `type_url`s that are supported are:\n\n+ `type.googleapis.com/cirq.api.google.v1.Result`\n+ `type.googleapis.com/cirq.api.google.v2.Result`",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "Qubit": {
+            "description": "An identifier for a qubit.",
+            "id": "Qubit",
+            "properties": {
+                "id": {
+                    "description": "Id of the qubit. These depend on the device being scheduled upon.\n\nTypically ids for qubits on a line are simple string versions of integers,\nwhile for qubits on a square grid these are integers separated by a\nunderscore, i.e. '0_1', '1_2', etc.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "QubitMeasurementResult": {
+            "description": "The result of a measurement on a single qubit.",
+            "id": "QubitMeasurementResult",
+            "properties": {
+                "qubit": {
+                    "$ref": "Qubit",
+                    "description": "Which qubit was measured."
+                },
+                "results": {
+                    "description": "These are the results of a measurement on a qubit. Measurement results are\nrepetitions number of bits, where the repetitions are define in the\nsweep result message.\n\nThe bytes in this field are constructed as follows:\n\n1. The results of the measurements produce a list of bits ordered by\n   the round of repetition.\n\n2. This list is broken up into blocks of 8 bits, with the final block\n   potentially not being a full 8 bits.\n\n3. Each of the blocks of 8 bits is encoded into a byte, using little\n   endian notation. That is, the least significant bit of the byte is\n   the first bit of the bit string, the second-least significant\n   bit of the byte is the second bit of the bit string, etc. For the final\n   byte which may not have 8 bits, little endian encoding is still used,\n   but not all 8 bits may be used. This list of bytes then constitutes\n   the bytes in this field.",
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RepeatedBoolean": {
+            "description": "A repeated boolean value.",
+            "id": "RepeatedBoolean",
+            "properties": {
+                "values": {
+                    "items": {
+                        "type": "boolean"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Result": {
+            "description": "The overall results of running a Program.",
+            "id": "Result",
+            "properties": {
+                "sweepResults": {
+                    "description": "The results for each ParameterSweep. These will be in the same order\nas the parameter_sweeps repeated field in the RunContext that generated\nthese results.",
+                    "items": {
+                        "$ref": "SweepResult"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "RunContext": {
+            "description": "The context for running a quantum program.",
+            "id": "RunContext",
+            "properties": {
+                "parameterSweeps": {
+                    "description": "The parameters for operations in a program.",
+                    "items": {
+                        "$ref": "ParameterSweep"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Schedule": {
+            "description": "The quantum circuit, specified as a series of operations at specific\nstart times.",
+            "id": "Schedule",
+            "properties": {
+                "scheduledOperations": {
+                    "description": "A list of all the operations and their absolute start times.",
+                    "items": {
+                        "$ref": "ScheduledOperation"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ScheduledOperation": {
+            "description": "An operation occurring at a specific start time.",
+            "id": "ScheduledOperation",
+            "properties": {
+                "operation": {
+                    "$ref": "Operation",
+                    "description": "Which operation is to be scheduled."
+                },
+                "startTimePicos": {
+                    "description": "The start time of the operation, with zero representing the absolute\nstart of the circuit.\n\nThis must be consistent with the moment structure and must be positive.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SchedulingConfig": {
+            "description": "Describes how a QuantumJob should be scheduled.",
+            "id": "SchedulingConfig",
+            "properties": {
+                "priority": {
+                    "description": "A numeric value describing the priority with which the job will be handled.\nThe interpretation of this priority varies by `target_route`, but must be\na numeric value between 0 (inclusive) and 1000 (exclusive).",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "processorSelector": {
+                    "$ref": "ProcessorSelector",
+                    "description": "Requested selector the job."
+                },
+                "targetRoute": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SingleSweep": {
+            "description": "A set of values to loop over for a particular parameter.",
+            "id": "SingleSweep",
+            "properties": {
+                "linspace": {
+                    "$ref": "Linspace",
+                    "description": "Uniformly-spaced sampling over a range."
+                },
+                "parameterKey": {
+                    "description": "The parameter key being varied. This cannot be the empty string.\nThese are must appear as string Args in the quantum program.",
+                    "type": "string"
+                },
+                "points": {
+                    "$ref": "Points",
+                    "description": "An explicit list of points to try."
+                }
+            },
+            "type": "object"
+        },
+        "Sweep": {
+            "description": "A sweep over all of the parameters in a program.",
+            "id": "Sweep",
+            "properties": {
+                "singleSweep": {
+                    "$ref": "SingleSweep"
+                },
+                "sweepFunction": {
+                    "$ref": "SweepFunction"
+                }
+            },
+            "type": "object"
+        },
+        "SweepFunction": {
+            "description": "A function that takes multiple sweeps and produces more sweeps.",
+            "id": "SweepFunction",
+            "properties": {
+                "functionType": {
+                    "enum": [
+                        "FUNCTION_TYPE_UNSPECIFIED",
+                        "PRODUCT",
+                        "ZIP"
+                    ],
+                    "enumDescriptions": [
+                        "The function type is not specified. Should never be used.",
+                        "A Cartesian product of parameter sweeps.\n\nExample of product:\nIf one of the sweeps assigns\n\"a\": 0.0\n\"a\": 1.0\nand another assigns\n\"b\": 2.0\n\"b\": 3.0\nthen the product of these assigns all possible combinations.\n\"a\": 0.0, \"b\": 2.0\n\"a\": 0.0, \"b\": 3.0\n\"a\": 1.0, \"b\": 2.0\n\"a\": 1.0, \"b\": 3.0",
+                        "A zip product of parameter sweeps.\n\nExample of zip:\nIf one of the sweeps assigns\n\"a\": 0.0\n\"a\": 1.0\nand another assigns\n\"b\": 2.0\n\"b\": 3.0\nthen the product of these assigns\n\"a\": 0.0, \"b\": 2.0\n\"a\": 1.0, \"b\": 3.0\nNote: if one sweep is shorter, the others will be truncated."
+                    ],
+                    "type": "string"
+                },
+                "sweeps": {
+                    "description": "The argument sweeps to the function.",
+                    "items": {
+                        "$ref": "Sweep"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "SweepResult": {
+            "description": "The measurement results for a particular ParameterSweep.",
+            "id": "SweepResult",
+            "properties": {
+                "parameterizedResults": {
+                    "description": "The results along with the parameters that generated these results.\nThese represent the expanded parameters defined int he ParameterSweep\nwhich this SweepResult corresponds to.",
+                    "items": {
+                        "$ref": "ParameterizedResult"
+                    },
+                    "type": "array"
+                },
+                "repetitions": {
+                    "description": "The total number of repetitions that were performed for this sweep.\nThis is reported in order to make it possible to decode the bytes\nin the measurement results.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "Value": {
+            "description": "A generic metric value.",
+            "id": "Value",
+            "properties": {
+                "doubleVal": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "int32Val": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "int64Val": {
+                    "format": "int64",
+                    "type": "string"
+                },
+                "strVal": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Quantum Engine API (Staging)",
+    "version": "v1alpha1",
+    "version_module": true
+}

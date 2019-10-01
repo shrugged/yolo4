@@ -1,0 +1,1336 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/cloud-platform": {
+                    "description": "View and manage your data across Google Cloud Platform services"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://autopush-datamigration-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "description": "",
+    "discoveryVersion": "v1",
+    "documentationLink": "",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "autopush_datamigration_pa_sandbox:v1internal1",
+    "kind": "discovery#restDescription",
+    "name": "autopush_datamigration_pa_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "projects": {
+            "resources": {
+                "locations": {
+                    "methods": {
+                        "get": {
+                            "description": "Gets information about a location.",
+                            "flatPath": "v1internal1/projects/{projectsId}/locations/{locationsId}",
+                            "httpMethod": "GET",
+                            "id": "autopush_datamigration_pa_sandbox.projects.locations.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Resource name for the location.",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/locations/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1internal1/{+name}",
+                            "response": {
+                                "$ref": "Location"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "list": {
+                            "description": "Lists information about the supported locations for this service.",
+                            "flatPath": "v1internal1/projects/{projectsId}/locations",
+                            "httpMethod": "GET",
+                            "id": "autopush_datamigration_pa_sandbox.projects.locations.list",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "filter": {
+                                    "description": "The standard list filter.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "description": "The resource that owns the locations collection, if applicable.",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "pageSize": {
+                                    "description": "The standard list page size.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "The standard list page token.",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1internal1/{+name}/locations",
+                            "response": {
+                                "$ref": "ListLocationsResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        }
+                    },
+                    "resources": {
+                        "endpoints": {
+                            "methods": {
+                                "get": {
+                                    "description": "Gets details of a single ProducerEndpoint.",
+                                    "flatPath": "v1internal1/projects/{projectsId}/locations/{locationsId}/endpoints/{endpointsId}",
+                                    "httpMethod": "GET",
+                                    "id": "autopush_datamigration_pa_sandbox.projects.locations.endpoints.get",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "name": {
+                                            "description": "The unique identifier for a Endpoint.\nFormat:\nprojects/<project>/locations/<region>/endpoints/<endpoint>",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/locations/[^/]+/endpoints/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1internal1/{+name}",
+                                    "response": {
+                                        "$ref": "ProducerEndpoint"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                },
+                                "list": {
+                                    "description": "Lists ProducerEndpoints in a given project and location.",
+                                    "flatPath": "v1internal1/projects/{projectsId}/locations/{locationsId}/endpoints",
+                                    "httpMethod": "GET",
+                                    "id": "autopush_datamigration_pa_sandbox.projects.locations.endpoints.list",
+                                    "parameterOrder": [
+                                        "parent"
+                                    ],
+                                    "parameters": {
+                                        "filter": {
+                                            "description": "The filter request.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "orderBy": {
+                                            "description": "the order by fields for the result.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "pageSize": {
+                                            "description": "The page size.",
+                                            "format": "int32",
+                                            "location": "query",
+                                            "type": "integer"
+                                        },
+                                        "pageToken": {
+                                            "description": "The first page token.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "parent": {
+                                            "description": "The parent node of the migration.\nFormat: projects/<project>/locations/<region>.",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/locations/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1internal1/{+parent}/endpoints",
+                                    "response": {
+                                        "$ref": "ListProducerEndpointsResponse"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                }
+                            }
+                        },
+                        "migrations": {
+                            "methods": {
+                                "get": {
+                                    "description": "Gets details of a single ProducerMigration.",
+                                    "flatPath": "v1internal1/projects/{projectsId}/locations/{locationsId}/migrations/{migrationsId}",
+                                    "httpMethod": "GET",
+                                    "id": "autopush_datamigration_pa_sandbox.projects.locations.migrations.get",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "name": {
+                                            "description": "The unique identifier for a Migration.\nFormat:\nprojects/<project>/locations/<region>/migrations/<migration>.",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/locations/[^/]+/migrations/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1internal1/{+name}",
+                                    "response": {
+                                        "$ref": "ProducerMigration"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                },
+                                "list": {
+                                    "description": "Lists ProducerMigrations in a given project and location.",
+                                    "flatPath": "v1internal1/projects/{projectsId}/locations/{locationsId}/migrations",
+                                    "httpMethod": "GET",
+                                    "id": "autopush_datamigration_pa_sandbox.projects.locations.migrations.list",
+                                    "parameterOrder": [
+                                        "parent"
+                                    ],
+                                    "parameters": {
+                                        "filter": {
+                                            "description": "The filter request.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "orderBy": {
+                                            "description": "the order by fields for the result.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "pageSize": {
+                                            "description": "The page size.",
+                                            "format": "int32",
+                                            "location": "query",
+                                            "type": "integer"
+                                        },
+                                        "pageToken": {
+                                            "description": "The first page token.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "parent": {
+                                            "description": "The parent node of the migration.\nFormat: projects/<project>/locations/<region>.",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/locations/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1internal1/{+parent}/migrations",
+                                    "response": {
+                                        "$ref": "ListProducerMigrationsResponse"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                }
+                            }
+                        },
+                        "operations": {
+                            "methods": {
+                                "cancel": {
+                                    "description": "Starts asynchronous cancellation on a long-running operation.  The server\nmakes a best effort to cancel the operation, but success is not\nguaranteed.  If the server doesn't support this method, it returns\n`google.rpc.Code.UNIMPLEMENTED`.  Clients can use\nOperations.GetOperation or\nother methods to check whether the cancellation succeeded or whether the\noperation completed despite cancellation. On successful cancellation,\nthe operation is not deleted; instead, it becomes an operation with\nan Operation.error value with a google.rpc.Status.code of 1,\ncorresponding to `Code.CANCELLED`.",
+                                    "flatPath": "v1internal1/projects/{projectsId}/locations/{locationsId}/operations/{operationsId}:cancel",
+                                    "httpMethod": "POST",
+                                    "id": "autopush_datamigration_pa_sandbox.projects.locations.operations.cancel",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "name": {
+                                            "description": "The name of the operation resource to be cancelled.",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/locations/[^/]+/operations/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1internal1/{+name}:cancel",
+                                    "request": {
+                                        "$ref": "CancelOperationRequest"
+                                    },
+                                    "response": {
+                                        "$ref": "Empty"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                },
+                                "delete": {
+                                    "description": "Deletes a long-running operation. This method indicates that the client is\nno longer interested in the operation result. It does not cancel the\noperation. If the server doesn't support this method, it returns\n`google.rpc.Code.UNIMPLEMENTED`.",
+                                    "flatPath": "v1internal1/projects/{projectsId}/locations/{locationsId}/operations/{operationsId}",
+                                    "httpMethod": "DELETE",
+                                    "id": "autopush_datamigration_pa_sandbox.projects.locations.operations.delete",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "name": {
+                                            "description": "The name of the operation resource to be deleted.",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/locations/[^/]+/operations/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1internal1/{+name}",
+                                    "response": {
+                                        "$ref": "Empty"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                },
+                                "get": {
+                                    "description": "Gets the latest state of a long-running operation.  Clients can use this\nmethod to poll the operation result at intervals as recommended by the API\nservice.",
+                                    "flatPath": "v1internal1/projects/{projectsId}/locations/{locationsId}/operations/{operationsId}",
+                                    "httpMethod": "GET",
+                                    "id": "autopush_datamigration_pa_sandbox.projects.locations.operations.get",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "name": {
+                                            "description": "The name of the operation resource.",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/locations/[^/]+/operations/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1internal1/{+name}",
+                                    "response": {
+                                        "$ref": "Operation"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                },
+                                "list": {
+                                    "description": "Lists operations that match the specified filter in the request. If the\nserver doesn't support this method, it returns `UNIMPLEMENTED`.\n\nNOTE: the `name` binding allows API services to override the binding\nto use different resource name schemes, such as `users/*/operations`. To\noverride the binding, API services can add a binding such as\n`\"/v1/{name=users/*}/operations\"` to their service configuration.\nFor backwards compatibility, the default name includes the operations\ncollection id, however overriding users must ensure the name binding\nis the parent resource, without the operations collection id.",
+                                    "flatPath": "v1internal1/projects/{projectsId}/locations/{locationsId}/operations",
+                                    "httpMethod": "GET",
+                                    "id": "autopush_datamigration_pa_sandbox.projects.locations.operations.list",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "filter": {
+                                            "description": "The standard list filter.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "name": {
+                                            "description": "The name of the operation's parent resource.",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/locations/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "pageSize": {
+                                            "description": "The standard list page size.",
+                                            "format": "int32",
+                                            "location": "query",
+                                            "type": "integer"
+                                        },
+                                        "pageToken": {
+                                            "description": "The standard list page token.",
+                                            "location": "query",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1internal1/{+name}/operations",
+                                    "response": {
+                                        "$ref": "ListOperationsResponse"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190919",
+    "rootUrl": "https://autopush-datamigration-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "CancelOperationRequest": {
+            "description": "The request message for Operations.CancelOperation.",
+            "id": "CancelOperationRequest",
+            "properties": {},
+            "type": "object"
+        },
+        "CloudSqlEndpoint": {
+            "description": "A CloudSQL Endpoint.",
+            "id": "CloudSqlEndpoint",
+            "properties": {
+                "cloudSqlId": {
+                    "description": "The Cloud SQL id.",
+                    "type": "string"
+                },
+                "settings": {
+                    "$ref": "CloudSqlSettings",
+                    "description": "CloudSQL metadata to create the database destination."
+                }
+            },
+            "type": "object"
+        },
+        "CloudSqlSettings": {
+            "description": "SQL Settings for cloud SQL DB creation\nNEXT_TAG = 13.",
+            "id": "CloudSqlSettings",
+            "properties": {
+                "activationPolicy": {
+                    "description": "The activation policy specifies when the instance is activated; it is\napplicable only when the instance state is <code>RUNNABLE</code>. Valid\nvalues: <br><code>ALWAYS</code>: The instance is on, and remains so even in\nthe absence of connection requests. <br><code>NEVER</code>: The instance is\noff; it is not activated, even if a connection request arrives.\n<br><code>ON_DEMAND</code>: First Generation instances only. The instance\nresponds to incoming requests, and turns itself off when not in use.\nInstances with <code>PER_USE</code> pricing turn off after 15 minutes of\ninactivity. Instances with <code>PER_PACKAGE</code> pricing turn off after\n12 hours of inactivity.",
+                    "enum": [
+                        "SQL_ACTIVATION_POLICY_UNSPECIFIED",
+                        "ALWAYS",
+                        "NEVER",
+                        "ON_DEMAND"
+                    ],
+                    "enumDescriptions": [
+                        "unspecified policy.",
+                        "The instance is always up and running.",
+                        "The instance should never spin up.",
+                        "The instance spins up upon receiving requests."
+                    ],
+                    "type": "string"
+                },
+                "autoStorageIncrease": {
+                    "description": "auto increase option.",
+                    "type": "boolean"
+                },
+                "dataDiskSizeGb": {
+                    "description": "The size of data disk, in GB. The data disk size minimum is 10GB. Not used\nfor First Generation instances.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "dataDiskType": {
+                    "description": "The type of data disk: <code>PD_SSD</code> (default) or\n<code>PD_HDD</code>. Not used for First Generation instances.",
+                    "enum": [
+                        "SQL_DATA_DISK_TYPE_UNSPECIFIED",
+                        "PD_SSD",
+                        "PD_HDD"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified.",
+                        "SSD disk.",
+                        "HDD disk."
+                    ],
+                    "type": "string"
+                },
+                "databaseFlags": {
+                    "description": "The database flags passed to the instance at startup.",
+                    "items": {
+                        "$ref": "SqlDatabaseFlags"
+                    },
+                    "type": "array"
+                },
+                "databaseVersion": {
+                    "description": "The database engine type and version.\ninstances: <code>MYSQL_5_7</code> or <code>MYSQL_5_6</code>.",
+                    "enum": [
+                        "SQL_DATABASE_VERSION_UNSPECIFIED",
+                        "MYSQL_5_6",
+                        "MYSQL_5_7",
+                        "POSTGRES_9_6",
+                        "POSTGRES_11"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified version.",
+                        "MySQL 5.6.",
+                        "MySQL 5.7.",
+                        "PostgreSQL 9.6.",
+                        "PostgreSQL 11."
+                    ],
+                    "type": "string"
+                },
+                "ipConfig": {
+                    "$ref": "SqlIpConfig",
+                    "description": "The settings for IP Management. This allows to enable or disable the\ninstance IP and manage which external networks can connect to the instance.\nThe IPv4 address cannot be disabled for Second Generation instances."
+                },
+                "sourceId": {
+                    "description": "The source identification.",
+                    "type": "string"
+                },
+                "storageAutoResizeLimit": {
+                    "description": "The maximum size to which storage capacity can be automatically increased.\nThe default value is 0, which specifies that there is no limit. Not used\nfor First Generation instances.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "tier": {
+                    "description": "The tier (or machine type) for this instance, for example\n<code>db-n1-standard-1</code> (MySQL instances) or\n<code>db-custom-1-3840</code> (PostgreSQL instances). For MySQL instances,\nthis property determines whether the instance is First or Second\nGeneration. For more information, see <a\nhref=\"/sql/docs/db_path/instance-settings\">Instance Settings</a>.",
+                    "type": "string"
+                },
+                "userLabels": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "User-provided labels, represented as a dictionary where each label is a\nsingle key value pair.",
+                    "type": "object"
+                },
+                "zone": {
+                    "description": "The preferred zone.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Empty": {
+            "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+            "id": "Empty",
+            "properties": {},
+            "type": "object"
+        },
+        "ExternalMasterEndpointData": {
+            "description": "External Master Plugin specific endpoint data proto.",
+            "id": "ExternalMasterEndpointData",
+            "properties": {
+                "primaryRef": {
+                    "description": "The read replica master producer endpoint reference.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ExternalMasterMigrationData": {
+            "description": "External Master Plugin specific migration data proto.",
+            "id": "ExternalMasterMigrationData",
+            "properties": {},
+            "type": "object"
+        },
+        "GoogleInternalCloudClouddmsV1internal1OperationMetadata": {
+            "description": "Represents the metadata of the long-running operation.",
+            "id": "GoogleInternalCloudClouddmsV1internal1OperationMetadata",
+            "properties": {
+                "apiVersion": {
+                    "description": "Output only. API version used to start the operation.",
+                    "type": "string"
+                },
+                "createTime": {
+                    "description": "Output only. The time the operation was created.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "endTime": {
+                    "description": "Output only. The time the operation finished running.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "requestedCancellation": {
+                    "description": "Output only. Identifies whether the user has requested cancellation\nof the operation. Operations that have successfully been cancelled\nhave Operation.error value with a google.rpc.Status.code of 1,\ncorresponding to `Code.CANCELLED`.",
+                    "type": "boolean"
+                },
+                "statusMessage": {
+                    "description": "Output only. Human-readable status of the operation, if any.",
+                    "type": "string"
+                },
+                "target": {
+                    "description": "Output only. Server-defined resource path for the target of the operation.",
+                    "type": "string"
+                },
+                "verb": {
+                    "description": "Output only. Name of the verb executed by the operation.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "HostPort": {
+            "description": "A host port.",
+            "id": "HostPort",
+            "properties": {
+                "host": {
+                    "description": "The endpoint host.",
+                    "type": "string"
+                },
+                "port": {
+                    "description": "The endpoint port.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "IpWhitelistingConnectivity": {
+            "description": "Ip Whitelisting Connectivity.",
+            "id": "IpWhitelistingConnectivity",
+            "properties": {},
+            "type": "object"
+        },
+        "ListLocationsResponse": {
+            "description": "The response message for Locations.ListLocations.",
+            "id": "ListLocationsResponse",
+            "properties": {
+                "locations": {
+                    "description": "A list of locations that matches the specified filter in the request.",
+                    "items": {
+                        "$ref": "Location"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "The standard List next-page token.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListOperationsResponse": {
+            "description": "The response message for Operations.ListOperations.",
+            "id": "ListOperationsResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "The standard List next-page token.",
+                    "type": "string"
+                },
+                "operations": {
+                    "description": "A list of operations that matches the specified filter in the request.",
+                    "items": {
+                        "$ref": "Operation"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListProducerEndpointsResponse": {
+            "description": "Response message for 'ListProducerEndpoints' request.",
+            "id": "ListProducerEndpointsResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "The first token of the next page.",
+                    "type": "string"
+                },
+                "resources": {
+                    "description": "The List of endpoints in the page response.",
+                    "items": {
+                        "$ref": "ProducerEndpoint"
+                    },
+                    "type": "array"
+                },
+                "unreachableLocations": {
+                    "description": "Locations that could not be reached.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListProducerMigrationsResponse": {
+            "description": "Response message for 'MigrationsList' response.",
+            "id": "ListProducerMigrationsResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "The first token of the next page.",
+                    "type": "string"
+                },
+                "resources": {
+                    "description": "The List of migrations in the page response.",
+                    "items": {
+                        "$ref": "ProducerMigration"
+                    },
+                    "type": "array"
+                },
+                "unreachableLocations": {
+                    "description": "Locations that could not be reached.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Location": {
+            "description": "A resource that represents Google Cloud Platform location.",
+            "id": "Location",
+            "properties": {
+                "displayName": {
+                    "description": "The friendly name for this location, typically a nearby city name.\nFor example, \"Tokyo\".",
+                    "type": "string"
+                },
+                "labels": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Cross-service attributes for the location. For example\n\n    {\"cloud.googleapis.com/region\": \"us-east1\"}",
+                    "type": "object"
+                },
+                "locationId": {
+                    "description": "The canonical id for this location. For example: `\"us-east1\"`.",
+                    "type": "string"
+                },
+                "metadata": {
+                    "additionalProperties": {
+                        "description": "Properties of the object. Contains field @type with type URL.",
+                        "type": "any"
+                    },
+                    "description": "Service-specific metadata. For example the available capacity at the given\nlocation.",
+                    "type": "object"
+                },
+                "name": {
+                    "description": "Resource name for the location, which may vary between implementations.\nFor example: `\"projects/example-project/locations/us-east1\"`",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MySqlEndpoint": {
+            "description": "An MySQL database Endpoint.",
+            "id": "MySqlEndpoint",
+            "properties": {
+                "hostPort": {
+                    "$ref": "HostPort",
+                    "description": "host/port connection definition."
+                },
+                "instanceId": {
+                    "description": "The instance id for internal database.",
+                    "type": "string"
+                },
+                "ssl": {
+                    "$ref": "SslConfig",
+                    "description": "SSL configuration."
+                },
+                "userPass": {
+                    "$ref": "UserPass",
+                    "description": "user/password login method."
+                },
+                "version": {
+                    "description": "The database version.",
+                    "enum": [
+                        "VERSION_UNSPECIFIED",
+                        "V5_5",
+                        "V5_6",
+                        "V5_7"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified version.",
+                        "MySQL 5.5.",
+                        "MySQL 5.6.",
+                        "MySQL 5.7."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Operation": {
+            "description": "This resource represents a long-running operation that is the result of a\nnetwork API call.",
+            "id": "Operation",
+            "properties": {
+                "done": {
+                    "description": "If the value is `false`, it means the operation is still in progress.\nIf `true`, the operation is completed, and either `error` or `response` is\navailable.",
+                    "type": "boolean"
+                },
+                "error": {
+                    "$ref": "Status",
+                    "description": "The error result of the operation in case of failure or cancellation."
+                },
+                "metadata": {
+                    "additionalProperties": {
+                        "description": "Properties of the object. Contains field @type with type URL.",
+                        "type": "any"
+                    },
+                    "description": "Service-specific metadata associated with the operation.  It typically\ncontains progress information and common metadata such as create time.\nSome services might not provide such metadata.  Any method that returns a\nlong-running operation should document the metadata type, if any.",
+                    "type": "object"
+                },
+                "name": {
+                    "description": "The server-assigned name, which is only unique within the same service that\noriginally returns it. If you use the default HTTP mapping, the\n`name` should be a resource name ending with `operations/{unique_id}`.",
+                    "type": "string"
+                },
+                "response": {
+                    "additionalProperties": {
+                        "description": "Properties of the object. Contains field @type with type URL.",
+                        "type": "any"
+                    },
+                    "description": "The normal response of the operation in case of success.  If the original\nmethod returns no data on success, such as `Delete`, the response is\n`google.protobuf.Empty`.  If the original method is standard\n`Get`/`Create`/`Update`, the response should be the resource.  For other\nmethods, the response should have the type `XxxResponse`, where `Xxx`\nis the original method name.  For example, if the original method name\nis `TakeSnapshot()`, the inferred response type is\n`TakeSnapshotResponse`.",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "PluginMetadata": {
+            "description": "Plugin specific data message.",
+            "id": "PluginMetadata",
+            "properties": {
+                "externalMasterEndpointData": {
+                    "$ref": "ExternalMasterEndpointData",
+                    "description": "External master endpoint specific data"
+                },
+                "externalMasterMigrationData": {
+                    "$ref": "ExternalMasterMigrationData",
+                    "description": "External master migration specific data"
+                }
+            },
+            "type": "object"
+        },
+        "PostgreSqlEndpoint": {
+            "description": "An PostgreSQL Endpoint.",
+            "id": "PostgreSqlEndpoint",
+            "properties": {
+                "database": {
+                    "description": "The database name.",
+                    "type": "string"
+                },
+                "hostPort": {
+                    "$ref": "HostPort",
+                    "description": "host/port connection definition."
+                },
+                "instanceId": {
+                    "description": "The instance id for internal database.",
+                    "type": "string"
+                },
+                "ssl": {
+                    "$ref": "SslConfig",
+                    "description": "SSL configuration."
+                },
+                "userPass": {
+                    "$ref": "UserPass",
+                    "description": "user/password login method."
+                },
+                "version": {
+                    "description": "The database version.",
+                    "enum": [
+                        "VERSION_UNSPECIFIED",
+                        "V9_6",
+                        "V11"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified version.",
+                        "PostgreSQL 9.6.",
+                        "PostgreSQL 11."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ProducerEndpoint": {
+            "description": "An Endpoint definition.\nNEXT_TAG = 13.",
+            "id": "ProducerEndpoint",
+            "properties": {
+                "cloudsql": {
+                    "$ref": "CloudSqlEndpoint",
+                    "description": "A CloudSQL database endpoint."
+                },
+                "createTime": {
+                    "description": "The create time timestamp.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "createUser": {
+                    "description": "The user that created the endpoint.",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "The display name.",
+                    "type": "string"
+                },
+                "errorDetails": {
+                    "$ref": "Status",
+                    "description": "The error details in case of state FAILED."
+                },
+                "labels": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Labels.",
+                    "type": "object"
+                },
+                "mysql": {
+                    "$ref": "MySqlEndpoint",
+                    "description": "A MySQL database endpoint."
+                },
+                "name": {
+                    "description": "The unique identifier for a Migration Endpoint.",
+                    "type": "string"
+                },
+                "pluginMetadata": {
+                    "$ref": "PluginMetadata",
+                    "description": "Plugin specific data proto - should be used to expose externally plugin\nspecific fields or transfer data between workflows. Don't change the number"
+                },
+                "postgresql": {
+                    "$ref": "PostgreSqlEndpoint",
+                    "description": "A PostgreSQL database endpoint."
+                },
+                "projectId": {
+                    "description": "The project Id",
+                    "type": "string"
+                },
+                "region": {
+                    "description": "The region for the Cloud SQL instance",
+                    "type": "string"
+                },
+                "state": {
+                    "description": "The current endpoint state.",
+                    "enum": [
+                        "STATE_UNSPECIFIED",
+                        "DRAFT",
+                        "CREATING",
+                        "READY",
+                        "UPDATING",
+                        "DELETING",
+                        "DELETED",
+                        "FAILED"
+                    ],
+                    "enumDescriptions": [
+                        "The state of the endpoint is unknown.",
+                        "The endpoint is in draft mode and fully editable.",
+                        "The endpoint is being created.",
+                        "The endpoint is ready.",
+                        "The endpoint is being updated.",
+                        "The endpoint is being deleted.",
+                        "The endpoint has been deleted.",
+                        "The last action on the endpoint failed."
+                    ],
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "The update time timestamp.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "updateUser": {
+                    "description": "The last user that updated the endpoint.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ProducerMigration": {
+            "description": "A Producer Migration Entity.\nNEXT_TAG = 22.",
+            "id": "ProducerMigration",
+            "properties": {
+                "completeUser": {
+                    "description": "The user that completed the Migration.",
+                    "type": "string"
+                },
+                "createTime": {
+                    "description": "The create time timestamp.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "createUser": {
+                    "description": "The user that created the Migration.",
+                    "type": "string"
+                },
+                "destination": {
+                    "description": "The migration destination endpoint name.",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "The display name.",
+                    "type": "string"
+                },
+                "dumpPath": {
+                    "description": "An optional dump path (gs://[BUCKET_NAME]/[OBJECT_NAME]).",
+                    "type": "string"
+                },
+                "duration": {
+                    "description": "the migration duration in seconds.",
+                    "format": "google-duration",
+                    "type": "string"
+                },
+                "errorDetails": {
+                    "$ref": "Status",
+                    "description": "The error details in case of state FAILED."
+                },
+                "ipWhitelistingConnectivity": {
+                    "$ref": "IpWhitelistingConnectivity",
+                    "description": "ip whitelisting connectivity data - by default."
+                },
+                "labels": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Labels.",
+                    "type": "object"
+                },
+                "lastState": {
+                    "description": "The last state used to re-set the right state during update",
+                    "enum": [
+                        "STATE_UNSPECIFIED",
+                        "MAINTENANCE",
+                        "DRAFT",
+                        "CREATING",
+                        "NOT_STARTED",
+                        "RUNNING",
+                        "CUTOVER",
+                        "FAILED",
+                        "COMPLETED",
+                        "DELETING",
+                        "STOPPING",
+                        "STOPPED",
+                        "DELETED",
+                        "UPDATING",
+                        "STARTING"
+                    ],
+                    "enumDescriptions": [
+                        "The state of the migration is unknown.",
+                        "The migration is down for maintenance.",
+                        "The migration is in draft mode and fully editable.",
+                        "The migration is being created.",
+                        "The migration is created, not started and is fully editable.",
+                        "The migration is running",
+                        "The migration is running the cutover.",
+                        "The migration failed.",
+                        "The migration has been completed.",
+                        "The migration is being deleted.",
+                        "The migration is being stopped.",
+                        "The migration is currently stopped.",
+                        "The migration has been deleted.",
+                        "The migration is being updated.",
+                        "The migration is starting."
+                    ],
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The unique identifier for a Migration.",
+                    "type": "string"
+                },
+                "phase": {
+                    "description": "The current migration phase.",
+                    "enum": [
+                        "PHASE_UNSPECIFIED",
+                        "FULL_DUMP",
+                        "CDC"
+                    ],
+                    "enumDescriptions": [
+                        "The phase of the migration is unknown.",
+                        "The migration is in the full dump phase.",
+                        "The migration is CDC phase."
+                    ],
+                    "type": "string"
+                },
+                "pluginConfigs": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Plugin configurations - generic map for additional fields\nspecific for the relevant Data Plane plugin.",
+                    "type": "object"
+                },
+                "pluginMetadata": {
+                    "$ref": "PluginMetadata",
+                    "description": "Plugin specific data proto - should be used to expose externally plugin\nspecific fields or transfer data between workflows."
+                },
+                "projectId": {
+                    "description": "The project Id",
+                    "type": "string"
+                },
+                "region": {
+                    "description": "The region where the migration takes place.",
+                    "type": "string"
+                },
+                "reverseSshConnectivity": {
+                    "$ref": "ReverseSshConnectivity",
+                    "description": "ip reverse SSH connectivity data."
+                },
+                "source": {
+                    "description": "The migration source endpoint name.",
+                    "type": "string"
+                },
+                "state": {
+                    "description": "The current migration state.",
+                    "enum": [
+                        "STATE_UNSPECIFIED",
+                        "MAINTENANCE",
+                        "DRAFT",
+                        "CREATING",
+                        "NOT_STARTED",
+                        "RUNNING",
+                        "CUTOVER",
+                        "FAILED",
+                        "COMPLETED",
+                        "DELETING",
+                        "STOPPING",
+                        "STOPPED",
+                        "DELETED",
+                        "UPDATING",
+                        "STARTING"
+                    ],
+                    "enumDescriptions": [
+                        "The state of the migration is unknown.",
+                        "The migration is down for maintenance.",
+                        "The migration is in draft mode and fully editable.",
+                        "The migration is being created.",
+                        "The migration is created, not started and is fully editable.",
+                        "The migration is running",
+                        "The migration is running the cutover.",
+                        "The migration failed.",
+                        "The migration has been completed.",
+                        "The migration is being deleted.",
+                        "The migration is being stopped.",
+                        "The migration is currently stopped.",
+                        "The migration has been deleted.",
+                        "The migration is being updated.",
+                        "The migration is starting."
+                    ],
+                    "type": "string"
+                },
+                "type": {
+                    "description": "The migration type.",
+                    "enum": [
+                        "TYPE_UNSPECIFIED",
+                        "OFFLINE",
+                        "ONLINE"
+                    ],
+                    "enumDescriptions": [
+                        "The type of the migration is unknown.",
+                        "The migration is offline.",
+                        "The migration is online."
+                    ],
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "The update time timestamp.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "updateUser": {
+                    "description": "The last user that updated the Migration.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ReverseSshConnectivity": {
+            "description": "Reverse SSH Connectivity.",
+            "id": "ReverseSshConnectivity",
+            "properties": {
+                "vmIp": {
+                    "description": "The Virtual Machine IP.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SqlAclEntry": {
+            "description": "An entry for an Access Control list.",
+            "id": "SqlAclEntry",
+            "properties": {
+                "expireTime": {
+                    "description": "The time when this access control entry expires in <a\nhref=\"https://tools.ietf.org/html/rfc3339\">RFC 3339</a> format, for example\n<code>2012-11-15T16:19:00.094Z</code>.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "label": {
+                    "description": "An optional label to identify this entry.",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "The whitelisted value for the access control list.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SqlDatabaseFlags": {
+            "description": "Database flags for Cloud SQL instances.",
+            "id": "SqlDatabaseFlags",
+            "properties": {
+                "name": {
+                    "description": "The name of the flag. These flags are passed at instance startup, so\ninclude both server options and system variables for MySQL. Flags should be\nspecified with underscores, not hyphens. For more information, see <a\nhref=\"/sql/docs/mysql/flags\">Configuring Database Flags</a> in the Cloud\nSQL documentation.",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "The value of the flag. Booleans should be set to <code>on</code> for true\nand <code>off</code> for false. This field must be omitted if the flag\ndoesn't take a value.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SqlIpConfig": {
+            "description": "IP Management configuration.",
+            "id": "SqlIpConfig",
+            "properties": {
+                "authorizedNetworks": {
+                    "description": "The list of external networks that are allowed to connect to the instance\nusing the IP. In <a\nhref=\"http://en.wikipedia.org/wiki/CIDR_notation#CIDR_notation\">CIDR\nnotation</a>, also known as 'slash' notation (e.g.\n<code>192.168.100.0/24</code>).",
+                    "items": {
+                        "$ref": "SqlAclEntry"
+                    },
+                    "type": "array"
+                },
+                "enableIpv4": {
+                    "description": "Whether the instance should be assigned an IP address or not.",
+                    "type": "boolean"
+                },
+                "privateNetwork": {
+                    "description": "The resource link for the VPC network from which the Cloud SQL instance is\naccessible for private IP. For example,\n<code>/projects/myProject/global/networks/default</code>. This setting can\nbe updated, but it cannot be removed after it is set.",
+                    "type": "string"
+                },
+                "requireSsl": {
+                    "description": "Whether SSL connections over IP should be enforced or not.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "SslConfig": {
+            "description": "A SSL Configuration.",
+            "id": "SslConfig",
+            "properties": {
+                "caCertificate": {
+                    "description": "PEM representation of the trusted CA's x509 certificate.",
+                    "type": "string"
+                },
+                "clientCertificate": {
+                    "description": "PEM representation of the slave's x509 certificate.",
+                    "type": "string"
+                },
+                "clientKey": {
+                    "description": "PEM representation of the slave's private key. The corresponding public key\nis encoded in the client's certificate. The format of the slave's private\nkey can be either PKCS #1 or PKCS #8.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Status": {
+            "description": "The `Status` type defines a logical error model that is suitable for\ndifferent programming environments, including REST APIs and RPC APIs. It is\nused by [gRPC](https://github.com/grpc). Each `Status` message contains\nthree pieces of data: error code, error message, and error details.\n\nYou can find out more about this error model and how to work with it in the\n[API Design Guide](https://cloud.google.com/apis/design/errors).",
+            "id": "Status",
+            "properties": {
+                "code": {
+                    "description": "The status code, which should be an enum value of google.rpc.Code.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "details": {
+                    "description": "A list of messages that carry the error details.  There is a common set of\nmessage types for APIs to use.",
+                    "items": {
+                        "additionalProperties": {
+                            "description": "Properties of the object. Contains field @type with type URL.",
+                            "type": "any"
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "message": {
+                    "description": "A developer-facing error message, which should be in English. Any\nuser-facing error message should be localized and sent in the\ngoogle.rpc.Status.details field, or localized by the client.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UserPass": {
+            "description": "A user password.",
+            "id": "UserPass",
+            "properties": {
+                "password": {
+                    "description": "The password.",
+                    "type": "string"
+                },
+                "username": {
+                    "description": "The username.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "datamigration-pa API (autopush)",
+    "version": "v1internal1",
+    "version_module": true
+}

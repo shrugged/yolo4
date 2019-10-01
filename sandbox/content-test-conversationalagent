@@ -1,0 +1,988 @@
+{
+    "basePath": "",
+    "baseUrl": "https://preprod-conversationalagent.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "ConversationalAgent",
+    "description": "Google Conversational Agent API.",
+    "discoveryVersion": "v1",
+    "documentationLink": "https://developers.google.com/business-messaging/",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "preprod_conversationalagent:v1",
+    "kind": "discovery#restDescription",
+    "name": "preprod_conversationalagent",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "agentmessages": {
+            "methods": {
+                "create": {
+                    "description": "Creates conversational agent message and relays it to an app.\nThis is an asynchronous operation. When API server successfully received\nthis message the call will return with no error, but that doesn't mean the\nAPI server can deliver the message to destination successfully later on. If\nthe delivery fails, a MESSAGE_RELAY_ERROR event message will be sent to the\nagent with some details about the error so that the agent knows about the\nfailure and it can decide to re-send or not.",
+                    "flatPath": "v1/agentmessages",
+                    "httpMethod": "POST",
+                    "id": "preprod_conversationalagent.agentmessages.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/agentmessages",
+                    "request": {
+                        "$ref": "AgentMessageUpdate"
+                    },
+                    "response": {
+                        "$ref": "Empty"
+                    }
+                }
+            }
+        },
+        "agents": {
+            "resources": {
+                "crm": {
+                    "resources": {
+                        "platforms": {
+                            "resources": {
+                                "usermessages": {
+                                    "methods": {
+                                        "create": {
+                                            "description": "Processes Generic CRM user message and relays back a response to the agent.\nThe flow of messages with CRMs is typically:\n - A Google User clicks on an Ad/Search button \"click-to-chat\" and sends\n    a message to the Merchant (business_id). Google generates the\n    session_id and the session_token at this point.  - Conversational Messaging Platform ultimately determines the other side\n    of a conversation is a Business supported by a CRM and it then uses a\n    CRM API to relay User's message (as well as the session_id and the\n    session_token).\n - CRM in turn routes this message via its platform to the actual Merchant\n    admin which will at some point reply to User's request.\n - At this point CRM calls this API relaying the User response to our\n    \"business broker\" (and \"agent\" in the broader scope of this API) and\n    that relays the \"payload\" reply to the User",
+                                            "flatPath": "v1/agents/crm/platforms/usermessages",
+                                            "httpMethod": "POST",
+                                            "id": "preprod_conversationalagent.agents.crm.platforms.usermessages.create",
+                                            "parameterOrder": [],
+                                            "parameters": {},
+                                            "path": "v1/agents/crm/platforms/usermessages",
+                                            "request": {
+                                                "$ref": "CreateCrmUserMessageRequest"
+                                            },
+                                            "response": {
+                                                "$ref": "Empty"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "platforms": {
+            "methods": {
+                "getCapability": {
+                    "description": "Get capability of a conversational messaging app/platform.",
+                    "flatPath": "v1/platforms/{platformId}/capability",
+                    "httpMethod": "GET",
+                    "id": "preprod_conversationalagent.platforms.getCapability",
+                    "parameterOrder": [
+                        "platformId"
+                    ],
+                    "parameters": {
+                        "platformId": {
+                            "description": "The messaging platform.",
+                            "enum": [
+                                "MESSAGING_PLATFORM_UNSPECIFIED",
+                                "ALLO",
+                                "SMS",
+                                "HANGOUTS"
+                            ],
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/platforms/{platformId}/capability",
+                    "response": {
+                        "$ref": "Capability"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190913",
+    "rootUrl": "https://preprod-conversationalagent.googleapis.com/",
+    "schemas": {
+        "Action": {
+            "description": "An action item associated with a UI element such as a card or a suggested\nreply. When an end user taps/interacts with the UI element, the action will\ntriggered.",
+            "id": "Action",
+            "properties": {
+                "postback": {
+                    "$ref": "PostbackAction",
+                    "description": "Action to postback a custom payload."
+                },
+                "url": {
+                    "$ref": "UrlAction",
+                    "description": "Action to navigate to URL."
+                },
+                "webUrl": {
+                    "description": "This action will trigger a navigation to the URL, e.g. on a phone the\ndefault mobile browser will be opened and directed to this URL.\nDeprecated. Please use UrlAction.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ActionCapability": {
+            "description": "Capability to associate an action item with a UI element.",
+            "id": "ActionCapability",
+            "properties": {
+                "postback": {
+                    "$ref": "PostbackCapability",
+                    "description": "Capability to post back a payload."
+                },
+                "webUrl": {
+                    "$ref": "WebURLCapability",
+                    "description": "Capability to trigger a navigation to a web URL."
+                }
+            },
+            "type": "object"
+        },
+        "AgentContentMessage": {
+            "description": "An agent content message.",
+            "id": "AgentContentMessage",
+            "properties": {
+                "card": {
+                    "$ref": "ContentCard",
+                    "description": "Display card based, formatted content."
+                },
+                "media": {
+                    "$ref": "Media",
+                    "description": "Media content."
+                },
+                "richText": {
+                    "$ref": "RichText",
+                    "description": "Rich text content."
+                },
+                "suggestedReplies": {
+                    "description": "Suggested replies that the user can simply use. If there are multiple\nagent content messages in AgentMessageUpdate, only suggestions in the last\nagent content message will be used.",
+                    "items": {
+                        "$ref": "SuggestedReply"
+                    },
+                    "type": "array"
+                },
+                "text": {
+                    "description": "Text content in UTF-8 characters.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AgentContentMessageCapability": {
+            "description": "Capability to display content messages from agents.",
+            "id": "AgentContentMessageCapability",
+            "properties": {
+                "card": {
+                    "$ref": "ContentCardCapability",
+                    "description": "Capability to handle content card(s)."
+                },
+                "media": {
+                    "$ref": "MediaCapability",
+                    "description": "Capability to handle media content."
+                },
+                "suggestedReply": {
+                    "$ref": "SuggestedReplyCapability",
+                    "description": "Capability to handle suggested replies."
+                },
+                "text": {
+                    "$ref": "TextCapability",
+                    "description": "Capability to handle text content."
+                }
+            },
+            "type": "object"
+        },
+        "AgentMessage": {
+            "description": "A message from agent.",
+            "id": "AgentMessage",
+            "properties": {
+                "contentMessage": {
+                    "$ref": "AgentContentMessage",
+                    "description": "Content message."
+                },
+                "eventMessage": {
+                    "$ref": "EventMessage",
+                    "description": "Event message."
+                },
+                "messageId": {
+                    "description": "Unique ID of this message.",
+                    "type": "string"
+                },
+                "nativeContent": {
+                    "$ref": "NativeContent",
+                    "description": "Message content in a messaging platform's native data format. An agent\nmay choose to compose replies in native data format instead of the\ncommon data format. In that case, the agent should leave the\nevent_message field blank and write the native content here.\nTo which platform this content belongs is inferred by the auth token."
+                },
+                "sendTime": {
+                    "description": "When was this message sent, specified by an agent.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AgentMessageUpdate": {
+            "description": "An update packet which contains agent messages. This packet will be sent to a\nmessaging app platform.",
+            "id": "AgentMessageUpdate",
+            "properties": {
+                "authToken": {
+                    "$ref": "AuthToken",
+                    "description": "A token to authenticate an agent to the agent platform. This token should\nbe the same one that was sent to an agent in UserMessageUpdate. Token value\nwill be different every time."
+                },
+                "conversationState": {
+                    "description": "State that the agent assigns and send to the app for a particular\nconversation. This field should only be populated if the app is\ncapable of locally storing per conversation states assigned by agents. In\nthat case, the app should return the state back to the agent in the next\nUserMessageUpdate.\nStrong consistency is not guaranteed. Max length is 1K bytes.",
+                    "type": "string"
+                },
+                "messages": {
+                    "description": "Messages authored by the agent.",
+                    "items": {
+                        "$ref": "AgentMessage"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AuthToken": {
+            "description": "Token used to authenticate a message from agent.",
+            "id": "AuthToken",
+            "properties": {
+                "expirationTime": {
+                    "description": "When will this token expire.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "token": {
+                    "description": "Value of the token.",
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Button": {
+            "description": "A button with an associated action that can be attached to a card.",
+            "id": "Button",
+            "properties": {
+                "action": {
+                    "$ref": "Action",
+                    "description": "The action that will be triggered when the user taps the button."
+                },
+                "title": {
+                    "description": "The title of the button.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ButtonCapability": {
+            "description": "Capability to display button.",
+            "id": "ButtonCapability",
+            "properties": {
+                "action": {
+                    "$ref": "ActionCapability",
+                    "description": "Capability to support an action item with the button."
+                }
+            },
+            "type": "object"
+        },
+        "Capability": {
+            "description": "Capability captures the kinds of data that a conversational app can send and\nreceive. If a capability field is not null then a conversational app has that\ncapability; otherwise it doesn't. An agent should inspect the capability\nobject of an app to find out the kinds of data it can send.",
+            "id": "Capability",
+            "properties": {
+                "conversationState": {
+                    "$ref": "ConversationStateCapability",
+                    "description": "Capability to keep agent assigned state per conversation, and then send\nthe state back together with user messages."
+                },
+                "platformId": {
+                    "description": "ID of the messaging platform this capability set belongs to.",
+                    "enum": [
+                        "MESSAGING_PLATFORM_UNSPECIFIED",
+                        "ALLO",
+                        "SMS",
+                        "HANGOUTS"
+                    ],
+                    "enumDescriptions": [
+                        "Messaging platform not specified.",
+                        "Allo messaging platform.",
+                        "SMS messaging platform.",
+                        "Hangouts messaging platform."
+                    ],
+                    "type": "string"
+                },
+                "receive": {
+                    "$ref": "ReceiveCapability",
+                    "description": "What kind of data the conversational app can receive and process."
+                },
+                "send": {
+                    "$ref": "SendCapability",
+                    "description": "What kind of data the conversational app can send."
+                }
+            },
+            "type": "object"
+        },
+        "Card": {
+            "description": "A rectangle shaped area displaying formatted content. Users may be able to\ninteract with elements in the area.",
+            "id": "Card",
+            "properties": {
+                "action": {
+                    "$ref": "Action",
+                    "description": "The action that will be triggered when the user taps on the card. If the\ncard contains media, then this action is triggered when user taps on non\nmedia part of the card, such as the title."
+                },
+                "buttons": {
+                    "description": "Buttons to attach to the card, will be shown in order given.",
+                    "items": {
+                        "$ref": "Button"
+                    },
+                    "type": "array"
+                },
+                "media": {
+                    "$ref": "Media",
+                    "description": "Media to be displayed in the card."
+                },
+                "subtitle": {
+                    "description": "Subtitle of the card.",
+                    "type": "string"
+                },
+                "text": {
+                    "description": "Main text to be displayed in the card.",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Title of the card.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CardCapability": {
+            "description": "Capability to display a single card.",
+            "id": "CardCapability",
+            "properties": {
+                "action": {
+                    "$ref": "ActionCapability",
+                    "description": "Capability to support an action item with the card."
+                },
+                "button": {
+                    "$ref": "ButtonCapability",
+                    "description": "Capability to display buttons."
+                },
+                "media": {
+                    "$ref": "MediaCapability",
+                    "description": "Capability to display media content."
+                },
+                "subtitle": {
+                    "$ref": "TextCapability",
+                    "description": "Capability to display subtitle."
+                },
+                "text": {
+                    "$ref": "TextCapability",
+                    "description": "Capability to display text content."
+                },
+                "title": {
+                    "$ref": "TextCapability",
+                    "description": "Capability to display title."
+                }
+            },
+            "type": "object"
+        },
+        "Carousel": {
+            "description": "A horizontal strip of cards. Users may swipe left or right to cycle through\nthe cards in the strip.",
+            "id": "Carousel",
+            "properties": {
+                "cards": {
+                    "description": "Cards contained in the carousel.",
+                    "items": {
+                        "$ref": "Card"
+                    },
+                    "type": "array"
+                },
+                "title": {
+                    "description": "Text title of the carousel.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CarouselCapability": {
+            "description": "Capability to display carousel which contains an array of cards.",
+            "id": "CarouselCapability",
+            "properties": {
+                "card": {
+                    "$ref": "CardCapability",
+                    "description": "Capability of the cards being displayed in this carousel. Normally the\ncards in a carousel have mor estringent limitations in sizes, etc. We can\nexprerss such limitations here."
+                },
+                "title": {
+                    "$ref": "TextCapability",
+                    "description": "Capability to display title."
+                }
+            },
+            "type": "object"
+        },
+        "ContentCard": {
+            "description": "Display card based, formatted content.",
+            "id": "ContentCard",
+            "properties": {
+                "carousel": {
+                    "$ref": "Carousel",
+                    "description": "Carousel of display cards."
+                },
+                "fallbackText": {
+                    "description": "Fallback text to display if an app fails to render the card or carousel.",
+                    "type": "string"
+                },
+                "single": {
+                    "$ref": "Card",
+                    "description": "A single display card."
+                }
+            },
+            "type": "object"
+        },
+        "ContentCardCapability": {
+            "description": "Capability to display content card(s). If an app has the capability to\nsupport fallback text then fallback_text field will be set.",
+            "id": "ContentCardCapability",
+            "properties": {
+                "carousel": {
+                    "$ref": "CarouselCapability",
+                    "description": "Capability to display carousel."
+                },
+                "fallbackText": {
+                    "$ref": "TextCapability",
+                    "description": "Capability to display fallback text if the primary card fails to render."
+                },
+                "single": {
+                    "$ref": "CardCapability",
+                    "description": "Capability to display a card."
+                }
+            },
+            "type": "object"
+        },
+        "ConversationStateCapability": {
+            "description": "Capability to keep a conversation state which is generated by agent and\npassed to the app.",
+            "id": "ConversationStateCapability",
+            "properties": {},
+            "type": "object"
+        },
+        "CreateCrmUserMessageRequest": {
+            "description": "Request to create a user message (made by the CRM on behalf of their Business\nadmin when they reply to customer requests).",
+            "id": "CreateCrmUserMessageRequest",
+            "properties": {
+                "businessId": {
+                    "description": "Identifier for the business",
+                    "type": "string"
+                },
+                "messageId": {
+                    "description": "Unique identifier for the message.  We drop all messages subsequent\nmessages with the same ID.",
+                    "type": "string"
+                },
+                "payload": {
+                    "$ref": "Payload",
+                    "description": "Message sent to the customer."
+                },
+                "sessionId": {
+                    "description": "Identifier for the session.  This is essentially a \"conversation id\" which\nwe generate when our User does the \"click-to-chat\"",
+                    "type": "string"
+                },
+                "sessionToken": {
+                    "description": "Token passed to CRM when we push messages to them/business (and is relayed\nback to us when CRM calls this API) -- used to verify that Merchant really\nis authorised to reply in the context of this session_id.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Empty": {
+            "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+            "id": "Empty",
+            "properties": {},
+            "type": "object"
+        },
+        "EventMessage": {
+            "description": "An event message.",
+            "id": "EventMessage",
+            "properties": {
+                "readEventData": {
+                    "$ref": "ReadEventData",
+                    "description": "Additional information about the read event."
+                },
+                "type": {
+                    "description": "Type of the event.",
+                    "enum": [
+                        "EVENT_TYPE_UNSPECIFIED",
+                        "NEW",
+                        "OPEN",
+                        "TYPE_ON",
+                        "TYPE_OFF",
+                        "READ"
+                    ],
+                    "enumDescriptions": [
+                        "Event type not specified.",
+                        "New conversation event.",
+                        "A conversation is re-opened.",
+                        "Typing is happening.",
+                        "Typing stops.",
+                        "A message is read."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "EventMessageCapability": {
+            "description": "Capability to handle event messages.",
+            "id": "EventMessageCapability",
+            "properties": {
+                "new": {
+                    "$ref": "NewCapability",
+                    "description": "Capability to handle new conversation event."
+                },
+                "open": {
+                    "$ref": "OpenCapability",
+                    "description": "Capability to handle conversation re-opened by user event."
+                },
+                "read": {
+                    "$ref": "ReadCapability",
+                    "description": "Capability to handle message read event."
+                },
+                "typeOff": {
+                    "$ref": "TypeOffCapability",
+                    "description": "Capability to handle typing stopped event."
+                },
+                "typeOn": {
+                    "$ref": "TypeOnCapability",
+                    "description": "Capability to handle typing started event."
+                }
+            },
+            "type": "object"
+        },
+        "LocationCapability": {
+            "description": "Capability to send current location to agents.",
+            "id": "LocationCapability",
+            "properties": {},
+            "type": "object"
+        },
+        "Media": {
+            "description": "Media associated with a message.",
+            "id": "Media",
+            "properties": {
+                "caption": {
+                    "description": "Display caption of the media.",
+                    "type": "string"
+                },
+                "category": {
+                    "description": "Indicates the category this media belongs to.",
+                    "enum": [
+                        "MEDIA_CATEGORY_UNSPECIFIED",
+                        "IMAGE",
+                        "VIDEO",
+                        "AUDIO",
+                        "VOICE"
+                    ],
+                    "enumDescriptions": [
+                        "Media category not specified.",
+                        "Media category image.",
+                        "Media category video.",
+                        "Media category audio.",
+                        "Media category voice."
+                    ],
+                    "type": "string"
+                },
+                "expirationTime": {
+                    "description": "Expiration time of the media URI.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "heightPx": {
+                    "description": "Height in pixels. Only applicable to image and video.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "mediaDurationSeconds": {
+                    "description": "Playback duration for video, audio, or voice.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "mediaUri": {
+                    "description": "URI to download the media. If it's a temporary URI then expiration_time\nwill indicate the expiration time.",
+                    "type": "string"
+                },
+                "mimeType": {
+                    "description": "MIME type of the media.",
+                    "type": "string"
+                },
+                "sizeBytes": {
+                    "description": "Media size in bytes.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "widthPx": {
+                    "description": "Width in pixels. Only applicable to image and video.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "MediaCapability": {
+            "description": "Capability to handle media.",
+            "id": "MediaCapability",
+            "properties": {
+                "audio": {
+                    "$ref": "MediaDataCapability",
+                    "description": "Capability to handle audio."
+                },
+                "image": {
+                    "$ref": "MediaDataCapability",
+                    "description": "Capability to handle image."
+                },
+                "video": {
+                    "$ref": "MediaDataCapability",
+                    "description": "Capability to handle video."
+                },
+                "voice": {
+                    "$ref": "MediaDataCapability",
+                    "description": "Capability to handle voice data."
+                }
+            },
+            "type": "object"
+        },
+        "MediaDataCapability": {
+            "description": "Capability to handle a partibular kind of media data.",
+            "id": "MediaDataCapability",
+            "properties": {
+                "caption": {
+                    "$ref": "TextCapability",
+                    "description": "Capability of displaying caption together with the media."
+                },
+                "formats": {
+                    "description": "List of supported MIME types, e.g. image/jpeg, video/mp4, etc.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "maxBytes": {
+                    "description": "Capability of having maximum byte limit.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "NativeContent": {
+            "description": "Message content in a messaging platform's native data format.",
+            "id": "NativeContent",
+            "properties": {
+                "content": {
+                    "additionalProperties": {
+                        "description": "Properties of the object.",
+                        "type": "any"
+                    },
+                    "description": "The content in a messaging platform's native data format. This field will\nbe populated with converted incoming JSON object, and gets converted to\nJSON again when it gets to the desired messaging platform.",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "NewCapability": {
+            "description": "Capability to handle new conversation event.",
+            "id": "NewCapability",
+            "properties": {},
+            "type": "object"
+        },
+        "OpenCapability": {
+            "description": "Capability to handle conversation re-opened by user event.",
+            "id": "OpenCapability",
+            "properties": {},
+            "type": "object"
+        },
+        "Payload": {
+            "description": "The data to be sent to the customer.",
+            "id": "Payload",
+            "properties": {
+                "text": {
+                    "description": "Text message.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PostbackAction": {
+            "description": "This action will trigger a postback message with the specified payload.",
+            "id": "PostbackAction",
+            "properties": {
+                "payload": {
+                    "description": "The payload to send in the postback.",
+                    "type": "string"
+                },
+                "text": {
+                    "description": "The text to send to the conversation.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PostbackCapability": {
+            "description": "Capability of an action to post back a payload.",
+            "id": "PostbackCapability",
+            "properties": {
+                "payload": {
+                    "$ref": "TextCapability",
+                    "description": "Capability to send a string payload when posting back."
+                },
+                "text": {
+                    "$ref": "TextCapability",
+                    "description": "Capability to also send text to the conversation when posting back."
+                }
+            },
+            "type": "object"
+        },
+        "ReadCapability": {
+            "description": "Capability to handle message read event.",
+            "id": "ReadCapability",
+            "properties": {},
+            "type": "object"
+        },
+        "ReadEventData": {
+            "description": "Details about the read event.",
+            "id": "ReadEventData",
+            "properties": {
+                "readMessageIds": {
+                    "description": "IDs of the messages that were read.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ReceiveCapability": {
+            "description": "The kinds of data the conversational app can receive and process.",
+            "id": "ReceiveCapability",
+            "properties": {
+                "contentMessage": {
+                    "$ref": "AgentContentMessageCapability",
+                    "description": "Capability to receive content message."
+                },
+                "eventMessage": {
+                    "$ref": "EventMessageCapability",
+                    "description": "Capability to receive event message."
+                }
+            },
+            "type": "object"
+        },
+        "RichText": {
+            "description": "Rich text content, including text size.",
+            "id": "RichText",
+            "properties": {
+                "text": {
+                    "description": "Plain text content in UTF-8 characters. No markup.",
+                    "type": "string"
+                },
+                "textSizeMultiplier": {
+                    "description": "Text size multiplier. For Allo, values between 0.5 and 3 are acceptable.\n0.5 is smaller, 3 is larger.",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "SendCapability": {
+            "description": "The kinds of data the conversational app can send.",
+            "id": "SendCapability",
+            "properties": {
+                "contentMessage": {
+                    "$ref": "UserContentMessageCapability",
+                    "description": "Capability to send content message."
+                },
+                "eventMessage": {
+                    "$ref": "EventMessageCapability",
+                    "description": "Capability to send event message."
+                },
+                "location": {
+                    "$ref": "LocationCapability",
+                    "description": "Capability to send location."
+                }
+            },
+            "type": "object"
+        },
+        "SuggestedReply": {
+            "description": "Suggested reply that users can use intead of typing themselves.",
+            "id": "SuggestedReply",
+            "properties": {
+                "action": {
+                    "$ref": "Action",
+                    "description": "When this action is specified, it will be triggered when user taps on the\nsuggested reply chip. It overrides the default behavior where the text is\nsent back as a reply message."
+                },
+                "text": {
+                    "description": "Suggested text input.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SuggestedReplyCapability": {
+            "description": "Capability to handle suggested replies.",
+            "id": "SuggestedReplyCapability",
+            "properties": {
+                "action": {
+                    "$ref": "ActionCapability",
+                    "description": "Capability to trigger a custom action when the suggested reply chip is\ntapped."
+                },
+                "text": {
+                    "$ref": "TextCapability",
+                    "description": "Capability to handle text content."
+                }
+            },
+            "type": "object"
+        },
+        "TextCapability": {
+            "description": "Capability to handle text.",
+            "id": "TextCapability",
+            "properties": {
+                "maxChars": {
+                    "description": "Capability of having a maximum UTF-8 character limit. A value of 0 means\nthere is no limit.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "TypeOffCapability": {
+            "description": "Capability to handle typing stopped event.",
+            "id": "TypeOffCapability",
+            "properties": {},
+            "type": "object"
+        },
+        "TypeOnCapability": {
+            "description": "Capability to handle typing started event.",
+            "id": "TypeOnCapability",
+            "properties": {},
+            "type": "object"
+        },
+        "UrlAction": {
+            "description": "This action will trigger a navigation to the URL, e.g. on a phone the\ndefault mobile browser will be opened and directed to this URL.",
+            "id": "UrlAction",
+            "properties": {
+                "url": {
+                    "description": "The URL to navigate to.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UserContentMessageCapability": {
+            "description": "Capability to send content messages to agents.",
+            "id": "UserContentMessageCapability",
+            "properties": {
+                "media": {
+                    "$ref": "MediaCapability",
+                    "description": "Capability to send media."
+                },
+                "property": {
+                    "$ref": "UserContentMessagePropertyCapability",
+                    "description": "Capability to send message properties which are just additional data or\nmeta data that are associated with this user content message."
+                },
+                "text": {
+                    "$ref": "TextCapability",
+                    "description": "Capability to send text content."
+                }
+            },
+            "type": "object"
+        },
+        "UserContentMessagePropertyCapability": {
+            "description": "Capability to send message properties which are just additional data or meta\ndata that are associated with the user content message.",
+            "id": "UserContentMessagePropertyCapability",
+            "properties": {
+                "postback": {
+                    "$ref": "TextCapability",
+                    "description": "Capability to send post back payload string within the message properties."
+                }
+            },
+            "type": "object"
+        },
+        "WebURLCapability": {
+            "description": "Capability of an action to trigger a navigation to a web URL.",
+            "id": "WebURLCapability",
+            "properties": {},
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Preprod Google Conversational Agent API",
+    "version": "v1",
+    "version_module": true
+}

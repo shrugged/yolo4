@@ -1,0 +1,260 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/userinfo.profile": {
+                    "description": "See your personal info, including any personal info you've made publicly available"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://staging-userstatus.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "description": "The Google Apps User Status API v1 allows developers to query whether an end-user is registered with eligible Google applications.",
+    "discoveryVersion": "v1",
+    "documentationLink": "",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "userstatus:v1",
+    "kind": "discovery#restDescription",
+    "name": "userstatus",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "apps": {
+            "methods": {
+                "get": {
+                    "description": "Gets the status of a single application's flag. The caller must specify\nthe desired flag and supply end-user credentials for the user to query.",
+                    "flatPath": "v1/apps/{app}",
+                    "httpMethod": "GET",
+                    "id": "userstatus.apps.get",
+                    "parameterOrder": [
+                        "app"
+                    ],
+                    "parameters": {
+                        "app": {
+                            "description": "The application flag to query.",
+                            "enum": [
+                                "APPLICATION_UNSPECIFIED",
+                                "TEST_ALWAYS_TRUE",
+                                "TEST_ALWAYS_FALSE",
+                                "ADS_LEGACY_PUBLISHER",
+                                "ADS_SIMPLE_ADWORDS",
+                                "DCLK_EXCHANGE_BUYER",
+                                "DCLK_EXCHANGE_SELLER",
+                                "DCLK_PUBLISHER",
+                                "DCLK_ADVERTISER",
+                                "DCLK_XBIDDING",
+                                "DCLK_SEARCH",
+                                "DCMP"
+                            ],
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/apps/{app}",
+                    "response": {
+                        "$ref": "GetAppUserStatusResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.profile"
+                    ]
+                },
+                "list": {
+                    "description": "Gets the status of multiple applcation flags. The caller may specify a\nlist of applications to filter the response. If the list is empty then all\navailable application flags will the returned. The caller must specify\nend-user credentials for the user to query.",
+                    "flatPath": "v1/apps",
+                    "httpMethod": "GET",
+                    "id": "userstatus.apps.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "filterApps": {
+                            "description": "A list of the application flags to restrict the query. If the list is\nempty then all available application flags will be returned.",
+                            "enum": [
+                                "APPLICATION_UNSPECIFIED",
+                                "TEST_ALWAYS_TRUE",
+                                "TEST_ALWAYS_FALSE",
+                                "ADS_LEGACY_PUBLISHER",
+                                "ADS_SIMPLE_ADWORDS",
+                                "DCLK_EXCHANGE_BUYER",
+                                "DCLK_EXCHANGE_SELLER",
+                                "DCLK_PUBLISHER",
+                                "DCLK_ADVERTISER",
+                                "DCLK_XBIDDING",
+                                "DCLK_SEARCH",
+                                "DCMP"
+                            ],
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/apps",
+                    "response": {
+                        "$ref": "ListAppsUserStatusResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.profile"
+                    ]
+                }
+            }
+        }
+    },
+    "revision": "20190823",
+    "rootUrl": "https://staging-userstatus.sandbox.googleapis.com/",
+    "schemas": {
+        "ApplicationStatus": {
+            "description": "A single application's flag returned as part of a multi-application request.",
+            "id": "ApplicationStatus",
+            "properties": {
+                "app": {
+                    "description": "The application flag contained in this message.",
+                    "enum": [
+                        "APPLICATION_UNSPECIFIED",
+                        "TEST_ALWAYS_TRUE",
+                        "TEST_ALWAYS_FALSE",
+                        "ADS_LEGACY_PUBLISHER",
+                        "ADS_SIMPLE_ADWORDS",
+                        "DCLK_EXCHANGE_BUYER",
+                        "DCLK_EXCHANGE_SELLER",
+                        "DCLK_PUBLISHER",
+                        "DCLK_ADVERTISER",
+                        "DCLK_XBIDDING",
+                        "DCLK_SEARCH",
+                        "DCMP"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified.",
+                        "A flag which is always true. This can be used by third-parties to test\ntheir client implementations prior to being granted access to any of the\nflags representing production data.",
+                        "A flag which is always false. This can be used by third-parties to test\ntheir client implementations prior to being granted access to any of the\nflags representing production data.",
+                        "Registered with the legacy Google Ad Manager for Publishers.",
+                        "Registered with non-Enterprise AdWords.",
+                        "Registered with DoubleClick Ad eXchange for Buyers.",
+                        "Registered with DoubleClick Ad eXchange for Sellers.",
+                        "Registered with DoubleClick for Publishers.",
+                        "Registered with DoubleClick for Advertisers.",
+                        "Registered with DoubleClick Bid Manager.",
+                        "Registered with DoubleClick Search.",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "isSet": {
+                    "description": "The state of the application's flag.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "GetAppUserStatusResponse": {
+            "description": "The response for a get application flag request.",
+            "id": "GetAppUserStatusResponse",
+            "properties": {
+                "isSet": {
+                    "description": "The state of the queried application's flag.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "ListAppsUserStatusResponse": {
+            "description": "The response for a get multiple applications request.",
+            "id": "ListAppsUserStatusResponse",
+            "properties": {
+                "statuses": {
+                    "description": "A list of the application statuses returned by the query (i.e. those\navailable subject to restriction by the filter).",
+                    "items": {
+                        "$ref": "ApplicationStatus"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Apps User Status API",
+    "version": "v1",
+    "version_module": true
+}

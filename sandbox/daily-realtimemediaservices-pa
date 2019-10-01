@@ -1,0 +1,1065 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/cloudcast": {
+                    "description": "Launch and manage remote applications in the cloud"
+                },
+                "https://www.googleapis.com/auth/userinfo.email": {
+                    "description": "View your email address"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://daily-1-realtimemediaservices-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Realtime Media Services Private",
+    "description": "For accessing various WebRTC related internal realtime media services. For more information, see go/chameleon-index.\n",
+    "discoveryVersion": "v1",
+    "documentationLink": "https://g3doc.corp.google.com/media/webrtc/g3doc/chameleon/index.md",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "daily_1_realtimemediaservices_pa_sandbox:v1alpha",
+    "kind": "discovery#restDescription",
+    "name": "daily_1_realtimemediaservices_pa_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "v1alpha": {
+            "methods": {
+                "handshake": {
+                    "description": "Handshake establishes a real time WebRTC stream between a client outside of\nGoogle prod and a prod service by exchanging WebRTC offer and answer.",
+                    "flatPath": "v1alpha/handshake",
+                    "httpMethod": "POST",
+                    "id": "daily_1_realtimemediaservices_pa_sandbox.handshake",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1alpha/handshake",
+                    "request": {
+                        "$ref": "HandshakeRequest"
+                    },
+                    "response": {
+                        "$ref": "HandshakeResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloudcast",
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "log": {
+                    "description": "Log logs a single media event with the server.",
+                    "flatPath": "v1alpha/log",
+                    "httpMethod": "POST",
+                    "id": "daily_1_realtimemediaservices_pa_sandbox.log",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1alpha/log",
+                    "request": {
+                        "$ref": "LogRequest"
+                    },
+                    "response": {
+                        "$ref": "LogResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloudcast",
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "multiway-addsessionpeers": {
+                    "description": "Add other multi-way session as peers to this session.",
+                    "flatPath": "v1alpha/multiway-addsessionpeers",
+                    "httpMethod": "POST",
+                    "id": "daily_1_realtimemediaservices_pa_sandbox.multiway-addsessionpeers",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1alpha/multiway-addsessionpeers",
+                    "request": {
+                        "$ref": "AddSessionPeersRequest"
+                    },
+                    "response": {
+                        "$ref": "AddSessionPeersResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloudcast",
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "multiway-createsession": {
+                    "description": "Handshake establishes a WebRTC session between a client outside of\nGoogle prod and multi-way platform inside Google.",
+                    "flatPath": "v1alpha/multiway-createsession",
+                    "httpMethod": "POST",
+                    "id": "daily_1_realtimemediaservices_pa_sandbox.multiway-createsession",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1alpha/multiway-createsession",
+                    "request": {
+                        "$ref": "CreateSessionRequest"
+                    },
+                    "response": {
+                        "$ref": "CreateSessionResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloudcast",
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "multiway-getremotedescription": {
+                    "description": "Get a fresh description for a multi-way session.",
+                    "flatPath": "v1alpha/multiway-getremotedescription",
+                    "httpMethod": "POST",
+                    "id": "daily_1_realtimemediaservices_pa_sandbox.multiway-getremotedescription",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1alpha/multiway-getremotedescription",
+                    "request": {
+                        "$ref": "GetRemoteDescriptionRequest"
+                    },
+                    "response": {
+                        "$ref": "GetRemoteDescriptionResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloudcast",
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "probeConfig": {
+                    "description": "ProbeConfig is called before probing to get configuration/setup.",
+                    "flatPath": "v1alpha/probeConfig",
+                    "httpMethod": "POST",
+                    "id": "daily_1_realtimemediaservices_pa_sandbox.probeConfig",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1alpha/probeConfig",
+                    "request": {
+                        "$ref": "ProbeConfigRequest"
+                    },
+                    "response": {
+                        "$ref": "ProbeConfigResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloudcast",
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "probeReport": {
+                    "description": "ProbeReport is called after probing to report availability and performance.",
+                    "flatPath": "v1alpha/probeReport",
+                    "httpMethod": "POST",
+                    "id": "daily_1_realtimemediaservices_pa_sandbox.probeReport",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1alpha/probeReport",
+                    "request": {
+                        "$ref": "ProbeReportRequest"
+                    },
+                    "response": {
+                        "$ref": "ProbeReportResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloudcast",
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                }
+            }
+        }
+    },
+    "revision": "20190914",
+    "rootUrl": "https://daily-1-realtimemediaservices-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "AddSessionPeersRequest": {
+            "description": "Connect sessions to eachother, meaning media will be sent between them.\nIf sessions 'a', 'b' and 'c' want to exchange media, we need to call\nAddSessionPeers('a', ['b']) and AddSessionPeers('c', ['a', 'b'])\nto create a full mesh.\n\nThe order of operations are not important, but in general the sequence of\nthese calls follows how a product would add participants to a\nmulti-way video call.\n\nNOTE: Currently the only way to remove a session from the mesh network\nis to call RemoveSession which destroys the session, to join again\na new session will have to be created. It's up to the application layer\nto keep track of who is in the mesh network.",
+            "id": "AddSessionPeersRequest",
+            "properties": {
+                "header": {
+                    "$ref": "RequestHeader",
+                    "description": "Request header."
+                },
+                "mediaAccess": {
+                    "$ref": "MediaAccess",
+                    "description": "Update the media access. Can be set with empty peers above."
+                },
+                "originMediaSessionId": {
+                    "$ref": "MediaSessionId",
+                    "description": "Session we are acting as. The MediaRouter that hosts this session\nwill initiate the pairing."
+                },
+                "peers": {
+                    "description": "The sessions we want to exchange media with.\nOur routing network will a connection to all these peers, peers\nto which we already have a connection will be ignored.",
+                    "items": {
+                        "$ref": "MediaSessionId"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AddSessionPeersResponse": {
+            "id": "AddSessionPeersResponse",
+            "properties": {},
+            "type": "object"
+        },
+        "ApiVersionWarning": {
+            "description": "ApiVersionWarning can be returned if the client is built against\na deprecated or soon to be deprecated API version.",
+            "id": "ApiVersionWarning",
+            "properties": {
+                "warnAt": {
+                    "description": "warn_at is API version where the server starts to complain.",
+                    "enum": [
+                        "UNKNOWN",
+                        "V1ALPHA"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown version.",
+                        "Initial version."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AppInfo": {
+            "description": "AppInfo identifies the app making a request.",
+            "id": "AppInfo",
+            "properties": {
+                "details": {
+                    "description": "details version string.",
+                    "type": "string"
+                },
+                "major": {
+                    "description": "major, minor, point and details carry version information about the app.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "minor": {
+                    "description": "minor version number.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "name identifies the app.\nAllowed: a-z, A-Z, 0-9, _",
+                    "type": "string"
+                },
+                "point": {
+                    "description": "point version number.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "ClientHeader": {
+            "description": "ClientHeader contains log request scoped metadata provided by the client,\nand will be the same for each row produced by that request.",
+            "id": "ClientHeader",
+            "properties": {
+                "createdEventMillis": {
+                    "description": "created_event_millis is the client time the event was created by the\nclient, in milliseconds since 1/1 1970.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "sentEventMillis": {
+                    "description": "sent_event_millis is the client time the event was sent from client to\nserver, in milliseconds since 1/1 1970.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "sessionId": {
+                    "description": "session_id is the project scoped ID of the session being logged.\nPopulated by the client setting the `session_id` field of the `header`\nobject in the stats JSON.",
+                    "type": "string"
+                },
+                "sessionSecret": {
+                    "description": "session_secret is a client defined string enabling the client to query\ndata that itself logged.\nPopulated by the client setting the `session_secret` field of the `header`\nobject in the stats JSON.",
+                    "type": "string"
+                },
+                "userId": {
+                    "description": "user_id is the project scoped ID of the user being logged.\nPopulated by the client setting the `user_id` field of the `header`\nobject in the stats JSON.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ClientInfo": {
+            "description": "ClientInfo identifies the client making a request.",
+            "id": "ClientInfo",
+            "properties": {
+                "appInfo": {
+                    "$ref": "AppInfo",
+                    "description": "app_info carries the app identification."
+                },
+                "hardwareInfo": {
+                    "$ref": "HardwareInfo",
+                    "description": "hardware_info carries the hardware identification."
+                },
+                "platformInfo": {
+                    "$ref": "PlatformInfo",
+                    "description": "platform_info carries the platform identification."
+                }
+            },
+            "type": "object"
+        },
+        "CreateSessionRequest": {
+            "description": "Create a new MediaSession.\nThis allocates a MediaRouter instance and configures Lens for ingestion.",
+            "id": "CreateSessionRequest",
+            "properties": {
+                "endpointExperiments": {
+                    "$ref": "EndpointExperiments",
+                    "description": "Allows overriding experiments for how we create this endpoint."
+                },
+                "header": {
+                    "$ref": "RequestHeader",
+                    "description": "Request header."
+                },
+                "mediaAccess": {
+                    "$ref": "MediaAccess",
+                    "description": "Initial media access for this session.\nThe session will be able to enumerate and subscribe to all existing\nstreams, but the streams will only send data if they are enabled."
+                },
+                "offer": {
+                    "$ref": "SessionDescriptionOffer",
+                    "description": "The original offer from the PeerConnection."
+                },
+                "overrideClientIp": {
+                    "description": "Overrides the client IP used to get the Lens IP and the MediaRouter task.\nOtherwise this would come from the OriginContext sidechannel.",
+                    "type": "string"
+                },
+                "sessionOwner": {
+                    "$ref": "ParticipantId",
+                    "description": "The participant owning the created media session, as seen by the\napplication. This ID will be considered to be the owner of any streams this\nsession provides."
+                },
+                "viewRequestGroup": {
+                    "description": "If set, the session will use the BANDWIDTH_ALLOCATION_TOP_N_GROUPS\nspeaker switching algorithm.\nSee view_request_group on AddMediaSessionRequest\nin media/webrtc/media_router/media_router.proto for documentation.",
+                    "items": {
+                        "$ref": "ViewRequestGroup"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CreateSessionResponse": {
+            "id": "CreateSessionResponse",
+            "properties": {
+                "createdSessionId": {
+                    "$ref": "MediaSessionId",
+                    "description": "The Id of the session we created."
+                }
+            },
+            "type": "object"
+        },
+        "EndpointExperiments": {
+            "description": "Experiments and configuration for the endpoint.",
+            "id": "EndpointExperiments",
+            "properties": {
+                "useDevManualMr": {
+                    "description": "If we should use the go/bcid-devpools-media-backend MediaRouter.",
+                    "type": "boolean"
+                },
+                "useFullyReliablePushChannel": {
+                    "description": "Whether to make data channel keep retransmitting packets until they are\nconfirmed to arrive. If disabled, retry only once.",
+                    "type": "boolean"
+                },
+                "useServerActiveDtls": {
+                    "description": "Make the server be the active part of the DTLS handshake, see b/74418724.",
+                    "type": "boolean"
+                },
+                "useVirtualAudioSsrc": {
+                    "description": "Use go/virtual-audio-ssrc.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "GetRemoteDescriptionRequest": {
+            "description": "Grab a complete description of the MediaSession, complete with streams\nand what session owns the streams.",
+            "id": "GetRemoteDescriptionRequest",
+            "properties": {
+                "header": {
+                    "$ref": "RequestHeader",
+                    "description": "Request header."
+                },
+                "mediaSessionId": {
+                    "$ref": "MediaSessionId",
+                    "description": "The ID of the session we want to grab the description for."
+                }
+            },
+            "type": "object"
+        },
+        "GetRemoteDescriptionResponse": {
+            "description": "Response containing a remote description.",
+            "id": "GetRemoteDescriptionResponse",
+            "properties": {
+                "answer": {
+                    "$ref": "SessionDescriptionAnswer",
+                    "description": "RemoteDescription suitable for passing to the WebRTC layer."
+                },
+                "candidates": {
+                    "description": "IceCandidates to pass to the WebRTC layer.",
+                    "items": {
+                        "$ref": "IceCandidate"
+                    },
+                    "type": "array"
+                },
+                "connectedPeers": {
+                    "description": "Peers we are connected to and receive media from.\nThese session should be mapped to \"users\" on the Application level.",
+                    "items": {
+                        "$ref": "PeerStreams"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "HandshakeRequest": {
+            "description": "HandshakeRequest is sent by a client making a Handshake.",
+            "id": "HandshakeRequest",
+            "properties": {
+                "header": {
+                    "$ref": "RequestHeader",
+                    "description": "header contains request meta data."
+                },
+                "offer": {
+                    "$ref": "SessionUpdate",
+                    "description": "offer contains a WebRTC offer."
+                },
+                "routerKey": {
+                    "description": "router_key is used to route the request to the right back-end.\nIf router_key is missing, the Cloud project ID of the incoming\nrequest is used.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "HandshakeResponse": {
+            "description": "HandshakeResponse is returned to clients making Handshakes.",
+            "id": "HandshakeResponse",
+            "properties": {
+                "answer": {
+                    "$ref": "SessionUpdate",
+                    "description": "answer contains a WebRTC answer."
+                },
+                "header": {
+                    "$ref": "ResponseHeader",
+                    "description": "header contains request meta data."
+                }
+            },
+            "type": "object"
+        },
+        "HardwareInfo": {
+            "description": "HardwareInfo identifies the hardware from which a request originated.",
+            "id": "HardwareInfo",
+            "properties": {
+                "details": {
+                    "description": "details version string.",
+                    "type": "string"
+                },
+                "major": {
+                    "description": "major, minor, point and details carry version information about the\nplatform.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "minor": {
+                    "description": "minor version number.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "name identifies the platform.\nAllowed: a-z, A-Z, 0-9, _",
+                    "type": "string"
+                },
+                "point": {
+                    "description": "point version number.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "IceCandidate": {
+            "description": "IceCandidate for transport, see https://tools.ietf.org/html/rfc5245.",
+            "id": "IceCandidate",
+            "properties": {
+                "candidate": {
+                    "description": "The raw ICE candidate string.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Impression": {
+            "description": "Impression describes app defined impressions.",
+            "id": "Impression",
+            "properties": {
+                "key": {
+                    "description": "key is the string key of the impression.",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "value is the string value of the impression.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "LogEvent": {
+            "description": "LogEvent is a media event to be logged.",
+            "id": "LogEvent",
+            "properties": {
+                "clientHeader": {
+                    "$ref": "ClientHeader",
+                    "description": "client_header is client provided event scoped metadata."
+                },
+                "impression": {
+                    "$ref": "Impression",
+                    "description": "impression is string key/string value data to attach to the stats events."
+                },
+                "rtcEventLog": {
+                    "description": "rtc_event_log is a serialized webrtc.rtclog.EventStream.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "statsJson": {
+                    "description": "stats_json contains JSON encoded output from getStats for a peer\nconnection.\nMight be compressed, if the wrapping log request or log stream\nis flagged as compressed.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "uma": {
+                    "$ref": "UMA",
+                    "description": "uma is string key/int value data to attach to the stats event."
+                }
+            },
+            "type": "object"
+        },
+        "LogRequest": {
+            "description": "LogRequest is sent by a client during one shot media stats logging.",
+            "id": "LogRequest",
+            "properties": {
+                "compression": {
+                    "description": "compression defines which, if any, compression is used for the\nstats_json in the event.",
+                    "enum": [
+                        "UNKNOWN",
+                        "NONE",
+                        "ZLIB"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown compression type.",
+                        "No compression.",
+                        "ZLIB compression."
+                    ],
+                    "type": "string"
+                },
+                "event": {
+                    "$ref": "LogEvent",
+                    "description": "event contains the event to log."
+                },
+                "header": {
+                    "$ref": "RequestHeader",
+                    "description": "header contains request meta data."
+                }
+            },
+            "type": "object"
+        },
+        "LogResponse": {
+            "description": "LogResponse is sent by the server during one shot media stats logging.",
+            "id": "LogResponse",
+            "properties": {
+                "header": {
+                    "$ref": "ResponseHeader",
+                    "description": "header contains metadata about the response."
+                }
+            },
+            "type": "object"
+        },
+        "MediaAccess": {
+            "description": "Message for MediaAccess.",
+            "id": "MediaAccess",
+            "properties": {
+                "downlinkAccess": {
+                    "description": "How streams sent to this client handled.",
+                    "enumDescriptions": [
+                        "Default.",
+                        "Client can see Audio streams but they are not active, no data is sent.",
+                        "Client can see Video streams but they are not active, no data is sent.",
+                        "Client can see Data channels but they are not active, no data is sent."
+                    ],
+                    "items": {
+                        "enum": [
+                            "UNKNOWN",
+                            "RECEIVE_AUDIO",
+                            "RECEIVE_VIDEO",
+                            "RECEIVE_DATA"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "MediaSessionId": {
+            "description": "A MediaSession is a device that is sending/receiving media.",
+            "id": "MediaSessionId",
+            "properties": {
+                "value": {
+                    "description": "Opaque string value.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MediaStreamId": {
+            "description": "Identifies a WebRTC MediaStream by the id property.\nExample: https://developer.mozilla.org/en-US/docs/Web/API/MediaStream/id.",
+            "id": "MediaStreamId",
+            "properties": {
+                "value": {
+                    "description": "Opaque string value.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ParticipantId": {
+            "description": "ParticipantId is provided by the application and identifies the owner of\nmedia streams.\nThis value will be visible outside of Google, so internal IDs such as\nunobfuscated Gaia IDs or other PII are NOT appropriate values.\nDepending on the application, it may be appropriate to also identify the\ndevice used using this value.",
+            "id": "ParticipantId",
+            "properties": {
+                "value": {
+                    "description": "Opaque string value.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PeerStreams": {
+            "description": "Maps what streams are owned by this session.",
+            "id": "PeerStreams",
+            "properties": {
+                "mediaStreamIds": {
+                    "description": "The streams this participant owns.\nCan be no streams if this remote session isn't providing any.",
+                    "items": {
+                        "$ref": "MediaStreamId"
+                    },
+                    "type": "array"
+                },
+                "streamOwner": {
+                    "$ref": "ParticipantId",
+                    "description": "The participant owning these streams, as defined by the application."
+                }
+            },
+            "type": "object"
+        },
+        "PlatformInfo": {
+            "description": "PlatformInfo identifies the platform from which a request originated.",
+            "id": "PlatformInfo",
+            "properties": {
+                "details": {
+                    "description": "details version string.",
+                    "type": "string"
+                },
+                "major": {
+                    "description": "major, minor, point and details carry version information about the\nplatform.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "minor": {
+                    "description": "minor version number.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "name identifies the platform.",
+                    "enum": [
+                        "UNKNOWN",
+                        "ANDROID",
+                        "IOS",
+                        "BROWSER"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown platform.",
+                        "Android platform",
+                        "iOS platform.",
+                        "Browser platform."
+                    ],
+                    "type": "string"
+                },
+                "point": {
+                    "description": "point version number.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "ProbeConfig": {
+            "description": "ProberConfig contains a a specific type of probe configuration.",
+            "id": "ProbeConfig",
+            "properties": {
+                "chromeJsApi": {
+                    "$ref": "ProbeConfigChromeJsAPI",
+                    "description": "Chrome JS API prober configuration."
+                },
+                "turn": {
+                    "$ref": "ProbeConfigTurn",
+                    "description": "TURN prober configuration."
+                }
+            },
+            "type": "object"
+        },
+        "ProbeConfigChromeJsAPI": {
+            "description": "ProbeConfigChromeJsAPI holds the probe configuration for a Chrome JS API\nprober.",
+            "id": "ProbeConfigChromeJsAPI",
+            "properties": {
+                "networkTraversalHosts": {
+                    "description": "network_traversal_hosts is a list of hosts to use for network traversal\nrps's\nExamples:\n * realtimemediaservices-pa.googleapis.com",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ProbeConfigRequest": {
+            "description": "ProbeConfigRequest is a request for configuration to run a single probe.",
+            "id": "ProbeConfigRequest",
+            "properties": {
+                "header": {
+                    "$ref": "RequestHeader",
+                    "description": "header contains request meta data."
+                },
+                "service": {
+                    "description": "service is the class of prober to run that the client implements.",
+                    "enum": [
+                        "UNKNOWN",
+                        "TURN",
+                        "CHROME_JS_API"
+                    ],
+                    "enumDescriptions": [
+                        "UNKNOWN class.",
+                        "TURN class.",
+                        "Chrom JS API class."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ProbeConfigResponse": {
+            "description": "ProbeConfigResponse holds the configuration for a single probe for any class\nof prober.\nnext to use: 7",
+            "id": "ProbeConfigResponse",
+            "properties": {
+                "header": {
+                    "$ref": "ResponseHeader",
+                    "description": "header contains request meta data."
+                },
+                "probeConfig": {
+                    "$ref": "ProbeConfig",
+                    "description": "prober_config holds config is the class specific configuration for the\nprober."
+                },
+                "turn": {
+                    "$ref": "ProbeConfigTurn",
+                    "description": "TURN prober configuration."
+                }
+            },
+            "type": "object"
+        },
+        "ProbeConfigTurn": {
+            "description": "ProbeConfigTurn holds the probe configuration for a TURN prober.",
+            "id": "ProbeConfigTurn",
+            "properties": {
+                "iceServersUrls": {
+                    "description": "ice_servers_urls is a list of ICE servers to use for probing instead of\nones that return NTP. You can use credentials provided by NTP to connect\nto these servers.\nExamples:\n * turn:192.168.1.1:19305?transport=udp",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "networkTraversalHost": {
+                    "description": "network_traversal_host is the host to use for network traversal rpc:s.\nExamples:\n * realtimemediaservices-pa.googleapis.com",
+                    "type": "string"
+                },
+                "networkTraversalHosts": {
+                    "description": "network_traversal_hosts is a list hosts to use for network traversal rpc:s\nExamples:\n * realtimemediaservices-pa.googleapis.com",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ProbeReportRequest": {
+            "description": "ProbeReportRequest is issued by the prober to report of a completed probe.\nnext to use: 14",
+            "id": "ProbeReportRequest",
+            "properties": {
+                "error": {
+                    "description": "error is empty on success, otherwise a failure message.",
+                    "type": "string"
+                },
+                "errorCode": {
+                    "description": "error_code of the operation (replaces the error string)",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "failedConfig": {
+                    "$ref": "ProbeConfig",
+                    "description": "failed_config is the failing probe config."
+                },
+                "header": {
+                    "$ref": "RequestHeader",
+                    "description": "header contains request meta data."
+                },
+                "iceServerUrl": {
+                    "description": "ice_server_url is url of ICE server that was probed and for which this\nreport is provided",
+                    "type": "string"
+                },
+                "networkTraversalHost": {
+                    "description": "network_traversal_host is a host that was used to obtain TURN servers for\nprobing",
+                    "type": "string"
+                },
+                "service": {
+                    "description": "service identify the service being probed and which config field to access.",
+                    "enum": [
+                        "UNKNOWN",
+                        "TURN",
+                        "CHROME_JS_API"
+                    ],
+                    "enumDescriptions": [
+                        "UNKNOWN class.",
+                        "TURN class.",
+                        "Chrom JS API class."
+                    ],
+                    "type": "string"
+                },
+                "source": {
+                    "description": "source identify the source of the report.",
+                    "type": "string"
+                },
+                "turn": {
+                    "$ref": "ProbeConfigTurn",
+                    "description": "turn prober configuration that caused the error."
+                }
+            },
+            "type": "object"
+        },
+        "ProbeReportResponse": {
+            "description": "ProbeReportResponse is the response to ProbeReportRequest.",
+            "id": "ProbeReportResponse",
+            "properties": {
+                "header": {
+                    "$ref": "ResponseHeader",
+                    "description": "header contains request meta data."
+                }
+            },
+            "type": "object"
+        },
+        "RequestHeader": {
+            "description": "RequestHeader must be included in all request messages with the field name\n`header`.\nThis will make the generated Go types of requests have GetHeader and\nSetHeader funcs, which makes it simple to create a common interface to access\nthe header values.",
+            "id": "RequestHeader",
+            "properties": {
+                "clientInfo": {
+                    "$ref": "ClientInfo",
+                    "description": "client_info holds information about the calling client application."
+                }
+            },
+            "type": "object"
+        },
+        "ResponseHeader": {
+            "description": "ResponseHeader must be included in all response messages with the field name\n`header`.\nThis will make the generated Go types of responses have GetHeader and\nSetHeader funcs, which makes it simple to create a common interface to access\nthe header values.",
+            "id": "ResponseHeader",
+            "properties": {
+                "apiVersionWarning": {
+                    "$ref": "ApiVersionWarning",
+                    "description": "api_version_warning is set by the server when the ClientInfo in the request\nindicate that the client was built against a API version that is soon to be\ndeprecated. Clients should show a UI to the user asking them to update the\napplication."
+                },
+                "rpcGlobalId": {
+                    "description": "rpc_global_id holds the global dapper trace id of the request that produced\nthis response.",
+                    "format": "uint64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SessionDescriptionAnswer": {
+            "description": "Answer given to client.",
+            "id": "SessionDescriptionAnswer",
+            "properties": {
+                "description": {
+                    "description": "The raw SDP string.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SessionDescriptionOffer": {
+            "description": "Offer sent from client.",
+            "id": "SessionDescriptionOffer",
+            "properties": {
+                "description": {
+                    "description": "The raw SDP string.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SessionUpdate": {
+            "description": "SessionUpdate contains an offer or answer when setting up a WebRTC stream.",
+            "id": "SessionUpdate",
+            "properties": {
+                "appData": {
+                    "description": "app_data is ignored by chameleon frontend but passed verbatim\nto the destination.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "candidates": {
+                    "description": "candidates holds JSON serialized RTCIceCandidate objects.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "desc": {
+                    "description": "desc is a JSON serialized RTCSessionDescription object.",
+                    "type": "string"
+                },
+                "sessionId": {
+                    "description": "session_id identifies a previously created session.\nThis is returned in the response of the first Handshake.\nA new session will be created if this is not set.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UMA": {
+            "description": "UMA describes app defined metrics.",
+            "id": "UMA",
+            "properties": {
+                "key": {
+                    "description": "key is the string key of the UMA.",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "value is the integer value of the UMA.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "VideoResolution": {
+            "description": "Describes the three dimensions of a video resolution.",
+            "id": "VideoResolution",
+            "properties": {
+                "frameRate": {
+                    "description": "framte_rate.",
+                    "format": "uint32",
+                    "type": "integer"
+                },
+                "height": {
+                    "description": "height.",
+                    "format": "uint32",
+                    "type": "integer"
+                },
+                "width": {
+                    "description": "width.",
+                    "format": "uint32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "ViewRequestGroup": {
+            "description": "See ViewRequestGroup in media/webrtc/media_router/media_router.proto\nfor documentation.",
+            "id": "ViewRequestGroup",
+            "properties": {
+                "groupSize": {
+                    "description": "group_size.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "maxResolution": {
+                    "$ref": "VideoResolution",
+                    "description": "max_resolution."
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Realtime Media Services [DAILY-1]",
+    "version": "v1alpha",
+    "version_module": true
+}

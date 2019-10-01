@@ -1,0 +1,192 @@
+{
+    "basePath": "",
+    "baseUrl": "https://test-nmp-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Network Management Portal",
+    "description": "Private API for client to send network device information to Google's production Management system.",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://go/dunsel-design",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "nmp_pa:v1",
+    "kind": "discovery#restDescription",
+    "name": "nmp_pa",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "v1": {
+            "methods": {
+                "watch": {
+                    "description": "Start a streaming RPC to get watch information from the server.",
+                    "flatPath": "v1/watch",
+                    "httpMethod": "GET",
+                    "id": "nmp_pa.watch",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "resumeMarker": {
+                            "description": "The `resume_marker` specifies how much of the existing underlying state is\ndelivered to the client when the watch request is received by the\nsystem. The client can set this marker in one of the following ways to get\ndifferent semantics:\n\n*   Parameter is not specified or has the value \"\".\n    Semantics: Fetch initial state.\n    The client wants the entity's initial state to be delivered. See the\n    description in \"Initial State\".\n\n*   Parameter is set to the string \"now\" (UTF-8 encoding).\n    Semantics: Fetch new changes only.\n    The client just wants to get the changes received by the system after\n    the watch point. The system may deliver changes from before the watch\n    point as well.\n\n*   Parameter is set to a value received in an earlier\n    `Change.resume_marker` field while watching the same entity.\n    Semantics: Resume from a specific point.\n    The client wants to receive the changes from a specific point; this\n    value must correspond to a value received in the `Change.resume_marker`\n    field. The system may deliver changes from before the `resume_marker`\n    as well. If the system cannot resume the stream from this point (e.g.,\n    if it is too far behind in the stream), it can raise the\n    `FAILED_PRECONDITION` error.\n\nAn implementation MUST support an unspecified parameter and the\nempty string \"\" marker (initial state fetching) and the \"now\" marker.\nIt need not support resuming from a specific point.",
+                            "format": "byte",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "target": {
+                            "description": "The `target` value **must** be a valid URL path pointing to an entity\nto watch. Note that the service name **must** be\nremoved from the target field (e.g., the target field must say\n\"/foo/bar\", not \"myservice.googleapis.com/foo/bar\"). A client is\nalso allowed to pass system-specific parameters in the URL that\nare only obeyed by some implementations. Some parameters will be\nimplementation-specific. However, some have predefined meaning\nand are listed here:\n\n * recursive = true|false [default=false]\n   If set to true, indicates that the client wants to watch all elements\n   of entities in the subtree rooted at the entity's name in `target`. For\n   descendants that are not the immediate children of the target, the\n   `Change.element` will contain slashes.\n\n   Note that some namespaces and entities will not support recursive\n   watching. When watching such an entity, a client must not set recursive\n   to true. Otherwise, it will receive an `UNIMPLEMENTED` error.\n\nNormal URL encoding must be used inside `target`.  For example, if a query\nparameter name or value, or the non-query parameter portion of `target`\ncontains a special character, it must be %-encoded.  We recommend that\nclients and servers use their runtime's URL library to produce and consume\ntarget values.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/watch",
+                    "response": {
+                        "$ref": "ChangeBatch"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190909",
+    "rootUrl": "https://test-nmp-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "Change": {
+            "description": "A Change indicates the most recent state of an element.",
+            "id": "Change",
+            "properties": {
+                "continued": {
+                    "description": "If true, this Change is followed by more Changes that are in the same group\nas this Change.",
+                    "type": "boolean"
+                },
+                "data": {
+                    "additionalProperties": {
+                        "description": "Properties of the object. Contains field @type with type URL.",
+                        "type": "any"
+                    },
+                    "description": "The actual change data. This field is present only when `state() == EXISTS`\nor `state() == ERROR`. Please see google.protobuf.Any about how to use\nthe Any type.",
+                    "type": "object"
+                },
+                "element": {
+                    "description": "Name of the element, interpreted relative to the entity's actual\nname. \"\" refers to the entity itself. The element name is a valid\nUTF-8 string.",
+                    "type": "string"
+                },
+                "resumeMarker": {
+                    "description": "If present, provides a compact representation of all the messages that have\nbeen received by the caller for the given entity, e.g., it could be a\nsequence number or a multi-part timestamp/version vector. This marker can\nbe provided in the Request message, allowing the caller to resume the\nstream watching at a specific point without fetching the initial state.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "state": {
+                    "description": "The state of the `element`.",
+                    "enum": [
+                        "EXISTS",
+                        "DOES_NOT_EXIST",
+                        "INITIAL_STATE_SKIPPED",
+                        "ERROR"
+                    ],
+                    "enumDescriptions": [
+                        "The element exists and its full value is included in data.",
+                        "The element does not exist.",
+                        "Element may or may not exist. Used only for initial state delivery when\nthe client is not interested in fetching the initial state. See the\n\"Initial State\" section above.",
+                        "The element may exist, but some error has occurred. More information is\navailable in the data field - the value is a serialized Status\nproto (from google.rpc.Status)"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ChangeBatch": {
+            "description": "A batch of Change messages.",
+            "id": "ChangeBatch",
+            "properties": {
+                "changes": {
+                    "description": "A list of Change messages.",
+                    "items": {
+                        "$ref": "Change"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Network Management Portal Private API",
+    "version": "v1",
+    "version_module": true
+}

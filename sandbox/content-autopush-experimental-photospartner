@@ -1,0 +1,734 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/photoslibrary": {
+                    "description": "View and manage your Google Photos library"
+                },
+                "https://www.googleapis.com/auth/photoslibrary.readonly": {
+                    "description": "View your Google Photos library"
+                },
+                "https://www.googleapis.com/auth/photoslibrary.readonly.appcreateddata": {
+                    "description": "Manage photos added by this app"
+                },
+                "https://www.googleapis.com/auth/photoslibrary.search": {
+                    "description": "Search your Google Photos for people, places, or things"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://autopush-experimental-photospartner.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Photos Partner",
+    "description": "Find important and memorable photos smarter, faster and easier.\n",
+    "discoveryVersion": "v1",
+    "documentationLink": "https://developers.google.com/photos/",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "autopush_experimental_photospartner_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "autopush_experimental_photospartner_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "histogramBuckets": {
+            "methods": {
+                "list": {
+                    "description": "Lists the histogram buckets, which describe the distribution of media items\nover time, for a user's library.\n\nThis distribution does not include archived media items.",
+                    "flatPath": "v1/histogramBuckets",
+                    "httpMethod": "GET",
+                    "id": "autopush_experimental_photospartner_sandbox.histogramBuckets.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "pageSize": {
+                            "description": "The maximum number of histogram buckets to return in the response. If\nleft blank, this will return the maximum number of histogram buckets\nsupported by this service.\n\nThis should be lower than 500.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageToken": {
+                            "description": "A continuation token to get the next page of results. Adding this to the\nrequest returns the histogram buckets after the `pageToken`. The\n`pageToken` must be the value returned in the `nextPageToken` parameter in\nthe response to the `listHistogramBuckets` request.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/histogramBuckets",
+                    "response": {
+                        "$ref": "ListHistogramBucketsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/photoslibrary",
+                        "https://www.googleapis.com/auth/photoslibrary.readonly"
+                    ]
+                }
+            }
+        },
+        "mediaItems": {
+            "methods": {
+                "keywordSearch": {
+                    "description": "Searches by keyword string for media items in a user's Google Photos\nlibrary.",
+                    "flatPath": "v1/mediaItems:keywordSearch",
+                    "httpMethod": "GET",
+                    "id": "autopush_experimental_photospartner_sandbox.mediaItems.keywordSearch",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "pageSize": {
+                            "description": "Maximum number of media items to return in the response. The default number\nof media items to return at a time is 25. The maximum `pageSize` is 100.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageToken": {
+                            "description": "A continuation token to get the next page of results. Adding this to the\nrequest returns the rows after the `pageToken`. The `pageToken` must be the\nvalue returned in the `nextPageToken` parameter in the response to the\n`keywordSearchMediaItems` request.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "query": {
+                            "description": "The text string to search for. The maximum length of this string is 100\ncharacters. The expected language is the user's account language.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/mediaItems:keywordSearch",
+                    "response": {
+                        "$ref": "KeywordSearchMediaItemsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/photoslibrary.search"
+                    ]
+                },
+                "suggestCropRegion": {
+                    "description": "Returns a crop suggestion with respect to a given aspect ratio. A crop\nsuggestion refers to a rectangle indicating the salient region in a photo.\n\nThe API gives suggestions as percentages of width and height. Some media\nitems (including all videos) are not supported.\n\nIn the case where a video is specified, the API will return a\nStatus error of invalid argument.\n\nIn the case where the requested media item is not supported, the API will\nreturn a Status error, indicating that the media item\nis not supported.",
+                    "flatPath": "v1/mediaItems/{mediaItemsId}:suggestCropRegion",
+                    "httpMethod": "POST",
+                    "id": "autopush_experimental_photospartner_sandbox.mediaItems.suggestCropRegion",
+                    "parameterOrder": [
+                        "mediaItemId"
+                    ],
+                    "parameters": {
+                        "mediaItemId": {
+                            "description": "Identifier of the requested media item.",
+                            "location": "path",
+                            "pattern": "^[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/mediaItems/{+mediaItemId}:suggestCropRegion",
+                    "request": {
+                        "$ref": "SuggestCropRegionRequest"
+                    },
+                    "response": {
+                        "$ref": "SuggestCropRegionResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/photoslibrary",
+                        "https://www.googleapis.com/auth/photoslibrary.readonly",
+                        "https://www.googleapis.com/auth/photoslibrary.readonly.appcreateddata"
+                    ]
+                },
+                "suggestRelated": {
+                    "description": "Returns media items that are related to the specified media item.",
+                    "flatPath": "v1/mediaItems/{mediaItemsId}:suggestRelated",
+                    "httpMethod": "GET",
+                    "id": "autopush_experimental_photospartner_sandbox.mediaItems.suggestRelated",
+                    "parameterOrder": [
+                        "sourceMediaItemId"
+                    ],
+                    "parameters": {
+                        "relationType": {
+                            "description": "The ways that returned media items can be related to the source media item.\nIf multiple relation types are specified, the returned media items can be\nrelated by any of the types.",
+                            "enum": [
+                                "RELATION_TYPE_UNSPECIFIED",
+                                "CONTEXTUAL"
+                            ],
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        },
+                        "sourceMediaItemId": {
+                            "description": "Identifier of the MediaItem(s) for which\nrelated media items will be listed.\n\nThe media item must be a photo and must be owned by the user.",
+                            "location": "path",
+                            "pattern": "^[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/mediaItems/{+sourceMediaItemId}:suggestRelated",
+                    "response": {
+                        "$ref": "SuggestRelatedMediaItemsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/photoslibrary.search"
+                    ]
+                }
+            }
+        },
+        "suggestions": {
+            "methods": {
+                "get": {
+                    "description": "Returns the suggestion for the specified suggestion identifier.",
+                    "flatPath": "v1/suggestions/{suggestionsId}",
+                    "httpMethod": "GET",
+                    "id": "autopush_experimental_photospartner_sandbox.suggestions.get",
+                    "parameterOrder": [
+                        "suggestionId"
+                    ],
+                    "parameters": {
+                        "suggestionId": {
+                            "description": "Identifier of the suggestion to be requested.",
+                            "location": "path",
+                            "pattern": "^[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/suggestions/{+suggestionId}",
+                    "response": {
+                        "$ref": "Suggestion"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/photoslibrary.search"
+                    ]
+                },
+                "list": {
+                    "description": "Returns a list of all the suggestions for a user. Suggestions are\nrecommended groups of photos in a user\u2019s Google Photos Library that they\nmight like to print or display based on the photo\u2019s attributes and people,\nplaces and things contained in them.",
+                    "flatPath": "v1/suggestions",
+                    "httpMethod": "GET",
+                    "id": "autopush_experimental_photospartner_sandbox.suggestions.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "pageSize": {
+                            "description": "Maximum number of suggestions to return in the response. The default number\nof media items to return at a time is 25. The maximum page size is 100.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageToken": {
+                            "description": "A continuation token to get the next page of the results. Adding this to\nthe request returns the rows after the `pageToken`. The `pageToken` should\nbe the value returned in the `nextPageToken` parameter in the response to\nthe `listSuggestions` request.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/suggestions",
+                    "response": {
+                        "$ref": "ListSuggestionsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/photoslibrary.search"
+                    ]
+                }
+            },
+            "resources": {
+                "mediaItems": {
+                    "methods": {
+                        "list": {
+                            "description": "",
+                            "flatPath": "v1/suggestions/{suggestionsId}/mediaItems",
+                            "httpMethod": "GET",
+                            "id": "autopush_experimental_photospartner_sandbox.suggestions.mediaItems.list",
+                            "parameterOrder": [
+                                "suggestionId"
+                            ],
+                            "parameters": {
+                                "pageSize": {
+                                    "description": "Maximum number of media items to return in the response. The default number\nof media items to return at a time is 25. The maximum `pageSize` is 100.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "A continuation token to get the next page of the results. Adding this to\nthe request returns the rows after the `pageToken`. The `pageToken` should\nbe the value returned in the `nextPageToken` parameter in the response to\nthe `listMediaItemsInSuggestion` request.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "suggestionId": {
+                                    "description": "The identifier for the suggestion.",
+                                    "location": "path",
+                                    "pattern": "^[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/suggestions/{+suggestionId}/mediaItems",
+                            "response": {
+                                "$ref": "ListMediaItemsInSuggestionResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/photoslibrary.search"
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190913",
+    "rootUrl": "https://autopush-experimental-photospartner.sandbox.googleapis.com/",
+    "schemas": {
+        "ContributorInfo": {
+            "description": "Information about the user who added the media item. Note that this\ninformation is included only if the media item is within a shared album\ncreated by your app and you have the sharing scope.",
+            "id": "ContributorInfo",
+            "properties": {
+                "displayName": {
+                    "description": "Display name of the contributor.",
+                    "type": "string"
+                },
+                "profilePictureBaseUrl": {
+                    "description": "URL to the profile picture of the contributor.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Date": {
+            "description": "Represents a whole or partial calendar date, e.g. a birthday. The time of day\nand time zone are either specified elsewhere or are not significant. The date\nis relative to the Proleptic Gregorian Calendar. This can represent:\n\n* A full date, with non-zero year, month and day values\n* A month and day value, with a zero year, e.g. an anniversary\n* A year on its own, with zero month and day values\n* A year and month value, with a zero day, e.g. a credit card expiration date\n\nRelated types are google.type.TimeOfDay and `google.protobuf.Timestamp`.",
+            "id": "Date",
+            "properties": {
+                "day": {
+                    "description": "Day of month. Must be from 1 to 31 and valid for the year and month, or 0\nif specifying a year by itself or a year and month where the day is not\nsignificant.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "month": {
+                    "description": "Month of year. Must be from 1 to 12, or 0 if specifying a year without a\nmonth and day.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "year": {
+                    "description": "Year of date. Must be from 1 to 9999, or 0 if specifying a date without\na year.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "DateRange": {
+            "description": "Defines a range of dates. Both dates must be of the same format. For more\ninformation, see <a href=\"#Date\">Date</a>",
+            "id": "DateRange",
+            "properties": {
+                "endDate": {
+                    "$ref": "Date",
+                    "description": "The end date (included as part of the range). It must be specified in the\nsame format as the start date."
+                },
+                "startDate": {
+                    "$ref": "Date",
+                    "description": "The start date (included as part of the range) in one of the formats\ndescribed."
+                }
+            },
+            "type": "object"
+        },
+        "HistogramBucket": {
+            "description": "A summary of the number of media items over a given date range. A histogram\nbucket can span from a single day to multiple weeks and will never be\nempty. Buckets are sorted in date descending order and do not overlap.",
+            "id": "HistogramBucket",
+            "properties": {
+                "dateRange": {
+                    "$ref": "DateRange",
+                    "description": "The date range covered by this histogram bucket.\n\nThe dates in this date range will always be fully qualified. That is, the\ndates will always specify a day, month and year."
+                },
+                "mediaItemsCount": {
+                    "description": "The number of media items included in this histogram bucket. This is an\napproximation and may both over and under estimate the number of items in\nthis bucket.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "KeywordSearchMediaItemsResponse": {
+            "description": "List of media items that match the search query.",
+            "id": "KeywordSearchMediaItemsResponse",
+            "properties": {
+                "mediaItems": {
+                    "description": "[Output only] List of media items that match the search query.",
+                    "items": {
+                        "$ref": "MediaItem"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "[Output only] Use this token to get the next set of media items. Its\npresence is the only reliable indicator of more media items being available\nin the next request.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListHistogramBucketsResponse": {
+            "description": "List of histogram buckets, which describes the distribution of media items\nover time, for a user's library.",
+            "id": "ListHistogramBucketsResponse",
+            "properties": {
+                "buckets": {
+                    "description": "[Output only] A breakdown of the distribution into discrete buckets.\n\nEach bucket spans from a single day to multiple weeks and will never be\nempty. Buckets are sorted in date descending order and do not overlap.",
+                    "items": {
+                        "$ref": "HistogramBucket"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "[Output only] Use this token to get the next set of histogram buckets. Its\npresence is the only indicator of more histogram buckets being available in\nthe next request.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListMediaItemsInSuggestionResponse": {
+            "description": "List of the media items in the specified suggestion.",
+            "id": "ListMediaItemsInSuggestionResponse",
+            "properties": {
+                "mediaItems": {
+                    "description": "[Output only] Media items that are a part of this suggestion. Only media\nitems that are photos are returned.",
+                    "items": {
+                        "$ref": "MediaItem"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "[Output only] Use this token to get the next set of media items. Its\npresence is the only reliable indicator of more media items being available\nin the next request.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListSuggestionsResponse": {
+            "description": "List of suggestions for the user.",
+            "id": "ListSuggestionsResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "Token to use to get the next set of suggestions. Its presence\nis the only reliable indicator of more suggestions being available in the\nnext request.",
+                    "type": "string"
+                },
+                "suggestions": {
+                    "description": "[Output only] List of suggestions for the user.",
+                    "items": {
+                        "$ref": "Suggestion"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "MediaItem": {
+            "description": "Representation of a media item (such as a photo or video) in Google Photos.",
+            "id": "MediaItem",
+            "properties": {
+                "baseUrl": {
+                    "description": "A URL to the media item's bytes. This shouldn't be used as is. Parameters\nshould be appended to this URL before use. See the [developer\ndocumentation](https://developers.google.com/photos/library/guides/access-media-items#base-urls)\nfor a complete list of supported parameters. For example, `'=w2048-h1024'`\nwill set the dimensions of a media item of type photo to have a width of\n2048 px and height of 1024 px.",
+                    "type": "string"
+                },
+                "contributorInfo": {
+                    "$ref": "ContributorInfo",
+                    "description": "Information about the user who created this media item."
+                },
+                "description": {
+                    "description": "Description of the media item. This is shown to the user in the item's\ninfo section in the Google Photos app.",
+                    "type": "string"
+                },
+                "filename": {
+                    "description": "Filename of the media item. This is shown to the user in the item's info\nsection in the Google Photos app.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Identifier for the media item. This is a persistent identifier that can be\nused between sessions to identify this media item.",
+                    "type": "string"
+                },
+                "mediaMetadata": {
+                    "$ref": "MediaMetadata",
+                    "description": "Metadata related to the media item, such as, height, width, or\ncreation time."
+                },
+                "mimeType": {
+                    "description": "MIME type of the media item. For example, `image/jpeg`.",
+                    "type": "string"
+                },
+                "productUrl": {
+                    "description": "Google Photos URL for the media item. This link is available to\nthe user only if they're signed in.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MediaMetadata": {
+            "description": "Metadata for a media item.",
+            "id": "MediaMetadata",
+            "properties": {
+                "creationTime": {
+                    "description": "Time when the media item was first created (not when it was uploaded to\nGoogle Photos).",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "height": {
+                    "description": "Original height (in pixels) of the media item.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "photo": {
+                    "$ref": "Photo",
+                    "description": "Metadata for a photo media type."
+                },
+                "video": {
+                    "$ref": "Video",
+                    "description": "Metadata for a video media type."
+                },
+                "width": {
+                    "description": "Original width (in pixels) of the media item.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Photo": {
+            "description": "Metadata that is specific to a photo, such as, ISO, focal length and\nexposure time. Some of these fields may be null or not included.",
+            "id": "Photo",
+            "properties": {
+                "apertureFNumber": {
+                    "description": "Aperture f number of the camera lens with which the photo was taken.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "cameraMake": {
+                    "description": "Brand of the camera with which the photo was taken.",
+                    "type": "string"
+                },
+                "cameraModel": {
+                    "description": "Model of the camera with which the photo was taken.",
+                    "type": "string"
+                },
+                "exposureTime": {
+                    "description": "Exposure time of the camera aperture when the photo was taken.",
+                    "format": "google-duration",
+                    "type": "string"
+                },
+                "focalLength": {
+                    "description": "Focal length of the camera lens with which the photo was taken.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "isoEquivalent": {
+                    "description": "ISO of the camera with which the photo was taken.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "SuggestCropRegionRequest": {
+            "description": "Request to get a crop suggestion for a media item in the user's library and a\ntarget aspect ratio.",
+            "id": "SuggestCropRegionRequest",
+            "properties": {
+                "aspectRatio": {
+                    "description": "The aspect ratio (width / height) which the crop suggestion should meet\n(i.e. the aspect ratio of the final cropped photo).\n\nThis should be greater than 0.",
+                    "format": "float",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "SuggestCropRegionResponse": {
+            "description": "A crop suggestion for the ratio requested. `left`, `right`, `top` and\n`bottom` are between 0 and 1 indicating where to crop the image\nproportionally to its width and height, accordingly.\nIt is guaranteed that `left` is smaller than `right` and `top` is smaller\nthan `bottom`. The combination of `top * height` and `left * width` indicates\nthe top-left pixel of the crop rectangle, `bottom * height` and\n`right * width` indicates the bottom-right pixel of the crop rectangle.",
+            "id": "SuggestCropRegionResponse",
+            "properties": {
+                "bottom": {
+                    "description": "Bottom coordinate proportionally to the image's height.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "left": {
+                    "description": "Left coordinate proportionally to the image's width.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "right": {
+                    "description": "Right coordinate proportionally to the image's width.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "top": {
+                    "description": "Top coordinate proportionally to the image's height.",
+                    "format": "float",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "SuggestRelatedMediaItemResult": {
+            "description": "[Output only] The ways that the suggested media item is related to the\nsource media item.",
+            "id": "SuggestRelatedMediaItemResult",
+            "properties": {
+                "relatedMediaItem": {
+                    "$ref": "MediaItem",
+                    "description": "A media item that is related to the specificed media item."
+                },
+                "relationType": {
+                    "description": "The ways in which the above media item is related to the provided media\nitem.",
+                    "enumDescriptions": [
+                        "The relation type is unspecified. This should never be set on a\nSuggestRelatedMediaItemsRequest.",
+                        "Media items are related contextually."
+                    ],
+                    "items": {
+                        "enum": [
+                            "RELATION_TYPE_UNSPECIFIED",
+                            "CONTEXTUAL"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "SuggestRelatedMediaItemsResponse": {
+            "description": "Media items that are related to the specified media item.",
+            "id": "SuggestRelatedMediaItemsResponse",
+            "properties": {
+                "relatedMediaItemResults": {
+                    "description": "Media items that are related to the source media item. Up to 5 results will\nbe suggested. Results are not stable and are likely to change between\nrequests.",
+                    "items": {
+                        "$ref": "SuggestRelatedMediaItemResult"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Suggestion": {
+            "description": "Suggestions are recommended groups of photos in a user\u2019s Google Photos\nLibrary that they might like to print or display based on the photo\u2019s\nattributes and people, places and things contained in them.",
+            "id": "Suggestion",
+            "properties": {
+                "coverPhotoBaseUrl": {
+                    "description": "URL to the cover photo's bytes.\nThis shouldn't be used as is. Parameters should be appended to this URL\nbefore use. For example,`'=w2048-h1024'` sets the dimensions of the cover\nphoto to have a width of 2048 px and height of 1024 px.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Identifier for the suggestion.",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Title of the suggestion.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Video": {
+            "description": "Metadata that is specific to a video, for example, fps and processing status.\nSome of these fields may be null or not included.",
+            "id": "Video",
+            "properties": {
+                "cameraMake": {
+                    "description": "Brand of the camera with which the video was taken.",
+                    "type": "string"
+                },
+                "cameraModel": {
+                    "description": "Model of the camera with which the video was taken.",
+                    "type": "string"
+                },
+                "fps": {
+                    "description": "Frame rate of the video.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "status": {
+                    "description": "Processing status of the video.",
+                    "enum": [
+                        "UNSPECIFIED",
+                        "PROCESSING",
+                        "READY",
+                        "FAILED"
+                    ],
+                    "enumDescriptions": [
+                        "Video processing status is unknown.",
+                        "Video is being processed. The user sees an icon for this\nvideo in the Google Photos app; however, it isn't playable yet.",
+                        "Video processing is complete and it is now ready for viewing.",
+                        "Something has gone wrong and the video has failed to process."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Photos Partner API - Experimental - autopush",
+    "version": "v1",
+    "version_module": true
+}

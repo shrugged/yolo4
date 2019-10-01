@@ -1,0 +1,2421 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/cloud-platform": {
+                    "description": "View and manage your data across Google Cloud Platform services"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://autopush-cloudcommerceprocurement-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Cloud Commerce Procurement",
+    "description": "Internal facing API for the Cloud Commerce Procurement Service.",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://go/cloud-commerce",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "autopush_cloudcommerceprocurement_pa_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "autopush_cloudcommerceprocurement_pa_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "accounts": {
+            "methods": {
+                "create": {
+                    "description": "Creates a new Account.\n\nInitially the resource will be in the AccountState.ACCOUNT_STATE_NEW\nstate, and the returned long-running operation will be in-progress until\nthe backend can complete the creation of the resource. Once completed,\nthe state will transition to  AccountState.ACCOUNT_STATE_ACTIVE.\nIn case of failure, the account resource will be removed.",
+                    "flatPath": "v1/accounts",
+                    "httpMethod": "POST",
+                    "id": "autopush_cloudcommerceprocurement_pa_sandbox.accounts.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/accounts",
+                    "request": {
+                        "$ref": "CreateAccountRequest"
+                    },
+                    "response": {
+                        "$ref": "Operation"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                },
+                "delete": {
+                    "description": "Delete an existing Account. An account can only be deleted when\nall outstanding entitlements against that account is also deleted.",
+                    "flatPath": "v1/accounts/{accountsId}",
+                    "httpMethod": "DELETE",
+                    "id": "autopush_cloudcommerceprocurement_pa_sandbox.accounts.delete",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "The resource name of the account to delete.",
+                            "location": "path",
+                            "pattern": "^accounts/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "Operation"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                },
+                "get": {
+                    "description": "Returns the requested Account resource.",
+                    "flatPath": "v1/accounts/{accountsId}",
+                    "httpMethod": "GET",
+                    "id": "autopush_cloudcommerceprocurement_pa_sandbox.accounts.get",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "currentProject": {
+                            "description": "The id of the current project that is selected in the console.\nRequired.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "The resource name of the account to retrieve.",
+                            "location": "path",
+                            "pattern": "^accounts/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "Account"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                },
+                "list": {
+                    "description": "List Account resources that the user have access to, within the scope\nof the parent resource.",
+                    "flatPath": "v1/accounts",
+                    "httpMethod": "GET",
+                    "id": "autopush_cloudcommerceprocurement_pa_sandbox.accounts.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "currentProject": {
+                            "description": "The id of the current project that is selected in the console.\nRequired.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "pageSize": {
+                            "description": "The maximum number of entries that are requested.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageToken": {
+                            "description": "The token for fetching the next page.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "parent": {
+                            "description": "The parent resource to query for accounts. See parent field of\nAccount for more details.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/accounts",
+                    "response": {
+                        "$ref": "ListAccountsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                }
+            },
+            "resources": {
+                "operations": {
+                    "methods": {
+                        "cancel": {
+                            "description": "Starts asynchronous cancellation on a long-running operation.  The server\nmakes a best effort to cancel the operation, but success is not\nguaranteed.  If the server doesn't support this method, it returns\n`google.rpc.Code.UNIMPLEMENTED`.  Clients can use\nOperations.GetOperation or\nother methods to check whether the cancellation succeeded or whether the\noperation completed despite cancellation. On successful cancellation,\nthe operation is not deleted; instead, it becomes an operation with\nan Operation.error value with a google.rpc.Status.code of 1,\ncorresponding to `Code.CANCELLED`.",
+                            "flatPath": "v1/accounts/{accountsId}/operations/{operationsId}:cancel",
+                            "httpMethod": "POST",
+                            "id": "autopush_cloudcommerceprocurement_pa_sandbox.accounts.operations.cancel",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The name of the operation resource to be cancelled.",
+                                    "location": "path",
+                                    "pattern": "^accounts/[^/]+/operations/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}:cancel",
+                            "request": {
+                                "$ref": "CancelOperationRequest"
+                            },
+                            "response": {
+                                "$ref": "Empty"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "get": {
+                            "description": "Gets the latest state of a long-running operation.  Clients can use this\nmethod to poll the operation result at intervals as recommended by the API\nservice.",
+                            "flatPath": "v1/accounts/{accountsId}/operations/{operationsId}",
+                            "httpMethod": "GET",
+                            "id": "autopush_cloudcommerceprocurement_pa_sandbox.accounts.operations.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The name of the operation resource.",
+                                    "location": "path",
+                                    "pattern": "^accounts/[^/]+/operations/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "response": {
+                                "$ref": "Operation"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "list": {
+                            "description": "Lists operations that match the specified filter in the request. If the\nserver doesn't support this method, it returns `UNIMPLEMENTED`.\n\nNOTE: the `name` binding allows API services to override the binding\nto use different resource name schemes, such as `users/*/operations`. To\noverride the binding, API services can add a binding such as\n`\"/v1/{name=users/*}/operations\"` to their service configuration.\nFor backwards compatibility, the default name includes the operations\ncollection id, however overriding users must ensure the name binding\nis the parent resource, without the operations collection id.",
+                            "flatPath": "v1/accounts/{accountsId}/operations",
+                            "httpMethod": "GET",
+                            "id": "autopush_cloudcommerceprocurement_pa_sandbox.accounts.operations.list",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "filter": {
+                                    "description": "The standard list filter.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "description": "The name of the operation's parent resource.",
+                                    "location": "path",
+                                    "pattern": "^accounts/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "pageSize": {
+                                    "description": "The standard list page size.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "The standard list page token.",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}/operations",
+                            "response": {
+                                "$ref": "ListOperationsResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "entitlements": {
+            "methods": {
+                "addConsumer": {
+                    "description": "Adds a new user to an existing Entitlement.",
+                    "flatPath": "v1/entitlements/{entitlementsId}:addConsumer",
+                    "httpMethod": "POST",
+                    "id": "autopush_cloudcommerceprocurement_pa_sandbox.entitlements.addConsumer",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "The name of the entitlement to which to add a user.",
+                            "location": "path",
+                            "pattern": "^entitlements/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}:addConsumer",
+                    "request": {
+                        "$ref": "AddEntitlementConsumerRequest"
+                    },
+                    "response": {
+                        "$ref": "Operation"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                },
+                "cancel": {
+                    "description": "Cancel the specified entitlement Entitlement.",
+                    "flatPath": "v1/entitlements/{entitlementsId}:cancel",
+                    "httpMethod": "POST",
+                    "id": "autopush_cloudcommerceprocurement_pa_sandbox.entitlements.cancel",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "The resource name of the entitlement.",
+                            "location": "path",
+                            "pattern": "^entitlements/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}:cancel",
+                    "request": {
+                        "$ref": "CancelEntitlementRequest"
+                    },
+                    "response": {
+                        "$ref": "Operation"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                },
+                "cancelPendingPlanChange": {
+                    "description": "Cancels the pending plan change associated with an Entitlement.\nThrows FAILED_PRECONDITION if there is no pending plan change or change\ncannot be cancelled.",
+                    "flatPath": "v1/entitlements/{entitlementsId}:cancelPendingPlanChange",
+                    "httpMethod": "POST",
+                    "id": "autopush_cloudcommerceprocurement_pa_sandbox.entitlements.cancelPendingPlanChange",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "The resource name of the entitlement.",
+                            "location": "path",
+                            "pattern": "^entitlements/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}:cancelPendingPlanChange",
+                    "request": {
+                        "$ref": "CancelPendingPlanChangeRequest"
+                    },
+                    "response": {
+                        "$ref": "Operation"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                },
+                "changePlan": {
+                    "description": "Change the plan or procurable that is associated with an Entitlement.",
+                    "flatPath": "v1/entitlements/{entitlementsId}:changePlan",
+                    "httpMethod": "POST",
+                    "id": "autopush_cloudcommerceprocurement_pa_sandbox.entitlements.changePlan",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "The resource name of the entitlement.",
+                            "location": "path",
+                            "pattern": "^entitlements/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}:changePlan",
+                    "request": {
+                        "$ref": "ChangeEntitlementPlanRequest"
+                    },
+                    "response": {
+                        "$ref": "Operation"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                },
+                "create": {
+                    "description": "Creates a new Entitlement.\n\nInitially the resource will be in the\nEntitlementState.ENTITLEMENT_STATE_NEW state, and the returned\nlong-running operation will be in-progress until the backend can complete\nthe creation of the resource. Once completed, the state will transition to\nEntitlementState.ENTITLEMENT_STATE_ACTIVE. In case of failure, the\nentitlement resource will be removed.",
+                    "flatPath": "v1/entitlements",
+                    "httpMethod": "POST",
+                    "id": "autopush_cloudcommerceprocurement_pa_sandbox.entitlements.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/entitlements",
+                    "request": {
+                        "$ref": "CreateEntitlementRequest"
+                    },
+                    "response": {
+                        "$ref": "Operation"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                },
+                "delete": {
+                    "description": "Delete an existing Entitlement. An entitlement can be deleted only\nif it is suspended or cancelled.",
+                    "flatPath": "v1/entitlements/{entitlementsId}",
+                    "httpMethod": "DELETE",
+                    "id": "autopush_cloudcommerceprocurement_pa_sandbox.entitlements.delete",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "The name of the entitlement to delete.",
+                            "location": "path",
+                            "pattern": "^entitlements/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "Operation"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                },
+                "get": {
+                    "description": "Returns the requested Entitlement resource.",
+                    "flatPath": "v1/entitlements/{entitlementsId}",
+                    "httpMethod": "GET",
+                    "id": "autopush_cloudcommerceprocurement_pa_sandbox.entitlements.get",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "currentProject": {
+                            "description": "The id of the current project that is selected in the console.\nRequired.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "The name of the entitlement to retrieve.",
+                            "location": "path",
+                            "pattern": "^entitlements/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "Entitlement"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                },
+                "list": {
+                    "description": "List Entitlement resources that the user have access to, within the\nscope of the parent resource.",
+                    "flatPath": "v1/entitlements",
+                    "httpMethod": "GET",
+                    "id": "autopush_cloudcommerceprocurement_pa_sandbox.entitlements.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "currentProject": {
+                            "description": "The id of the current project that is selected in the console.\nRequired.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "filter": {
+                            "description": "The filter that can be used to limit the list request.\n\nThe filter is a query string that can match a selected set of attributes\nwith string values. For example `account_id=E-1234-5678-ABCD-EFGH`.\nSupported query attributes are\n\n* `account`\n* `provider`\n\nIf the query contains some special characters other than letters,\nunderscore, or digits, the phrase must be quoted with double quotes. For\nexample, `account_id=\"providerId:productId\"`, where the product name needs\nto be quoted because it contains special character colon.\n\nQueries can be combined with `AND`, `OR`, and `NOT` to form more complex\nqueries. They can also be grouped to force a desired evaluation order.\nFor example, `account=accounts/E-1234 OR account=accounts/5678 AND NOT\n(provider_id=foo-provider)`. Connective `AND` can be omitted between two\npredicates. For example `account=accounts/E-1234\nprovider=providers/foo-provider` is equivalent to `account=accounts/E-1234\nAND provider=providers/foo-provider`.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "pageSize": {
+                            "description": "The maximum number of entries that are requested.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageToken": {
+                            "description": "The token for fetching the next page.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "parent": {
+                            "description": "The parent resource to query for entitlements. See parent field of\nEntitlement for more details.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/entitlements",
+                    "response": {
+                        "$ref": "ListEntitlementsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                },
+                "removeConsumer": {
+                    "description": "Removes an existing user from an Entitlement.",
+                    "flatPath": "v1/entitlements/{entitlementsId}:removeConsumer",
+                    "httpMethod": "POST",
+                    "id": "autopush_cloudcommerceprocurement_pa_sandbox.entitlements.removeConsumer",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "The name of the entitlement from which to remove a user.",
+                            "location": "path",
+                            "pattern": "^entitlements/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}:removeConsumer",
+                    "request": {
+                        "$ref": "RemoveEntitlementConsumerRequest"
+                    },
+                    "response": {
+                        "$ref": "Operation"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                },
+                "revertCancellation": {
+                    "description": "Reverts a pending cancellation on the specified Entitlement. Throws\nFAILED_PRECONDITION if the entitlement was not requested to be cancelled or\nif it is not possible to revert it.",
+                    "flatPath": "v1/entitlements/{entitlementsId}:revertCancellation",
+                    "httpMethod": "POST",
+                    "id": "autopush_cloudcommerceprocurement_pa_sandbox.entitlements.revertCancellation",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "The resource name of the entitlement.",
+                            "location": "path",
+                            "pattern": "^entitlements/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}:revertCancellation",
+                    "request": {
+                        "$ref": "RevertEntitlementCancellationRequest"
+                    },
+                    "response": {
+                        "$ref": "Operation"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                },
+                "search": {
+                    "description": "Search Entitlement resources that the user has 'entitlement.get'\npermission access to.",
+                    "flatPath": "v1/entitlements:search",
+                    "httpMethod": "GET",
+                    "id": "autopush_cloudcommerceprocurement_pa_sandbox.entitlements.search",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "filter": {
+                            "description": "The filter expression for restricting the searching results. The supported\nsyntax are:\n\n* Field match (e.g. \"procurable:foo\"), which restricts results\n  with exact same field value as specified.\n\n* Following entitlement fields are searchable: name, parent, account,\nprocurable, plans.plan, state (indexed as a string), state_reason\n\nRefer to  http://go/ncon-query2 for more information about the filter\nexpression syntax.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "pageSize": {
+                            "description": "Optional. The maximum number of entries to return from this request.  The\npresence of `next_page_token` in the response indicates that more resources\nare available.  The default value of `page_size` is 20 and the maximum\nvalue is 2000.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageToken": {
+                            "description": "The token for fetching the next page.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/entitlements:search",
+                    "response": {
+                        "$ref": "SearchEntitlementsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                }
+            },
+            "resources": {
+                "operations": {
+                    "methods": {
+                        "cancel": {
+                            "description": "Starts asynchronous cancellation on a long-running operation.  The server\nmakes a best effort to cancel the operation, but success is not\nguaranteed.  If the server doesn't support this method, it returns\n`google.rpc.Code.UNIMPLEMENTED`.  Clients can use\nOperations.GetOperation or\nother methods to check whether the cancellation succeeded or whether the\noperation completed despite cancellation. On successful cancellation,\nthe operation is not deleted; instead, it becomes an operation with\nan Operation.error value with a google.rpc.Status.code of 1,\ncorresponding to `Code.CANCELLED`.",
+                            "flatPath": "v1/entitlements/{entitlementsId}/operations/{operationsId}:cancel",
+                            "httpMethod": "POST",
+                            "id": "autopush_cloudcommerceprocurement_pa_sandbox.entitlements.operations.cancel",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The name of the operation resource to be cancelled.",
+                                    "location": "path",
+                                    "pattern": "^entitlements/[^/]+/operations/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}:cancel",
+                            "request": {
+                                "$ref": "CancelOperationRequest"
+                            },
+                            "response": {
+                                "$ref": "Empty"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "get": {
+                            "description": "Gets the latest state of a long-running operation.  Clients can use this\nmethod to poll the operation result at intervals as recommended by the API\nservice.",
+                            "flatPath": "v1/entitlements/{entitlementsId}/operations/{operationsId}",
+                            "httpMethod": "GET",
+                            "id": "autopush_cloudcommerceprocurement_pa_sandbox.entitlements.operations.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The name of the operation resource.",
+                                    "location": "path",
+                                    "pattern": "^entitlements/[^/]+/operations/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "response": {
+                                "$ref": "Operation"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "list": {
+                            "description": "Lists operations that match the specified filter in the request. If the\nserver doesn't support this method, it returns `UNIMPLEMENTED`.\n\nNOTE: the `name` binding allows API services to override the binding\nto use different resource name schemes, such as `users/*/operations`. To\noverride the binding, API services can add a binding such as\n`\"/v1/{name=users/*}/operations\"` to their service configuration.\nFor backwards compatibility, the default name includes the operations\ncollection id, however overriding users must ensure the name binding\nis the parent resource, without the operations collection id.",
+                            "flatPath": "v1/entitlements/{entitlementsId}/operations",
+                            "httpMethod": "GET",
+                            "id": "autopush_cloudcommerceprocurement_pa_sandbox.entitlements.operations.list",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "filter": {
+                                    "description": "The standard list filter.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "description": "The name of the operation's parent resource.",
+                                    "location": "path",
+                                    "pattern": "^entitlements/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "pageSize": {
+                                    "description": "The standard list page size.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "The standard list page token.",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}/operations",
+                            "response": {
+                                "$ref": "ListOperationsResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "providers": {
+            "methods": {
+                "create": {
+                    "description": "Creates a new Provider.",
+                    "flatPath": "v1/providers",
+                    "httpMethod": "POST",
+                    "id": "autopush_cloudcommerceprocurement_pa_sandbox.providers.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/providers",
+                    "request": {
+                        "$ref": "Provider"
+                    },
+                    "response": {
+                        "$ref": "Provider"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                },
+                "delete": {
+                    "description": "Delete an existing Provider.\nThrows NOT_FOUND if the provider does not exist.",
+                    "flatPath": "v1/providers/{providersId}",
+                    "httpMethod": "DELETE",
+                    "id": "autopush_cloudcommerceprocurement_pa_sandbox.providers.delete",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "The name of the provider to delete.",
+                            "location": "path",
+                            "pattern": "^providers/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "Empty"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                },
+                "get": {
+                    "description": "Returns the requested Provider resource.\nThrows NOT_FOUND if the provider does not exist.",
+                    "flatPath": "v1/providers/{providersId}",
+                    "httpMethod": "GET",
+                    "id": "autopush_cloudcommerceprocurement_pa_sandbox.providers.get",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "The name of the provider to retrieve.",
+                            "location": "path",
+                            "pattern": "^providers/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "Provider"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                },
+                "list": {
+                    "description": "List Provider resources to which the user has access.",
+                    "flatPath": "v1/providers",
+                    "httpMethod": "GET",
+                    "id": "autopush_cloudcommerceprocurement_pa_sandbox.providers.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "pageSize": {
+                            "description": "The maximum number of entries that are requested.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageToken": {
+                            "description": "The token for fetching the next page.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/providers",
+                    "response": {
+                        "$ref": "ListProvidersResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                },
+                "patch": {
+                    "description": "Updates mutable fields of an existing Provider.\nThrows NOT_FOUND if the provider does not exist.",
+                    "flatPath": "v1/providers/{providersId}",
+                    "httpMethod": "PATCH",
+                    "id": "autopush_cloudcommerceprocurement_pa_sandbox.providers.patch",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "The resource name of the provider. It is provided by the client. This\nfield is of the form 'providers/<provider id>'.\nImmutable after creation.",
+                            "location": "path",
+                            "pattern": "^providers/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "updateMask": {
+                            "description": "The update mask applies to the resource.",
+                            "format": "google-fieldmask",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "request": {
+                        "$ref": "Provider"
+                    },
+                    "response": {
+                        "$ref": "Provider"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                }
+            },
+            "resources": {
+                "procurables": {
+                    "methods": {
+                        "create": {
+                            "description": "Creates a new Procurable.",
+                            "flatPath": "v1/providers/{providersId}/procurables",
+                            "httpMethod": "POST",
+                            "id": "autopush_cloudcommerceprocurement_pa_sandbox.providers.procurables.create",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "The resource name of the provider this procurable belongs to.",
+                                    "location": "path",
+                                    "pattern": "^providers/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/procurables",
+                            "request": {
+                                "$ref": "Procurable"
+                            },
+                            "response": {
+                                "$ref": "Procurable"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "delete": {
+                            "description": "Delete an existing Procurable. A Procurable can only be deleted when\nall outstanding entitlements against that Procurable are also deleted or\ncanceled.\nThrows NOT_FOUND if the procurable does not exist.\nThrows FAILED_PRECONDITION if there are active entitlements against the\n                           procurable",
+                            "flatPath": "v1/providers/{providersId}/procurables/{procurablesId}",
+                            "httpMethod": "DELETE",
+                            "id": "autopush_cloudcommerceprocurement_pa_sandbox.providers.procurables.delete",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The name of the procurable to delete.",
+                                    "location": "path",
+                                    "pattern": "^providers/[^/]+/procurables/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "response": {
+                                "$ref": "Empty"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "get": {
+                            "description": "Returns the requested Procurable resource.\nThrows NOT_FOUND if the procurable does not exist.",
+                            "flatPath": "v1/providers/{providersId}/procurables/{procurablesId}",
+                            "httpMethod": "GET",
+                            "id": "autopush_cloudcommerceprocurement_pa_sandbox.providers.procurables.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The name of the procurable to retrieve.",
+                                    "location": "path",
+                                    "pattern": "^providers/[^/]+/procurables/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "response": {
+                                "$ref": "Procurable"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "list": {
+                            "description": "List Procurable resources that the user have access to, within the\nscope of the parent resource.",
+                            "flatPath": "v1/providers/{providersId}/procurables",
+                            "httpMethod": "GET",
+                            "id": "autopush_cloudcommerceprocurement_pa_sandbox.providers.procurables.list",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "pageSize": {
+                                    "description": "The maximum number of entries that are requested.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "The token for fetching the next page.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "parent": {
+                                    "description": "The parent resource name, for example, \"providers/provider1\".",
+                                    "location": "path",
+                                    "pattern": "^providers/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/procurables",
+                            "response": {
+                                "$ref": "ListProcurablesResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "patch": {
+                            "description": "Updates mutable fields of an existing Procurable.\nThrows NOT_FOUND if the procurable does not exist.",
+                            "flatPath": "v1/providers/{providersId}/procurables/{procurablesId}",
+                            "httpMethod": "PATCH",
+                            "id": "autopush_cloudcommerceprocurement_pa_sandbox.providers.procurables.patch",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The resource name of the procurable. It is provided by the client. This\nfield is of the form 'providers/<provider-id>/procurables/<procurable-id>'\nImmutable after creation.\nRequired.",
+                                    "location": "path",
+                                    "pattern": "^providers/[^/]+/procurables/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "updateMask": {
+                                    "description": "The update mask applies to the resource.",
+                                    "format": "google-fieldmask",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "request": {
+                                "$ref": "Procurable"
+                            },
+                            "response": {
+                                "$ref": "Procurable"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        }
+                    }
+                },
+                "products": {
+                    "methods": {
+                        "create": {
+                            "description": "Creates a new Product. Creates a Provider if one does not exist.",
+                            "flatPath": "v1/providers/{providersId}/products",
+                            "httpMethod": "POST",
+                            "id": "autopush_cloudcommerceprocurement_pa_sandbox.providers.products.create",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "The resource name of the provider this product belongs to.",
+                                    "location": "path",
+                                    "pattern": "^providers/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/products",
+                            "request": {
+                                "$ref": "Product"
+                            },
+                            "response": {
+                                "$ref": "Product"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "delete": {
+                            "description": "Delete an existing Product.\nThrows NOT_FOUND if the product does not exist.",
+                            "flatPath": "v1/providers/{providersId}/products/{productsId}",
+                            "httpMethod": "DELETE",
+                            "id": "autopush_cloudcommerceprocurement_pa_sandbox.providers.products.delete",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The name of the product to delete.",
+                                    "location": "path",
+                                    "pattern": "^providers/[^/]+/products/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "response": {
+                                "$ref": "Empty"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "get": {
+                            "description": "Returns the requested Product resource.\nThrows NOT_FOUND if the product does not exist.",
+                            "flatPath": "v1/providers/{providersId}/products/{productsId}",
+                            "httpMethod": "GET",
+                            "id": "autopush_cloudcommerceprocurement_pa_sandbox.providers.products.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The name of the product to retrieve.",
+                                    "location": "path",
+                                    "pattern": "^providers/[^/]+/products/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "response": {
+                                "$ref": "Product"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "list": {
+                            "description": "List Product resources that the user has access to, within the\nscope of the parent resource.",
+                            "flatPath": "v1/providers/{providersId}/products",
+                            "httpMethod": "GET",
+                            "id": "autopush_cloudcommerceprocurement_pa_sandbox.providers.products.list",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "pageSize": {
+                                    "description": "The maximum number of entries that are requested.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "The token for fetching the next page.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "parent": {
+                                    "description": "The parent resource name, for example, \"providers/provider1\".",
+                                    "location": "path",
+                                    "pattern": "^providers/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/products",
+                            "response": {
+                                "$ref": "ListProductsResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "patch": {
+                            "description": "Updates mutable fields of an existing Product.\nThrows NOT_FOUND if the product does not exist.",
+                            "flatPath": "v1/providers/{providersId}/products/{productsId}",
+                            "httpMethod": "PATCH",
+                            "id": "autopush_cloudcommerceprocurement_pa_sandbox.providers.products.patch",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The resource name of the product. It is provided by the client. This\nfield is of the form 'providers/<provider id>/products/<product id>'\nImmutable after creation.\nRequired.",
+                                    "location": "path",
+                                    "pattern": "^providers/[^/]+/products/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "updateMask": {
+                                    "description": "The update mask applies to the resource.",
+                                    "format": "google-fieldmask",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "request": {
+                                "$ref": "Product"
+                            },
+                            "response": {
+                                "$ref": "Product"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        }
+                    },
+                    "resources": {
+                        "plans": {
+                            "methods": {
+                                "create": {
+                                    "description": "Creates a new Plan.",
+                                    "flatPath": "v1/providers/{providersId}/products/{productsId}/plans",
+                                    "httpMethod": "POST",
+                                    "id": "autopush_cloudcommerceprocurement_pa_sandbox.providers.products.plans.create",
+                                    "parameterOrder": [
+                                        "parent"
+                                    ],
+                                    "parameters": {
+                                        "parent": {
+                                            "description": "The resource name of the product this plan belongs to.",
+                                            "location": "path",
+                                            "pattern": "^providers/[^/]+/products/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/{+parent}/plans",
+                                    "request": {
+                                        "$ref": "Plan"
+                                    },
+                                    "response": {
+                                        "$ref": "Plan"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                },
+                                "delete": {
+                                    "description": "Deletes an existing Plan.",
+                                    "flatPath": "v1/providers/{providersId}/products/{productsId}/plans/{plansId}",
+                                    "httpMethod": "DELETE",
+                                    "id": "autopush_cloudcommerceprocurement_pa_sandbox.providers.products.plans.delete",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "name": {
+                                            "description": "Name of the plan to be deleted.",
+                                            "location": "path",
+                                            "pattern": "^providers/[^/]+/products/[^/]+/plans/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/{+name}",
+                                    "response": {
+                                        "$ref": "Empty"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                },
+                                "get": {
+                                    "description": "Returns the requested Plan resource.",
+                                    "flatPath": "v1/providers/{providersId}/products/{productsId}/plans/{plansId}",
+                                    "httpMethod": "GET",
+                                    "id": "autopush_cloudcommerceprocurement_pa_sandbox.providers.products.plans.get",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "name": {
+                                            "description": "The name of the plan to retrieve.",
+                                            "location": "path",
+                                            "pattern": "^providers/[^/]+/products/[^/]+/plans/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/{+name}",
+                                    "response": {
+                                        "$ref": "Plan"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                },
+                                "list": {
+                                    "description": "Lists Plan resources that the user has access to, within the\nscope of the parent resource.",
+                                    "flatPath": "v1/providers/{providersId}/products/{productsId}/plans",
+                                    "httpMethod": "GET",
+                                    "id": "autopush_cloudcommerceprocurement_pa_sandbox.providers.products.plans.list",
+                                    "parameterOrder": [
+                                        "parent"
+                                    ],
+                                    "parameters": {
+                                        "pageSize": {
+                                            "description": "The maximum number of entries that are requested.",
+                                            "format": "int32",
+                                            "location": "query",
+                                            "type": "integer"
+                                        },
+                                        "pageToken": {
+                                            "description": "The token for fetching the next page.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "parent": {
+                                            "description": "The parent resource name.",
+                                            "location": "path",
+                                            "pattern": "^providers/[^/]+/products/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/{+parent}/plans",
+                                    "response": {
+                                        "$ref": "ListPlansResponse"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                },
+                                "patch": {
+                                    "description": "Updates mutable fields of an existing [Plan[]].\nThrows NOT_FOUND if the plan does not exist.",
+                                    "flatPath": "v1/providers/{providersId}/products/{productsId}/plans/{plansId}",
+                                    "httpMethod": "PATCH",
+                                    "id": "autopush_cloudcommerceprocurement_pa_sandbox.providers.products.plans.patch",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "name": {
+                                            "description": "The resource name of the plan. It is provided by the client. This\nfield is of the form:\n'providers/<provider-id>/products/<product-id>/plans/<plan-id>'\nImmutable after creation.\nRequired.",
+                                            "location": "path",
+                                            "pattern": "^providers/[^/]+/products/[^/]+/plans/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "updateMask": {
+                                            "description": "The update mask applies to the resource.",
+                                            "format": "google-fieldmask",
+                                            "location": "query",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/{+name}",
+                                    "request": {
+                                        "$ref": "Plan"
+                                    },
+                                    "response": {
+                                        "$ref": "Plan"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190925",
+    "rootUrl": "https://autopush-cloudcommerceprocurement-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "Account": {
+            "description": "Represents an account that was established by the customer on an\nexternal service provider's system.\n\nWhen consuming services on external service provider's systems, the service\nprovider generally needs to create a linked-account on their system to track\ncustomers. The account resource represents this relationship on the Cloud\nCommerce platform.\n\nProducts/Services that are hosted by external service providers generally\nrequire an account to be present before they can be purchased and used.\n\nThe metadata that indicates whether an Account is required for a purchase,\nor what parameters are needed for creating an Account is hosted on the\nCloud Commerce Inventory system, as part of a Product's definition.\n\nThrough this resource, the users can can access their account on the service\nprovider's web-site via the dashboard_url field on the resource.",
+            "id": "Account",
+            "properties": {
+                "approvals": {
+                    "description": "Output only. The approvals for this account. These approvals are used to track actions\nthat are permitted or have been completed by a customer within the context\nof the provider. This might include a sign up flow or a provisioning step,\nfor example, that the provider can admit to having happened.",
+                    "items": {
+                        "$ref": "AccountApproval"
+                    },
+                    "type": "array"
+                },
+                "createTime": {
+                    "description": "The creation timestamp.\n@OutputOnly",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "dashboardUrl": {
+                    "description": "The URL of the dashboard for managing this account on the service\nprovider's site. This field is populated by the service provider as\npart of resource creation.\n@OutputOnly",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "Human-friendly display name of the account.\nRequired.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The resource name of the account.\n@OutputOnly",
+                    "type": "string"
+                },
+                "parent": {
+                    "description": "The resource name of the parent resource.\nThis field is of the form \"<type>/<id>\". Currently the only\ntype supported is \"billingAccounts\".\nRequired.",
+                    "type": "string"
+                },
+                "properties": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Set of properties that the service provider supplied during account\ncreation.\n@OutputOnly",
+                    "type": "object"
+                },
+                "provider": {
+                    "description": "The identifier of the service provider that this account was created\nagainst.\nRequired.",
+                    "type": "string"
+                },
+                "state": {
+                    "description": "The current state of the account.\n@OutputOnly",
+                    "enum": [
+                        "ACCOUNT_STATE_UNSPECIFIED",
+                        "ACCOUNT_STATE_REQUESTING_ACTIVATION",
+                        "ACCOUNT_STATE_ACTIVATION_REQUESTED",
+                        "ACCOUNT_STATE_ACTIVATING",
+                        "ACCOUNT_STATE_ACTIVE",
+                        "ACCOUNT_STATE_DELETING"
+                    ],
+                    "enumDescriptions": [
+                        "Sentinel value, do not use.",
+                        "Indicates that the account is being created and the backend is in the\nprocess of requesting an approval from the service provider.\n\nThis is a transient state, and the resoure cannot be modified.\n\nThe entitlement transitions to\nAccountState.ACCOUNT_STATE_ACTIVATION_REQUESTED after the\nrequest is completed. If the request fails, then the account wiil be\nremoved.\n\nThis is deprecated in favor of account approvals.",
+                        "The resource owner has requested the creation of the account resource, and\nthe partner notification message is dispatched.\n\nThe next possible states are:\n- AccountState.ACCOUNT_STATE_ACTIVATING: After provider approves the\n account.\n- AccountState.ACCOUNT_STATE_DELETING: After provider rejects\n the account. *or* After user successfully invokes delete.\n\nThis is deprecated in favor of account approvals.",
+                        "The provider has approved the account.\n\nThis is a transient state.\n\nThe next possible states are:\n- AccountState.ACCOUNT_STATE_ACTIVE.\n\nThis is deprecated in favor of account approvals.",
+                        "The account is active and ready for use.\n\nThe next possible states are:\n- AccountState.ACCOUNT_DELETING: After the user invokes delete.",
+                        "The account is in the process of being deleted.\n\nThe next possible states are:\n- *removal*: After successful dispatch of a partner notification\nmessage."
+                    ],
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "The last update timestamp.\n@OutputOnly",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AccountApproval": {
+            "description": "An approval for some action on an account.",
+            "id": "AccountApproval",
+            "properties": {
+                "name": {
+                    "description": "Output only. The name of the approval.",
+                    "type": "string"
+                },
+                "reason": {
+                    "description": "An explanation for the state of the approval.\nOptional.",
+                    "type": "string"
+                },
+                "state": {
+                    "description": "Output only. The state of the approval.",
+                    "enum": [
+                        "STATE_UNSPECIFIED",
+                        "PENDING",
+                        "APPROVED",
+                        "REJECTED"
+                    ],
+                    "enumDescriptions": [
+                        "Sentinel value; do not use.",
+                        "The approval is pending response from the provider.\n\nThe approval state can transition to\nAccount.Approval.State.APPROVED or\nAccount.Approval.State.REJECTED.",
+                        "The approval has been granted by the provider.",
+                        "The approval has been rejected by the provider.\n\nA provider may choose to approve a previously rejected approval, so\nis it possible to transition to Account.Approval.State.APPROVED."
+                    ],
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "Output only. The last update timestamp of the approval.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AddEntitlementConsumerRequest": {
+            "description": "Request message for ProcurementService.AddEntitlementConsumer.",
+            "id": "AddEntitlementConsumerRequest",
+            "properties": {
+                "consumer": {
+                    "description": "The consumer that should be added as an entitlement user.\nCurrently only project is supported. The project must be specified in\nformat \"projects/<project_number>\".\nRequired.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CancelEntitlementRequest": {
+            "description": "Request message for ProcurementService.CancelEntitlement.",
+            "id": "CancelEntitlementRequest",
+            "properties": {},
+            "type": "object"
+        },
+        "CancelOperationRequest": {
+            "description": "The request message for Operations.CancelOperation.",
+            "id": "CancelOperationRequest",
+            "properties": {},
+            "type": "object"
+        },
+        "CancelPendingPlanChangeRequest": {
+            "description": "Request message for ProcurementService.CancelPendingPlanChange.",
+            "id": "CancelPendingPlanChangeRequest",
+            "properties": {},
+            "type": "object"
+        },
+        "ChangeEntitlementPlanRequest": {
+            "description": "Request message for ProcurementService.ChangeEntitlementPlan.",
+            "id": "ChangeEntitlementPlanRequest",
+            "properties": {
+                "plan": {
+                    "description": "The name of the new plan that is requested.",
+                    "type": "string"
+                },
+                "procurable": {
+                    "description": "The name of the new procurable that is requested, if applicable.\nOptional.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CreateAccountRequest": {
+            "description": "Request message for ProcurementService.CreateAccount.",
+            "id": "CreateAccountRequest",
+            "properties": {
+                "billingAccountId": {
+                    "description": "The id of the billing account that will get linked with the external\naccount.",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "User specified display name of the account resource. If the user\ndoesn't specify a name, a name will be generated automatically.",
+                    "type": "string"
+                },
+                "inputProperties": {
+                    "additionalProperties": {
+                        "description": "Properties of the object.",
+                        "type": "any"
+                    },
+                    "description": "The custom properties that were collected from the user to create this\naccount.",
+                    "type": "object"
+                },
+                "provider": {
+                    "description": "The resource name of the service provider that this account is created\nagainst. Has the format of \"providers/{provider_id}\".",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CreateEntitlementRequest": {
+            "description": "Request message for ProcurementService.CreateEntitlement.",
+            "id": "CreateEntitlementRequest",
+            "properties": {
+                "currentUser": {
+                    "description": "The e-mail of the current user that is performing the create operation.\nThis will allow Procurement server to attach the user as a billing\nadministrator to the project that will be used for reporting usage.\n\nRequired if parent is billing account.",
+                    "type": "string"
+                },
+                "entitlement": {
+                    "$ref": "Entitlement",
+                    "description": "An entitlement to be created.\nRequired."
+                },
+                "projectNumber": {
+                    "description": "The number of the GCP project that is associated with this create\nentitlement operation.\nOptional.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Date": {
+            "description": "Represents a whole or partial calendar date, e.g. a birthday. The time of day\nand time zone are either specified elsewhere or are not significant. The date\nis relative to the Proleptic Gregorian Calendar. This can represent:\n\n* A full date, with non-zero year, month and day values\n* A month and day value, with a zero year, e.g. an anniversary\n* A year on its own, with zero month and day values\n* A year and month value, with a zero day, e.g. a credit card expiration date\n\nRelated types are google.type.TimeOfDay and `google.protobuf.Timestamp`.",
+            "id": "Date",
+            "properties": {
+                "day": {
+                    "description": "Day of month. Must be from 1 to 31 and valid for the year and month, or 0\nif specifying a year by itself or a year and month where the day is not\nsignificant.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "month": {
+                    "description": "Month of year. Must be from 1 to 12, or 0 if specifying a year without a\nmonth and day.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "year": {
+                    "description": "Year of date. Must be from 1 to 9999, or 0 if specifying a date without\na year.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "Empty": {
+            "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+            "id": "Empty",
+            "properties": {},
+            "type": "object"
+        },
+        "Entitlement": {
+            "description": "Entitlement represents a purchase made by a customer on the Cloud Commerce\nPlatform. Creation of an entitlement programs both the Google backend systems\nas well as external service provider's systems (if needed) to allow use of\npurchased product and to ensure the appropriate billing events occur.\n\nCustomers typically choose a pricing plan when creating an entitlement for a\nproduct and can change their plan, if the product allows plan change.\nCustomers can also cancel their purchases through the Entitlement resource\nonce they no longer need it.\n\nThe metadata that is needed during an Entitlement's creation is hosted on the\nCloud Commerce Inventory system, as part of a Product's definition.\n\nNext Id: 29",
+            "id": "Entitlement",
+            "properties": {
+                "account": {
+                    "description": "The resource name of the account that this entitlement is based on.\nRequired, if the creation of an entitlement requires an account to be\npresent.",
+                    "type": "string"
+                },
+                "consumers": {
+                    "description": "The consumers of this entitlement.",
+                    "items": {
+                        "$ref": "EntitlementConsumer"
+                    },
+                    "type": "array"
+                },
+                "createTime": {
+                    "description": "The creation timestamp.\n@OutputOnly",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "customPricing": {
+                    "$ref": "EntitlementCustomPricingInfo",
+                    "description": "Custom pricing information for this entitlement.\n@OutputOnly"
+                },
+                "dashboardUrl": {
+                    "description": "The url of the dashboard for managing this entitlement.\n@OutputOnly",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "Human-friendly display name of the entitlement. This can be updated\nregardless of state.\nRequired.",
+                    "type": "string"
+                },
+                "endTime": {
+                    "description": "The time that this entitlement becomes cancelled or suspended.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "messageToUser": {
+                    "description": "Provider supplied message that is displayed to end user. Currently this is\nused to communicate progress and ETA for provisioning.\nThis field should be used only when a user is waiting for an action from\nthe provider.\nThis field is cleared automatically when the enitlement state changes.\n@OutputOnly",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The resource name of the entitlement.\nEntitlement names have the form `entitlements/{entitlement_id}`.\n@OutputOnly",
+                    "type": "string"
+                },
+                "parent": {
+                    "description": "The resource name of the parent resource.\nThis field is of the form \"<type>/<id>\". Currently supported types are\n'billingAccounts/<billing-account-id>' and 'projects/<project-number>'.\nRequired.",
+                    "type": "string"
+                },
+                "planChanges": {
+                    "description": "plan_changes keeps a change history for plan changes.\n@OutputOnly",
+                    "items": {
+                        "$ref": "EntitlementPlanChange"
+                    },
+                    "type": "array"
+                },
+                "plans": {
+                    "description": "All procured plans for this Entitlement.",
+                    "items": {
+                        "$ref": "EntitlementProcuredPlan"
+                    },
+                    "type": "array"
+                },
+                "procurable": {
+                    "description": "The resource name of the procurable that is being procured.\nRequired.",
+                    "type": "string"
+                },
+                "properties": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Set of properties that the service provider supplied during entitlement\ncreation.\nOptional.\n@OutputOnly",
+                    "type": "object"
+                },
+                "serviceName": {
+                    "description": "The name of the service that is used to report usage for this entitlement.\n@OutputOnly",
+                    "type": "string"
+                },
+                "serviceProjectId": {
+                    "description": "The id of the project that is created to track usage-based billing for\nthis entitlement.\n@OutputOnly",
+                    "type": "string"
+                },
+                "startTime": {
+                    "description": "The time that this entitlement becomes active.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "state": {
+                    "description": "The state of the entitlement.\n@OutputOnly",
+                    "enum": [
+                        "ENTITLEMENT_STATE_UNSPECIFIED",
+                        "ENTITLEMENT_STATE_REQUESTING_ACTIVATION",
+                        "ENTITLEMENT_STATE_ACTIVATION_REQUESTED",
+                        "ENTITLEMENT_STATE_ACTIVATING",
+                        "ENTITLEMENT_STATE_ACTIVE",
+                        "ENTITLEMENT_STATE_CANCELLING",
+                        "ENTITLEMENT_STATE_PENDING_CANCELLATION",
+                        "ENTITLEMENT_STATE_CANCELLED",
+                        "ENTITLEMENT_STATE_CHANGING_PLAN",
+                        "ENTITLEMENT_STATE_PENDING_PLAN_CHANGE",
+                        "ENTITLEMENT_STATE_SUSPENDING",
+                        "ENTITLEMENT_STATE_SUSPENDED",
+                        "ENTITLEMENT_STATE_DELETING",
+                        "ENTITLEMENT_STATE_REJECTED"
+                    ],
+                    "enumDescriptions": [
+                        "Sentinel value. Do not use.",
+                        "Indicates that the entitlement is being created and the backend is in the\nprocess of requesting an approval from the service provider.\n\nThis is a transient state, and the resoure cannot be modified.\n\nThe entitlement transitions to\nEntitlementState.ENTITLEMENT_STATE_ACTIVATION_REQUESTED after the\nrequest is completed. If the request fails, then the entitlement wiil be\nremoved.",
+                        "Indicates that the entitlement is being created and the backend is in the\nprocess of requesting an approval from the service provider.\n\nIf the provider approves, then the entitlement will transition to\nthe EntitlementState.ENTITLEMENT_STATE_ACTIVATING state.\nOtherwise, the entitlement will be removed.",
+                        "The partner has approved the entitlement. The procurement service is in\nthe process of transitioning the state of the entitlement to\nEntitlementState.ENTITLEMENT_STATE_ACTIVE.\n\nThis is a transient state, and the resoure cannot be modified.",
+                        "Indicates that the entitlement is active. The procured item is now usable\nand any associated billing events will start occurring.\n\nIn this state, the user can decide to cancel the entitlement, which would\nchange the state to\nEntitlementState.ENTITLEMENT_STATE_PENDING_CANCELLATION, and then\nEntitlementState.ENTITLEMENT_STATE_CANCELLED.\n\nThe user can also request a change of plan, which will transition the\nstate to EntitlementState.ENTITLEMENT_STATE_PENDING_PLAN_CHANGE, and\nthen back to EntitlementState.ACTIVE.\n\nEither the service provider, or Google can decide to suspend the\nentitlement, changing its state to\nEntitlementState.ENTITLEMENT_STATE_SUSPENDED.",
+                        "The backend is in the process of cancelling the entitlement. Depending\non the subscription model, the resource can transition to either.\nEntitlementState.ENTITLEMENT_STATE_CANCELLED or\nEntitlementState.ENTITLEMENT_STATE_PENDING_CANCELLATION.",
+                        "Indicates that the entitlement was cancelled by the user. The entitlement\ntypically stays in this state, if the entitlement/plan allows use of the\nunderlying resource until the end of the current billing cycle. Once the\nbilling cycle completes, the resource will transition to\nEntitlementState.ENTITLEMENT_STATE_CANCELLED state.\n\nThe resource cannot be modified during this state.",
+                        "Indicates that the entitlement was cancelled. The entitlement can now\nbe deleted.",
+                        "Indicates that the backend is in the process of changing the plan.\nDepending on the subscription model, the resource can transition to either\nEntitlementState.ENTITLEMENT_STATE_ACTIVE or\nEntitlementState.ENTITLEMENT_STATE_PENDING_PLAN_CHANGE.\n\nThis is a transient state.",
+                        "Indicates that the entitlement is currently active, but there is a pending\nplan change that is requested by the user. The entitlement typically stays\nin this state, if the entitlement/plan requires the completion of the\ncurrent billing cycle before the plan can be changed. Once the billing\ncycle completes, the resource will transition to\nEntitlementState.ENTITLEMENT_STATE_ACTIVE, with its plan changed.",
+                        "Indicates that the entitlement is in the process of being suspended.\nThe resource will eventually transition to\nEntitlementState.ENTITLEMENT_STATE_SUSPENDED. See the suspended state\ndescription for more details.",
+                        "Indicates that the entitlement is suspended either by Google or service\nprovider request.\nThis can be triggered for various external reasons (e.g. expiration of\ncredit card on the billing account, violation of terms-of-service of the\nthird-party service provider etc.). As such, any remediating action needs\nto be taken externally, before the entitlement can be activated.",
+                        "Indicates that the entitlement is in the process of being deleted.",
+                        "Indicates that the entitlement was rejected by partner."
+                    ],
+                    "type": "string"
+                },
+                "stateReason": {
+                    "description": "An explanation for the Entitlment's state. Mainly used in the case of\n`EntitlementState.ENTITLEMENT_STATE_REJECTED` and\n`EntitlementState.ENTITLEMENT_STATE_SUSPENDED` states to explain why\nthe entitlement was rejected or suspended.\n@OutputOnly",
+                    "type": "string"
+                },
+                "upcomingCancellationTime": {
+                    "description": "The future timestamp at which the entitlement will be fully cancelled.\nThis field is set, only when the entitlement state is in\nEntitlementState.ENTITLEMENT_STATE_PENDING_CANCELLATION state.\n@OutputOnly",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "The last update timestamp.\n@OutputOnly",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "EntitlementConsumer": {
+            "description": "Information about a consumer of an entitlement.",
+            "id": "EntitlementConsumer",
+            "properties": {
+                "project": {
+                    "description": "The consumer's project. This is always of the format\n`projects/<project number>`.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "EntitlementCustomPricingInfo": {
+            "description": "Information about active custom pricing on an entitlement.",
+            "id": "EntitlementCustomPricingInfo",
+            "properties": {
+                "endTime": {
+                    "description": "The end time of the custom pricing.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "EntitlementPlanChange": {
+            "description": "Information about a plan change.\nNext Id: 11\n@OutputOnly",
+            "id": "EntitlementPlanChange",
+            "properties": {
+                "changeTime": {
+                    "description": "The last update timestamp.\n@OutputOnly",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "newPlan": {
+                    "description": "The new plan, after the change.",
+                    "type": "string"
+                },
+                "newProcurable": {
+                    "description": "The new procurable, after the change, if applicable.",
+                    "type": "string"
+                },
+                "oldPlan": {
+                    "description": "The previous plan, before the change.",
+                    "type": "string"
+                },
+                "oldProcurable": {
+                    "description": "The previous procurable, before the change, if applicable.",
+                    "type": "string"
+                },
+                "planChangeDate": {
+                    "$ref": "Date",
+                    "description": "A date at which the entitlement transitioned or will transition (in case\nof pending plan change) to using the new plan.\nDeprecated in favor of plan_change_time"
+                },
+                "planChangeState": {
+                    "description": "State of the plan change.",
+                    "enum": [
+                        "PLAN_CHANGE_STATE_UNSPECIFIED",
+                        "PLAN_CHANGE_STATE_PENDING",
+                        "PLAN_CHANGE_STATE_APPROVED",
+                        "PLAN_CHANGE_STATE_REJECTED",
+                        "PLAN_CHANGE_STATE_CANCELED"
+                    ],
+                    "enumDescriptions": [
+                        "Sentinel value. Do not use.",
+                        "Plan Change is in this state when a change is initiated. This change\ncan either be approved or canceled.",
+                        "Plan change is in this state, if the change was approved.",
+                        "Plan change is in this state, if the change was rejected by partner.",
+                        "Plan change is in this state, if it was cancelled by the system."
+                    ],
+                    "type": "string"
+                },
+                "planChangeTime": {
+                    "description": "A time at which the entitlement transitioned or will transition (in case\nof pending plan change) to using the new plan.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "stateReason": {
+                    "description": "An explanation for the plan change's state. Mainly used in the case of\n`REJECTED` and `CANCELED` states to explain why the change request was\ndenied or canceled.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "EntitlementProcuredPlan": {
+            "description": "A procured plan for this Entitlement.",
+            "id": "EntitlementProcuredPlan",
+            "properties": {
+                "creditName": {
+                    "description": "The resource name of the credit attached to this plan. This field is\nof the form: 'billingAccounts/<billing-account-id>/credits/<credit-id>'.\nOptional.",
+                    "type": "string"
+                },
+                "endTime": {
+                    "description": "The time at which the entitlement subscription will end. Entitlement\nstate will determine if it is truly end time or renewal time.\nOptional.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "pendingPlanChange": {
+                    "$ref": "EntitlementPlanChange",
+                    "description": "Stores information about currently active/pending plan change."
+                },
+                "plan": {
+                    "description": "The resource name of the plan. This field is of the form:\n'providers/<provider-id>/products/<product-id>/plans/<plan-id>'",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListAccountsResponse": {
+            "description": "Response message for [ProcurementService.ListAccounts[].",
+            "id": "ListAccountsResponse",
+            "properties": {
+                "accounts": {
+                    "description": "The list of accounts in this response.",
+                    "items": {
+                        "$ref": "Account"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "The token for fetching the next page.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListEntitlementsResponse": {
+            "description": "Response message for ProcurementService.ListEntitlements",
+            "id": "ListEntitlementsResponse",
+            "properties": {
+                "entitlements": {
+                    "description": "The list of entitlements in this response.",
+                    "items": {
+                        "$ref": "Entitlement"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "The token for fetching the next page.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListOperationsResponse": {
+            "description": "The response message for Operations.ListOperations.",
+            "id": "ListOperationsResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "The standard List next-page token.",
+                    "type": "string"
+                },
+                "operations": {
+                    "description": "A list of operations that matches the specified filter in the request.",
+                    "items": {
+                        "$ref": "Operation"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListPlansResponse": {
+            "description": "Response message for ProcurementService.ListPlans.",
+            "id": "ListPlansResponse",
+            "properties": {
+                "plans": {
+                    "description": "The list of plans in this response.",
+                    "items": {
+                        "$ref": "Plan"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListProcurablesResponse": {
+            "description": "Response message for ProcurementService.ListProcurables",
+            "id": "ListProcurablesResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "The token for fetching the next page.",
+                    "type": "string"
+                },
+                "procurables": {
+                    "description": "The list of procurables in this response.",
+                    "items": {
+                        "$ref": "Procurable"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListProductsResponse": {
+            "description": "Response message for ProcurementService.ListProducts.",
+            "id": "ListProductsResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "The token for fetching the next page.",
+                    "type": "string"
+                },
+                "products": {
+                    "description": "The list of products in this response.",
+                    "items": {
+                        "$ref": "Product"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListProvidersResponse": {
+            "description": "Response message for ProcurementService.ListProviders.",
+            "id": "ListProvidersResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "The token for fetching the next page.",
+                    "type": "string"
+                },
+                "providers": {
+                    "description": "The list of providers in this response.",
+                    "items": {
+                        "$ref": "Provider"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Money": {
+            "description": "Represents an amount of money with its currency type.",
+            "id": "Money",
+            "properties": {
+                "currencyCode": {
+                    "description": "The 3-letter currency code defined in ISO 4217.",
+                    "type": "string"
+                },
+                "nanos": {
+                    "description": "Number of nano (10^-9) units of the amount.\nThe value must be between -999,999,999 and +999,999,999 inclusive.\nIf `units` is positive, `nanos` must be positive or zero.\nIf `units` is zero, `nanos` can be positive, zero, or negative.\nIf `units` is negative, `nanos` must be negative or zero.\nFor example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "units": {
+                    "description": "The whole units of the amount.\nFor example if `currencyCode` is `\"USD\"`, then 1 unit is one US dollar.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Operation": {
+            "description": "This resource represents a long-running operation that is the result of a\nnetwork API call.",
+            "id": "Operation",
+            "properties": {
+                "done": {
+                    "description": "If the value is `false`, it means the operation is still in progress.\nIf `true`, the operation is completed, and either `error` or `response` is\navailable.",
+                    "type": "boolean"
+                },
+                "error": {
+                    "$ref": "Status",
+                    "description": "The error result of the operation in case of failure or cancellation."
+                },
+                "metadata": {
+                    "additionalProperties": {
+                        "description": "Properties of the object. Contains field @type with type URL.",
+                        "type": "any"
+                    },
+                    "description": "Service-specific metadata associated with the operation.  It typically\ncontains progress information and common metadata such as create time.\nSome services might not provide such metadata.  Any method that returns a\nlong-running operation should document the metadata type, if any.",
+                    "type": "object"
+                },
+                "name": {
+                    "description": "The server-assigned name, which is only unique within the same service that\noriginally returns it. If you use the default HTTP mapping, the\n`name` should be a resource name ending with `operations/{unique_id}`.",
+                    "type": "string"
+                },
+                "response": {
+                    "additionalProperties": {
+                        "description": "Properties of the object. Contains field @type with type URL.",
+                        "type": "any"
+                    },
+                    "description": "The normal response of the operation in case of success.  If the original\nmethod returns no data on success, such as `Delete`, the response is\n`google.protobuf.Empty`.  If the original method is standard\n`Get`/`Create`/`Update`, the response should be the resource.  For other\nmethods, the response should have the type `XxxResponse`, where `Xxx`\nis the original method name.  For example, if the original method name\nis `TakeSnapshot()`, the inferred response type is\n`TakeSnapshotResponse`.",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "Plan": {
+            "description": "Represents a plan that can be selected when creating a entitlement against\na procurable. Plans typically represent different pricing models for a\nservice.",
+            "id": "Plan",
+            "properties": {
+                "createTime": {
+                    "description": "The create timestamp.\n@OutputOnly",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "Human-friendly display name of the plan.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The resource name of the plan. It is provided by the client. This\nfield is of the form:\n'providers/<provider-id>/products/<product-id>/plans/<plan-id>'\nImmutable after creation.\nRequired.",
+                    "type": "string"
+                },
+                "serviceManagementConfig": {
+                    "$ref": "PlanServiceManagementConfig",
+                    "description": "The configuration for Service Management for the plan."
+                },
+                "subscriptionConfig": {
+                    "$ref": "PlanSubscriptionConfig",
+                    "description": "The configuration for subscription management for the plan."
+                },
+                "updateTime": {
+                    "description": "The last update timestamp.\n@OutputOnly",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PlanServiceManagementConfig": {
+            "description": "The configuration for service management system, for managing usage-based\nbilling related services and projects.",
+            "id": "PlanServiceManagementConfig",
+            "properties": {
+                "serviceName": {
+                    "description": "The name of the service to enable in the usage based billing project.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PlanSubscriptionConfig": {
+            "description": "The configuration for subscription management.",
+            "id": "PlanSubscriptionConfig",
+            "properties": {
+                "endingBehavior": {
+                    "description": "The ending behavior for subscriptions.",
+                    "enum": [
+                        "ENDING_BEHAVIOR_UNSPECIFIED",
+                        "AUTOMATICALLY_RENEW",
+                        "COMPLETE"
+                    ],
+                    "enumDescriptions": [
+                        "Sentinel value; do not use.",
+                        "The subscription should be automatically renewed when its period ends.",
+                        "The subscription should be marked as complete when its period ends."
+                    ],
+                    "type": "string"
+                },
+                "mustCompleteBillingCycle": {
+                    "description": "Indicates that the subscription must complete its billing cycle before it\ngets changed / cancelled.",
+                    "type": "boolean"
+                },
+                "period": {
+                    "description": "The subscription period. This must be in RFC 3339 duration format.",
+                    "type": "string"
+                },
+                "provider": {
+                    "description": "The ID of the service provider in the Subscriptions API.",
+                    "type": "string"
+                },
+                "resource": {
+                    "description": "The ID of the resource under the provider in the Subscriptions API.",
+                    "type": "string"
+                },
+                "serviceLevelKey": {
+                    "description": "The key of the subscription label that holds the service level (plan)\nname.",
+                    "type": "string"
+                },
+                "serviceLevelValue": {
+                    "description": "The subscription service level (plan) name.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Procurable": {
+            "description": "Represents an entity that can be purchased, meaning Entitlements can be\ncreated against it.\nNext Id: 12",
+            "id": "Procurable",
+            "properties": {
+                "autoRenewalEnabled": {
+                    "description": "Whether auto renewal is enabled for plans associated with this procurable.\nTemporary usage for annual subscription auto renewal enablement purpose.\n@OutputOnly",
+                    "type": "boolean"
+                },
+                "createTime": {
+                    "description": "The creation timestamp.\n@OutputOnly",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "customPricing": {
+                    "$ref": "ProcurableCustomPricing",
+                    "description": "Custom pricing for this procurable."
+                },
+                "displayName": {
+                    "description": "Human-friendly display name of the procurable. This is used whenever\nwe want to display the procurable name to the end user (e.g. as a name\nof the consumer project).\nRequired.",
+                    "type": "string"
+                },
+                "expirationTime": {
+                    "description": "The timestamp at which the procurable is no longer able to be procured.\nThis only applies if the procurable is of type\nProcurable.ProcurableType.PROCURABLE_TYPE_QUOTE.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The resource name of the procurable. It is provided by the client. This\nfield is of the form 'providers/<provider-id>/procurables/<procurable-id>'\nImmutable after creation.\nRequired.",
+                    "type": "string"
+                },
+                "plans": {
+                    "description": "List of plans associated with the procurable.",
+                    "items": {
+                        "$ref": "ProcurableProcurablePlan"
+                    },
+                    "type": "array"
+                },
+                "products": {
+                    "description": "Represents products that are being procured. This field is typically used\nto lookup procured products when the procurable doesn't have any\nassociated plans.\nRequired, if plans field is empty.\nImmutable after creation.",
+                    "items": {
+                        "$ref": "ProcurableProcurableProduct"
+                    },
+                    "type": "array"
+                },
+                "state": {
+                    "description": "State of the procurable.",
+                    "enum": [
+                        "PROCURABLE_STATE_UNSPECIFIED",
+                        "PROCURABLE_STATE_ACTIVE",
+                        "PROCURABLE_STATE_DISABLED"
+                    ],
+                    "enumDescriptions": [
+                        "Sentinel value; do not use.",
+                        "The procurable is active and can be procured.",
+                        "The procurable has been disabled and should not be procured again."
+                    ],
+                    "type": "string"
+                },
+                "type": {
+                    "description": "Type of the procurable.",
+                    "enum": [
+                        "PROCURABLE_TYPE_UNSPECIFIED",
+                        "PROCURABLE_TYPE_PRODUCT",
+                        "PROCURABLE_TYPE_QUOTE"
+                    ],
+                    "enumDescriptions": [
+                        "Sentinel value, do not use.",
+                        "Indicates that the type is product. Exactly one plan of 'Product'\nprocurables can be purchased. Plan changes are allowed.",
+                        "This represents Mintmark's 'Quote' procurable. All of the plans of\n'Quote' procurables are procured at the same time when an entitlement is\ncreated. Plan changes are not allowed. This procurable can be purchased\nonly once. go/mintmark-mvp-ccp"
+                    ],
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "The last update timestamp.\n@OutputOnly",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ProcurableCustomPricing": {
+            "description": "Custom pricing that should be enabled for customers that procure this.\nCustom pricing can only be applied to procurables of type\nProcurable.ProcurableType.PROCURABLE_TYPE_QUOTE.",
+            "id": "ProcurableCustomPricing",
+            "properties": {
+                "customPriceBookName": {
+                    "description": "Custom price book name as defined in Argentum of the form\ncustomPriceBooks/<NAME_SUFFIX>.",
+                    "type": "string"
+                },
+                "customPricingDuration": {
+                    "description": "The duration for which the custom pricing lasts starting from the time of\npurchase. If not specified, custom pricing's lifecycle will match that of\nthe entitlement.\nOptional.",
+                    "format": "google-duration",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ProcurableProcurablePlan": {
+            "description": "Represents a plan that can be selected when creating a entitlement against\na procurable. Plans typically represent different pricing models for a\nservice.",
+            "id": "ProcurableProcurablePlan",
+            "properties": {
+                "name": {
+                    "description": "The resource name of the plan resource. This field is of the form\n\"providers/<provider-name>/products/<product-name>/plans/<plan-name>\".",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ProcurableProcurableProduct": {
+            "description": "Represents a product that is being procured.",
+            "id": "ProcurableProcurableProduct",
+            "properties": {
+                "name": {
+                    "description": "The resource name of the product. This field is of the form\n'providers/<provider id>/products/<product id>'\nRequired.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Product": {
+            "description": "Represents a product owned by a provider. Product is the parent resource of\nPlan. It provides product-specific configurations common to all associated\nplans.",
+            "id": "Product",
+            "properties": {
+                "createTime": {
+                    "description": "The create timestamp.\n@OutputOnly",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "Human-friendly display name of the product.",
+                    "type": "string"
+                },
+                "entitlementApprovalType": {
+                    "description": "The type of approval for Entitlement resources for this product.",
+                    "enum": [
+                        "APPROVAL_TYPE_UNSPECIFIED",
+                        "APPROVAL_TYPE_PROVIDER",
+                        "APPROVAL_TYPE_AUTO"
+                    ],
+                    "enumDescriptions": [
+                        "Sentinel value. Do not use.",
+                        "The provider must approve changes to the resource by making a request to\nthe Partner Procurement API.",
+                        "Changes to the resource are automatically approved."
+                    ],
+                    "type": "string"
+                },
+                "freeTrialConfig": {
+                    "$ref": "ProductFreeTrialConfig",
+                    "description": "The parameters for a partner-sponsored free trial for this product. All the\nplans under this product share the same free trial.\nOptional."
+                },
+                "isAccountOptional": {
+                    "description": "If set to false, then an account is required for customers before they can\ncreate an entitlement against procurables that are related to this product.\nIf set to true, an entitlement related to this product won't have a\ncorresponding account, unless some other related products (if the\nentitlement is against multiple products) require account.\n\nImmutable after product creation.",
+                    "type": "boolean"
+                },
+                "name": {
+                    "description": "The resource name of the product. It is provided by the client. This\nfield is of the form 'providers/<provider id>/products/<product id>'\nImmutable after creation.\nRequired.",
+                    "type": "string"
+                },
+                "requiredApprovals": {
+                    "description": "Approvals that are required on an Account in order to create an Entitlement\nthat contains this product.\n\nThis field must be empty if is_account_optional is true.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "serviceManagementConfigs": {
+                    "description": "List of Inception services to enable/disable (independent of plan\nselection) when a procurable corresponding this this product is procured.\nThis field is set only for grouped-API products (pNext) and used when\nan entitlement is owned by a project. Inception services are\nenabled/disabled on the entitlement's parent project using EUC.",
+                    "items": {
+                        "$ref": "ServiceManagementConfig"
+                    },
+                    "type": "array"
+                },
+                "state": {
+                    "description": "The state of the Product.",
+                    "enum": [
+                        "PRODUCT_STATE_UNSPECIFIED",
+                        "PRODUCT_STATE_NEW",
+                        "PRODUCT_STATE_ACTIVE",
+                        "PRODUCT_STATE_INACTIVE"
+                    ],
+                    "enumDescriptions": [
+                        "Sentinel value; do not use.",
+                        "The product is created but can not be purchased.\nProcurables cannot be created referencing plans of a product in this\nstate.\n\"NEW\" can transition to \"ACTIVE\".",
+                        "The product is available for purchase.\n\"ACTIVE\" can transition \"INACTIVE\".",
+                        "The product is temporarily unavailable for purchase.\nA Procurable can be made with the Product in the INACTIVE state, but an\nEntitlement cannot be created referencing that Procurable.\n\"INACTIVE\" can transition to \"ACTIVE\"."
+                    ],
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "The last update timestamp.\n@OutputOnly",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "useConsumerReportingProjects": {
+                    "description": "Whether entitlements against this product should use consumer projects\nfor usage reporting.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "ProductFreeTrialConfig": {
+            "description": "The parameters for a partner-sponsored free trial for the product.",
+            "id": "ProductFreeTrialConfig",
+            "properties": {
+                "duration": {
+                    "description": "The duration for which the trial runs.",
+                    "format": "google-duration",
+                    "type": "string"
+                },
+                "incentiveId": {
+                    "description": "The Incentive under which to create credits.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "skuNames": {
+                    "description": "The skus to which the trial applies, in form\n  services/XXXX-XXXX-XXXX/skus/YYYY-YYYY-YYYY",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "value": {
+                    "$ref": "Money",
+                    "description": "The value of the trial (sets the credit limit)."
+                }
+            },
+            "type": "object"
+        },
+        "Provider": {
+            "description": "Represents a provider. Provider is the parent resource of both Product\nand Procurable and contains provider-specific configurations.",
+            "id": "Provider",
+            "properties": {
+                "createTime": {
+                    "description": "The create timestamp.\n@OutputOnly",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "Human-friendly display name of the provider.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The resource name of the provider. It is provided by the client. This\nfield is of the form 'providers/<provider id>'.\nImmutable after creation.",
+                    "type": "string"
+                },
+                "providerNotificationConfig": {
+                    "$ref": "ProviderProviderNotificationConfig",
+                    "description": "The notification configuration."
+                },
+                "updateTime": {
+                    "description": "The last update timestamp.\n@OutputOnly",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ProviderProviderNotificationConfig": {
+            "description": "The notification configuration for a provider.",
+            "id": "ProviderProviderNotificationConfig",
+            "properties": {
+                "pubsubTopic": {
+                    "description": "The Cloud Pub/Sub topic name through which notifications will be sent.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RemoveEntitlementConsumerRequest": {
+            "description": "Request message for ProcurementService.RemoveEntitlementConsumer.",
+            "id": "RemoveEntitlementConsumerRequest",
+            "properties": {
+                "consumer": {
+                    "description": "The consumer that should be removed as an entitlement user.\nCurrently only project is supported. The project must be specified in\nformat \"projects/<project_number>\".\nRequired.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RevertEntitlementCancellationRequest": {
+            "description": "Request message for ProcurementService.RevertEntitlementCancellation.",
+            "id": "RevertEntitlementCancellationRequest",
+            "properties": {},
+            "type": "object"
+        },
+        "SearchEntitlementsResponse": {
+            "description": "Response message for ProcurementService.SearchEntitlements",
+            "id": "SearchEntitlementsResponse",
+            "properties": {
+                "entitlements": {
+                    "description": "The list of entitlements in this response.",
+                    "items": {
+                        "$ref": "Entitlement"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "The token for fetching the next page.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ServiceManagementConfig": {
+            "description": "Configuration of an Inception service.",
+            "id": "ServiceManagementConfig",
+            "properties": {
+                "serviceName": {
+                    "description": "The name of the Inception service to enable/disable.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Status": {
+            "description": "The `Status` type defines a logical error model that is suitable for\ndifferent programming environments, including REST APIs and RPC APIs. It is\nused by [gRPC](https://github.com/grpc). Each `Status` message contains\nthree pieces of data: error code, error message, and error details.\n\nYou can find out more about this error model and how to work with it in the\n[API Design Guide](https://cloud.google.com/apis/design/errors).",
+            "id": "Status",
+            "properties": {
+                "code": {
+                    "description": "The status code, which should be an enum value of google.rpc.Code.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "details": {
+                    "description": "A list of messages that carry the error details.  There is a common set of\nmessage types for APIs to use.",
+                    "items": {
+                        "additionalProperties": {
+                            "description": "Properties of the object. Contains field @type with type URL.",
+                            "type": "any"
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "message": {
+                    "description": "A developer-facing error message, which should be in English. Any\nuser-facing error message should be localized and sent in the\ngoogle.rpc.Status.details field, or localized by the client.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Cloud Commerce Procurement Private API (Autopush)",
+    "version": "v1",
+    "version_module": true
+}

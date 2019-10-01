@@ -1,0 +1,1105 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/cloud-platform": {
+                    "description": "View and manage your data across Google Cloud Platform services"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://test-dataqna.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Data QnA Annotations",
+    "description": "Data QnA is a natural language question and answer service for tabular\ndata stored in Google Cloud (e.g., data stored in BigQuery).\n",
+    "discoveryVersion": "v1",
+    "documentationLink": "https://cloud.google.com/bigquery/",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "dataqna:v1alpha1",
+    "kind": "discovery#restDescription",
+    "name": "dataqna",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "projects": {
+            "resources": {
+                "locations": {
+                    "resources": {
+                        "tableReferences": {
+                            "methods": {
+                                "create": {
+                                    "description": "Creates a table reference.\nNOTE: You can only create one table reference for a linked_table and they\nboth have to belong to the same project.",
+                                    "flatPath": "v1alpha1/projects/{projectsId}/locations/{locationsId}/tableReferences",
+                                    "httpMethod": "POST",
+                                    "id": "dataqna.projects.locations.tableReferences.create",
+                                    "parameterOrder": [
+                                        "parent"
+                                    ],
+                                    "parameters": {
+                                        "parent": {
+                                            "description": "Required. The name of the project this table reference belongs to.\nEx: projects/foo/locations/bar",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/locations/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "tableReferenceId": {
+                                            "description": "Optional. The table reference id to use for this table reference.\nIf this is not set the system will assign an auto-generated id.\nNOTE: If the provided id already exists it will result in an error.",
+                                            "location": "query",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1alpha1/{+parent}/tableReferences",
+                                    "request": {
+                                        "$ref": "TableReference"
+                                    },
+                                    "response": {
+                                        "$ref": "TableReference"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                },
+                                "delete": {
+                                    "description": "Deletes a table reference.\nDeleting a table reference will delete all of its child resources, i.e all\nof the children table annotations and their children column annotations.",
+                                    "flatPath": "v1alpha1/projects/{projectsId}/locations/{locationsId}/tableReferences/{tableReferencesId}",
+                                    "httpMethod": "DELETE",
+                                    "id": "dataqna.projects.locations.tableReferences.delete",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "name": {
+                                            "description": "Required. The unique identifier for the table reference\nEx: projects/foo/locations/bar/tableReferences/baz",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/locations/[^/]+/tableReferences/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1alpha1/{+name}",
+                                    "response": {
+                                        "$ref": "Empty"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                },
+                                "get": {
+                                    "description": "Gets a table reference.",
+                                    "flatPath": "v1alpha1/projects/{projectsId}/locations/{locationsId}/tableReferences/{tableReferencesId}",
+                                    "httpMethod": "GET",
+                                    "id": "dataqna.projects.locations.tableReferences.get",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "name": {
+                                            "description": "Required. The unique identifier for the table reference\nEx: projects/foo/locations/bar/tableReferences/baz",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/locations/[^/]+/tableReferences/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1alpha1/{+name}",
+                                    "response": {
+                                        "$ref": "TableReference"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                },
+                                "list": {
+                                    "description": "List all table references under the parent project location.",
+                                    "flatPath": "v1alpha1/projects/{projectsId}/locations/{locationsId}/tableReferences",
+                                    "httpMethod": "GET",
+                                    "id": "dataqna.projects.locations.tableReferences.list",
+                                    "parameterOrder": [
+                                        "parent"
+                                    ],
+                                    "parameters": {
+                                        "filter": {
+                                            "description": "Allows filtering by table reference properties.\n\nSupported syntax:\n\n* Filter expressions are made up of one or more restrictions.\n* Restrictions can be combined by `AND` or `OR` logical operators. A\nsequence of restrictions implicitly uses `AND`.\n* A restriction has the form of `<field> <operator> <value>`.\n* The operator must be `EQUALS (=)`.\n* Supported fields:\n    - `linked_table`\n\nExamples:\n\n* Get the table reference for a linked_table:\n`linked_table=\"//bigquery.googleapis.com/projects/p/datasets/d1/tables/t1\"`",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "pageSize": {
+                                            "description": "Optional. Used to specify the number of TableReferences to retrieve\nin a page.",
+                                            "format": "int32",
+                                            "location": "query",
+                                            "type": "integer"
+                                        },
+                                        "pageToken": {
+                                            "description": "Optional. Used to retrieve subsequent pages of the same request.\nUse one of the previously returned next_page_token from the\nListTableReferencesResponse message.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "parent": {
+                                            "description": "Required. The name of the project location whose child table references\nwe want to list.\nEx: projects/foo/locations/bar",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/locations/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "readMask": {
+                                            "description": "If this is not set, all fields are returned.\nIf this is set, only fields specified by the mask are returned.",
+                                            "format": "google-fieldmask",
+                                            "location": "query",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1alpha1/{+parent}/tableReferences",
+                                    "response": {
+                                        "$ref": "ListTableReferencesResponse"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                },
+                                "patch": {
+                                    "description": "Updates a table reference.",
+                                    "flatPath": "v1alpha1/projects/{projectsId}/locations/{locationsId}/tableReferences/{tableReferencesId}",
+                                    "httpMethod": "PATCH",
+                                    "id": "dataqna.projects.locations.tableReferences.patch",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "name": {
+                                            "description": "Immutable. The unique identifier for the table reference\nEx: projects/foo/locations/bar/tableReferences/baz/",
+                                            "location": "path",
+                                            "pattern": "^projects/[^/]+/locations/[^/]+/tableReferences/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "updateMask": {
+                                            "description": "The mask that controls which fields to update.",
+                                            "format": "google-fieldmask",
+                                            "location": "query",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1alpha1/{+name}",
+                                    "request": {
+                                        "$ref": "TableReference"
+                                    },
+                                    "response": {
+                                        "$ref": "TableReference"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform"
+                                    ]
+                                }
+                            },
+                            "resources": {
+                                "tableAnnotations": {
+                                    "methods": {
+                                        "create": {
+                                            "description": "Creates a table annotation.",
+                                            "flatPath": "v1alpha1/projects/{projectsId}/locations/{locationsId}/tableReferences/{tableReferencesId}/tableAnnotations",
+                                            "httpMethod": "POST",
+                                            "id": "dataqna.projects.locations.tableReferences.tableAnnotations.create",
+                                            "parameterOrder": [
+                                                "parent"
+                                            ],
+                                            "parameters": {
+                                                "parent": {
+                                                    "description": "Required. The name of the project this table annotation belongs to.\nEx: projects/foo/locations/bar",
+                                                    "location": "path",
+                                                    "pattern": "^projects/[^/]+/locations/[^/]+/tableReferences/[^/]+$",
+                                                    "required": true,
+                                                    "type": "string"
+                                                },
+                                                "tableAnnotationId": {
+                                                    "description": "The table annotation id to use for this table annotation.",
+                                                    "location": "query",
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "path": "v1alpha1/{+parent}/tableAnnotations",
+                                            "request": {
+                                                "$ref": "TableAnnotation"
+                                            },
+                                            "response": {
+                                                "$ref": "TableAnnotation"
+                                            },
+                                            "scopes": [
+                                                "https://www.googleapis.com/auth/cloud-platform"
+                                            ]
+                                        },
+                                        "delete": {
+                                            "description": "Deletes a table annotation.\nDeleting a table annotation will also delete all of its children\ncolumn annotations.",
+                                            "flatPath": "v1alpha1/projects/{projectsId}/locations/{locationsId}/tableReferences/{tableReferencesId}/tableAnnotations/{tableAnnotationsId}",
+                                            "httpMethod": "DELETE",
+                                            "id": "dataqna.projects.locations.tableReferences.tableAnnotations.delete",
+                                            "parameterOrder": [
+                                                "name"
+                                            ],
+                                            "parameters": {
+                                                "name": {
+                                                    "description": "Required. The unique identifier for the table annotation\nEx: projects/foo/locations/bar/tableReferences/baz/tableAnnotations/qux",
+                                                    "location": "path",
+                                                    "pattern": "^projects/[^/]+/locations/[^/]+/tableReferences/[^/]+/tableAnnotations/[^/]+$",
+                                                    "required": true,
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "path": "v1alpha1/{+name}",
+                                            "response": {
+                                                "$ref": "Empty"
+                                            },
+                                            "scopes": [
+                                                "https://www.googleapis.com/auth/cloud-platform"
+                                            ]
+                                        },
+                                        "get": {
+                                            "description": "Gets a table annotation.",
+                                            "flatPath": "v1alpha1/projects/{projectsId}/locations/{locationsId}/tableReferences/{tableReferencesId}/tableAnnotations/{tableAnnotationsId}",
+                                            "httpMethod": "GET",
+                                            "id": "dataqna.projects.locations.tableReferences.tableAnnotations.get",
+                                            "parameterOrder": [
+                                                "name"
+                                            ],
+                                            "parameters": {
+                                                "name": {
+                                                    "description": "Required. The unique identifier for the table annotation\nEx: projects/foo/locations/bar/tableReferences/baz/tableAnnotations/qux",
+                                                    "location": "path",
+                                                    "pattern": "^projects/[^/]+/locations/[^/]+/tableReferences/[^/]+/tableAnnotations/[^/]+$",
+                                                    "required": true,
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "path": "v1alpha1/{+name}",
+                                            "response": {
+                                                "$ref": "TableAnnotation"
+                                            },
+                                            "scopes": [
+                                                "https://www.googleapis.com/auth/cloud-platform"
+                                            ]
+                                        },
+                                        "list": {
+                                            "description": "Lists table annotations under the table reference.",
+                                            "flatPath": "v1alpha1/projects/{projectsId}/locations/{locationsId}/tableReferences/{tableReferencesId}/tableAnnotations",
+                                            "httpMethod": "GET",
+                                            "id": "dataqna.projects.locations.tableReferences.tableAnnotations.list",
+                                            "parameterOrder": [
+                                                "parent"
+                                            ],
+                                            "parameters": {
+                                                "pageSize": {
+                                                    "description": "Optional. Used to specify the number of TableAnnotations to retrieve\nin a page.",
+                                                    "format": "int32",
+                                                    "location": "query",
+                                                    "type": "integer"
+                                                },
+                                                "pageToken": {
+                                                    "description": "Optional. Used to retrieve subsequent pages of the same request.\nUse one of the previously returned next_page_token from the\nListTableAnnotationsResponse message.",
+                                                    "location": "query",
+                                                    "type": "string"
+                                                },
+                                                "parent": {
+                                                    "description": "Required. The name of the project location whose child table annotations\nwe want to list.\nEx: projects/foo/locations/bar/tableReferences/baz",
+                                                    "location": "path",
+                                                    "pattern": "^projects/[^/]+/locations/[^/]+/tableReferences/[^/]+$",
+                                                    "required": true,
+                                                    "type": "string"
+                                                },
+                                                "readMask": {
+                                                    "description": "If this is not set, all fields are returned.\nIf this is set, only fields specified by the mask are returned.",
+                                                    "format": "google-fieldmask",
+                                                    "location": "query",
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "path": "v1alpha1/{+parent}/tableAnnotations",
+                                            "response": {
+                                                "$ref": "ListTableAnnotationsResponse"
+                                            },
+                                            "scopes": [
+                                                "https://www.googleapis.com/auth/cloud-platform"
+                                            ]
+                                        },
+                                        "patch": {
+                                            "description": "Updates a table annotation.",
+                                            "flatPath": "v1alpha1/projects/{projectsId}/locations/{locationsId}/tableReferences/{tableReferencesId}/tableAnnotations/{tableAnnotationsId}",
+                                            "httpMethod": "PATCH",
+                                            "id": "dataqna.projects.locations.tableReferences.tableAnnotations.patch",
+                                            "parameterOrder": [
+                                                "name"
+                                            ],
+                                            "parameters": {
+                                                "name": {
+                                                    "description": "Immutable. The unique identifier for the table annotation\nEx: projects/foo/locations/bar/tableReferences/baz/tableAnnotations/qux",
+                                                    "location": "path",
+                                                    "pattern": "^projects/[^/]+/locations/[^/]+/tableReferences/[^/]+/tableAnnotations/[^/]+$",
+                                                    "required": true,
+                                                    "type": "string"
+                                                },
+                                                "updateMask": {
+                                                    "description": "The mask that controls which fields to update.",
+                                                    "format": "google-fieldmask",
+                                                    "location": "query",
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "path": "v1alpha1/{+name}",
+                                            "request": {
+                                                "$ref": "TableAnnotation"
+                                            },
+                                            "response": {
+                                                "$ref": "TableAnnotation"
+                                            },
+                                            "scopes": [
+                                                "https://www.googleapis.com/auth/cloud-platform"
+                                            ]
+                                        }
+                                    },
+                                    "resources": {
+                                        "columnAnnotations": {
+                                            "methods": {
+                                                "create": {
+                                                    "description": "Creates a column annotation.",
+                                                    "flatPath": "v1alpha1/projects/{projectsId}/locations/{locationsId}/tableReferences/{tableReferencesId}/tableAnnotations/{tableAnnotationsId}/columnAnnotations",
+                                                    "httpMethod": "POST",
+                                                    "id": "dataqna.projects.locations.tableReferences.tableAnnotations.columnAnnotations.create",
+                                                    "parameterOrder": [
+                                                        "parent"
+                                                    ],
+                                                    "parameters": {
+                                                        "columnAnnotationId": {
+                                                            "description": "The column annotation id to use for this column annotation.",
+                                                            "location": "query",
+                                                            "type": "string"
+                                                        },
+                                                        "parent": {
+                                                            "description": "Required. Name of the table annotation this column annotation belongs to.\nEx: projects/foo/locations/bar/tableReferences/baz/tableAnnotations/qux",
+                                                            "location": "path",
+                                                            "pattern": "^projects/[^/]+/locations/[^/]+/tableReferences/[^/]+/tableAnnotations/[^/]+$",
+                                                            "required": true,
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "path": "v1alpha1/{+parent}/columnAnnotations",
+                                                    "request": {
+                                                        "$ref": "ColumnAnnotation"
+                                                    },
+                                                    "response": {
+                                                        "$ref": "ColumnAnnotation"
+                                                    },
+                                                    "scopes": [
+                                                        "https://www.googleapis.com/auth/cloud-platform"
+                                                    ]
+                                                },
+                                                "delete": {
+                                                    "description": "Deletes a column annotation.",
+                                                    "flatPath": "v1alpha1/projects/{projectsId}/locations/{locationsId}/tableReferences/{tableReferencesId}/tableAnnotations/{tableAnnotationsId}/columnAnnotations/{columnAnnotationsId}",
+                                                    "httpMethod": "DELETE",
+                                                    "id": "dataqna.projects.locations.tableReferences.tableAnnotations.columnAnnotations.delete",
+                                                    "parameterOrder": [
+                                                        "name"
+                                                    ],
+                                                    "parameters": {
+                                                        "name": {
+                                                            "description": "Required. The unique identifier for the column annotation\nEx:\nprojects/foo/locations/bar/tableReferences/baz/tableAnnotations/qux/columnAnnotations/quux",
+                                                            "location": "path",
+                                                            "pattern": "^projects/[^/]+/locations/[^/]+/tableReferences/[^/]+/tableAnnotations/[^/]+/columnAnnotations/[^/]+$",
+                                                            "required": true,
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "path": "v1alpha1/{+name}",
+                                                    "response": {
+                                                        "$ref": "Empty"
+                                                    },
+                                                    "scopes": [
+                                                        "https://www.googleapis.com/auth/cloud-platform"
+                                                    ]
+                                                },
+                                                "get": {
+                                                    "description": "Gets a column annotation.",
+                                                    "flatPath": "v1alpha1/projects/{projectsId}/locations/{locationsId}/tableReferences/{tableReferencesId}/tableAnnotations/{tableAnnotationsId}/columnAnnotations/{columnAnnotationsId}",
+                                                    "httpMethod": "GET",
+                                                    "id": "dataqna.projects.locations.tableReferences.tableAnnotations.columnAnnotations.get",
+                                                    "parameterOrder": [
+                                                        "name"
+                                                    ],
+                                                    "parameters": {
+                                                        "name": {
+                                                            "description": "Required. The unique identifier for the column annotation\nEx:\nprojects/foo/locations/bar/tableReferences/baz/tableAnnotations/qux/columnAnnotations/quux",
+                                                            "location": "path",
+                                                            "pattern": "^projects/[^/]+/locations/[^/]+/tableReferences/[^/]+/tableAnnotations/[^/]+/columnAnnotations/[^/]+$",
+                                                            "required": true,
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "path": "v1alpha1/{+name}",
+                                                    "response": {
+                                                        "$ref": "ColumnAnnotation"
+                                                    },
+                                                    "scopes": [
+                                                        "https://www.googleapis.com/auth/cloud-platform"
+                                                    ]
+                                                },
+                                                "list": {
+                                                    "description": "Lists column annotations under a table annotation.\nThe output is sorted by the column annotation names.",
+                                                    "flatPath": "v1alpha1/projects/{projectsId}/locations/{locationsId}/tableReferences/{tableReferencesId}/tableAnnotations/{tableAnnotationsId}/columnAnnotations",
+                                                    "httpMethod": "GET",
+                                                    "id": "dataqna.projects.locations.tableReferences.tableAnnotations.columnAnnotations.list",
+                                                    "parameterOrder": [
+                                                        "parent"
+                                                    ],
+                                                    "parameters": {
+                                                        "pageSize": {
+                                                            "description": "Optional. Used to specify the number of ColumnAnnotations to retrieve in a page.",
+                                                            "format": "int32",
+                                                            "location": "query",
+                                                            "type": "integer"
+                                                        },
+                                                        "pageToken": {
+                                                            "description": "Optional. Used to retrieve subsequent pages of the same request.\nUse one of the previously returned next_page_token from the\nListColumnAnnotationsResponse message.",
+                                                            "location": "query",
+                                                            "type": "string"
+                                                        },
+                                                        "parent": {
+                                                            "description": "Required. The name of the table annotation whose child column annotations we want to\nlist. Ex:\nprojects/foo/locations/bar/tableReferences/baz/tableAnnotations/qux",
+                                                            "location": "path",
+                                                            "pattern": "^projects/[^/]+/locations/[^/]+/tableReferences/[^/]+/tableAnnotations/[^/]+$",
+                                                            "required": true,
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "path": "v1alpha1/{+parent}/columnAnnotations",
+                                                    "response": {
+                                                        "$ref": "ListColumnAnnotationsResponse"
+                                                    },
+                                                    "scopes": [
+                                                        "https://www.googleapis.com/auth/cloud-platform"
+                                                    ]
+                                                },
+                                                "patch": {
+                                                    "description": "Updates a column annotation.",
+                                                    "flatPath": "v1alpha1/projects/{projectsId}/locations/{locationsId}/tableReferences/{tableReferencesId}/tableAnnotations/{tableAnnotationsId}/columnAnnotations/{columnAnnotationsId}",
+                                                    "httpMethod": "PATCH",
+                                                    "id": "dataqna.projects.locations.tableReferences.tableAnnotations.columnAnnotations.patch",
+                                                    "parameterOrder": [
+                                                        "name"
+                                                    ],
+                                                    "parameters": {
+                                                        "name": {
+                                                            "description": "Immutable. The unique identifier for the column annotation\nEx:\nprojects/foo/locations/bar/tableReferences/baz/tableAnnotations/qux/columnAnnotations/quux",
+                                                            "location": "path",
+                                                            "pattern": "^projects/[^/]+/locations/[^/]+/tableReferences/[^/]+/tableAnnotations/[^/]+/columnAnnotations/[^/]+$",
+                                                            "required": true,
+                                                            "type": "string"
+                                                        },
+                                                        "updateMask": {
+                                                            "description": "The mask that controls which fields to update.",
+                                                            "format": "google-fieldmask",
+                                                            "location": "query",
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "path": "v1alpha1/{+name}",
+                                                    "request": {
+                                                        "$ref": "ColumnAnnotation"
+                                                    },
+                                                    "response": {
+                                                        "$ref": "ColumnAnnotation"
+                                                    },
+                                                    "scopes": [
+                                                        "https://www.googleapis.com/auth/cloud-platform"
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190919",
+    "rootUrl": "https://test-dataqna.sandbox.googleapis.com/",
+    "schemas": {
+        "ColumnAnnotation": {
+            "description": "A column level annotation.\nThis holds all the data to configure how a column in the parent table should\nbe setup for NL processing.",
+            "id": "ColumnAnnotation",
+            "properties": {
+                "blockedFilterValues": {
+                    "description": "Provides a way to block certain filter values from being recognized in\nquestions.\nThis acts as a hint to the Index API for what filter values not to index.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "boundDimensionNames": {
+                    "description": "Bound dimensions are columns that are tightly coupled with this column.\nThis is applicable only for metric columns.\nSometimes just reading the metric value doesn't give the full picture,\nwithout additional dimension columns. This is to be used in those scenarios\nto help users make more sense of the results.\n\nLets take for example the below data.\n\nusage_weighted   usage_unit\n1.234            GB\n957              MB\n1000             KB\n250              GB\n\nfor usage_weighted metric column we'll want to bind usage_unit dimension\ncolumn so its always part of the result, so users can read the data better.\nWithout the added dimension it'll be hard to read just the metric values.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "createTime": {
+                    "description": "Output only. The creation time.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "dataType": {
+                    "description": "Output only. Type from table schema.\nDatetime, String, Numeric, etc.",
+                    "enum": [
+                        "COLUMN_DATA_TYPE_UNSPECIFIED",
+                        "INT32",
+                        "INT64",
+                        "UINT32",
+                        "UINT64",
+                        "BOOL",
+                        "FLOAT",
+                        "DOUBLE",
+                        "STRING",
+                        "BYTES",
+                        "DATE",
+                        "ENUM",
+                        "STRUCT",
+                        "PROTO",
+                        "TIMESTAMP",
+                        "TIME",
+                        "DATETIME",
+                        "GEOGRAPHY",
+                        "NUMERIC"
+                    ],
+                    "enumDescriptions": [
+                        "default unknown type.",
+                        "int32",
+                        "int64",
+                        "uint32",
+                        "uint64",
+                        "boolean",
+                        "float",
+                        "double",
+                        "string",
+                        "bytes",
+                        "date",
+                        "enum",
+                        "structure",
+                        "proto",
+                        "timestamp",
+                        "time",
+                        "datetime",
+                        "Geography (go/googlesql_geography)",
+                        "Numeric value (go/googlesql_numeric)"
+                    ],
+                    "type": "string"
+                },
+                "defaultDisplayFormat": {
+                    "description": "Optional. Provides a default format to use for this column in the absence\nof an override based on the specific question. This will be a format string\ncomposed of date and time, or numeric format patterns specified by\nhttps://developers.google.com/sheets/api/guides/formats",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "The name that will be used to generate user visible output.\nE.g., text interpretation and SQL query.",
+                    "type": "string"
+                },
+                "expression": {
+                    "description": "Required. The expression used to define the column as arithmetic or SQL\nexpressions of other columns.\nE.g., For virtual column 'cost_per_click', expression can be\n'spend/clicks'. When SQL is generated that refers this column,\n'spend/clicks' will be used instead of \"cost_per_click\".\nExpressions can also be used on non-virtual columns for ex.\nwhen they want to use a default cast or format for that column.\nOne such example would be to have a default cast to TIMESTAMP for a DOUBLE\ncolumn that actually stores seconds since epoch as values.\nTIMESTAMP(seconds_since_epoch)\nFor non-virtual columns we expect expression to contain the name of the\ncolumn as in the table/view.",
+                    "type": "string"
+                },
+                "filterAnnotations": {
+                    "description": "A list of dimension or metric filter annotations.\nOnly EQUAL & NOT_EQUAL are supported as operator for dimension filters.\nNOTE: This is only those values that have synonyms configured, won\u2019t have\nall the DISTINCT values in the source.",
+                    "items": {
+                        "$ref": "FilterAnnotation"
+                    },
+                    "type": "array"
+                },
+                "isVirtual": {
+                    "description": "Signifies whether this column exists in the data source, or is a derived\ncolumn.",
+                    "type": "boolean"
+                },
+                "name": {
+                    "description": "Immutable. The unique identifier for the column annotation\nEx:\nprojects/foo/locations/bar/tableReferences/baz/tableAnnotations/qux/columnAnnotations/quux",
+                    "type": "string"
+                },
+                "priorityScore": {
+                    "description": "A priority score used to break ties when the same synonym is present\nin multiple columns. This is currently done by aggregating user feedback\non which column they choose more often when an ambiguity is presented as a\n\"Did you mean?\". But in the future we might want to expose a way for\nData Admins to provide a simpler priority/ranking for columns.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "synonymSet": {
+                    "$ref": "SynonymSet",
+                    "description": "Contains structure that denotes words that can be used to\nrefer to this column. These are more or less aliases in a NL query\nthat could refer to this column."
+                },
+                "type": {
+                    "description": "Natural Language annotation type for this column.\nFor now only supports metrics and dimensions.\nDoes not support a column that can be both.",
+                    "enum": [
+                        "COLUMN_ANNOTATION_TYPE_UNSPECIFIED",
+                        "DIMENSION",
+                        "METRIC"
+                    ],
+                    "enumDescriptions": [
+                        "Default column annotation type when none explicitly specified.",
+                        "A column containing non-aggregatable values.\nExamples would be product_name, sales_region, usage_date, etc.",
+                        "A column containing aggregatable numeric values.\nExamples would be raw_count, usage_weighted, net_revenue, etc."
+                    ],
+                    "type": "string"
+                },
+                "underlyingColumn": {
+                    "description": "This will be a full resource name indicating the source of this\ncolumn. Only set for derived datasources.",
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "Output only. The last-modified time.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DateTimeColumn": {
+            "description": "Message representing a datetime column.\nHas column name and datetime format to use.",
+            "id": "DateTimeColumn",
+            "properties": {
+                "format": {
+                    "description": "Format of the datetime field.\nShould follow strftime format.\nEg: %Y-%m-%d",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Name of the datetime column. Eg: created_at",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DimensionFilter": {
+            "description": "This structure represents a filter on a dimension column used to add\ndefault filters for the table.",
+            "id": "DimensionFilter",
+            "properties": {
+                "dimension": {
+                    "description": "The name of a dimension column to which this filter belongs to.\nThis will not be a resource name but just the column name as in schema.",
+                    "type": "string"
+                },
+                "filterAnnotations": {
+                    "description": "Only EQUAL & NOT_EQUAL are supported as operator for dimension filters.",
+                    "items": {
+                        "$ref": "FilterAnnotation"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Empty": {
+            "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+            "id": "Empty",
+            "properties": {},
+            "type": "object"
+        },
+        "FilterAnnotation": {
+            "description": "A dimension or metric filter annotation.",
+            "id": "FilterAnnotation",
+            "properties": {
+                "filterExpression": {
+                    "description": "The filter expression used to create the filter\n\nSupported syntax:\n\n* Filter expressions are of the form `<operator> <value>`.\n* Supported operators:\n    - `=` - Equals\n    - `!=` - Not Equals\n    - `>`- Greater Than\n    - `<`- Less Than\n    - `>=`- Greater Than Or Equal\n    - `<=`- Less Than Or Equal\n* Supported values:\n    - literal string\n        Use this for any column values.\n        Use the string representation of the value for any non-string value\n        Ex: A numeric value of 12345.67 is represented as \"12345.67\" here.\n        Ex: A date value of 03/04/2019 is represented as \"2019-04-03\"\n            (YYYY-MM-DD) here.\n    - column name\n        Use this to refer to another column\n\nExamples:\n\n* Exact match for Approved\n  `=\"Approved\"`\n* Exact match with service_name column\n  `= service_name`\n* Greater than or equal to 4K\n  `>= \"4000\"`\n* Less than net_revenue column\n  `<net_revenue`",
+                    "type": "string"
+                },
+                "synonymSet": {
+                    "$ref": "SynonymSet",
+                    "description": "Contains structure that denotes words that can be used to\nrefer to this filter value."
+                }
+            },
+            "type": "object"
+        },
+        "ListColumnAnnotationsResponse": {
+            "description": "A response that contains column annotations under a table.",
+            "id": "ListColumnAnnotationsResponse",
+            "properties": {
+                "columnAnnotations": {
+                    "description": "A list of column annotations under a table.",
+                    "items": {
+                        "$ref": "ColumnAnnotation"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "Identifier to retrieve the next page of the same request.",
+                    "type": "string"
+                },
+                "totalSize": {
+                    "description": "Total number of column_annotations matching the request.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "ListTableAnnotationsResponse": {
+            "description": "A response that contains table annotations matching the request.",
+            "id": "ListTableAnnotationsResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "Identifier to retrieve the next page of the same request.",
+                    "type": "string"
+                },
+                "tableAnnotations": {
+                    "description": "List of table annotations that match the request filters and parent.\nOnly fields specified by the read_mask in the request are populated.",
+                    "items": {
+                        "$ref": "TableAnnotation"
+                    },
+                    "type": "array"
+                },
+                "totalSize": {
+                    "description": "Total number of table_annotations matching the request.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "ListTableReferencesResponse": {
+            "description": "A response that contains table references matching the request.",
+            "id": "ListTableReferencesResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "Identifier to retrieve the next page of the same request.",
+                    "type": "string"
+                },
+                "tableReferences": {
+                    "description": "List of table references that match the request filters and belong to the\nparent. Only fields specified by the read_mask in the request are populated",
+                    "items": {
+                        "$ref": "TableReference"
+                    },
+                    "type": "array"
+                },
+                "totalSize": {
+                    "description": "Total number of table_references matching the request.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "Origin": {
+            "description": "This structure contains the origin of synonyms which is 3 sets of phrases,\nsystem provided, user provided and user blocked phrases.",
+            "id": "Origin",
+            "properties": {
+                "systemProvidedSynonyms": {
+                    "description": "This is a set of all synonyms that were auto-generated and added by the\nSystem. Attempting to update this might end up in a failure if the user\nis not a recognized system user.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "userBlockedSynonyms": {
+                    "description": "This is a set of all the system provided synonyms that the user\nhas explicitly flagged as invalid or not applicable.\nThe user is most likely the Data Admin or the owner of the datasource.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "userProvidedSynonyms": {
+                    "description": "This is a set of all synonyms that were manually provided by the User.\nThe user is most likely the Data Admin or the owner of the datasource.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "SynonymSet": {
+            "description": "This message represents the set of synonyms or aliases that can be used to\nrefer to a column or filter. The structure contains source of the synonyms\nwhich is split up into 3 sets system provided, user provided and\nuser blocked phrases, to keep track of the origin of each phrase added and to\nmake it easier to update one of these lists without affecting the other lists\nIt also provides an output-only synonyms field which is the computed set of\naliases to use for the column or filter.",
+            "id": "SynonymSet",
+            "properties": {
+                "origin": {
+                    "$ref": "Origin",
+                    "description": "Holds the origin of the synonyms."
+                },
+                "synonyms": {
+                    "description": "Output only. This is an aggregation of the above three fields.\nComputed from synonyms_source as\nsystem_provided + user_provided - user_blocked\nNote: All three repeated string fields are treated as sets of strings.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "TableAnnotation": {
+            "description": "A table level annotation.",
+            "id": "TableAnnotation",
+            "properties": {
+                "allowFutureValues": {
+                    "description": "Whether any metrics under this table can be defined for future, such as\nforecasting metrics.\nIf set to true, any time range filters to be limited to no later than last\ndate with metric data.",
+                    "type": "boolean"
+                },
+                "blockPhrases": {
+                    "description": "Phrases to add to the blocklist for this table.\nThis is a fail fast mechanism that hints the system\nto not parse NL queries with specific phrases.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "createTime": {
+                    "description": "Output only. The creation time.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "dateTimeColumns": {
+                    "description": "DateTimeColumn defines datetime/date columns for filtering.",
+                    "items": {
+                        "$ref": "DateTimeColumn"
+                    },
+                    "type": "array"
+                },
+                "defaultsConfig": {
+                    "$ref": "TableDefaultsConfig",
+                    "description": "Provides the default boundaries to use for this table\nincluding default filters, default limits, etc."
+                },
+                "name": {
+                    "description": "Immutable. The unique identifier for the table annotation\nEx: projects/foo/locations/bar/tableReferences/baz/tableAnnotations/qux",
+                    "type": "string"
+                },
+                "timePartitionColumn": {
+                    "$ref": "TimePartitionColumn",
+                    "description": "TimePartitionColumn defines a column to filter on table partitions to\nreduce query time and cost.\nThis currently only works for BigQuery datasources."
+                },
+                "updateTime": {
+                    "description": "Output only. The last-modified time.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TableDefaultsConfig": {
+            "description": "Specifies default boundaries for the Table.\nThese help configure table level defaults for limit, filters, etc.\nthat are added to the SQL query unless explicitly overridden by the NL query.\nAlso contains information to set date defaults.",
+            "id": "TableDefaultsConfig",
+            "properties": {
+                "dataGranularity": {
+                    "description": "The table's data is aggregated to the given granularity level.\nWill be defaulted to DAY",
+                    "enum": [
+                        "CALENDAR_PERIOD_UNSPECIFIED",
+                        "DAY",
+                        "WEEK",
+                        "FORTNIGHT",
+                        "MONTH",
+                        "QUARTER",
+                        "HALF",
+                        "YEAR"
+                    ],
+                    "enumDescriptions": [
+                        "Undefined period, raises an error.",
+                        "A day.",
+                        "A week. Weeks begin on Monday, following\n[ISO 8601](https://en.wikipedia.org/wiki/ISO_week_date).",
+                        "A fortnight. The first calendar fortnight of the year begins at the start\nof week 1 according to\n[ISO 8601](https://en.wikipedia.org/wiki/ISO_week_date).",
+                        "A month.",
+                        "A quarter. Quarters start on dates 1-Jan, 1-Apr, 1-Jul, and 1-Oct of each\nyear.",
+                        "A half-year. Half-years start on dates 1-Jan and 1-Jul.",
+                        "A year."
+                    ],
+                    "type": "string"
+                },
+                "dateRangeLength": {
+                    "description": "Default length of the period to use for answering questions. This length\nis generally in terms of number of days.\nWill be defaulted to 7 days.",
+                    "format": "google-duration",
+                    "type": "string"
+                },
+                "defaultFilters": {
+                    "description": "Note that no special characters are allowed in the value field of the\ndimension filter.",
+                    "items": {
+                        "$ref": "DimensionFilter"
+                    },
+                    "type": "array"
+                },
+                "defaultLimit": {
+                    "description": "Plural limit default.\nUse this default limit when needed.\ne.g. For 'top countries by population', if the default limit was 10\nwe would interpret this as 'top 10 countries by population'.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "defaultMetric": {
+                    "description": "Table level default metric.\nExample: For a question like \"top countries\", we need a way to figure out\nwhat metric column to use to figure out this ranking.\nIf the table is a revenue table the default_metric could be the net_revenue\ncolumn, thus making the question the same as \"top countries by net_revenue\"\nIf its the sales table the default_metric would be the purchase_quantity\ncolumn, this making the question \"top countries by purchase_quantity\".",
+                    "type": "string"
+                },
+                "endOffset": {
+                    "description": "Default for end date specified as an offset in days,redefinitions\nbackwards from today.\nWill be defaulted to 1 day.",
+                    "format": "google-duration",
+                    "type": "string"
+                },
+                "startWeekday": {
+                    "description": "Default weekday to consider as start of a new week.\nIn most cases this should be DayOfWeek.MONDAY or DayOfWeek.SUNDAY\nand will be defaulted to DayOfWeek.MONDAY if not specified here.",
+                    "enum": [
+                        "DAY_OF_WEEK_UNSPECIFIED",
+                        "MONDAY",
+                        "TUESDAY",
+                        "WEDNESDAY",
+                        "THURSDAY",
+                        "FRIDAY",
+                        "SATURDAY",
+                        "SUNDAY"
+                    ],
+                    "enumDescriptions": [
+                        "The unspecified day-of-week.",
+                        "The day-of-week of Monday.",
+                        "The day-of-week of Tuesday.",
+                        "The day-of-week of Wednesday.",
+                        "The day-of-week of Thursday.",
+                        "The day-of-week of Friday.",
+                        "The day-of-week of Saturday.",
+                        "The day-of-week of Sunday."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TableReference": {
+            "description": "Table References are the top-level resources in Data QnA and refer to tables\nor datasources that we're operating on.",
+            "id": "TableReference",
+            "properties": {
+                "createTime": {
+                    "description": "Output only. The creation time.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "defaultAnnotation": {
+                    "description": "This is the name of the default/canonical TableAnnotation for linked_table.",
+                    "type": "string"
+                },
+                "linkedTable": {
+                    "description": "Immutable. The identifier of the table that this annotation refers to.\nIt follows https://cloud.google.com/apis/design/resource_names convention.\nThis will be a full resource name denoting the table we're annotating here.\nExamples:\n\"//bigquery.googleapis.com/projects/foo/datasets/bar/tables/baz\"\n\"//datastudio.google.com/datasources/datasourceId\"",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Immutable. The unique identifier for the table reference\nEx: projects/foo/locations/bar/tableReferences/baz/",
+                    "type": "string"
+                },
+                "underlyingDataSources": {
+                    "description": "A list of original sources of data for this table.\nWill be full resource name.\nOnly set when linked_table is a derived datasource.\n\"//bigquery.googleapis.com/projects/foo/datasets/bar/tables/baz\"",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "updateTime": {
+                    "description": "Output only. The last-modified time.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TimePartitionColumn": {
+            "description": "TimePartitionColumn is used for created additional filter on table\npartition based on another time column.",
+            "id": "TimePartitionColumn",
+            "properties": {
+                "endBuffer": {
+                    "description": "Additional number of days needed for partition_date column in selection.\nend_date should count future dates.",
+                    "format": "google-duration",
+                    "type": "string"
+                },
+                "format": {
+                    "description": "Format of the datetime field.\nShould follow strftime format.\nEg: %Y-%m-%d",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Name of the partition column. Eg: _PARTITIONTIME",
+                    "type": "string"
+                },
+                "startBuffer": {
+                    "description": "Additional number of days needed for partition datetime column.\nIe: start_buffer = 3 days\nend_buffer = 3 days\nWhen user asks \"number of hits in jan\", the actual partition column will be\nfiltered as 12/27-02-03 instead of 01/01-01/31.\nThis is helpful especially when the hits from 12/31 aren't ingested into\nthe system until 02/03 because of a delay in processing.\nSetting this up based on the underlying ingestion schedule will help avoid\ninaccurate answers from failing to look at previous and next partitions.",
+                    "format": "google-duration",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Data QnA APIs (Test)",
+    "version": "v1alpha1",
+    "version_module": true
+}

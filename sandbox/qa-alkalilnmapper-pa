@@ -1,0 +1,2390 @@
+{
+    "basePath": "",
+    "baseUrl": "https://qa-alkalilnmapper-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Alkali Lnmapper",
+    "description": "Tool used for administering mapping information that maps legacy taxonomies to NEO taxonomy.",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://go/alkali",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "qa_alkalilnmapper_pa_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "qa_alkalilnmapper_pa_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "datasources": {
+            "methods": {
+                "downloadAsCsv": {
+                    "description": "Returns the dataset retrieved as a result of the given query as a CSV.",
+                    "flatPath": "v1/datasources:downloadAsCsv",
+                    "httpMethod": "POST",
+                    "id": "qa_alkalilnmapper_pa_sandbox.datasources.downloadAsCsv",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/datasources:downloadAsCsv",
+                    "request": {
+                        "$ref": "DownloadAsCsvRequest"
+                    },
+                    "response": {
+                        "$ref": "DownloadAsCsvResponse"
+                    }
+                },
+                "executeQuery": {
+                    "description": "Executes a query on the Data Source and returns the results.",
+                    "flatPath": "v1/datasources:executeQuery",
+                    "httpMethod": "POST",
+                    "id": "qa_alkalilnmapper_pa_sandbox.datasources.executeQuery",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/datasources:executeQuery",
+                    "request": {
+                        "$ref": "ExecuteQueryRequest"
+                    },
+                    "response": {
+                        "$ref": "ExecuteQueryResponse"
+                    }
+                },
+                "getSchema": {
+                    "description": "Gets the schema for the Data Source.",
+                    "flatPath": "v1/datasources:getSchema",
+                    "httpMethod": "POST",
+                    "id": "qa_alkalilnmapper_pa_sandbox.datasources.getSchema",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/datasources:getSchema",
+                    "request": {
+                        "$ref": "GetSchemaRequest"
+                    },
+                    "response": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoSchema"
+                    }
+                }
+            }
+        },
+        "mappings": {
+            "methods": {
+                "revalidate": {
+                    "description": "Validate and save legacy neo mappings validated against uploaded neo master\ntrix.",
+                    "flatPath": "v1/mappings:revalidate",
+                    "httpMethod": "POST",
+                    "id": "qa_alkalilnmapper_pa_sandbox.mappings.revalidate",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/mappings:revalidate",
+                    "request": {
+                        "$ref": "BulkRevalidateLegacyNeoMappingRequest"
+                    },
+                    "response": {
+                        "$ref": "BulkRevalidateLegacyNeoMappingResponse"
+                    }
+                },
+                "validate": {
+                    "description": "Get list of boolean flags indicating if the given neo attribute\ncombinations are valid or not.",
+                    "flatPath": "v1/mappings:validate",
+                    "httpMethod": "POST",
+                    "id": "qa_alkalilnmapper_pa_sandbox.mappings.validate",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/mappings:validate",
+                    "request": {
+                        "$ref": "BulkValidateLegacyNeoMappingRequest"
+                    },
+                    "response": {
+                        "$ref": "BulkValidateLegacyNeoMappingResponse"
+                    }
+                }
+            }
+        },
+        "mappinguploads": {
+            "methods": {
+                "create": {
+                    "description": "Create MappingUploadMetadata.",
+                    "flatPath": "v1/mappinguploads",
+                    "httpMethod": "POST",
+                    "id": "qa_alkalilnmapper_pa_sandbox.mappinguploads.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/mappinguploads",
+                    "request": {
+                        "$ref": "CreateMappingUploadMetadataRequest"
+                    },
+                    "response": {
+                        "$ref": "CreateMappingUploadMetadataResponse"
+                    }
+                },
+                "get": {
+                    "description": "Get MappingUploadMetadata.",
+                    "flatPath": "v1/mappinguploads/{mappinguploadsId}",
+                    "httpMethod": "GET",
+                    "id": "qa_alkalilnmapper_pa_sandbox.mappinguploads.get",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Resource name of MappingUploadMetadata to be fetched.",
+                            "location": "path",
+                            "pattern": "^[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/mappinguploads/{+name}",
+                    "response": {
+                        "$ref": "GetMappingUploadMetadataResponse"
+                    }
+                },
+                "list": {
+                    "description": "Get list of MappingUploadMetadata.",
+                    "flatPath": "v1/mappinguploads",
+                    "httpMethod": "GET",
+                    "id": "qa_alkalilnmapper_pa_sandbox.mappinguploads.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "filter": {
+                            "description": "Filter attribute.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "pageSize": {
+                            "description": "Maximum number of items to return.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageToken": {
+                            "description": "The next_page_token value returned from a previous List request, if any.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/mappinguploads",
+                    "response": {
+                        "$ref": "ListMappingUploadMetadataResponse"
+                    }
+                }
+            }
+        },
+        "neoattributecombinations": {
+            "methods": {
+                "list": {
+                    "description": "Get list of NeoAttributeCombinations for given upload id.\nIf upload id is blank, neo attribute combinations for active upload will\nbe returned.",
+                    "flatPath": "v1/neoattributecombinations",
+                    "httpMethod": "GET",
+                    "id": "qa_alkalilnmapper_pa_sandbox.neoattributecombinations.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "filter": {
+                            "description": "Filter attribute.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "pageSize": {
+                            "description": "Maximum number of items to return.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageToken": {
+                            "description": "The next_page_token value returned from a previous List request, if any.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "parent": {
+                            "description": "Upload to fetch mappings for.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/neoattributecombinations",
+                    "response": {
+                        "$ref": "ListNeoAttributeCombinationResponse"
+                    }
+                },
+                "updateUploads": {
+                    "description": "Update NeoMasterUploadMetadata.",
+                    "flatPath": "v1/neoattributecombinations/uploads",
+                    "httpMethod": "PUT",
+                    "id": "qa_alkalilnmapper_pa_sandbox.neoattributecombinations.updateUploads",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/neoattributecombinations/uploads",
+                    "request": {
+                        "$ref": "UpdateNeoMasterUploadMetadataRequest"
+                    },
+                    "response": {
+                        "$ref": "UpdateNeoMasterUploadMetadataResponse"
+                    }
+                }
+            },
+            "resources": {
+                "uploads": {
+                    "methods": {
+                        "create": {
+                            "description": "Create NeoMasterUploadMetadata.",
+                            "flatPath": "v1/neoattributecombinations/uploads",
+                            "httpMethod": "POST",
+                            "id": "qa_alkalilnmapper_pa_sandbox.neoattributecombinations.uploads.create",
+                            "parameterOrder": [],
+                            "parameters": {},
+                            "path": "v1/neoattributecombinations/uploads",
+                            "request": {
+                                "$ref": "CreateNeoMasterUploadMetadataRequest"
+                            },
+                            "response": {
+                                "$ref": "CreateNeoMasterUploadMetadataResponse"
+                            }
+                        },
+                        "get": {
+                            "description": "Get NeoMasterUploadMetadata.",
+                            "flatPath": "v1/neoattributecombinations/uploads/{uploadsId}",
+                            "httpMethod": "GET",
+                            "id": "qa_alkalilnmapper_pa_sandbox.neoattributecombinations.uploads.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Resource name of NeoMasterUploadMetadata to be fetched.",
+                                    "location": "path",
+                                    "pattern": "^[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/neoattributecombinations/uploads/{+name}",
+                            "response": {
+                                "$ref": "GetNeoMasterUploadMetadataResponse"
+                            }
+                        },
+                        "list": {
+                            "description": "Get list of NeoMasterUploadMetadata.",
+                            "flatPath": "v1/neoattributecombinations/uploads",
+                            "httpMethod": "GET",
+                            "id": "qa_alkalilnmapper_pa_sandbox.neoattributecombinations.uploads.list",
+                            "parameterOrder": [],
+                            "parameters": {
+                                "filter": {
+                                    "description": "Filter attribute.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "pageSize": {
+                                    "description": "Maximum number of items to return.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "The next_page_token value returned from a previous List request, if any.",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/neoattributecombinations/uploads",
+                            "response": {
+                                "$ref": "ListNeoMasterUploadMetadataResponse"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "uploads": {
+            "methods": {
+                "updateMappings": {
+                    "description": "Update LegacyNeoMapping.",
+                    "flatPath": "v1/uploads/{parent}/mappings",
+                    "httpMethod": "PUT",
+                    "id": "qa_alkalilnmapper_pa_sandbox.uploads.updateMappings",
+                    "parameterOrder": [
+                        "parent"
+                    ],
+                    "parameters": {
+                        "parent": {
+                            "description": "Upload to which the mapping belongs.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/uploads/{parent}/mappings",
+                    "request": {
+                        "$ref": "UpdateLegacyNeoMappingRequest"
+                    },
+                    "response": {
+                        "$ref": "UpdateLegacyNeoMappingResponse"
+                    }
+                },
+                "updateNeoattributecombination": {
+                    "description": "Update NeoAttributeCombination.",
+                    "flatPath": "v1/uploads/{parent}/neoattributecombination",
+                    "httpMethod": "PUT",
+                    "id": "qa_alkalilnmapper_pa_sandbox.uploads.updateNeoattributecombination",
+                    "parameterOrder": [
+                        "parent"
+                    ],
+                    "parameters": {
+                        "parent": {
+                            "description": "Upload to which the neo attribute combination belongs.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/uploads/{parent}/neoattributecombination",
+                    "request": {
+                        "$ref": "UpdateNeoAttributeCombinationRequest"
+                    },
+                    "response": {
+                        "$ref": "UpdateNeoAttributeCombinationResponse"
+                    }
+                }
+            },
+            "resources": {
+                "mappings": {
+                    "methods": {
+                        "bulkCreateOrUpdate": {
+                            "description": "Bulk create / update LegacyNeoMappings.",
+                            "flatPath": "v1/uploads/{parent}/mappings:bulkCreateOrUpdate",
+                            "httpMethod": "PUT",
+                            "id": "qa_alkalilnmapper_pa_sandbox.uploads.mappings.bulkCreateOrUpdate",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "Upload to which the mapping belongs.",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/uploads/{parent}/mappings:bulkCreateOrUpdate",
+                            "request": {
+                                "$ref": "BulkCreateOrUpdateLegacyNeoMappingRequest"
+                            },
+                            "response": {
+                                "$ref": "BulkCreateOrUpdateLegacyNeoMappingResponse"
+                            }
+                        },
+                        "create": {
+                            "description": "Create LegacyNeoMapping.",
+                            "flatPath": "v1/uploads/{parent}/mappings",
+                            "httpMethod": "POST",
+                            "id": "qa_alkalilnmapper_pa_sandbox.uploads.mappings.create",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "Upload to which the mapping belongs.",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/uploads/{parent}/mappings",
+                            "request": {
+                                "$ref": "CreateLegacyNeoMappingRequest"
+                            },
+                            "response": {
+                                "$ref": "CreateLegacyNeoMappingResponse"
+                            }
+                        },
+                        "get": {
+                            "description": "Get LegacyNeoMapping.",
+                            "flatPath": "v1/uploads/{parent}/mappings/{mappingsId}",
+                            "httpMethod": "GET",
+                            "id": "qa_alkalilnmapper_pa_sandbox.uploads.mappings.get",
+                            "parameterOrder": [
+                                "parent",
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Resource name of LegacyNeoMapping to be fetched.",
+                                    "location": "path",
+                                    "pattern": "^[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "parent": {
+                                    "description": "Upload to which the mapping belongs.",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/uploads/{parent}/mappings/{+name}",
+                            "response": {
+                                "$ref": "GetLegacyNeoMappingResponse"
+                            }
+                        },
+                        "list": {
+                            "description": "Get list of LegacyNeoMappings.",
+                            "flatPath": "v1/uploads/{parent}/mappings",
+                            "httpMethod": "GET",
+                            "id": "qa_alkalilnmapper_pa_sandbox.uploads.mappings.list",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "filter": {
+                                    "description": "Filter attribute.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "pageSize": {
+                                    "description": "Maximum number of items to return.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "The next_page_token value returned from a previous List request, if any.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "parent": {
+                                    "description": "Upload to fetch mappings for.",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/uploads/{parent}/mappings",
+                            "response": {
+                                "$ref": "ListLegacyNeoMappingResponse"
+                            }
+                        }
+                    }
+                },
+                "neoattributecombination": {
+                    "methods": {
+                        "create": {
+                            "description": "Create NeoAttributeCombination.",
+                            "flatPath": "v1/uploads/{parent}/neoattributecombination",
+                            "httpMethod": "POST",
+                            "id": "qa_alkalilnmapper_pa_sandbox.uploads.neoattributecombination.create",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "Upload id to which the mapping belongs.",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/uploads/{parent}/neoattributecombination",
+                            "request": {
+                                "$ref": "CreateNeoAttributeCombinationRequest"
+                            },
+                            "response": {
+                                "$ref": "CreateNeoAttributeCombinationResponse"
+                            }
+                        },
+                        "get": {
+                            "description": "Get NeoAttributeCombination.",
+                            "flatPath": "v1/uploads/{parent}/neoattributecombination/{neoattributecombinationId}",
+                            "httpMethod": "GET",
+                            "id": "qa_alkalilnmapper_pa_sandbox.uploads.neoattributecombination.get",
+                            "parameterOrder": [
+                                "parent",
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Resource name of NeoAttributeCombination to be fetched.",
+                                    "location": "path",
+                                    "pattern": "^[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "parent": {
+                                    "description": "Upload to which the neo attribute combination belongs.",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/uploads/{parent}/neoattributecombination/{+name}",
+                            "response": {
+                                "$ref": "GetNeoAttributeCombinationResponse"
+                            }
+                        }
+                    }
+                },
+                "neoattributecombinations": {
+                    "methods": {
+                        "bulkCreate": {
+                            "description": "Bulk create / update NeoAttributeCombinations.",
+                            "flatPath": "v1/uploads/{parent}/neoattributecombinations:bulkCreate",
+                            "httpMethod": "PUT",
+                            "id": "qa_alkalilnmapper_pa_sandbox.uploads.neoattributecombinations.bulkCreate",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "Upload to which the mapping belongs.",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/uploads/{parent}/neoattributecombinations:bulkCreate",
+                            "request": {
+                                "$ref": "BulkCreateNeoAttributeCombinationRequest"
+                            },
+                            "response": {
+                                "$ref": "BulkCreateNeoAttributeCombinationResponse"
+                            }
+                        }
+                    },
+                    "resources": {
+                        "values": {
+                            "methods": {
+                                "list": {
+                                    "description": "Get list of neo attribute values given an attribute and partial neo\nattribute combination.",
+                                    "flatPath": "v1/uploads/{parent}/neoattributecombinations/values",
+                                    "httpMethod": "GET",
+                                    "id": "qa_alkalilnmapper_pa_sandbox.uploads.neoattributecombinations.values.list",
+                                    "parameterOrder": [
+                                        "parent"
+                                    ],
+                                    "parameters": {
+                                        "neoAttribute": {
+                                            "description": "Neo attribute.",
+                                            "enum": [
+                                                "NEO_ATTRIBUTE_UNSPECIFIED",
+                                                "CAMPAIGN_TYPE",
+                                                "COMPONENT",
+                                                "COMPONENT_DETAIL",
+                                                "FEATURE",
+                                                "POLICY",
+                                                "PRODUCT",
+                                                "REQUEST",
+                                                "REQUEST_TYPE",
+                                                "WORKDRIVER"
+                                            ],
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "neoAttributeCombination.key.name": {
+                                            "description": "Unique identifier.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "neoAttributeCombination.masterUploadId": {
+                                            "description": "Id of the upload to which this neo master combination corresponds.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "neoAttributeCombination.neoCampaignType": {
+                                            "description": "Neo taxonomy campaign type attribute.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "neoAttributeCombination.neoComponent": {
+                                            "description": "Neo taxonomy component attribute.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "neoAttributeCombination.neoComponentDetail": {
+                                            "description": "Neo taxonomy component detail attribute.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "neoAttributeCombination.neoFeature": {
+                                            "description": "Neo taxonomy feature attribute.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "neoAttributeCombination.neoPolicy": {
+                                            "description": "Neo taxonomy policy attribute.",
+                                            "location": "query",
+                                            "repeated": true,
+                                            "type": "string"
+                                        },
+                                        "neoAttributeCombination.neoProduct": {
+                                            "description": "Neo taxonomy product attribute.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "neoAttributeCombination.neoRequest": {
+                                            "description": "Neo taxonomy request attribute.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "neoAttributeCombination.neoRequestType": {
+                                            "description": "Neo taxonomy request type attribute.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "neoAttributeCombination.neoWorkdriver": {
+                                            "description": "Neo taxonomy workdriver attribute.",
+                                            "location": "query",
+                                            "repeated": true,
+                                            "type": "string"
+                                        },
+                                        "parent": {
+                                            "description": "Upload to which the neo attribute combination belongs.",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/uploads/{parent}/neoattributecombinations/values",
+                                    "response": {
+                                        "$ref": "ListNeoAttributeValuesResponse"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "v1": {
+            "methods": {
+                "ingestSheet": {
+                    "description": "Ingest Data.",
+                    "flatPath": "v1/ingestSheet",
+                    "httpMethod": "POST",
+                    "id": "qa_alkalilnmapper_pa_sandbox.ingestSheet",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/ingestSheet",
+                    "request": {
+                        "$ref": "SheetsDataIngestionRequest"
+                    },
+                    "response": {
+                        "$ref": "SheetsDataIngestionResponse"
+                    }
+                },
+                "updatemappinguploads": {
+                    "description": "Update MappingUploadMetadata.",
+                    "flatPath": "v1/updatemappinguploads",
+                    "httpMethod": "PUT",
+                    "id": "qa_alkalilnmapper_pa_sandbox.updatemappinguploads",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/updatemappinguploads",
+                    "request": {
+                        "$ref": "UpdateMappingUploadMetadataRequest"
+                    },
+                    "response": {
+                        "$ref": "UpdateMappingUploadMetadataResponse"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190917",
+    "rootUrl": "https://qa-alkalilnmapper-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "BulkCreateNeoAttributeCombinationRequest": {
+            "description": "Request message for LegacyNeoMappingService.BulkInsertLegacyNeoMapping.",
+            "id": "BulkCreateNeoAttributeCombinationRequest",
+            "properties": {
+                "neoAttributeCombination": {
+                    "description": "LegacyNeoMappings to be created.",
+                    "items": {
+                        "$ref": "NeoAttributeCombination"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BulkCreateNeoAttributeCombinationResponse": {
+            "description": "NeoAttributeCombinationService.BulkCreateOrUpdateNeoAttributeCombination.",
+            "id": "BulkCreateNeoAttributeCombinationResponse",
+            "properties": {
+                "neoAttributeCombinationId": {
+                    "description": "Resource identifiers of bulk created / updated NeoAttributeCombinations.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BulkCreateOrUpdateLegacyNeoMappingRequest": {
+            "description": "Request message for LegacyNeoMappingService.BulkInsertLegacyNeoMapping.",
+            "id": "BulkCreateOrUpdateLegacyNeoMappingRequest",
+            "properties": {
+                "legacyNeoMapping": {
+                    "description": "LegacyNeoMappings to be created.",
+                    "items": {
+                        "$ref": "LegacyNeoMapping"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BulkCreateOrUpdateLegacyNeoMappingResponse": {
+            "description": "Response message for LegacyNeoMappingService.BulkInsertLegacyNeoMapping.",
+            "id": "BulkCreateOrUpdateLegacyNeoMappingResponse",
+            "properties": {
+                "mappingId": {
+                    "description": "Resource identifiers of bulk created / updated LegacyNeoMappings.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BulkRevalidateLegacyNeoMappingRequest": {
+            "description": "Request message for\nLegacyNeoMappingService.BulkRevalidateLegacyNeoMapping.",
+            "id": "BulkRevalidateLegacyNeoMappingRequest",
+            "properties": {},
+            "type": "object"
+        },
+        "BulkRevalidateLegacyNeoMappingResponse": {
+            "description": "Response message for\nLegacyNeoMappingService.BulkRevalidateLegacyNeoMapping.",
+            "id": "BulkRevalidateLegacyNeoMappingResponse",
+            "properties": {
+                "masterUploadId": {
+                    "description": "Neo master upload id that this mapping is validated against.",
+                    "type": "string"
+                },
+                "statusCode": {
+                    "description": "Canonical code.",
+                    "enum": [
+                        "OK",
+                        "CANCELLED",
+                        "UNKNOWN",
+                        "INVALID_ARGUMENT",
+                        "DEADLINE_EXCEEDED",
+                        "NOT_FOUND",
+                        "ALREADY_EXISTS",
+                        "PERMISSION_DENIED",
+                        "UNAUTHENTICATED",
+                        "RESOURCE_EXHAUSTED",
+                        "FAILED_PRECONDITION",
+                        "ABORTED",
+                        "OUT_OF_RANGE",
+                        "UNIMPLEMENTED",
+                        "INTERNAL",
+                        "UNAVAILABLE",
+                        "DATA_LOSS"
+                    ],
+                    "enumDescriptions": [
+                        "Not an error; returned on success\n\nHTTP Mapping: 200 OK",
+                        "The operation was cancelled, typically by the caller.\n\nHTTP Mapping: 499 Client Closed Request",
+                        "Unknown error.  For example, this error may be returned when\na `Status` value received from another address space belongs to\nan error space that is not known in this address space.  Also\nerrors raised by APIs that do not return enough error information\nmay be converted to this error.\n\nHTTP Mapping: 500 Internal Server Error",
+                        "The client specified an invalid argument.  Note that this differs\nfrom `FAILED_PRECONDITION`.  `INVALID_ARGUMENT` indicates arguments\nthat are problematic regardless of the state of the system\n(e.g., a malformed file name).\n\nHTTP Mapping: 400 Bad Request",
+                        "The deadline expired before the operation could complete. For operations\nthat change the state of the system, this error may be returned\neven if the operation has completed successfully.  For example, a\nsuccessful response from a server could have been delayed long\nenough for the deadline to expire.\n\nHTTP Mapping: 504 Gateway Timeout",
+                        "Some requested entity (e.g., file or directory) was not found.\n\nNote to server developers: if a request is denied for an entire class\nof users, such as gradual feature rollout or undocumented whitelist,\n`NOT_FOUND` may be used. If a request is denied for some users within\na class of users, such as user-based access control, `PERMISSION_DENIED`\nmust be used.\n\nHTTP Mapping: 404 Not Found",
+                        "The entity that a client attempted to create (e.g., file or directory)\nalready exists.\n\nHTTP Mapping: 409 Conflict",
+                        "The caller does not have permission to execute the specified\noperation. `PERMISSION_DENIED` must not be used for rejections\ncaused by exhausting some resource (use `RESOURCE_EXHAUSTED`\ninstead for those errors). `PERMISSION_DENIED` must not be\nused if the caller can not be identified (use `UNAUTHENTICATED`\ninstead for those errors). This error code does not imply the\nrequest is valid or the requested entity exists or satisfies\nother pre-conditions.\n\nHTTP Mapping: 403 Forbidden",
+                        "The request does not have valid authentication credentials for the\noperation.\n\nHTTP Mapping: 401 Unauthorized",
+                        "Some resource has been exhausted, perhaps a per-user quota, or\nperhaps the entire file system is out of space.\n\nHTTP Mapping: 429 Too Many Requests",
+                        "The operation was rejected because the system is not in a state\nrequired for the operation's execution.  For example, the directory\nto be deleted is non-empty, an rmdir operation is applied to\na non-directory, etc.\n\nService implementors can use the following guidelines to decide\nbetween `FAILED_PRECONDITION`, `ABORTED`, and `UNAVAILABLE`:\n (a) Use `UNAVAILABLE` if the client can retry just the failing call.\n (b) Use `ABORTED` if the client should retry at a higher level\n     (e.g., when a client-specified test-and-set fails, indicating the\n     client should restart a read-modify-write sequence).\n (c) Use `FAILED_PRECONDITION` if the client should not retry until\n     the system state has been explicitly fixed.  E.g., if an \"rmdir\"\n     fails because the directory is non-empty, `FAILED_PRECONDITION`\n     should be returned since the client should not retry unless\n     the files are deleted from the directory.\n\nHTTP Mapping: 400 Bad Request",
+                        "The operation was aborted, typically due to a concurrency issue such as\na sequencer check failure or transaction abort.\n\nSee the guidelines above for deciding between `FAILED_PRECONDITION`,\n`ABORTED`, and `UNAVAILABLE`.\n\nHTTP Mapping: 409 Conflict",
+                        "The operation was attempted past the valid range.  E.g., seeking or\nreading past end-of-file.\n\nUnlike `INVALID_ARGUMENT`, this error indicates a problem that may\nbe fixed if the system state changes. For example, a 32-bit file\nsystem will generate `INVALID_ARGUMENT` if asked to read at an\noffset that is not in the range [0,2^32-1], but it will generate\n`OUT_OF_RANGE` if asked to read from an offset past the current\nfile size.\n\nThere is a fair bit of overlap between `FAILED_PRECONDITION` and\n`OUT_OF_RANGE`.  We recommend using `OUT_OF_RANGE` (the more specific\nerror) when it applies so that callers who are iterating through\na space can easily look for an `OUT_OF_RANGE` error to detect when\nthey are done.\n\nHTTP Mapping: 400 Bad Request",
+                        "The operation is not implemented or is not supported/enabled in this\nservice.\n\nHTTP Mapping: 501 Not Implemented",
+                        "Internal errors.  This means that some invariants expected by the\nunderlying system have been broken.  This error code is reserved\nfor serious errors.\n\nHTTP Mapping: 500 Internal Server Error",
+                        "The service is currently unavailable.  This is most likely a\ntransient condition, which can be corrected by retrying with\na backoff. Note that it is not always safe to retry\nnon-idempotent operations.\n\nSee the guidelines above for deciding between `FAILED_PRECONDITION`,\n`ABORTED`, and `UNAVAILABLE`.\n\nHTTP Mapping: 503 Service Unavailable",
+                        "Unrecoverable data loss or corruption.\n\nHTTP Mapping: 500 Internal Server Error"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "BulkValidateLegacyNeoMappingRequest": {
+            "description": "Request message for\nLegacyNeoMappingService.BulkValidateLegacyNeoMapping.",
+            "id": "BulkValidateLegacyNeoMappingRequest",
+            "properties": {
+                "legacyNeoMapping": {
+                    "description": "Legacy neo mappings which need to be validated.",
+                    "items": {
+                        "$ref": "LegacyNeoMapping"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BulkValidateLegacyNeoMappingResponse": {
+            "description": "Response message for\nLegacyNeoMappingService.BulkValidateLegacyNeoMapping.",
+            "id": "BulkValidateLegacyNeoMappingResponse",
+            "properties": {
+                "legacyNeoMapping": {
+                    "description": "Legacy neo mappings with boolean flag indicating if the neo attribute\ncombination is valid.",
+                    "items": {
+                        "$ref": "LegacyNeoMapping"
+                    },
+                    "type": "array"
+                },
+                "masterUploadId": {
+                    "description": "Neo master upload id that this mapping is validated against.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CreateLegacyNeoMappingRequest": {
+            "description": "Request message for LegacyNeoMappingService.CreateLegacyNeoMapping.",
+            "id": "CreateLegacyNeoMappingRequest",
+            "properties": {
+                "legacyNeoMapping": {
+                    "$ref": "LegacyNeoMapping",
+                    "description": "LegacyNeoMapping to be created."
+                }
+            },
+            "type": "object"
+        },
+        "CreateLegacyNeoMappingResponse": {
+            "description": "Response message for create LegacyNeoMappingService.CreateLegacyNeoMapping.",
+            "id": "CreateLegacyNeoMappingResponse",
+            "properties": {
+                "legacyNeoMapping": {
+                    "$ref": "LegacyNeoMapping",
+                    "description": "Created LegacyNeoMapping."
+                }
+            },
+            "type": "object"
+        },
+        "CreateMappingUploadMetadataRequest": {
+            "description": "Request message for MappingUploadMetadataService.CreateMappingUploadMetadata.",
+            "id": "CreateMappingUploadMetadataRequest",
+            "properties": {
+                "mappingUploadMetadata": {
+                    "$ref": "MappingUploadMetadata",
+                    "description": "MappingUploadMetadata to be created."
+                }
+            },
+            "type": "object"
+        },
+        "CreateMappingUploadMetadataResponse": {
+            "description": "Response message for\nMappingUploadMetadataService.CreateMappingUploadMetadata.",
+            "id": "CreateMappingUploadMetadataResponse",
+            "properties": {
+                "mappingUploadMetadata": {
+                    "$ref": "MappingUploadMetadata",
+                    "description": "Created MappingUploadMetadata."
+                }
+            },
+            "type": "object"
+        },
+        "CreateNeoAttributeCombinationRequest": {
+            "description": "Request message for\nNeoAttributeCombinationService.CreateNeoAttributeCombinationg.",
+            "id": "CreateNeoAttributeCombinationRequest",
+            "properties": {
+                "neoAttributeCombination": {
+                    "$ref": "NeoAttributeCombination",
+                    "description": "NeoAttributeCombination to be created."
+                }
+            },
+            "type": "object"
+        },
+        "CreateNeoAttributeCombinationResponse": {
+            "description": "Response message for create\nNeoAttributeCombinationService.CreateNeoAttributeCombination.",
+            "id": "CreateNeoAttributeCombinationResponse",
+            "properties": {
+                "neoAttributeCombination": {
+                    "$ref": "NeoAttributeCombination",
+                    "description": "Created NeoAttributeCombination."
+                }
+            },
+            "type": "object"
+        },
+        "CreateNeoMasterUploadMetadataRequest": {
+            "description": "Request message for\nNeoMasterUploadMetadataService.CreateNeoMasterUploadMetadata.",
+            "id": "CreateNeoMasterUploadMetadataRequest",
+            "properties": {
+                "neoMasterUploadMetadata": {
+                    "$ref": "NeoMasterUploadMetadata",
+                    "description": "NeoMasterUploadMetadata to be created."
+                }
+            },
+            "type": "object"
+        },
+        "CreateNeoMasterUploadMetadataResponse": {
+            "description": "Response message for\nNeoMasterUploadMetadataService.CreateNeoMasterUploadMetadata.",
+            "id": "CreateNeoMasterUploadMetadataResponse",
+            "properties": {
+                "neoMasterUploadMetadata": {
+                    "$ref": "NeoMasterUploadMetadata",
+                    "description": "Created NeoMasterUploadMetadata."
+                }
+            },
+            "type": "object"
+        },
+        "DownloadAsCsvRequest": {
+            "description": "Request message for download the data as CSV.",
+            "id": "DownloadAsCsvRequest",
+            "properties": {
+                "columnOptions": {
+                    "additionalProperties": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoCsvDownloadColumn"
+                    },
+                    "description": "A columnId/alias -> columnOptions map. Optional.",
+                    "type": "object"
+                },
+                "dataSourceId": {
+                    "description": "Specifies the data source to download the data as CSV.",
+                    "type": "string"
+                },
+                "params": {
+                    "description": "Optional parameters to pass to the data source. This allows additional\nbusiness logic that can not be expressed through the query.",
+                    "items": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoDataSourceParam"
+                    },
+                    "type": "array"
+                },
+                "query": {
+                    "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoQuery",
+                    "description": "The query to execute."
+                }
+            },
+            "type": "object"
+        },
+        "DownloadAsCsvResponse": {
+            "description": "Response message for Download as CSV action.",
+            "id": "DownloadAsCsvResponse",
+            "properties": {
+                "csvContent": {
+                    "description": "The dataset retrieved as a CSV.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ExecuteQueryRequest": {
+            "description": "Execute query request.",
+            "id": "ExecuteQueryRequest",
+            "properties": {
+                "dataSourceId": {
+                    "description": "Specifies the data source to execute the query.",
+                    "type": "string"
+                },
+                "params": {
+                    "description": "Optional parameters to pass to the data source. This allows additional\nbusiness logic that can not be expressed through the query.",
+                    "items": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoDataSourceParam"
+                    },
+                    "type": "array"
+                },
+                "queries": {
+                    "description": "The batch of queries to execute.",
+                    "items": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoQuery"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ExecuteQueryResponse": {
+            "description": "Execute query response.",
+            "id": "ExecuteQueryResponse",
+            "properties": {
+                "datasets": {
+                    "description": "Batch of datasets where each one corresponds to a query in the request.",
+                    "items": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoDataset"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GetLegacyNeoMappingResponse": {
+            "description": "Response message for create LegacyNeoMappingService.GetLegacyNeoMapping.",
+            "id": "GetLegacyNeoMappingResponse",
+            "properties": {
+                "legacyNeoMapping": {
+                    "$ref": "LegacyNeoMapping",
+                    "description": "Fetched LegacyNeoMapping."
+                }
+            },
+            "type": "object"
+        },
+        "GetMappingUploadMetadataResponse": {
+            "description": "Response message for MappingUploadMetadataService.GetMappingUploadMetadata.",
+            "id": "GetMappingUploadMetadataResponse",
+            "properties": {
+                "mappingUploadMetadata": {
+                    "$ref": "MappingUploadMetadata",
+                    "description": "Fetched MappingUploadMetadata."
+                }
+            },
+            "type": "object"
+        },
+        "GetNeoAttributeCombinationResponse": {
+            "description": "Response message for create\nNeoAttributeCombinationService.UpdateNeoAttributeCombination.",
+            "id": "GetNeoAttributeCombinationResponse",
+            "properties": {
+                "neoAttributeCombination": {
+                    "$ref": "NeoAttributeCombination",
+                    "description": "Fetched NeoAttributeCombination."
+                }
+            },
+            "type": "object"
+        },
+        "GetNeoMasterUploadMetadataResponse": {
+            "description": "Response message for\nNeoMasterUploadMetadataService.GetNeoMasterUploadMetadata.",
+            "id": "GetNeoMasterUploadMetadataResponse",
+            "properties": {
+                "neoMasterUploadMetadata": {
+                    "$ref": "NeoMasterUploadMetadata",
+                    "description": "Fetched NeoMasterUploadMetadata."
+                }
+            },
+            "type": "object"
+        },
+        "GetSchemaRequest": {
+            "description": "Get schema request.",
+            "id": "GetSchemaRequest",
+            "properties": {
+                "dataSourceId": {
+                    "description": "Specifies the data source to get the schema from.",
+                    "type": "string"
+                },
+                "params": {
+                    "description": "Optional parameters to pass to the data source. This allows additional\nbusiness logic that modifies the returned schema.",
+                    "items": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoDataSourceParam"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "LegacyNeoMapping": {
+            "description": "Represent legacy category to Neo mapping.\nNext tag: 25",
+            "id": "LegacyNeoMapping",
+            "properties": {
+                "isNeoMappingValid": {
+                    "description": "Is the assigned Neo mapping valid.",
+                    "type": "boolean"
+                },
+                "key": {
+                    "$ref": "LegacyNeoMappingKey",
+                    "description": "Key."
+                },
+                "leafCategory": {
+                    "description": "Leaf category of legacy category chain.",
+                    "type": "string"
+                },
+                "legacyCategoryNameLevel1": {
+                    "description": "Legacy category level 1.",
+                    "type": "string"
+                },
+                "legacyCategoryNameLevel2": {
+                    "description": "Legacy category level 2.",
+                    "type": "string"
+                },
+                "legacyCategoryNameLevel3": {
+                    "description": "Legacy category level 3.",
+                    "type": "string"
+                },
+                "legacyCategoryNameLevel4": {
+                    "description": "Legacy category level 4.",
+                    "type": "string"
+                },
+                "legacyCategoryNameLevel5": {
+                    "description": "Legacy category level 5.",
+                    "type": "string"
+                },
+                "legacyCategoryNameLevel6": {
+                    "description": "Legacy category level 6.",
+                    "type": "string"
+                },
+                "legacyCategoryNameLevel7": {
+                    "description": "Legacy category level 7.",
+                    "type": "string"
+                },
+                "legacyCategoryNameLevel8": {
+                    "description": "Legacy category level 8.",
+                    "type": "string"
+                },
+                "legacyCategoryNameLevel9": {
+                    "description": "Legacy category level 9.",
+                    "type": "string"
+                },
+                "mappingUploadId": {
+                    "description": "Id of the upload to which this mapping corresponds.",
+                    "type": "string"
+                },
+                "neoCampaignType": {
+                    "description": "Neo taxonomy campaign type attribute.",
+                    "type": "string"
+                },
+                "neoComponent": {
+                    "description": "Neo taxonomy component attribute.",
+                    "type": "string"
+                },
+                "neoComponentDetail": {
+                    "description": "Neo taxonomy component detail attribute.",
+                    "type": "string"
+                },
+                "neoFeature": {
+                    "description": "Neo taxonomy feature attribute.",
+                    "type": "string"
+                },
+                "neoPolicy": {
+                    "description": "Neo taxonomy policy attribute.",
+                    "type": "string"
+                },
+                "neoProduct": {
+                    "description": "Neo taxonomy product attribute.",
+                    "type": "string"
+                },
+                "neoRequest": {
+                    "description": "Neo taxonomy request attribute.",
+                    "type": "string"
+                },
+                "neoRequestType": {
+                    "description": "Neo taxonomy request type attribute.",
+                    "type": "string"
+                },
+                "neoWorkdriver": {
+                    "description": "Neo taxonomy workdriver attribute.",
+                    "type": "string"
+                },
+                "netCasesClosedCumulative": {
+                    "description": "Number of cases closed mapped to a given legacy classification.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "reportingIssueCategory": {
+                    "description": "Reporting issue category of legacy category chain.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "LegacyNeoMappingKey": {
+            "description": "Legacy Neo Mapping key.",
+            "id": "LegacyNeoMappingKey",
+            "properties": {
+                "name": {
+                    "description": "Resource identifier.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListLegacyNeoMappingResponse": {
+            "description": "Response message for LegacyNeoMappingService.ListLegacyNeoMapping.\nLegacyNeoMappings matching given MappingUploadId.",
+            "id": "ListLegacyNeoMappingResponse",
+            "properties": {
+                "legacyNeoMapping": {
+                    "items": {
+                        "$ref": "LegacyNeoMapping"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "If not empty, indicates that there may be more uploads that match the\nrequest; this value should be passed in a new\n`ListLegacyNeoMappingRequest`.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListMappingUploadMetadataResponse": {
+            "description": "Response message for MappingUploadMetadataService.ListMappingUploadMetadata.",
+            "id": "ListMappingUploadMetadataResponse",
+            "properties": {
+                "mappingUploadMetadata": {
+                    "description": "List of MappingUploadMetadata.",
+                    "items": {
+                        "$ref": "MappingUploadMetadata"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "If not empty, indicates that there may be more uploads that match the\nrequest; this value should be passed in a new\n`ListMappingUploadMetadataRequest`.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListNeoAttributeCombinationResponse": {
+            "description": "Response message for\nNeoAttributeCombinationService.ListNeoAttributeCombination.\nNeoAttributeCombinations matching given MappingUploadId.",
+            "id": "ListNeoAttributeCombinationResponse",
+            "properties": {
+                "neoAttributeCombination": {
+                    "description": "List of neo attribute combinations.",
+                    "items": {
+                        "$ref": "NeoAttributeCombination"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "If not empty, indicates that there may be more uploads that match the\nrequest; this value should be passed in a new\n`ListNeoAttributeCombinationRequest`.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListNeoAttributeValuesResponse": {
+            "description": "Response message for\nNeoAttributeCombinationService.ListNeoAttributeValuesResponse.",
+            "id": "ListNeoAttributeValuesResponse",
+            "properties": {
+                "neoAttributeValue": {
+                    "description": "Allowed neo attribute values.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListNeoMasterUploadMetadataResponse": {
+            "description": "Response message for\nNeoMasterUploadMetadataService.ListNeoMasterUploadMetadata.",
+            "id": "ListNeoMasterUploadMetadataResponse",
+            "properties": {
+                "neoMasterUploadMetadata": {
+                    "description": "List of NeoMasterUploadMetadata.",
+                    "items": {
+                        "$ref": "NeoMasterUploadMetadata"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "If not empty, indicates that there may be more uploads that match the\nrequest; this value should be passed in a new\n`ListNeoMasterUploadMetadataRequest`.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MappingUploadMetadata": {
+            "description": "Details of mapping data upload.\nNext tag: 10",
+            "id": "MappingUploadMetadata",
+            "properties": {
+                "key": {
+                    "$ref": "MappingUploadMetadataKey",
+                    "description": "Key."
+                },
+                "logMessage": {
+                    "description": "Any diagnostic message to be shown.",
+                    "type": "string"
+                },
+                "masterUploadId": {
+                    "description": "Neo master upload id that this mapping is validated against.",
+                    "type": "string"
+                },
+                "servingStatus": {
+                    "description": "Serving status of uploaded mapping information.",
+                    "enum": [
+                        "SERVING_STATUS_UNSPECIFIED",
+                        "ACTIVE",
+                        "INACTIVE"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified. Default value.",
+                        "Mapping is ACTIVE, served to users and changes can be made.",
+                        "Mapping is INACTIVE, not served to users and no changes can be made."
+                    ],
+                    "type": "string"
+                },
+                "updatedAtMicros": {
+                    "description": "Microseconds since epoch when the metadata is updated.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "uploadCompletedAtMicros": {
+                    "description": "Microseconds since epoch when the upload happened.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "uploadInitiatedAtMicros": {
+                    "description": "Microseconds since epoch when the upload is initiated.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "uploadStatus": {
+                    "description": "Current status of upload process.",
+                    "enum": [
+                        "MAPPING_UPLOAD_STATUS_UNSPECIFIED",
+                        "SUCCESS",
+                        "FAIL",
+                        "RUNNING",
+                        "QUEUED"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified. Default value.",
+                        "Upload completed successfully.",
+                        "Upload failed.",
+                        "Upload is currently running.",
+                        "Upload is Queued."
+                    ],
+                    "type": "string"
+                },
+                "url": {
+                    "description": "Sheets URL provided during data upload.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MappingUploadMetadataKey": {
+            "description": "Mapping upload metadata key.",
+            "id": "MappingUploadMetadataKey",
+            "properties": {
+                "name": {
+                    "description": "Resource Identifier.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "NeoAttributeCombination": {
+            "description": "Represents  Neo attribute combination as ingested from the Neo Master\ntrix.\nNext Id: 13",
+            "id": "NeoAttributeCombination",
+            "properties": {
+                "key": {
+                    "$ref": "NeoAttributeCombinationKey",
+                    "description": "Key."
+                },
+                "masterUploadId": {
+                    "description": "Id of the upload to which this neo master combination corresponds.",
+                    "type": "string"
+                },
+                "neoCampaignType": {
+                    "description": "Neo taxonomy campaign type attribute.",
+                    "type": "string"
+                },
+                "neoComponent": {
+                    "description": "Neo taxonomy component attribute.",
+                    "type": "string"
+                },
+                "neoComponentDetail": {
+                    "description": "Neo taxonomy component detail attribute.",
+                    "type": "string"
+                },
+                "neoFeature": {
+                    "description": "Neo taxonomy feature attribute.",
+                    "type": "string"
+                },
+                "neoPolicy": {
+                    "description": "Neo taxonomy policy attribute.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "neoProduct": {
+                    "description": "Neo taxonomy product attribute.",
+                    "type": "string"
+                },
+                "neoRequest": {
+                    "description": "Neo taxonomy request attribute.",
+                    "type": "string"
+                },
+                "neoRequestType": {
+                    "description": "Neo taxonomy request type attribute.",
+                    "type": "string"
+                },
+                "neoWorkdriver": {
+                    "description": "Neo taxonomy workdriver attribute.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "NeoAttributeCombinationKey": {
+            "description": "Neo Mapping Combination key.",
+            "id": "NeoAttributeCombinationKey",
+            "properties": {
+                "name": {
+                    "description": "Unique identifier.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "NeoMasterUploadMetadata": {
+            "description": "Details of neo master data upload.\nNext tag: 9",
+            "id": "NeoMasterUploadMetadata",
+            "properties": {
+                "key": {
+                    "$ref": "NeoMasterUploadMetadataKey",
+                    "description": "Key."
+                },
+                "logMessage": {
+                    "description": "Any diagnostic message to be shown.",
+                    "type": "string"
+                },
+                "servingStatus": {
+                    "description": "Serving status of uploaded neo master information.",
+                    "enum": [
+                        "SERVING_STATUS_UNSPECIFIED",
+                        "ACTIVE",
+                        "INACTIVE"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified. Default value.",
+                        "Mapping is ACTIVE, served to users and changes can be made.",
+                        "Mapping is INACTIVE, not served to users and no changes can be made."
+                    ],
+                    "type": "string"
+                },
+                "updatedAtMicros": {
+                    "description": "Microseconds since epoch when the metadata is updated.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "uploadCompletedAtMicros": {
+                    "description": "Microseconds since epoch when the upload happened.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "uploadInitiatedAtMicros": {
+                    "description": "Microseconds since epoch when the upload is initiated.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "uploadStatus": {
+                    "description": "Current status of upload process.",
+                    "enum": [
+                        "NEO_MASTER_UPLOAD_STATUS_UNSPECIFIED",
+                        "SUCCESS",
+                        "FAIL",
+                        "RUNNING",
+                        "QUEUED"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified. Default value.",
+                        "Upload completed successfully.",
+                        "Upload failed.",
+                        "Upload is currently running.",
+                        "Upload is Queued."
+                    ],
+                    "type": "string"
+                },
+                "url": {
+                    "description": "Sheets URL provided during data upload.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "NeoMasterUploadMetadataKey": {
+            "description": "Mapping upload metadata key.",
+            "id": "NeoMasterUploadMetadataKey",
+            "properties": {
+                "name": {
+                    "description": "Resource Identifier.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PartnerservicesAlkaliApplicationCommonReportsProtoAggregation": {
+            "id": "PartnerservicesAlkaliApplicationCommonReportsProtoAggregation",
+            "properties": {
+                "customReturnType": {
+                    "description": "Might be set for custom aggregations specified in a Schema.\n(Ignored in queries.)",
+                    "enum": [
+                        "UNKNOWN_TYPE",
+                        "STRING",
+                        "INTEGER",
+                        "DECIMAL",
+                        "BOOLEAN",
+                        "TIMESTAMP_MS"
+                    ],
+                    "enumDescriptions": [
+                        "Type is not specified.",
+                        "String type.",
+                        "Integer type.",
+                        "Decimal type.",
+                        "Boolean type.",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "customType": {
+                    "description": "Data Sources can implement their own custom (non-standard) aggregation\nmethods, by setting type to CUSTOM and supply a string identifier here.",
+                    "type": "string"
+                },
+                "parameter": {
+                    "description": "Any additional parameters accepted by this aggregation.\nDO NOT USE DIRECTLY (YET) (Unless you are really brave)",
+                    "items": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoParamMapEntry"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "description": "The type of aggregation.",
+                    "enum": [
+                        "NONE",
+                        "CUSTOM",
+                        "COUNT",
+                        "SUM",
+                        "AVG",
+                        "MEDIAN",
+                        "MIN",
+                        "MAX"
+                    ],
+                    "enumDescriptions": [
+                        "None.",
+                        "Custom.",
+                        "Count.",
+                        "Sum.",
+                        "Average.",
+                        "Median.",
+                        "Minimum.",
+                        "Maximum."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PartnerservicesAlkaliApplicationCommonReportsProtoColumn": {
+            "description": "Column definition.",
+            "id": "PartnerservicesAlkaliApplicationCommonReportsProtoColumn",
+            "properties": {
+                "id": {
+                    "description": "required",
+                    "type": "string"
+                },
+                "isSortable": {
+                    "description": "Indicates if sorting by this column is supported.",
+                    "type": "boolean"
+                },
+                "maxValue": {
+                    "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoValue",
+                    "description": "currently not used"
+                },
+                "minValue": {
+                    "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoValue",
+                    "description": "For numeric columns (only present if known).\ncurrently not used"
+                },
+                "possibleValue": {
+                    "description": "For columns that can only contain a finite (small) set of values, like\nenums (only present if known).",
+                    "items": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoValue"
+                    },
+                    "type": "array"
+                },
+                "role": {
+                    "description": "not used",
+                    "enum": [
+                        "UNKNOWN",
+                        "MEASURE",
+                        "DIMENSION",
+                        "ATTRIBUTE"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown.",
+                        "Measure.",
+                        "Dimension.",
+                        "Attribute."
+                    ],
+                    "type": "string"
+                },
+                "supportedAggregation": {
+                    "description": "List of supported aggregation methods for this column (can be empty).",
+                    "items": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoAggregation"
+                    },
+                    "type": "array"
+                },
+                "supportedOperators": {
+                    "description": "List of supported condition operators for this column (can be empty).",
+                    "enumDescriptions": [
+                        "Expects two values.",
+                        "Contains the specified values.",
+                        "Contains the specified values ignoring case.",
+                        "NOTE(albinr): Not currently supported!",
+                        "Equals the values.",
+                        "Equals the values ignoring case.",
+                        "Greater than the value.",
+                        "Greater than or equal to the value.",
+                        "Expects zero or more values.",
+                        "Expects one value.",
+                        "Expects no values.",
+                        "Expects no values.",
+                        "Expects no values.",
+                        "Expects no values.",
+                        "Less than the value.",
+                        "Less than or equal to the value.",
+                        "Similar to sql like.",
+                        "Similar to sql like ignoring case.",
+                        "Does not contain the specified values.",
+                        "Not containing the values ignoring case.",
+                        "Not Equal.",
+                        "Not equal",
+                        "Expects zero or more values.",
+                        "Full (not partial) regular expression match.",
+                        "Expects string value.",
+                        "Expects string value."
+                    ],
+                    "items": {
+                        "enum": [
+                            "BETWEEN",
+                            "CONTAINS",
+                            "CONTAINS_IGNORE_CASE",
+                            "CUSTOM",
+                            "EQ",
+                            "EQ_IGNORE_CASE",
+                            "GREATER_THAN",
+                            "GREATER_OR_EQ",
+                            "IN",
+                            "IN_COLUMN",
+                            "IS_EMPTY",
+                            "IS_NOT_EMPTY",
+                            "IS_NULL",
+                            "IS_NOT_NULL",
+                            "LESS_THAN",
+                            "LESS_OR_EQ",
+                            "LIKE",
+                            "LIKE_IGNORE_CASE",
+                            "NOT_CONTAINS",
+                            "NOT_CONTAINS_IGNORE_CASE",
+                            "NOT_EQ",
+                            "NOT_EQ_IGNORE_CASE",
+                            "NOT_IN",
+                            "REGEXP_MATCHES",
+                            "STARTS_WITH",
+                            "STARTS_WITH_IGNORE_CASE"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "supportedTransformation": {
+                    "description": "List of supported transformation methods for this column (can be empty).",
+                    "items": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoTransformation"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "description": "required",
+                    "enum": [
+                        "UNKNOWN_TYPE",
+                        "STRING",
+                        "INTEGER",
+                        "DECIMAL",
+                        "BOOLEAN",
+                        "TIMESTAMP_MS"
+                    ],
+                    "enumDescriptions": [
+                        "Type is not specified.",
+                        "String type.",
+                        "Integer type.",
+                        "Decimal type.",
+                        "Boolean type.",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PartnerservicesAlkaliApplicationCommonReportsProtoCondition": {
+            "description": "The specifier for a query.\nLINT.IfChange",
+            "id": "PartnerservicesAlkaliApplicationCommonReportsProtoCondition",
+            "properties": {
+                "column": {
+                    "description": "The column id. Required.",
+                    "type": "string"
+                },
+                "customOperator": {
+                    "description": "Not currently supported!",
+                    "type": "string"
+                },
+                "operator": {
+                    "description": "The operator for the condition.",
+                    "enum": [
+                        "BETWEEN",
+                        "CONTAINS",
+                        "CONTAINS_IGNORE_CASE",
+                        "CUSTOM",
+                        "EQ",
+                        "EQ_IGNORE_CASE",
+                        "GREATER_THAN",
+                        "GREATER_OR_EQ",
+                        "IN",
+                        "IN_COLUMN",
+                        "IS_EMPTY",
+                        "IS_NOT_EMPTY",
+                        "IS_NULL",
+                        "IS_NOT_NULL",
+                        "LESS_THAN",
+                        "LESS_OR_EQ",
+                        "LIKE",
+                        "LIKE_IGNORE_CASE",
+                        "NOT_CONTAINS",
+                        "NOT_CONTAINS_IGNORE_CASE",
+                        "NOT_EQ",
+                        "NOT_EQ_IGNORE_CASE",
+                        "NOT_IN",
+                        "REGEXP_MATCHES",
+                        "STARTS_WITH",
+                        "STARTS_WITH_IGNORE_CASE"
+                    ],
+                    "enumDescriptions": [
+                        "Expects two values.",
+                        "Contains the specified values.",
+                        "Contains the specified values ignoring case.",
+                        "NOTE(albinr): Not currently supported!",
+                        "Equals the values.",
+                        "Equals the values ignoring case.",
+                        "Greater than the value.",
+                        "Greater than or equal to the value.",
+                        "Expects zero or more values.",
+                        "Expects one value.",
+                        "Expects no values.",
+                        "Expects no values.",
+                        "Expects no values.",
+                        "Expects no values.",
+                        "Less than the value.",
+                        "Less than or equal to the value.",
+                        "Similar to sql like.",
+                        "Similar to sql like ignoring case.",
+                        "Does not contain the specified values.",
+                        "Not containing the values ignoring case.",
+                        "Not Equal.",
+                        "Not equal",
+                        "Expects zero or more values.",
+                        "Full (not partial) regular expression match.",
+                        "Expects string value.",
+                        "Expects string value."
+                    ],
+                    "type": "string"
+                },
+                "value": {
+                    "description": "The type of the value must match that of the specified column. The number\nof values must match what the operator expects (most only take one). If\nmore than one value is specified they must all have the same type.",
+                    "items": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoValue"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "PartnerservicesAlkaliApplicationCommonReportsProtoConditionGroup": {
+            "description": "Note: An empty condition group (no sub-groups or conditions) evaluates to\nTRUE (that is, the condition matches).",
+            "id": "PartnerservicesAlkaliApplicationCommonReportsProtoConditionGroup",
+            "properties": {
+                "condition": {
+                    "description": "List of conditions. Can be empty.",
+                    "items": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoCondition"
+                    },
+                    "type": "array"
+                },
+                "conditionGroup": {
+                    "description": "List of sub-condition-groups. Can be empty.",
+                    "items": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoConditionGroup"
+                    },
+                    "type": "array"
+                },
+                "operator": {
+                    "description": "The operator to use (AND or OR) when evaluating this group.",
+                    "enum": [
+                        "AND",
+                        "OR"
+                    ],
+                    "enumDescriptions": [
+                        "And.",
+                        "Or."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PartnerservicesAlkaliApplicationCommonReportsProtoCsvDownloadColumn": {
+            "description": "Options for one column in a CSV download.",
+            "id": "PartnerservicesAlkaliApplicationCommonReportsProtoCsvDownloadColumn",
+            "properties": {
+                "displayName": {
+                    "description": "Custom display name for the column.",
+                    "type": "string"
+                },
+                "format": {
+                    "description": "Format of the column. This will be interpreted as a NumberFormat for\nnumeric columns, or a DateTimeFormat for timestamp columns.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PartnerservicesAlkaliApplicationCommonReportsProtoDataSourceParam": {
+            "description": "Extra parameters to pass to the data source methods\n(e.g. GetSchema and ExecuteQuery).",
+            "id": "PartnerservicesAlkaliApplicationCommonReportsProtoDataSourceParam",
+            "properties": {
+                "key": {
+                    "description": "The key of the entry. Required.",
+                    "type": "string"
+                },
+                "value": {
+                    "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoValue",
+                    "description": "The value of the entry."
+                }
+            },
+            "type": "object"
+        },
+        "PartnerservicesAlkaliApplicationCommonReportsProtoDataset": {
+            "description": "Dataset.",
+            "id": "PartnerservicesAlkaliApplicationCommonReportsProtoDataset",
+            "properties": {
+                "columnId": {
+                    "description": "Column IDs used in the dataset. The Values in the Row protos must match\nthese (in particular, the number of values in each row must be equal to\nthe number of columns).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "Leave empty if there is no next page (=all rows have been returned) or\nif pagination is not supported.",
+                    "type": "string"
+                },
+                "previousPageToken": {
+                    "description": "Leave empty if there is no previous page (=this is the first page) or if\npagination is not supported.\nNOTE(aabdagic): Current API Style Guide doesn't mention the total number of\nrows as a field and we do not currently need it. We can reevaluate this\nwhen the need arises.",
+                    "type": "string"
+                },
+                "row": {
+                    "description": "The rows within the dataset. (See column_id for invariant.)",
+                    "items": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoRow"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "PartnerservicesAlkaliApplicationCommonReportsProtoParamMapEntry": {
+            "description": "Parameter map entry (VOLATILE: will likely be removed in favor of a real map;\nplease contact partnerdash-team before using).",
+            "id": "PartnerservicesAlkaliApplicationCommonReportsProtoParamMapEntry",
+            "properties": {
+                "key": {
+                    "description": "The key of the entry.",
+                    "type": "string"
+                },
+                "value": {
+                    "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoValue",
+                    "description": "The value of the entry."
+                }
+            },
+            "type": "object"
+        },
+        "PartnerservicesAlkaliApplicationCommonReportsProtoQuery": {
+            "description": "The query definition.",
+            "id": "PartnerservicesAlkaliApplicationCommonReportsProtoQuery",
+            "properties": {
+                "column": {
+                    "description": "The columns to retrieve.",
+                    "items": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoQueryColumn"
+                    },
+                    "type": "array"
+                },
+                "conditionGroup": {
+                    "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoConditionGroup",
+                    "description": "The conditions/filters to apply (can be empty). Only column+operator\ncombinations that are listed as supported by the Schema can be used."
+                },
+                "distinct": {
+                    "description": "Should the query only return distinct rows.",
+                    "type": "boolean"
+                },
+                "ordering": {
+                    "description": "How to sort the dataset (optional). More than one sort criterion can\nbe specified (the order is respected). Only columns listed as \"sortable\"\nin the schema can be used.",
+                    "items": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoSortCriterion"
+                    },
+                    "type": "array"
+                },
+                "pageSize": {
+                    "description": "The (max) number of rows to return. This setting must be respected by all\ndata sources.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "pageToken": {
+                    "description": "The token/id of the result page to return. Only allowed if the data\nsource's schema indicates that pagination is supported.\nAbsent or an empty string indicates the first page.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PartnerservicesAlkaliApplicationCommonReportsProtoQueryColumn": {
+            "description": "A column definition for the query.",
+            "id": "PartnerservicesAlkaliApplicationCommonReportsProtoQueryColumn",
+            "properties": {
+                "aggregation": {
+                    "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoAggregation",
+                    "description": "Optionally apply an aggregation to the column before returning it. The\nspecified aggregation must be listed as supported by this column in the\nschema. Can not be used at the same time as transformation.\nNOTE(albinr): Aggregating by at least one column will usually trigger\n\"group by\" behavior by SQL-like data sources (e.g. Dremel), e.g. all\nnon aggregated columns will be grouped by (effectively removing duplicates\nput potentially slowing down the query)."
+                },
+                "alias": {
+                    "description": "Optional alias, used instead of the id in the returned DataSet.\n(All DataSources MUST support aliases.)",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "ID of the requested column.\nrequired",
+                    "type": "string"
+                },
+                "transformation": {
+                    "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoTransformation",
+                    "description": "Optionally apply a transformation to the column before returning it. The\nspecified transformation must be listed as supported by this column in the\nschema. Can not be used at the same time as aggregation."
+                }
+            },
+            "type": "object"
+        },
+        "PartnerservicesAlkaliApplicationCommonReportsProtoRow": {
+            "description": "LINT.IfChange",
+            "id": "PartnerservicesAlkaliApplicationCommonReportsProtoRow",
+            "properties": {
+                "value": {
+                    "description": "The values in a row. (See Dataset.column_id for invariant.)",
+                    "items": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoValue"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "PartnerservicesAlkaliApplicationCommonReportsProtoSchema": {
+            "description": "The schema of the data source.",
+            "id": "PartnerservicesAlkaliApplicationCommonReportsProtoSchema",
+            "properties": {
+                "column": {
+                    "description": "List of columns in this data source.",
+                    "items": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoColumn"
+                    },
+                    "type": "array"
+                },
+                "isDistinctSupported": {
+                    "description": "Indicates if distinct (e.g. \"SELECT DISTINCT a, b FROM c\") is supported.",
+                    "type": "boolean"
+                },
+                "isPaginationSupported": {
+                    "description": "Indicates if pagination (\"Query.page_token\") is supported. Note that\n\"Query.page_size\" MUST be supported by all data sources, regardless of\nthis setting.",
+                    "type": "boolean"
+                },
+                "maxPageSize": {
+                    "description": "Optionally indicates the maximum page size supported by the data source.\nUnset (<=0) means there is no maximum page size.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "totalRows": {
+                    "description": "Optionally indicates the total number of rows in this data source, which\nmight be useful to client-side components (for a small number of rows,\nthey might want to load all data client-side). Currently not implemented.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PartnerservicesAlkaliApplicationCommonReportsProtoSortCriterion": {
+            "description": "The sort criterion.",
+            "id": "PartnerservicesAlkaliApplicationCommonReportsProtoSortCriterion",
+            "properties": {
+                "columnId": {
+                    "description": "The column to apply the sort.",
+                    "type": "string"
+                },
+                "direction": {
+                    "description": "The direction of the sort criterion.",
+                    "enum": [
+                        "NONE",
+                        "ASC",
+                        "DESC"
+                    ],
+                    "enumDescriptions": [
+                        "None.",
+                        "Ascending.",
+                        "Descending."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PartnerservicesAlkaliApplicationCommonReportsProtoTransformation": {
+            "description": "A message for the transformation that can (getSchema) and is (executeQuery)\napplied to the query.",
+            "id": "PartnerservicesAlkaliApplicationCommonReportsProtoTransformation",
+            "properties": {
+                "customReturnType": {
+                    "description": "Might be set for custom transformations specified in a Schema.\n(Ignored in queries.)",
+                    "enum": [
+                        "UNKNOWN_TYPE",
+                        "STRING",
+                        "INTEGER",
+                        "DECIMAL",
+                        "BOOLEAN",
+                        "TIMESTAMP_MS"
+                    ],
+                    "enumDescriptions": [
+                        "Type is not specified.",
+                        "String type.",
+                        "Integer type.",
+                        "Decimal type.",
+                        "Boolean type.",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "customType": {
+                    "description": "Data Sources can implement their own custom (non-standard) transformation\nmethods, by setting type to CUSTOM and supply a string identifier here.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "The type of transformation.",
+                    "enum": [
+                        "NONE",
+                        "CUSTOM",
+                        "HOUR",
+                        "DAY",
+                        "WEEK",
+                        "MONTH",
+                        "QUARTER",
+                        "YEAR"
+                    ],
+                    "enumDescriptions": [
+                        "No transformation.",
+                        "Custom transformation, as specified below.",
+                        "Changes a timestamp, shifting it to the hour it belongs to.",
+                        "Changes a timestamp, shifting it to the day it belongs to in UTC.",
+                        "Changes a timestamp, shifting it to the week it belongs to in UTC.",
+                        "Changes a timestamp, shifting it to the month it belongs to in UTC.",
+                        "Changes a timestamp, shifting it to the quarter it belongs to in UTC.",
+                        "Changes a timestamp, shifting it to the year it belongs to in UTC."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PartnerservicesAlkaliApplicationCommonReportsProtoValue": {
+            "description": "A single value representation",
+            "id": "PartnerservicesAlkaliApplicationCommonReportsProtoValue",
+            "properties": {
+                "booleanValue": {
+                    "description": "A boolean value.",
+                    "type": "boolean"
+                },
+                "decimalValue": {
+                    "description": "A decimal value.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "integerValue": {
+                    "description": "An integer value.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "stringValue": {
+                    "description": "Exactly one, matching type, must be set.\nA string value.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "The type of value.",
+                    "enum": [
+                        "UNKNOWN_TYPE",
+                        "STRING",
+                        "INTEGER",
+                        "DECIMAL",
+                        "BOOLEAN",
+                        "TIMESTAMP_MS"
+                    ],
+                    "enumDescriptions": [
+                        "Type is not specified.",
+                        "String type.",
+                        "Integer type.",
+                        "Decimal type.",
+                        "Boolean type.",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SheetsDataIngestionRequest": {
+            "description": "Request message for DataIngestionService.IngestData\nNex tag: 3",
+            "id": "SheetsDataIngestionRequest",
+            "properties": {
+                "ingestionType": {
+                    "description": "Type of data being ingested.",
+                    "enum": [
+                        "INGESTION_TYPE_UNSPECIFIED",
+                        "LEGACY_NEO_MAPPINGS",
+                        "NEO_MASTER_ATTRIBUTES"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified. Default value.",
+                        "Legacy neo mappings.",
+                        "Neo master attributes."
+                    ],
+                    "type": "string"
+                },
+                "sheetUrl": {
+                    "description": "Url of the spreadsheet to be ingested.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SheetsDataIngestionResponse": {
+            "description": "Response message for DataIngestionService.IngestData",
+            "id": "SheetsDataIngestionResponse",
+            "properties": {
+                "statusCode": {
+                    "description": "Canonical code.",
+                    "enum": [
+                        "OK",
+                        "CANCELLED",
+                        "UNKNOWN",
+                        "INVALID_ARGUMENT",
+                        "DEADLINE_EXCEEDED",
+                        "NOT_FOUND",
+                        "ALREADY_EXISTS",
+                        "PERMISSION_DENIED",
+                        "UNAUTHENTICATED",
+                        "RESOURCE_EXHAUSTED",
+                        "FAILED_PRECONDITION",
+                        "ABORTED",
+                        "OUT_OF_RANGE",
+                        "UNIMPLEMENTED",
+                        "INTERNAL",
+                        "UNAVAILABLE",
+                        "DATA_LOSS"
+                    ],
+                    "enumDescriptions": [
+                        "Not an error; returned on success\n\nHTTP Mapping: 200 OK",
+                        "The operation was cancelled, typically by the caller.\n\nHTTP Mapping: 499 Client Closed Request",
+                        "Unknown error.  For example, this error may be returned when\na `Status` value received from another address space belongs to\nan error space that is not known in this address space.  Also\nerrors raised by APIs that do not return enough error information\nmay be converted to this error.\n\nHTTP Mapping: 500 Internal Server Error",
+                        "The client specified an invalid argument.  Note that this differs\nfrom `FAILED_PRECONDITION`.  `INVALID_ARGUMENT` indicates arguments\nthat are problematic regardless of the state of the system\n(e.g., a malformed file name).\n\nHTTP Mapping: 400 Bad Request",
+                        "The deadline expired before the operation could complete. For operations\nthat change the state of the system, this error may be returned\neven if the operation has completed successfully.  For example, a\nsuccessful response from a server could have been delayed long\nenough for the deadline to expire.\n\nHTTP Mapping: 504 Gateway Timeout",
+                        "Some requested entity (e.g., file or directory) was not found.\n\nNote to server developers: if a request is denied for an entire class\nof users, such as gradual feature rollout or undocumented whitelist,\n`NOT_FOUND` may be used. If a request is denied for some users within\na class of users, such as user-based access control, `PERMISSION_DENIED`\nmust be used.\n\nHTTP Mapping: 404 Not Found",
+                        "The entity that a client attempted to create (e.g., file or directory)\nalready exists.\n\nHTTP Mapping: 409 Conflict",
+                        "The caller does not have permission to execute the specified\noperation. `PERMISSION_DENIED` must not be used for rejections\ncaused by exhausting some resource (use `RESOURCE_EXHAUSTED`\ninstead for those errors). `PERMISSION_DENIED` must not be\nused if the caller can not be identified (use `UNAUTHENTICATED`\ninstead for those errors). This error code does not imply the\nrequest is valid or the requested entity exists or satisfies\nother pre-conditions.\n\nHTTP Mapping: 403 Forbidden",
+                        "The request does not have valid authentication credentials for the\noperation.\n\nHTTP Mapping: 401 Unauthorized",
+                        "Some resource has been exhausted, perhaps a per-user quota, or\nperhaps the entire file system is out of space.\n\nHTTP Mapping: 429 Too Many Requests",
+                        "The operation was rejected because the system is not in a state\nrequired for the operation's execution.  For example, the directory\nto be deleted is non-empty, an rmdir operation is applied to\na non-directory, etc.\n\nService implementors can use the following guidelines to decide\nbetween `FAILED_PRECONDITION`, `ABORTED`, and `UNAVAILABLE`:\n (a) Use `UNAVAILABLE` if the client can retry just the failing call.\n (b) Use `ABORTED` if the client should retry at a higher level\n     (e.g., when a client-specified test-and-set fails, indicating the\n     client should restart a read-modify-write sequence).\n (c) Use `FAILED_PRECONDITION` if the client should not retry until\n     the system state has been explicitly fixed.  E.g., if an \"rmdir\"\n     fails because the directory is non-empty, `FAILED_PRECONDITION`\n     should be returned since the client should not retry unless\n     the files are deleted from the directory.\n\nHTTP Mapping: 400 Bad Request",
+                        "The operation was aborted, typically due to a concurrency issue such as\na sequencer check failure or transaction abort.\n\nSee the guidelines above for deciding between `FAILED_PRECONDITION`,\n`ABORTED`, and `UNAVAILABLE`.\n\nHTTP Mapping: 409 Conflict",
+                        "The operation was attempted past the valid range.  E.g., seeking or\nreading past end-of-file.\n\nUnlike `INVALID_ARGUMENT`, this error indicates a problem that may\nbe fixed if the system state changes. For example, a 32-bit file\nsystem will generate `INVALID_ARGUMENT` if asked to read at an\noffset that is not in the range [0,2^32-1], but it will generate\n`OUT_OF_RANGE` if asked to read from an offset past the current\nfile size.\n\nThere is a fair bit of overlap between `FAILED_PRECONDITION` and\n`OUT_OF_RANGE`.  We recommend using `OUT_OF_RANGE` (the more specific\nerror) when it applies so that callers who are iterating through\na space can easily look for an `OUT_OF_RANGE` error to detect when\nthey are done.\n\nHTTP Mapping: 400 Bad Request",
+                        "The operation is not implemented or is not supported/enabled in this\nservice.\n\nHTTP Mapping: 501 Not Implemented",
+                        "Internal errors.  This means that some invariants expected by the\nunderlying system have been broken.  This error code is reserved\nfor serious errors.\n\nHTTP Mapping: 500 Internal Server Error",
+                        "The service is currently unavailable.  This is most likely a\ntransient condition, which can be corrected by retrying with\na backoff. Note that it is not always safe to retry\nnon-idempotent operations.\n\nSee the guidelines above for deciding between `FAILED_PRECONDITION`,\n`ABORTED`, and `UNAVAILABLE`.\n\nHTTP Mapping: 503 Service Unavailable",
+                        "Unrecoverable data loss or corruption.\n\nHTTP Mapping: 500 Internal Server Error"
+                    ],
+                    "type": "string"
+                },
+                "uploadId": {
+                    "description": "Unique identifier.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateLegacyNeoMappingRequest": {
+            "description": "Request message for LegacyNeoMappingService.UpdateLegacyNeoMapping.",
+            "id": "UpdateLegacyNeoMappingRequest",
+            "properties": {
+                "legacyNeoMapping": {
+                    "$ref": "LegacyNeoMapping",
+                    "description": "LegacyNeoMapping to be updated."
+                },
+                "updateMask": {
+                    "description": "Field mask listing fields that need to be updated",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateLegacyNeoMappingResponse": {
+            "description": "Response message for create LegacyNeoMappingService.UpdateLegacyNeoMapping.",
+            "id": "UpdateLegacyNeoMappingResponse",
+            "properties": {
+                "legacyNeoMapping": {
+                    "$ref": "LegacyNeoMapping",
+                    "description": "Updated LegacyNeoMapping."
+                }
+            },
+            "type": "object"
+        },
+        "UpdateMappingUploadMetadataRequest": {
+            "description": "Request message for MappingUploadMetadataService.UpdateMappingUploadMetadata.",
+            "id": "UpdateMappingUploadMetadataRequest",
+            "properties": {
+                "mappingUploadMetadata": {
+                    "$ref": "MappingUploadMetadata",
+                    "description": "LegacyNeoMapping to be updated."
+                },
+                "updateMask": {
+                    "description": "Field mask listing fields that need to be updated",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateMappingUploadMetadataResponse": {
+            "description": "Response message for\nMappingUploadMetadataService.UpdateMappingUploadMetadata.",
+            "id": "UpdateMappingUploadMetadataResponse",
+            "properties": {
+                "mappingUploadMetadata": {
+                    "$ref": "MappingUploadMetadata",
+                    "description": "Updated MappingUploadMetadata."
+                }
+            },
+            "type": "object"
+        },
+        "UpdateNeoAttributeCombinationRequest": {
+            "description": "Request message for\nNeoAttributeCombinationService.UpdateNeoAttributeCombination.",
+            "id": "UpdateNeoAttributeCombinationRequest",
+            "properties": {
+                "neoAttributeCombination": {
+                    "$ref": "NeoAttributeCombination",
+                    "description": "NeoAttributeCombination to be updated."
+                },
+                "updateMask": {
+                    "description": "Field mask listing fields that need to be updated",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateNeoAttributeCombinationResponse": {
+            "description": "Response message for create\nLNeoAttributeCombinationService.UpdateNeoAttributeCombination.",
+            "id": "UpdateNeoAttributeCombinationResponse",
+            "properties": {
+                "neoAttributeCombination": {
+                    "$ref": "NeoAttributeCombination",
+                    "description": "Updated NeoAttributeCombination."
+                }
+            },
+            "type": "object"
+        },
+        "UpdateNeoMasterUploadMetadataRequest": {
+            "description": "Request message for\nNeoMasterUploadMetadataService.UpdateNeoMasterUploadMetadata.",
+            "id": "UpdateNeoMasterUploadMetadataRequest",
+            "properties": {
+                "neoMasterUploadMetadata": {
+                    "$ref": "NeoMasterUploadMetadata",
+                    "description": "NeoAttributeCombination to be updated."
+                },
+                "updateMask": {
+                    "description": "Field mask listing fields that need to be updated",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateNeoMasterUploadMetadataResponse": {
+            "description": "Response message for\nNeoMasterUploadMetadataService.UpdateNeoMasterUploadMetadata.",
+            "id": "UpdateNeoMasterUploadMetadataResponse",
+            "properties": {
+                "neoMasterUploadMetadata": {
+                    "$ref": "NeoMasterUploadMetadata",
+                    "description": "Updated NeoMasterUploadMetadata."
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Alkali Lnmapper Private API (QA)",
+    "version": "v1",
+    "version_module": true
+}

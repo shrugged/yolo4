@@ -1,0 +1,2978 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/userinfo.email": {
+                    "description": "View your email address"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://testing-edafarm-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "EDAFarm",
+    "description": "API for submitting batch jobs to EDAFarm. See go/edafarm.",
+    "discoveryVersion": "v1",
+    "documentationLink": "",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "testing_edafarm_pa_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "testing_edafarm_pa_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "clusters": {
+            "resources": {
+                "jobs": {
+                    "resources": {
+                        "tasks": {
+                            "methods": {
+                                "get": {
+                                    "description": "Queries a single task by its task id.",
+                                    "flatPath": "v1/clusters/{clustersId}/jobs/{jobsId}/tasks/{tasksId}",
+                                    "httpMethod": "GET",
+                                    "id": "testing_edafarm_pa_sandbox.clusters.jobs.tasks.get",
+                                    "parameterOrder": [
+                                        "id"
+                                    ],
+                                    "parameters": {
+                                        "id": {
+                                            "description": "The id of the task in the form of \"cluster/dev/jobs/123/task/0",
+                                            "location": "path",
+                                            "pattern": "^clusters/[^/]+/jobs/[^/]+/tasks/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/{+id}",
+                                    "response": {
+                                        "$ref": "Task"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/userinfo.email"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "smart": {
+            "methods": {
+                "createJobs": {
+                    "description": "Used for creating farm jobs.",
+                    "flatPath": "v1/smart/{smartId}",
+                    "httpMethod": "POST",
+                    "id": "testing_edafarm_pa_sandbox.smart.createJobs",
+                    "parameterOrder": [
+                        "parent"
+                    ],
+                    "parameters": {
+                        "parent": {
+                            "description": "The parent is the full cluster id in the form of \"clusters/dev\"\nor \"smart\" or \"smart/clusters/dev\"",
+                            "location": "path",
+                            "pattern": "^smart/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+parent}",
+                    "request": {
+                        "$ref": "CreateJobsRequest"
+                    },
+                    "response": {
+                        "$ref": "CreateJobsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "get": {
+                    "description": "Queries a single job and all of its tasks by the job id.",
+                    "flatPath": "v1/smart/{smartId}",
+                    "httpMethod": "GET",
+                    "id": "testing_edafarm_pa_sandbox.smart.get",
+                    "parameterOrder": [
+                        "id"
+                    ],
+                    "parameters": {
+                        "id": {
+                            "description": "The id of the job in the form of \"cluster/dev/jobs/123\" or\n\"smart/UUID\"",
+                            "location": "path",
+                            "pattern": "^smart/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "level": {
+                            "description": "Specify level of detail of the response.",
+                            "enum": [
+                                "UNKNOWN_DETAILS",
+                                "BRIEF",
+                                "FULL",
+                                "INCLUDE_RAW_DATA"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+id}",
+                    "response": {
+                        "$ref": "Job"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                }
+            }
+        },
+        "v1": {
+            "methods": {
+                "addcustomimages": {
+                    "description": "Add custom images to GCE",
+                    "flatPath": "v1:addcustomimages",
+                    "httpMethod": "POST",
+                    "id": "testing_edafarm_pa_sandbox.addcustomimages",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1:addcustomimages",
+                    "request": {
+                        "$ref": "AddCustomImagesRequest"
+                    },
+                    "response": {
+                        "$ref": "AddCustomImagesResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "addprojecttoimageacl": {
+                    "description": "Add a project to an image",
+                    "flatPath": "v1:addprojecttoimageacl",
+                    "httpMethod": "POST",
+                    "id": "testing_edafarm_pa_sandbox.addprojecttoimageacl",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1:addprojecttoimageacl",
+                    "request": {
+                        "$ref": "AddProjectToImageACLRequest"
+                    },
+                    "response": {
+                        "$ref": "AddProjectToImageACLResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "batchGet": {
+                    "description": "Queries multiple jobs.",
+                    "flatPath": "v1:batchGet",
+                    "httpMethod": "GET",
+                    "id": "testing_edafarm_pa_sandbox.batchGet",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "ids": {
+                            "description": "The job ids in the form of \"smart/UUID\"",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        },
+                        "level": {
+                            "description": "Specify level of detail of the response.",
+                            "enum": [
+                                "UNKNOWN_DETAILS",
+                                "BRIEF",
+                                "FULL",
+                                "INCLUDE_RAW_DATA"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1:batchGet",
+                    "response": {
+                        "$ref": "BatchGetJobsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "createbucket": {
+                    "description": "Find user bucket (if not found create one) and return it",
+                    "flatPath": "v1:createbucket",
+                    "httpMethod": "POST",
+                    "id": "testing_edafarm_pa_sandbox.createbucket",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1:createbucket",
+                    "request": {
+                        "$ref": "CreateBucketRequest"
+                    },
+                    "response": {
+                        "$ref": "CreateBucketResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "createlabel": {
+                    "description": "Creates a metadata label for gcs uri or datahub query.",
+                    "flatPath": "v1:createlabel",
+                    "httpMethod": "POST",
+                    "id": "testing_edafarm_pa_sandbox.createlabel",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1:createlabel",
+                    "request": {
+                        "$ref": "CreateLabelRequest"
+                    },
+                    "response": {
+                        "$ref": "Label"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "getlabels": {
+                    "description": "Direct lookup of labels and their tags and URIs.",
+                    "flatPath": "v1:getlabels",
+                    "httpMethod": "GET",
+                    "id": "testing_edafarm_pa_sandbox.getlabels",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "labels": {
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        },
+                        "projectName": {
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1:getlabels",
+                    "response": {
+                        "$ref": "GetLabelsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "getmetadata": {
+                    "description": "Get all metadata for a gcs uri or datahub query",
+                    "flatPath": "v1:getmetadata",
+                    "httpMethod": "GET",
+                    "id": "testing_edafarm_pa_sandbox.getmetadata",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "data.query": {
+                            "description": "datahub search query",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "data.uri": {
+                            "description": "points to a specific file on gcs",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "projectName": {
+                            "description": "The eda project where the data resides.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1:getmetadata",
+                    "response": {
+                        "$ref": "Metadata"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "kill": {
+                    "description": "Used for killing in-progress jobs.",
+                    "flatPath": "v1:kill",
+                    "httpMethod": "POST",
+                    "id": "testing_edafarm_pa_sandbox.kill",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1:kill",
+                    "request": {
+                        "$ref": "KillJobsRequest"
+                    },
+                    "response": {
+                        "$ref": "KillJobsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "listCustomImages": {
+                    "description": "List custom images from GCE",
+                    "flatPath": "v1/{v1Id}",
+                    "httpMethod": "GET",
+                    "id": "testing_edafarm_pa_sandbox.listCustomImages",
+                    "parameterOrder": [
+                        "projectName"
+                    ],
+                    "parameters": {
+                        "projectName": {
+                            "description": "The name of the project that the images belong to.",
+                            "location": "path",
+                            "pattern": "^[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "regexPattern": {
+                            "description": "The regex pattern used to search the custom images. If left blank, all the\nimages are listed.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+projectName}",
+                    "response": {
+                        "$ref": "ListCustomImagesResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "listimage": {
+                    "description": "List all available images",
+                    "flatPath": "v1:listimage",
+                    "httpMethod": "GET",
+                    "id": "testing_edafarm_pa_sandbox.listimage",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1:listimage",
+                    "response": {
+                        "$ref": "ListImagesResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "listjobgroups": {
+                    "description": "List job groups",
+                    "flatPath": "v1:listjobgroups",
+                    "httpMethod": "GET",
+                    "id": "testing_edafarm_pa_sandbox.listjobgroups",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1:listjobgroups",
+                    "response": {
+                        "$ref": "ListJobGroupsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "listprojects": {
+                    "description": "List available projects",
+                    "flatPath": "v1:listprojects",
+                    "httpMethod": "GET",
+                    "id": "testing_edafarm_pa_sandbox.listprojects",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1:listprojects",
+                    "response": {
+                        "$ref": "ListProjectsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "removecustomimages": {
+                    "description": "Remove custom images from GCE",
+                    "flatPath": "v1:removecustomimages",
+                    "httpMethod": "POST",
+                    "id": "testing_edafarm_pa_sandbox.removecustomimages",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1:removecustomimages",
+                    "request": {
+                        "$ref": "RemoveCustomImagesRequest"
+                    },
+                    "response": {
+                        "$ref": "RemoveCustomImagesResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "removejobgroups": {
+                    "description": "Remove job group",
+                    "flatPath": "v1:removejobgroups",
+                    "httpMethod": "POST",
+                    "id": "testing_edafarm_pa_sandbox.removejobgroups",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1:removejobgroups",
+                    "request": {
+                        "$ref": "RemoveJobGroupsRequest"
+                    },
+                    "response": {
+                        "$ref": "RemoveJobGroupsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "search": {
+                    "description": "Searches for jobs across different clusters.",
+                    "flatPath": "v1:search",
+                    "httpMethod": "POST",
+                    "id": "testing_edafarm_pa_sandbox.search",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1:search",
+                    "request": {
+                        "$ref": "SearchJobsRequest"
+                    },
+                    "response": {
+                        "$ref": "SearchJobsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "searchdata": {
+                    "description": "Searches for jobs across different clusters.",
+                    "flatPath": "v1:searchdata",
+                    "httpMethod": "POST",
+                    "id": "testing_edafarm_pa_sandbox.searchdata",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1:searchdata",
+                    "request": {
+                        "$ref": "SearchDataRequest"
+                    },
+                    "response": {
+                        "$ref": "SearchDataResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "setartifactacl": {
+                    "description": "Used set ACL to artifacts, such as tarbal url",
+                    "flatPath": "v1:setartifactacl",
+                    "httpMethod": "POST",
+                    "id": "testing_edafarm_pa_sandbox.setartifactacl",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1:setartifactacl",
+                    "request": {
+                        "$ref": "SetArtifactACLRequest"
+                    },
+                    "response": {
+                        "$ref": "SetArtifactACLResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "setjobgroups": {
+                    "description": "Set job groups",
+                    "flatPath": "v1:setjobgroups",
+                    "httpMethod": "POST",
+                    "id": "testing_edafarm_pa_sandbox.setjobgroups",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1:setjobgroups",
+                    "request": {
+                        "$ref": "SetJobGroupsRequest"
+                    },
+                    "response": {
+                        "$ref": "SetJobGroupsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "subscribe": {
+                    "description": "Used for creating a new pubsub subscription to the user's topic.",
+                    "flatPath": "v1:subscribe",
+                    "httpMethod": "POST",
+                    "id": "testing_edafarm_pa_sandbox.subscribe",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1:subscribe",
+                    "request": {
+                        "$ref": "CreateSubscriptionRequest"
+                    },
+                    "response": {
+                        "$ref": "CreateSubscriptionResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                }
+            }
+        }
+    },
+    "revision": "20190921",
+    "rootUrl": "https://testing-edafarm-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "ACL": {
+            "description": "Generic ACL message.",
+            "id": "ACL",
+            "properties": {
+                "corpGroups": {
+                    "description": "Corp groups allowed read access.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "users": {
+                    "description": "Corp users allowed read access. ",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AddCustomImagesRequest": {
+            "id": "AddCustomImagesRequest",
+            "properties": {
+                "images": {
+                    "description": "The images to add to GCE.",
+                    "items": {
+                        "$ref": "CustomImage"
+                    },
+                    "type": "array"
+                },
+                "projectName": {
+                    "description": "The name of the project that the images belong to.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AddCustomImagesResponse": {
+            "id": "AddCustomImagesResponse",
+            "properties": {},
+            "type": "object"
+        },
+        "AddProjectToImageACLRequest": {
+            "id": "AddProjectToImageACLRequest",
+            "properties": {
+                "imageName": {
+                    "description": "name of the image that will get the new project",
+                    "type": "string"
+                },
+                "projectName": {
+                    "description": "name of the project that will be added to image",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AddProjectToImageACLResponse": {
+            "id": "AddProjectToImageACLResponse",
+            "properties": {},
+            "type": "object"
+        },
+        "Aggregate": {
+            "description": "Aggregation takes several analysis results, and aggregates them into a single\naggregated result using a series of rules.",
+            "id": "Aggregate",
+            "properties": {
+                "rule": {
+                    "items": {
+                        "$ref": "Rule"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Analyze": {
+            "description": "The analyzer message is the input to the analyzer tool. It contains several\nanalyzers to be run on a single log file.",
+            "id": "Analyze",
+            "properties": {
+                "analyzer": {
+                    "items": {
+                        "$ref": "Analyzer"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Analyzer": {
+            "id": "Analyzer",
+            "properties": {
+                "classify": {
+                    "$ref": "Classify"
+                },
+                "count": {
+                    "$ref": "Count"
+                },
+                "extract": {
+                    "$ref": "Extract"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ArtifactMeta": {
+            "description": "Allows specifying extra acl and ttl settings for when the user\nwants to override the defaults.",
+            "id": "ArtifactMeta",
+            "properties": {
+                "acl": {
+                    "$ref": "ACL",
+                    "description": "Allows changing the default."
+                },
+                "expirationTime": {
+                    "description": "Eligible for garbage collection after this date. If not set, or set\nto its zero value, the default ttl from eda_projects.yaml is used.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "BatchGetJobsResponse": {
+            "description": "Response for batch get RPC.",
+            "id": "BatchGetJobsResponse",
+            "properties": {
+                "jobs": {
+                    "description": "The jobs.",
+                    "items": {
+                        "$ref": "Job"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CitcSrc": {
+            "id": "CitcSrc",
+            "properties": {
+                "blazeOptions": {
+                    "description": "Tokenized Blaze options (e.g. '--test_output=all'). Space-separated options\nmust be passed in separately (e.g. '-c' and 'opt' instead of '-c opt').",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "blazeTargets": {
+                    "description": "Blaze targets relative to depot root. E.g. platforms/edafarm/foo:bar",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "clientAlias": {
+                    "description": "CitC client. E.g. Second component of foouser:<client_alias>:1234:citc",
+                    "type": "string"
+                },
+                "clientSnapshot": {
+                    "description": "CitC snapshot (view with 'citctools info'). If value is -1, use the latest\nsnapshot seen by the build host at runtime.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "depotRoot": {
+                    "description": "Piper depot root. Defaults to '//depot/google3' if empty.",
+                    "type": "string"
+                },
+                "sharedEnvId": {
+                    "description": "If a valid env_id is provided, that environment's workspace will be reused\nand incrementally updated with new Blaze artifacts.",
+                    "type": "string"
+                },
+                "trackBlazeOutputs": {
+                    "description": "## Tracking rules that result in union join and de-dupe of all files.\n\nConvenience bool to track binaries and genrule output files from Blaze\ntargets specified above.",
+                    "type": "boolean"
+                },
+                "trackTouchedFiles": {
+                    "description": "Convenience bool to track open, edited, or unknown files in client.",
+                    "type": "boolean"
+                },
+                "trackedPathGlobs": {
+                    "description": "Shell path globs relative to depot root to track.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "trackedPathSpecs": {
+                    "description": "Piper path specs relative to depot root to track.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "user": {
+                    "description": "Defaults to RPC peer/user if not specified.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Classify": {
+            "description": "Classify uses a regular expression to generate classification results. These\nclassification results are used to indicate what happened in a run. It starts\nrunning when the start regex is matched, continuing to the stop, and\ngenerating the classification result whenever the regex is matched.",
+            "id": "Classify",
+            "properties": {
+                "method": {
+                    "$ref": "Method"
+                },
+                "result": {
+                    "enum": [
+                        "UNKNOWN_STATUS",
+                        "FAIL",
+                        "INFRA_FAIL",
+                        "CANCELED",
+                        "TIMEOUT",
+                        "PASS",
+                        "STATUS_RUNNING",
+                        "STATUS_READY",
+                        "STATUS_PENDING"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ClassifyRule": {
+            "description": "Classification rules say how to aggregate classification results.The\nstatus_priorities maps each status to a priority (e.g., FAIL could be 100),\nand the result_priorities overrides that for an individual classification\nresult_name (e.g., the search for WKNOLOK could have priority 120, instead of\nits default value). If two classifications have the same priority, the one\nthat appears earlier is the aggregated classification.",
+            "id": "ClassifyRule",
+            "properties": {
+                "initialStatus": {
+                    "$ref": "InitialStatus",
+                    "description": "The initial_status (optional) is the initial state of the aggregator.\nThis can be used to default to a failing state until it sees a PASS status."
+                },
+                "resultPriorities": {
+                    "additionalProperties": {
+                        "format": "int32",
+                        "type": "integer"
+                    },
+                    "type": "object"
+                },
+                "statusPriorities": {
+                    "items": {
+                        "$ref": "StatusPriority"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CopyRule": {
+            "description": "Copy rules pass on matches without any further processing.\nThis is useful where an aggregation step needs to do nothing.",
+            "id": "CopyRule",
+            "properties": {},
+            "type": "object"
+        },
+        "Count": {
+            "description": "Count uses a regular expression to count occurrences of some event. Again,\nthe scope can be limited with the start and stop regexen.",
+            "id": "Count",
+            "properties": {
+                "method": {
+                    "$ref": "Method"
+                }
+            },
+            "type": "object"
+        },
+        "CountRule": {
+            "description": "Count rules sum up counted analysis results.",
+            "id": "CountRule",
+            "properties": {},
+            "type": "object"
+        },
+        "CreateBucketRequest": {
+            "description": "Used for creating or geting bucket name for a user/project",
+            "id": "CreateBucketRequest",
+            "properties": {
+                "projectName": {
+                    "description": "project_name of the project the user belongs to",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CreateBucketResponse": {
+            "description": "The response returned for CreateBucket.",
+            "id": "CreateBucketResponse",
+            "properties": {
+                "bucketName": {
+                    "description": "name of the bucket that was created or found, if already existed",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CreateJobsRequest": {
+            "description": "Used for creating jobs in a specified cluster.",
+            "id": "CreateJobsRequest",
+            "properties": {
+                "jobs": {
+                    "description": "jobs are the actual job requests.",
+                    "items": {
+                        "$ref": "JobRequest"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CreateJobsResponse": {
+            "description": "The create job response as it comes from the server.",
+            "id": "CreateJobsResponse",
+            "properties": {
+                "jobs": {
+                    "description": "Each job here corresponds to a job in the request message.\nThe order is the same as jobs in the request.",
+                    "items": {
+                        "$ref": "JobIdOrError"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CreateLabelRequest": {
+            "description": "Creates an Edafarm Label",
+            "id": "CreateLabelRequest",
+            "properties": {
+                "data": {
+                    "description": "The data that this label will point to.",
+                    "items": {
+                        "$ref": "DataReference"
+                    },
+                    "type": "array"
+                },
+                "label": {
+                    "$ref": "Label",
+                    "description": "The new label with its tags."
+                },
+                "projectName": {
+                    "description": "The eda project.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CreateSubscriptionRequest": {
+            "description": "Creates a new subscription to the user's topic.",
+            "id": "CreateSubscriptionRequest",
+            "properties": {
+                "projectName": {
+                    "description": "The eda project name(ex. englab-eda, or dv_exe_devel).",
+                    "type": "string"
+                },
+                "subscription": {
+                    "description": "The name of the subscription where the user will listen for job state\nupdates for their jobs via pub-sub.",
+                    "type": "string"
+                },
+                "user": {
+                    "description": "The user's topic that we are subscribing to or empty for the all users\ntopic.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CreateSubscriptionResponse": {
+            "description": "Response message for the CreateSubscription RPC.",
+            "id": "CreateSubscriptionResponse",
+            "properties": {
+                "path": {
+                    "description": "Contains the full path to the created subscription.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Credentials": {
+            "id": "Credentials",
+            "properties": {
+                "crdAuth": {
+                    "description": "Pass chromoting auth and password for interactive jobs on cloud",
+                    "type": "string"
+                },
+                "crdPasswd": {
+                    "type": "string"
+                },
+                "gcloudCredentials": {
+                    "description": "Google cloud credentials. It can be either user oauth credential or service\naccount file.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "oauthAccessToken": {
+                    "description": "Oauth access token. It is a short lived token that typically expire after 1\nhour. If users prefer to use this authentication method, their job must\nfinish before the token expiration.",
+                    "type": "string"
+                },
+                "sshKey": {
+                    "description": "ssh public key for accessing a job",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CustomImage": {
+            "id": "CustomImage",
+            "properties": {
+                "name": {
+                    "description": "The name of the custom image.\nThis name will get prepended with '{project_name}-', before being added to\nGCE, as a way to identify it as a custom image.",
+                    "type": "string"
+                },
+                "uri": {
+                    "description": "The GCS uri of the staged custom image.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Data": {
+            "description": "Represents label, tags, and the URIs that they point to.",
+            "id": "Data",
+            "properties": {
+                "meta": {
+                    "$ref": "Metadata"
+                },
+                "ref": {
+                    "items": {
+                        "$ref": "DataReference"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "DataReference": {
+            "description": "References data. If it's using a query, it may resolve differently based on\nwhen it's executed.",
+            "id": "DataReference",
+            "properties": {
+                "query": {
+                    "description": "datahub search query",
+                    "type": "string"
+                },
+                "uri": {
+                    "description": "points to a specific file on gcs",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Date": {
+            "description": "Represents a whole or partial calendar date, e.g. a birthday. The time of day\nand time zone are either specified elsewhere or are not significant. The date\nis relative to the Proleptic Gregorian Calendar. This can represent:\n\n* A full date, with non-zero year, month and day values\n* A month and day value, with a zero year, e.g. an anniversary\n* A year on its own, with zero month and day values\n* A year and month value, with a zero day, e.g. a credit card expiration date\n\nRelated types are google.type.TimeOfDay and `google.protobuf.Timestamp`.",
+            "id": "Date",
+            "properties": {
+                "day": {
+                    "description": "Day of month. Must be from 1 to 31 and valid for the year and month, or 0\nif specifying a year by itself or a year and month where the day is not\nsignificant.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "month": {
+                    "description": "Month of year. Must be from 1 to 12, or 0 if specifying a year without a\nmonth and day.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "year": {
+                    "description": "Year of date. Must be from 1 to 9999, or 0 if specifying a date without\na year.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "Distribution": {
+            "description": "`Distribution` contains summary statistics for a population of values. It\noptionally contains a histogram representing the distribution of those values\nacross a set of buckets.\n\nThe summary statistics are the count, mean, sum of the squared deviation from\nthe mean, the minimum, and the maximum of the set of population of values.\nThe histogram is based on a sequence of buckets and gives a count of values\nthat fall into each bucket. The boundaries of the buckets are given either\nexplicitly or by formulas for buckets of fixed or exponentially increasing\nwidths.\n\nAlthough it is not forbidden, it is generally a bad idea to include\nnon-finite values (infinities or NaNs) in the population of values, as this\nwill render the `mean` and `sum_of_squared_deviation` fields meaningless.",
+            "id": "Distribution",
+            "properties": {
+                "bucketCounts": {
+                    "description": "The number of values in each bucket of the histogram, as described in\n`bucket_options`. If the distribution does not have a histogram, then omit\nthis field. If there is a histogram, then the sum of the values in\n`bucket_counts` must equal the value in the `count` field of the\ndistribution.\n\nIf present, `bucket_counts` should contain N values, where N is the number\nof buckets specified in `bucket_options`. If you supply fewer than N\nvalues, the remaining values are assumed to be 0.\n\nThe order of the values in `bucket_counts` follows the bucket numbering\nschemes described for the three bucket types. The first value must be the\ncount for the underflow bucket (number 0). The next N-2 values are the\ncounts for the finite buckets (number 1 through N-2). The N'th value in\n`bucket_counts` is the count for the overflow bucket (number N-1).",
+                    "items": {
+                        "format": "int64",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "bucketOptions": {
+                    "$ref": "DistributionBucketOptions",
+                    "description": "Defines the histogram bucket boundaries. If the distribution does not\ncontain a histogram, then omit this field."
+                },
+                "count": {
+                    "description": "The number of values in the population. Must be non-negative. This value\nmust equal the sum of the values in `bucket_counts` if a histogram is\nprovided.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "exemplars": {
+                    "description": "Must be in increasing order of `value` field.",
+                    "items": {
+                        "$ref": "DistributionExemplar"
+                    },
+                    "type": "array"
+                },
+                "mean": {
+                    "description": "The arithmetic mean of the values in the population. If `count` is zero\nthen this field must be zero.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "range": {
+                    "$ref": "DistributionRange",
+                    "description": "If specified, contains the range of the population values. The field\nmust not be present if the `count` is zero."
+                },
+                "sumOfSquaredDeviation": {
+                    "description": "The sum of squared deviations from the mean of the values in the\npopulation. For values x_i this is:\n\n    Sum[i=1..n]((x_i - mean)^2)\n\nKnuth, \"The Art of Computer Programming\", Vol. 2, page 323, 3rd edition\ndescribes Welford's method for accumulating this sum in one pass.\n\nIf `count` is zero then this field must be zero.",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "DistributionBucketOptions": {
+            "description": "`BucketOptions` describes the bucket boundaries used to create a histogram\nfor the distribution. The buckets can be in a linear sequence, an\nexponential sequence, or each bucket can be specified explicitly.\n`BucketOptions` does not include the number of values in each bucket.\n\nA bucket has an inclusive lower bound and exclusive upper bound for the\nvalues that are counted for that bucket. The upper bound of a bucket must\nbe strictly greater than the lower bound. The sequence of N buckets for a\ndistribution consists of an underflow bucket (number 0), zero or more\nfinite buckets (number 1 through N - 2) and an overflow bucket (number N -\n1). The buckets are contiguous: the lower bound of bucket i (i > 0) is the\nsame as the upper bound of bucket i - 1. The buckets span the whole range\nof finite values: lower bound of the underflow bucket is -infinity and the\nupper bound of the overflow bucket is +infinity. The finite buckets are\nso-called because both bounds are finite.",
+            "id": "DistributionBucketOptions",
+            "properties": {
+                "explicitBuckets": {
+                    "$ref": "DistributionBucketOptionsExplicit",
+                    "description": "The explicit buckets."
+                },
+                "exponentialBuckets": {
+                    "$ref": "DistributionBucketOptionsExponential",
+                    "description": "The exponential buckets."
+                },
+                "linearBuckets": {
+                    "$ref": "DistributionBucketOptionsLinear",
+                    "description": "The linear bucket."
+                }
+            },
+            "type": "object"
+        },
+        "DistributionBucketOptionsExplicit": {
+            "description": "Specifies a set of buckets with arbitrary widths.\n\nThere are `size(bounds) + 1` (= N) buckets. Bucket `i` has the following\nboundaries:\n\n   Upper bound (0 <= i < N-1):     bounds[i]\n   Lower bound (1 <= i < N);       bounds[i - 1]\n\nThe `bounds` field must contain at least one element. If `bounds` has\nonly one element, then there are no finite buckets, and that single\nelement is the common boundary of the overflow and underflow buckets.",
+            "id": "DistributionBucketOptionsExplicit",
+            "properties": {
+                "bounds": {
+                    "description": "The values must be monotonically increasing.",
+                    "items": {
+                        "format": "double",
+                        "type": "number"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "DistributionBucketOptionsExponential": {
+            "description": "Specifies an exponential sequence of buckets that have a width that is\nproportional to the value of the lower bound. Each bucket represents a\nconstant relative uncertainty on a specific value in the bucket.\n\nThere are `num_finite_buckets + 2` (= N) buckets. Bucket `i` has the\nfollowing boundaries:\n\n   Upper bound (0 <= i < N-1):     scale * (growth_factor ^ i).\n   Lower bound (1 <= i < N):       scale * (growth_factor ^ (i - 1)).",
+            "id": "DistributionBucketOptionsExponential",
+            "properties": {
+                "growthFactor": {
+                    "description": "Must be greater than 1.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "numFiniteBuckets": {
+                    "description": "Must be greater than 0.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "scale": {
+                    "description": "Must be greater than 0.",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "DistributionBucketOptionsLinear": {
+            "description": "Specifies a linear sequence of buckets that all have the same width\n(except overflow and underflow). Each bucket represents a constant\nabsolute uncertainty on the specific value in the bucket.\n\nThere are `num_finite_buckets + 2` (= N) buckets. Bucket `i` has the\nfollowing boundaries:\n\n   Upper bound (0 <= i < N-1):     offset + (width * i).\n   Lower bound (1 <= i < N):       offset + (width * (i - 1)).",
+            "id": "DistributionBucketOptionsLinear",
+            "properties": {
+                "numFiniteBuckets": {
+                    "description": "Must be greater than 0.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "offset": {
+                    "description": "Lower bound of the first bucket.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "width": {
+                    "description": "Must be greater than 0.",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "DistributionExemplar": {
+            "description": "Exemplars are example points that may be used to annotate aggregated\ndistribution values. They are metadata that gives information about a\nparticular value added to a Distribution bucket, such as a trace ID that\nwas active when a value was added. They may contain further information,\nsuch as a example values and timestamps, origin, etc.",
+            "id": "DistributionExemplar",
+            "properties": {
+                "attachments": {
+                    "description": "Contextual information about the example value. Examples are:\n\n  Trace: type.googleapis.com/google.monitoring.v3.SpanContext\n\n  Literal string: type.googleapis.com/google.protobuf.StringValue\n\n  Labels dropped during aggregation:\n    type.googleapis.com/google.monitoring.v3.DroppedLabels\n\nThere may be only a single attachment of any given message type in a\nsingle exemplar, and this is enforced by the system.",
+                    "items": {
+                        "additionalProperties": {
+                            "description": "Properties of the object. Contains field @type with type URL.",
+                            "type": "any"
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "timestamp": {
+                    "description": "The observation (sampling) time of the above value.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "Value of the exemplar point. This value determines to which bucket the\nexemplar belongs.",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "DistributionRange": {
+            "description": "The range of the population values.",
+            "id": "DistributionRange",
+            "properties": {
+                "max": {
+                    "description": "The maximum of the population values.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "min": {
+                    "description": "The minimum of the population values.",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "Environment": {
+            "description": "Represents runtime environment metadata",
+            "id": "Environment",
+            "properties": {
+                "clusterVersion": {
+                    "description": "GKE cluster version",
+                    "type": "string"
+                },
+                "diskType": {
+                    "description": "e.g. PD-SSD 1000GB",
+                    "type": "string"
+                },
+                "hostname": {
+                    "description": "VM host name",
+                    "type": "string"
+                },
+                "jobType": {
+                    "description": "Job, Pod, or Kubebatch",
+                    "type": "string"
+                },
+                "location": {
+                    "description": "e.g. GCP zone",
+                    "type": "string"
+                },
+                "machineType": {
+                    "description": "e.g. n1-standard-64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Extract": {
+            "description": "Extract uses a regex with groups to extract string data from data sets.",
+            "id": "Extract",
+            "properties": {
+                "method": {
+                    "$ref": "Method"
+                }
+            },
+            "type": "object"
+        },
+        "ExtractRule": {
+            "description": "Extraction rules aggregate extracted results, and allow extracted groups to\nbe mapped from strings to integers. If there aren't enough fields for the\nmapping, or if they cannot be mapped, the aggregation will return an error.",
+            "id": "ExtractRule",
+            "properties": {
+                "mapToInt": {
+                    "additionalProperties": {
+                        "type": "boolean"
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "Filestore": {
+            "description": "Filestore provides a way to reference Cloud Filestore instances.",
+            "id": "Filestore",
+            "properties": {
+                "name": {
+                    "description": "The name of the filestore instance.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FilestoreMount": {
+            "description": "Mount type for a Filestore instance",
+            "id": "FilestoreMount",
+            "properties": {
+                "dir": {
+                    "description": "the name of the directory to mount the disk to within the 'mnt' dir",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "the name of the image within the project to use",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GPU": {
+            "description": "License provides a way to reference certain licenses as requirements.",
+            "id": "GPU",
+            "properties": {
+                "count": {
+                    "description": "The number of GPUs needed.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "The GPU type.",
+                    "enum": [
+                        "ANY",
+                        "NVIDIA_V100",
+                        "NVIDIA_P100",
+                        "NVIDIA_P4",
+                        "NVIDIA_K80"
+                    ],
+                    "enumDescriptions": [
+                        "Any GPU type",
+                        "NVIDIA Tesla V100",
+                        "NVIDIA Tesla P100",
+                        "NVIDIA Tesla P4",
+                        "NVIDIA Tesla K80"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GetLabelsResponse": {
+            "description": "Response message for GetLabelsRequest.",
+            "id": "GetLabelsResponse",
+            "properties": {
+                "data": {
+                    "description": "The different labels along with the uris that they point to.",
+                    "items": {
+                        "$ref": "Data"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GobSrc": {
+            "id": "GobSrc",
+            "properties": {
+                "gitRefs": {
+                    "items": {
+                        "$ref": "GobSrcGitRef"
+                    },
+                    "type": "array"
+                },
+                "sharedEnvId": {
+                    "description": "If a valid env_id is provided, that environment's workspace will be reused\nand the local Git repo is synced instead of cloned from scratch.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GobSrcGitRef": {
+            "id": "GobSrcGitRef",
+            "properties": {
+                "branch": {
+                    "type": "string"
+                },
+                "destDir": {
+                    "description": "Optional destination subdirectory within staging directory.",
+                    "type": "string"
+                },
+                "recursive": {
+                    "description": "If true, pull in submodules and/or sub repos.",
+                    "type": "boolean"
+                },
+                "skipCache": {
+                    "type": "boolean"
+                },
+                "tag": {
+                    "type": "string"
+                },
+                "url": {
+                    "description": "Git-on-Borg git remote URL. E.g. https://fooremote/footeam/fooproject\nStubby transport (i.e. rpc://...) requires non-restricted LOAS certs.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Image": {
+            "id": "Image",
+            "properties": {
+                "corpGroups": {
+                    "description": "The corp ganpati2 groups allowed to use this image.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "corpPath": {
+                    "description": "The nfs path to the image if the image is available in the non cloud\nclusters.",
+                    "type": "string"
+                },
+                "gceUri": {
+                    "description": "The gce path to the image if the image is available on cloud.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name of the tool or library, including the version number,\ne.g. vcs-mx-m-2017-03-sp1-1",
+                    "type": "string"
+                },
+                "projects": {
+                    "description": "The projects allowed to use this image.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "vendor": {
+                    "description": "Vendor (e.g., cadence) who provides this image.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ImageMount": {
+            "description": "Mount type for an image",
+            "id": "ImageMount",
+            "properties": {
+                "dir": {
+                    "description": "the name of the directory to mount the disk to within the 'mnt' dir",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "the name of the image within the project to use",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "InitialStatus": {
+            "description": "InitialStatus let the user define what it means to have no classification\nresults, e.g. UNKNOWN or \"didn't see a PASS message, therefore FAIL.\"\nThe description field will appear as a (fake) match line in the\nClassification result.  The status field defines the default status.\nThe priority field defines the relative ranking vs. other statuses, and\nshould be *less* than all other classification findings.",
+            "id": "InitialStatus",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "priority": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "status": {
+                    "enum": [
+                        "UNKNOWN_STATUS",
+                        "FAIL",
+                        "INFRA_FAIL",
+                        "CANCELED",
+                        "TIMEOUT",
+                        "PASS",
+                        "STATUS_RUNNING",
+                        "STATUS_READY",
+                        "STATUS_PENDING"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Job": {
+            "description": "Represents a submitted job.",
+            "id": "Job",
+            "properties": {
+                "createRequest": {
+                    "$ref": "JobRequest",
+                    "description": "The create request for this job."
+                },
+                "envId": {
+                    "description": "The id of the job that created the environment.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Unique id assigned by the server in the form \"clusters/dev/jobs/1234\"",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The logical name if optionally set by the user.",
+                    "type": "string"
+                },
+                "submitHost": {
+                    "description": "The submit host for this job.",
+                    "type": "string"
+                },
+                "tasks": {
+                    "description": "Tasks represent the instances, or replicas of this job.",
+                    "items": {
+                        "$ref": "Task"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "JobEnv": {
+            "description": "Main wrapper message to describe EDAFarm job environment.",
+            "id": "JobEnv",
+            "properties": {
+                "accountingGroup": {
+                    "description": "Prod accounting group for DevInfra chargeback. build_role must be member\nof the group and it must have a Product Area associated with it.\nDefaults to group specified in project configs.",
+                    "type": "string"
+                },
+                "buildCmd": {
+                    "description": "Arbitrary shell command to build environment/workspace.",
+                    "type": "string"
+                },
+                "buildRole": {
+                    "description": "## ",
+                    "type": "string"
+                },
+                "citcSrc": {
+                    "$ref": "CitcSrc"
+                },
+                "exportPath": {
+                    "description": "If specified, data in the workspace 'export' subdir will be exported to\nthe provided x20 path.",
+                    "type": "string"
+                },
+                "gobSrc": {
+                    "$ref": "GobSrc"
+                },
+                "repoSrc": {
+                    "$ref": "RepoSrc"
+                },
+                "tarballSrc": {
+                    "$ref": "TarballSrc"
+                },
+                "wsSrc": {
+                    "$ref": "WorkspaceSrc"
+                },
+                "wsType": {
+                    "enum": [
+                        "DEFAULT",
+                        "SHARED",
+                        "CLONED",
+                        "CITC",
+                        "GOB",
+                        "REPO",
+                        "TARBALL"
+                    ],
+                    "enumDescriptions": [
+                        "Create new empty workspace.",
+                        "Resolve existing workspace and re-use.",
+                        "Resolve existing workspace and clone.",
+                        "Create new CitC workspace.",
+                        "Create new Git-on-Borg workspace.",
+                        "Create new Android Repo Git workspace.",
+                        "Create new tarball workspace."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "JobGroup": {
+            "id": "JobGroup",
+            "properties": {
+                "jobLimit": {
+                    "description": "The maximum number of jobs allowed to be running for the job group.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "The name of the job group. Must be in /<username>/<job_group_name> format.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "JobIdOrError": {
+            "description": "An intermediate message with either a job id or an error.",
+            "id": "JobIdOrError",
+            "properties": {
+                "error": {
+                    "description": "The error message for jobs that could not be created.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "The id of successfully created jobs.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "JobRequest": {
+            "description": "JobRequest is used for creating jobs.",
+            "id": "JobRequest",
+            "properties": {
+                "analysisConfig": {
+                    "$ref": "Probe",
+                    "description": "The configuration of the probe tool used for preparing the job's summary."
+                },
+                "artifact": {
+                    "$ref": "ArtifactMeta",
+                    "description": "Metadata for the output.tar.gz artifact on gcs"
+                },
+                "beginTime": {
+                    "description": "Dispatch the job on or after this time.\nDispatch the job on or after begin_time",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "command": {
+                    "description": "The job's command line.",
+                    "type": "string"
+                },
+                "constraints": {
+                    "description": "UNSUPPORTED - At present, this is used only for internal testing.\nScheduling constraints for the job. E.g. \"rack=abc,zone=mtv,foo\"\nhttps://engdoc.corp.google.com/eng/doc/borg/configuring/constraints.shtml",
+                    "type": "string"
+                },
+                "credentials": {
+                    "$ref": "Credentials",
+                    "description": "Chromoting credentials for interactive jobs on cloud"
+                },
+                "dependCondition": {
+                    "description": "The job's dependency condition.",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "Optional description of the job.",
+                    "type": "string"
+                },
+                "dockerImage": {
+                    "description": "The docker image for the job.",
+                    "type": "string"
+                },
+                "errFile": {
+                    "description": "Redirects stderr to this path. Relative to the job's cwd.",
+                    "type": "string"
+                },
+                "inFile": {
+                    "description": "The path of the job's standard input file.",
+                    "type": "string"
+                },
+                "interactive": {
+                    "description": "Specifies whether the job is interactive.",
+                    "type": "boolean"
+                },
+                "interactiveTimeout": {
+                    "description": "If user hasn't been connected to the interactive job for more than\ninteractive_timeout seconds, the job will be closed.\nIt only applies to CRD and VNC jobs.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "interactiveType": {
+                    "enum": [
+                        "UNSET",
+                        "CRD",
+                        "VNC",
+                        "X11"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "jobEnv": {
+                    "$ref": "JobEnv",
+                    "description": "Environment that job runs within."
+                },
+                "jobGroup": {
+                    "description": "Job group under which the job runs.",
+                    "type": "string"
+                },
+                "kerberosTicket": {
+                    "description": "The kerberos ticket for the request.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "livemonDb": {
+                    "description": "The spanner database name where the job's summary will be uploaded.",
+                    "type": "string"
+                },
+                "loginShell": {
+                    "description": "Specifes login shell for the job.",
+                    "type": "string"
+                },
+                "mailUser": {
+                    "description": "The user that gets the email for this job.",
+                    "type": "string"
+                },
+                "mounts": {
+                    "$ref": "Mounts",
+                    "description": "Mounts"
+                },
+                "name": {
+                    "description": "Name of the job set by the user.",
+                    "type": "string"
+                },
+                "oauthToken": {
+                    "description": "The oauth refresh token is used for making authorized API calls from the\njob itself for jobs started by regular users. If set, the token is made\navailable in the job's execution environment. Optional.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "outFile": {
+                    "description": "Redirects stdout to this path. Relative to the job's cwd.",
+                    "type": "string"
+                },
+                "outputMetadata": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Metadata to write to output tarball when stored in GCS",
+                    "type": "object"
+                },
+                "outputUriPrefix": {
+                    "description": "The path prefix in gcs where the output will be uploaded.",
+                    "type": "string"
+                },
+                "postCommand": {
+                    "description": "Post-command will run after user command. For GUI jobs, post-command will\nrun after GUI session close.",
+                    "type": "string"
+                },
+                "preCommand": {
+                    "description": "Pre-command will run before user command. For GUI jobs, pre-command will\nrun before GUI session setup.",
+                    "type": "string"
+                },
+                "priority": {
+                    "enum": [
+                        "UNKNOWN",
+                        "LOW",
+                        "MEDIUM",
+                        "HIGH",
+                        "ULTRA"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "projectName": {
+                    "description": "The name of the project that this job belongs to.",
+                    "type": "string"
+                },
+                "pubsubTopic": {
+                    "description": "The topic that the project users can subscribe to get job state updates.",
+                    "type": "string"
+                },
+                "queue": {
+                    "description": "DEPRECATED - Submit the job to this queue.",
+                    "type": "string"
+                },
+                "replicas": {
+                    "description": "The number of instances of the job. The default is 1.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "requirements": {
+                    "$ref": "Requirements",
+                    "description": "Scheduling requirements."
+                },
+                "runLimit": {
+                    "description": "Number of seconds the job should run for. default of zero means no limit.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "serviceAccountKey": {
+                    "description": "The json encoded service account key for role account robot users.\nOnly needed if the role-account user's job needs to make authorized API\ncalls as part of its execution.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "subpriority": {
+                    "description": "User subpriority of the job. It is an integer between 1~100.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "termTime": {
+                    "description": "The job's termination deadline.\nIf the job is still running at term_time, it will be sent a USR2 signal.\nIf the job does not terminate within 10 minutes after being sent this\nsignal, it will be ended.\nKill the job if it\u2019s still running",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "uuid": {
+                    "description": "Optional uuid to use for the job.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "KillJobsRequest": {
+            "description": "Kills jobs across clusters.",
+            "id": "KillJobsRequest",
+            "properties": {
+                "id": {
+                    "description": "The job ids in the form of \"smart/uuid\"",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "signal": {
+                    "enum": [
+                        "UNKNOWN",
+                        "HUP",
+                        "INT",
+                        "QUIT",
+                        "KILL",
+                        "USR1",
+                        "USR2",
+                        "ALRM",
+                        "TERM",
+                        "CONT",
+                        "STOP"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "KillJobsResponse": {
+            "id": "KillJobsResponse",
+            "properties": {},
+            "type": "object"
+        },
+        "Label": {
+            "description": "Label is used for labeling data, which is sort of like a package that has\nit's own set of metadata tags.",
+            "id": "Label",
+            "properties": {
+                "name": {
+                    "description": "The name of the label.",
+                    "type": "string"
+                },
+                "tags": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "The metadata tags for this label.",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "LatestRule": {
+            "description": "Latest rules take only the last match.  This is useful for patterns that\nmatch complete stateful information, e.g. number of unfinished jobs,\nor last printed timestamp.",
+            "id": "LatestRule",
+            "properties": {},
+            "type": "object"
+        },
+        "License": {
+            "description": "License provides a way to reference certain licenses as requirements.",
+            "id": "License",
+            "properties": {
+                "acl": {
+                    "$ref": "ACL",
+                    "description": "An acl for the license"
+                },
+                "count": {
+                    "description": "The number of a particular license required for the job.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "host": {
+                    "description": "License server host name.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Old field for `name` in private proto.",
+                    "type": "string"
+                },
+                "token": {
+                    "description": "A reference to the particular type of license being requested.",
+                    "enum": [
+                        "UNKNOWN",
+                        "NCSIM",
+                        "RTLCOMPILER",
+                        "CONFORMAL",
+                        "VIP_PCIE3",
+                        "VIP_ETHERNET_25G",
+                        "VCSSIM",
+                        "DC",
+                        "VIP_PORTFOLIO",
+                        "JASPER_FPV",
+                        "JASPER_XPROP",
+                        "JASPER_CONN",
+                        "DCEXTENSION",
+                        "POWEROPT",
+                        "TESTCOMPILER",
+                        "PRIMETIME",
+                        "VIP_LPDDR4",
+                        "XCELIUM",
+                        "DC_GCHIPS",
+                        "TEST_TOKEN",
+                        "VCSCOMPILE",
+                        "VCSMISC",
+                        "AVY_VIP"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "Cadence Incisive Simulator",
+                        "Cadence RTL Compiler",
+                        "Cadence Conformal",
+                        "Verification IP - PCIE3",
+                        "Verification IP - 25G Ethernet",
+                        "VCS Simulator license",
+                        "Design Compiler",
+                        "Cadence Vip portfolio plus google",
+                        "Jasper Presubmit fpv licenses",
+                        "Jasper Presubmit xprop licenses",
+                        "Jasper Presubmit conn licenses",
+                        "synopsys DC-Extension",
+                        "synopsys power-optimization",
+                        "synopsys Test-Compiler",
+                        "PrimeTime",
+                        "MM_lpddr4",
+                        "xcelium Simulator license",
+                        "Design Compiler - GChips",
+                        "A test token that is not linked to any real licenses. It is only used to\nfor test, especially integration test.",
+                        "VCS compiler",
+                        "for miscellaneous uses of non-primary VCS features",
+                        "for Avery VIP"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListCustomImagesResponse": {
+            "id": "ListCustomImagesResponse",
+            "properties": {
+                "imageNames": {
+                    "description": "The names of the images.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListImagesResponse": {
+            "id": "ListImagesResponse",
+            "properties": {
+                "images": {
+                    "items": {
+                        "$ref": "Image"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListJobGroupsResponse": {
+            "id": "ListJobGroupsResponse",
+            "properties": {
+                "jobGroups": {
+                    "items": {
+                        "$ref": "JobGroup"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListProjectsResponse": {
+            "id": "ListProjectsResponse",
+            "properties": {
+                "projects": {
+                    "items": {
+                        "$ref": "Project"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Metadata": {
+            "description": "Labels and tags.",
+            "id": "Metadata",
+            "properties": {
+                "labels": {
+                    "items": {
+                        "$ref": "Label"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Method": {
+            "id": "Method",
+            "properties": {
+                "range": {
+                    "$ref": "Range"
+                }
+            },
+            "type": "object"
+        },
+        "Metric": {
+            "description": "A specific metric, identified by specifying values for all of the\nlabels of a `MetricDescriptor`.",
+            "id": "Metric",
+            "properties": {
+                "labels": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "The set of label values that uniquely identify this metric. All\nlabels listed in the `MetricDescriptor` must be assigned values.",
+                    "type": "object"
+                },
+                "type": {
+                    "description": "An existing metric type, see google.api.MetricDescriptor.\nFor example, `custom.googleapis.com/invoice/paid/amount`.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MonitoredResource": {
+            "description": "An object representing a resource that can be used for monitoring, logging,\nbilling, or other purposes. Examples include virtual machine instances,\ndatabases, and storage devices such as disks. The `type` field identifies a\nMonitoredResourceDescriptor object that describes the resource's\nschema. Information in the `labels` field identifies the actual resource and\nits attributes according to the schema. For example, a particular Compute\nEngine VM instance could be represented by the following object, because the\nMonitoredResourceDescriptor for `\"gce_instance\"` has labels\n`\"instance_id\"` and `\"zone\"`:\n\n    { \"type\": \"gce_instance\",\n      \"labels\": { \"instance_id\": \"12345678901234\",\n                  \"zone\": \"us-central1-a\" }}",
+            "id": "MonitoredResource",
+            "properties": {
+                "labels": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Required. Values for all of the labels listed in the associated monitored\nresource descriptor. For example, Compute Engine VM instances use the\nlabels `\"project_id\"`, `\"instance_id\"`, and `\"zone\"`.",
+                    "type": "object"
+                },
+                "type": {
+                    "description": "Required. The monitored resource type. This field must match\nthe `type` field of a MonitoredResourceDescriptor object. For\nexample, the type of a Compute Engine VM instance is `gce_instance`.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MonitoredResourceMetadata": {
+            "description": "Auxiliary metadata for a MonitoredResource object.\nMonitoredResource objects contain the minimum set of information to\nuniquely identify a monitored resource instance. There is some other useful\nauxiliary metadata. Monitoring and Logging use an ingestion\npipeline to extract metadata for cloud resources of all types, and store\nthe metadata in this message.",
+            "id": "MonitoredResourceMetadata",
+            "properties": {
+                "systemLabels": {
+                    "additionalProperties": {
+                        "description": "Properties of the object.",
+                        "type": "any"
+                    },
+                    "description": "Output only. Values for predefined system metadata labels.\nSystem labels are a kind of metadata extracted by Google, including\n\"machine_image\", \"vpc\", \"subnet_id\",\n\"security_group\", \"name\", etc.\nSystem label values can be only strings, Boolean values, or a list of\nstrings. For example:\n\n    { \"name\": \"my-test-instance\",\n      \"security_group\": [\"a\", \"b\", \"c\"],\n      \"spot_instance\": false }",
+                    "type": "object"
+                },
+                "userLabels": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Output only. A map of user-defined metadata labels.",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "Mounts": {
+            "description": "Collection of mounts",
+            "id": "Mounts",
+            "properties": {
+                "filestoreMounts": {
+                    "description": "The Filestore instances that this job needs.",
+                    "items": {
+                        "$ref": "FilestoreMount"
+                    },
+                    "type": "array"
+                },
+                "imageMounts": {
+                    "description": "all image mounts for the job",
+                    "items": {
+                        "$ref": "ImageMount"
+                    },
+                    "type": "array"
+                },
+                "tarballMounts": {
+                    "description": "all tarball mounts for the job",
+                    "items": {
+                        "$ref": "TarballMount"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Point": {
+            "description": "A single data point in a time series.",
+            "id": "Point",
+            "properties": {
+                "interval": {
+                    "$ref": "TimeInterval",
+                    "description": "The time interval to which the data point applies.  For `GAUGE` metrics,\nonly the end time of the interval is used.  For `DELTA` metrics, the start\nand end time should specify a non-zero interval, with subsequent points\nspecifying contiguous and non-overlapping intervals.  For `CUMULATIVE`\nmetrics, the start and end time should specify a non-zero interval, with\nsubsequent points specifying the same start time and increasing end times,\nuntil an event resets the cumulative value to zero and sets a new start\ntime for the following points."
+                },
+                "value": {
+                    "$ref": "TypedValue",
+                    "description": "The value of the data point."
+                }
+            },
+            "type": "object"
+        },
+        "Probe": {
+            "description": "Probe watches a log, pulling out information using the methods describe in an\nanalyzer, and then aggregating it using the aggregation rules.",
+            "id": "Probe",
+            "properties": {
+                "aggregate": {
+                    "$ref": "Aggregate"
+                },
+                "analyze": {
+                    "$ref": "Analyze"
+                }
+            },
+            "type": "object"
+        },
+        "Project": {
+            "id": "Project",
+            "properties": {
+                "contact": {
+                    "description": "LDAP of person responsible for making cost decisions for a project\nRequired for active projects.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "defaultBlobTtl": {
+                    "description": "Default data retention for objects, in seconds.",
+                    "format": "uint32",
+                    "type": "integer"
+                },
+                "edascratchGroup": {
+                    "description": "Some projects restrict some of their members from accessing other\nproject-members' scratch folders. In that case, the scratch folders are\nowned by this group, so people who are in the project group but not this\ngroup can't access other members' folders.",
+                    "type": "string"
+                },
+                "endDate": {
+                    "$ref": "Date",
+                    "description": "end_date"
+                },
+                "gcpProject": {
+                    "description": "Name of the GCP project where resources reside.",
+                    "type": "string"
+                },
+                "ldapGroup": {
+                    "description": "The group permitted to submit jobs for this project.\nShould be present in all active projects. Must be unique.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name of the project.\nRequired.",
+                    "type": "string"
+                },
+                "shares": {
+                    "description": "Number of shares the group gets in LSF/gsub. 0 for non-paying groups.",
+                    "format": "uint32",
+                    "type": "integer"
+                },
+                "status": {
+                    "description": "The status of the project (with respect to the edafarm).\nRequired.",
+                    "enum": [
+                        "UNKNOWN",
+                        "ACTIVE",
+                        "ARCHIVED",
+                        "LEGACY"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "team": {
+                    "description": "team/cc to be charged for project usage\nRequired for active projects.",
+                    "enum": [
+                        "NOT_SET",
+                        "ENGLAB",
+                        "CI2",
+                        "GCHIPS",
+                        "X",
+                        "MACHINE_INTELLIGENCE",
+                        "MAKANI",
+                        "DAYDREAM",
+                        "WAYMO"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Range": {
+            "description": "Range searches within a start-stop range for a given pattern. If start is\nempty, it begins at the beginning of the file, and if stop is empty, it\ncontinues to the end.",
+            "id": "Range",
+            "properties": {
+                "pattern": {
+                    "type": "string"
+                },
+                "start": {
+                    "type": "string"
+                },
+                "stop": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RemoveCustomImagesRequest": {
+            "id": "RemoveCustomImagesRequest",
+            "properties": {
+                "imageNames": {
+                    "description": "The names of the images.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "projectName": {
+                    "description": "The name of the project that the images belong to.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RemoveCustomImagesResponse": {
+            "id": "RemoveCustomImagesResponse",
+            "properties": {},
+            "type": "object"
+        },
+        "RemoveJobGroupsRequest": {
+            "id": "RemoveJobGroupsRequest",
+            "properties": {
+                "names": {
+                    "description": "The job group names. Must be in /<username>/<job_group_name> format.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "RemoveJobGroupsResponse": {
+            "id": "RemoveJobGroupsResponse",
+            "properties": {},
+            "type": "object"
+        },
+        "RepoSrc": {
+            "id": "RepoSrc",
+            "properties": {
+                "manifestBranch": {
+                    "description": "Manifest branch or revision.",
+                    "type": "string"
+                },
+                "manifestName": {
+                    "description": "Manifest file name.",
+                    "type": "string"
+                },
+                "sharedEnvId": {
+                    "description": "If a valid env_id is provided, that environment's workspace will be reused\nand the local Git repo is synced instead of cloned from scratch.",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "Git remote URL. E.g. https://fooremote/footeam/fooproject",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Requirements": {
+            "description": "Scheduling resource requirements.",
+            "id": "Requirements",
+            "properties": {
+                "cpu": {
+                    "description": "The cpu limit.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "disk": {
+                    "description": "The disk limit in megabytes.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "filestores": {
+                    "description": "The Filestore instances.",
+                    "items": {
+                        "$ref": "Filestore"
+                    },
+                    "type": "array"
+                },
+                "gpu": {
+                    "$ref": "GPU",
+                    "description": "The GPU needed to run the job."
+                },
+                "licenses": {
+                    "description": "The primary licenses required to run the job.",
+                    "items": {
+                        "$ref": "License"
+                    },
+                    "type": "array"
+                },
+                "ram": {
+                    "description": "The memory limit in megabytes.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ResourceDetails": {
+            "description": "Details of monitored resources used by a task.",
+            "id": "ResourceDetails",
+            "properties": {
+                "cpu": {
+                    "description": "Cpu cores.",
+                    "items": {
+                        "$ref": "TimeSeries"
+                    },
+                    "type": "array"
+                },
+                "disk": {
+                    "description": "Disk Bytes",
+                    "items": {
+                        "$ref": "TimeSeries"
+                    },
+                    "type": "array"
+                },
+                "ram": {
+                    "description": "Memory Bytes",
+                    "items": {
+                        "$ref": "TimeSeries"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ResourceSummary": {
+            "description": "Summary of monitored resources used by a task.",
+            "id": "ResourceSummary",
+            "properties": {
+                "cpuMax": {
+                    "description": "The max cpu usage.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "diskMax": {
+                    "description": "The max disk usage.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "ramMax": {
+                    "description": "The max ram usage.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Rule": {
+            "description": "An individual aggregation rule describes how extracted analysis should be\ncomposed together to form larger analysis. The \"result_names\" field describes\nwhich of the analysis results should be used for aggregation, and the\n\"sources\" describe which of the sources that were analyzed should be\nconsidered. If both result_names and sources are given, the aggregation will\napply to the intersection of the two.",
+            "id": "Rule",
+            "properties": {
+                "classify": {
+                    "$ref": "ClassifyRule"
+                },
+                "copy": {
+                    "$ref": "CopyRule"
+                },
+                "count": {
+                    "$ref": "CountRule"
+                },
+                "extract": {
+                    "$ref": "ExtractRule"
+                },
+                "latest": {
+                    "$ref": "LatestRule"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "resultNames": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "signature": {
+                    "$ref": "SignatureRule"
+                },
+                "sources": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "SearchDataRequest": {
+            "description": "Used for searching of EDAFarm artifacts.",
+            "id": "SearchDataRequest",
+            "properties": {
+                "data": {
+                    "$ref": "DataReference"
+                },
+                "pageToken": {
+                    "type": "string"
+                },
+                "projectName": {
+                    "description": "The eda project where the data resides.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SearchDataResponse": {
+            "description": "Used for searching of EDAFarm artifacts.",
+            "id": "SearchDataResponse",
+            "properties": {
+                "data": {
+                    "items": {
+                        "$ref": "Data"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SearchJobsRequest": {
+            "description": "Used for searching jobs.",
+            "id": "SearchJobsRequest",
+            "properties": {
+                "clusters": {
+                    "description": "The jobs must belong to one of these clusters.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "execHost": {
+                    "description": "The execution host.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name of the job.",
+                    "type": "string"
+                },
+                "projects": {
+                    "description": "The jobs found must belong to one of these projects.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "queue": {
+                    "description": "The queue that the job was submitted to.",
+                    "type": "string"
+                },
+                "states": {
+                    "description": "The jobs must have at least a single task in one of the specified states.",
+                    "enumDescriptions": [
+                        "State is not known.",
+                        "The task is running.",
+                        "The task completed and had a return code of 0.",
+                        "The task completed and had a non zero return code.",
+                        "The task hasn't started yet.",
+                        "The task is suspended.",
+                        "The task is aborted before running to a completion."
+                    ],
+                    "items": {
+                        "enum": [
+                            "UNKNOWN",
+                            "RUNNING",
+                            "SUCCEEDED",
+                            "FAILED",
+                            "PENDING",
+                            "SUSPENDED",
+                            "ABORTED"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "user": {
+                    "description": "The username of the user who submitted the job.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SearchJobsResponse": {
+            "id": "SearchJobsResponse",
+            "properties": {
+                "jobs": {
+                    "items": {
+                        "$ref": "Job"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "SetArtifactACLRequest": {
+            "description": "Set ACL to artifact URI",
+            "id": "SetArtifactACLRequest",
+            "properties": {
+                "data": {
+                    "items": {
+                        "$ref": "DataReference"
+                    },
+                    "type": "array"
+                },
+                "grants": {
+                    "items": {
+                        "$ref": "ACL"
+                    },
+                    "type": "array"
+                },
+                "projectName": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "revokes": {
+                    "items": {
+                        "$ref": "ACL"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "SetArtifactACLResponse": {
+            "id": "SetArtifactACLResponse",
+            "properties": {},
+            "type": "object"
+        },
+        "SetJobGroupsRequest": {
+            "id": "SetJobGroupsRequest",
+            "properties": {
+                "jobGroups": {
+                    "items": {
+                        "$ref": "JobGroup"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "SetJobGroupsResponse": {
+            "id": "SetJobGroupsResponse",
+            "properties": {},
+            "type": "object"
+        },
+        "SignatureRule": {
+            "description": "Signature rules look for the matched lines of different rules, apply a\nregular expression to transform them into a 'signature' (e.g., clearing\nout decimal characters), and then aggregate information about errors matching\nthat signature. It can meaningfully be applied to any analysis result, and\nhelps for identifying unique features among a set of matches.",
+            "id": "SignatureRule",
+            "properties": {
+                "signatureSubstitution": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "StatusPriority": {
+            "description": "Proto doesn't allow maps with Enums as keys, so represent status priorities\nas key/value pairs.",
+            "id": "StatusPriority",
+            "properties": {
+                "key": {
+                    "enum": [
+                        "UNKNOWN_STATUS",
+                        "FAIL",
+                        "INFRA_FAIL",
+                        "CANCELED",
+                        "TIMEOUT",
+                        "PASS",
+                        "STATUS_RUNNING",
+                        "STATUS_READY",
+                        "STATUS_PENDING"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "value": {
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "TarballMount": {
+            "description": "Mount type for a tarball",
+            "id": "TarballMount",
+            "properties": {
+                "dir": {
+                    "description": "the name of the directory to unpack the contents to within the 'mnt' dir",
+                    "type": "string"
+                },
+                "uri": {
+                    "description": "the GCS URI of the tarball",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TarballSrc": {
+            "id": "TarballSrc",
+            "properties": {
+                "blobs": {
+                    "items": {
+                        "$ref": "TarballSrcBlob"
+                    },
+                    "type": "array"
+                },
+                "gcpProject": {
+                    "description": "Google Cloud Platform (GCP) project name.",
+                    "type": "string"
+                },
+                "sharedEnvId": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TarballSrcBlob": {
+            "id": "TarballSrcBlob",
+            "properties": {
+                "destDir": {
+                    "description": "Optional tarball unpack path relative to staging directory.\nIf unset or empty, defaults to GCS BLOB relative path within bucket.\nValue of \".\" unpacks all tarballs directly into the staging directory in\nthe same order as the repeated field below; if there are file overlaps,\nthe last one applied prevails (this is not recommended).",
+                    "type": "string"
+                },
+                "uri": {
+                    "description": "Unique location specifier for tarball BLOB (e.g. gs://bucket/path)",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Task": {
+            "description": "Represents a single instance(replica) or a job.",
+            "id": "Task",
+            "properties": {
+                "endTime": {
+                    "description": "The end time.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "environment": {
+                    "$ref": "Environment",
+                    "description": "Runtime environment metadata"
+                },
+                "execCwd": {
+                    "description": "The cwd of the job.",
+                    "type": "string"
+                },
+                "execHomeDir": {
+                    "description": "Home directory for the job on the execution host.",
+                    "type": "string"
+                },
+                "execHost": {
+                    "description": "The execution hosts for this job.",
+                    "type": "string"
+                },
+                "exitCode": {
+                    "description": "The exit code of the task if it's finished.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "exitReason": {
+                    "description": "Task termination reason.",
+                    "enum": [
+                        "UNKNOWN_REASON",
+                        "PREEMPT",
+                        "WINDOW",
+                        "LOAD",
+                        "RUNLIMIT",
+                        "DEADLINE",
+                        "PROCESSLIMIT",
+                        "CPULIMIT",
+                        "OWNER",
+                        "ADMIN",
+                        "MEMLIMIT",
+                        "EXTERNAL_SIGNAL",
+                        "ZOMBIE",
+                        "SWAP",
+                        "THREADLIMIT",
+                        "CWD_NOTEXIST",
+                        "ORPHAN_SYSTEM",
+                        "SIDECAR",
+                        "LICENSELIMIT"
+                    ],
+                    "enumDescriptions": [
+                        "Termination reason is unknown.",
+                        "The task got preempted.",
+                        "The task was killed because the queue run windows closed.",
+                        "Load exceeds threshold.",
+                        "Reached run time limit",
+                        "Deadline expired.",
+                        "Reached BSS's process limit.",
+                        "Reached BSS's CPU usage limit.",
+                        "Killed by owner.",
+                        "Killed by admin.",
+                        "Reached BSS's memory usage limit.",
+                        "Killed by signal external to BSS.",
+                        "The task exited while the BSS was unavailable.",
+                        "Reached the BSS swap usage limit.",
+                        "Thread limit.",
+                        "The cwd is not accessible on the execution host.",
+                        "Job killed due to a dependency condition issue.",
+                        "Job is aborted due to sidecar error",
+                        "License resource is limited."
+                    ],
+                    "type": "string"
+                },
+                "exitReasonDesc": {
+                    "description": "Optional description of the exit reason.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "The unique id of the task in the form\n\"clusters/dev_cluster/jobs/1234/tasks/5\"",
+                    "type": "string"
+                },
+                "livemonDb": {
+                    "description": "The spanner database name where the job's summary will be uploaded.",
+                    "type": "string"
+                },
+                "outputUri": {
+                    "description": "The GCS bucket where outputs will be uploaded.",
+                    "type": "string"
+                },
+                "pendingReasons": {
+                    "description": "Details about why the task is pending.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "pubsubTopic": {
+                    "description": "The topic that the project users can subscribe to get job state updates.",
+                    "type": "string"
+                },
+                "resourceSummary": {
+                    "$ref": "ResourceSummary",
+                    "description": "The resource usage summary (cpu_max, disk_max, ram_max)."
+                },
+                "startTime": {
+                    "description": "The start time.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "state": {
+                    "description": "The state of the task;",
+                    "enum": [
+                        "UNKNOWN",
+                        "RUNNING",
+                        "SUCCEEDED",
+                        "FAILED",
+                        "PENDING",
+                        "SUSPENDED",
+                        "ABORTED"
+                    ],
+                    "enumDescriptions": [
+                        "State is not known.",
+                        "The task is running.",
+                        "The task completed and had a return code of 0.",
+                        "The task completed and had a non zero return code.",
+                        "The task hasn't started yet.",
+                        "The task is suspended.",
+                        "The task is aborted before running to a completion."
+                    ],
+                    "type": "string"
+                },
+                "submitTime": {
+                    "description": "The submit time.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "submitUser": {
+                    "description": "The username of the submit user.",
+                    "type": "string"
+                },
+                "usage": {
+                    "$ref": "ResourceDetails",
+                    "description": "The resource usage raw data for each monitored resource(cpu, ram, disk)"
+                }
+            },
+            "type": "object"
+        },
+        "TimeInterval": {
+            "description": "A time interval extending just after a start time through an end time.\nIf the start time is the same as the end time, then the interval\nrepresents a single point in time.",
+            "id": "TimeInterval",
+            "properties": {
+                "endTime": {
+                    "description": "Required. The end of the time interval.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "startTime": {
+                    "description": "Optional. The beginning of the time interval.  The default value\nfor the start time is the end time. The start time must not be\nlater than the end time.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TimeSeries": {
+            "description": "A collection of data points that describes the time-varying values\nof a metric. A time series is identified by a combination of a\nfully-specified monitored resource and a fully-specified metric.\nThis type is used for both listing and creating time series.",
+            "id": "TimeSeries",
+            "properties": {
+                "metadata": {
+                    "$ref": "MonitoredResourceMetadata",
+                    "description": "Output only. The associated monitored resource metadata. When reading a\na timeseries, this field will include metadata labels that are explicitly\nnamed in the reduction. When creating a timeseries, this field is ignored."
+                },
+                "metric": {
+                    "$ref": "Metric",
+                    "description": "The associated metric. A fully-specified metric used to identify the time\nseries."
+                },
+                "metricKind": {
+                    "description": "The metric kind of the time series. When listing time series, this metric\nkind might be different from the metric kind of the associated metric if\nthis time series is an alignment or reduction of other time series.\n\nWhen creating a time series, this field is optional. If present, it must be\nthe same as the metric kind of the associated metric. If the associated\nmetric's descriptor must be auto-created, then this field specifies the\nmetric kind of the new descriptor and must be either `GAUGE` (the default)\nor `CUMULATIVE`.",
+                    "enum": [
+                        "METRIC_KIND_UNSPECIFIED",
+                        "GAUGE",
+                        "DELTA",
+                        "CUMULATIVE"
+                    ],
+                    "enumDescriptions": [
+                        "Do not use this default value.",
+                        "An instantaneous measurement of a value.",
+                        "The change in a value during a time interval.",
+                        "A value accumulated over a time interval.  Cumulative\nmeasurements in a time series should have the same start time\nand increasing end times, until an event resets the cumulative\nvalue to zero and sets a new start time for the following\npoints."
+                    ],
+                    "type": "string"
+                },
+                "points": {
+                    "description": "The data points of this time series. When listing time series, points are\nreturned in reverse time order.\n\nWhen creating a time series, this field must contain exactly one point and\nthe point's type must be the same as the value type of the associated\nmetric. If the associated metric's descriptor must be auto-created, then\nthe value type of the descriptor is determined by the point's type, which\nmust be `BOOL`, `INT64`, `DOUBLE`, or `DISTRIBUTION`.",
+                    "items": {
+                        "$ref": "Point"
+                    },
+                    "type": "array"
+                },
+                "resource": {
+                    "$ref": "MonitoredResource",
+                    "description": "The associated monitored resource.  Custom metrics can use only certain\nmonitored resource types in their time series data."
+                },
+                "valueType": {
+                    "description": "The value type of the time series. When listing time series, this value\ntype might be different from the value type of the associated metric if\nthis time series is an alignment or reduction of other time series.\n\nWhen creating a time series, this field is optional. If present, it must be\nthe same as the type of the data in the `points` field.",
+                    "enum": [
+                        "VALUE_TYPE_UNSPECIFIED",
+                        "BOOL",
+                        "INT64",
+                        "DOUBLE",
+                        "STRING",
+                        "DISTRIBUTION",
+                        "MONEY"
+                    ],
+                    "enumDescriptions": [
+                        "Do not use this default value.",
+                        "The value is a boolean.\nThis value type can be used only if the metric kind is `GAUGE`.",
+                        "The value is a signed 64-bit integer.",
+                        "The value is a double precision floating point number.",
+                        "The value is a text string.\nThis value type can be used only if the metric kind is `GAUGE`.",
+                        "The value is a `Distribution`.",
+                        "The value is money."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TypedValue": {
+            "description": "A single strongly-typed value.",
+            "id": "TypedValue",
+            "properties": {
+                "boolValue": {
+                    "description": "A Boolean value: `true` or `false`.",
+                    "type": "boolean"
+                },
+                "distributionValue": {
+                    "$ref": "Distribution",
+                    "description": "A distribution value."
+                },
+                "doubleValue": {
+                    "description": "A 64-bit double-precision floating-point number. Its magnitude\nis approximately &plusmn;10<sup>&plusmn;300</sup> and it has 16\nsignificant digits of precision.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "int64Value": {
+                    "description": "A 64-bit integer. Its range is approximately &plusmn;9.2x10<sup>18</sup>.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "stringValue": {
+                    "description": "A variable-length string value.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "WorkspaceSrc": {
+            "id": "WorkspaceSrc",
+            "properties": {
+                "envId": {
+                    "description": "EDAFarm env ID of existing src workspace. E.g. <cluster_id>:<job_id>",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "EDAFarm Private API (Test)",
+    "version": "v1",
+    "version_module": true
+}

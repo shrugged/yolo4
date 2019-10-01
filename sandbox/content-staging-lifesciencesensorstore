@@ -1,0 +1,1057 @@
+{
+    "basePath": "",
+    "baseUrl": "https://staging-lifesciencesensorstore.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "LifeScience SensorStore",
+    "description": "",
+    "discoveryVersion": "v1",
+    "documentationLink": "",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "lifesciencesensorstore:v1",
+    "kind": "discovery#restDescription",
+    "name": "lifesciencesensorstore",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "data": {
+            "methods": {
+                "aggregate": {
+                    "description": "Read aggregated data from the sensor store.",
+                    "flatPath": "v1/data:aggregate",
+                    "httpMethod": "POST",
+                    "id": "lifesciencesensorstore.data.aggregate",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/data:aggregate",
+                    "request": {
+                        "$ref": "AggregateDataPointsRequest"
+                    },
+                    "response": {
+                        "$ref": "AggregateDataPointsResponse"
+                    }
+                },
+                "batchread": {
+                    "description": "Read several data sources from the sensor store. SensorStore team\nencourages clients to not use this method and instead make multiple calls;\nideally utilizing grpc's multiplexing.",
+                    "flatPath": "v1/data:batchread",
+                    "httpMethod": "POST",
+                    "id": "lifesciencesensorstore.data.batchread",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/data:batchread",
+                    "request": {
+                        "$ref": "BatchReadDataPointsRequest"
+                    },
+                    "response": {
+                        "$ref": "BatchReadDataPointsResponse"
+                    }
+                },
+                "read": {
+                    "description": "Read data from the sensor store.",
+                    "flatPath": "v1/data:read",
+                    "httpMethod": "POST",
+                    "id": "lifesciencesensorstore.data.read",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/data:read",
+                    "request": {
+                        "$ref": "ReadDataPointsRequest"
+                    },
+                    "response": {
+                        "$ref": "ReadDataPointsResponse"
+                    }
+                },
+                "write": {
+                    "description": "Write data to the sensor store. This operation is atomic. Either all\nDataPoints will be written or none will.",
+                    "flatPath": "v1/data:write",
+                    "httpMethod": "POST",
+                    "id": "lifesciencesensorstore.data.write",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/data:write",
+                    "request": {
+                        "$ref": "WriteDataPointsRequest"
+                    },
+                    "response": {
+                        "$ref": "WriteDataPointsResponse"
+                    }
+                }
+            }
+        },
+        "definedDataSpecs": {
+            "methods": {
+                "get": {
+                    "description": "Query for the definition of a canonically supported data type.\nReturns NOT_FOUND if there is no defined DataSpec with the given name.",
+                    "flatPath": "v1/definedDataSpecs/{definedDataSpecsId}",
+                    "httpMethod": "GET",
+                    "id": "lifesciencesensorstore.definedDataSpecs.get",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Name of the DataSpec.",
+                            "location": "path",
+                            "pattern": "^definedDataSpecs/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "DataSpec"
+                    }
+                },
+                "list": {
+                    "description": "List defined DataSpecs.",
+                    "flatPath": "v1/definedDataSpecs",
+                    "httpMethod": "GET",
+                    "id": "lifesciencesensorstore.definedDataSpecs.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "includeDefinitions": {
+                            "location": "query",
+                            "type": "boolean"
+                        }
+                    },
+                    "path": "v1/definedDataSpecs",
+                    "response": {
+                        "$ref": "ListDefinedDataSpecsResponse"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190923",
+    "rootUrl": "https://staging-lifesciencesensorstore.sandbox.googleapis.com/",
+    "schemas": {
+        "AggregateDataPointsRequest": {
+            "description": "Request to read supported aggregated data.",
+            "id": "AggregateDataPointsRequest",
+            "properties": {
+                "bucketSize": {
+                    "format": "google-duration",
+                    "type": "string"
+                },
+                "dataSource": {
+                    "$ref": "DataSource",
+                    "description": "The minimum set of fields within DataSource required for a successful read\nare data_source.name, data_source.application.id and\ndata_source.device.{name,serial_number}. The data_spec may be left blank,\nin which case data will be returned in the units it is stored. If the\nunits are specified SensorStore will attempt to convert the stored data to\nthose unit. If the units can not be converted an error will be returned."
+                },
+                "timeInterval": {
+                    "$ref": "TimeInterval",
+                    "description": "Time interval of data to read."
+                },
+                "userId": {
+                    "$ref": "UserId",
+                    "description": "User owning data to read."
+                }
+            },
+            "type": "object"
+        },
+        "AggregateDataPointsResponse": {
+            "description": "Response for the read of aggregated data.",
+            "id": "AggregateDataPointsResponse",
+            "properties": {
+                "availableBuckets": {
+                    "description": "Time intervals that the requester has access for the device / user / data\nspec.",
+                    "items": {
+                        "$ref": "TimeInterval"
+                    },
+                    "type": "array"
+                },
+                "dataSets": {
+                    "description": "DataSets matching request.",
+                    "items": {
+                        "$ref": "AggregatedDataSet"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AggregatedDataPoint": {
+            "description": "AggregatedDataPoint is the transport type for the aggregate data payload.",
+            "id": "AggregatedDataPoint",
+            "properties": {
+                "bucketEndTimeMillis": {
+                    "description": "The end time of data aggregation bucket  as milliseconds since the epoch.\nTwo points with the same timestamp (and other metadata) will overwrite each\nother.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "bucketStartTimeMillis": {
+                    "description": "The start time of data aggregation bucket as milliseconds since the epoch.\nTwo points with the same timestamp (and other metadata) will overwrite each\nother.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "fields": {
+                    "description": "Each Value should correspond (by Value.field_name) to a DataFieldSpec in\nthe DataSet's DataSpec. Initial implementation only has a single field.",
+                    "items": {
+                        "$ref": "AggregatedValue"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AggregatedDataSet": {
+            "description": "AggregatedDataSet is the transport data type used to hold a group of\nAggregatedDataPoint that share metadata.AggregatedDataSet exist to as to not\nrepeat metadata for each DataPoint during transit, but do not imply any other\nexplicit or persisting grouping of AggregatedDataPoint.",
+            "id": "AggregatedDataSet",
+            "properties": {
+                "dataPoints": {
+                    "description": "Data in this DataSet.",
+                    "items": {
+                        "$ref": "AggregatedDataPoint"
+                    },
+                    "type": "array"
+                },
+                "source": {
+                    "$ref": "DataSource",
+                    "description": "Source of this data."
+                }
+            },
+            "type": "object"
+        },
+        "AggregatedValue": {
+            "description": "A single field within a AggregatedDataPoint. The value itself can have one of\nseveral different types.",
+            "id": "AggregatedValue",
+            "properties": {
+                "count": {
+                    "description": "The number of entries in the aggregation bucket.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "fieldName": {
+                    "description": "The DataFieldSpec.name that this aggregation is computed over.",
+                    "type": "string"
+                },
+                "mean": {
+                    "description": "The average (sum/count) of all the data in the aggregation bucket. If\ncount is 0, the mean will be zero.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "sum": {
+                    "description": "The sum of the all the data in the aggregation bucket.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "variance": {
+                    "description": "The variance (E(x^2) - E(x)^2) of the data in the aggregation bucket. If\ncount is 0, the mean will be zero.",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "Algorithm": {
+            "description": "A general versioning message used to indicate different methodologies or\nalgorithms for various metrics. Adopted from\ngooglex.pancetta.arrotolata.proto.Version.",
+            "id": "Algorithm",
+            "properties": {
+                "name": {
+                    "description": "Name of algorithm.",
+                    "type": "string"
+                },
+                "version": {
+                    "description": "Version of algorithm.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AndroidMetadata": {
+            "description": "Android Phone Specific info.",
+            "id": "AndroidMetadata",
+            "properties": {
+                "brand": {
+                    "description": "Ex: \"Google\", \"Samsung\"",
+                    "type": "string"
+                },
+                "manufacturer": {
+                    "description": "Ex: \"Samsung\", \"LGE\". The difference between brand and manufacturer\nis that some brands use third-party to manufacture their devices.\nDeprecated, use `Device.manufacturer` instead.",
+                    "type": "string"
+                },
+                "model": {
+                    "description": "Ex: \"Nexus 5x\". Deprecated, use `Device.model` instead.",
+                    "type": "string"
+                },
+                "osVersion": {
+                    "description": "Ex: \"7.1.1\". Deprecated, use `Device.os_version` instead.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Application": {
+            "description": "Represents a separate collection application or project within Life Sciences.",
+            "id": "Application",
+            "properties": {
+                "id": {
+                    "description": "Unique identifier for the application.",
+                    "enum": [
+                        "APPLICATION_ID_UNSPECIFIED",
+                        "TESTING",
+                        "STUDY_KIT",
+                        "MYALO",
+                        "BASELINE"
+                    ],
+                    "enumDescriptions": [
+                        "For unparsable data. Do not use.",
+                        "Can be used for testing purposes. Data stored as TESTING is not guaranteed\nto be kept forever.",
+                        "Study Kit is a health tracking device created by the Verily Life Sciences\nteam. The device gathers and understands data about a patient's health and\ncan aid in early disease detection for those with cardiovascular and\nmovement disorders.",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "version": {
+                    "description": "Free-form version of the application. E.g. \"v1\" \"1.0.4\".",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "BatchReadDataPointsRequest": {
+            "description": "Request to read several data sources from the sensor store.",
+            "id": "BatchReadDataPointsRequest",
+            "properties": {
+                "aggregateRequests": {
+                    "items": {
+                        "$ref": "AggregateDataPointsRequest"
+                    },
+                    "type": "array"
+                },
+                "readRequests": {
+                    "items": {
+                        "$ref": "ReadDataPointsRequest"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BatchReadDataPointsResponse": {
+            "description": "Response to reading several data sources from the sensor store.\nInner response messages will be 1:1 and match indices of the inner request\nmessages in BatchReadDataPointsRequest.",
+            "id": "BatchReadDataPointsResponse",
+            "properties": {
+                "aggregateResponses": {
+                    "items": {
+                        "$ref": "AggregateDataPointsResponse"
+                    },
+                    "type": "array"
+                },
+                "readResponses": {
+                    "items": {
+                        "$ref": "ReadDataPointsResponse"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BlobList": {
+            "description": "List of blobs.",
+            "id": "BlobList",
+            "properties": {
+                "values": {
+                    "description": "The blob values.",
+                    "items": {
+                        "format": "byte",
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BooleanList": {
+            "description": "List of boolean values",
+            "id": "BooleanList",
+            "properties": {
+                "values": {
+                    "description": "The boolean values",
+                    "items": {
+                        "type": "boolean"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "DataFieldSpec": {
+            "description": "Description of a type of data field.",
+            "id": "DataFieldSpec",
+            "properties": {
+                "acceptedStringValues": {
+                    "description": "Only valid if primitive is STRING or STRING_LIST. Can be used to\napproximate an enum.  If not empty, DataPoint values must be one of these.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "isOptional": {
+                    "description": "Whether this field must be present in a DataPoint for it to be valid.",
+                    "type": "boolean"
+                },
+                "name": {
+                    "description": "Name of this field.",
+                    "type": "string"
+                },
+                "primitive": {
+                    "description": "What type of data is stored for this field. This corresponds to which\nproto field within a Value.data oneof will be set.",
+                    "enum": [
+                        "PRIMITIVE_TYPE_UNSPECIFIED",
+                        "INT64",
+                        "INT64_LIST",
+                        "FLOAT64",
+                        "FLOAT64_LIST",
+                        "STRING",
+                        "STRING_LIST",
+                        "BLOB",
+                        "ANY",
+                        "BOOLEAN",
+                        "BOOLEAN_LIST",
+                        "BLOB_LIST"
+                    ],
+                    "enumDescriptions": [
+                        "For unparsable data. Do not use.",
+                        "A single int64.",
+                        "A list of int64s.",
+                        "A single float64.",
+                        "A list of float64s.",
+                        "A single string.",
+                        "A list of string.",
+                        "A blob of bytes.",
+                        "An Any message.",
+                        "A single boolean.",
+                        "A list of booleans.",
+                        "A list of blobs."
+                    ],
+                    "type": "string"
+                },
+                "units": {
+                    "description": "Units for this field. Units are repeated to allow construction of\ncomposite units types. The final unit will be the product of all Unit\nvalues.\n\nFor example, a typical IMU chip would produce integer count values for\nacceleration. The values are mapped to some number of Gs. 1 G per 2000\nints could be expressed like:\nunit { type: COUNT scale: UNIT power: -1 scale_factor: 2000}\nunit { type: ACCELERATION scale: UNIT power: 1 scale_factor: 9.8}\n\nOr:\nunit { type: ACCELERATION scale: UNIT power: 1 scale_factor: 0.0049}\n\nOr:\nunit { type: COUNT scale: UNIT power: 1 scale_factor: 0.0049}\nunit { type: METER scale: UNIT power: 1 scale_factor: 1}\nunit { type: SECOND scale: UNIT power: -2 scale_factor: 1}\n\nOr even:\nunit { type: COUNT scale: UNIT power: 1 scale_factor: 0.0049}\nunit { type: METER scale: UNIT power: 1 scale_factor: 1}\nunit { type: SECOND scale: UNIT power: -1 scale_factor: 1}\nunit { type: SECOND scale: UNIT power: -1 scale_factor: 1}",
+                    "items": {
+                        "$ref": "Unit"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "DataPoint": {
+            "description": "DataPoint is the transport type for the data payload.",
+            "id": "DataPoint",
+            "properties": {
+                "fields": {
+                    "description": "Each Value should correspond (by Value.field_name) to a DataFieldSpec in\nthe DataSet's DataSpec. Multiple Values with the same name will result in\nan INVALID_ARGUMENT validation error.",
+                    "items": {
+                        "$ref": "Value"
+                    },
+                    "type": "array"
+                },
+                "measurementTimeMillis": {
+                    "description": "The measurement time of this data point as milliseconds since the epoch.\nTwo points with the same timestamp (and other metadata) will overwrite each\nother.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DataSet": {
+            "description": "DataSet is the transport data type used to hold a group of DataPoints that\nshare metadata. Most SensorStore operations either upload or download\nDataSets. DataSets exist to as to not repeat metadata for each DataPoint\nduring transit, but do not imply any other explicit or persisting grouping of\nDataPoints.",
+            "id": "DataSet",
+            "properties": {
+                "dataPoints": {
+                    "description": "Data in this DataSet.",
+                    "items": {
+                        "$ref": "DataPoint"
+                    },
+                    "type": "array"
+                },
+                "source": {
+                    "$ref": "DataSource",
+                    "description": "Source of this data."
+                }
+            },
+            "type": "object"
+        },
+        "DataSource": {
+            "description": "Description of a source of data. Includes where it came from and what format\nit is in.",
+            "id": "DataSource",
+            "properties": {
+                "algorithm": {
+                    "$ref": "Algorithm",
+                    "description": "Metadata related to the algorithm that generated the data."
+                },
+                "application": {
+                    "$ref": "Application",
+                    "description": "Application the data belongs to. If unspecified on a WriteRequest,\nSTUDY_KIT wil be used by default. This should be reserved for rare cases\nwhere data needs to be siloed by application."
+                },
+                "dataSpec": {
+                    "$ref": "DataSpec",
+                    "description": "Description of the data."
+                },
+                "device": {
+                    "$ref": "Device",
+                    "description": "Device that generated the data."
+                },
+                "name": {
+                    "description": "Name of the data source.",
+                    "type": "string"
+                },
+                "sensor": {
+                    "$ref": "Sensor",
+                    "description": "Sensor that generated the data. Useful for disambiguating multiple sensors\non the same device and outputting the same data_spec."
+                }
+            },
+            "type": "object"
+        },
+        "DataSpec": {
+            "description": "Description of a type of data.",
+            "id": "DataSpec",
+            "properties": {
+                "fieldSpecs": {
+                    "description": "Fields that can be included in DataSets of this spec.",
+                    "items": {
+                        "$ref": "DataFieldSpec"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "Name of a data type. This will be used to match to DataPoints by\nDataPoint.data_type_name. Can not be empty. A specific format for data\ntype naming is not (currently) enforced, but it recommended to roughly\nfollow java package naming conventions:\n-Use reversed domain name to begin. For example, com.verily.pulse_rate\n-All lower case to avoid conflicts.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Device": {
+            "description": "Metadata about a device.",
+            "id": "Device",
+            "properties": {
+                "androidMetadata": {
+                    "$ref": "AndroidMetadata"
+                },
+                "firmwareVersion": {
+                    "description": "Version of the device's firmware. Not applicable for read requests.",
+                    "type": "string"
+                },
+                "hardwareVersion": {
+                    "description": "Version of the device's hardware. Not applicable for read requests.",
+                    "type": "string"
+                },
+                "manufacturer": {
+                    "description": "Manufacturer of the device. Not applicable for read requests.",
+                    "type": "string"
+                },
+                "model": {
+                    "description": "Model number of the device. Not applicable for read requests.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "This field has been deprecated. It's original intended use was to\ngroup devices with a single name instead of having to know the serial\nnumber of each device. In practice, grouping is achieved by reading a\ncertain type of data and leaving the device serial number unspecified\n(wildcard).",
+                    "type": "string"
+                },
+                "osVersion": {
+                    "description": "Operating system version of the device. Not applicable for read requests.",
+                    "type": "string"
+                },
+                "serialNumber": {
+                    "description": "Serial number or the device. This is a unique device identifier and must\nbe present for writes. For reads at least one of serial_number and name\nmust be present.",
+                    "type": "string"
+                },
+                "softwareVersion": {
+                    "description": "Version of the device's software, if any. Not applicable for read\nrequests.",
+                    "type": "string"
+                },
+                "timeZoneName": {
+                    "description": "Timezone Name/ID of the device, for eg: \"America/Los_Angeles\".",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Float64List": {
+            "description": "List of float values",
+            "id": "Float64List",
+            "properties": {
+                "values": {
+                    "description": "The float values",
+                    "items": {
+                        "format": "double",
+                        "type": "number"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Int64List": {
+            "description": "List of int64 values",
+            "id": "Int64List",
+            "properties": {
+                "values": {
+                    "description": "The int64 values",
+                    "items": {
+                        "format": "int64",
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListDefinedDataSpecsResponse": {
+            "description": "Response to listing defined DataSpecs.",
+            "id": "ListDefinedDataSpecsResponse",
+            "properties": {
+                "dataSpec": {
+                    "items": {
+                        "$ref": "DataSpec"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ReadDataPointsRequest": {
+            "description": "Request to read data.",
+            "id": "ReadDataPointsRequest",
+            "properties": {
+                "dataSources": {
+                    "description": "The DataSource for which to read data. We are currently in the process of\nsupporting wildcard reads (see go/sensors-wildcard-reads). Currently the\nrequired fields are: DataSource.name, DataSource.application.id, and\nDataSource.device.{name, serial_number}. In the future, only\nDataSource.data_spec.name will be required and every other field may be\nleft blank indicating it is a wildcard (do not filter results based on that\nfield's value).\nAny DataFieldSpecs (DataSource.data_spec.field_specs) which are left blank\nwill be returned in the canonical units stored in SensorStore. If the\nrequested units cannot be converted to from the canonical ones, an error\nwill be returned.",
+                    "items": {
+                        "$ref": "DataSource"
+                    },
+                    "type": "array"
+                },
+                "pageSize": {
+                    "description": "The maximum number of DataPoints that should be returned in this request.\nThe value set here is currently ignored, but may be supported in the\nfuture.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "pageToken": {
+                    "description": "The value returned by the last ReadDataPointsResponse.",
+                    "type": "string"
+                },
+                "timeInterval": {
+                    "$ref": "TimeInterval",
+                    "description": "Time interval of data to read. This is interpreted as an open-closed range."
+                },
+                "userId": {
+                    "$ref": "UserId",
+                    "description": "User owning data to read. Caller must, at a minimum, specify the\nUserId.keyspace in order to determine which user to read for. Currently,\nif UserId.user_string/user_id user is left blank, it will be inferred\nbased on the following:\n- If keyspace = GAIA_ID, caller is authenticated as GAIA user and read data\n  under the GAIA ID of the caller.\n- If keyspace = CSP_ID, caller is authenticated as a GAIA user, read data\n  under the CSP ID associated with the caller in the Verily IdService."
+                }
+            },
+            "type": "object"
+        },
+        "ReadDataPointsResponse": {
+            "description": "Response to reading data.",
+            "id": "ReadDataPointsResponse",
+            "properties": {
+                "authorizedIntervals": {
+                    "description": "Time intervals the requester has access to for the requested devices/users.\nOnly returned when the requester has no access for the requested time\nrange.",
+                    "items": {
+                        "$ref": "TimeInterval"
+                    },
+                    "type": "array"
+                },
+                "dataSets": {
+                    "description": "DataSets matching request.",
+                    "items": {
+                        "$ref": "DataSet"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "If not empty, indicates that there are more DataPoints that match the\nrequest. Can be passed in a new ReadDataPointsRequest to get the next page.",
+                    "type": "string"
+                },
+                "userId": {
+                    "$ref": "UserId",
+                    "description": "User these DataSets belongs to. May not be populated for gaia users."
+                }
+            },
+            "type": "object"
+        },
+        "Sensor": {
+            "description": "Description of the sensor that took the measurement.",
+            "id": "Sensor",
+            "properties": {
+                "id": {
+                    "description": "ID of the sensor. Examples: numeric ID, body location, etc.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "StringList": {
+            "description": "List of string values",
+            "id": "StringList",
+            "properties": {
+                "values": {
+                    "description": "The string values",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "TimeInterval": {
+            "description": "Message to define an arbitrary time span. This should be interpreted as a\nclosed-open range.",
+            "id": "TimeInterval",
+            "properties": {
+                "end": {
+                    "description": "End time of this interval, exclusive.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "start": {
+                    "description": "Start time of this interval, inclusive.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Unit": {
+            "description": "Description of the unit a value is in.\nWill be evaluated as: scaleFactor * (scale * unit) ^ power",
+            "id": "Unit",
+            "properties": {
+                "power": {
+                    "description": "Power scale of unit. To make a Hertz unit, power would be -1 and type\nwould be SECOND.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "scale": {
+                    "description": "Scaling factor of unit.",
+                    "enum": [
+                        "UNIT_SCALE_UNSPECIFIED",
+                        "UNIT",
+                        "DECI",
+                        "CENTI",
+                        "MILLI",
+                        "MICRO",
+                        "NANO",
+                        "PICO",
+                        "FEMTO",
+                        "DEKA",
+                        "HECTO",
+                        "KILO",
+                        "MEGA",
+                        "GIGA",
+                        "TERA",
+                        "PETA"
+                    ],
+                    "enumDescriptions": [
+                        "For unparsable data. Do not use.",
+                        "No scaling.",
+                        "10^-1",
+                        "10^-2",
+                        "10^-3",
+                        "10^-6",
+                        "10^-9",
+                        "10^-12",
+                        "10^-15",
+                        "10^1",
+                        "10^2",
+                        "10^3",
+                        "10^6",
+                        "10^9",
+                        "10^12",
+                        "10^15"
+                    ],
+                    "type": "string"
+                },
+                "scaleFactor": {
+                    "description": "Some units are non-unit factors of SI units. This can be set here.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "type": {
+                    "description": "Type of unit.",
+                    "enum": [
+                        "UNIT_TYPE_UNSPECIFIED",
+                        "COUNT",
+                        "RATIO",
+                        "METER",
+                        "GRAM",
+                        "SECOND",
+                        "AMPERE",
+                        "KELVIN",
+                        "MOLE",
+                        "CANDELA",
+                        "PERCENT",
+                        "LITER",
+                        "VOLT",
+                        "PASCAL",
+                        "NEWTON",
+                        "JOULE",
+                        "RADIAN",
+                        "DEGREE",
+                        "STERADIAN",
+                        "CELSIUS",
+                        "VELOCITY",
+                        "ACCELERATION",
+                        "LUMEN",
+                        "LUX",
+                        "OHM",
+                        "WATT",
+                        "BIT",
+                        "BYTE",
+                        "TESLA",
+                        "MMHG",
+                        "CMH2O",
+                        "MINUTE",
+                        "HOUR"
+                    ],
+                    "enumDescriptions": [
+                        "For unparsable data. Do not use.",
+                        "Special unit to indicate some counting metric (unitless).",
+                        "Special unit to indicate a ratio (unitless).",
+                        "Unit of length.",
+                        "Unit of mass.",
+                        "Unit of time.",
+                        "Unit of electric current.",
+                        "Unit of thermodynamic temperature.",
+                        "Unit of amount of substance.",
+                        "Unit of luminous intensity.",
+                        "Derived special unit. HECTO * RATIO",
+                        "Derived unit of volume. MILLI * METER^3",
+                        "Derived unit of electrical potential difference.\n(KILO * GRAM) * METER^2 * AMPERE^-1 * SECOND^-3",
+                        "Derived unit of pressure or stress.\n(KILO * GRAM) * METER^-1 * SECOND^-2",
+                        "Derived unit of force.\n(KILO * GRAM) * METER * SECOND^-2",
+                        "Derived unit of energy, work or heat.\n(KILO * GRAM) * METER^2 * SECOND^-2",
+                        "Derived unit of angle.",
+                        "Derived unit of angle. \u03c0 / 180 * RADIAN",
+                        "Derived unit of solid angle.",
+                        "Derived unit of temperature. KELVIN - 273.15",
+                        "Derived unit. METER * SECOND^-1",
+                        "Derived unit. METER * SECOND^-2",
+                        "Derived unit of luminous flux. CANDELA * STERADIAN",
+                        "Derived unit of illuminance. LUMEN * METER^-2",
+                        "Derived unit of electrical resistance. VOLT * AMPERE^-1",
+                        "Derived unit of power. JOULE * SECOND^-1.",
+                        "Unit of information.",
+                        "Derived unit of information. 8 * BIT",
+                        "Derived unit. NEWTON / (AMPERE * METER)",
+                        "Derived unit of pressure or stress. 133.322387415 * PASCAL",
+                        "Derived unit of pressure or stress. 0.0101972 * PASCAL",
+                        "Derived unit of time. 60 * SECOND",
+                        "Derived unit of time. 3600 * SECOND"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UserId": {
+            "description": "Transport type for UserId.\n\n- If this is used in a GAIA authenticated request and the `keyspace` is\n  GAIA_ID, then the `user_id` field can be left blank and will be inferred by\n  consulting the GAIA service.\n- If this is used in a GAIA authenticated request and the `keyspace` is\n  CSP_ID, then the `user_string` field can be left blank and will be inferred\n  by consulting the Verily ID service and matching the authenticated user to\n  a CSP ID with the appropriate ID label. ID labels are chosen based on the\n  Application ID of the request. See\n  http://google3/java/com/google/lifescience/sensors/store/service/auth/idservice/CspUserIdsFromIdServiceProducerModule.java?l=82&rcl=202397740\n  for the mapping.",
+            "id": "UserId",
+            "properties": {
+                "keyspace": {
+                    "description": "Keyspace for this user id.",
+                    "enum": [
+                        "USER_ID_KEYSPACE_UNSPECIFIED",
+                        "GAIA_ID",
+                        "CSP_ID",
+                        "ANON_STUDY_DEVICE",
+                        "SENSOR_REGISTRY_CUSTOM",
+                        "DMI",
+                        "CSP_UUID"
+                    ],
+                    "enumDescriptions": [
+                        "For unparsable data. Do not use.",
+                        "UserId is a Gaia Id.",
+                        "UserId is a CSP Id. Uses UserId.user_string",
+                        "UserId is for an anonymous study device. Uses UserId.user_string",
+                        "Custom id from the sensor registry.  Uses UserId.user_string",
+                        "Users in the DMI system. Uses Userid.user_string. Caller must be\nauthenticated with the DMI system.",
+                        "UserId is a CSP study participant ID currently used in the China version of\nthe Baseline platform version. Uses UserId.user_string"
+                    ],
+                    "type": "string"
+                },
+                "userId": {
+                    "description": "Int64 representation of a user. Specific meaning/source depends on\nkeyspace. See UserIdKeyspace.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "userString": {
+                    "description": "Only valid if the keyspace is HASHED_STRING, CSP_ID, ANON_STUDY_DEVICE,\nSENSOR_REGISTRY_CUSTOM, DMI, or CSP_UUID. If so this string will be\nhashed and the result stored under user_id. The source string can't be\nretrieved from the hash, as this is a 1-way mapping.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Value": {
+            "description": "A single field within a DataPoint. The value itself can have one of several\ndifferent types.",
+            "id": "Value",
+            "properties": {
+                "any": {
+                    "additionalProperties": {
+                        "description": "Properties of the object. Contains field @type with type URL.",
+                        "type": "any"
+                    },
+                    "description": "While an arbitrary proto message with several fields can be stored as a\nsingle Value here, it is normally encouraged that you break your\napplication specific message's fields into separate Values within the\nDataPoint (and separate DataFieldSpecs within the DataSpec). Each of\nthose Values should ideally use one of the above fields. This allows the\nDataSet to still be self describing and SensorStore to validate/convert\nunits as appropriate for passing data to delegates.",
+                    "type": "object"
+                },
+                "blob": {
+                    "description": "Blob is intended for passing binary data (images, audio, etc.) as a field\nwithin a DataPoint. Metadata about the blob (encoding, sampling rate,\nencryption key name, etc) should be stored as separate fields. If no\nvalidation of the composite data format is needed, the Any below could be\nused instead.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "blobList": {
+                    "$ref": "BlobList",
+                    "description": "Value as a list of blobs."
+                },
+                "booleanList": {
+                    "$ref": "BooleanList",
+                    "description": "Value as a list of boolean."
+                },
+                "booleanValue": {
+                    "description": "Value as a boolean.",
+                    "type": "boolean"
+                },
+                "fieldName": {
+                    "description": "This should match of the field name of the DataFieldSpec for this value in\nthe DataSet's DataSource's DataType.",
+                    "type": "string"
+                },
+                "float64List": {
+                    "$ref": "Float64List",
+                    "description": "Value as a list of float64s."
+                },
+                "float64Value": {
+                    "description": "Value as a float64.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "int64List": {
+                    "$ref": "Int64List",
+                    "description": "Value as a list of int64s."
+                },
+                "int64Value": {
+                    "description": "Value as a int64.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "stringList": {
+                    "$ref": "StringList",
+                    "description": "Value as a list of string."
+                },
+                "stringValue": {
+                    "description": "Value as a string.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "WriteDataPointsRequest": {
+            "description": "Request to write data.",
+            "id": "WriteDataPointsRequest",
+            "properties": {
+                "dataSets": {
+                    "description": "DataSets to persist.",
+                    "items": {
+                        "$ref": "DataSet"
+                    },
+                    "type": "array"
+                },
+                "userId": {
+                    "$ref": "UserId",
+                    "description": "User that all DataSets in this request belong to."
+                }
+            },
+            "type": "object"
+        },
+        "WriteDataPointsResponse": {
+            "description": "Response to writing data.",
+            "id": "WriteDataPointsResponse",
+            "properties": {},
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Life Science Sensor Store (Staging)",
+    "version": "v1",
+    "version_module": true
+}

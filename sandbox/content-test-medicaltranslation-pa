@@ -1,0 +1,836 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/cloud-platform": {
+                    "description": "View and manage your data across Google Cloud Platform services"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://test-medicaltranslation-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Medical Translation",
+    "description": "Medical Translation Private API.",
+    "discoveryVersion": "v1",
+    "documentationLink": "https://ai.google/",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "medicaltranslation_pa:v1",
+    "kind": "discovery#restDescription",
+    "name": "medicaltranslation_pa",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "v1": {
+            "methods": {
+                "imagesSearch": {
+                    "description": "An experimental service that performs image search according to a query.\nIt essentially provides limited access to the images search api.\nThis service must not be used in production without pcouncel approval.",
+                    "flatPath": "v1:imagesSearch",
+                    "httpMethod": "GET",
+                    "id": "medicaltranslation_pa.imagesSearch",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "numTopResults": {
+                            "description": "The number of results to return.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "query": {
+                            "description": "The search query (e.g., a sentence one of the participants said).",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1:imagesSearch",
+                    "response": {
+                        "$ref": "ImageResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                },
+                "images_experiment": {
+                    "description": "An experimental service that performs image search according to a query.\nIt essentially provides limited access to the images search api.\nThis service must not be used in production without pcouncel approval.",
+                    "flatPath": "v1/images_experiment",
+                    "httpMethod": "GET",
+                    "id": "medicaltranslation_pa.images_experiment",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "numTopResults": {
+                            "description": "The number of results to return.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "query": {
+                            "description": "The search query (e.g., a sentence one of the participants said).",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/images_experiment",
+                    "response": {
+                        "$ref": "ImageResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                },
+                "text_translate": {
+                    "description": "A simple text translation service.",
+                    "flatPath": "v1/text_translate",
+                    "httpMethod": "GET",
+                    "id": "medicaltranslation_pa.text_translate",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "sourceLanguage": {
+                            "description": "The source language.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "targetLanguage": {
+                            "description": "The target language.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "text": {
+                            "description": "The text to be translated.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/text_translate",
+                    "response": {
+                        "$ref": "TextTranslateResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                },
+                "transcribe": {
+                    "description": "A streaming transcription handler.",
+                    "flatPath": "v1/transcribe",
+                    "httpMethod": "POST",
+                    "id": "medicaltranslation_pa.transcribe",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/transcribe",
+                    "request": {
+                        "$ref": "StreamingTranscribeRequest"
+                    },
+                    "response": {
+                        "$ref": "StreamingTranscribeResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                },
+                "transcribeAndTranslate": {
+                    "description": "A streaming transcription and translation handler.",
+                    "flatPath": "v1/transcribeAndTranslate",
+                    "httpMethod": "POST",
+                    "id": "medicaltranslation_pa.transcribeAndTranslate",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/transcribeAndTranslate",
+                    "request": {
+                        "$ref": "StreamingTranscribeAndTranslateRequest"
+                    },
+                    "response": {
+                        "$ref": "StreamingTranscribeAndTranslateResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                },
+                "translate": {
+                    "description": "A simple text translation service.",
+                    "flatPath": "v1:translate",
+                    "httpMethod": "GET",
+                    "id": "medicaltranslation_pa.translate",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "sourceLanguage": {
+                            "description": "The source language.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "targetLanguage": {
+                            "description": "The target language.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "text": {
+                            "description": "The text to be translated.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1:translate",
+                    "response": {
+                        "$ref": "TextTranslateResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                }
+            }
+        }
+    },
+    "revision": "20190905",
+    "rootUrl": "https://test-medicaltranslation-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "AnnotatedEntity": {
+            "description": "Represents a single annotation in the text.\nNext free ID is 8.",
+            "id": "AnnotatedEntity",
+            "properties": {
+                "annotationType": {
+                    "description": "The type of annotated entity.",
+                    "enum": [
+                        "ANNOTATION_TYPE_UNSPECIFIED",
+                        "DISEASE_OR_MEDICAL_CONDITIONS",
+                        "PRESCRIPTION_DRUGS"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified annotation type.",
+                        "MID: /g/11vk5bc_b",
+                        "MID: /g/11hv33vsj"
+                    ],
+                    "type": "string"
+                },
+                "citations": {
+                    "description": "Collection of citation messages that must be presented when the entity\ndetails is displayed to users.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "descriptionInOtherLang": {
+                    "description": "The entity description in other language.",
+                    "type": "string"
+                },
+                "descriptionInSpeakerLang": {
+                    "description": "The entity description in speaker language.",
+                    "type": "string"
+                },
+                "mid": {
+                    "description": "Unique identifier in Knowledge Graph (Machine ID)\nhttps://g3doc.corp.google.com/knowledge/g3doc/beginners/knowledge_graph.md#mids",
+                    "type": "string"
+                },
+                "nameInOtherLang": {
+                    "description": "The entity name in other language, it is translated annotated text.",
+                    "type": "string"
+                },
+                "nameInSpeakerLang": {
+                    "description": "The entity name in speaker language, should be equal to the annotated text\nor a synonym of it.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Annotation": {
+            "description": "Represents a single annotation in the text.",
+            "id": "Annotation",
+            "properties": {
+                "annotatedEntity": {
+                    "$ref": "AnnotatedEntity",
+                    "description": "Details of the annotated entitiy in this range."
+                },
+                "begin": {
+                    "description": "Start position of the transcribed_text in speaker's language text.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "end": {
+                    "description": "End position of the transcribed_text in speaker's language text.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Annotations": {
+            "description": "Contains the results of an annotation process on a speaker language sentence.",
+            "id": "Annotations",
+            "properties": {
+                "annotations": {
+                    "description": "All the entities that were annotated in the text sorted by their starting\nposition (Annotation.begin).",
+                    "items": {
+                        "$ref": "Annotation"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Audio": {
+            "description": "Contains the audio content and its properties.",
+            "id": "Audio",
+            "properties": {
+                "audio": {
+                    "description": "The audio bytes, encoded as raw 16khz PCM, single channel or as WAV file.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "audioProperties": {
+                    "$ref": "AudioProperties",
+                    "description": "Describes the audio. Must be present on the first message. Will be ignored\nin all subsequent messages."
+                },
+                "endOfAudio": {
+                    "description": "End of audio mark. No additional messages will be sent and the\nserver should treat it as a 'half-close' command.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "AudioProperties": {
+            "description": "Properties of the transcribed audio.",
+            "id": "AudioProperties",
+            "properties": {
+                "channelCount": {
+                    "description": "Number of channels in the audio, must be 1 for now.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "encoding": {
+                    "description": "Audio encoding. If missing assuming LINEAR_16",
+                    "type": "string"
+                },
+                "primaryLanguage": {
+                    "description": "The primary language to be recognized.",
+                    "type": "string"
+                },
+                "sampleRate": {
+                    "description": "Sample rate, preferably 16000",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "secondaryLanguage": {
+                    "description": "The secondary language to be recognized.",
+                    "type": "string"
+                },
+                "singleLanguageAudio": {
+                    "description": "If true, expect audio to be in primary_language only. The transcript will\nbe translated to secondary_language.",
+                    "type": "boolean"
+                },
+                "speakerId": {
+                    "description": "An list of speaker identifiers, currently unused.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "speechModel": {
+                    "description": "If not empty - override the sppech model with the provided value.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ErrorInfo": {
+            "description": "Sub-message describing an error encountered by the process.",
+            "id": "ErrorInfo",
+            "properties": {
+                "errorCode": {
+                    "description": "An error code describing the error.",
+                    "enum": [
+                        "UNKNOWN",
+                        "AUTHENTICATION_ERROR",
+                        "TRANSCRIPTION_ERROR"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown error state.",
+                        "There has been authentication error.",
+                        "Transcription phase has failed."
+                    ],
+                    "type": "string"
+                },
+                "isFatal": {
+                    "description": "If true, the error is fatal, and recognition cannot continue.\nIn case of a fatal error, connection will close immediately after this\nmessage is sent.",
+                    "type": "boolean"
+                },
+                "status": {
+                    "$ref": "StatusProto",
+                    "description": "A message providing detailed information about the error."
+                }
+            },
+            "type": "object"
+        },
+        "ErrorInformation": {
+            "description": "Message describing an error encountered by the process.",
+            "id": "ErrorInformation",
+            "properties": {
+                "errorCode": {
+                    "description": "An error code describing the error.",
+                    "enum": [
+                        "UNKNOWN",
+                        "AUTHENTICATION_ERROR",
+                        "TRANSCRIPTION_ERROR",
+                        "STORAGE_ERROR"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown error state.",
+                        "There has been authentication error.",
+                        "Transcription phase has failed.",
+                        "Transcription storage has failed."
+                    ],
+                    "type": "string"
+                },
+                "isFatal": {
+                    "description": "If true, the error is fatal, and recognition cannot continue.\nIn case of a fatal error, connection will close immediately after this\nmessage is sent.",
+                    "type": "boolean"
+                },
+                "status": {
+                    "$ref": "StatusProto",
+                    "description": "A message providing detailed information about the error."
+                }
+            },
+            "type": "object"
+        },
+        "ImageResponse": {
+            "description": "Image search result.",
+            "id": "ImageResponse",
+            "properties": {
+                "result": {
+                    "description": "The list of the top N results (N set by request's num_top_results field)\nas ordered by the Images API.",
+                    "items": {
+                        "$ref": "Result"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "MessageSet": {
+            "description": "This is proto2's version of MessageSet.",
+            "id": "MessageSet",
+            "properties": {},
+            "type": "object"
+        },
+        "PatientInfo": {
+            "description": "Information regarding a patient.",
+            "id": "PatientInfo",
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Result": {
+            "description": "A single image search result.",
+            "id": "Result",
+            "properties": {
+                "thumbnailUrl": {
+                    "description": "The url of the thumbnail.",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "The url of the original image.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "StatusProto": {
+            "description": "Wire-format for a Status object",
+            "id": "StatusProto",
+            "properties": {
+                "canonicalCode": {
+                    "description": "The canonical error code (see codes.proto) that most closely\ncorresponds to this status. May be missing.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "code": {
+                    "description": "Numeric code drawn from the space specified below. Often, this is the\ncanonical error space, and code is drawn from google3/util/task/codes.proto",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Detail message",
+                    "type": "string"
+                },
+                "messageSet": {
+                    "$ref": "MessageSet",
+                    "description": "message_set associates an arbitrary proto message with the status."
+                },
+                "payload": {
+                    "$ref": "TypedMessage",
+                    "description": "DEPRECATED.\n\nThis field was deprecated in 2011 with cl/20297133.  Java support\nfor the field was moved to a proto1 backward compatibility class\nin April 2017 with cl/142615857 and cl/154123203.  There was\nnever support for this field in Go; if set Go will ignore it.\nC++ stopped setting StatusProto::payload in October 2015 with cl/106347055,\nand stopped reading the field in October 2017 with cl/173324114.\n\nIn general, newly written code should use only \"message_set\". If you need\nto maintain backward compatibility with code written before 3/25/2011, do\nthe following:\n\n- During the transition period, either (1) set both \"payload\" and\n  \"message_set\", or (2) write the consumer of StatusProto so that it can\n  forge a MessageSet object from \"payload\" if \"message_set\" is missing.\n  The C++ util::Status implementation does (2).\n\n- Once all the consumers are converted to accept \"message_set\", then\n  remove the use of \"payload\" on the producer side."
+                },
+                "space": {
+                    "description": "The following are usually only present when code != 0\nSpace to which this status belongs",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "StreamingTranscribeAndTranslateRequest": {
+            "description": "Request message with an audio to be transcribed and translated (via\nStreamingTranscribeAndTranslate).",
+            "id": "StreamingTranscribeAndTranslateRequest",
+            "properties": {
+                "audio": {
+                    "description": "Deprecated - will be replaced by audio_content field.\nThe audio bytes, encoded as raw 16khz PCM, single channel or as WAV file.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "audioContent": {
+                    "$ref": "Audio",
+                    "description": "Audio content and its properties."
+                },
+                "audioProperties": {
+                    "$ref": "AudioProperties",
+                    "description": "Deprecated - will be replaced by audio_content field.\nDescribes the audio. Must be present on the first message. Will be ignored\nin all subsequent messages."
+                },
+                "configuration": {
+                    "$ref": "TranscribeAndTranslateConfiguration",
+                    "description": "Deprecated - will be replaced by transcription_configuration.\nSettings for transcription and translation mechanisms."
+                },
+                "endOfAudio": {
+                    "description": "Deprecated - will be replaced by audio_content field.\nEnd of audio mark. No additional messages will be sent and the\nserver should treat it as a 'half-close' command.",
+                    "type": "boolean"
+                },
+                "experimentIds": {
+                    "description": "The ids of the active experiments.\nExperiment ids must be set on the first message and will be ignored on\nsubsequent messages. An experiment id can have associated parameters\nspecified using the 'experiment_id=parameters' syntax.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "transcriptionConfiguration": {
+                    "$ref": "TranscriptionConfiguration",
+                    "description": "Settings for transcription mechanisms."
+                }
+            },
+            "type": "object"
+        },
+        "StreamingTranscribeAndTranslateResponse": {
+            "description": "The response message with the transcription and translation.\nNext tag: 23",
+            "id": "StreamingTranscribeAndTranslateResponse",
+            "properties": {
+                "audioLengthMs": {
+                    "description": "The length of the audio covered by this message.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "audioStartMs": {
+                    "description": "The start of the audio covered by this message.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "confidence": {
+                    "description": "The transcription confidence of the audio covered by this message.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "debugMessage": {
+                    "description": "Debug messages that we want to deliver to the client. It is possible that\na debug message will be the only contents delivered to the client.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "errorInfo": {
+                    "$ref": "ErrorInfo",
+                    "description": "Error information about this call."
+                },
+                "hasContents": {
+                    "description": "Indicates whether the message instance contains transcription.\nIf false, only debug/error information may be present.",
+                    "type": "boolean"
+                },
+                "isFinal": {
+                    "description": "Is set on the last message before the server closes the connection or sends\na request with the 'end_of_audio' parameter set to 'true'.\nWill be sent only after the client closes its side of the connection and\nthe server will close connection right after sending this message.",
+                    "type": "boolean"
+                },
+                "isLive": {
+                    "description": "If true, represents a \"live\" (i.e., partial) transcription response, which\nis not final yet. Live transcription messages will be sent until their\ncontents is overwritten with \"non-live\" message.\n\nA message may have both is_live=false and is_final=false. The contents of\nsuch a message is final w.r.t underlying audio stream, and additional\ntransriptions of the rest of the audio stream should be expected.",
+                    "type": "boolean"
+                },
+                "otherLanguage": {
+                    "description": "The other language, to which we need to translate.",
+                    "type": "string"
+                },
+                "otherLanguageAnnotations": {
+                    "$ref": "Annotations",
+                    "description": "Results of the annotation process on the sentence in other language."
+                },
+                "reverseTranslatedText": {
+                    "description": "The translation of the translated text back to the speaker's language.",
+                    "type": "string"
+                },
+                "reverseTranslatedTextOtherLanguage": {
+                    "description": "The translation of the translated text back to the speaker's language.",
+                    "type": "string"
+                },
+                "speakerId": {
+                    "description": "Is set if we were able to detect a single speaker.",
+                    "type": "string"
+                },
+                "speakerLanguage": {
+                    "description": "The detected language of the speaker.",
+                    "type": "string"
+                },
+                "speakerLanguageAnnotations": {
+                    "$ref": "Annotations",
+                    "description": "Results of the annotation process on the sentence in speaker language."
+                },
+                "transcribedText": {
+                    "description": "The transcribed text in the detected language.",
+                    "type": "string"
+                },
+                "transcribedTextOtherLanguage": {
+                    "description": "The transcribed text in the detected language.",
+                    "type": "string"
+                },
+                "transcriptSequenceNumber": {
+                    "description": "The sequence number of a transcript relative to the start of audio,\nstarting with 1.\nMessages without transcribed text are not required to have\ntranscript_sequence_number. Multiple messages can reference the same\nsequence number and the client should treat data in newer messages as\nsuperseding the data received in previous messages.\nFor example, a message with live transcript (is_live=true) may be\nsuperseded by a partial transcript message carrying the same id.\nLater the message may be enriched with translation or other metadata\ninformation.",
+                    "format": "uint32",
+                    "type": "integer"
+                },
+                "translatedText": {
+                    "description": "The transcribed text translated to the other language.",
+                    "type": "string"
+                },
+                "translatedTextAnnotations": {
+                    "$ref": "Annotations",
+                    "description": "Results of the annotation process on the translated sentence."
+                },
+                "translatedTextOtherLanguage": {
+                    "description": "The transcribed text translated to the other language.",
+                    "type": "string"
+                },
+                "translatedTextOtherLanguageAnnotations": {
+                    "$ref": "Annotations",
+                    "description": "Results of the annotation process on the translated sentence in other\nlanguage."
+                }
+            },
+            "type": "object"
+        },
+        "StreamingTranscribeRequest": {
+            "description": "Request message with an audio to be transcribed (via StreamingTranscribe).",
+            "id": "StreamingTranscribeRequest",
+            "properties": {
+                "audioContent": {
+                    "$ref": "Audio",
+                    "description": "Audio content and its properties."
+                },
+                "patientInfo": {
+                    "$ref": "PatientInfo",
+                    "description": "Information regarding a patient."
+                },
+                "transcriptionConfiguration": {
+                    "$ref": "TranscriptionConfiguration",
+                    "description": "Settings for transcription mechanisms."
+                }
+            },
+            "type": "object"
+        },
+        "StreamingTranscribeResponse": {
+            "description": "The response message with the transcription.\nNext tag: 4",
+            "id": "StreamingTranscribeResponse",
+            "properties": {
+                "debugMessage": {
+                    "description": "Debug messages that we want to deliver to the client. It is possible that\na debug message will be the only contents delivered to the client.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "errorInfo": {
+                    "$ref": "ErrorInformation",
+                    "description": "Error information about this call."
+                },
+                "transcription": {
+                    "$ref": "TranscriptionResult",
+                    "description": "Transcription content and metadata."
+                }
+            },
+            "type": "object"
+        },
+        "TextTranslateResponse": {
+            "description": "A simple text translation response.",
+            "id": "TextTranslateResponse",
+            "properties": {
+                "translatedText": {
+                    "description": "The translated text",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TranscribeAndTranslateConfiguration": {
+            "description": "Various configuration settings for the transcription and translation\nmechanisms.",
+            "id": "TranscribeAndTranslateConfiguration",
+            "properties": {
+                "allowUnstableTranscription": {
+                    "description": "If true - the service will return live transcriptions with low stability.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "TranscriptionConfiguration": {
+            "description": "Various configuration settings for the transcription mechanism.",
+            "id": "TranscriptionConfiguration",
+            "properties": {
+                "allowUnstableTranscription": {
+                    "description": "If true - the service will return live transcriptions with low stability.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "TranscriptionResult": {
+            "description": "Transcription content and metadata.\nNext tag: 11",
+            "id": "TranscriptionResult",
+            "properties": {
+                "audioLengthMs": {
+                    "description": "The length of the audio covered by this message.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "audioStartMs": {
+                    "description": "The start of the audio covered by this message.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "confidence": {
+                    "description": "The transcription confidence of the audio covered by this message.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "hasContents": {
+                    "description": "Indicates whether the message instance contains transcription.\nIf false, only debug/error information may be present.",
+                    "type": "boolean"
+                },
+                "isFinal": {
+                    "description": "Is set on the last message before the server closes the connection or sends\na request with the 'end_of_audio' parameter set to 'true'.\nWill be sent only after the client closes its side of the connection and\nthe server will close connection right after sending this message.",
+                    "type": "boolean"
+                },
+                "isLive": {
+                    "description": "If true, represents a \"live\" (i.e., partial) transcription response, which\nis not final yet. Live transcription messages will be sent until their\ncontents is overwritten with \"non-live\" message.\n\nA message may have both is_live=false and is_final=false. The contents of\nsuch a message is final w.r.t underlying audio stream, and additional\ntransriptions of the rest of the audio stream should be expected.",
+                    "type": "boolean"
+                },
+                "language": {
+                    "description": "The detected language.",
+                    "type": "string"
+                },
+                "transcribedText": {
+                    "description": "The transcribed text in the detected language.",
+                    "type": "string"
+                },
+                "transcriptSequenceNumber": {
+                    "description": "The sequence number of a transcript relative to the start of audio,\nstarting with 1.\nMessages without transcribed text are not required to have\ntranscript_sequence_number. Multiple messages can reference the same\nsequence number and the client should treat data in newer messages as\nsuperseding the data received in previous messages.\nFor example, a message with live transcript (is_live=true) may be\nsuperseded by a partial transcript message carrying the same id.\nLater the message may be enriched with translation or other metadata\ninformation.",
+                    "format": "uint32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "TypedMessage": {
+            "description": "Message that groups a protocol type_id (as defined by MessageSet),\nwith an encoded message of that type.  Its use is similar to\nMessageSet, except it represents a single (type, encoded message)\ninstead of a set.\n\nTo fill for known protocol type:\n  MyProtocolMsg proto;\n  TypedMessage typed_msg;\n  typed_msg.set_type_id(MyProtocolMsg::MESSAGE_TYPE_ID);\n  proto.AppendToCord(typed_msg.mutable_message());\n\nTo fill for unknown protocol type:\n  ProtocolMessage proto;\n  TypedMessage typed_msg;\n  typed_msg.set_type_id(proto.GetMapper()->type_id());\n  proto.AppendToCord(typed_msg.mutable_message());",
+            "id": "TypedMessage",
+            "properties": {
+                "message": {
+                    "description": "Message bytes.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "typeId": {
+                    "description": "Identifier for the type.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Medical Translation Private API (Test)",
+    "version": "v1",
+    "version_module": true
+}

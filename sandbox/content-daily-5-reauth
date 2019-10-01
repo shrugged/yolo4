@@ -1,0 +1,460 @@
+{
+    "basePath": "",
+    "baseUrl": "https://daily-5-reauth.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Reauth",
+    "description": "",
+    "discoveryVersion": "v1",
+    "documentationLink": "https://docs.google.com/document/d/1TCIaDBZe3kOiih1ShVT8pZW_gskvOAsiUWguPTIdo-M",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "daily_5_reauth_sandbox:v2",
+    "kind": "discovery#restDescription",
+    "name": "daily_5_reauth_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "sessions": {
+            "methods": {
+                "continue": {
+                    "description": "Continues an existing reauthentication session.  Given a session id,\nthis api can do one of two actions:\n1. It can accept the response to a challenge and either authenticate,\nreject, or require additional challenges from the user.\n2. It can switch to a different type of challenge than the one initially\nproposed by the server on the previous round of API calls. If the client\nchooses to complete a different challenge (for example, AuthZen instead of\nSecurityKey), it can indicate that in a call to Continue of this type.",
+                    "flatPath": "v2/sessions/{sessionId}:continue",
+                    "httpMethod": "POST",
+                    "id": "daily_5_reauth_sandbox.sessions.continue",
+                    "parameterOrder": [
+                        "sessionId"
+                    ],
+                    "parameters": {
+                        "sessionId": {
+                            "description": "The session id obtain from the previous interaction with the API,\neither a Start or Continue call.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v2/sessions/{sessionId}:continue",
+                    "request": {
+                        "$ref": "ContinueSessionRequest"
+                    },
+                    "response": {
+                        "$ref": "StartOrContinueSessionResponse"
+                    }
+                },
+                "start": {
+                    "description": "Starts a new reauthentication session.  This call returns a session id,\nwhich must be passed to subsequent Continue calls, as well as information\nabout the first challenge.  In this call, the client declares their\ncapabilities to the server and obtains information about the first\nchallenge they will be required to perform.",
+                    "flatPath": "v2/sessions:start",
+                    "httpMethod": "POST",
+                    "id": "daily_5_reauth_sandbox.sessions.start",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v2/sessions:start",
+                    "request": {
+                        "$ref": "StartSessionRequest"
+                    },
+                    "response": {
+                        "$ref": "StartOrContinueSessionResponse"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190913",
+    "rootUrl": "https://daily-5-reauth.sandbox.googleapis.com/",
+    "schemas": {
+        "Challenge": {
+            "description": "Challenge serves two purposes:\n1. It contains metadata for the client describing how to render the challenge\n(number of digits in a PIN, security key challenge data, etc).\n2. It contains the current state of the challenge (for example, whether it\nhas been successfully started).",
+            "id": "Challenge",
+            "properties": {
+                "challengeId": {
+                    "description": "A unique challenge_id provided by the server for this instance of the\nchallenge.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "challengeType": {
+                    "description": "The type of the challenge being proposed.  This will be one of the possible\nchallenges that the client declared it was capable of supporting.",
+                    "enum": [
+                        "CHALLENGE_TYPE_UNSPECIFIED",
+                        "PASSWORD",
+                        "SECURITY_KEY",
+                        "PIN",
+                        "TOTP",
+                        "IDV_PREREGISTERED_PHONE",
+                        "AUTHZEN",
+                        "INTERNAL_TWO_FACTOR"
+                    ],
+                    "enumDescriptions": [
+                        "This status should not be specified by the client.  If it is specified, it\nwill be ignored.",
+                        "A challenge performed by presenting a password.",
+                        "A challenge performed by signing over challenge material provided by the\nserver with a security key token (also called a FIDO U2F device).",
+                        "A challenge performed by presenting a lightweight PIN number.",
+                        "A challenge implementing the Time-based One Time Password protocol\n(RFC6238). This includes challenges supporting codes from Google\nAuthenticator.",
+                        "A challenge performed by responding to a phone challenge.",
+                        "A challenge performed using the AuthZen protocol.",
+                        "Internal HMAC-based OTP for google.com corp accounts, verified by CorpSSO."
+                    ],
+                    "type": "string"
+                },
+                "securityKey": {
+                    "$ref": "SecurityKeyProposal",
+                    "description": "The following fields will be specified only if the relevant challenge type\nis proposed and the proposed challenge requires ."
+                },
+                "status": {
+                    "description": "The status of this challenge.  The value should come from the Status enum.",
+                    "enum": [
+                        "STATUS_UNSPECIFIED",
+                        "PROPOSED",
+                        "READY",
+                        "RETRYABLE_ERROR"
+                    ],
+                    "enumDescriptions": [
+                        "This code should not be returned in production.  It should be treaded as\nan unexpected error state by clients and the challenge should be ignored.",
+                        "The client can choose to start this challenge if they would like.",
+                        "The challenge has been started and is ready to be executed.",
+                        "The challenge is in an error state (for example, a backend call\nfailed while trying to construct it).  The client can attempt to\nstart the challenge to recover."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ClientProposalReply": {
+            "description": "A reply constructed by the client to a proposal contained within a challenge.\nFor example, a PASSWORD challenge would propose the user enters their\npassword and the reply would just be the password.  A SECURITY_KEY challenge\nwould contain a SecurityKeyProposal, which would be replied to with a\nSecurityKeyProposalReply.",
+            "id": "ClientProposalReply",
+            "properties": {
+                "credential": {
+                    "description": "For simple knowledge string challenges (like PIN or PASSWORD), the\ncredential can be passed in this field.  Some other challenges require more\nstructured responses.",
+                    "type": "string"
+                },
+                "securityKey": {
+                    "$ref": "SecurityKeyProposalReply",
+                    "description": "For a security key challenge, this contains the response to the challenge\nassertion."
+                }
+            },
+            "type": "object"
+        },
+        "ContinueSessionRequest": {
+            "description": "Provide a response to a challenge to execute it.  This will implicitly\nstart a challenge if the challenge isn't yet started and it can be\nstarted at execution time (see comment on StartChallenge).",
+            "id": "ContinueSessionRequest",
+            "properties": {
+                "action": {
+                    "description": "What action to take.",
+                    "enum": [
+                        "ACTION_UNSPECIFIED",
+                        "RESPOND",
+                        "START_ALTERNATE",
+                        "TEST_ACTION"
+                    ],
+                    "enumDescriptions": [
+                        "This is an invalid value that will result in an error if used.",
+                        "Respond to a challenge.  In this case, proposal_reply must be set.",
+                        "Start an alternate challenge.  This is only necessary if the challenge\nto be started is both not pre-initialized by the server (it was in state\nPROPOSED and not state READY) AND the challenge requires action by the\nserver before it can be executed (for example, challenge material for a\nSecurity Key touch or sending an SMS to a phone).",
+                        "This is a test action that will always return an unspecified\nauthentication status. Do not use this action under normal circumstances.\n(It's used by probers without a valid session ID.)"
+                    ],
+                    "type": "string"
+                },
+                "challengeId": {
+                    "description": "Which challenge to start/execute.  This should be one of the challenges\nreturned in possible_challenge_id in the previous round of API calls.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "proposalResponse": {
+                    "$ref": "ClientProposalReply",
+                    "description": "The reply to the proposed challenge containing the credentials to be\nvalidated."
+                },
+                "userId": {
+                    "description": "GAIA user id for the authenticated principal making the request. The user\nid should only be set in cases where the caller is able to authenticate\nthe user without acquiring the user's gaia mint.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PerDeviceChallenge": {
+            "description": "A challenge for a particular security key that is known to be registered to\nthe user.",
+            "id": "PerDeviceChallenge",
+            "properties": {
+                "challenge": {
+                    "description": "The challenge material as defined in the U2F specification.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "keyHandle": {
+                    "description": "The key handle as defined in the U2F specification.",
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ReauthConfig": {
+            "description": "ReauthConfig should only be set for ReauthType.SMART_REAUTH use cases.",
+            "id": "ReauthConfig",
+            "properties": {
+                "flow": {
+                    "description": "Specifies the transaction flow for which the reauth is requested.\nThis must be set for smart reauth.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "method": {
+                    "description": "Indicated set of reauth methods, at least one of which must be\nused to verfiy the presence of a user. Smart reauth currently supports\nRISK_BASED, REMOTE_ATTACKS_ONLY, and RISK_BASED_USER_PRESENCE. This\nmust be set for smart reauth.",
+                    "items": {
+                        "format": "int32",
+                        "type": "integer"
+                    },
+                    "type": "array"
+                },
+                "proofTokenLifetimeSec": {
+                    "description": "Used to set the lifetime of the reauth proof token if it is returned.\nPreferred value is between 5 minutes and 1 hour. If this value is too\nlong, issued proof token request will fail. Current threshold is\ndefined in gaia backend::kMaxReauthProofTokenLifetimeSec which may be\nlowered in the future. Default lifetime is 15 minutes.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SecurityKeyProposal": {
+            "description": "A proposal for the client to perform a Security Key / FIDO U2F challenge, as\ndefined by the FIDO U2F specification:\n\nhttps://fidoalliance.org/specifications/download/\n\nThe client will need to implement these specifications to make use of this\nparticular type of challenge.",
+            "id": "SecurityKeyProposal",
+            "properties": {
+                "applicationId": {
+                    "description": "The App ID as defined in the FIDO U2F specification.",
+                    "type": "string"
+                },
+                "challenges": {
+                    "description": "A client may have multiple registered security keys.  This lists all\nof the ones that are valid for use in this reauth event.",
+                    "items": {
+                        "$ref": "PerDeviceChallenge"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "SecurityKeyProposalReply": {
+            "description": "This is the response from the security key to the challenge data presented\nin the SecurityKey proposal.",
+            "id": "SecurityKeyProposalReply",
+            "properties": {
+                "applicationId": {
+                    "description": "The application id from the proposed Challenge used to compute this\ncredential.",
+                    "type": "string"
+                },
+                "clientData": {
+                    "description": "Data added by the client software to the message being signed\nby the token.  For FIDO U2F, this is a JSON object containing the\norigin as well as some other metadata about the client.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "keyHandle": {
+                    "description": "The key_handle of the proposed Challenge that was used to compute this\ncredential.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "signatureData": {
+                    "description": "The signature bytes themselves.",
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "StartOrContinueSessionResponse": {
+            "description": "The response to either StartSessionRequest or ContinueSessionRequest.",
+            "id": "StartOrContinueSessionResponse",
+            "properties": {
+                "challenges": {
+                    "description": "The set of challenges that the user can answer to pass this round of\nauthentication.  At most one of these challenges will be started have\nstatus READY.  The others are provided as options that that client\ncan use in lieu of the proposed primary challenge.",
+                    "items": {
+                        "$ref": "Challenge"
+                    },
+                    "type": "array"
+                },
+                "encodedProofOfReauthToken": {
+                    "description": "If the user is fully authenticated, this is the credential that they\nreceive demonstrating proof of reauth.  Typically, this should be passed\nto a subsequent API that is requesting proof of reauth.  It is opaque to\nthe client.",
+                    "type": "string"
+                },
+                "sessionId": {
+                    "description": "A session id to be passed to the next call to the API in this sequence.",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "This sets the status of the user's session.",
+                    "enum": [
+                        "AUTHENTICATION_STATUS_UNSPECIFIED",
+                        "AUTHENTICATED",
+                        "CHALLENGE_REQUIRED",
+                        "CHALLENGE_PENDING",
+                        "NO_AVAILABLE_CHALLENGES"
+                    ],
+                    "enumDescriptions": [
+                        "This is an unexpected state that the server should return.  If received,\nthe client should raise an error indicating a malfunctioning api.",
+                        "The user has successfully reauthenticated.  encoded_rapt\nshould be populated with proof of reauth having taken place.",
+                        "Additional challenges are required to successfully authenticate.\nchallenge specifies the next challenge that must be passed.",
+                        "The client should retry the current challenge.  This can happen due to\nan incorrect response, for example.",
+                        "The user does not have any available reauthentication challenges."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "StartSessionRequest": {
+            "description": "Request for starting a session with the challenge API.",
+            "id": "StartSessionRequest",
+            "properties": {
+                "email": {
+                    "description": "Email for the authenticated principal making the request. The user id\nshould only be set in cases where the caller is able to authenticate the\nuser without acquiring the user's gaia mint.",
+                    "type": "string"
+                },
+                "oauthScopesForDomainPolicyLookup": {
+                    "description": "This is a set of oauth scopes for which the user is using the re-auth API\nto obtain a proof token.  When specified, the domain policy for the user is\nlooked up to determine the type of reauth necessary to obtain these scopes.\nNote that this is NOT the scope in the mint for obtaining a RAPT, but\nrather the scope that the RAPT will be used to obtain.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "reauthConfig": {
+                    "$ref": "ReauthConfig",
+                    "description": "Used to specify reauth flow, method, and reauth proof token lifetime."
+                },
+                "reauthTypes": {
+                    "description": "The types of reauth being requested.  This determines the type of\nchallenges\nthe user is required to pass.  If a single type is specified, that\ndetermines the set of available challenges.  If multiple types are\nspecified, then the API attempts to consult the domain policy for the user\nto determine the appropriate reauth type.  In such a case,\noauth_scope_for_domain_policy_lookup must be specified.",
+                    "enumDescriptions": [
+                        "This is an invalid value that will result in an error if used.",
+                        "Knowledge challenges like PIN or Password can qualify for this.",
+                        "This type requires that the challenge be performed on a different\ndevice than the target computer, to provide some resistence against\nmachine compromise.  For example, challenges based on a security key\nor a phone would qualify.",
+                        "A full login flow, consisting of both a knowledge test and (typically,\nin cases where this API is used) a secure device based second factor.",
+                        "Perform a physical factor two step challenge on an already authenticated\nuser.",
+                        "This specifies risk based reauth that evaluates in session risk and\nconditionally supplies second factor challenges."
+                    ],
+                    "items": {
+                        "enum": [
+                            "REAUTH_TYPE_UNSPECIFIED",
+                            "KNOWLEDGE_USER_PRESENCE",
+                            "SECURE_DEVICE_USER_PRESENCE",
+                            "LOGIN",
+                            "REAUTH_API_TWO_STEP",
+                            "SMART_REAUTH"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "supportedChallengeTypes": {
+                    "description": "The list of challenges the client is capable of performing.",
+                    "enumDescriptions": [
+                        "This status should not be specified by the client.  If it is specified, it\nwill be ignored.",
+                        "A challenge performed by presenting a password.",
+                        "A challenge performed by signing over challenge material provided by the\nserver with a security key token (also called a FIDO U2F device).",
+                        "A challenge performed by presenting a lightweight PIN number.",
+                        "A challenge implementing the Time-based One Time Password protocol\n(RFC6238). This includes challenges supporting codes from Google\nAuthenticator.",
+                        "A challenge performed by responding to a phone challenge.",
+                        "A challenge performed using the AuthZen protocol.",
+                        "Internal HMAC-based OTP for google.com corp accounts, verified by CorpSSO."
+                    ],
+                    "items": {
+                        "enum": [
+                            "CHALLENGE_TYPE_UNSPECIFIED",
+                            "PASSWORD",
+                            "SECURITY_KEY",
+                            "PIN",
+                            "TOTP",
+                            "IDV_PREREGISTERED_PHONE",
+                            "AUTHZEN",
+                            "INTERNAL_TWO_FACTOR"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "userId": {
+                    "description": "GAIA user id for the authenticated principal making the request. The user\nid should only be set in cases where the caller is able to authenticate\nthe user without acquiring the user's gaia mint.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Reauth API",
+    "version": "v2",
+    "version_module": true
+}

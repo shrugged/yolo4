@@ -1,0 +1,1256 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/xapi.zoo": {
+                    "description": "Test scope for access to the Zoo service"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://test-adsratingmobile-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Ads Mobile Rating",
+    "description": "",
+    "discoveryVersion": "v1",
+    "documentationLink": "https://goto.google.com/ad-rating-mobile",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "adsratingmobile_pa:v1",
+    "kind": "discovery#restDescription",
+    "name": "adsratingmobile_pa",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "media": {
+            "methods": {
+                "download": {
+                    "description": "Downloads media. Download is supported\non the URI `/v1/media/{+name}?alt=media`.",
+                    "flatPath": "v1/media/{mediaId}",
+                    "httpMethod": "GET",
+                    "id": "adsratingmobile_pa.media.download",
+                    "parameterOrder": [
+                        "resourceName"
+                    ],
+                    "parameters": {
+                        "resourceName": {
+                            "description": "Name of the media that is being downloaded.  See\nReadRequest.resource_name.",
+                            "location": "path",
+                            "pattern": "^.+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/media/{+resourceName}",
+                    "response": {
+                        "$ref": "Media"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/xapi.zoo"
+                    ],
+                    "supportsMediaDownload": true
+                },
+                "upload": {
+                    "description": "Uploads media. Upload is supported on\nthe URI `/upload/v1/media/{+name}`.",
+                    "flatPath": "v1/media/{mediaId}",
+                    "httpMethod": "POST",
+                    "id": "adsratingmobile_pa.media.upload",
+                    "mediaUpload": {
+                        "accept": [
+                            "*/*"
+                        ],
+                        "protocols": {
+                            "simple": {
+                                "multipart": true,
+                                "path": "/upload/v1/media/{+resourceName}"
+                            }
+                        }
+                    },
+                    "parameterOrder": [
+                        "resourceName"
+                    ],
+                    "parameters": {
+                        "resourceName": {
+                            "description": "Name of the media that is being downloaded.  See\nReadRequest.resource_name.",
+                            "location": "path",
+                            "pattern": "^.+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/media/{+resourceName}",
+                    "request": {
+                        "$ref": "Media"
+                    },
+                    "response": {
+                        "$ref": "Media"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/xapi.zoo"
+                    ],
+                    "supportsMediaUpload": true
+                }
+            }
+        },
+        "v1": {
+            "methods": {
+                "authenticateUser": {
+                    "description": "Authenticates the current user and updates the registration token if\nneeded.",
+                    "flatPath": "v1/authenticateUser",
+                    "httpMethod": "POST",
+                    "id": "adsratingmobile_pa.authenticateUser",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/authenticateUser",
+                    "request": {
+                        "$ref": "UserAuthenticationRequest"
+                    },
+                    "response": {
+                        "$ref": "UserAuthenticationResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/xapi.zoo"
+                    ]
+                },
+                "deviceRefresh": {
+                    "description": "Refreshes the list of installed apps on the device with the given id.",
+                    "flatPath": "v1/deviceRefresh",
+                    "httpMethod": "POST",
+                    "id": "adsratingmobile_pa.deviceRefresh",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/deviceRefresh",
+                    "request": {
+                        "$ref": "IosDeviceRefreshRequest"
+                    },
+                    "response": {
+                        "$ref": "IosDeviceRefreshResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/xapi.zoo"
+                    ]
+                },
+                "generateIosAppLookupInfo": {
+                    "description": "Creates AppLookupInfo for the iOS app.",
+                    "flatPath": "v1/generateIosAppLookupInfo",
+                    "httpMethod": "POST",
+                    "id": "adsratingmobile_pa.generateIosAppLookupInfo",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/generateIosAppLookupInfo",
+                    "request": {
+                        "$ref": "GenerateIosAppLookupInfoRequest"
+                    },
+                    "response": {
+                        "$ref": "GenerateIosAppLookupInfoResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/xapi.zoo"
+                    ]
+                },
+                "installAppOnDevice": {
+                    "description": "Installs an application on the user's device",
+                    "flatPath": "v1/installAppOnDevice",
+                    "httpMethod": "POST",
+                    "id": "adsratingmobile_pa.installAppOnDevice",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/installAppOnDevice",
+                    "request": {
+                        "$ref": "AppInstallRequest"
+                    },
+                    "response": {
+                        "$ref": "AppInstallResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/xapi.zoo"
+                    ]
+                },
+                "openAppOnDevice": {
+                    "description": "Opens up an application deep link in the user's device",
+                    "flatPath": "v1/openAppOnDevice",
+                    "httpMethod": "POST",
+                    "id": "adsratingmobile_pa.openAppOnDevice",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/openAppOnDevice",
+                    "request": {
+                        "$ref": "AppOpenRequest"
+                    },
+                    "response": {
+                        "$ref": "AppOpenResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/xapi.zoo"
+                    ]
+                },
+                "openUrlOnDevice": {
+                    "description": "Sends a URL open command to the user's device",
+                    "flatPath": "v1/openUrlOnDevice",
+                    "httpMethod": "POST",
+                    "id": "adsratingmobile_pa.openUrlOnDevice",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/openUrlOnDevice",
+                    "request": {
+                        "$ref": "UrlOpenRequest"
+                    },
+                    "response": {
+                        "$ref": "UrlOpenResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/xapi.zoo"
+                    ]
+                },
+                "pushAppsToDevice": {
+                    "description": "Silently installs a set of applications on the device.",
+                    "flatPath": "v1/pushAppsToDevice",
+                    "httpMethod": "POST",
+                    "id": "adsratingmobile_pa.pushAppsToDevice",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/pushAppsToDevice",
+                    "request": {
+                        "$ref": "SilentPushAppsRequest"
+                    },
+                    "response": {
+                        "$ref": "PushAppsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/xapi.zoo"
+                    ]
+                },
+                "recordTrackingInfo": {
+                    "description": "Records the tracking info pertaining to a command",
+                    "flatPath": "v1/recordTrackingInfo",
+                    "httpMethod": "POST",
+                    "id": "adsratingmobile_pa.recordTrackingInfo",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/recordTrackingInfo",
+                    "request": {
+                        "$ref": "DeviceTrackingInfo"
+                    },
+                    "response": {
+                        "$ref": "DeviceTrackingInfoReceived"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/xapi.zoo"
+                    ]
+                },
+                "requestAppsList": {
+                    "description": "Sends an update installed application base command to the user's device",
+                    "flatPath": "v1/requestAppsList",
+                    "httpMethod": "POST",
+                    "id": "adsratingmobile_pa.requestAppsList",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/requestAppsList",
+                    "request": {
+                        "$ref": "AppsUpdateRequest"
+                    },
+                    "response": {
+                        "$ref": "AppsUpdateResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/xapi.zoo"
+                    ]
+                },
+                "requestUserSignOut": {
+                    "description": "Sends a request to sign out the current user, i.e., remove the existing\ndevice registration token and the corresponding list of apps from the\ndata store.",
+                    "flatPath": "v1/requestUserSignOut",
+                    "httpMethod": "POST",
+                    "id": "adsratingmobile_pa.requestUserSignOut",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/requestUserSignOut",
+                    "request": {
+                        "$ref": "UserAuthenticationRequest"
+                    },
+                    "response": {
+                        "$ref": "UserAuthenticationResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/xapi.zoo"
+                    ]
+                },
+                "uninstallAppsFromDevice": {
+                    "description": "Uninstalls applications on the user's device.",
+                    "flatPath": "v1/uninstallAppsFromDevice",
+                    "httpMethod": "POST",
+                    "id": "adsratingmobile_pa.uninstallAppsFromDevice",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/uninstallAppsFromDevice",
+                    "request": {
+                        "$ref": "AppUninstallRequest"
+                    },
+                    "response": {
+                        "$ref": "AppUninstallResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/xapi.zoo"
+                    ]
+                },
+                "updateAppsList": {
+                    "description": "Update the list of applications installed on a user's device",
+                    "flatPath": "v1/updateAppsList",
+                    "httpMethod": "POST",
+                    "id": "adsratingmobile_pa.updateAppsList",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/updateAppsList",
+                    "request": {
+                        "$ref": "AppsList"
+                    },
+                    "response": {
+                        "$ref": "AppsListReceived"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/xapi.zoo"
+                    ]
+                },
+                "updateUserIosDeviceMapping": {
+                    "description": "Collects information about enrolled devices from MDM server for specific\nusers and updates the UserDevices table for those users with their enrolled\niOS devices. First it gets the list of all devices, then it runs refresh\ncommand for each device and finally, it gets the list of all devices with\nfresh set of device information.",
+                    "flatPath": "v1/updateUserIosDeviceMapping",
+                    "httpMethod": "POST",
+                    "id": "adsratingmobile_pa.updateUserIosDeviceMapping",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/updateUserIosDeviceMapping",
+                    "request": {
+                        "$ref": "EmptyRequest"
+                    },
+                    "response": {
+                        "$ref": "UpdateUserIosDeviceMappingResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/xapi.zoo"
+                    ]
+                },
+                "wipeDevice": {
+                    "description": "Wipes out installed applications on specified device.",
+                    "flatPath": "v1/wipeDevice",
+                    "httpMethod": "POST",
+                    "id": "adsratingmobile_pa.wipeDevice",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/wipeDevice",
+                    "request": {
+                        "$ref": "WipeDeviceRequest"
+                    },
+                    "response": {
+                        "$ref": "WipeDeviceResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/xapi.zoo"
+                    ]
+                }
+            }
+        }
+    },
+    "revision": "20190924",
+    "rootUrl": "https://test-adsratingmobile-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "App": {
+            "description": "Defines the info required for a single android application",
+            "id": "App",
+            "properties": {
+                "applicationLabel": {
+                    "description": "The user friendly name of the application as displayed in the Google Play\nstore",
+                    "type": "string"
+                },
+                "applicationPackageName": {
+                    "description": "If device is Android the this is the package name of the application.\nOtherwise, this is an app bundle id of iOS app.",
+                    "type": "string"
+                },
+                "applicationVersion": {
+                    "description": "The version used by Google Play store for the application",
+                    "type": "string"
+                },
+                "deviceOs": {
+                    "description": "Operating system of the device.",
+                    "enum": [
+                        "OPERATING_SYSTEM_UNSPECIFIED",
+                        "ANDROID",
+                        "IOS"
+                    ],
+                    "enumDescriptions": [
+                        "Value is unset.",
+                        "Android OS.",
+                        "IOS."
+                    ],
+                    "type": "string"
+                },
+                "deviceType": {
+                    "description": "Type of device. E.g., Apple, Google, Samsung, etc.",
+                    "type": "string"
+                },
+                "isManagedByArm": {
+                    "description": "The boolean that indicates whether or not this app is managed by Ewoq.\nManaged apps are the ones that are silently installed by ARM, therefore,\nthese apps can be uninstalled by ARM as well.",
+                    "type": "boolean"
+                },
+                "marmotDigestId": {
+                    "description": "The Marmot digest ID. This field can be used to search for an APK in the\nMarmot database. This field will only be set for apps installed via the\nARM service.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AppInstallRequest": {
+            "description": "A request sent to a user's device to install an application. This simply\nopens the Google Play page of an application at which point it is up to the\nuser to install the app or not. There are not guarantees that the app will be\ninstalled.",
+            "id": "AppInstallRequest",
+            "properties": {
+                "deviceRegistrationToken": {
+                    "description": "The firebase registration token of the user's device",
+                    "type": "string"
+                },
+                "packageName": {
+                    "description": "The package name of the target application to be installed",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "The URL of the application in the Google Play website in case Google Play\napp is not installed",
+                    "type": "string"
+                },
+                "userId": {
+                    "description": "The email address of the user",
+                    "type": "string"
+                },
+                "uuid": {
+                    "description": "The universally unique identifier of this request",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AppInstallResponse": {
+            "description": "The response containing the status of the AppInstallRequest",
+            "id": "AppInstallResponse",
+            "properties": {
+                "result": {
+                    "description": "The result of the AppInstallRequest execution",
+                    "enum": [
+                        "RESULT_UNSPECIFIED",
+                        "RESULT_SUCCESS",
+                        "RESULT_FAILURE",
+                        "KEYSTORE_EXCEPTION",
+                        "DEVICE_NOT_REGISTERED",
+                        "FIREBASE_INTERNAL_ERROR",
+                        "RESULT_PENDING"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified result put in to enable future expansions",
+                        "Denotes the successful handling of a request",
+                        "Denotes a general failure in handling a request",
+                        "Exception in the Google Kyestore service which is required for processing\nthe requests",
+                        "Denotes that the user has uninstalled the application on their device or\nhave unregistered with firebase. Firebase does not differentiate these two\nstates.",
+                        "Denote an internal error in firebase. Retry needed.",
+                        "Denote a general state of operation pending."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AppLookupInfo": {
+            "description": "Information required to locate an app and push it to a device.",
+            "id": "AppLookupInfo",
+            "properties": {
+                "applicationPackageName": {
+                    "description": "The package name of the application for Android applications. If the app\nis an iOS app (means that this ios_app_mode is present), this field\nindicates iOS app bundle id.",
+                    "type": "string"
+                },
+                "iosAppMode": {
+                    "$ref": "IosAppParams",
+                    "description": "Should be specified if the app to be installed is an iOS app."
+                },
+                "marmotDirectMode": {
+                    "$ref": "MarmotDirectParams",
+                    "description": "Should be specified when app is going to be extracted from Marmont's\ndatastore directly using digest ID."
+                },
+                "marmotSearchMode": {
+                    "$ref": "MarmotSearchParams",
+                    "description": "Should be specified when app is going to be searched for in Marmont's\ndatastore using app version code."
+                },
+                "playLookupMode": {
+                    "$ref": "PlayLookupParams",
+                    "description": "Should be specified when app will be retrieved with calls to Play Mixer\nand blobstore."
+                }
+            },
+            "type": "object"
+        },
+        "AppOpenRequest": {
+            "description": "A request for the user's device to open a deep-link/app-URI",
+            "id": "AppOpenRequest",
+            "properties": {
+                "deviceRegistrationToken": {
+                    "description": "The firebase registration token of the user's device",
+                    "type": "string"
+                },
+                "packageName": {
+                    "description": "The package name of the target application",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "The URL/URI of the application to be opened on the device",
+                    "type": "string"
+                },
+                "userId": {
+                    "description": "The email address of the user",
+                    "type": "string"
+                },
+                "uuid": {
+                    "description": "The unique identifier of this request. For ewoq evals this is set to\nencrypted eval id of the corresponding eval, which will be stored on device\nand sent back alongside the relevant captured blobs on device.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AppOpenResponse": {
+            "description": "Message used by the ArmStubbyService to indicate the successful receipt of\nthe AppOpenRequest, and the successful transmission of the corresponding\ncommand to firebase.",
+            "id": "AppOpenResponse",
+            "properties": {
+                "result": {
+                    "description": "The result code",
+                    "enum": [
+                        "RESULT_UNSPECIFIED",
+                        "RESULT_SUCCESS",
+                        "RESULT_FAILURE",
+                        "KEYSTORE_EXCEPTION",
+                        "DEVICE_NOT_REGISTERED",
+                        "FIREBASE_INTERNAL_ERROR",
+                        "RESULT_PENDING"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified result put in to enable future expansions",
+                        "Denotes the successful handling of a request",
+                        "Denotes a general failure in handling a request",
+                        "Exception in the Google Kyestore service which is required for processing\nthe requests",
+                        "Denotes that the user has uninstalled the application on their device or\nhave unregistered with firebase. Firebase does not differentiate these two\nstates.",
+                        "Denote an internal error in firebase. Retry needed.",
+                        "Denote a general state of operation pending."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AppUninstallRequest": {
+            "description": "Request sent to user's device to uninstall applications.",
+            "id": "AppUninstallRequest",
+            "properties": {
+                "deviceRegistrationToken": {
+                    "description": "Firebase registration token of the user's device.",
+                    "type": "string"
+                },
+                "packageNames": {
+                    "description": "Package names of the target applications to be uninstalled.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "userId": {
+                    "description": "Email address of the user.",
+                    "type": "string"
+                },
+                "uuid": {
+                    "description": "Universally unique identifier of this request.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AppUninstallResponse": {
+            "description": "Response to AppUninstallRequest that acks the receipt of the said request.",
+            "id": "AppUninstallResponse",
+            "properties": {
+                "result": {
+                    "description": "Result of the AppUninstallRequest execution.",
+                    "enum": [
+                        "RESULT_UNSPECIFIED",
+                        "RESULT_SUCCESS",
+                        "RESULT_FAILURE",
+                        "KEYSTORE_EXCEPTION",
+                        "DEVICE_NOT_REGISTERED",
+                        "FIREBASE_INTERNAL_ERROR",
+                        "RESULT_PENDING"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified result put in to enable future expansions",
+                        "Denotes the successful handling of a request",
+                        "Denotes a general failure in handling a request",
+                        "Exception in the Google Kyestore service which is required for processing\nthe requests",
+                        "Denotes that the user has uninstalled the application on their device or\nhave unregistered with firebase. Firebase does not differentiate these two\nstates.",
+                        "Denote an internal error in firebase. Retry needed.",
+                        "Denote a general state of operation pending."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AppsList": {
+            "description": "The list of installed apps for the specified user",
+            "id": "AppsList",
+            "properties": {
+                "applications": {
+                    "description": "The list of applications",
+                    "items": {
+                        "$ref": "App"
+                    },
+                    "type": "array"
+                },
+                "deviceRegistrationToken": {
+                    "description": "The device registration token",
+                    "type": "string"
+                },
+                "isDeviceWiped": {
+                    "description": "The flag that is set to true when the updated list of apps is sent to\nbackend due to a device wipe",
+                    "type": "boolean"
+                },
+                "userId": {
+                    "description": "The user email address",
+                    "type": "string"
+                },
+                "uuid": {
+                    "description": "The universally unique identifier of this request",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AppsListReceived": {
+            "description": "the response from the server to indicate successful receipt of the apps list",
+            "id": "AppsListReceived",
+            "properties": {
+                "result": {
+                    "description": "Denotes the status of updating the received list of apps",
+                    "enum": [
+                        "RESULT_UNSPECIFIED",
+                        "RESULT_SUCCESS",
+                        "RESULT_FAILURE",
+                        "KEYSTORE_EXCEPTION",
+                        "DEVICE_NOT_REGISTERED",
+                        "FIREBASE_INTERNAL_ERROR",
+                        "RESULT_PENDING"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified result put in to enable future expansions",
+                        "Denotes the successful handling of a request",
+                        "Denotes a general failure in handling a request",
+                        "Exception in the Google Kyestore service which is required for processing\nthe requests",
+                        "Denotes that the user has uninstalled the application on their device or\nhave unregistered with firebase. Firebase does not differentiate these two\nstates.",
+                        "Denote an internal error in firebase. Retry needed.",
+                        "Denote a general state of operation pending."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AppsUpdateRequest": {
+            "description": "A request for the user's device to send the updated list of installed apps",
+            "id": "AppsUpdateRequest",
+            "properties": {
+                "deviceRegistrationToken": {
+                    "description": "The firebase registration token of the user's device",
+                    "type": "string"
+                },
+                "userId": {
+                    "description": "The email address of the current user",
+                    "type": "string"
+                },
+                "uuid": {
+                    "description": "The universally unique identifier of this request",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AppsUpdateResponse": {
+            "description": "The response to indicate that the AppUpdateRequest is successfully sent to\nthe user's device",
+            "id": "AppsUpdateResponse",
+            "properties": {
+                "result": {
+                    "description": "The result code",
+                    "enum": [
+                        "RESULT_UNSPECIFIED",
+                        "RESULT_SUCCESS",
+                        "RESULT_FAILURE",
+                        "KEYSTORE_EXCEPTION",
+                        "DEVICE_NOT_REGISTERED",
+                        "FIREBASE_INTERNAL_ERROR",
+                        "RESULT_PENDING"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified result put in to enable future expansions",
+                        "Denotes the successful handling of a request",
+                        "Denotes a general failure in handling a request",
+                        "Exception in the Google Kyestore service which is required for processing\nthe requests",
+                        "Denotes that the user has uninstalled the application on their device or\nhave unregistered with firebase. Firebase does not differentiate these two\nstates.",
+                        "Denote an internal error in firebase. Retry needed.",
+                        "Denote a general state of operation pending."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DeviceInfo": {
+            "description": "Contains the info we record about a user's handheld device",
+            "id": "DeviceInfo",
+            "properties": {
+                "apiLevel": {
+                    "description": "The API level of the device, e.g., 23",
+                    "type": "string"
+                },
+                "deviceModel": {
+                    "description": "The model of the device, e.g., Galaxy S7",
+                    "type": "string"
+                },
+                "deviceOs": {
+                    "description": "Operating system of the device.",
+                    "enum": [
+                        "OPERATING_SYSTEM_UNSPECIFIED",
+                        "ANDROID",
+                        "IOS"
+                    ],
+                    "enumDescriptions": [
+                        "Value is unset.",
+                        "Android OS.",
+                        "IOS."
+                    ],
+                    "type": "string"
+                },
+                "deviceType": {
+                    "description": "The type of the device, e.g., Samsung, Google, Apple.",
+                    "type": "string"
+                },
+                "iosDeviceId": {
+                    "description": "The identification of an iOS device.",
+                    "type": "string"
+                },
+                "osVersion": {
+                    "description": "The Android version of the device, e.g., 4.2.1",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DeviceTrackingInfo": {
+            "description": "Message used by the Android application to send back the characteristics\nof the device",
+            "id": "DeviceTrackingInfo",
+            "properties": {
+                "deviceInfo": {
+                    "$ref": "DeviceInfo",
+                    "description": "Device info"
+                },
+                "deviceRegistrationToken": {
+                    "description": "The firebase registration token",
+                    "type": "string"
+                },
+                "message": {
+                    "description": "Custom tracking message",
+                    "type": "string"
+                },
+                "userId": {
+                    "description": "The user email address",
+                    "type": "string"
+                },
+                "uuid": {
+                    "description": "The universally unique identifier of this request",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DeviceTrackingInfoReceived": {
+            "description": "Acknowledging that the device tracking info has been received",
+            "id": "DeviceTrackingInfoReceived",
+            "properties": {
+                "result": {
+                    "description": "Denotes the status of saving the tracking info",
+                    "enum": [
+                        "RESULT_UNSPECIFIED",
+                        "RESULT_SUCCESS",
+                        "RESULT_FAILURE",
+                        "KEYSTORE_EXCEPTION",
+                        "DEVICE_NOT_REGISTERED",
+                        "FIREBASE_INTERNAL_ERROR",
+                        "RESULT_PENDING"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified result put in to enable future expansions",
+                        "Denotes the successful handling of a request",
+                        "Denotes a general failure in handling a request",
+                        "Exception in the Google Kyestore service which is required for processing\nthe requests",
+                        "Denotes that the user has uninstalled the application on their device or\nhave unregistered with firebase. Firebase does not differentiate these two\nstates.",
+                        "Denote an internal error in firebase. Retry needed.",
+                        "Denote a general state of operation pending."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "EmptyRequest": {
+            "description": "Empty message for service methods that do not need input data.\nIf your service is likely to have a non empty request in the future,\nconsider not using this proto as it may introduce backwards compatibility\nissues.",
+            "id": "EmptyRequest",
+            "properties": {},
+            "type": "object"
+        },
+        "GenerateIosAppLookupInfoRequest": {
+            "description": "This message is used for acquiring the AppLookupInfo for the specific app.",
+            "id": "GenerateIosAppLookupInfoRequest",
+            "properties": {
+                "bundleId": {
+                    "description": "The app bundle id.",
+                    "type": "string"
+                },
+                "itunesId": {
+                    "description": "The id of the app within iTunes (Apple AppStore). This is a numerical id.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GenerateIosAppLookupInfoResponse": {
+            "description": "The status of operation will be returned. If the operation was successful,\nthe AppLookupInfo will be returned as well.",
+            "id": "GenerateIosAppLookupInfoResponse",
+            "properties": {
+                "appLookupInfo": {
+                    "$ref": "AppLookupInfo",
+                    "description": "AppLookupInfo for the iOS app that will be installed on the device."
+                },
+                "result": {
+                    "description": "The result of the operation.",
+                    "enum": [
+                        "RESULT_UNSPECIFIED",
+                        "RESULT_SUCCESS",
+                        "RESULT_FAILURE",
+                        "KEYSTORE_EXCEPTION",
+                        "DEVICE_NOT_REGISTERED",
+                        "FIREBASE_INTERNAL_ERROR",
+                        "RESULT_PENDING"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified result put in to enable future expansions",
+                        "Denotes the successful handling of a request",
+                        "Denotes a general failure in handling a request",
+                        "Exception in the Google Kyestore service which is required for processing\nthe requests",
+                        "Denotes that the user has uninstalled the application on their device or\nhave unregistered with firebase. Firebase does not differentiate these two\nstates.",
+                        "Denote an internal error in firebase. Retry needed.",
+                        "Denote a general state of operation pending."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "IosAppParams": {
+            "description": "Holds information about iOS app.",
+            "id": "IosAppParams",
+            "properties": {
+                "itunesAppId": {
+                    "description": "This is a unique numerical app identifier within the AppStore.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "IosDeviceRefreshRequest": {
+            "description": "This message is used for refreshing the list of installed applications on\nthe iOS device.",
+            "id": "IosDeviceRefreshRequest",
+            "properties": {
+                "deviceRegistrationToken": {
+                    "description": "Firebase device registration token.",
+                    "type": "string"
+                },
+                "iosDeviceId": {
+                    "description": "The identification of iOS device.",
+                    "type": "string"
+                },
+                "userEmail": {
+                    "description": "User identification.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "IosDeviceRefreshResponse": {
+            "description": "Acknowledgment of the receipt of the request.",
+            "id": "IosDeviceRefreshResponse",
+            "properties": {
+                "result": {
+                    "description": "If any error occurred (e.g. MDM server is down, too many requests, this\nwill return failure, otherwise, it will return success.",
+                    "enum": [
+                        "RESULT_UNSPECIFIED",
+                        "RESULT_SUCCESS",
+                        "RESULT_FAILURE",
+                        "KEYSTORE_EXCEPTION",
+                        "DEVICE_NOT_REGISTERED",
+                        "FIREBASE_INTERNAL_ERROR",
+                        "RESULT_PENDING"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified result put in to enable future expansions",
+                        "Denotes the successful handling of a request",
+                        "Denotes a general failure in handling a request",
+                        "Exception in the Google Kyestore service which is required for processing\nthe requests",
+                        "Denotes that the user has uninstalled the application on their device or\nhave unregistered with firebase. Firebase does not differentiate these two\nstates.",
+                        "Denote an internal error in firebase. Retry needed.",
+                        "Denote a general state of operation pending."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MarmotDirectParams": {
+            "description": "Message that holds information required to extract APK from Marmont's\ndatastore directly using digest ID.",
+            "id": "MarmotDirectParams",
+            "properties": {
+                "marmotDigestId": {
+                    "description": "Sha256 hash of the APK that is the ID of the APK in marmot's datastore.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MarmotSearchParams": {
+            "description": "Message that holds information required to search APK in Marmont's\ndatastore using app version code.",
+            "id": "MarmotSearchParams",
+            "properties": {
+                "applicationVersionCode": {
+                    "description": "The version code used by Google Play store for the application.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Media": {
+            "description": "Media resource.",
+            "id": "Media",
+            "properties": {
+                "resourceName": {
+                    "description": "Name of the media resource.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PlayLookupParams": {
+            "description": "Message that holds information required to get APK from Play Mixer.",
+            "id": "PlayLookupParams",
+            "properties": {
+                "applicationVersionCode": {
+                    "description": "The version code used by Google Play store for the application. Returns\nthe latest version if empty.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PushAppsResponse": {
+            "description": "The response to push apps request that acks the receipt of the request by the\nserver.",
+            "id": "PushAppsResponse",
+            "properties": {
+                "result": {
+                    "description": "The result indicating the successful receipt of the request. Success at\nthis stage merely means apps are queued to be pushed.",
+                    "enum": [
+                        "RESULT_UNSPECIFIED",
+                        "RESULT_SUCCESS",
+                        "RESULT_FAILURE",
+                        "KEYSTORE_EXCEPTION",
+                        "DEVICE_NOT_REGISTERED",
+                        "FIREBASE_INTERNAL_ERROR",
+                        "RESULT_PENDING"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified result put in to enable future expansions",
+                        "Denotes the successful handling of a request",
+                        "Denotes a general failure in handling a request",
+                        "Exception in the Google Kyestore service which is required for processing\nthe requests",
+                        "Denotes that the user has uninstalled the application on their device or\nhave unregistered with firebase. Firebase does not differentiate these two\nstates.",
+                        "Denote an internal error in firebase. Retry needed.",
+                        "Denote a general state of operation pending."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SilentPushAppsRequest": {
+            "description": "A request to silently install a set of applications on the device. The\nrequest contains information about the location from where these APKs should\nbe obtained. After APK download is complete, the APKs will silently be\ninstalled and the action to update the list of installed apps will be\ntriggered.",
+            "id": "SilentPushAppsRequest",
+            "properties": {
+                "applicationRequests": {
+                    "description": "List of the applications to be pushed.",
+                    "items": {
+                        "$ref": "AppLookupInfo"
+                    },
+                    "type": "array"
+                },
+                "deviceRegistrationToken": {
+                    "description": "Firebase registration token of the device.",
+                    "type": "string"
+                },
+                "userId": {
+                    "description": "Email address of the user.",
+                    "type": "string"
+                },
+                "uuid": {
+                    "description": "The universally unique identifier of this request.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateUserIosDeviceMappingResponse": {
+            "description": "Acknowledging that the update request info has been received and it has been\nexecuted successfully.",
+            "id": "UpdateUserIosDeviceMappingResponse",
+            "properties": {
+                "result": {
+                    "description": "Denotes the status of update request.",
+                    "enum": [
+                        "RESULT_UNSPECIFIED",
+                        "RESULT_SUCCESS",
+                        "RESULT_FAILURE",
+                        "KEYSTORE_EXCEPTION",
+                        "DEVICE_NOT_REGISTERED",
+                        "FIREBASE_INTERNAL_ERROR",
+                        "RESULT_PENDING"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified result put in to enable future expansions",
+                        "Denotes the successful handling of a request",
+                        "Denotes a general failure in handling a request",
+                        "Exception in the Google Kyestore service which is required for processing\nthe requests",
+                        "Denotes that the user has uninstalled the application on their device or\nhave unregistered with firebase. Firebase does not differentiate these two\nstates.",
+                        "Denote an internal error in firebase. Retry needed.",
+                        "Denote a general state of operation pending."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UrlOpenRequest": {
+            "description": "A request for the user's device to open a URL",
+            "id": "UrlOpenRequest",
+            "properties": {
+                "deviceRegistrationToken": {
+                    "description": "The firebase registration token of the user's device",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "The URL to be opened on the user's device",
+                    "type": "string"
+                },
+                "userId": {
+                    "description": "The email address of the current user",
+                    "type": "string"
+                },
+                "uuid": {
+                    "description": "The universally unique identifier of this request. It will be sent back\nwith future messages to ensure the correct tracking info is getting\nstored for this request",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UrlOpenResponse": {
+            "description": "The response to indicate that the UrlOpenRequest was received and in turn a\ncommand to open the specified URL was sent to the user's device. Note: this\nresult indicates that the command was successfully handed off to firebase; it\ndoes not guarantee that the message was delivered to the user's device.",
+            "id": "UrlOpenResponse",
+            "properties": {
+                "result": {
+                    "description": "The result code",
+                    "enum": [
+                        "RESULT_UNSPECIFIED",
+                        "RESULT_SUCCESS",
+                        "RESULT_FAILURE",
+                        "KEYSTORE_EXCEPTION",
+                        "DEVICE_NOT_REGISTERED",
+                        "FIREBASE_INTERNAL_ERROR",
+                        "RESULT_PENDING"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified result put in to enable future expansions",
+                        "Denotes the successful handling of a request",
+                        "Denotes a general failure in handling a request",
+                        "Exception in the Google Kyestore service which is required for processing\nthe requests",
+                        "Denotes that the user has uninstalled the application on their device or\nhave unregistered with firebase. Firebase does not differentiate these two\nstates.",
+                        "Denote an internal error in firebase. Retry needed.",
+                        "Denote a general state of operation pending."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UserAuthenticationRequest": {
+            "description": "Message used for device registration. On Android devices this is used to\nverify the request Gmail address is a valid EWOQ user.  On iOS devices, this\nis used for storing user device mappings acquired from MDM server.",
+            "id": "UserAuthenticationRequest",
+            "properties": {
+                "deviceInfo": {
+                    "$ref": "DeviceInfo",
+                    "description": "Device info"
+                },
+                "deviceRegistrationToken": {
+                    "description": "The registration token of the device",
+                    "type": "string"
+                },
+                "userEmail": {
+                    "description": "The email address of the user",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UserAuthenticationResponse": {
+            "description": "Message used by the ArmStubbyService to verify the status of the requested\nuser in the AuthenticateUserRequest.",
+            "id": "UserAuthenticationResponse",
+            "properties": {
+                "result": {
+                    "description": "The authentication result. It is true if the user is a valid member, false\notherwise",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "WipeDeviceRequest": {
+            "description": "A request to wipe the applications previously installed on a device. Used for\nboth Android and iOS devices.",
+            "id": "WipeDeviceRequest",
+            "properties": {
+                "deviceRegistrationToken": {
+                    "description": "Firebase registration token of the device.",
+                    "type": "string"
+                },
+                "userId": {
+                    "description": "Email address of the user.",
+                    "type": "string"
+                },
+                "uuid": {
+                    "description": "The universally unique identifier of this request.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "WipeDeviceResponse": {
+            "description": "Response to wipe device request that acks the receipt of the said request.",
+            "id": "WipeDeviceResponse",
+            "properties": {
+                "result": {
+                    "description": "The result indicating the successful receipt the request.",
+                    "enum": [
+                        "RESULT_UNSPECIFIED",
+                        "RESULT_SUCCESS",
+                        "RESULT_FAILURE",
+                        "KEYSTORE_EXCEPTION",
+                        "DEVICE_NOT_REGISTERED",
+                        "FIREBASE_INTERNAL_ERROR",
+                        "RESULT_PENDING"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified result put in to enable future expansions",
+                        "Denotes the successful handling of a request",
+                        "Denotes a general failure in handling a request",
+                        "Exception in the Google Kyestore service which is required for processing\nthe requests",
+                        "Denotes that the user has uninstalled the application on their device or\nhave unregistered with firebase. Firebase does not differentiate these two\nstates.",
+                        "Denote an internal error in firebase. Retry needed.",
+                        "Denote a general state of operation pending."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Ads Human Eval Mobile Rating API",
+    "version": "v1",
+    "version_module": true
+}

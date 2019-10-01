@@ -1,0 +1,235 @@
+{
+    "basePath": "",
+    "baseUrl": "https://test-datacollectionconsent-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Cloud AI Data Collection Consent",
+    "description": "Private API for Google Cloud AI Data Collection Consent.",
+    "discoveryVersion": "v1",
+    "documentationLink": "",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "datacollectionconsent_pa:v1",
+    "kind": "discovery#restDescription",
+    "name": "datacollectionconsent_pa",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "consents": {
+            "methods": {
+                "create": {
+                    "description": "CREATE method for consent, takes project id, consent_level\nand the signature data as payload.\nRequires \"ml.consents.set\" IAM permission.",
+                    "flatPath": "v1/consents",
+                    "httpMethod": "POST",
+                    "id": "datacollectionconsent_pa.consents.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/consents",
+                    "request": {
+                        "$ref": "_Consent"
+                    },
+                    "response": {
+                        "$ref": "_Consent"
+                    }
+                },
+                "delete": {
+                    "description": "DETELE method for consent for a certain project.\nnote this doesn't do hard delete, it will simply delete the signature and\nset the consent to NO_CONSENT.\nRequires \"ml.consents.set\" IAM permission.",
+                    "flatPath": "v1/consents/{consentsId}",
+                    "httpMethod": "DELETE",
+                    "id": "datacollectionconsent_pa.consents.delete",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Name of the Consent to delete,\nformat consents/{project_number}.",
+                            "location": "path",
+                            "pattern": "^consents/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "_Empty"
+                    }
+                },
+                "get": {
+                    "description": "GET method for consent for a certain project.",
+                    "flatPath": "v1/consents/{consentsId}",
+                    "httpMethod": "GET",
+                    "id": "datacollectionconsent_pa.consents.get",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Name of the Consent to get,\nformat consents/{project_number}.",
+                            "location": "path",
+                            "pattern": "^consents/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "_Consent"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190924",
+    "rootUrl": "https://test-datacollectionconsent-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "_Consent": {
+            "description": "Consent as a resource.",
+            "id": "_Consent",
+            "properties": {
+                "consentLevel": {
+                    "description": "Requested consent level.",
+                    "enum": [
+                        "CONSENT_LEVEL_UNSPECIFIED",
+                        "NO_CONSENT",
+                        "SPEECH_API_GOOGLE_DATA_COLLECTION_OPT_IN_CONSENT",
+                        "ML_API_GOOGLE_DATA_COLLECTION_OPT_IN_CONSENT"
+                    ],
+                    "enumDescriptions": [
+                        "No consent level set.  This is an error, and should be treated the\nsame as NO_CONSENT.",
+                        "There is absolutely no consent to do anything extra with this project.",
+                        "Allows requests to the speech API on behalf of the consented\nproject to be opted-in for use by Google.",
+                        "Allows requests to all ML APIs on behalf of the consented project\nto be opted-in for use by Google."
+                    ],
+                    "type": "string"
+                },
+                "consentSignatureData": {
+                    "$ref": "_ConsentSignature",
+                    "description": "Signature data required form fields that needed to be signed by user\nand metadata like the signature timestamp."
+                },
+                "name": {
+                    "description": "Identify the project that the consent applies to.\nformat: consents/{project_number}",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "_ConsentSignature": {
+            "description": "Signature data for consent.",
+            "id": "_ConsentSignature",
+            "properties": {
+                "acceptanceEndTimestamp": {
+                    "description": "Time span end.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "acceptanceStartTimestamp": {
+                    "description": "The timespan from the user first opening the consent form\nto actually pressing the accept button.\nTime span start.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "signatoryCompany": {
+                    "description": "Signed user's company name for consent signature.",
+                    "type": "string"
+                },
+                "signatoryFullName": {
+                    "description": "Signed user's full name as a string for consent signature.",
+                    "type": "string"
+                },
+                "signatoryTitle": {
+                    "description": "Signed user's title for consent signature.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "_Empty": {
+            "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+            "id": "_Empty",
+            "properties": {},
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Cloud AI Data Collection Consent Private API (Test)",
+    "version": "v1",
+    "version_module": true
+}

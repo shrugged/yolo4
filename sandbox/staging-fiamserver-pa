@@ -1,0 +1,3262 @@
+{
+    "basePath": "",
+    "baseUrl": "https://staging-fiamserver-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Internal Firebase In-App Messaging Campaign Management",
+    "description": "Internal APIs that is used by firebase console for in-app messsaging campaign management\nrelated tassks.\n",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://go/fiam",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "fiamserver_pa:v1",
+    "kind": "discovery#restDescription",
+    "name": "fiamserver_pa",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "campaignManagement": {
+            "resources": {
+                "projects": {
+                    "methods": {
+                        "getTranslate": {
+                            "description": "Provides translated texts",
+                            "flatPath": "v1/campaignManagement/projects/{projectNumber}/translate",
+                            "httpMethod": "GET",
+                            "id": "fiamserver_pa.campaignManagement.projects.getTranslate",
+                            "parameterOrder": [
+                                "projectNumber"
+                            ],
+                            "parameters": {
+                                "projectNumber": {
+                                    "description": "numeric number of the project the experiment belongs to",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "sourceLang": {
+                                    "description": "can be auto",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "sourceTexts": {
+                                    "location": "query",
+                                    "repeated": true,
+                                    "type": "string"
+                                },
+                                "targetLang": {
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/campaignManagement/projects/{projectNumber}/translate",
+                            "response": {
+                                "$ref": "GetTranslationsResponse"
+                            }
+                        }
+                    },
+                    "resources": {
+                        "campaigns": {
+                            "methods": {
+                                "create": {
+                                    "description": "Creates a new campaign in a project and returns the new campaign resource.",
+                                    "flatPath": "v1/campaignManagement/projects/{projectNumber}/campaigns",
+                                    "httpMethod": "POST",
+                                    "id": "fiamserver_pa.campaignManagement.projects.campaigns.create",
+                                    "parameterOrder": [
+                                        "projectNumber"
+                                    ],
+                                    "parameters": {
+                                        "projectNumber": {
+                                            "description": "the numberic project id string this campaign belongs to",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/campaignManagement/projects/{projectNumber}/campaigns",
+                                    "request": {
+                                        "$ref": "Campaign"
+                                    },
+                                    "response": {
+                                        "$ref": "Campaign"
+                                    }
+                                },
+                                "delete": {
+                                    "description": "Deletes a campaign from the server.",
+                                    "flatPath": "v1/campaignManagement/projects/{projectNumber}/campaigns/{campaignId}",
+                                    "httpMethod": "DELETE",
+                                    "id": "fiamserver_pa.campaignManagement.projects.campaigns.delete",
+                                    "parameterOrder": [
+                                        "projectNumber",
+                                        "campaignId"
+                                    ],
+                                    "parameters": {
+                                        "campaignId": {
+                                            "description": "id for the campaign",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "projectNumber": {
+                                            "description": "numeric number of the project the campaign belongs to",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/campaignManagement/projects/{projectNumber}/campaigns/{campaignId}",
+                                    "response": {
+                                        "$ref": "Empty"
+                                    }
+                                },
+                                "get": {
+                                    "description": "Retrieves a campaign from the server.",
+                                    "flatPath": "v1/campaignManagement/projects/{projectNumber}/campaigns/{campaignId}",
+                                    "httpMethod": "GET",
+                                    "id": "fiamserver_pa.campaignManagement.projects.campaigns.get",
+                                    "parameterOrder": [
+                                        "projectNumber",
+                                        "campaignId"
+                                    ],
+                                    "parameters": {
+                                        "campaignId": {
+                                            "description": "id for the campaign",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "projectNumber": {
+                                            "description": "numeric number of the project the campaign belongs to",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/campaignManagement/projects/{projectNumber}/campaigns/{campaignId}",
+                                    "response": {
+                                        "$ref": "Campaign"
+                                    }
+                                },
+                                "list": {
+                                    "description": "Gets and returns the list of campaigns and their analytics summary in the\nproject filtered by state.",
+                                    "flatPath": "v1/campaignManagement/projects/{projectNumber}/campaigns",
+                                    "httpMethod": "GET",
+                                    "id": "fiamserver_pa.campaignManagement.projects.campaigns.list",
+                                    "parameterOrder": [
+                                        "projectNumber"
+                                    ],
+                                    "parameters": {
+                                        "projectNumber": {
+                                            "description": "numeric number of the project the campaign belongs to",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "requestedStates": {
+                                            "description": "[optional] Filters for campaigns with specific states.",
+                                            "enum": [
+                                                "UNKNOWN_CAMPAIGN_STATE",
+                                                "DRAFT",
+                                                "PUBLISHED",
+                                                "STOPPED",
+                                                "DELETED"
+                                            ],
+                                            "location": "query",
+                                            "repeated": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/campaignManagement/projects/{projectNumber}/campaigns",
+                                    "response": {
+                                        "$ref": "ListCampaignsResponse"
+                                    }
+                                },
+                                "testondevice": {
+                                    "description": "Sets a campaign to be tested on device with a specified instance id",
+                                    "flatPath": "v1/campaignManagement/projects/{projectNumber}/campaigns/{campaignId}:testondevice",
+                                    "httpMethod": "POST",
+                                    "id": "fiamserver_pa.campaignManagement.projects.campaigns.testondevice",
+                                    "parameterOrder": [
+                                        "projectNumber",
+                                        "campaignId"
+                                    ],
+                                    "parameters": {
+                                        "campaignId": {
+                                            "description": "id for the campaign",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "projectNumber": {
+                                            "description": "numeric number of the project the campaign belongs to",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/campaignManagement/projects/{projectNumber}/campaigns/{campaignId}:testondevice",
+                                    "request": {
+                                        "$ref": "TestCampaignOnDeviceRequest"
+                                    },
+                                    "response": {
+                                        "$ref": "Empty"
+                                    }
+                                },
+                                "update": {
+                                    "description": "Updates parts of a campaign and returns the updated campaign resource.\nAll fields are mutable in the DRAFT state.\nOnly the `state` is mutable in the PUBLISHED state.\nNo fields are mutable in the STOPPED state.",
+                                    "flatPath": "v1/campaignManagement/projects/{projectNumber}/campaigns/{campaignId}",
+                                    "httpMethod": "PUT",
+                                    "id": "fiamserver_pa.campaignManagement.projects.campaigns.update",
+                                    "parameterOrder": [
+                                        "projectNumber",
+                                        "campaignId"
+                                    ],
+                                    "parameters": {
+                                        "campaignId": {
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "projectNumber": {
+                                            "description": "the numberic project id string this campaign belongs to",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/campaignManagement/projects/{projectNumber}/campaigns/{campaignId}",
+                                    "request": {
+                                        "$ref": "Campaign"
+                                    },
+                                    "response": {
+                                        "$ref": "Campaign"
+                                    }
+                                }
+                            }
+                        },
+                        "experiments": {
+                            "methods": {
+                                "create": {
+                                    "description": "Creates a new experiment in a project and returns the experiment",
+                                    "flatPath": "v1/campaignManagement/projects/{projectNumber}/experiments",
+                                    "httpMethod": "POST",
+                                    "id": "fiamserver_pa.campaignManagement.projects.experiments.create",
+                                    "parameterOrder": [
+                                        "projectNumber"
+                                    ],
+                                    "parameters": {
+                                        "projectNumber": {
+                                            "description": "Project number to which this experiment belongs to",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/campaignManagement/projects/{projectNumber}/experiments",
+                                    "request": {
+                                        "$ref": "CreateFiamExperimentRequest"
+                                    },
+                                    "response": {
+                                        "$ref": "FIAMExperiment"
+                                    }
+                                },
+                                "delete": {
+                                    "description": "Deletes an experiment from the project",
+                                    "flatPath": "v1/campaignManagement/projects/{projectNumber}/experiments/{experimentId}",
+                                    "httpMethod": "DELETE",
+                                    "id": "fiamserver_pa.campaignManagement.projects.experiments.delete",
+                                    "parameterOrder": [
+                                        "projectNumber",
+                                        "experimentId"
+                                    ],
+                                    "parameters": {
+                                        "experimentId": {
+                                            "description": "id for the experiment",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "projectNumber": {
+                                            "description": "numeric number of the project the experiment belongs to",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/campaignManagement/projects/{projectNumber}/experiments/{experimentId}",
+                                    "response": {
+                                        "$ref": "Empty"
+                                    }
+                                },
+                                "get": {
+                                    "description": "Retrieves an experiment for the project",
+                                    "flatPath": "v1/campaignManagement/projects/{projectNumber}/experiments/{experimentId}",
+                                    "httpMethod": "GET",
+                                    "id": "fiamserver_pa.campaignManagement.projects.experiments.get",
+                                    "parameterOrder": [
+                                        "projectNumber",
+                                        "experimentId"
+                                    ],
+                                    "parameters": {
+                                        "experimentId": {
+                                            "description": "id for the experiment",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "projectNumber": {
+                                            "description": "numeric number of the project the experiment belongs to",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/campaignManagement/projects/{projectNumber}/experiments/{experimentId}",
+                                    "response": {
+                                        "$ref": "FIAMExperiment"
+                                    }
+                                },
+                                "rollout": {
+                                    "description": "Roll outs an ABT experiment into a standard campaign and returns the\nrolled out campaign resource.\nAn experimental campaign can only be rolled out once.",
+                                    "flatPath": "v1/campaignManagement/projects/{projectNumber}/experiments/{experimentId}:rollout",
+                                    "httpMethod": "POST",
+                                    "id": "fiamserver_pa.campaignManagement.projects.experiments.rollout",
+                                    "parameterOrder": [
+                                        "projectNumber",
+                                        "experimentId"
+                                    ],
+                                    "parameters": {
+                                        "experimentId": {
+                                            "description": "the id of the experimental campaign",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "projectNumber": {
+                                            "description": "numeric number of the project the experimental campaign belongs to",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/campaignManagement/projects/{projectNumber}/experiments/{experimentId}:rollout",
+                                    "request": {
+                                        "$ref": "RolloutExperimentRequest"
+                                    },
+                                    "response": {
+                                        "$ref": "RolloutExperimentResponse"
+                                    }
+                                },
+                                "update": {
+                                    "description": "Updates parts of a campaign and returns the updated experiment.\nFields are only mutable if the experiment's state is 'mutable' (as\ndetermined by ABT).",
+                                    "flatPath": "v1/campaignManagement/projects/{projectNumber}/experiments/{experimentId}",
+                                    "httpMethod": "PUT",
+                                    "id": "fiamserver_pa.campaignManagement.projects.experiments.update",
+                                    "parameterOrder": [
+                                        "projectNumber",
+                                        "experimentId"
+                                    ],
+                                    "parameters": {
+                                        "experimentId": {
+                                            "description": "FIAM specific experiment id",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "projectNumber": {
+                                            "description": "Project number to which this experiment belongs to",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/campaignManagement/projects/{projectNumber}/experiments/{experimentId}",
+                                    "request": {
+                                        "$ref": "UpdateFiamExperimentRequest"
+                                    },
+                                    "response": {
+                                        "$ref": "FIAMExperiment"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190924",
+    "rootUrl": "https://staging-fiamserver-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "AbtExperimentCondition": {
+            "description": "A condition which determines if an App Instance has been assigned to an\nABT experiment.",
+            "id": "AbtExperimentCondition",
+            "properties": {
+                "experimentId": {
+                    "description": "Required. The target experiment id's for the ABT experiment.\nNOTE: Experiment Id's are unique only within the scope of a project.\nThe implicit operator is IN_ANY - the condition will return true if\nthe instance is in any of the target experiments. This list can have a\nmaximum of 10 experiments.\nThe experiments may belong to multiple different services eg. Remote\nConfig, FIAM. It may also include some experiments which have expired but\nhave not been cleaned up yet. The experiment id is case-sensitive.\nAn example experiment id - \"123\".",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Action": {
+            "id": "Action",
+            "properties": {
+                "basics": {
+                    "$ref": "Basics",
+                    "description": "Optional. Basic information about the action (eg. name, description, etc.)."
+                },
+                "isImmutable": {
+                    "description": "Optional. When set, the whole Action instance needs to be treated as immutable. (eg.\nvariant of a RUNNING experiment)",
+                    "type": "boolean"
+                },
+                "productAction": {
+                    "$ref": "ProductAction",
+                    "description": "Required. Product-specific part of the action which defines:\n - treatment to be applied by the product\n - any other product-specific metadata that is needed to serve this\n treatment.\nBelongs to exactly one product."
+                },
+                "schedule": {
+                    "$ref": "Schedule",
+                    "description": "Optional. Scheduling for this action.\nIf not set, schedule is unbounded, and action doesn't end until manually\ndisabled."
+                },
+                "targeting": {
+                    "$ref": "Condition",
+                    "description": "Optional. Targeting conditions (as defined by Firebase Common Targeting) that control\nwhich subset of the app instances should be given the treatment defined by\nthe product_action of this action.\nWithin the context of ABT, these are the variant level targeting\nconditions.\nTo keep things consistent with ABT, the condition here is always in the\nfully formed format of OR(AND(atom...)...). That is, a three level tree\nwith OR at the root, ANDs at the second level, and individual atoms at the\nthird level.\nThe targeting at this level (variant-level\ntargeting) determines if the treatment will be applied to the app\ninstance (which gets counted in the experiment regardless of the\ntreatment). The targeting at the experiment level (defined in\nexperiment_metadata) determines if an app instance gets counted in the\nexperiment or not. While rolling out a variant of an experiment, the\nconditions at both levels should be ANDed together."
+                }
+            },
+            "type": "object"
+        },
+        "ActivationEvent": {
+            "description": "An event which triggers the start of the experiment.\nThis can be qualified with zero or more event parameters.",
+            "id": "ActivationEvent",
+            "properties": {
+                "eventName": {
+                    "description": "Optional. The Analytics even which indicates that the user has seen an\nexperiment. This is case-sensitive and must be 0-32 characters long.\nIt may only contain alphanumeric characters and underscores, and must\nstart with an alphabetic character. The \"firebase_\" prefix is reserved\nand should not be used.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AnalyticsAudienceCondition": {
+            "description": "A condition that evaluates if the device belongs to the target analytics\naudience(s).\n\nAudiences are defined in Scion and the membership of app instances\nto audiences are stored in the Firebase Scion Adapter (FSA) and other\ndownstream system(s), keyed by scion audience ids, with no audience\nnames directly associated with them.\n\nThis condition references audiences by names rather than audience ids\nwhich requires binding to the audience ids in order to use the\ninstance audience data. The recommended way of doing this binding is\nas late as possible. For example, if making the binding at the time\nthe condition is saved by the user may result in different targeting\nthan making the binding at the time of the condition evaluation,\nthe latter approach should be preferred because it provides a more\nconsistent behavior from user's perspective who sees only\nthe audience names.\n\nFor example, if a condition for audience \"A\" is in the scope of an\nentire project and if a new app is added to the project after the\ncondition was saved, at runtime the condition should also target\naudience \"A\" for the new app.\n\nAnother important aspect of audiences is the user ability to share\nor hide analytics information (data and metadata) from specific\nservices. When a specific service that uses this condition has\ndata sharing disabled in Scion, the service should use no\nanalytics metadata (e.g. audience names) and data (e.g. app instance\nmembership in audiences). This applies to both the service frontend\nwhich may use audience names for input validation and the\nservice backend which evaluates this condition based on the instance\naudience membership.\n\nValidation: validation of audience conditions is done in the\ncontext of a firebase service (ConsumingProduct in Scion's terminology)\nand either a single app, a strict subset of project apps or\nthe entire project. The validation should reject audience conditions\nwith at least one audience name that is currently not defined\nand shared within the context of the condition. For example, if the\ncondition is used in a context of a single app X and contains\naudience name A which is not defined and/or shared by app X but\nonly with app Y in the same project then the condition should\nbe rejected. Note that once a condition is validated and saved,\nit can later become invalid, for example, if the app is deleted\nor the sharing is disabled. This is typically handled at runtime\nduring the evaluation of the condition.\n\nEvaluation:\n1. If the audience information for the instance could not be fetched,\nthen evaluation for that audience should be evaluated to false.\n\n2. If during the evaluation of this condition, the instance membership in an\naudience cannot be determined (e.g. due to disabled scion data sharing or\naudience got deleted), then the condition is evaluated as if the instance\nis not a member of that audience.\nThis can cause both operators IN_ALL_OF and NONE_OF operators to return\nfalse for a given audience set if any audience in that set is not shared\nwith the evaluating service. This is the correct behavior.",
+            "id": "AnalyticsAudienceCondition",
+            "properties": {
+                "operator": {
+                    "description": "Required.",
+                    "enum": [
+                        "UNKNOWN",
+                        "IN_AT_LEAST_ONE",
+                        "NOT_IN_AT_LEAST_ONE",
+                        "IN_ALL",
+                        "IN_NONE"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "The condition will be true if the App Instance is a member of\nat least one of the target audiences in the set.",
+                        "The condition will be true if the App Instance is not a member of\nat least one of the target audiences in the set.",
+                        "The condition will be true if the App Instance is a member of every\naudience in the target audiences in the set.",
+                        "NOTE(arete): The enum name IN_NONE here is misleading, it actually\nmatches \"Actual audience members does not include all of the target\naudiences\" on UI, which literally means \"not in all\", not \"in none\"."
+                    ],
+                    "type": "string"
+                },
+                "targetAudienceEntityId": {
+                    "description": "Required (Must have at least 1 id).\nA list of globally unique audience id. There can be upto 50 audiences.\nDuplicate id's are not allowed.\n\nBefore Transition to Gold:\nThis field may have 0 entries.\n\nWriting the condition: The entity id's corresponding to the audience being\ncreated should be filled along with audience name.\nWhen creating a condition from an audience CEL, we can identify the\nentity id for the audience since there is a requirement to have App Id\ncondition\nReading the condition: The target_audience_names field is used for display.\nEvaluation: target_audience_names is used for evaluation.\n\nAfter transition to Gold (transition is one project at a time):\nThis field will have at least one entry.\n\nWriting the condition: Only the entity id's need to be written.\ntarget_audience_names field can be ignored.\nReading the condition: The entity id is used to resolve the display name of\naudiences.\nNOTE: It is possible that archived Conditions cannot be migrated to Scion\nGold, in which case there will be no entries and an error will be displayed\nto the user.\nEvaluating the condition: Entity id's are used for evaluating targeting\nconditions.",
+                    "items": {
+                        "format": "int64",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "targetAudienceNames": {
+                    "description": "Deprecated.\nThe target Analytics Audience Name which is case-sensitive. The audience\nset can have up to 50 audiences. Duplicate audiences are not allowed.\nNOTE: This field is present for backward compatibility for systems which\nhave stored Audience conditions.\nThis field is deprecated for new audiences. See go/abt-scion-gold-migration",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AnalyticsUserPropertyCondition": {
+            "description": "A condition that compares the Analytics\nUser Property value against a target value.\nEvaluation:\n1. If the User Property has not been defined in Scion, then the condition\nshould be evaluated to false.\n2. If the User Property exists in Scion but has not been set on the client,\nthen the condition should be evaluated to false.\n3. If a numeric operator is used for comparison and the User Property value\nset on the device cannot be converted to a number, then the condition\nshould be evaluated to false.\n4. If this User Property is currently not shared with the Firebase service\nevaluating the condition, then the condition should be evaluated to false.",
+            "id": "AnalyticsUserPropertyCondition",
+            "properties": {
+                "operator": {
+                    "description": "Required.",
+                    "enum": [
+                        "UNKNOWN",
+                        "NUMERIC_LESS_THAN",
+                        "NUMERIC_LESS_EQUAL",
+                        "NUMERIC_EQUAL",
+                        "NUMERIC_NOT_EQUAL",
+                        "NUMERIC_GREATER_THAN",
+                        "NUMERIC_GREATER_EQUAL",
+                        "STRING_CONTAINS",
+                        "STRING_DOES_NOT_CONTAIN",
+                        "STRING_EXACTLY_MATCHES",
+                        "STRING_CONTAINS_REGEX"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "The actual value is less than the target value.",
+                        "The actual value is less than or equal to the target value.",
+                        "The actual value is equal to the target value.",
+                        "The actual value is not equal to the target value.",
+                        "The actual value is greater than the target value.",
+                        "The actual value is greater than or equal to the target value.",
+                        "AT LEAST ONE of the target values is a substring of the actual User\nProperty value. Eg: \"abc\" contains the string \"a\", \"bc\".",
+                        "NONE of the target values is a substring of the actual User Property\nvalue.",
+                        "The actual value exactly matches AT LEAST ONE of the target values.",
+                        "The target regular expression matches a portion of AT LEAST ONE of the\nactual values (or the entire string). The regex has to be in RE2 format.\nSee https://github.com/google/re2/wiki/Syntax"
+                    ],
+                    "type": "string"
+                },
+                "targetUserPropertyEntityId": {
+                    "description": "Required. The Id of the User Property to be targeted (0 is not a valid id and can\nbe assumed as unset).\n1. If this User Property is not currently shared with the Firebase service\nevaluating the condition or if this user property does not exist (no value)\nthen the atom should be evaluated to false.\n2. If the service does not support the operator, then the condition is\nevaluated to false.\n\nBefore Transition to Gold:\nThis field may not be populated.\n\nWriting: The entity id's corresponding to the user property name being\ncreated should be filled along with target_user_property_name.\nReading: The target_user_property_name field is used for display.\nEvaluation: The name field will be used for evaluation.\n\nAfter Transition to Gold (transition is one project at a time):\nThis field will always be populated.\n\nWriting: Only the entity id field will be written.\nReading: The name should be resolved from the entity id. New conditions\nwill not have the target_user_property_name field populated.\nNOTE: It is possible that archived conditions for the user property cannot\nbe migrated to the new format (if it was deleted for example) in which case\nthis field will be empty and an error will be displayed to the user.\nEvaluation: Entity id will be used for evaluation.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "targetUserPropertyName": {
+                    "description": "Deprecated.\nThe target User Property Name. This must be exactly what is defined in\nAnalytics and is case-sensitive. Only developer visible, non reserved\nuser properties are allowed (eg. those user properties with prefix \"_\"\nor \"firebase_\" are reserved user properties).\n1. If this User Property is not currently shared with the Firebase service\nevaluating the condition or if this user property does not exist (no value)\nthen the atom should be evaluated to false.\n2. If the service does not support the operator, then the condition is\nevaluated to false.\n\nNOTE: This field is present for backward compatibility for systems which\nhave stored User Property conditions.\nThis field is deprecated for new user properties.\nSee go/abt-scion-gold-migration",
+                    "type": "string"
+                },
+                "targetUserPropertyValue": {
+                    "description": "Deprecated (as of May 2018).\nPlease use target_user_property_values = 5 instead.\nFor numeric operators must be in a valid numeric format (see above).\nFor string operators, this must conform to the length\nlimits specified above.",
+                    "type": "string"
+                },
+                "targetUserPropertyValues": {
+                    "description": "Required. During the transition from target_user_property_value to\ntarget_user_property_values, if the latter exists, the former\nwill be silently ignored.\n\nA list of at most 100 target user property values.\nFor numeric operators: this list must have exactly ONE target user\nproperty value that is of a valid numeric format specified above.\nFor string operators, this is a list of target user\nproperty values, where each value conforms to the length limits specified\nabove.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AndCondition": {
+            "description": "AND of sub-conditions.\nAn AND condition is true if all of its subconditions evaluate to true.",
+            "id": "AndCondition",
+            "properties": {
+                "conditions": {
+                    "description": "Evaluated in given order with short circuit of false.\nShould contain at least one condition and no more than 100 conditions.",
+                    "items": {
+                        "$ref": "Condition"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AppConversionEvents": {
+            "description": "Minimal identifying information for conversion events that need to be tracked\nfor an app.",
+            "id": "AppConversionEvents",
+            "properties": {
+                "eventNames": {
+                    "description": "Required. Names of the conversion events to be tracked, e.g. \"in_app_purchase\".",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "gmpAppId": {
+                    "description": "Required. Gmp_app_id of the app.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AppVersionCondition": {
+            "description": "A condition that compares the app version to a target app version argument.\nThis can target multiple apps simultaneously unless it is AND'ed with a\nFirebaseAppIdCondition in which case, it will target the app specified.\nEvaluation:\nIf the App Version is unknown, then the condition should be\nevaluated to false.",
+            "id": "AppVersionCondition",
+            "properties": {
+                "operator": {
+                    "description": "Required.",
+                    "enum": [
+                        "UNKNOWN",
+                        "CONTAINS",
+                        "DOES_NOT_CONTAIN",
+                        "EXACTLY_MATCHES",
+                        "CONTAINS_REGEX",
+                        "NUMERIC_LESS_THAN",
+                        "NUMERIC_LESS_EQUAL",
+                        "NUMERIC_EQUAL",
+                        "NUMERIC_NOT_EQUAL",
+                        "NUMERIC_GREATER_THAN",
+                        "NUMERIC_GREATER_EQUAL"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "At least one of the target_app_versions is a substring of the actual App\nVersion. Eg: \"abc\" contains the string \"a\", \"bc\".",
+                        "None of the target_app_versions is a substring of the actual App Version.",
+                        "The actual value and the target value are the same for one of the\ntarget_app_versions. Case-sensitive.",
+                        "The target regular expression matches a substring of or the entire actual\nvalue. To force matching of the entire string, use the RE2 anchors '^'\nand '$'.The regex has to be in RE2 format.\nSee https://github.com/google/re2/wiki/Syntax\nEvaluates to true if *any* of the regular expressions in the list\nmatches the target value.",
+                        "The actual value is less than the target value.",
+                        "The actual value is less than or equal to the target value.",
+                        "The actual value is equal to the target value.",
+                        "The actual value is not equal to the target value.",
+                        "The actual value is greater than the target value.",
+                        "The actual value is greater than or equal to the target value."
+                    ],
+                    "type": "string"
+                },
+                "targetAppVersions": {
+                    "description": "Required. During the transition from target_value to target_app_versions,\nif target_app_versions exists, the value in the field target_value will\nbe ignored.\n\nThe target App Version or a regular expression depending\non the operator. The length must be between 1-250 characters.\nCan have a maximum of 45 versions (duplicates are allowed). Minimum 1\nis required (see caveat above).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "targetValue": {
+                    "description": "Deprecated (as of April 2018).\nConditions which have stored only target_value (eg. archived experiments)\nwill have only this field set,\n\nPlease use target_app_versions instead.\nThe target App Version or a regular expression depending\non the operator. The length must be between 1-250 characters.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "BannerMessage": {
+            "id": "BannerMessage",
+            "properties": {
+                "action": {
+                    "$ref": "FirebaseInappmessagingAction",
+                    "description": "[optional] Action to take when banner is clicked"
+                },
+                "backgroundHexColor": {
+                    "description": "[optional]  Message background color.",
+                    "type": "string"
+                },
+                "body": {
+                    "$ref": "Text",
+                    "description": "[optional] Message body."
+                },
+                "imageUrl": {
+                    "description": "[optional] Image to display (https url - it will be downloaded onto the\ndevice) No prefix required.",
+                    "type": "string"
+                },
+                "title": {
+                    "$ref": "Text",
+                    "description": "[required] Message title."
+                }
+            },
+            "type": "object"
+        },
+        "Basics": {
+            "id": "Basics",
+            "properties": {
+                "description": {
+                    "description": "Optional. Description of the action.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Optional. Name of the action.\nWithin the context of ABT, this is the variant name.\nCan't have leading or trailing spaces.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "BrowserAndVersionCondition": {
+            "description": "A condition to target users by browser and browser version.",
+            "id": "BrowserAndVersionCondition",
+            "properties": {
+                "operator": {
+                    "description": "Required",
+                    "enum": [
+                        "UNKNOWN",
+                        "IN_ONE",
+                        "IN_NONE"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "The actual browser and browser version is in at least one of the given\nsub-condition TargetBrowserAndVersions.",
+                        "The actual browser and browser version is not in any of the given\nsub-condition TargetBrowserAndVersions."
+                    ],
+                    "type": "string"
+                },
+                "targetBrowserAndVersions": {
+                    "description": "A list of sub-conditions of browser and browser version.\nTargeting server accepts at least 1 and at most 50 values in this list.",
+                    "items": {
+                        "$ref": "TargetBrowserAndVersion"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Button": {
+            "id": "Button",
+            "properties": {
+                "buttonHexColor": {
+                    "description": "Button background color.",
+                    "type": "string"
+                },
+                "text": {
+                    "$ref": "Text",
+                    "description": "Button text."
+                }
+            },
+            "type": "object"
+        },
+        "Campaign": {
+            "description": "A campaign for sending an in-app message to specific users starting at a\ncertain time.\nAll fields are mutable in the DRAFT state.\nOnly `state` is mutable in the PUBLISHED state.\nNo fields are mutable in the `STOPPED` state.",
+            "id": "Campaign",
+            "properties": {
+                "campaignId": {
+                    "type": "string"
+                },
+                "content": {
+                    "$ref": "Content",
+                    "description": "Content of the campaign."
+                },
+                "conversionEvent": {
+                    "description": "The scion conversion events that may be setup for this campaign.",
+                    "items": {
+                        "$ref": "ScionConversionEvent"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "[optional] Human-friendly description.",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "Human-friendly name to display in the UI.",
+                    "type": "string"
+                },
+                "onceEveryNHours": {
+                    "description": "[optional] Frequency cap for the campaign\nConfigures how spaced out multiple impressions of this campaign on a\nparticular instance are. Absence of this field indicates that the campaign\nis just shown once. For more info: (go/fiam-frequency-caps-design)",
+                    "format": "uint64",
+                    "type": "string"
+                },
+                "priority": {
+                    "$ref": "Priority",
+                    "description": "Priority of the campaign."
+                },
+                "projectNumber": {
+                    "description": "the numberic project id string this campaign belongs to",
+                    "type": "string"
+                },
+                "scheduledCampaignStartTime": {
+                    "$ref": "ScheduledCampaignTime",
+                    "description": "Campaign's scheduled start time."
+                },
+                "scheduledEndTime": {
+                    "$ref": "CampaignTime",
+                    "description": "[optional] Campaign's scheduled end time.\nCampaign may also be stopped manually. Must be no earlier than 24 hours\nfrom creation time and scheduled start time."
+                },
+                "scheduledEndTimestamp": {
+                    "description": "Campaign's scheduled end timestamp.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "scheduledStartTime": {
+                    "$ref": "CampaignTime",
+                    "description": "Campaign's scheduled start time (soon to be deprecated)"
+                },
+                "scheduledStartTimestamp": {
+                    "description": "Campaign's scheduled start timestamp",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "state": {
+                    "description": "Campaign's state.",
+                    "enum": [
+                        "UNKNOWN_CAMPAIGN_STATE",
+                        "DRAFT",
+                        "PUBLISHED",
+                        "STOPPED",
+                        "DELETED"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "Created but not eligible to be served to users.\nAll fields are mutable.",
+                        "Eligible to be served to users. Campaign is active if published and the\ncurrent time is between the start and end times.\nOnly `state` field is mutable.",
+                        "Manually stopped by the user.\nNo fields are mutable.",
+                        "Soft delete state for the campaign. These campaigns will not be served to\nclients"
+                    ],
+                    "type": "string"
+                },
+                "targetingCondition": {
+                    "$ref": "Condition",
+                    "description": "Targeting conditions for determing which users will see the campaign.\nThis targeting condition must meet the validation requirements:\n  1. The tree structure must be SINGLE_OR_MULTI_AND : OR(AND(atom*))\n  2. The atoms in the condition tree must have and only have one gmp app id\n  3. Only these condition atoms are allowed :\n       ConditionCase.TIME\n       ConditionCase.APP_VERSION\n       ConditionCase.APP_ID\n       ConditionCase.LANGUAGES\n       ConditionCase.ANALYTICS_AUDIENCES\n       ConditionCase.ANALYTICS_USER_PROPERTY\n       ConditionCase.PREDICTIONS\nSee definitions at /j/c/g/d/m/targeting/conditions/ConditionValidator.java"
+                },
+                "triggeringConditions": {
+                    "description": "Triggering conditions for determining when the campaign will be\nshown to targeted users.",
+                    "items": {
+                        "$ref": "TriggeringCondition"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CampaignAnalyticsSummary": {
+            "description": "Analytics events summarized for a campaign over a date range",
+            "id": "CampaignAnalyticsSummary",
+            "properties": {
+                "campaignId": {
+                    "description": "id for the campaign for which this data is provided",
+                    "type": "string"
+                },
+                "dailyAnalyticsSummary": {
+                    "description": "Analytics summary data for each day in the date range.",
+                    "items": {
+                        "$ref": "DailyAnalyticsSummary"
+                    },
+                    "type": "array"
+                },
+                "dailyConversionSummary": {
+                    "description": "Conversion events summary data for each day in the date range.",
+                    "items": {
+                        "$ref": "DailyConversionSummary"
+                    },
+                    "type": "array"
+                },
+                "dateRange": {
+                    "$ref": "DateRange",
+                    "description": "The range of dates over which the analytics data is summarized over"
+                },
+                "totalClicks": {
+                    "description": "Total number of clicks tracked over the lifetime for this campaign",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "totalConversions": {
+                    "description": "Total number of conversion counts observed over the date range",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "totalImpressions": {
+                    "description": "Total number of impressions observed over the lifetime for this campaign",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CampaignTime": {
+            "description": "Timezone-supported time - used for the start/end times of campaigns.",
+            "id": "CampaignTime",
+            "properties": {
+                "date": {
+                    "$ref": "Date",
+                    "description": "The date."
+                },
+                "time": {
+                    "$ref": "TimeOfDay",
+                    "description": "The time of day."
+                },
+                "timeZone": {
+                    "description": "[optional] The time zone.\nTime zone in Olson ID format, e.g., \"America/Los_Angeles\", or, if the\ntimezone is unspecified, we use the recipient device's timezone.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CardMessage": {
+            "id": "CardMessage",
+            "properties": {
+                "backgroundHexColor": {
+                    "description": "[required] Message background color.",
+                    "type": "string"
+                },
+                "body": {
+                    "$ref": "Text",
+                    "description": "[optional] Message body."
+                },
+                "landscapeImageUrl": {
+                    "description": "[optional] HTTPS url of the image to display in landscape orientation\nof the device. If missing, the client will default to using the\nportrait image url.",
+                    "type": "string"
+                },
+                "portraitImageUrl": {
+                    "description": "[required] HTTPS url of the image to display in portrait orientation of\nthe device.",
+                    "type": "string"
+                },
+                "primaryAction": {
+                    "$ref": "FirebaseInappmessagingAction",
+                    "description": "[optional] The action to take when clicking on the primary button."
+                },
+                "primaryActionButton": {
+                    "$ref": "Button",
+                    "description": "[required] Message button.\nClicking this button will trigger the modal's primary action\nIf the primary action is not provided, the button simply dismisses the\nmessage."
+                },
+                "secondaryAction": {
+                    "$ref": "FirebaseInappmessagingAction",
+                    "description": "[optional] The action to take when the secondary action button is clicked."
+                },
+                "secondaryActionButton": {
+                    "$ref": "Button",
+                    "description": "[optional] Message button.\nClicking this button will trigger the modal's secondary action\nIf the secondary action is not provided, the button simply dismisses the\nmessage."
+                },
+                "title": {
+                    "$ref": "Text",
+                    "description": "[required] Message title."
+                }
+            },
+            "type": "object"
+        },
+        "Condition": {
+            "description": "A general boolean expression that is used to evaluate\nconditions.\n\nNEXT TAG: 27",
+            "id": "Condition",
+            "properties": {
+                "abtExperiment": {
+                    "$ref": "AbtExperimentCondition",
+                    "description": "Target an ABT Experiment."
+                },
+                "alwaysFalse": {
+                    "$ref": "FalseCondition",
+                    "description": "Always evaluates to false"
+                },
+                "alwaysTrue": {
+                    "$ref": "TrueCondition",
+                    "description": "Always evaluates to true"
+                },
+                "analyticsAudiences": {
+                    "$ref": "AnalyticsAudienceCondition",
+                    "description": "Target a device if it belongs to an Analytics Audience."
+                },
+                "analyticsUserProperty": {
+                    "$ref": "AnalyticsUserPropertyCondition",
+                    "description": "Target a device by Analytics User Properties set on the device."
+                },
+                "and": {
+                    "$ref": "AndCondition",
+                    "description": "Boolean operators and consts\n\nApply logical \"and\" condition to the subset of conditions."
+                },
+                "appId": {
+                    "$ref": "FirebaseAppIdCondition",
+                    "description": "Target a device by its App Id."
+                },
+                "appVersion": {
+                    "$ref": "AppVersionCondition",
+                    "description": "Target a device by App version."
+                },
+                "browserAndVersion": {
+                    "$ref": "BrowserAndVersionCondition",
+                    "description": "Target app instances by brwoser and browser version."
+                },
+                "countries": {
+                    "$ref": "DeviceCountryCondition",
+                    "description": "Target a device by its location."
+                },
+                "customAudiences": {
+                    "$ref": "CustomAudienceCondition",
+                    "description": "Target app instance by developers' custom audiences."
+                },
+                "deviceCategory": {
+                    "$ref": "DeviceCategoryCondition",
+                    "description": "Target app instances by device category."
+                },
+                "deviceModel": {
+                    "$ref": "DeviceModelCondition",
+                    "description": "Target a device by its device model."
+                },
+                "firstOpenTime": {
+                    "$ref": "FirstOpenTimeCondition",
+                    "description": "Target app instance by its first open time."
+                },
+                "languages": {
+                    "$ref": "DeviceLanguageCondition",
+                    "description": "Target a device by the user locale language(s)."
+                },
+                "lastUserEngagementTime": {
+                    "$ref": "LastUserEngagementTimeCondition",
+                    "description": "Target app instance by its last user engagement time."
+                },
+                "not": {
+                    "$ref": "NotCondition",
+                    "description": "Apply logical \"not\" condition to the subset of conditions."
+                },
+                "operatingSystemAndVersion": {
+                    "$ref": "OperatingSystemAndVersionCondition",
+                    "description": "Target app instances by operating system and OS version."
+                },
+                "or": {
+                    "$ref": "OrCondition",
+                    "description": "Apply logical \"or\" condition to the subset of conditions."
+                },
+                "osType": {
+                    "$ref": "OsTypeCondition",
+                    "description": "Target the device by its OS type."
+                },
+                "osVersion": {
+                    "$ref": "OsVersionCondition",
+                    "description": "Target the device by its OS version."
+                },
+                "percent": {
+                    "$ref": "PercentCondition",
+                    "description": "Target a percentage of App instances."
+                },
+                "predictionScores": {
+                    "$ref": "PredictionScoresCondition",
+                    "description": "Target using Predictions user_percentile."
+                },
+                "predictions": {
+                    "$ref": "PredictionsCondition",
+                    "description": "Target using Prediction classifications."
+                },
+                "time": {
+                    "$ref": "DateTimeCondition",
+                    "description": "Builtin conditions (aka 'atoms')\n\nTarget a device at a given time."
+                },
+                "topic": {
+                    "$ref": "TopicCondition",
+                    "description": "Target a device by its membership to a Topic."
+                }
+            },
+            "type": "object"
+        },
+        "Content": {
+            "description": "Content of a Firebase in-app message.",
+            "id": "Content",
+            "properties": {
+                "banner": {
+                    "$ref": "BannerMessage",
+                    "description": "Banner mode"
+                },
+                "card": {
+                    "$ref": "CardMessage",
+                    "description": "Card mode"
+                },
+                "imageOnly": {
+                    "$ref": "ImageOnlyMessage",
+                    "description": "Entire message is provided by the developer as an image"
+                },
+                "modal": {
+                    "$ref": "ModalMessage",
+                    "description": "Modal mode"
+                }
+            },
+            "type": "object"
+        },
+        "CreateExperimentRequest": {
+            "description": "Request message for AbtExperimentService.CreateExperiment.",
+            "id": "CreateExperimentRequest",
+            "properties": {
+                "definition": {
+                    "$ref": "ExperimentDefinition",
+                    "description": "Required. The definition of an experiment. This is immutable in the RUNNING\nand DONE state."
+                },
+                "displayMetadata": {
+                    "$ref": "ExperimentDisplayMetadata",
+                    "description": "Required. Mutable across all states of an experiment.\nThe display preferences of an experiment."
+                },
+                "mendelExperimentId": {
+                    "description": "Optional. The experiments that this project belongs to.\n(Ideally we would like the list of experiments which are related to just\nABT, but it is possible we will get *all* experiments that apply to\nthe user).\nIn mendel, an experiment id corresponds to a variant in an ABT experiment.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "parent": {
+                    "description": "This contains the Firebase project number which is a decimal number\nwith no padding. It is of the format \"projects/<project_number>\".\nThis is called parent according to the style guide at\nhttps://g3doc.corp.google.com/google/g3doc/style/standard_fields.md?cl=head\nThis is filled in from the URL path for REST requests.",
+                    "type": "string"
+                },
+                "service": {
+                    "description": "Required. Immutable once an experiment has been created.\nThe Firebase Service on which the experiment will be performed.",
+                    "enum": [
+                        "UNKNOWN_SERVICE",
+                        "REMOTE_CONFIG",
+                        "NOTIFICATION",
+                        "IN_APP_MESSAGING"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "The Firebase Remote Config Service.",
+                        "The Firebase Notifications Service.",
+                        "The Firebase In App Messaging Service."
+                    ],
+                    "type": "string"
+                },
+                "settings": {
+                    "$ref": "ExperimentSettings",
+                    "description": "Required. The experiment settings. This is mutable in the PENDING and\nRUNNING states."
+                },
+                "testing": {
+                    "$ref": "ExperimentTesting",
+                    "description": "Optional. Experiment Test Options. This is mutable in the PENDING state.\nIf not specified, this will be a default instance with no test instances."
+                }
+            },
+            "type": "object"
+        },
+        "CreateFiamExperimentRequest": {
+            "description": "Request for creating a new experiment",
+            "id": "CreateFiamExperimentRequest",
+            "properties": {
+                "abtCreateExperimentRequest": {
+                    "$ref": "CreateExperimentRequest"
+                },
+                "experiment": {
+                    "$ref": "FIAMExperiment",
+                    "description": "The experiment resource to create."
+                }
+            },
+            "type": "object"
+        },
+        "CustomAudienceCondition": {
+            "description": "A targeting condition based on the custom audience memberships uploaded into\nFirebase project by the developers.",
+            "id": "CustomAudienceCondition",
+            "properties": {
+                "operator": {
+                    "description": "Required operator",
+                    "enum": [
+                        "UNKNOWN",
+                        "IN_AT_LEAST_ONE",
+                        "IN_ALL",
+                        "NOT_IN_AT_LEAST_ONE",
+                        "IN_NONE"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "The actual custom audience set of an instance contains at least one of\nthe target custom audiences.",
+                        "The actual custom audience set of an instance contains all of the\ntarget custom audiences.",
+                        "The condition is true if the instance is not a member of at least one of\nthe target custom audiences.",
+                        "The condition is true if the instance is not a member of any of the\ntarget custom audiences."
+                    ],
+                    "type": "string"
+                },
+                "targetCustomAudienceIds": {
+                    "description": "A set of targeting custom audience ids.\nThe audience id is used internally to Firebase, which is generated to be\nunique across a Firebase project based on the project number + developer\ndefined audience label.",
+                    "items": {
+                        "format": "int64",
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CustomObjectiveDetails": {
+            "description": "A custom objective for a user generated Scion event.",
+            "id": "CustomObjectiveDetails",
+            "properties": {
+                "countType": {
+                    "description": "Required. Which count_type is used to measure this objective.\nAlways set to \"NO_EVENT_USERS\" for \"app_crashes\" and \"app_exception\"\nobjectives.",
+                    "enum": [
+                        "UNKNOWN_COUNT_TYPE",
+                        "UNIQUE",
+                        "NUM_OCCURRENCES",
+                        "NO_EVENT_USERS"
+                    ],
+                    "enumDescriptions": [
+                        "Per go/protodosdonts",
+                        "The objective is capped at 1 per user.",
+                        "Count number of occurrences of this event.",
+                        "Count the number of users with zero occurrences of the event."
+                    ],
+                    "type": "string"
+                },
+                "eventName": {
+                    "description": "Required. The name of the user-defined Firebase Analytics event to optimize.\nThe event name is case-sensitive and must be 0-32 characters long.\nIt may only contain alphanumeric characters and underscores, and must\nstart with an alphabetic character. The \"firebase_\" prefix is reserved\nand should not be used.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DailyAnalyticsSummary": {
+            "description": "Analytics summary of a campaign for a single day",
+            "id": "DailyAnalyticsSummary",
+            "properties": {
+                "clicks": {
+                    "description": "[optional] Aggregated clicks on the campaign",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "errors": {
+                    "description": "[optional] Aggregated errors seen while displaying the campaign",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "impressions": {
+                    "description": "[optional] Aggregated impressions of the campaign",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "startOfDayMillis": {
+                    "description": "Epoch timestamp of the day for which this summary is calculated. Based on\nGoogle timezone.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DailyConversionSummary": {
+            "description": "Conversions summary of a campaign for a single day",
+            "id": "DailyConversionSummary",
+            "properties": {
+                "conversions": {
+                    "description": "[optional] Aggregated conversions of the campaign",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "startOfDayMillis": {
+                    "description": "Epoch timestamp of the day for which this summary is calculated. Based on\nGoogle timezone.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DataEntry": {
+            "description": "This matches the wire format were data a map<string,string> field.\noption map_entry = true;  // marks the map construct in the descriptor",
+            "id": "DataEntry",
+            "properties": {
+                "key": {
+                    "description": "Key.",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "Value.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Date": {
+            "description": "Represents a whole or partial calendar date, e.g. a birthday. The time of day\nand time zone are either specified elsewhere or are not significant. The date\nis relative to the Proleptic Gregorian Calendar. This can represent:\n\n* A full date, with non-zero year, month and day values\n* A month and day value, with a zero year, e.g. an anniversary\n* A year on its own, with zero month and day values\n* A year and month value, with a zero day, e.g. a credit card expiration date\n\nRelated types are google.type.TimeOfDay and `google.protobuf.Timestamp`.",
+            "id": "Date",
+            "properties": {
+                "day": {
+                    "description": "Day of month. Must be from 1 to 31 and valid for the year and month, or 0\nif specifying a year by itself or a year and month where the day is not\nsignificant.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "month": {
+                    "description": "Month of year. Must be from 1 to 12, or 0 if specifying a year without a\nmonth and day.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "year": {
+                    "description": "Year of date. Must be from 1 to 9999, or 0 if specifying a date without\na year.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "DateRange": {
+            "description": "A contiguous set of days: start_date, start_date + 1 day, ..., end_date.",
+            "id": "DateRange",
+            "properties": {
+                "endDateMs": {
+                    "description": "In milliseconds since the epoch. Required.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "startDateMs": {
+                    "description": "In milliseconds since the epoch. Required.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DateTimeCondition": {
+            "description": "A condition that compares the evaluation time\nto a given target time argument.\nEvaluation:\nIf the target_timezone_id is empty and the timezone of the device cannot\nbe determined, then the condition should be evaluated to false.",
+            "id": "DateTimeCondition",
+            "properties": {
+                "operator": {
+                    "description": "Required.",
+                    "enum": [
+                        "UNKNOWN",
+                        "BEFORE",
+                        "AFTER_OR_EQUAL"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "Condition resolution is done before target time.",
+                        "Condition resolution is done at or after target time.\nThe resolution of comparison is at the second level."
+                    ],
+                    "type": "string"
+                },
+                "targetDateTimeZone": {
+                    "$ref": "TargetDateTimeZone",
+                    "description": "Required."
+                }
+            },
+            "type": "object"
+        },
+        "DeviceCategoryCondition": {
+            "description": "A condition to target users by Device category.",
+            "id": "DeviceCategoryCondition",
+            "properties": {
+                "operator": {
+                    "description": "Required",
+                    "enum": [
+                        "UNKNOWN",
+                        "STRING_CONTAINS",
+                        "STRING_DOES_NOT_CONTAIN",
+                        "STRING_EXACTLY_MATCHES"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "At least one of the given target_device_categories is a substring of the\nactual device category.",
+                        "NONE of the given target_device_categories is a substring of the actual\ndevice category.",
+                        "The actual device category exactly matches one of the given\ntarget_device_categories."
+                    ],
+                    "type": "string"
+                },
+                "targetDeviceCategories": {
+                    "description": "Required\nA list of target device categories.\nTargeting service accepts at least 1 and at most 50 values in this list.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "DeviceCountryCondition": {
+            "description": "A condition that compares the device country against target countries.\nThe device country is determined by geo-lookup using device IP address.\nEvaluation:\nIf the Device Country cannot be determined, then the condition should be\nevaluated to false.",
+            "id": "DeviceCountryCondition",
+            "properties": {
+                "operator": {
+                    "description": "Required. Country code condition evaluation operator.",
+                    "enum": [
+                        "UNKNOWN",
+                        "IS_IN",
+                        "IS_NOT_IN"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "Indicates that the actual country code is one of the target country codes",
+                        "Indicates that the actual country code is not in the target country codes"
+                    ],
+                    "type": "string"
+                },
+                "targetCountryCodes": {
+                    "description": "Required. A list of target countries containing the 2 letter country code\nas defined in ISO 3166-1 alpha-2. This is case-insensitive.\nSee https://www.iso.org/obp/ui/#search\nMaximum of 300 countries are allowed. Dupe countries are\nnot allowed (case insensitive).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "DeviceLanguageCondition": {
+            "description": "A condition that compares the device language(s) against target languages.\nThe device language is determined using the device locale.\nEvaluation:\nIf the Device Language cannot be determined, then the condition should be\nevaluated to false.",
+            "id": "DeviceLanguageCondition",
+            "properties": {
+                "operator": {
+                    "description": "Required",
+                    "enum": [
+                        "UNKNOWN",
+                        "STRING_CONTAINS",
+                        "STRING_DOES_NOT_CONTAIN"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "Indicates that one of the target language codes is a substring of the\nactual language code.",
+                        "Indicates that none of the target language codes is a substring of the\nactual language code."
+                    ],
+                    "type": "string"
+                },
+                "targetLanguageCodes": {
+                    "description": "Required. A list of target languages in the BCP47 format.\nFor example \"en-US\". This is case-insensitive.\nSee https://www.w3.org/International/core/langtags/rfc3066bis.html\nMaximum of 300 languages are allowed. Dupe languages\nare not allowed (case insensitive).\nUse case NOTIFICATIONS accepts exactly one language code.\nWhen evaluating, the target language code and the actual App Instance\nlanguage code are \"maximized\" by adding likely subtags. The two language\ncodes are then compared for equality.\nSee java/com/google/i18n/identifiers/LanguageInfo.java for more info.\nA reference evaluation logic is at\njava/com/google/developers/mobile/targeting/evaluation/ConditionEvaluator.java#evaluateLanguageCondition",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "DeviceModelCondition": {
+            "description": "A condition to target by the device model strings.",
+            "id": "DeviceModelCondition",
+            "properties": {
+                "operator": {
+                    "description": "Required",
+                    "enum": [
+                        "UNKNOWN",
+                        "STRING_CONTAINS",
+                        "STRING_DOES_NOT_CONTAIN",
+                        "STRING_EXACTLY_MATCHES"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "At least one of the given target_device_models is a substring of the\nactually device model.",
+                        "NONE of the given target_device_models is a substring of the actually\ndevice model.",
+                        "The actual device model string exactly matches one of the given\ntarget_device_models.\nTODO(arete) to support regex match / not match"
+                    ],
+                    "type": "string"
+                },
+                "targetDeviceModels": {
+                    "description": "Required\nA list of target device model strings.\nTargeting service accepts at least 1 and at most 50 values in this list.\nTODO(arete) Add comment about any format restriction of device models.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "DisplayParameters": {
+            "description": "Additional parameters that affect message delivery",
+            "id": "DisplayParameters",
+            "properties": {
+                "androidNotificationChannel": {
+                    "description": "Developer defined notification channel ID for Android only. The app must\ncreate a channel with this ID before receiving the notification, otherwise\nthe client will use the default channel defined in the manifest.\nIgnored for android clients < Android O. go/fcm-android-channel",
+                    "type": "string"
+                },
+                "data": {
+                    "description": "Extra key/value map to be sent with the message.",
+                    "items": {
+                        "$ref": "DataEntry"
+                    },
+                    "type": "array"
+                },
+                "image": {
+                    "description": "Contains the URL of an image that is going to be displayed in a\nnotification.",
+                    "type": "string"
+                },
+                "iosBadgeNumber": {
+                    "description": "\"Badge number\" to show on the app icon in the iOS launcher post-delivery.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "priority": {
+                    "description": "Priority with which to send the message.",
+                    "enum": [
+                        "GCM_DEFAULT",
+                        "NORMAL",
+                        "HIGH"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified, left to the default of the GCM API.",
+                        "Normal priority. iOS devices may not receive it, respects Doze on Android.",
+                        "High priority. Timely delivery on iOS more likely. Sent even in Doze on\nAndroid."
+                    ],
+                    "type": "string"
+                },
+                "sound": {
+                    "description": "Sound to play on delivery.",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Title applied on android (and Apple Watch?)",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Empty": {
+            "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+            "id": "Empty",
+            "properties": {},
+            "type": "object"
+        },
+        "Event": {
+            "description": "Information about activity on the app. Can be automatically generated by\nclient SDKs or provided directly by the app developer.\nNext ID to use: 6",
+            "id": "Event",
+            "properties": {
+                "count": {
+                    "description": "Events without timestamps will be grouped together by set of params and\nwill be reported with occurrence count. This is lossless client side\naggregation to pack the data in more compact form. Events with different\nset of params will be logged with different EventParam message.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "The event name. Event name length will be limited to something short like\n24 or 32 chars. The exact max length limit is TBD.",
+                    "type": "string"
+                },
+                "params": {
+                    "items": {
+                        "$ref": "EventParam"
+                    },
+                    "type": "array"
+                },
+                "previousTimestampMillis": {
+                    "description": "UTC client time when the transaction happened in millis.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "timestampMillis": {
+                    "description": "UTC client time when the transaction happened in millis.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "EventObjective": {
+            "description": "The objective used to measure the performance of an experiment.\nAn experiment has a single primary objectives and multiple secondary\nobjectives.",
+            "id": "EventObjective",
+            "properties": {
+                "abtOptimizationFunction": {
+                    "description": "Required. How to optimize this metric.\nNOTE: This field should only be set for custom objectives.\nAlways set to \"MAXIMIZE\" for \"app_crashes\" and \"app_exception\"\nobjectives.",
+                    "enum": [
+                        "UNKNOWN_OPTIMIZATION_FUNCTION",
+                        "MAXIMIZE",
+                        "MINIMIZE"
+                    ],
+                    "enumDescriptions": [
+                        "Per go/protodosdonts",
+                        "If more is good, maximize; eg. revenue related events",
+                        "If less is good, minimize; eg. app crashes"
+                    ],
+                    "type": "string"
+                },
+                "customObjectiveDetails": {
+                    "$ref": "CustomObjectiveDetails",
+                    "description": "Configuration details for user-defined custom objectives."
+                },
+                "isPrimary": {
+                    "description": "Required. If true, this is the primary objective of the experiment. Exactly one\nobjective should be marked primary.",
+                    "type": "boolean"
+                },
+                "systemObjectiveDetails": {
+                    "$ref": "SystemObjectiveDetails",
+                    "description": "Configuration details for system objectives."
+                },
+                "systemObjectiveName": {
+                    "description": "DEPRECATED. Use system_objective_details",
+                    "type": "string"
+                },
+                "userDefinedEventName": {
+                    "description": "DEPRECATED. Use custom_objective_details",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "EventParam": {
+            "description": "Additional information about an Event. Can be automatically generated by\nclient SDKs or provided directly by the developer.\nNext ID to use: 7",
+            "id": "EventParam",
+            "properties": {
+                "doubleValue": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "floatValue": {
+                    "format": "float",
+                    "type": "number"
+                },
+                "intValue": {
+                    "format": "int64",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name of the event param. The max size of the event name is TBD but it\nwill be constrained to 24 or 32 chars.",
+                    "type": "string"
+                },
+                "paramValue": {
+                    "description": "List of EventParams. No additional nesting/recursion is allowed.",
+                    "items": {
+                        "$ref": "EventParam"
+                    },
+                    "type": "array"
+                },
+                "stringValue": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ExperimentAction": {
+            "description": "The experiment action to perform on a client selected for a variant.",
+            "id": "ExperimentAction",
+            "properties": {
+                "notificationAction": {
+                    "$ref": "NotificationAction",
+                    "description": "The Notification action."
+                },
+                "remoteConfigAction": {
+                    "$ref": "RemoteConfigAction",
+                    "description": "The Remote Config action."
+                }
+            },
+            "type": "object"
+        },
+        "ExperimentDefinition": {
+            "description": "An experiment definition.\nThis is immutable once an experiment is started.",
+            "id": "ExperimentDefinition",
+            "properties": {
+                "experimentCondition": {
+                    "$ref": "Condition",
+                    "description": "Required. A portion of the experiment definition that defines which subset\nof users are selected for this experiment (for all variants).\nAs of Feb 2017, this condition must have the format OR(AND(atom+))\nwhere the atom list must include exactly one APP ID atom.\n"
+                },
+                "experimentObjectives": {
+                    "$ref": "ExperimentObjectives",
+                    "description": "Required. The objectives of an experiment."
+                },
+                "experimentVariants": {
+                    "description": "Required. Must have between 2 - 8 variants.\nThe first variant in this list is the 'Control group' variant.\n\nNOTE: While using the ExperimentDefinition as part of a Create or Update\nrequest, only the 'experiment_variants' field should\nbe filled, as 'variants' field is deprecated, and filling them both will\ncause a bad request exception. When ExperimentDefinition is part of the\nserver response, it might have both these fields filled. This is due to the\ntransition, and we'll stop populating the 'variants' field once the UI\ncompletely switches over to the 'experiment_variants' field.",
+                    "items": {
+                        "$ref": "Action"
+                    },
+                    "type": "array"
+                },
+                "serviceSpecificOptions": {
+                    "$ref": "ServiceSpecificOptions",
+                    "description": "Required. Service specific options for this experiment."
+                },
+                "variants": {
+                    "description": "DEPRECATED. Use 'experiment_variants'.\n\nMust have between 2 - 8 variants in RUNNING and DONE state.\nThe first variant in this list is the Control variant.\n\nNOTE: While using the ExperimentDefinition as part of a Create or Update\nrequest, only the 'experiment_variants' field should\nbe filled, as 'variants' field is deprecated, and filling them both will\ncause a bad request exception. When ExperimentDefinition is part of the\nserver response, it might have both these fields filled. This is due to the\ntransition, and we'll stop populating the 'variants' field once the UI\ncompletely switches over to the 'experiment_variants' field.",
+                    "items": {
+                        "$ref": "ExperimentVariant"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ExperimentDetail": {
+            "id": "ExperimentDetail",
+            "properties": {
+                "experiment": {
+                    "$ref": "FIAMExperiment",
+                    "description": "[required] The variant details for this experiment"
+                },
+                "firegum": {
+                    "$ref": "Action",
+                    "description": "[required] Experiment metadata"
+                }
+            },
+            "type": "object"
+        },
+        "ExperimentDisplayMetadata": {
+            "description": "This is mutable after experiment is started.",
+            "id": "ExperimentDisplayMetadata",
+            "properties": {
+                "description": {
+                    "description": "Optional. Multi-line free text description of the experiment.\nMaximum length is 2048 characters (or more precisely, unicode code points).",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "Required. Name of the experiment. Length must be between 1 - 30 characters (or more\nprecisely, unicode code points). Does not need to be unique for a project.\nShould not have any leading or trailing spaces.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ExperimentInstanceToTest": {
+            "description": "Represents information of one test device.",
+            "id": "ExperimentInstanceToTest",
+            "properties": {
+                "instanceId": {
+                    "description": "Required. A string that identifies the app instance to test.",
+                    "type": "string"
+                },
+                "variantIndex": {
+                    "description": "Required\nThe index of the variant in ExperimentDefinition to which\nthis instance is assigned. The index of the first variant is\nzero.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "ExperimentObjectives": {
+            "description": "The objectives of an experiment.",
+            "id": "ExperimentObjectives",
+            "properties": {
+                "activationEvent": {
+                    "$ref": "ActivationEvent",
+                    "description": "Optional. The event which triggers the start of the experiment.\nIf not specified, receiving an experiment on the device would count as the\nactivation event."
+                },
+                "eventObjectives": {
+                    "description": "Required. The Objectives which are used to determine the winner of an experiment\nand measure desired outcomes.\nThis must have exactly one primary objective set. There can be a\nmaximum of 3 secondary objectives. The order of the objectives do not\nmatter. The server preserves the order though.\nPENDING: Must have between [0-4] objectives.\nRUNNING, DONE: Must have between [1-4] objectives",
+                    "items": {
+                        "$ref": "EventObjective"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ExperimentRolloutInfo": {
+            "description": "Information optionally attached to a campaign detailing the Experiment\nrollout from which it was created.",
+            "id": "ExperimentRolloutInfo",
+            "properties": {
+                "excludeMilliPercentage": {
+                    "description": "Required. [0; 100,000]. Final experiment population size relative to the\ntarget audience. To be excluded from the Campaign notification.",
+                    "format": "uint32",
+                    "type": "integer"
+                },
+                "experimentId": {
+                    "description": "Required. go/firebase-abt Experiment from which this Campaign was created.",
+                    "type": "string"
+                },
+                "variants": {
+                    "description": "Required. One entry per variant in the original Experiment, in exactly the\nsame order.",
+                    "items": {
+                        "$ref": "VariantSummary"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ExperimentSettings": {
+            "description": "Experiment settings.\nThis is mutable in PENDING and RUNNING states.",
+            "id": "ExperimentSettings",
+            "properties": {
+                "milliPercentage": {
+                    "description": "Required. The percentage of clients to be assigned to this experiment multiplied by\n1000. For example if the percentage to assign is 1.234 %, the value should\nbe 1234. Valid values are between 1 - 100000 (both included).\nThe sum of all milli_percentage's for an experiment must be <= 100000.\nThe percentage is divided equally, truncated to milli percentages among\nall variants.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "serviceSpecificSettings": {
+                    "$ref": "ServiceSpecificSettings",
+                    "description": "Required. Service specific settings for this experiment."
+                }
+            },
+            "type": "object"
+        },
+        "ExperimentTesting": {
+            "description": "Experiment testing.\nThis is mutable in PENDING state.",
+            "id": "ExperimentTesting",
+            "properties": {
+                "instanceToTest": {
+                    "description": "Optional. The test instances and their assignments to variants. The order does not\nmatter but is preserved by the ABT backend. An instance can appear at\nmost once. Empty is ok.\n",
+                    "items": {
+                        "$ref": "ExperimentInstanceToTest"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ExperimentVariant": {
+            "description": "A portion of the experiment definition that defines the variants\nand their actions. An experiment variant can either be defined for\nRemote Config or Notifications.\nThe first variant in the experiment is always considered to be the\nControl variant.",
+            "id": "ExperimentVariant",
+            "properties": {
+                "action": {
+                    "$ref": "ExperimentAction",
+                    "description": "Optional. Action to be performed for that variant."
+                },
+                "variantName": {
+                    "description": "Required. The name of the variant. Eg: \"Notification A\", \"Control\".\nLength must be between 1 - 30 characters. Should not have any leading or\ntrailing spaces. Variant names must be unique for a single experiment.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ExperimentalCampaignRollout": {
+            "description": "User-specified properties for rolling out an experimental campaign into a new\nstandard campaign.",
+            "id": "ExperimentalCampaignRollout",
+            "properties": {
+                "endTime": {
+                    "$ref": "CampaignTime",
+                    "description": "[optional] End time of the new campaign."
+                },
+                "experimentId": {
+                    "description": "Id of the experiment to roll out.",
+                    "type": "string"
+                },
+                "priority": {
+                    "$ref": "Priority",
+                    "description": "Priority of the new campaign."
+                },
+                "selectedVariantIndex": {
+                    "description": "Index of the variant to roll out.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "startTime": {
+                    "$ref": "CampaignTime",
+                    "description": "Start time of the new campaign."
+                }
+            },
+            "type": "object"
+        },
+        "FIAMExperiment": {
+            "id": "FIAMExperiment",
+            "properties": {
+                "abtExperimentId": {
+                    "description": "the abt specific \"name\" used to look up this experiment in ABT\nformatted: projects/<project_number>/experiments/<experiment_id>\nhttp://google3/google/internal/firebase/abt/v1/abt_experiment_manager_ui.proto?l=448&rcl=235762473",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "[optional] Human-friendly description.",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "Human-friendly name to display in the UI.",
+                    "type": "string"
+                },
+                "endTime": {
+                    "$ref": "CampaignTime",
+                    "description": "[optional] Experiment's scheduled end time.\nExperiment may also be stopped manually. Must be no earlier than 24 hours\nfrom creation time and scheduled start time."
+                },
+                "endTimestamp": {
+                    "description": "Experiment's scheduled end timestamp.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "experimentId": {
+                    "description": "FIAM specific experiment id",
+                    "type": "string"
+                },
+                "experimentObjectives": {
+                    "$ref": "ExperimentObjectives",
+                    "description": "Experiment objectives for ABT."
+                },
+                "milliPercentage": {
+                    "description": "The percentage of clients to be assigned to this experiment multiplied by\n1000. For example if the percentage to assign is 1.234 %, the value should\nbe 1234",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "projectNumber": {
+                    "description": "Project number to which this experiment belongs to",
+                    "type": "string"
+                },
+                "startTime": {
+                    "$ref": "ScheduledCampaignTime",
+                    "description": "Experiment's scheduled start time."
+                },
+                "startTimestamp": {
+                    "description": "Experiment's scheduled start timestamp",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "state": {
+                    "description": "Experiment's state.",
+                    "enum": [
+                        "UNKNOWN_STATE",
+                        "PENDING",
+                        "RUNNING",
+                        "DONE",
+                        "EXPIRED"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "Initial editing. Not run yet.",
+                        "Experiment is currently running.",
+                        "Experiment run in the past.",
+                        "Experiment expired past the maximum runtime."
+                    ],
+                    "type": "string"
+                },
+                "targetingCondition": {
+                    "$ref": "Condition",
+                    "description": "Targeting conditions for determing which users will see the experiment.\nThis targeting condition must meet the validation requirements:\n  1. The tree structure must be SINGLE_OR_MULTI_AND : OR(AND(atom*))\n  2. The atoms in the condition tree must have and only have one gmp app id\n  3. Only these condition atoms are allowed :\n       ConditionCase.TIME\n       ConditionCase.APP_VERSION\n       ConditionCase.APP_ID\n       ConditionCase.LANGUAGES\n       ConditionCase.ANALYTICS_AUDIENCES\n       ConditionCase.ANALYTICS_USER_PROPERTY\n       ConditionCase.PREDICTIONS\nSee definitions at /j/c/g/d/m/targeting/conditions/ConditionValidator.java"
+                },
+                "variants": {
+                    "description": "list of variants that are a part of this experiment",
+                    "items": {
+                        "$ref": "FIAMVariant"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "FIAMVariant": {
+            "description": "A variant that's part of an ABT Experiment",
+            "id": "FIAMVariant",
+            "properties": {
+                "content": {
+                    "$ref": "Content",
+                    "description": "Content"
+                },
+                "conversionEvent": {
+                    "description": "The scion conversion events that may be setup for this variant",
+                    "items": {
+                        "$ref": "ScionConversionEvent"
+                    },
+                    "type": "array"
+                },
+                "onceEveryNHours": {
+                    "description": "[optional] Frequency cap for the variant\nConfigures how spaced out multiple impressions of this campaign on a\nparticular instance are. Absence of this field indicates that the campaign\nis just shown once. For more info: (go/fiam-frequency-caps-design)",
+                    "format": "uint64",
+                    "type": "string"
+                },
+                "triggeringConditions": {
+                    "description": "condition to trigger the FIAM",
+                    "items": {
+                        "$ref": "TriggeringCondition"
+                    },
+                    "type": "array"
+                },
+                "variantId": {
+                    "description": "FIAM specific variant id that gets stored in FIAMAction within ABT's\nexperiment store",
+                    "type": "string"
+                },
+                "variantName": {
+                    "description": "Name for the variant",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Fallback": {
+            "description": "Details/Fields required to define the fallback for Optimal Time.",
+            "id": "Fallback",
+            "properties": {
+                "time": {
+                    "$ref": "TimeOfDay",
+                    "description": "Required."
+                },
+                "timeZone": {
+                    "description": "Required. Time zone in Olson ID format (eg: \"America/Los_Angeles\"). It will only\nbe used if a timezone is not available for a user.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FalseCondition": {
+            "description": "This condition always evaluates to false.",
+            "id": "FalseCondition",
+            "properties": {},
+            "type": "object"
+        },
+        "FirebaseAppIdCondition": {
+            "description": "A condition that compares the Firebase App Id to a target Firebase App Id.",
+            "id": "FirebaseAppIdCondition",
+            "properties": {
+                "targetGmpAppId": {
+                    "description": "Required. The target Firebase App Id.\nFor example: \"1:708293126705:ios:a750b5ff97fbf47d\".\nThis is case-sensitive (confirmed with tylerg@ March 2017).",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FirebaseInappmessagingAction": {
+            "description": "This defines the action to be taken on click:\nFor now, only the url to navigate to.",
+            "id": "FirebaseInappmessagingAction",
+            "properties": {
+                "actionUrl": {
+                    "description": "Action url",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FirstOpenTimeCondition": {
+            "description": "A condition to target by first open time of an app instance. This\ncondition is evaluated against the first open timestamp collected by Google\nAnalytics.",
+            "id": "FirstOpenTimeCondition",
+            "properties": {
+                "endOpenOffsetDays": {
+                    "description": "Optional\nEnd time offset of a time range(Open) at day granularity,\nend_time = current_time - end_open_offset_days.\ngranularity. Value should be integer, with minimum value as\nzero. This number must be smaller than start_closed_offset_days.\nThis value must be specified if operator is EARLIER or BETWEEN.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "operator": {
+                    "description": "Required",
+                    "enum": [
+                        "UNKNOWN",
+                        "EARLIER",
+                        "LATER_OR_EQUAL",
+                        "BETWEEN"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "The actual first open timestamp is earlier than the given end time.\nIn this case, the end_open_offset_days field below must be specified.",
+                        "The actual first open timestamp is later than or equal to the given\nstart time. In this case, the start_closed_offset_days field below must\nbe specified.",
+                        "The actual first open timestamp is between the given start\n(closed) and end(open) time. In this case, both the\nstart_closed_offset_days and end_open_offset_days fields below must be\nspecified."
+                    ],
+                    "type": "string"
+                },
+                "startClosedOffsetDays": {
+                    "description": "Optional\nStart time offset of a time range(Closed) at day granularity,\nstart_time = current_time - start_closed_offset_days\nValue should be an integer, with minimum value as one.\nThis number must be bigger than end_open_offset_days.\nThis value must be specified if operator is LATER_OR_EQUAL or BETWEEN.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "GetTranslationsResponse": {
+            "id": "GetTranslationsResponse",
+            "properties": {
+                "sourceLang": {
+                    "description": "identified source lang",
+                    "type": "string"
+                },
+                "targetLang": {
+                    "type": "string"
+                },
+                "translatedString": {
+                    "description": "ordered is maintained as the source_texts list",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ImageOnlyMessage": {
+            "id": "ImageOnlyMessage",
+            "properties": {
+                "action": {
+                    "$ref": "FirebaseInappmessagingAction",
+                    "description": "[optional] The Action to take when clicking anywhere on the image."
+                },
+                "imageUrl": {
+                    "description": "The url of the image to be sent as the message.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "KeyValuePair": {
+            "description": "The key-value pair to be sent with a notification.",
+            "id": "KeyValuePair",
+            "properties": {
+                "key": {
+                    "description": "Keys matching the following regular expression are not allowed.\n\"^(?:[fg]cm.*|google.*|message_type|subtype|from)$\"",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "Value.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "KeyedAction": {
+            "id": "KeyedAction",
+            "properties": {
+                "productExperimentId": {
+                    "description": "Required",
+                    "type": "string"
+                },
+                "productVariantId": {
+                    "description": "Required",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "LastUserEngagementTimeCondition": {
+            "description": "A condition to target by last user engagement time. This condition is\nevaluated against the last user engagement timestamp collected by Google\nAnalytics.",
+            "id": "LastUserEngagementTimeCondition",
+            "properties": {
+                "endOpenOffsetDays": {
+                    "description": "Optional\nEnd time offset of a time range(Open) at day granularity,\nend_time = current_time - end_open_offset_days.\ngranularity. Value should be integer, with minimum value as\nzero. This number must be smaller than start_closed_offset_days.\nThis value must be specified if operator is EARLIER or BETWEEN.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "operator": {
+                    "description": "Required",
+                    "enum": [
+                        "UNKNOWN",
+                        "EARLIER",
+                        "LATER_OR_EQUAL",
+                        "BETWEEN"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "The actual last user engagement time is earlier than the given end time.\nIn this case, the end_open_offset_days field below must be specified.",
+                        "The actual last user engagement time is later than or equal to the given\nstart time. In this case, the start_closed_offset_days field below must\nbe specified.",
+                        "The actual last user engagement time is between the given start\ntime(closed) and end time(open). In this case, both the\nstart_closed_offset_days and end_open_offset_days fields below must be\nspecified."
+                    ],
+                    "type": "string"
+                },
+                "startClosedOffsetDays": {
+                    "description": "Optional\nStart time offset of a time range(Closed) at day granularity,\nstart_time = current_time - start_closed_offset_days\nValue should be an integer, with minimum value as one.\nThis number must be bigger than end_open_offset_days.\nThis value must be specified if operator is LATER_OR_EQUAL or BETWEEN.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "ListCampaignsResponse": {
+            "id": "ListCampaignsResponse",
+            "properties": {
+                "campaignAnalyticsSummary": {
+                    "description": "The daily analytics summary possibly for each campaign. Campaigns that\nare not in published state and those that have been published recently\nmight not have summary data.",
+                    "items": {
+                        "$ref": "CampaignAnalyticsSummary"
+                    },
+                    "type": "array"
+                },
+                "campaigns": {
+                    "description": "List of campaigns, which may be empty.",
+                    "items": {
+                        "$ref": "Campaign"
+                    },
+                    "type": "array"
+                },
+                "experiments": {
+                    "description": "List of experiments for this project, which may be empty",
+                    "items": {
+                        "$ref": "ExperimentDetail"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Localization": {
+            "description": "A tuple of text and the language it is in.",
+            "id": "Localization",
+            "properties": {
+                "langCode": {
+                    "type": "string"
+                },
+                "text": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "LongRunningCampaignInfo": {
+            "description": "Details/Fields required to define a long running FN campaign.",
+            "id": "LongRunningCampaignInfo",
+            "properties": {
+                "byWeekDay": {
+                    "description": "Required and only valid for WEEK frequency.\nA set of days within the week (MON - SUN). Specifies the days on which the\nmessage will be sent. Order doesn't matter and duplicates aren't allowed.",
+                    "enumDescriptions": [
+                        "The unspecified day-of-week.",
+                        "The day-of-week of Monday.",
+                        "The day-of-week of Tuesday.",
+                        "The day-of-week of Wednesday.",
+                        "The day-of-week of Thursday.",
+                        "The day-of-week of Friday.",
+                        "The day-of-week of Saturday.",
+                        "The day-of-week of Sunday."
+                    ],
+                    "items": {
+                        "enum": [
+                            "DAY_OF_WEEK_UNSPECIFIED",
+                            "MONDAY",
+                            "TUESDAY",
+                            "WEDNESDAY",
+                            "THURSDAY",
+                            "FRIDAY",
+                            "SATURDAY",
+                            "SUNDAY"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "frequency": {
+                    "description": "Required. The frequency of the event. Can only be one of DAY, WEEK.",
+                    "enum": [
+                        "CALENDAR_PERIOD_UNSPECIFIED",
+                        "DAY",
+                        "WEEK",
+                        "FORTNIGHT",
+                        "MONTH",
+                        "QUARTER",
+                        "HALF",
+                        "YEAR"
+                    ],
+                    "enumDescriptions": [
+                        "Undefined period, raises an error.",
+                        "A day.",
+                        "A week. Weeks begin on Monday, following\n[ISO 8601](https://en.wikipedia.org/wiki/ISO_week_date).",
+                        "A fortnight. The first calendar fortnight of the year begins at the start\nof week 1 according to\n[ISO 8601](https://en.wikipedia.org/wiki/ISO_week_date).",
+                        "A month.",
+                        "A quarter. Quarters start on dates 1-Jan, 1-Apr, 1-Jul, and 1-Oct of each\nyear.",
+                        "A half-year. Half-years start on dates 1-Jan and 1-Jul.",
+                        "A year."
+                    ],
+                    "type": "string"
+                },
+                "frequencyLimitPerUser": {
+                    "description": "Required. Defines how frequently would a user that has already received this campaign\nbe targeted again. If set to 0, each user will be sent the notification\nduring each send of the campaign. When the user selects the special case\n\"once per user\", this will be set to a really high value (one hundred\nyears).",
+                    "format": "google-duration",
+                    "type": "string"
+                },
+                "interval": {
+                    "description": "Required. The interval between events, such as \"every x weeks\".",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "ModalMessage": {
+            "id": "ModalMessage",
+            "properties": {
+                "action": {
+                    "$ref": "FirebaseInappmessagingAction",
+                    "description": "[optional] The Action to take when clicking on the button.\nCurrently, the two must be set together:\naction.isSet() iff actionButton.isSet()"
+                },
+                "actionButton": {
+                    "$ref": "Button",
+                    "description": "[optional] Message button.\nClicking this button will trigger the modal's action\nCurrently, the two must be set together:\naction.isSet() iff actionButton.isSet()"
+                },
+                "backgroundHexColor": {
+                    "description": "[optional]  Message background color.",
+                    "type": "string"
+                },
+                "body": {
+                    "$ref": "Text",
+                    "description": "[optional] Message body."
+                },
+                "imageUrl": {
+                    "description": "[optional] Image to display (https url - it will be downloaded onto the\ndevice) No prefix required.",
+                    "type": "string"
+                },
+                "title": {
+                    "$ref": "Text",
+                    "description": "[required] Message title."
+                }
+            },
+            "type": "object"
+        },
+        "NotCondition": {
+            "description": "NOT of a sub-condition.",
+            "id": "NotCondition",
+            "properties": {
+                "condition": {
+                    "$ref": "Condition",
+                    "description": "Required. It's an error not to have a sub condition."
+                }
+            },
+            "type": "object"
+        },
+        "NotificationAction": {
+            "description": "The action to be performed when delivering a notification.\nThis is defined at a variant level.",
+            "id": "NotificationAction",
+            "properties": {
+                "messageText": {
+                    "description": "Optional. The message to be sent to the client.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "NotificationDeliveryTime": {
+            "description": "Notification delivery time. Must be in the future.",
+            "id": "NotificationDeliveryTime",
+            "properties": {
+                "deliveryDate": {
+                    "$ref": "Date",
+                    "description": "Required. The delivery date."
+                },
+                "deliveryTime": {
+                    "$ref": "TimeOfDay",
+                    "description": "Required. The delivery time. Precision can be specified upto minutes."
+                },
+                "timeZone": {
+                    "description": "Optional. The time zone at which to deliver the notification.\nTime zone in Olson ID format (eg: \"America/Los_Angeles\"), if the\nnotification should be delivered at a standard timezone. If it should be\ndelivered at the recipient time zone, this field must be empty or not\npopulated.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "NotificationExperimentOptions": {
+            "description": "Notification options to be applied to all variants in this experiment.\nThese options are considered to be mutable only in PENDING state.\nThis is defined at an experiment level.",
+            "id": "NotificationExperimentOptions",
+            "properties": {
+                "androidNotificationChannel": {
+                    "description": "Optional. Developer defined notification channel ID for Android only. The app must\ncreate a channel with this ID before receiving the notification, otherwise\nthe client will use the default channel defined in the manifest.\nIgnored for android clients < Android O. go/fcm-android-channel",
+                    "type": "string"
+                },
+                "customKeyValues": {
+                    "description": "Optional. The set of key-value pairs that will be delivered with the message to\nthe app. A key cannot be repeated and value cannot be empty.\nThe sum of all key-value pair strings must not exceed 3Kb.",
+                    "items": {
+                        "$ref": "KeyValuePair"
+                    },
+                    "type": "array"
+                },
+                "deliveryTime": {
+                    "$ref": "NotificationDeliveryTime",
+                    "description": "Deprecated. The delivery_time field of NotificationExperimentSettings\nshould be used instead.\nNote: This field was moved to NotificationSpecificSettings to make it\nmutable during the RUNNING state. For a while, the two will both exist.\nThe following defines how the ABT server will handle this transition\n(this field is referred as the 'old' field):\n- on read request: if old field is set but new field is not, old field's\n  value will be copied over to the new field\n- on create request: if old field is set but new field is not, old field's\n  value will be copied over to the new field\n- on update request: comparing the incoming request with the stored one, if\n  we detect a change on the old field, the change will be copied over to\n  the new field. if we detect a change on the new field, the old field will\n  be reset, as it means that the console was updated.\nOptional.\nThe delivery time of the message. If not set, the message will be\ndelivered immediately."
+                },
+                "expirationSeconds": {
+                    "description": "Optional. How long the message should be kept for re-delivery. The maximum\nexpiration period is four weeks after the first delivery attempt.\nDefault is 4 weeks.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "iosBadgeNumber": {
+                    "description": "Optional. This may be specified only for experiments which target an iOS app.\nThis indicates the number of app icons in the iOS launcher after\nnotification has been delivered. No badge is shown by default.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "notificationTitle": {
+                    "description": "Optional. Shown to end users as the notification title. Applicable to Android\ndevices or iOS wear devices.",
+                    "type": "string"
+                },
+                "priority": {
+                    "description": "Optional. Default = HIGH.",
+                    "enum": [
+                        "UNKNOWN_PRIORITY",
+                        "HIGH",
+                        "LOW"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "High priority message.",
+                        "Low priority message."
+                    ],
+                    "type": "string"
+                },
+                "sound": {
+                    "description": "Required. Default = DISABLED.",
+                    "enum": [
+                        "DISABLED",
+                        "ENABLED"
+                    ],
+                    "enumDescriptions": [
+                        "Notification sound is disabled.",
+                        "Notification sound is enabled."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "NotificationExperimentSettings": {
+            "description": "Notification options to be applied to all variants in this experiment.\nThese options are considered to be mutable in PENDING and RUNNING states.\nThis is defined at an experiment level.",
+            "id": "NotificationExperimentSettings",
+            "properties": {
+                "deliveryTime": {
+                    "$ref": "NotificationDeliveryTime",
+                    "description": "Optional. The delivery time of the message. If not set, the message will be\ndelivered immediately.\nNote: This field was originally defined in NotificationExperimentOptions,\nand was later moved here to make it mutable during the RUNNING state. For\na while, the two will both exist. The following defines how the ABT server\nwill handle this transition (this field is referred as the 'new' field):\n- on read request: if old field is set but new field is not, old field's\n  value will be copied over to the new field\n- on create request: if old field is set but new field is not, old field's\n  value will be copied over to the new field\n- on update request: comparing the incoming request with the stored one, if\n  we detect a change on the old field, the change will be copied over to\n  the new field. if we detect a change on the new field, the old field will\n  be reset, as it means that the console was updated."
+                }
+            },
+            "type": "object"
+        },
+        "NotificationSpecificAction": {
+            "description": "Model encapsulating an action that can be taken using Firebase Notification.\n\nBased on the Firegum model (go/firegum), this model is a part of the common\nunified growth model\n(http://google3/developers/mobile/common/proto/action.proto) and contains\nfields specific to Firebase Notification (FN) product. This action can be\ndefined either in the standalone FN product, or as part of an A/B Testing\nexperiment.",
+            "id": "NotificationSpecificAction",
+            "properties": {
+                "analyticsLabel": {
+                    "description": "Analytics label that will be applied to all messages for this campaign, if\nthe label is non-empty.",
+                    "type": "string"
+                },
+                "appConversionEvents": {
+                    "description": "Optional. Contains GmpAppId of the app and the corresponding Conversion events to\ntrack post-delivery for the given app in the funnel. This field is only\nvalid for vanilla FN campaigns. For FN ABT experiments, ExperimentObjective\nfield in the ExperimentDefinition\n(http://google3/developers/mobile/abt/proto/experiments.proto?l=158&rcl=184752260)\nserves a similar purpose.",
+                    "items": {
+                        "$ref": "AppConversionEvents"
+                    },
+                    "type": "array"
+                },
+                "campaignId": {
+                    "description": "Campaign ID. Non-negative, globally unique.\nRequired only for standalone FN sends.",
+                    "format": "uint64",
+                    "type": "string"
+                },
+                "campaignStatus": {
+                    "description": "Campaign status.\nMust be DRAFT or ENQUEUED on save.\nOnly required for vanilla FN campaigns. For FN ABT, ExperimentState\n(http://google3/developers/mobile/abt/proto/experiments.proto?l=46&rcl=184752260)\nserves the same purpose.",
+                    "enum": [
+                        "STATUS_UNKNOWN",
+                        "STATUS_DRAFT",
+                        "STATUS_ENQUEUED",
+                        "STATUS_DONE",
+                        "STATUS_PERMANENT_FAILURE"
+                    ],
+                    "enumDescriptions": [
+                        "Something is seriously messed up.",
+                        "The camapign is a draft, editable and never to be sent.",
+                        "The campaign is scheduled for some future time, and editable until shortly\nbefore that time.",
+                        "The campaign has been sent successfully.",
+                        "The sending of the campaign has failed, and will not be retried."
+                    ],
+                    "type": "string"
+                },
+                "displayParameters": {
+                    "$ref": "DisplayParameters",
+                    "description": "Optional. Additional FN specific parameters like Sound, Title, Priority etc.\nFor FN ABT, this field will replace the existing\nNotificationExperimentOptions\n(http://google3/developers/mobile/abt/proto/notification_abt.proto?l=26&rcl=160009162)."
+                },
+                "expiryTime": {
+                    "description": "Duration since the campaign send after which devices must not show the\nnotification anymore. The expiry_time can be between 0 to 4 weeks. Defaults\nto 4 weeks if not specified.",
+                    "format": "google-duration",
+                    "type": "string"
+                },
+                "failureReason": {
+                    "description": "Set only if the campaign/experiment send failed, otherwise defaults to\nUNKNOWN_ERROR.",
+                    "enum": [
+                        "UNKNOWN_ERROR",
+                        "INVALID_REGISTRATION",
+                        "NOT_REGISTERED",
+                        "UNAUTHORIZED_REGISTRATION",
+                        "MISMATCH_SENDER_ID",
+                        "MESSAGE_TOO_BIG",
+                        "INVALID_DATA_KEY",
+                        "INVALID_LANGUAGE",
+                        "INVALID_VERSION",
+                        "INVALID_CREDENTIALS",
+                        "NO_APPLICATION",
+                        "AUTHENTICATION_ERROR",
+                        "INVALID_FILTER"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown error",
+                        "Invalid registration token",
+                        "Unregistered registration token",
+                        "Unauthorized to send messages to the registration token",
+                        "Sender ID mismatched with registration token",
+                        "Message too big, exceeded the GCM payload limit.",
+                        "Custom data contains invalid key",
+                        "Selected language not supported",
+                        "Selected app version not supported",
+                        "Invalid APNs certificate",
+                        "Missing APNs certificate",
+                        "Shouldn't happen :P",
+                        "Invalid targeting filter string used."
+                    ],
+                    "type": "string"
+                },
+                "lastUpdateTime": {
+                    "description": "When the campaign was last modified. This will be updated by the server on\nevery create or update campaign request.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "longRunningCampaignInfo": {
+                    "$ref": "LongRunningCampaignInfo",
+                    "description": "Details required to define a long running FN campaign. Set iff this\ncampaign is a long running campaign. go/fn-lrc-dd"
+                },
+                "messageText": {
+                    "description": "Notification text to be sent.\nRequired for SCHEDULED campaigns or RUNNING FN ABT experiment variants.",
+                    "type": "string"
+                },
+                "optimalTime": {
+                    "$ref": "OptimalTime",
+                    "description": "Details required to define an optimal time. Set iff this campaign has\noptimal time. If both this field and the start_time in the Action's\nschedule field are set, the schedule's start_time will be set to\n00:00:00:00 without timezone."
+                },
+                "registrationIds": {
+                    "description": "Optional. Used only for vanilla FN sends. This field is ignored for FN ABT sends.\nStores the registration IDs of the app instances to which the given\ncampaign targets. If there is at least one registration ID specified here,\nthen the campaign will target only the desired registration IDs\nirrespective of the targeting criteria. If this field is left empty, then\nthe conditions criteria specified in the Action\n(http://google3/developers/mobile/common/proto/action.proto?l=91&rcl=192606200)\nwill be used for targeting.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "rollout": {
+                    "$ref": "ExperimentRolloutInfo",
+                    "description": "Read-only, must be cleared when duplicating Campaigns. Set iff this\nAction is the result of rolling out a go/firebase-abt Experiment."
+                }
+            },
+            "type": "object"
+        },
+        "OnPublish": {
+            "description": "A scheduled time indicating that the campaign should have its corresponding\ntime set to its publish time",
+            "id": "OnPublish",
+            "properties": {},
+            "type": "object"
+        },
+        "OperatingSystemAndVersionCondition": {
+            "description": "A condition to target users by operating system and operating system version.",
+            "id": "OperatingSystemAndVersionCondition",
+            "properties": {
+                "operator": {
+                    "description": "Required",
+                    "enum": [
+                        "UNKNOWN",
+                        "IN_ONE",
+                        "IN_NONE"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "The actual operating system and OS version is in at least one of the\ngiven sub-condition TargetOperatingSystemAndVersions.",
+                        "The actual operating system and OS version in in none of the given\nsub-condition TargetOperatingSystemAndVersions."
+                    ],
+                    "type": "string"
+                },
+                "targetOperatingSystemAndVersions": {
+                    "description": "A list of sub-conditions of operating system and OS version.\nTargeting server accepts at least 1 and at most 50 values in this list.",
+                    "items": {
+                        "$ref": "TargetOperatingSystemAndVersion"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "OptimalTime": {
+            "description": "Details/Fields required to define the Optimal Time.",
+            "id": "OptimalTime",
+            "properties": {
+                "fallback": {
+                    "$ref": "Fallback",
+                    "description": "Required fallback to use if optimal time is not available."
+                }
+            },
+            "type": "object"
+        },
+        "OrCondition": {
+            "description": "OR of sub-conditions.\nAn OR condition is true if any of its subconditions evaluate to true.\nIf there is an exception evaluating any of its subconditions, that\nsubcondition can be ignored if any other subcondition is true.",
+            "id": "OrCondition",
+            "properties": {
+                "conditions": {
+                    "description": "Evaluated in given order with short circuit of true.\nShould contain at least one condition and no more than 100 conditions.",
+                    "items": {
+                        "$ref": "Condition"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "OsTypeCondition": {
+            "description": "A condition that compares the device OS to the target OS.\nEvaluation:\nIf the OS Type cannot be determined, then the condition should be\nevaluated to false.",
+            "id": "OsTypeCondition",
+            "properties": {
+                "operator": {
+                    "description": "Required. The comparison operator.",
+                    "enum": [
+                        "UNKNOWN_OPERATOR",
+                        "EQUALS",
+                        "NOT_EQUALS"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "Condition will evaluate to true if actual OS type is\nthe same as target OS type.",
+                        "Condition will evaluate to true if actual OS type is\ndifferent than the target OS type."
+                    ],
+                    "type": "string"
+                },
+                "targetOsType": {
+                    "description": "Required. The target OS Type.",
+                    "enum": [
+                        "UNKNOWN_OS_TYPE",
+                        "ANDROID",
+                        "IOS",
+                        "WEB"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "Android devices.",
+                        "iOS devices.",
+                        "Web apps.\nAdd more OS types here if needed."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "OsVersionCondition": {
+            "description": "A condition that compares the device OS version to the targeting OS version.\nIf the OS version of the device is not determined, evaluate to false.",
+            "id": "OsVersionCondition",
+            "properties": {
+                "operator": {
+                    "description": "Required\nOs version operator",
+                    "enum": [
+                        "UNKNOWN",
+                        "STRING_CONTAINS",
+                        "STRING_DOES_NOT_CONTAIN",
+                        "STRING_EXACTLY_MATCHES",
+                        "NUMERIC_LESS_THAN",
+                        "NUMERIC_LESS_EQUAL",
+                        "NUMERIC_EQUAL",
+                        "NUMERIC_NOT_EQUAL",
+                        "NUMERIC_GREATER_THAN",
+                        "NUMERIC_GREATER_EQUAL"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "Evaluate to true if at least one of the targeting OS versions is a\nsubstring of the actual OS version.",
+                        "Evaluate to true if none of the targeting OS version is a substring of\nthe actual OS version.",
+                        "Evaluate to true if the actual OS version exactly equals to one of the\ntargeting OS versions.\nTODO(arete) Add regex match/not match",
+                        "The actual value is less than the target value.",
+                        "The actual value is less than or equal to the target value.",
+                        "The actual value is equal to the target value.",
+                        "The actual value is not equal to the target value.",
+                        "The actual value is greater than the target value.",
+                        "The actual value is greater than or equal to the target value."
+                    ],
+                    "type": "string"
+                },
+                "targetingOsVersions": {
+                    "description": "Required. A list of target OS versions.\nTargeting service accepts at least 1 and at most 50 values in this list.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "PercentCondition": {
+            "description": "NOTE(tal): this atom is not allowed in ABT conditions.\n\nA condition that compares the instance pseudo\nrandom percentile to a given limit.",
+            "id": "PercentCondition",
+            "properties": {
+                "microPercent": {
+                    "description": "Required. The limit of percentiles to target in micro-percents. The value must be\nin the range [0 and 100000000].",
+                    "format": "uint32",
+                    "type": "integer"
+                },
+                "operator": {
+                    "description": "Required.",
+                    "enum": [
+                        "UNKNOWN",
+                        "LESS_OR_EQUAL",
+                        "GREATER_THAN"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "Target a percentage less than or equal to the target percent.",
+                        "Target a percentage greater than the target percent."
+                    ],
+                    "type": "string"
+                },
+                "seed": {
+                    "description": "Optional. The seed used when evaluating the hash function to map an instance to\na value in the hash space. This is a string which can have 0 - 32\ncharacters and can contain ASCII characters [-_.0-9a-zA-Z].\nThe string is case-sensitive.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PredictionScoresCondition": {
+            "description": "A condition that checks if the Predictions user_percentile score\nis between two target values.",
+            "id": "PredictionScoresCondition",
+            "properties": {
+                "operator": {
+                    "description": "Required",
+                    "enum": [
+                        "UNKNOWN",
+                        "BETWEEN"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "The actual value is between the lower percentile (closed) and the\nupper percentile (closed)."
+                    ],
+                    "type": "string"
+                },
+                "predictionId": {
+                    "description": "The prediction type to compare against",
+                    "type": "string"
+                },
+                "userPercentileLower": {
+                    "description": "The lower bound for the condition",
+                    "format": "float",
+                    "type": "number"
+                },
+                "userPercentileUpper": {
+                    "description": "The upper bound for the condition",
+                    "format": "float",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "PredictionsCondition": {
+            "description": "A condition to target by predictions on individual app instances.\nUses signals generated by Firebase Sage.",
+            "id": "PredictionsCondition",
+            "properties": {
+                "operator": {
+                    "description": "Required.",
+                    "enum": [
+                        "UNKNOWN",
+                        "IN_AT_LEAST_ONE",
+                        "IN_ALL"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "The condition will be true if the App Instance is a member of\nat least one of the target predictions in the set.",
+                        "The condition will be true if the App Instance is a member of every\ntarget prediction in the set."
+                    ],
+                    "type": "string"
+                },
+                "predictionTargets": {
+                    "description": "Required. For V1, only supporting one target.\nOrder doesn't matter.",
+                    "items": {
+                        "$ref": "PredictionsTarget"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "PredictionsTarget": {
+            "description": "Represents an expected value for a given prediction id.",
+            "id": "PredictionsTarget",
+            "properties": {
+                "predictionRiskProfileId": {
+                    "description": "Required. Unique ID from Sage that identifies an event + risk profile combination.\nThe implicit operation for each target is IS_POSITIVE.\n\nFor any operator, if this list contains a risk profile id, which does not\nexist, then the condition is evaluated as false.\n",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Priority": {
+            "description": "Priority of the campaign.\nUsed to select the most important messages amongst a set of eligible ones.",
+            "id": "Priority",
+            "properties": {
+                "value": {
+                    "description": "Priority value can range from 1-10, with 1 being the highest priority.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "ProductAction": {
+            "id": "ProductAction",
+            "properties": {
+                "genericKeyedAction": {
+                    "$ref": "KeyedAction",
+                    "description": "Generic keyed action."
+                },
+                "notificationAction": {
+                    "$ref": "NotificationSpecificAction",
+                    "description": "Firebase Notifications (FN) specific action."
+                },
+                "remoteConfigAction": {
+                    "$ref": "RemoteConfigSpecificAction",
+                    "description": "Firebase Remote Config (RC) specific action."
+                }
+            },
+            "type": "object"
+        },
+        "RemoteConfigAction": {
+            "description": "The Action which can be performed by Firebase Remote Config.\nThis is defined at a variant level.",
+            "id": "RemoteConfigAction",
+            "properties": {
+                "parameters": {
+                    "description": "Can have 0-20 parameters (both included).",
+                    "items": {
+                        "$ref": "RemoteConfigSetParameter"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "RemoteConfigExperimentOptions": {
+            "description": "Remote Config options to be applied to all variants in this experiment.\nThis is defined at an experiment level.",
+            "id": "RemoteConfigExperimentOptions",
+            "properties": {
+                "parameterKeys": {
+                    "description": "Required. A list of all parameter names which are part of this experiment. It is\nnot necessary that this must be defined in Remote Config base\nconfiguration. Length must be between 1 - 256 characters.\nThe order of the parameters determines the display order in the UI.\nEach variant in an experiment can only include parameters which have been\ndefined here.\nMutable only in the PENDING state.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "RemoteConfigExperimentSettings": {
+            "description": "RemoteConfig settings to be applied to all variants in this experiment.\nThese options are considered to be mutable in PENDING and RUNNING states.\nThis is defined at an experiment level.\nEmpty for now.",
+            "id": "RemoteConfigExperimentSettings",
+            "properties": {},
+            "type": "object"
+        },
+        "RemoteConfigParameter": {
+            "description": "Represents a single RC parameter, as a key, a value_option, and\ncorresponding parameter metadata.",
+            "id": "RemoteConfigParameter",
+            "properties": {
+                "description": {
+                    "description": "Optional. A description for this RemoteConfig parameter.",
+                    "type": "string"
+                },
+                "dropParameter": {
+                    "description": "If this boolean is set, then this parameter will not be included in the\noutput of RemoteConfig, which will signal the RemoteConfig SDK to use\nthe default value defined in the app. If the app doesn't define a\ndefault value for this parameter, a static default (per data type) will\nbe used instead.",
+                    "type": "boolean"
+                },
+                "name": {
+                    "description": "Required. Name/key of the RemoteConfig parameter.\nLength must be within the range of [1-256] characters.",
+                    "type": "string"
+                },
+                "noChange": {
+                    "description": "Should only be used if the action is defined within an A/B Testing\nexperiment.\nIf this boolean is set, the experiment action will not override or drop\nthe parameter value defined within the standalone RemoteConfig. In\nother words, an app instance will get the value they'd normally get if\nthere were no experiments.",
+                    "type": "boolean"
+                },
+                "value": {
+                    "description": "A string value, which can also be an empty string.\nIf the action is defined within an A/B Testing experiment, this value\nwill then override the value defined in the standalone RemoteConfig (if\nany value was defined for this key in the standalone RemoteConfig).",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RemoteConfigSetParameter": {
+            "description": "The parameter value to be set for a Remote Config Action.",
+            "id": "RemoteConfigSetParameter",
+            "properties": {
+                "experimentValue": {
+                    "description": "The value to set for the parameter.\nA *total* maximum size of 500,000 characters for parameter values\nacross all value fields in an Experiment Variant.",
+                    "type": "string"
+                },
+                "key": {
+                    "description": "Required. The key of the Remote Config parameter.\nLength must be between 1 - 256 characters.\nThis must be one of the parameters which has been set in\nremote_config_options.",
+                    "type": "string"
+                },
+                "useConfigDefault": {
+                    "description": "The default value which gets evaluated for the client should be used\ninstead of setting a value at the experiment. This would be the value\nthat the client would receive if there was no active experiment.\nIf set, this should always be true.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "RemoteConfigSpecificAction": {
+            "id": "RemoteConfigSpecificAction",
+            "properties": {
+                "parameters": {
+                    "description": "RemoteConfig action is defined as a set of parameters.",
+                    "items": {
+                        "$ref": "RemoteConfigParameter"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "RolloutExperimentRequest": {
+            "id": "RolloutExperimentRequest",
+            "properties": {
+                "rolloutDetails": {
+                    "$ref": "ExperimentalCampaignRollout",
+                    "description": "The user-specified settings for an experimental rollout."
+                }
+            },
+            "type": "object"
+        },
+        "RolloutExperimentResponse": {
+            "id": "RolloutExperimentResponse",
+            "properties": {
+                "campaign": {
+                    "description": "The newly rolled out campaign.",
+                    "items": {
+                        "$ref": "Campaign"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Schedule": {
+            "id": "Schedule",
+            "properties": {
+                "endTime": {
+                    "$ref": "TargetDateTimeZone",
+                    "description": "Optional. Defines when this schedule should end. An empty end_time means\n'unbounded'."
+                },
+                "startTime": {
+                    "$ref": "TargetDateTimeZone",
+                    "description": "Optional. Defines when this schedule should start. An empty start_time means 'now'."
+                }
+            },
+            "type": "object"
+        },
+        "ScheduledCampaignTime": {
+            "description": "Holder for storing a scheduled time for a campaign, which can be either a\nspecific instance of time or a placeholder indicating that it'll be set when\ncampaign gets published.",
+            "id": "ScheduledCampaignTime",
+            "properties": {
+                "onpublish": {
+                    "$ref": "OnPublish",
+                    "description": "Message should have the timestamp set when its state changes from\ndraft to published"
+                },
+                "specifiedTime": {
+                    "$ref": "CampaignTime",
+                    "description": "Timezone supported time - indicating a time explicitly specified"
+                }
+            },
+            "type": "object"
+        },
+        "ScionConversionEvent": {
+            "description": "Minimal identifying information on a conversion event for an app.",
+            "id": "ScionConversionEvent",
+            "properties": {
+                "name": {
+                    "description": "Name of the event, e.g. \"in_app_purchase\".",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ServiceSpecificOptions": {
+            "description": "Service specific options for an experiment.\nThese are linked from the ExperimentDefinition, and hence are mutable only\nin the PENDING state.",
+            "id": "ServiceSpecificOptions",
+            "properties": {
+                "notificationOptions": {
+                    "$ref": "NotificationExperimentOptions",
+                    "description": "Notification specific options."
+                },
+                "remoteConfigOptions": {
+                    "$ref": "RemoteConfigExperimentOptions",
+                    "description": "Remote Config service options."
+                }
+            },
+            "type": "object"
+        },
+        "ServiceSpecificSettings": {
+            "description": "Service specific settings of an experiment.\nThese are linked from ExperimentSettings, and hence are mutable in PENDING\nand RUNNING states.",
+            "id": "ServiceSpecificSettings",
+            "properties": {
+                "notificationSettings": {
+                    "$ref": "NotificationExperimentSettings",
+                    "description": "Notification specific settings."
+                },
+                "remoteConfigSettings": {
+                    "$ref": "RemoteConfigExperimentSettings",
+                    "description": "Remote Config service settings"
+                }
+            },
+            "type": "object"
+        },
+        "SystemObjectiveDetails": {
+            "description": "A pre-defined objective.",
+            "id": "SystemObjectiveDetails",
+            "properties": {
+                "objectiveName": {
+                    "description": "Required. One of the prefined system objective names, such as purchase_revenue.\nThe name determines what to measure and how to count it. For example,\napp_exception measures the number of app_exception event, while\nunique_user:app_exception measures the number of unique users who\nwho have had at least one app_exception event.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TargetBrowserAndVersion": {
+            "description": "Sub-condition to describe the target browser and browser version.",
+            "id": "TargetBrowserAndVersion",
+            "properties": {
+                "operator": {
+                    "description": "Optional",
+                    "enum": [
+                        "UNKNOWN",
+                        "STRING_CONTAINS",
+                        "STRING_DOES_NOT_CONTAIN",
+                        "STRING_EXACTLY_MATCHES",
+                        "NUMERIC_LESS_THAN",
+                        "NUMERIC_LESS_EQUAL",
+                        "NUMERIC_EQUAL",
+                        "NUMERIC_NOT_EQUAL",
+                        "NUMERIC_GREATER_THAN",
+                        "NUMERIC_GREATER_EQUAL"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "The given target_browser_version is a substring of the\nactual browser version.",
+                        "The given target_browser_version is not a substring of the actual\nbrowser version.",
+                        "The actual browser version exactly matches one of the given\ntarget_browser_versions.",
+                        "The actual value is less than the target value.",
+                        "The actual value is less than or equal to the target value.",
+                        "The actual value is equal to the target value.",
+                        "The actual value is not equal to the target value.",
+                        "The actual value is greater than the target value.",
+                        "The actual value is greater than or equal to the target value."
+                    ],
+                    "type": "string"
+                },
+                "targetBrowser": {
+                    "description": "Required",
+                    "type": "string"
+                },
+                "targetVersion": {
+                    "description": "Optional",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TargetDateTimeZone": {
+            "description": "NOTE(tal): this atom is not used in ABT/FN and ABT/RC  I/O 2017 launch\nand it will rejected by the ABT condition validator.\n\nA representation of Date-time and timezone offset.",
+            "id": "TargetDateTimeZone",
+            "properties": {
+                "date": {
+                    "$ref": "Date",
+                    "description": "Required. A date object that must have all year, month, and day fields set."
+                },
+                "time": {
+                    "$ref": "TimeOfDay",
+                    "description": "Required. A time of the day."
+                },
+                "timeZone": {
+                    "description": "Optional. Time zone in Olson ID format (eg: \"America/Los_Angeles\") if the condition\nshould be evaluated according to a standard timezone. If it should be\nevaluated at the client time zone, this field must be empty.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TargetOperatingSystemAndVersion": {
+            "description": "Sub-condition to describe the target operating system and operating system\nversion.",
+            "id": "TargetOperatingSystemAndVersion",
+            "properties": {
+                "operator": {
+                    "description": "Optional",
+                    "enum": [
+                        "UNKNOWN",
+                        "STRING_CONTAINS",
+                        "STRING_DOES_NOT_CONTAIN",
+                        "STRING_EXACTLY_MATCHES",
+                        "NUMERIC_LESS_THAN",
+                        "NUMERIC_LESS_EQUAL",
+                        "NUMERIC_EQUAL",
+                        "NUMERIC_NOT_EQUAL",
+                        "NUMERIC_GREATER_THAN",
+                        "NUMERIC_GREATER_EQUAL"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "The given target_os_version is a substring of the\nactual operating system version.",
+                        "The given target_os_version is not a substring of the actual os\nversion.",
+                        "The actual os version exactly matches one of the given\ntarget_os_versions.\nThe actual value is less than the target value.",
+                        "The actual value is less than the target value.",
+                        "The actual value is less than or equal to the target value.",
+                        "The actual value is equal to the target value.",
+                        "The actual value is not equal to the target value.",
+                        "The actual value is greater than the target value.",
+                        "The actual value is greater than or equal to the target value."
+                    ],
+                    "type": "string"
+                },
+                "targetOperatingSystem": {
+                    "description": "Required",
+                    "type": "string"
+                },
+                "targetVersion": {
+                    "description": "Optional",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TestCampaignOnDeviceRequest": {
+            "description": "Request for setting a campaign to be tested on multiple devices",
+            "id": "TestCampaignOnDeviceRequest",
+            "properties": {
+                "instanceIds": {
+                    "description": "The firebase instance IDs for test app instances",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Text": {
+            "id": "Text",
+            "properties": {
+                "hexColor": {
+                    "description": "Message font color.",
+                    "type": "string"
+                },
+                "localizations": {
+                    "items": {
+                        "$ref": "Localization"
+                    },
+                    "type": "array"
+                },
+                "sourceLangCode": {
+                    "type": "string"
+                },
+                "text": {
+                    "description": "Message text.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TimeOfDay": {
+            "description": "Represents a time of day. The date and time zone are either not significant\nor are specified elsewhere. An API may choose to allow leap seconds. Related\ntypes are google.type.Date and `google.protobuf.Timestamp`.",
+            "id": "TimeOfDay",
+            "properties": {
+                "hours": {
+                    "description": "Hours of day in 24 hour format. Should be from 0 to 23. An API may choose\nto allow the value \"24:00:00\" for scenarios like business closing time.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "minutes": {
+                    "description": "Minutes of hour of day. Must be from 0 to 59.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "nanos": {
+                    "description": "Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "seconds": {
+                    "description": "Seconds of minutes of the time. Must normally be from 0 to 59. An API may\nallow the value 60 if it allows leap-seconds.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "TopicCondition": {
+            "description": "A condition that compares if the instance belongs to the Topic.\nEvaluation:\nIf the membership to the topic cannot be determined or if the Topic does not\nexist, the condition should evaluate to false.\nSpecial restriction: As of Oct 2015, only use case NOTIFICATIONS\nsupports this condition.",
+            "id": "TopicCondition",
+            "properties": {
+                "topicName": {
+                    "description": "The topic name including prefix, e.g. \"/topics/whales\".\nA topic can span multiple apps.\nThis is case-sensitive. Maximum length for topic name is XYZ characters\nand minimum length is (9?).",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TriggeringCondition": {
+            "description": "Triggering condition for determing when the campaign will be shown to\ntargeted users. Can be either a FiamTrigger, or a Scion Event",
+            "id": "TriggeringCondition",
+            "properties": {
+                "event": {
+                    "$ref": "Event"
+                },
+                "fiamTrigger": {
+                    "enum": [
+                        "UNKNOWN_TRIGGER",
+                        "APP_LAUNCH",
+                        "ON_FOREGROUND"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "App is launched.",
+                        "App has already launched and is brought into the foreground."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TrueCondition": {
+            "description": "This condition always evaluates to true.",
+            "id": "TrueCondition",
+            "properties": {},
+            "type": "object"
+        },
+        "UpdateExperimentRequest": {
+            "description": "Request message for AbtExperimentService.UpdateExperiment.\nWhen modifying the Experiment Definition in the PENDING state, each variant\nmust belong to the same service as what was defined when the experiment\nwas created.\nAll the fields to be updated are optional. If not specified in the update\nrequest, those fields will not be updated for the experiment.",
+            "id": "UpdateExperimentRequest",
+            "properties": {
+                "definition": {
+                    "$ref": "ExperimentDefinition",
+                    "description": "Optional. The definition of an experiment. This is immutable once\nan experiment is in the RUNNING state."
+                },
+                "displayMetadata": {
+                    "$ref": "ExperimentDisplayMetadata",
+                    "description": "Optional. The display preferences of an experiment."
+                },
+                "etag": {
+                    "description": "Optional. Etag for the Experiment Resource.\nCan be filled to ensure that the correct version of the experiment is\nupdated. This will ensure that there are no conflicting writes. If no\n`etag` is provided, then the update will over-write the experiment blindly.\nSee\nhttps://g3doc.corp.google.com/google/g3doc/style/design_patterns.md?cl=head#ETags",
+                    "type": "string"
+                },
+                "mendelExperimentId": {
+                    "description": "Optional. The experiments that this project belongs to.\n(Ideally we would like the list of experiments which are related to just\nABT, but it is possible we will get *all* experiments that apply to\nthe user).\nIn mendel, an experiment id corresponds to a variant in an ABT experiment.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "The resource name of the experiment. It is of the format:\n\"projects/<project_number>/experiments/<experiment_id>\"\nThe project number is an unsigned decimal number with no padding.\nThis is filled in from the URL path for REST requests.",
+                    "type": "string"
+                },
+                "settings": {
+                    "$ref": "ExperimentSettings",
+                    "description": "Optional. The experiment settings. This is mutable in the PENDING and\nRUNNING states."
+                },
+                "state": {
+                    "description": "Optional. The new state of the Experiment.\nOnly the following state transitions are allowed:\nPENDING -> RUNNING\nRUNNING -> STOPPED.",
+                    "enum": [
+                        "UNKNOWN_STATE",
+                        "PENDING",
+                        "RUNNING",
+                        "DONE",
+                        "EXPIRED"
+                    ],
+                    "enumDescriptions": [
+                        "Per http://go/protodosdonts",
+                        "Initial editing. Not run yet.",
+                        "Experiment is currently running.",
+                        "Experiment run in the past.",
+                        "Experiment expired past the maximum runtime."
+                    ],
+                    "type": "string"
+                },
+                "testing": {
+                    "$ref": "ExperimentTesting",
+                    "description": "Optional. Experiment Test Options. This is mutable in the PENDING state."
+                }
+            },
+            "type": "object"
+        },
+        "UpdateFiamExperimentRequest": {
+            "description": "Request for updating an experiment.",
+            "id": "UpdateFiamExperimentRequest",
+            "properties": {
+                "abtUpdateExperimentRequest": {
+                    "$ref": "UpdateExperimentRequest"
+                },
+                "experiment": {
+                    "$ref": "FIAMExperiment",
+                    "description": "The experiment resource to update."
+                }
+            },
+            "type": "object"
+        },
+        "VariantSummary": {
+            "description": "All the information we need to keep about a variant of the original\nExperiment.",
+            "id": "VariantSummary",
+            "properties": {
+                "hasMessage": {
+                    "description": "Required. True iff the variant delivered a user-visible non-empty\nnotification message (i.e. it was not a control variant).",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Firebase In-App Messaging Private API - Staging",
+    "version": "v1",
+    "version_module": true
+}

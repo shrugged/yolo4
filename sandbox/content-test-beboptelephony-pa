@@ -1,0 +1,256 @@
+{
+    "basePath": "",
+    "baseUrl": "https://test-beboptelephony-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "description": "",
+    "discoveryVersion": "v1",
+    "documentationLink": "",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "beboptelephony_pa:v1",
+    "kind": "discovery#restDescription",
+    "name": "beboptelephony_pa",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "v1": {
+            "methods": {
+                "calls": {
+                    "description": "Start a phone call between the specified phone numbers.",
+                    "flatPath": "v1/calls",
+                    "httpMethod": "POST",
+                    "id": "beboptelephony_pa.calls",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/calls",
+                    "request": {
+                        "$ref": "MakeCallRequest"
+                    },
+                    "response": {
+                        "$ref": "MakeCallResponse"
+                    }
+                },
+                "endCall": {
+                    "description": "End a phone call (before or after parties connect).\nPhone calls are also terminated implicitly when one party\nhangs up.",
+                    "flatPath": "v1/endCall",
+                    "httpMethod": "POST",
+                    "id": "beboptelephony_pa.endCall",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/endCall",
+                    "request": {
+                        "$ref": "EndCallRequest"
+                    },
+                    "response": {
+                        "$ref": "EndCallResponse"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190921",
+    "rootUrl": "https://test-beboptelephony-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "EndCallRequest": {
+            "id": "EndCallRequest",
+            "properties": {
+                "callId": {
+                    "description": "The unique call identifier returned by MakeCall.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "EndCallResponse": {
+            "id": "EndCallResponse",
+            "properties": {
+                "errorCode": {
+                    "description": "An error code indicating why a call request failed.  Should only be set\nif status == FAILURE.",
+                    "enum": [
+                        "END_CALL_ERROR_CODE_UNSPECIFIED",
+                        "END_CALL_ERROR_CODE_UNKNOWN_CALL_ID"
+                    ],
+                    "enumDescriptions": [
+                        "No call error occurred.",
+                        "The specified ID could not be associated with an active call."
+                    ],
+                    "type": "string"
+                },
+                "status": {
+                    "description": "Indicates whether the call termination attempt succeeded or failed.",
+                    "enum": [
+                        "CALL_STATUS_UNSPECIFIED",
+                        "CALL_STATUS_SUCCESS",
+                        "CALL_STATUS_FAILURE"
+                    ],
+                    "enumDescriptions": [
+                        "No status code was set.",
+                        "The call request was completed succesffuly.",
+                        "The call request failed; check the accompanying error code for details."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MakeCallRequest": {
+            "id": "MakeCallRequest",
+            "properties": {
+                "callOid": {
+                    "description": "The OID of the Hire object that represents this call.  This is passed to\nallow Hire to receive updates for calls that may not yet have a call ID.",
+                    "type": "string"
+                },
+                "enableCallerIdForSecondEndpoint": {
+                    "description": "If true, uses the first endpoint number as the caller ID value when dialing\nthe second endpoint.  If false, no caller ID is used.",
+                    "type": "boolean"
+                },
+                "firstEndpointNumber": {
+                    "description": "The first phone number to call.",
+                    "type": "string"
+                },
+                "secondEndpointNumber": {
+                    "description": "The second phone number to call.",
+                    "type": "string"
+                },
+                "tenantOid": {
+                    "description": "The OID of the Hire tenant who owns this call.  An OID is a Hire-specific\nunique identifier format that is used both to route status updates to the\ncorrect Hire horizontal scaling shard and to dispatch the status update\nto the appropriate Hire namespace.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MakeCallResponse": {
+            "id": "MakeCallResponse",
+            "properties": {
+                "callId": {
+                    "description": "The unique call identifier generated by the Telephony API.  Should only be\nset if status == SUCCESS.",
+                    "type": "string"
+                },
+                "errorCode": {
+                    "description": "An error code indicating why a call request failed.  Should only be set\nif status == FAILURE.",
+                    "enum": [
+                        "MAKE_CALL_ERROR_CODE_UNSPECIFIED",
+                        "MAKE_CALL_ERROR_CODE_CALL_ALREADY_IN_PROGRESS",
+                        "MAKE_CALL_ERROR_CODE_CANT_CALL_SELF",
+                        "MAKE_CALL_ERROR_CODE_CANT_CONNECT",
+                        "MAKE_CALL_ERROR_CODE_MAYBE_ABUSE",
+                        "MAKE_CALL_ERROR_CODE_INVALID_REQUEST",
+                        "MAKE_CALL_ERROR_CODE_UNEXPECTED",
+                        "MAKE_CALL_ERROR_CODE_UNKNOWN"
+                    ],
+                    "enumDescriptions": [
+                        "No call error occurred.",
+                        "A call is already in progress, so a new one can't be made.",
+                        "A number may not call itself.",
+                        "A connection to one or more endpoints could not be established.",
+                        "An abusive user may have been detected.",
+                        "The call request parameters were not valid.",
+                        "An error that should not have occurred in production environments (like\nquota enforcement or funds depletion) has occurred.",
+                        "An error occurred that does not fit into any other category."
+                    ],
+                    "type": "string"
+                },
+                "status": {
+                    "description": "Indicates whether the call attempt succeeded or failed.",
+                    "enum": [
+                        "CALL_STATUS_UNSPECIFIED",
+                        "CALL_STATUS_SUCCESS",
+                        "CALL_STATUS_FAILURE"
+                    ],
+                    "enumDescriptions": [
+                        "No status code was set.",
+                        "The call request was completed succesffuly.",
+                        "The call request failed; check the accompanying error code for details."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Bebop Telephony Private API (Test Version)",
+    "version": "v1",
+    "version_module": true
+}

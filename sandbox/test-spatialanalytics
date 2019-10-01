@@ -1,0 +1,3776 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/userinfo.email": {
+                    "description": "View your email address"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://test-spatialanalytics.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Spatial Analytics",
+    "description": "Google Corp Spatial Analytics API that performs floorplan spatial analyis.",
+    "discoveryVersion": "v1",
+    "documentationLink": "go/spatialanalytics",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "spatialanalytics:v1",
+    "kind": "discovery#restDescription",
+    "name": "spatialanalytics",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "building": {
+            "methods": {
+                "getBlockedpixels": {
+                    "description": "Request for blocking geometry png",
+                    "flatPath": "v1/building/{buildingId}/blockedpixels",
+                    "httpMethod": "GET",
+                    "id": "spatialanalytics.building.getBlockedpixels",
+                    "parameterOrder": [
+                        "fullyQualifiedBuildingName"
+                    ],
+                    "parameters": {
+                        "fullyQualifiedBuildingName": {
+                            "location": "path",
+                            "pattern": "^building/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "graphType": {
+                            "description": "The type of graph to fetch.\nIf not specified, the default of REACHABILITY will be used.",
+                            "enum": [
+                                "GRAPHTYPE_UNKNOWN",
+                                "GRAPHTYPE_REACHABILITY",
+                                "GRAPHTYPE_VISIBILITY"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+fullyQualifiedBuildingName}/blockedpixels",
+                    "response": {
+                        "$ref": "BlockedPixelsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "getVisibilitygraph": {
+                    "description": "Request for visibility graph",
+                    "flatPath": "v1/building/{buildingId}/visibilitygraph",
+                    "httpMethod": "GET",
+                    "id": "spatialanalytics.building.getVisibilitygraph",
+                    "parameterOrder": [
+                        "fullyQualifiedBuildingName"
+                    ],
+                    "parameters": {
+                        "coordinateSystem": {
+                            "description": "request option to return node positions in REWS coordinates or\ngeo coordinates (latitude / longitude)",
+                            "enum": [
+                                "UNKNOWN",
+                                "REWS",
+                                "LATLNG"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "fullyQualifiedBuildingName": {
+                            "location": "path",
+                            "pattern": "^building/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "graphType": {
+                            "description": "The type of graph to fetch.\nIf not specified, the default of REACHABILITY will be used.",
+                            "enum": [
+                                "GRAPHTYPE_UNKNOWN",
+                                "GRAPHTYPE_REACHABILITY",
+                                "GRAPHTYPE_VISIBILITY"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+fullyQualifiedBuildingName}/visibilitygraph",
+                    "response": {
+                        "$ref": "VisibilityGraphResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                }
+            }
+        },
+        "buildingdata": {
+            "resources": {
+                "issues": {
+                    "resources": {
+                        "versions": {
+                            "resources": {
+                                "connectors": {
+                                    "methods": {
+                                        "list": {
+                                            "description": "Loads the vertical connectors for the building from the formatter db.",
+                                            "flatPath": "v1/buildingdata/{buildingdataId}/issues/{issuesId}/versions/{versionsId}/connectors",
+                                            "httpMethod": "GET",
+                                            "id": "spatialanalytics.buildingdata.issues.versions.connectors.list",
+                                            "parameterOrder": [
+                                                "parent"
+                                            ],
+                                            "parameters": {
+                                                "pageSize": {
+                                                    "description": "Requested page size",
+                                                    "format": "int32",
+                                                    "location": "query",
+                                                    "type": "integer"
+                                                },
+                                                "pageToken": {
+                                                    "description": "A token identifying a page of results the server should return.",
+                                                    "location": "query",
+                                                    "type": "string"
+                                                },
+                                                "parent": {
+                                                    "description": "The name of the version whose connectors we would like to list.\nbuildingdata/*/issues/*/versions/*",
+                                                    "location": "path",
+                                                    "pattern": "^buildingdata/[^/]+/issues/[^/]+/versions/[^/]+$",
+                                                    "required": true,
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "path": "v1/{+parent}/connectors",
+                                            "response": {
+                                                "$ref": "ListConnectorsResponse"
+                                            },
+                                            "scopes": [
+                                                "https://www.googleapis.com/auth/userinfo.email"
+                                            ]
+                                        }
+                                    }
+                                },
+                                "levels": {
+                                    "methods": {
+                                        "list": {
+                                            "description": "Loads level data from the formatter database.",
+                                            "flatPath": "v1/buildingdata/{buildingdataId}/issues/{issuesId}/versions/{versionsId}/levels",
+                                            "httpMethod": "GET",
+                                            "id": "spatialanalytics.buildingdata.issues.versions.levels.list",
+                                            "parameterOrder": [
+                                                "parent"
+                                            ],
+                                            "parameters": {
+                                                "pageSize": {
+                                                    "description": "Requested page size.",
+                                                    "format": "int32",
+                                                    "location": "query",
+                                                    "type": "integer"
+                                                },
+                                                "pageToken": {
+                                                    "description": "A token identifying a page of results the server should return.",
+                                                    "location": "query",
+                                                    "type": "string"
+                                                },
+                                                "parent": {
+                                                    "description": "The name of the version whose levels we would like to list.\nbuildingdata/*/issues/*/versions/*",
+                                                    "location": "path",
+                                                    "pattern": "^buildingdata/[^/]+/issues/[^/]+/versions/[^/]+$",
+                                                    "required": true,
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "path": "v1/{+parent}/levels",
+                                            "response": {
+                                                "$ref": "ListBuildingLevelDataResponse"
+                                            },
+                                            "scopes": [
+                                                "https://www.googleapis.com/auth/userinfo.email"
+                                            ]
+                                        }
+                                    },
+                                    "resources": {
+                                        "blockedcells": {
+                                            "methods": {
+                                                "list": {
+                                                    "description": "Loads the blocked cell map from the formatter db.",
+                                                    "flatPath": "v1/buildingdata/{buildingdataId}/issues/{issuesId}/versions/{versionsId}/levels/{levelsId}/blockedcells",
+                                                    "httpMethod": "GET",
+                                                    "id": "spatialanalytics.buildingdata.issues.versions.levels.blockedcells.list",
+                                                    "parameterOrder": [
+                                                        "parent"
+                                                    ],
+                                                    "parameters": {
+                                                        "graphType": {
+                                                            "description": "The type of graph to fetch data for.\nIf not specified, the default of REACHABILITY will be used.",
+                                                            "enum": [
+                                                                "GRAPHTYPE_UNKNOWN",
+                                                                "GRAPHTYPE_REACHABILITY",
+                                                                "GRAPHTYPE_VISIBILITY"
+                                                            ],
+                                                            "location": "query",
+                                                            "type": "string"
+                                                        },
+                                                        "parent": {
+                                                            "description": "The name of the level whose blocked cells we would like to list.\nbuildingdata/*/issues/*/versions/*/levels/*",
+                                                            "location": "path",
+                                                            "pattern": "^buildingdata/[^/]+/issues/[^/]+/versions/[^/]+/levels/[^/]+$",
+                                                            "required": true,
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "path": "v1/{+parent}/blockedcells",
+                                                    "response": {
+                                                        "$ref": "ListBlockedCellsResponse"
+                                                    },
+                                                    "scopes": [
+                                                        "https://www.googleapis.com/auth/userinfo.email"
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "blockinglines": {
+                                            "methods": {
+                                                "list": {
+                                                    "description": "Loads blocking lines for one level from the formatter database.",
+                                                    "flatPath": "v1/buildingdata/{buildingdataId}/issues/{issuesId}/versions/{versionsId}/levels/{levelsId}/blockinglines",
+                                                    "httpMethod": "GET",
+                                                    "id": "spatialanalytics.buildingdata.issues.versions.levels.blockinglines.list",
+                                                    "parameterOrder": [
+                                                        "parent"
+                                                    ],
+                                                    "parameters": {
+                                                        "graphType": {
+                                                            "description": "The type of graph to fetch data for.\nIf not specified, the default of REACHABILITY will be used.",
+                                                            "enum": [
+                                                                "GRAPHTYPE_UNKNOWN",
+                                                                "GRAPHTYPE_REACHABILITY",
+                                                                "GRAPHTYPE_VISIBILITY"
+                                                            ],
+                                                            "location": "query",
+                                                            "type": "string"
+                                                        },
+                                                        "pageSize": {
+                                                            "description": "Requested page size.",
+                                                            "format": "int32",
+                                                            "location": "query",
+                                                            "type": "integer"
+                                                        },
+                                                        "pageToken": {
+                                                            "description": "A token identifying a page of results the server should return.",
+                                                            "location": "query",
+                                                            "type": "string"
+                                                        },
+                                                        "parent": {
+                                                            "description": "The name of the level whose blocking lines we would like to list.\nbuildingdata/*/issues/*/versions/*/levels/*",
+                                                            "location": "path",
+                                                            "pattern": "^buildingdata/[^/]+/issues/[^/]+/versions/[^/]+/levels/[^/]+$",
+                                                            "required": true,
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "path": "v1/{+parent}/blockinglines",
+                                                    "response": {
+                                                        "$ref": "ListBlockingLinesDataResponse"
+                                                    },
+                                                    "scopes": [
+                                                        "https://www.googleapis.com/auth/userinfo.email"
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "blocksandunblocks": {
+                                            "methods": {
+                                                "list": {
+                                                    "description": "Loads the blocks and unblocks for a level from the db.",
+                                                    "flatPath": "v1/buildingdata/{buildingdataId}/issues/{issuesId}/versions/{versionsId}/levels/{levelsId}/blocksandunblocks",
+                                                    "httpMethod": "GET",
+                                                    "id": "spatialanalytics.buildingdata.issues.versions.levels.blocksandunblocks.list",
+                                                    "parameterOrder": [
+                                                        "parent"
+                                                    ],
+                                                    "parameters": {
+                                                        "pageSize": {
+                                                            "description": "Requested page size",
+                                                            "format": "int32",
+                                                            "location": "query",
+                                                            "type": "integer"
+                                                        },
+                                                        "pageToken": {
+                                                            "description": "A token identifying a page of results the server should return.",
+                                                            "location": "query",
+                                                            "type": "string"
+                                                        },
+                                                        "parent": {
+                                                            "description": "The name of the level whose blocks we would like to list.\nbuildingdata/*/issues/*/versions/*/levels/*",
+                                                            "location": "path",
+                                                            "pattern": "^buildingdata/[^/]+/issues/[^/]+/versions/[^/]+/levels/[^/]+$",
+                                                            "required": true,
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "path": "v1/{+parent}/blocksandunblocks",
+                                                    "response": {
+                                                        "$ref": "ListBlocksAndUnblocksResponse"
+                                                    },
+                                                    "scopes": [
+                                                        "https://www.googleapis.com/auth/userinfo.email"
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "grossareas": {
+                                            "methods": {
+                                                "list": {
+                                                    "description": "Loads level gross areas from the formatter database.",
+                                                    "flatPath": "v1/buildingdata/{buildingdataId}/issues/{issuesId}/versions/{versionsId}/levels/{levelsId}/grossareas",
+                                                    "httpMethod": "GET",
+                                                    "id": "spatialanalytics.buildingdata.issues.versions.levels.grossareas.list",
+                                                    "parameterOrder": [
+                                                        "parent"
+                                                    ],
+                                                    "parameters": {
+                                                        "parent": {
+                                                            "description": "The name of the level whose area we would like to list.\nbuildingdata/*/issues/*/versions/*/levels/*",
+                                                            "location": "path",
+                                                            "pattern": "^buildingdata/[^/]+/issues/[^/]+/versions/[^/]+/levels/[^/]+$",
+                                                            "required": true,
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "path": "v1/{+parent}/grossareas",
+                                                    "response": {
+                                                        "$ref": "ListLevelGrossAreasResponse"
+                                                    },
+                                                    "scopes": [
+                                                        "https://www.googleapis.com/auth/userinfo.email"
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "securityblockdata": {
+                                            "methods": {
+                                                "list": {
+                                                    "description": "Loads security block data from the formatter database.",
+                                                    "flatPath": "v1/buildingdata/{buildingdataId}/issues/{issuesId}/versions/{versionsId}/levels/{levelsId}/securityblockdata",
+                                                    "httpMethod": "GET",
+                                                    "id": "spatialanalytics.buildingdata.issues.versions.levels.securityblockdata.list",
+                                                    "parameterOrder": [
+                                                        "parent"
+                                                    ],
+                                                    "parameters": {
+                                                        "pageSize": {
+                                                            "description": "Requested page size.",
+                                                            "format": "int32",
+                                                            "location": "query",
+                                                            "type": "integer"
+                                                        },
+                                                        "pageToken": {
+                                                            "description": "A token identifying a page of results the server should return.",
+                                                            "location": "query",
+                                                            "type": "string"
+                                                        },
+                                                        "parent": {
+                                                            "description": "The name of the level whose security blocks we would like to list.\nbuildingdata/*/issues/*/versions/*/levels/*",
+                                                            "location": "path",
+                                                            "pattern": "^buildingdata/[^/]+/issues/[^/]+/versions/[^/]+/levels/[^/]+$",
+                                                            "required": true,
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "path": "v1/{+parent}/securityblockdata",
+                                                    "response": {
+                                                        "$ref": "ListSecurityBlockDataResponse"
+                                                    },
+                                                    "scopes": [
+                                                        "https://www.googleapis.com/auth/userinfo.email"
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "securityblockinstancedata": {
+                                            "methods": {
+                                                "list": {
+                                                    "description": "Loads security block instance data from the formatter database.",
+                                                    "flatPath": "v1/buildingdata/{buildingdataId}/issues/{issuesId}/versions/{versionsId}/levels/{levelsId}/securityblockinstancedata",
+                                                    "httpMethod": "GET",
+                                                    "id": "spatialanalytics.buildingdata.issues.versions.levels.securityblockinstancedata.list",
+                                                    "parameterOrder": [
+                                                        "parent"
+                                                    ],
+                                                    "parameters": {
+                                                        "pageSize": {
+                                                            "description": "Requested page size.",
+                                                            "format": "int32",
+                                                            "location": "query",
+                                                            "type": "integer"
+                                                        },
+                                                        "pageToken": {
+                                                            "description": "A token identifying a page of results the server should return.",
+                                                            "location": "query",
+                                                            "type": "string"
+                                                        },
+                                                        "parent": {
+                                                            "description": "The name of the level whose security block instances we would like to list.\nbuildingdata/*/issues/*/versions/*/levels/*",
+                                                            "location": "path",
+                                                            "pattern": "^buildingdata/[^/]+/issues/[^/]+/versions/[^/]+/levels/[^/]+$",
+                                                            "required": true,
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "path": "v1/{+parent}/securityblockinstancedata",
+                                                    "response": {
+                                                        "$ref": "ListSecurityBlockInstanceDataResponse"
+                                                    },
+                                                    "scopes": [
+                                                        "https://www.googleapis.com/auth/userinfo.email"
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "securitydata": {
+                                            "methods": {
+                                                "list": {
+                                                    "description": "Loads security data from the formatter database.",
+                                                    "flatPath": "v1/buildingdata/{buildingdataId}/issues/{issuesId}/versions/{versionsId}/levels/{levelsId}/securitydata",
+                                                    "httpMethod": "GET",
+                                                    "id": "spatialanalytics.buildingdata.issues.versions.levels.securitydata.list",
+                                                    "parameterOrder": [
+                                                        "parent"
+                                                    ],
+                                                    "parameters": {
+                                                        "pageSize": {
+                                                            "description": "Requested page size.",
+                                                            "format": "int32",
+                                                            "location": "query",
+                                                            "type": "integer"
+                                                        },
+                                                        "pageToken": {
+                                                            "description": "A token identifying a page of results the server should return.",
+                                                            "location": "query",
+                                                            "type": "string"
+                                                        },
+                                                        "parent": {
+                                                            "description": "The name of the level whose security data we would like to list.\nbuildingdata/*/issues/*/versions/*/levels/*",
+                                                            "location": "path",
+                                                            "pattern": "^buildingdata/[^/]+/issues/[^/]+/versions/[^/]+/levels/[^/]+$",
+                                                            "required": true,
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "path": "v1/{+parent}/securitydata",
+                                                    "response": {
+                                                        "$ref": "ListSecurityDataResponse"
+                                                    },
+                                                    "scopes": [
+                                                        "https://www.googleapis.com/auth/userinfo.email"
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "securitylabeldata": {
+                                            "methods": {
+                                                "list": {
+                                                    "description": "Loads security label data from the formatter database.",
+                                                    "flatPath": "v1/buildingdata/{buildingdataId}/issues/{issuesId}/versions/{versionsId}/levels/{levelsId}/securitylabeldata",
+                                                    "httpMethod": "GET",
+                                                    "id": "spatialanalytics.buildingdata.issues.versions.levels.securitylabeldata.list",
+                                                    "parameterOrder": [
+                                                        "parent"
+                                                    ],
+                                                    "parameters": {
+                                                        "pageSize": {
+                                                            "description": "Requested page size.",
+                                                            "format": "int32",
+                                                            "location": "query",
+                                                            "type": "integer"
+                                                        },
+                                                        "pageToken": {
+                                                            "description": "A token identifying a page of results the server should return.",
+                                                            "location": "query",
+                                                            "type": "string"
+                                                        },
+                                                        "parent": {
+                                                            "description": "The name of the level whose security labels we would like to list.\nbuildingdata/*/issues/*/versions/*/levels/*",
+                                                            "location": "path",
+                                                            "pattern": "^buildingdata/[^/]+/issues/[^/]+/versions/[^/]+/levels/[^/]+$",
+                                                            "required": true,
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "path": "v1/{+parent}/securitylabeldata",
+                                                    "response": {
+                                                        "$ref": "ListSecurityLabelDataResponse"
+                                                    },
+                                                    "scopes": [
+                                                        "https://www.googleapis.com/auth/userinfo.email"
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "spaceedges": {
+                                            "methods": {
+                                                "list": {
+                                                    "description": "Loads spaces for one level from the formatter database.",
+                                                    "flatPath": "v1/buildingdata/{buildingdataId}/issues/{issuesId}/versions/{versionsId}/levels/{levelsId}/spaceedges",
+                                                    "httpMethod": "GET",
+                                                    "id": "spatialanalytics.buildingdata.issues.versions.levels.spaceedges.list",
+                                                    "parameterOrder": [
+                                                        "parent"
+                                                    ],
+                                                    "parameters": {
+                                                        "pageSize": {
+                                                            "description": "Requested page size.",
+                                                            "format": "int32",
+                                                            "location": "query",
+                                                            "type": "integer"
+                                                        },
+                                                        "pageToken": {
+                                                            "description": "A token identifying a page of results the server should return.",
+                                                            "location": "query",
+                                                            "type": "string"
+                                                        },
+                                                        "parent": {
+                                                            "description": "The name of the level whose space edges we would like to list.\nbuildingdata/*/issues/*/versions/*/levels/*",
+                                                            "location": "path",
+                                                            "pattern": "^buildingdata/[^/]+/issues/[^/]+/versions/[^/]+/levels/[^/]+$",
+                                                            "required": true,
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "path": "v1/{+parent}/spaceedges",
+                                                    "response": {
+                                                        "$ref": "ListSpaceEdgesResponse"
+                                                    },
+                                                    "scopes": [
+                                                        "https://www.googleapis.com/auth/userinfo.email"
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "spaces": {
+                                            "methods": {
+                                                "list": {
+                                                    "description": "Loads spaces for one level from the formatter database.",
+                                                    "flatPath": "v1/buildingdata/{buildingdataId}/issues/{issuesId}/versions/{versionsId}/levels/{levelsId}/spaces",
+                                                    "httpMethod": "GET",
+                                                    "id": "spatialanalytics.buildingdata.issues.versions.levels.spaces.list",
+                                                    "parameterOrder": [
+                                                        "parent"
+                                                    ],
+                                                    "parameters": {
+                                                        "pageSize": {
+                                                            "description": "Requested page size.",
+                                                            "format": "int32",
+                                                            "location": "query",
+                                                            "type": "integer"
+                                                        },
+                                                        "pageToken": {
+                                                            "description": "A token identifying a page of results the server should return.",
+                                                            "location": "query",
+                                                            "type": "string"
+                                                        },
+                                                        "parent": {
+                                                            "description": "The name of the level whose spaces we would like to list.\nbuildingdata/*/issues/*/versions/*/levels/*",
+                                                            "location": "path",
+                                                            "pattern": "^buildingdata/[^/]+/issues/[^/]+/versions/[^/]+/levels/[^/]+$",
+                                                            "required": true,
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "path": "v1/{+parent}/spaces",
+                                                    "response": {
+                                                        "$ref": "ListSpaceDataResponse"
+                                                    },
+                                                    "scopes": [
+                                                        "https://www.googleapis.com/auth/userinfo.email"
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "transformations": {
+                                            "methods": {
+                                                "list": {
+                                                    "description": "Loads level transformations from the formatter database.",
+                                                    "flatPath": "v1/buildingdata/{buildingdataId}/issues/{issuesId}/versions/{versionsId}/levels/{levelsId}/transformations",
+                                                    "httpMethod": "GET",
+                                                    "id": "spatialanalytics.buildingdata.issues.versions.levels.transformations.list",
+                                                    "parameterOrder": [
+                                                        "parent"
+                                                    ],
+                                                    "parameters": {
+                                                        "pageSize": {
+                                                            "description": "Requested page size.",
+                                                            "format": "int32",
+                                                            "location": "query",
+                                                            "type": "integer"
+                                                        },
+                                                        "pageToken": {
+                                                            "description": "A token identifying a page of results the server should return.",
+                                                            "location": "query",
+                                                            "type": "string"
+                                                        },
+                                                        "parent": {
+                                                            "description": "The name of the level whose transformations we would like to list.\nbuildingdata/*/issues/*/versions/*/levels/*",
+                                                            "location": "path",
+                                                            "pattern": "^buildingdata/[^/]+/issues/[^/]+/versions/[^/]+/levels/[^/]+$",
+                                                            "required": true,
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "path": "v1/{+parent}/transformations",
+                                                    "response": {
+                                                        "$ref": "ListLevelTransformationsResponse"
+                                                    },
+                                                    "scopes": [
+                                                        "https://www.googleapis.com/auth/userinfo.email"
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "buildings": {
+            "resources": {
+                "connectors": {
+                    "methods": {
+                        "list": {
+                            "description": "Loads connectors for one building.",
+                            "flatPath": "v1/buildings/{buildingsId}/connectors",
+                            "httpMethod": "GET",
+                            "id": "spatialanalytics.buildings.connectors.list",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "the parent refers to the building name we want the connectors for",
+                                    "location": "path",
+                                    "pattern": "^buildings/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/connectors",
+                            "response": {
+                                "$ref": "ListConnectorResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.email"
+                            ]
+                        }
+                    }
+                },
+                "externaldoors": {
+                    "methods": {
+                        "list": {
+                            "description": "Loads external doors for one building.",
+                            "flatPath": "v1/buildings/{buildingsId}/externaldoors",
+                            "httpMethod": "GET",
+                            "id": "spatialanalytics.buildings.externaldoors.list",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "getAsLatLng": {
+                                    "description": "Whether the coordinates of the door should be returned in lat/lng.",
+                                    "location": "query",
+                                    "type": "boolean"
+                                },
+                                "pageSize": {
+                                    "description": "Requested page size.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "A token identifying a page of results the server should return.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "parent": {
+                                    "description": "The name of the building whose external doors we would like to list.\nbuildings/*",
+                                    "location": "path",
+                                    "pattern": "^buildings/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/externaldoors",
+                            "response": {
+                                "$ref": "ListExternalDoorsResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.email"
+                            ]
+                        }
+                    }
+                },
+                "levels": {
+                    "resources": {
+                        "drawings": {
+                            "resources": {
+                                "layers": {
+                                    "methods": {
+                                        "get": {
+                                            "description": "Gets the specified floorplan layer. A list of valid names can be obtained\nusing rpc ListFloorplanLayerNames. A resource path typically looks like\nthis:\nbuildings/US-SVL-TC1/levels/US-SVL-TC1-2/drawings/ABSVLTC1F2/layers/S-COLS",
+                                            "flatPath": "v1/buildings/{buildingsId}/levels/{levelsId}/drawings/{drawingsId}/layers/{layersId}",
+                                            "httpMethod": "GET",
+                                            "id": "spatialanalytics.buildings.levels.drawings.layers.get",
+                                            "parameterOrder": [
+                                                "name"
+                                            ],
+                                            "parameters": {
+                                                "name": {
+                                                    "location": "path",
+                                                    "pattern": "^buildings/[^/]+/levels/[^/]+/drawings/[^/]+/layers/[^/]+$",
+                                                    "required": true,
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "path": "v1/{+name}",
+                                            "response": {
+                                                "$ref": "FloorplanLayer"
+                                            },
+                                            "scopes": [
+                                                "https://www.googleapis.com/auth/userinfo.email"
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "floorplanlayernames": {
+                            "methods": {
+                                "list": {
+                                    "description": "Loads a list of floorplan layer names for one level from the visibility\ngraph database.",
+                                    "flatPath": "v1/buildings/{buildingsId}/levels/{levelsId}/floorplanlayernames",
+                                    "httpMethod": "GET",
+                                    "id": "spatialanalytics.buildings.levels.floorplanlayernames.list",
+                                    "parameterOrder": [
+                                        "parent"
+                                    ],
+                                    "parameters": {
+                                        "pageSize": {
+                                            "description": "Requested page size.",
+                                            "format": "int32",
+                                            "location": "query",
+                                            "type": "integer"
+                                        },
+                                        "pageToken": {
+                                            "description": "A token identifying a page of results the server should return.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "parent": {
+                                            "description": "The name of the level whose floorplan layer names we would like to list.\nbuildings/*/levels/*",
+                                            "location": "path",
+                                            "pattern": "^buildings/[^/]+/levels/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/{+parent}/floorplanlayernames",
+                                    "response": {
+                                        "$ref": "ListFloorplanLayerNamesResponse"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/userinfo.email"
+                                    ]
+                                }
+                            }
+                        },
+                        "spaces": {
+                            "methods": {
+                                "list": {
+                                    "description": "Loads spaces for one level from the visibility graph database.",
+                                    "flatPath": "v1/buildings/{buildingsId}/levels/{levelsId}/spaces",
+                                    "httpMethod": "GET",
+                                    "id": "spatialanalytics.buildings.levels.spaces.list",
+                                    "parameterOrder": [
+                                        "parent"
+                                    ],
+                                    "parameters": {
+                                        "pageSize": {
+                                            "description": "Requested page size.",
+                                            "format": "int32",
+                                            "location": "query",
+                                            "type": "integer"
+                                        },
+                                        "pageToken": {
+                                            "description": "A token identifying a page of results the server should return.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "parent": {
+                                            "description": "The name of the level whose spaces we would like to list.\nbuildings/*/levels/*",
+                                            "location": "path",
+                                            "pattern": "^buildings/[^/]+/levels/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/{+parent}/spaces",
+                                    "response": {
+                                        "$ref": "ListSpacesResponse"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/userinfo.email"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "portals": {
+                    "methods": {
+                        "list": {
+                            "description": "Get all of the openings (doors and open spaces between hallways).",
+                            "flatPath": "v1/buildings/{buildingsId}/portals",
+                            "httpMethod": "GET",
+                            "id": "spatialanalytics.buildings.portals.list",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "getAsLatLng": {
+                                    "description": "Whether the coordinates are returned as lat/lng instead of in drawing\nunits.",
+                                    "location": "query",
+                                    "type": "boolean"
+                                },
+                                "parent": {
+                                    "description": "The name of the building whose portals we would like to list.\nNeeds to be in the format of buildings/* (e.g. buildings/US-NYC-9TH)",
+                                    "location": "path",
+                                    "pattern": "^buildings/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/portals",
+                            "response": {
+                                "$ref": "ListPortalsResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.email"
+                            ]
+                        }
+                    }
+                },
+                "spaceclasses": {
+                    "methods": {
+                        "list": {
+                            "description": "Get all of the distinct space classes for a building.",
+                            "flatPath": "v1/buildings/{buildingsId}/spaceclasses",
+                            "httpMethod": "GET",
+                            "id": "spatialanalytics.buildings.spaceclasses.list",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "The name of the building whose space classes we would like to list.\nbuildings/*",
+                                    "location": "path",
+                                    "pattern": "^buildings/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/spaceclasses",
+                            "response": {
+                                "$ref": "ListSpaceClassesResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.email"
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "dataformatter": {
+            "methods": {
+                "copyblocks": {
+                    "description": "Copy the blocks and unblocks between versions.",
+                    "flatPath": "v1/dataformatter:copyblocks",
+                    "httpMethod": "POST",
+                    "id": "spatialanalytics.dataformatter.copyblocks",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/dataformatter:copyblocks",
+                    "request": {
+                        "$ref": "CopyBlocksRequest"
+                    },
+                    "response": {
+                        "$ref": "CopyBlocksResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "createBuildingData": {
+                    "description": "Creates a building data patch for the specified building, version, and\nissue Id.",
+                    "flatPath": "v1/dataformatter:createBuildingData",
+                    "httpMethod": "POST",
+                    "id": "spatialanalytics.dataformatter.createBuildingData",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/dataformatter:createBuildingData",
+                    "request": {
+                        "$ref": "CreateBuildingDataRequest"
+                    },
+                    "response": {
+                        "$ref": "CreateBuildingDataResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "finalizeFormatting": {
+                    "description": "Finish the formatting of a building and export it to the visibility graph.",
+                    "flatPath": "v1/dataformatter:finalizeFormatting",
+                    "httpMethod": "POST",
+                    "id": "spatialanalytics.dataformatter.finalizeFormatting",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/dataformatter:finalizeFormatting",
+                    "request": {
+                        "$ref": "FinalizeFormattingRequest"
+                    },
+                    "response": {
+                        "$ref": "FinalizeFormattingResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                }
+            }
+        },
+        "routes": {
+            "methods": {
+                "find": {
+                    "description": "Request for finding a route",
+                    "flatPath": "v1/routes:find",
+                    "httpMethod": "POST",
+                    "id": "spatialanalytics.routes.find",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/routes:find",
+                    "request": {
+                        "$ref": "FindRouteRequest"
+                    },
+                    "response": {
+                        "$ref": "FindRouteResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                }
+            }
+        },
+        "usertasks": {
+            "methods": {
+                "listUserTasks": {
+                    "description": "Get the list of Floorsweeper tasks that a user has pending.",
+                    "flatPath": "v1/usertasks/{usertasksId}",
+                    "httpMethod": "GET",
+                    "id": "spatialanalytics.usertasks.listUserTasks",
+                    "parameterOrder": [
+                        "username"
+                    ],
+                    "parameters": {
+                        "username": {
+                            "description": "The username (without @google.com) to get tasks for.",
+                            "location": "path",
+                            "pattern": "^[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/usertasks/{+username}",
+                    "response": {
+                        "$ref": "ListUserTasksResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                }
+            }
+        },
+        "v1": {
+            "methods": {
+                "ping": {
+                    "description": "Public ping for testing.",
+                    "flatPath": "v1/ping",
+                    "httpMethod": "GET",
+                    "id": "spatialanalytics.ping",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "name": {
+                            "description": "Send a name inwards, to test.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/ping",
+                    "response": {
+                        "$ref": "PingResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                }
+            }
+        },
+        "validatedbuildings": {
+            "methods": {
+                "list": {
+                    "description": "Request to list all production ready visibiliy graphs",
+                    "flatPath": "v1/validatedbuildings",
+                    "httpMethod": "GET",
+                    "id": "spatialanalytics.validatedbuildings.list",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/validatedbuildings",
+                    "response": {
+                        "$ref": "ValidatedBuildingsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                }
+            }
+        },
+        "visibilitygraph": {
+            "methods": {
+                "debug": {
+                    "description": "Return a JSON blob containing debug info for the specified floor.",
+                    "flatPath": "v1/visibilitygraph:debug",
+                    "httpMethod": "POST",
+                    "id": "spatialanalytics.visibilitygraph.debug",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/visibilitygraph:debug",
+                    "request": {
+                        "$ref": "DebugGraphRequest"
+                    },
+                    "response": {
+                        "$ref": "DebugGraphResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "getXTransform": {
+                    "description": "Gets the transformation matrix that can be used to convert inches into\nlat / lng coordinates.",
+                    "flatPath": "v1/visibilitygraph:getXTransform",
+                    "httpMethod": "POST",
+                    "id": "spatialanalytics.visibilitygraph.getXTransform",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/visibilitygraph:getXTransform",
+                    "request": {
+                        "$ref": "XTransformRequest"
+                    },
+                    "response": {
+                        "$ref": "XTransformResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "loadBuilding": {
+                    "description": "Loads a building and its graph from storage and puts it into memory.\nA building graph must be loaded before analysis can be performed on it.",
+                    "flatPath": "v1/visibilitygraph:loadBuilding",
+                    "httpMethod": "POST",
+                    "id": "spatialanalytics.visibilitygraph.loadBuilding",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/visibilitygraph:loadBuilding",
+                    "request": {
+                        "$ref": "LoadBuildingRequest"
+                    },
+                    "response": {
+                        "$ref": "LoadBuildingResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "loadBuildings": {
+                    "description": "Loads multiple buildings at a time",
+                    "flatPath": "v1/visibilitygraph:loadBuildings",
+                    "httpMethod": "POST",
+                    "id": "spatialanalytics.visibilitygraph.loadBuildings",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/visibilitygraph:loadBuildings",
+                    "request": {
+                        "$ref": "LoadBuildingsRequest"
+                    },
+                    "response": {
+                        "$ref": "LoadBuildingResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "makeIsovists": {
+                    "description": "Request for isovist",
+                    "flatPath": "v1/visibilitygraph:makeIsovists",
+                    "httpMethod": "POST",
+                    "id": "spatialanalytics.visibilitygraph.makeIsovists",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/visibilitygraph:makeIsovists",
+                    "request": {
+                        "$ref": "CreateIsovistsRequest"
+                    },
+                    "response": {
+                        "$ref": "CreateIsovistsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "makeShortestPaths": {
+                    "description": "Request for shortest paths",
+                    "flatPath": "v1/visibilitygraph:makeShortestPaths",
+                    "httpMethod": "POST",
+                    "id": "spatialanalytics.visibilitygraph.makeShortestPaths",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/visibilitygraph:makeShortestPaths",
+                    "request": {
+                        "$ref": "CreateShortestPathsRequest"
+                    },
+                    "response": {
+                        "$ref": "CreateShortestPathsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "retrieveBulkShortestPathDistances": {
+                    "description": "Retrieves the results of the bulk shortest path distance calculation by\nScheduleBulkShortestPathDistances.",
+                    "flatPath": "v1/visibilitygraph:retrieveBulkShortestPathDistances",
+                    "httpMethod": "POST",
+                    "id": "spatialanalytics.visibilitygraph.retrieveBulkShortestPathDistances",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/visibilitygraph:retrieveBulkShortestPathDistances",
+                    "request": {
+                        "$ref": "RetrieveBulkShortestPathDistancesRequest"
+                    },
+                    "response": {
+                        "$ref": "RetrieveBulkShortestPathDistancesResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "scheduleBulkShortestPathDistances": {
+                    "description": "Initializes the calculation of shortest paths between all start and end\nlocations of a user specified type for a given building. The analysis\nresult will not be returned, but will be stored in the database. It can be\nretrieved via RetrieveBulkShortestPathDistances.",
+                    "flatPath": "v1/visibilitygraph:scheduleBulkShortestPathDistances",
+                    "httpMethod": "POST",
+                    "id": "spatialanalytics.visibilitygraph.scheduleBulkShortestPathDistances",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/visibilitygraph:scheduleBulkShortestPathDistances",
+                    "request": {
+                        "$ref": "ScheduleBulkShortestPathDistancesRequest"
+                    },
+                    "response": {
+                        "$ref": "ScheduleBulkShortestPathDistancesResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "validateBatch": {
+                    "description": "Check that a completed batch of bulk data has no failed edges, rooms\nform a fully connected graph, and all workspaces have edges to every room.\nRequirements for this came from integration with Optimus Time.",
+                    "flatPath": "v1/visibilitygraph:validateBatch",
+                    "httpMethod": "POST",
+                    "id": "spatialanalytics.visibilitygraph.validateBatch",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/visibilitygraph:validateBatch",
+                    "request": {
+                        "$ref": "ValidateBatchDataRequest"
+                    },
+                    "response": {
+                        "$ref": "ValidateBatchDataResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                }
+            }
+        }
+    },
+    "revision": "20190916",
+    "rootUrl": "https://test-spatialanalytics.sandbox.googleapis.com/",
+    "schemas": {
+        "AffineTransform": {
+            "description": "A 2D transformation matrix.",
+            "id": "AffineTransform",
+            "properties": {
+                "m00": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "m01": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "m02": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "m10": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "m11": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "m12": {
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "AffineTransformResponse": {
+            "id": "AffineTransformResponse",
+            "properties": {
+                "fullyQualifiedFloorName": {
+                    "type": "string"
+                },
+                "transform": {
+                    "$ref": "AffineTransform"
+                }
+            },
+            "type": "object"
+        },
+        "Block": {
+            "description": "A drawn unit to either block or unblock movement through an area.",
+            "id": "Block",
+            "properties": {
+                "blockType": {
+                    "description": "The kind of block this is.",
+                    "enum": [
+                        "BLOCKTYPE_UNKNOWN",
+                        "BLOCKTYPE_BLOCK",
+                        "BLOCKTYPE_UNBLOCK"
+                    ],
+                    "enumDescriptions": [
+                        "Undefined value.",
+                        "Block people movement through this block.",
+                        "Allow movement through this block."
+                    ],
+                    "type": "string"
+                },
+                "closed": {
+                    "description": "If this is a closed polygon or just a set of lines.",
+                    "type": "boolean"
+                },
+                "fullyQualifiedFloorname": {
+                    "description": "The floor that the block is on.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Unique block id",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "vertices": {
+                    "description": "Vertices that make up the block.",
+                    "items": {
+                        "$ref": "Point2D"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BlockedPixelsLevel": {
+            "id": "BlockedPixelsLevel",
+            "properties": {
+                "cellSize": {
+                    "description": "The square size of each cell, in drawing units (1 inch, following REWS\nstandards)",
+                    "format": "float",
+                    "type": "number"
+                },
+                "fullyQualifiedLevelName": {
+                    "description": "The level name {fully_qualified_building_name}-{floor_number}",
+                    "type": "string"
+                },
+                "grid": {
+                    "description": "The grid of cell states, encoded as a PNG.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "gridSizeX": {
+                    "description": "The number of cells on the X axis.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "gridSizeY": {
+                    "description": "The number of cells on the Y axis.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "levelIndex": {
+                    "description": "The zero indexed order of levels in a building",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "origin": {
+                    "$ref": "Point2D",
+                    "description": "The lower left coordinate of the grid in drawing units."
+                }
+            },
+            "type": "object"
+        },
+        "BlockedPixelsResponse": {
+            "id": "BlockedPixelsResponse",
+            "properties": {
+                "blockedPixels": {
+                    "description": "The png representing blocking geometry on each level of the building",
+                    "items": {
+                        "$ref": "BlockedPixelsLevel"
+                    },
+                    "type": "array"
+                },
+                "fullyQualifiedBuildingName": {
+                    "type": "string"
+                },
+                "status": {
+                    "$ref": "StatusCode"
+                }
+            },
+            "type": "object"
+        },
+        "BlockingLinesData": {
+            "description": "Blocking lines data",
+            "id": "BlockingLinesData",
+            "properties": {
+                "dxfLayerName": {
+                    "description": "The dxf layer name these lines are on.",
+                    "type": "string"
+                },
+                "lines": {
+                    "description": "The list of lines.",
+                    "items": {
+                        "$ref": "Line"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "The resource name of the area, in the form\n`buildingdata/{building_name}/issues/{issue_id}/versions/{version}/\n    levels/{level_id}/blockinglines/{blockinglines_id}`",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "BuildingDataPatch": {
+            "description": "Reflects the changes in the building data resulting from user edits on the\nFloorSweeper web frontend.",
+            "id": "BuildingDataPatch",
+            "properties": {
+                "blocks": {
+                    "description": "Blocks and unblocks",
+                    "items": {
+                        "$ref": "Block"
+                    },
+                    "type": "array"
+                },
+                "connectors": {
+                    "description": "Vertical connectors",
+                    "items": {
+                        "$ref": "Connector"
+                    },
+                    "type": "array"
+                },
+                "levelSpaceData": {
+                    "description": "The spaces to override. Empty if spaces are unchanged.",
+                    "items": {
+                        "$ref": "LevelSpaceData"
+                    },
+                    "type": "array"
+                },
+                "levels": {
+                    "description": "The building levels to override. Empty if levels are unchanged.",
+                    "items": {
+                        "$ref": "BuildingLevel"
+                    },
+                    "type": "array"
+                },
+                "securityDataBlockinstances": {
+                    "description": "Security drawing data labels.",
+                    "items": {
+                        "$ref": "SecurityDataBlockInstance"
+                    },
+                    "type": "array"
+                },
+                "securityDataBlocks": {
+                    "description": "Security drawing data labels.",
+                    "items": {
+                        "$ref": "SecurityDataBlock"
+                    },
+                    "type": "array"
+                },
+                "securityDataLabels": {
+                    "description": "Security drawing data labels.",
+                    "items": {
+                        "$ref": "SecurityDataLabel"
+                    },
+                    "type": "array"
+                },
+                "transformations": {
+                    "description": "The level transformations.",
+                    "items": {
+                        "$ref": "LevelPlanarRigidTransformation"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BuildingLevel": {
+            "id": "BuildingLevel",
+            "properties": {
+                "fullyQualifiedFloorname": {
+                    "description": "A unique floor ID in the form:\n{country_id}-{campus_code}-{building_code}-{floor_code}.",
+                    "type": "string"
+                },
+                "levelIndex": {
+                    "description": "The list index of the level.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "originalZValue": {
+                    "description": "The original z value from the raw input data.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "zIndex": {
+                    "description": "The z order.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "BuildingLevelInputLocation": {
+            "description": "The location inside a building, on a level.",
+            "id": "BuildingLevelInputLocation",
+            "properties": {
+                "buildingId": {
+                    "description": "Building id. e.g. \"DE-MUC-ARP\".",
+                    "type": "string"
+                },
+                "levelName": {
+                    "description": "Level name. e.g, \"5\" or \"16M\".",
+                    "type": "string"
+                },
+                "location": {
+                    "$ref": "LatLng",
+                    "description": "Exact geo location."
+                }
+            },
+            "type": "object"
+        },
+        "BuildingTask": {
+            "description": "The information needed to load a building in floorsweeper.",
+            "id": "BuildingTask",
+            "properties": {
+                "fullyQualifiedBuildingname": {
+                    "description": "The fully qualified building name, e.g. US-MTV-CYD1.",
+                    "type": "string"
+                },
+                "issueId": {
+                    "description": "The issue tracker ID for this task.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "state": {
+                    "description": "The status of the task",
+                    "enum": [
+                        "UNKNOWN",
+                        "NEW",
+                        "AUTO_FORMATTING_IN_PROGRESS",
+                        "AUTO_FORMATTED",
+                        "MANUALLY_FORMATTED",
+                        "ERROR"
+                    ],
+                    "enumDescriptions": [
+                        "Undefined value",
+                        "A new task just created.",
+                        "The auto formatter has claimed this and is working on it.",
+                        "The auto formater has completed.",
+                        "The last changes made to this were by a human.",
+                        "There was a fatal error processing this task."
+                    ],
+                    "type": "string"
+                },
+                "version": {
+                    "description": "The version of data for this task.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Connector": {
+            "description": "A vertical connection, containing one or more Connections per level.",
+            "id": "Connector",
+            "properties": {
+                "connections": {
+                    "description": "The connections to each floor.",
+                    "items": {
+                        "$ref": "FloorConnection"
+                    },
+                    "type": "array"
+                },
+                "connectorType": {
+                    "description": "The type of the connector (Lift, Stairs, etc.)",
+                    "enum": [
+                        "CONNECTORTYPE_UNKNOWN",
+                        "LIFT",
+                        "STAIRS",
+                        "RAMP"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "fullyQualifiedBuildingCode": {
+                    "description": "The fully qualified building name, e.g. US-MTV-CYD1.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CopyBlocksRequest": {
+            "id": "CopyBlocksRequest",
+            "properties": {
+                "fullyQualifiedBuildingname": {
+                    "description": "The building to copy blocks for.",
+                    "type": "string"
+                },
+                "issueIdFrom": {
+                    "format": "int64",
+                    "type": "string"
+                },
+                "issueIdTo": {
+                    "format": "int64",
+                    "type": "string"
+                },
+                "versionFrom": {
+                    "description": "The version and issue id to copy FROM.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "versionTo": {
+                    "description": "The version and issue id to copy TO.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CopyBlocksResponse": {
+            "id": "CopyBlocksResponse",
+            "properties": {
+                "statusMessage": {
+                    "$ref": "StatusCode",
+                    "description": "The status of if the copy was completed."
+                }
+            },
+            "type": "object"
+        },
+        "CreateBuildingDataRequest": {
+            "description": "Request message for VisibilitygraphService.CreateBuildingData.",
+            "id": "CreateBuildingDataRequest",
+            "properties": {
+                "fullyQualifiedBuildingname": {
+                    "description": "The fully qualified building name, e.g. US-MTV-CYD1.",
+                    "type": "string"
+                },
+                "issueId": {
+                    "description": "The id of the tracking buganizer issue.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "patch": {
+                    "$ref": "BuildingDataPatch",
+                    "description": "The data to patch."
+                },
+                "version": {
+                    "description": "The version of the formatting process.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CreateBuildingDataResponse": {
+            "description": "Response message for VisibilitygraphService.CreateBuildingData.",
+            "id": "CreateBuildingDataResponse",
+            "properties": {
+                "statusMessage": {
+                    "$ref": "StatusCode",
+                    "description": "A status message."
+                }
+            },
+            "type": "object"
+        },
+        "CreateIsovistsRequest": {
+            "description": "Request message for VisibilitygraphService.ScheduleIsovists.",
+            "id": "CreateIsovistsRequest",
+            "properties": {
+                "endAngle": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "graphType": {
+                    "description": "The type of graph to route on.\nIf not specified, the default of REACHABILITY will be used.",
+                    "enum": [
+                        "GRAPHTYPE_UNKNOWN",
+                        "GRAPHTYPE_REACHABILITY",
+                        "GRAPHTYPE_VISIBILITY"
+                    ],
+                    "enumDescriptions": [
+                        "Default",
+                        "Walking.  Blocking layer height is 0 and glass is blocking",
+                        "Visibility. Blocking layer height is 80\" and glass is transparent"
+                    ],
+                    "type": "string"
+                },
+                "origins": {
+                    "description": "The isovist origins",
+                    "items": {
+                        "$ref": "Location"
+                    },
+                    "type": "array"
+                },
+                "radius": {
+                    "description": "The maximum radius of the isovist, in drawing coordinates",
+                    "format": "double",
+                    "type": "number"
+                },
+                "segments": {
+                    "description": "Resolution of the isovist arc when unconstrained: the number corresponds\nto the number of arc segments for a full circle.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "startAngle": {
+                    "description": "The start and end angle restricting the field of view. If both start angle\nand end angle are set to 0, no angle restriction will be applied, i.e. a\n360 degree field of view will be applied. Start and end angles need to be\nin radians, from -PI to +PI, with 0 being a horizontal line extending into\npositive x direction.",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "CreateIsovistsResponse": {
+            "description": "Response message for VisibilitygraphService.ListIsovists",
+            "id": "CreateIsovistsResponse",
+            "properties": {
+                "isovists": {
+                    "description": "The list of isovists.",
+                    "items": {
+                        "$ref": "Isovist"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "A token to retrieve next page of results.\nPass this value in the ListIsovistsRequest.page_token\nfield in the subsequent call to `ListIsovists` method to retrieve the next\npage of results.",
+                    "type": "string"
+                },
+                "status": {
+                    "$ref": "StatusCode",
+                    "description": "Status. If RETRY the backend is not ready and the user may retry the\nrequest at a later stage."
+                }
+            },
+            "type": "object"
+        },
+        "CreateShortestPathsRequest": {
+            "description": "List of origins and their destinations for shortest path analysis.",
+            "id": "CreateShortestPathsRequest",
+            "properties": {
+                "getAsLatLng": {
+                    "description": "Whether the coordinates are treated as lat/lng instead of in drawing\nunits. If this is set to true, the returned path will be in lat/lng\nFurthermore, it expects the input origin and destination coordinates to\nbe provided in lat/lng as well, with the x coordinate being longitude and\nthe y coordinate being latitude.",
+                    "type": "boolean"
+                },
+                "graphType": {
+                    "description": "The type of graph to route on.\nIf not specified, the default of REACHABILITY will be used.",
+                    "enum": [
+                        "GRAPHTYPE_UNKNOWN",
+                        "GRAPHTYPE_REACHABILITY",
+                        "GRAPHTYPE_VISIBILITY"
+                    ],
+                    "enumDescriptions": [
+                        "Default",
+                        "Walking.  Blocking layer height is 0 and glass is blocking",
+                        "Visibility. Blocking layer height is 80\" and glass is transparent"
+                    ],
+                    "type": "string"
+                },
+                "origins": {
+                    "description": "The list of origins to process",
+                    "items": {
+                        "$ref": "OriginDestinations"
+                    },
+                    "type": "array"
+                },
+                "radius": {
+                    "description": "The optional radius, in drawing units. If <= 0, no radius limit will be\napplied to the analysis.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "routingOptions": {
+                    "$ref": "RoutingOptions",
+                    "description": "Additional options for routing."
+                },
+                "verticalConnectionsOptions": {
+                    "$ref": "VerticalConnectionsOptions",
+                    "description": "Routing options for vertical connections."
+                }
+            },
+            "type": "object"
+        },
+        "CreateShortestPathsResponse": {
+            "description": "Response message for VisibilitygraphService.ListShortestPaths.",
+            "id": "CreateShortestPathsResponse",
+            "properties": {
+                "asLatLng": {
+                    "description": "Whether the coordinates are returned in lat/lng instead of in drawing\nunits.",
+                    "type": "boolean"
+                },
+                "nextPageToken": {
+                    "description": "A token to retrieve next page of results.\nPass this value in the ListShortestPathsRequest.page_token\nfield in the subsequent call to `ListShortestPaths` method to retrieve the\nnext page of results.",
+                    "type": "string"
+                },
+                "paths": {
+                    "description": "The list of paths.",
+                    "items": {
+                        "$ref": "ShortestPath"
+                    },
+                    "type": "array"
+                },
+                "status": {
+                    "$ref": "StatusCode",
+                    "description": "Status. If RETRY the backend is not ready and the user may retry the\nrequest at a later stage."
+                }
+            },
+            "type": "object"
+        },
+        "DebugGraphRequest": {
+            "id": "DebugGraphRequest",
+            "properties": {
+                "fullyQualifiedFloorname": {
+                    "type": "string"
+                },
+                "graphType": {
+                    "description": "The type of graph to get debug info for.\nIf not specified, the default of REACHABILITY will be used.",
+                    "enum": [
+                        "GRAPHTYPE_UNKNOWN",
+                        "GRAPHTYPE_REACHABILITY",
+                        "GRAPHTYPE_VISIBILITY"
+                    ],
+                    "enumDescriptions": [
+                        "Default",
+                        "Walking.  Blocking layer height is 0 and glass is blocking",
+                        "Visibility. Blocking layer height is 80\" and glass is transparent"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DebugGraphResponse": {
+            "id": "DebugGraphResponse",
+            "properties": {
+                "debugInfo": {
+                    "type": "string"
+                },
+                "statusMessage": {
+                    "$ref": "StatusCode"
+                }
+            },
+            "type": "object"
+        },
+        "Door": {
+            "description": "Represents a door in a building by its center point.",
+            "id": "Door",
+            "properties": {
+                "fullyQualifiedFloorname": {
+                    "description": "A unique floor ID in the form:\n{country_id}-{campus_code}-{building_code}-{floor_code}.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "The door id unique within the building.",
+                    "type": "string"
+                },
+                "isEntry": {
+                    "description": "Whether this door is an external door.",
+                    "type": "boolean"
+                },
+                "point": {
+                    "$ref": "Point2D",
+                    "description": "The 2D point location."
+                }
+            },
+            "type": "object"
+        },
+        "ElevatorPreferences": {
+            "description": "User's transit preference for elevators.",
+            "id": "ElevatorPreferences",
+            "properties": {
+                "state": {
+                    "description": "Enum indicating the user's preference for elevators.",
+                    "enum": [
+                        "TRANSIT_MODE_STATE_UNSPECIFIED",
+                        "TRANSIT_MODE_STATE_PREFERRED",
+                        "TRANSIT_MODE_STATE_DISALLOWED"
+                    ],
+                    "enumDescriptions": [
+                        "User's transit preference for this method unknown.",
+                        "User's prefers this transit method.",
+                        "User's does not want this transit method."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ErrorStatus": {
+            "description": "The error code for a space.",
+            "id": "ErrorStatus",
+            "properties": {
+                "corruptPolygon": {
+                    "description": "The polygon was identified as corrupt.",
+                    "type": "boolean"
+                },
+                "noGeometry": {
+                    "description": "The space metadata from the Facilities API has no geometry.",
+                    "type": "boolean"
+                },
+                "noMetadata": {
+                    "description": "Space has no metadata from the Facilities API.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "FinalizeFormattingRequest": {
+            "description": "Request to publish a building to the visibility graph database.\nWhen a building starts to be formatted a buganizer issue is created for it\nand it is assigned a this buganizer issueId that is used to track the status\nand ownership of the process.  The version starts at 1 and is incremented\neach time either the user or the system updates the building data.  It is\ntracked as an attribute on the buganizer issue.  The buganizer component ID\nis 312853.",
+            "id": "FinalizeFormattingRequest",
+            "properties": {
+                "buildDoorGraph": {
+                    "description": "Whether to build the door graph as well as the visibility graph.\nNOTE: This will SUBSTANTIALLY increase the time (10x) to process.",
+                    "type": "boolean"
+                },
+                "fullyQualifiedBuildingname": {
+                    "description": "The fully qualified building name, e.g. US-MTV-CYD1.",
+                    "type": "string"
+                },
+                "issueId": {
+                    "description": "The id of the tracking buganizer issue.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "notifyEmail": {
+                    "description": "Status updates will be sent to this email if provided.",
+                    "type": "string"
+                },
+                "version": {
+                    "description": "The data version in the formatting process.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FinalizeFormattingResponse": {
+            "id": "FinalizeFormattingResponse",
+            "properties": {
+                "statusMessage": {
+                    "$ref": "StatusCode",
+                    "description": "A status message."
+                }
+            },
+            "type": "object"
+        },
+        "FindRouteRequest": {
+            "description": "The request to find routes between an origin and an destination.",
+            "id": "FindRouteRequest",
+            "properties": {
+                "destination": {
+                    "$ref": "InputLocation",
+                    "description": "The destination. Required."
+                },
+                "origin": {
+                    "$ref": "InputLocation",
+                    "description": "The origin. Required."
+                },
+                "transitPreferences": {
+                    "$ref": "TransitPreferences"
+                }
+            },
+            "type": "object"
+        },
+        "FindRouteResponse": {
+            "description": "The response for find routes between an origin and an destination. We will\nreturn more than one path and users can choose which one to use.",
+            "id": "FindRouteResponse",
+            "properties": {
+                "routes": {
+                    "description": "The different routes.",
+                    "items": {
+                        "$ref": "Route"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "FloorConnection": {
+            "description": "The extent of a \"Connector\" on a given building floor.",
+            "id": "FloorConnection",
+            "properties": {
+                "footprint": {
+                    "$ref": "Polygon",
+                    "description": "Outline on the given floor"
+                },
+                "fullyQualifiedRoomCode": {
+                    "description": "The space that this connection is part of.",
+                    "type": "string"
+                },
+                "levelIndex": {
+                    "description": "The floor index of the building.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FloorInformation": {
+            "description": "Basic information for a floor.",
+            "id": "FloorInformation",
+            "properties": {
+                "fullyQualifiedFloorId": {
+                    "description": "Fully qualified floor id. For different floor parts that are on the same\nfloor but in different towers, this will uniquely identify it.\ne.g. DE-MUC-ARP-4-4Z2.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FloorInputLocation": {
+            "description": "The location is inside a building.",
+            "id": "FloorInputLocation",
+            "properties": {
+                "fullyQualifiedFloorId": {
+                    "description": "Fully qualified floor id. For different floor parts that are on the same\nfloor but in different towers, this will uniquely identify it.\ne.g. DE-MUC-ARP-4-4Z2.",
+                    "type": "string"
+                },
+                "location": {
+                    "$ref": "LatLng",
+                    "description": "Exact geo location."
+                }
+            },
+            "type": "object"
+        },
+        "FloorResponse": {
+            "id": "FloorResponse",
+            "properties": {
+                "fullyQualifiedFloorName": {
+                    "type": "string"
+                },
+                "geoCoordinates": {
+                    "$ref": "PolygonLatLngResponse"
+                },
+                "levelIndex": {
+                    "description": "zero index leveling of all the floors, produced by SAM",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "levelZIndex": {
+                    "description": "one indexed leveling of all the floors, pulled from FacilitiesAPI",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "rewsPositions": {
+                    "$ref": "PolygonPoint2DResponse"
+                }
+            },
+            "type": "object"
+        },
+        "FloorplanLayer": {
+            "id": "FloorplanLayer",
+            "properties": {
+                "content": {
+                    "description": "The layer content, as a JSON string.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The resource name.",
+                    "type": "string"
+                },
+                "statusMessage": {
+                    "$ref": "StatusCode",
+                    "description": "A status message."
+                }
+            },
+            "type": "object"
+        },
+        "GeoSegment": {
+            "id": "GeoSegment",
+            "properties": {
+                "end": {
+                    "$ref": "LatLng"
+                },
+                "start": {
+                    "$ref": "LatLng"
+                }
+            },
+            "type": "object"
+        },
+        "InputLocation": {
+            "description": "The location indicating the origin and the destination.",
+            "id": "InputLocation",
+            "properties": {
+                "buildingLevelInputLocation": {
+                    "$ref": "BuildingLevelInputLocation",
+                    "description": "The location inside a building, on a level."
+                },
+                "floorInputLocation": {
+                    "$ref": "FloorInputLocation",
+                    "description": "The location inside a building."
+                }
+            },
+            "type": "object"
+        },
+        "Isovist": {
+            "description": "An isovist",
+            "id": "Isovist",
+            "properties": {
+                "origin": {
+                    "$ref": "Location",
+                    "description": "The origin location"
+                },
+                "polygon": {
+                    "description": "Polygon describing the isovist\nTODO(friedriche) consider a polygon proto.",
+                    "items": {
+                        "$ref": "Point2D"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "LatLng": {
+            "description": "An object representing a latitude/longitude pair. This is expressed as a pair\nof doubles representing degrees latitude and degrees longitude. Unless\nspecified otherwise, this must conform to the\n<a href=\"http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf\">WGS84\nstandard</a>. Values must be within normalized ranges.",
+            "id": "LatLng",
+            "properties": {
+                "latitude": {
+                    "description": "The latitude in degrees. It must be in the range [-90.0, +90.0].",
+                    "format": "double",
+                    "type": "number"
+                },
+                "longitude": {
+                    "description": "The longitude in degrees. It must be in the range [-180.0, +180.0].",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "LevelEdge": {
+            "id": "LevelEdge",
+            "properties": {
+                "id1": {
+                    "description": "the two node ids that form the edge",
+                    "type": "string"
+                },
+                "id2": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "LevelGrossArea": {
+            "description": "A polygon describing (one of) the level gross area polygon for a floor.",
+            "id": "LevelGrossArea",
+            "properties": {
+                "maxX": {
+                    "description": "The maximum x value of the bounding box.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "maxY": {
+                    "description": "The maximum y value of the bounding box.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "minX": {
+                    "description": "The minimum x value of the bounding box.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "minY": {
+                    "description": "The minimum y value of the bounding box.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "name": {
+                    "description": "The resource name of the area, in the form\n`buildingdata/{building_name}/issues/{issue_id}/versions/{version}/\n    levels/{level_id}/grossareas/{grossarea_id}`",
+                    "type": "string"
+                },
+                "vertices": {
+                    "description": "The vertices of the polygon.",
+                    "items": {
+                        "$ref": "Point2D"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "LevelPlanarRigidTransformation": {
+            "id": "LevelPlanarRigidTransformation",
+            "properties": {
+                "fullyQualifiedFloorname": {
+                    "description": "The fully qualified floor name.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The resource name of the area, in the form\n`buildingdata/{building_name}/issues/{issue_id}/versions/{version}/\n    levels/{level_id}/transformations/{transformation_id}`",
+                    "type": "string"
+                },
+                "transformation": {
+                    "$ref": "PlanarRigidTransformation",
+                    "description": "The transformation."
+                }
+            },
+            "type": "object"
+        },
+        "LevelPortals": {
+            "id": "LevelPortals",
+            "properties": {
+                "fullyQualifiedFloorname": {
+                    "description": "The floor name for all of the attached portals (e.g US-NYC-9TH-1).",
+                    "type": "string"
+                },
+                "portals": {
+                    "description": "All of the identified Portals (open segments between spaces).",
+                    "items": {
+                        "$ref": "Portal"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "LevelSecurityData": {
+            "description": "Security drawing data for one level and one drawing layer.",
+            "id": "LevelSecurityData",
+            "properties": {
+                "data": {
+                    "description": "The security data (a JsonObject string) of one dxf layer.",
+                    "type": "string"
+                },
+                "layerName": {
+                    "description": "The layer name.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "LevelSpaceData": {
+            "description": "Space data for one level.",
+            "id": "LevelSpaceData",
+            "properties": {
+                "levelIndex": {
+                    "description": "The level array index.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "spaceData": {
+                    "description": "The space data.",
+                    "items": {
+                        "$ref": "SpaceData"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Line": {
+            "description": "A line defined by 2 points.",
+            "id": "Line",
+            "properties": {
+                "end": {
+                    "$ref": "Point2D"
+                },
+                "start": {
+                    "$ref": "Point2D"
+                }
+            },
+            "type": "object"
+        },
+        "ListBlockedCellsResponse": {
+            "id": "ListBlockedCellsResponse",
+            "properties": {
+                "cellSize": {
+                    "description": "The square size of each cell, in drawing units.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "grid": {
+                    "description": "The grid of cell states, encoded as a PNG.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "gridSizeX": {
+                    "description": "The number of cells on the X axis.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "gridSizeY": {
+                    "description": "The number of cells on the Y axis.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "origin": {
+                    "$ref": "Point2D",
+                    "description": "The lower left coordinate of the grid in drawing units."
+                },
+                "statusMessage": {
+                    "$ref": "StatusCode",
+                    "description": "A status message."
+                }
+            },
+            "type": "object"
+        },
+        "ListBlockingLinesDataResponse": {
+            "id": "ListBlockingLinesDataResponse",
+            "properties": {
+                "blockinglinesData": {
+                    "description": "The list of blocking lines.",
+                    "items": {
+                        "$ref": "BlockingLinesData"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "A token to retrieve next page of results.",
+                    "type": "string"
+                },
+                "statusMessage": {
+                    "$ref": "StatusCode",
+                    "description": "A status message."
+                }
+            },
+            "type": "object"
+        },
+        "ListBlocksAndUnblocksResponse": {
+            "id": "ListBlocksAndUnblocksResponse",
+            "properties": {
+                "blocks": {
+                    "description": "The blocks and unblocks.",
+                    "items": {
+                        "$ref": "Block"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "A token to retrieve next page of results.",
+                    "type": "string"
+                },
+                "statusMessage": {
+                    "$ref": "StatusCode",
+                    "description": "A status message."
+                }
+            },
+            "type": "object"
+        },
+        "ListBuildingLevelDataResponse": {
+            "description": "Response message for VisibilitygraphService.ListLevelData.",
+            "id": "ListBuildingLevelDataResponse",
+            "properties": {
+                "buildingLevels": {
+                    "description": "The list of spaces",
+                    "items": {
+                        "$ref": "BuildingLevel"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "The next page token",
+                    "type": "string"
+                },
+                "statusMessage": {
+                    "$ref": "StatusCode",
+                    "description": "A status message."
+                }
+            },
+            "type": "object"
+        },
+        "ListConnectorResponse": {
+            "id": "ListConnectorResponse",
+            "properties": {
+                "connectors": {
+                    "items": {
+                        "$ref": "Connector"
+                    },
+                    "type": "array"
+                },
+                "statusMessage": {
+                    "$ref": "StatusCode"
+                }
+            },
+            "type": "object"
+        },
+        "ListConnectorsResponse": {
+            "id": "ListConnectorsResponse",
+            "properties": {
+                "connectors": {
+                    "description": "The list of space connectors.",
+                    "items": {
+                        "$ref": "Connector"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "A token to retrieve next page of results.",
+                    "type": "string"
+                },
+                "statusMessage": {
+                    "$ref": "StatusCode",
+                    "description": "A status message."
+                }
+            },
+            "type": "object"
+        },
+        "ListExternalDoorsResponse": {
+            "id": "ListExternalDoorsResponse",
+            "properties": {
+                "asLatLng": {
+                    "description": "Whether the coordinates are returned in lat/lng instead of in drawing\nunits.",
+                    "type": "boolean"
+                },
+                "externalDoors": {
+                    "description": "The list of external doors.",
+                    "items": {
+                        "$ref": "Door"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "A token to retrieve next page of results.",
+                    "type": "string"
+                },
+                "statusMessage": {
+                    "$ref": "StatusCode",
+                    "description": "A status message."
+                }
+            },
+            "type": "object"
+        },
+        "ListFloorplanLayerNamesResponse": {
+            "id": "ListFloorplanLayerNamesResponse",
+            "properties": {
+                "layerNames": {
+                    "description": "The list of floorplan resource names, in the format\nbuilding/floor/drawing/layername, e.g.\n\"US-SVL-TC1/US-SVL-TC1-2/ABSVLTC1F2/S-COLS\"",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "A token to retrieve next page of results.",
+                    "type": "string"
+                },
+                "statusMessage": {
+                    "$ref": "StatusCode",
+                    "description": "A status message."
+                }
+            },
+            "type": "object"
+        },
+        "ListLevelGrossAreasResponse": {
+            "id": "ListLevelGrossAreasResponse",
+            "properties": {
+                "levelGrossArea": {
+                    "$ref": "LevelGrossArea",
+                    "description": "The gross area."
+                },
+                "statusMessage": {
+                    "$ref": "StatusCode",
+                    "description": "A status message."
+                }
+            },
+            "type": "object"
+        },
+        "ListLevelTransformationsResponse": {
+            "id": "ListLevelTransformationsResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "A token to retrieve next page of results.",
+                    "type": "string"
+                },
+                "statusMessage": {
+                    "$ref": "StatusCode",
+                    "description": "A status message."
+                },
+                "transformations": {
+                    "description": "The list of transformations.",
+                    "items": {
+                        "$ref": "LevelPlanarRigidTransformation"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListPortalsResponse": {
+            "id": "ListPortalsResponse",
+            "properties": {
+                "levelPortals": {
+                    "items": {
+                        "$ref": "LevelPortals"
+                    },
+                    "type": "array"
+                },
+                "statusMessage": {
+                    "$ref": "StatusCode"
+                }
+            },
+            "type": "object"
+        },
+        "ListSecurityBlockDataResponse": {
+            "id": "ListSecurityBlockDataResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "A token to retrieve next page of results.",
+                    "type": "string"
+                },
+                "securityBlocks": {
+                    "description": "The security blocks.",
+                    "items": {
+                        "$ref": "SecurityDataBlock"
+                    },
+                    "type": "array"
+                },
+                "statusMessage": {
+                    "$ref": "StatusCode",
+                    "description": "A status message."
+                }
+            },
+            "type": "object"
+        },
+        "ListSecurityBlockInstanceDataResponse": {
+            "id": "ListSecurityBlockInstanceDataResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "A token to retrieve next page of results.",
+                    "type": "string"
+                },
+                "securityBlockInstances": {
+                    "description": "The security block instances.",
+                    "items": {
+                        "$ref": "SecurityDataBlockInstance"
+                    },
+                    "type": "array"
+                },
+                "statusMessage": {
+                    "$ref": "StatusCode",
+                    "description": "A status message."
+                }
+            },
+            "type": "object"
+        },
+        "ListSecurityDataResponse": {
+            "id": "ListSecurityDataResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "A token to retrieve next page of results.",
+                    "type": "string"
+                },
+                "securityData": {
+                    "description": "The security Json drawing layers.",
+                    "items": {
+                        "$ref": "LevelSecurityData"
+                    },
+                    "type": "array"
+                },
+                "statusMessage": {
+                    "$ref": "StatusCode",
+                    "description": "A status message."
+                }
+            },
+            "type": "object"
+        },
+        "ListSecurityLabelDataResponse": {
+            "id": "ListSecurityLabelDataResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "A token to retrieve next page of results.",
+                    "type": "string"
+                },
+                "securityLabels": {
+                    "description": "The security labels.",
+                    "items": {
+                        "$ref": "SecurityDataLabel"
+                    },
+                    "type": "array"
+                },
+                "statusMessage": {
+                    "$ref": "StatusCode",
+                    "description": "A status message."
+                }
+            },
+            "type": "object"
+        },
+        "ListSpaceClassesResponse": {
+            "id": "ListSpaceClassesResponse",
+            "properties": {
+                "classes": {
+                    "description": "Information about the space classes for this building",
+                    "items": {
+                        "$ref": "SpaceClassInfo"
+                    },
+                    "type": "array"
+                },
+                "statusMessage": {
+                    "$ref": "StatusCode",
+                    "description": "Status of the request"
+                }
+            },
+            "type": "object"
+        },
+        "ListSpaceDataResponse": {
+            "id": "ListSpaceDataResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "A token to retrieve next page of results.",
+                    "type": "string"
+                },
+                "spaceData": {
+                    "description": "The list of spaces.",
+                    "items": {
+                        "$ref": "SpaceData"
+                    },
+                    "type": "array"
+                },
+                "statusMessage": {
+                    "$ref": "StatusCode",
+                    "description": "A status message."
+                }
+            },
+            "type": "object"
+        },
+        "ListSpaceEdgesResponse": {
+            "id": "ListSpaceEdgesResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "A token to retrieve next page of results.",
+                    "type": "string"
+                },
+                "spaceEdges": {
+                    "description": "The list of space edges.",
+                    "items": {
+                        "$ref": "SpaceEdge"
+                    },
+                    "type": "array"
+                },
+                "statusMessage": {
+                    "$ref": "StatusCode",
+                    "description": "A status message."
+                }
+            },
+            "type": "object"
+        },
+        "ListSpacesResponse": {
+            "id": "ListSpacesResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "A token to retrieve next page of results.",
+                    "type": "string"
+                },
+                "spaces": {
+                    "description": "The list of spaces.",
+                    "items": {
+                        "$ref": "Space"
+                    },
+                    "type": "array"
+                },
+                "statusMessage": {
+                    "$ref": "StatusCode",
+                    "description": "A status message."
+                }
+            },
+            "type": "object"
+        },
+        "ListUserTasksResponse": {
+            "description": "Response message containing all of the tasks for the specified user.",
+            "id": "ListUserTasksResponse",
+            "properties": {
+                "statusMessage": {
+                    "$ref": "StatusCode",
+                    "description": "Status message for the response"
+                },
+                "tasks": {
+                    "description": "All of the active tasks for the given user",
+                    "items": {
+                        "$ref": "BuildingTask"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "LoadBuildingRequest": {
+            "description": "Request message for VisibilitygraphService.LoadBuilding.",
+            "id": "LoadBuildingRequest",
+            "properties": {
+                "fullyQualifiedBuildingname": {
+                    "description": "The fully qualified building name",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "LoadBuildingResponse": {
+            "description": "Response message for VisibilitygraphService.LoadBuilding.",
+            "id": "LoadBuildingResponse",
+            "properties": {
+                "statusMessage": {
+                    "$ref": "StatusCode",
+                    "description": "Status of the handling of the request"
+                }
+            },
+            "type": "object"
+        },
+        "LoadBuildingsRequest": {
+            "id": "LoadBuildingsRequest",
+            "properties": {
+                "buildingNames": {
+                    "items": {
+                        "$ref": "LoadBuildingRequest"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Location": {
+            "description": "A 2D location on a floorplan.",
+            "id": "Location",
+            "properties": {
+                "fullyQualifiedFloorname": {
+                    "description": "A unique floor ID in the form:\n{country_id}-{campus_code}-{building_code}-{floor_code}.",
+                    "type": "string"
+                },
+                "fullyQualifiedName": {
+                    "description": "Optionally and if available: The fully qualified room name in the form:\n{country_id}-{campus_code}-{building_code}-{floor_code}-{room_code}. This\nis a human readable ID where {country_id} typically matches ISO 3166-1\nalpha-2 country code (United Kingdom is most prominent exception using \u2018UK\u2019\ninstead of \u2018GB\u2019 mandated by ISO).",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A name or id, should be unique within the request",
+                    "type": "string"
+                },
+                "point": {
+                    "$ref": "Point2D",
+                    "description": "The 2D point location."
+                }
+            },
+            "type": "object"
+        },
+        "NodeResponse": {
+            "id": "NodeResponse",
+            "properties": {
+                "geoCoordinates": {
+                    "$ref": "LatLng"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "levelIndex": {
+                    "description": "maps to the floors represented as level indices",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "nextNodeId": {
+                    "type": "string"
+                },
+                "prevNodeId": {
+                    "description": "connected nodes in a polygon",
+                    "type": "string"
+                },
+                "rewsPosition": {
+                    "$ref": "Point2D"
+                }
+            },
+            "type": "object"
+        },
+        "OriginDestinations": {
+            "description": "An origin for shortest path analysis.",
+            "id": "OriginDestinations",
+            "properties": {
+                "destinations": {
+                    "description": "The list of destinations",
+                    "items": {
+                        "$ref": "Location"
+                    },
+                    "type": "array"
+                },
+                "origin": {
+                    "$ref": "Location",
+                    "description": "The origin location"
+                }
+            },
+            "type": "object"
+        },
+        "PathPoint": {
+            "description": "Each path point on the route step.",
+            "id": "PathPoint",
+            "properties": {
+                "floor": {
+                    "$ref": "FloorInformation",
+                    "description": "optional, since this point may be outside a building."
+                },
+                "location": {
+                    "$ref": "LatLng",
+                    "description": "The point's geo location."
+                }
+            },
+            "type": "object"
+        },
+        "PingResponse": {
+            "description": "Trial ping response",
+            "id": "PingResponse",
+            "properties": {
+                "msg": {
+                    "description": "Send a message outwards, to test.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PlanarRigidTransformation": {
+            "description": "Planar rigid transformation for one level.",
+            "id": "PlanarRigidTransformation",
+            "properties": {
+                "discrepancy": {
+                    "description": "The remaining discrepancy after floors were aligned (a measure of\nconfidence of this transformation).",
+                    "format": "double",
+                    "type": "number"
+                },
+                "phi": {
+                    "description": "The angle of the rotation.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "shift": {
+                    "$ref": "Point2D",
+                    "description": "The 2D shift."
+                }
+            },
+            "type": "object"
+        },
+        "Point2D": {
+            "description": "A 2D point. Coordinate system is the Tririga dxf coordinate system of the\nbuilding under analysis.",
+            "id": "Point2D",
+            "properties": {
+                "x": {
+                    "description": "The X coordinate of the point.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "y": {
+                    "description": "The Y coordinate of the point.",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "Polygon": {
+            "id": "Polygon",
+            "properties": {
+                "vertices": {
+                    "items": {
+                        "$ref": "Point2D"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "PolygonLatLngResponse": {
+            "id": "PolygonLatLngResponse",
+            "properties": {
+                "vertex": {
+                    "items": {
+                        "$ref": "LatLng"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "PolygonPoint2DResponse": {
+            "id": "PolygonPoint2DResponse",
+            "properties": {
+                "vertex": {
+                    "items": {
+                        "$ref": "Point2D"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Portal": {
+            "id": "Portal",
+            "properties": {
+                "geoSegment": {
+                    "$ref": "GeoSegment"
+                },
+                "rewsSegment": {
+                    "$ref": "RewsSegment"
+                },
+                "spaceIds": {
+                    "description": "Will contain either one or two space ids, depending on whether this is\nan external portal (building door) or a portal between spaces.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "RetrieveBulkShortestPathDistancesRequest": {
+            "id": "RetrieveBulkShortestPathDistancesRequest",
+            "properties": {
+                "pageSize": {
+                    "description": "Requested page size.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "pageToken": {
+                    "description": "A token identifying a page of results the server should return.",
+                    "type": "string"
+                },
+                "requestUuid": {
+                    "description": "The unique id generated by ScheduleBulkShortestPathDistances.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RetrieveBulkShortestPathDistancesResponse": {
+            "id": "RetrieveBulkShortestPathDistancesResponse",
+            "properties": {
+                "expectedNumberPaths": {
+                    "description": "The total number of paths expected to be generated by this analysis.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "maxPathIndex": {
+                    "description": "The maximum path index encountered for this batch. Can be used to find out\nwhether the analysis has been completed, by comparison with\nnumber_expected_paths.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "nextPageToken": {
+                    "description": "A token to retrieve next page of results.",
+                    "type": "string"
+                },
+                "paths": {
+                    "description": "A list of shortest paths.",
+                    "items": {
+                        "$ref": "ShortestPath"
+                    },
+                    "type": "array"
+                },
+                "statusMessage": {
+                    "$ref": "StatusCode",
+                    "description": "A status message."
+                }
+            },
+            "type": "object"
+        },
+        "RewsSegment": {
+            "id": "RewsSegment",
+            "properties": {
+                "end": {
+                    "$ref": "Point2D"
+                },
+                "start": {
+                    "$ref": "Point2D"
+                }
+            },
+            "type": "object"
+        },
+        "Route": {
+            "description": "The overall route. It can have more than one step with each step using one\ntransit method (Walking, stairway, elevators etc.).",
+            "id": "Route",
+            "properties": {
+                "durationInSecond": {
+                    "description": "The total duration for this route in seconds, round up to 60 if less than\n60.",
+                    "format": "google-duration",
+                    "type": "string"
+                },
+                "horizontalLengthInMeter": {
+                    "description": "The total length in meters for this route.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "steps": {
+                    "description": "The steps of the route.",
+                    "items": {
+                        "$ref": "Step"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "RoutingOptions": {
+            "id": "RoutingOptions",
+            "properties": {
+                "routingType": {
+                    "description": "Visibility graph or door graph? Visibility graph is the default.",
+                    "enum": [
+                        "VIA_VISIBILITY_GRAPH"
+                    ],
+                    "enumDescriptions": [
+                        "Uses the visibility graph for routing. This is the default."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ScheduleBulkShortestPathDistancesRequest": {
+            "id": "ScheduleBulkShortestPathDistancesRequest",
+            "properties": {
+                "destinationSpaceClasses": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "disallowLifts": {
+                    "description": "Whether to not route via lifts.",
+                    "type": "boolean"
+                },
+                "disallowStairs": {
+                    "description": "Whether to not route via stairs.",
+                    "type": "boolean"
+                },
+                "discardPathGeometry": {
+                    "description": "Whether the geometry of the shortest path will be discarded and not saved\nwith the output dataset.",
+                    "type": "boolean"
+                },
+                "floorsweeperIssueId": {
+                    "description": "An optional buganizer ticket to update when batch job completes.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "fullyQualifiedBuildingname": {
+                    "type": "string"
+                },
+                "graphType": {
+                    "description": "The type of graph to route on.\nIf not specified, the default of REACHABILITY will be used.",
+                    "enum": [
+                        "GRAPHTYPE_UNKNOWN",
+                        "GRAPHTYPE_REACHABILITY",
+                        "GRAPHTYPE_VISIBILITY"
+                    ],
+                    "enumDescriptions": [
+                        "Default",
+                        "Walking.  Blocking layer height is 0 and glass is blocking",
+                        "Visibility. Blocking layer height is 80\" and glass is transparent"
+                    ],
+                    "type": "string"
+                },
+                "maxNumberLevelChangesStairs": {
+                    "description": "The maximum number of level changes for a given staircase (if more level\nchanges are needed, a lift will be taken instead). The default is 2. Note,\n0 is not a valid option, in this case, the default will be used.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "notifyEmail": {
+                    "description": "An optional email to notify when the batch job completes.",
+                    "type": "string"
+                },
+                "originSpaceClasses": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "routeFromBuildingEntrances": {
+                    "type": "boolean"
+                },
+                "routeToBuildingEntrances": {
+                    "type": "boolean"
+                },
+                "timePerLevelLiftMs": {
+                    "description": "The average time a lift takes to climb / descend one level, in ms.\nThe default is 1800. Note, 0 is not a valid option, in this case, the\ndefault will be used.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "timePerLevelStairsMs": {
+                    "description": "The average time a person takes to climb / descend one level on stairs,\nin ms. The default is 15000. Note, 0 is not a valid option, in this case,\nthe default will be used.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "waitingTimeEnteringLiftMs": {
+                    "description": "The average waiting time for getting on a lift, in milliseconds. The\ndefault is 21000. Note, 0 is not a valid option, in this case, the default\nwill be used.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "ScheduleBulkShortestPathDistancesResponse": {
+            "id": "ScheduleBulkShortestPathDistancesResponse",
+            "properties": {
+                "requestUuid": {
+                    "description": "The unique id by which to retrieve the result once it has processed.",
+                    "type": "string"
+                },
+                "statusMessage": {
+                    "$ref": "StatusCode",
+                    "description": "A status message."
+                }
+            },
+            "type": "object"
+        },
+        "SecurityDataBlock": {
+            "description": "Security drawing data blocks for one level.",
+            "id": "SecurityDataBlock",
+            "properties": {
+                "blockName": {
+                    "description": "The dxf block name.",
+                    "type": "string"
+                },
+                "drawing": {
+                    "description": "The drawing, as a Json dxf string.",
+                    "type": "string"
+                },
+                "fullyQualifiedFloorname": {
+                    "description": "The fully qualified floor name.",
+                    "type": "string"
+                },
+                "labelPrefix": {
+                    "description": "The prefix of a label group, if associated to one.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The resource name of the security drawing data, in the form\n`buildingdata/{building_name}/issues/{issue_id}/versions/{version}/\n    levels/{level_id}/securitydatablocks/{securitydatablock_id}`",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SecurityDataBlockInstance": {
+            "description": "Security drawing data block instances for one level.",
+            "id": "SecurityDataBlockInstance",
+            "properties": {
+                "angle": {
+                    "description": "The angle of rotation.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "blockName": {
+                    "description": "The block name of the security data block it inherits from.",
+                    "type": "string"
+                },
+                "fullyQualifiedFloorname": {
+                    "description": "The fully qualified floor name.",
+                    "type": "string"
+                },
+                "label": {
+                    "description": "The security data label, if associated to one.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The resource name of the security drawing data, in the form\n`buildingdata/{building_name}/issues/{issue_id}/versions/{version}/\n    levels/{level_id}/securitydatablockinstances/\n    {securitydatablockinstance_id}`",
+                    "type": "string"
+                },
+                "position": {
+                    "$ref": "Point2D",
+                    "description": "The position."
+                },
+                "xScale": {
+                    "description": "Scale in x direction.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "yScale": {
+                    "description": "Scale in y direction.",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "SecurityDataLabel": {
+            "description": "Security drawing data labels for one level.",
+            "id": "SecurityDataLabel",
+            "properties": {
+                "fullyQualifiedFloorname": {
+                    "description": "The fully qualified floor name.",
+                    "type": "string"
+                },
+                "label": {
+                    "description": "The full label string.",
+                    "type": "string"
+                },
+                "labelPrefix": {
+                    "description": "The label prefix.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The resource name of the security drawing data, in the form\n`buildingdata/{building_name}/issues/{issue_id}/versions/{version}/\n    levels/{level_id}/securitydatalabels/{securitydatalabel_id}`",
+                    "type": "string"
+                },
+                "position": {
+                    "$ref": "Point2D",
+                    "description": "The position."
+                }
+            },
+            "type": "object"
+        },
+        "ShortestPath": {
+            "description": "A shortest path.",
+            "id": "ShortestPath",
+            "properties": {
+                "destination": {
+                    "$ref": "Location",
+                    "description": "The destination location"
+                },
+                "hasFailed": {
+                    "description": "Whether processing this path has failed.",
+                    "type": "boolean"
+                },
+                "length": {
+                    "description": "The horizontal path length in inches.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "numberLevelChangesOnLifts": {
+                    "description": "How many levels are climbed or descended using a lift",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "numberLevelChangesOnStairs": {
+                    "description": "How many levels are climbed or descended using stairs",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "numberLiftsTaken": {
+                    "description": "How many distinct lifts are on this path",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "numberStairsTaken": {
+                    "description": "How many distinct stairs are on this path",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "origin": {
+                    "$ref": "Location",
+                    "description": "The origin location"
+                },
+                "wayPoints": {
+                    "description": "The list of waypoints",
+                    "items": {
+                        "$ref": "WayPoint"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Space": {
+            "description": "A space representing a REWS space or 'room'.",
+            "id": "Space",
+            "properties": {
+                "fullyQualifiedCode": {
+                    "description": "The fully qualified code. Provides a globally unique id for a space.\nExample: 'US-SVL-TC4-3-3H6'.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The room name. Can be empty as not all rooms have names.",
+                    "type": "string"
+                },
+                "polygon": {
+                    "$ref": "Polygon",
+                    "description": "The polygon describing the space boundary, in REWS coordinates."
+                },
+                "resourcePath": {
+                    "description": "The resource path.",
+                    "type": "string"
+                },
+                "spaceClass": {
+                    "description": "The fully qualified space class of the space, for instance\n'\\Classifications\\Space Class Current\\Business Support\\Meeting\\Phone'",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SpaceClassInfo": {
+            "description": "Information about a specific space class",
+            "id": "SpaceClassInfo",
+            "properties": {
+                "spaceClass": {
+                    "description": "The space class name, e.g.\n\\\\Classifications\\\\Space Class Current\\\\Core Building Service\\\\Restroom",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SpaceData": {
+            "description": "A polygon describing (one of) the level gross area polygon for a floor.\nNext available ID: 10",
+            "id": "SpaceData",
+            "properties": {
+                "errorStatus": {
+                    "$ref": "ErrorStatus",
+                    "description": "Error status."
+                },
+                "fullyQualifiedCode": {
+                    "description": "The fully qualified code. Provides a globally unique id for a space.\nExample: 'US-SVL-TC4-3-3H6'.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The resource name of the area, in the form\n`buildingdata/{building_name}/issues/{issue_id}/versions/{version}/\n    levels/{level_id}/grossareas/{grossarea_id}`",
+                    "type": "string"
+                },
+                "pathOfResource": {
+                    "description": "The resource path.",
+                    "type": "string"
+                },
+                "roomName": {
+                    "description": "The room name. Can be empty as not all rooms have names.",
+                    "type": "string"
+                },
+                "spaceClass": {
+                    "description": "The fully qualified space class of the space, for instance\n'\\Classifications\\Space Class Current\\Business Support\\Meeting\\Phone'",
+                    "type": "string"
+                },
+                "vertices": {
+                    "description": "The vertices of the polygon.",
+                    "items": {
+                        "$ref": "Point2D"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "SpaceEdge": {
+            "description": "Describes a line where at most two adjacent spaces meet.",
+            "id": "SpaceEdge",
+            "properties": {
+                "end": {
+                    "$ref": "SpaceEdgeNode",
+                    "description": "The node at the other end of the edge."
+                },
+                "spaceEdgeSegments": {
+                    "description": "The list of segments this edge consists of.",
+                    "items": {
+                        "$ref": "SpaceEdgeSegment"
+                    },
+                    "type": "array"
+                },
+                "spaceIds": {
+                    "description": "The ids of the spaces adjacent to this edge.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "start": {
+                    "$ref": "SpaceEdgeNode",
+                    "description": "The node at the one end of the edge."
+                }
+            },
+            "type": "object"
+        },
+        "SpaceEdgeNode": {
+            "description": "A node connecting to one or more space edges.",
+            "id": "SpaceEdgeNode",
+            "properties": {
+                "id": {
+                    "description": "An id unique to the floor.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "pos": {
+                    "$ref": "Point2D",
+                    "description": "The position of the node on the floor."
+                }
+            },
+            "type": "object"
+        },
+        "SpaceEdgeSegment": {
+            "description": "A segment of a space edge.",
+            "id": "SpaceEdgeSegment",
+            "properties": {
+                "end": {
+                    "$ref": "Point2D",
+                    "description": "The end position."
+                },
+                "permeability": {
+                    "description": "The permeability property.",
+                    "enum": [
+                        "PERMEABILITY_UNKNOWN",
+                        "WALL",
+                        "GLASS",
+                        "PARTITION",
+                        "DOOR",
+                        "OPEN"
+                    ],
+                    "enumDescriptions": [
+                        "Default",
+                        "Full height opaque wall",
+                        "Full height glass wall",
+                        "Half height partition",
+                        "Door",
+                        "Open, fully permeable"
+                    ],
+                    "type": "string"
+                },
+                "start": {
+                    "$ref": "Point2D",
+                    "description": "The start position."
+                }
+            },
+            "type": "object"
+        },
+        "StairwayPreferences": {
+            "description": "User's transit preference for stairway.",
+            "id": "StairwayPreferences",
+            "properties": {
+                "state": {
+                    "description": "Enum indicating the user's preference for stairway.",
+                    "enum": [
+                        "TRANSIT_MODE_STATE_UNSPECIFIED",
+                        "TRANSIT_MODE_STATE_PREFERRED",
+                        "TRANSIT_MODE_STATE_DISALLOWED"
+                    ],
+                    "enumDescriptions": [
+                        "User's transit preference for this method unknown.",
+                        "User's prefers this transit method.",
+                        "User's does not want this transit method."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "StatusCode": {
+            "description": "Status code indicating error or success.",
+            "id": "StatusCode",
+            "properties": {
+                "message": {
+                    "description": "A humanly readable message",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "The status",
+                    "enum": [
+                        "OK",
+                        "ERROR",
+                        "RETRY"
+                    ],
+                    "enumDescriptions": [
+                        "If ok",
+                        "On error",
+                        "User may retry the request"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Step": {
+            "description": "A step on the route found. Each step is of the same transit type.",
+            "id": "Step",
+            "properties": {
+                "durationInSecond": {
+                    "description": "The duration for this step in seconds.",
+                    "format": "google-duration",
+                    "type": "string"
+                },
+                "horizontalLengthInMeter": {
+                    "description": "The horizontal length in meters for this step.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "numberLevelChangesOnElevator": {
+                    "description": "The number of level changes on elevator.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "numberLevelChangesOnStairs": {
+                    "description": "The number of level changes on stairs.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "points": {
+                    "description": "The path points that this step is consisted of.",
+                    "items": {
+                        "$ref": "PathPoint"
+                    },
+                    "type": "array"
+                },
+                "transitModeType": {
+                    "description": "The transit type of the step.",
+                    "enum": [
+                        "TRANSIT_MODE_TYPE_UNSPECIFIED",
+                        "TRANSIT_MODE_TYPE_STAIRWAY",
+                        "TRANSIT_MODE_TYPE_ELEVATOR",
+                        "TRANSIT_MODE_TYPE_RAMP",
+                        "TRANSIT_MODE_TYPE_WALK"
+                    ],
+                    "enumDescriptions": [
+                        "Type unknown.",
+                        "Stairway were used for this step.",
+                        "Elevators were used for this step.",
+                        "Ramp was used for this step.",
+                        "This is a walking step."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TransitPreferences": {
+            "description": "User's transit preference for different transit methods.",
+            "id": "TransitPreferences",
+            "properties": {
+                "elevatorPreferences": {
+                    "$ref": "ElevatorPreferences",
+                    "description": "User's transit preference for elevators."
+                },
+                "stairPreferences": {
+                    "$ref": "StairwayPreferences",
+                    "description": "User's transit preference for stairway."
+                }
+            },
+            "type": "object"
+        },
+        "ValidateBatchDataRequest": {
+            "id": "ValidateBatchDataRequest",
+            "properties": {
+                "requestUuid": {
+                    "description": "The batch request identifier to validate",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ValidateBatchDataResponse": {
+            "id": "ValidateBatchDataResponse",
+            "properties": {
+                "statusMessage": {
+                    "$ref": "StatusCode",
+                    "description": "Status of the request."
+                },
+                "validationResults": {
+                    "description": "Validation log of the batch run.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ValidatedBuildingsResponse": {
+            "id": "ValidatedBuildingsResponse",
+            "properties": {
+                "fullyQualifiedBuildingName": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "statusMessage": {
+                    "$ref": "StatusCode"
+                }
+            },
+            "type": "object"
+        },
+        "VerticalConnectionsOptions": {
+            "id": "VerticalConnectionsOptions",
+            "properties": {
+                "disallowLifts": {
+                    "description": "Route will not use lifts.",
+                    "type": "boolean"
+                },
+                "disallowStairs": {
+                    "description": "Route will not use stairs.",
+                    "type": "boolean"
+                },
+                "maxNumberLevelChangesStairs": {
+                    "description": "The maximum number of level changes for a given staircase (if more level\nchanges are needed, a lift will be taken instead). The default is 2. Note,\n0 is not a valid option, in this case, the default will be used.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "timePerLevelLiftMs": {
+                    "description": "The average time a lift takes to climb / descend one level, in ms.\nThe default is 1800. Note, 0 is not a valid option, in this case, the\ndefault will be used.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "timePerLevelStairsMs": {
+                    "description": "The average time a person takes to climb / descend one level on stairs,\nin ms. The default is 15000. Note, 0 is not a valid option, in this case,\nthe default will be used.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "waitingTimeEnteringLiftMs": {
+                    "description": "The average waiting time for getting on a lift, in milliseconds. The\ndefault is 21000. Note, 0 is not a valid option, in this case, the default\nwill be used.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "VerticalEdge": {
+            "id": "VerticalEdge",
+            "properties": {
+                "connectorType": {
+                    "description": "building vertical connector type (stairs, lift)",
+                    "enum": [
+                        "CONNECTORTYPE_UNKNOWN",
+                        "LIFT",
+                        "STAIRS",
+                        "RAMP"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "id1": {
+                    "type": "string"
+                },
+                "id2": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "VisibilityGraphResponse": {
+            "id": "VisibilityGraphResponse",
+            "properties": {
+                "connectorEdge": {
+                    "description": "edges that exist between connector nodes to all the other floors",
+                    "items": {
+                        "$ref": "VerticalEdge"
+                    },
+                    "type": "array"
+                },
+                "floor": {
+                    "description": "maps level index to fully qualified floor name",
+                    "items": {
+                        "$ref": "FloorResponse"
+                    },
+                    "type": "array"
+                },
+                "fullyQualifiedBuildingName": {
+                    "type": "string"
+                },
+                "levelEdge": {
+                    "description": "edges that exist on a single floor",
+                    "items": {
+                        "$ref": "LevelEdge"
+                    },
+                    "type": "array"
+                },
+                "node": {
+                    "description": "represents all the nodes in the graph",
+                    "items": {
+                        "$ref": "NodeResponse"
+                    },
+                    "type": "array"
+                },
+                "status": {
+                    "$ref": "StatusCode"
+                }
+            },
+            "type": "object"
+        },
+        "WayPoint": {
+            "description": "A way point on a shortest path.",
+            "id": "WayPoint",
+            "properties": {
+                "connectorId": {
+                    "description": "Id of a connector that connects floors (lift, stairs, ramps etc). Can be\nnull if the way point is not on a connector.",
+                    "type": "string"
+                },
+                "connectorType": {
+                    "description": "Connector type",
+                    "enum": [
+                        "CONNECTORTYPE_UNKNOWN",
+                        "LIFT",
+                        "STAIRS",
+                        "RAMP"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "distanceFromOrigin": {
+                    "description": "Distance to origin from here in inches.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "position": {
+                    "$ref": "Location",
+                    "description": "The position on the floor"
+                }
+            },
+            "type": "object"
+        },
+        "XTransformRequest": {
+            "description": "Request message for VisibilitygraphService.GetXTransform.",
+            "id": "XTransformRequest",
+            "properties": {
+                "fullyQualifiedBuildingName": {
+                    "type": "string"
+                },
+                "fullyQualifiedFloorname": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "XTransformResponse": {
+            "description": "Response message for VisibilitygraphService.GetXTransform.",
+            "id": "XTransformResponse",
+            "properties": {
+                "results": {
+                    "description": "Content of the request",
+                    "items": {
+                        "$ref": "AffineTransformResponse"
+                    },
+                    "type": "array"
+                },
+                "statusMessage": {
+                    "$ref": "StatusCode",
+                    "description": "Status of the handling of the request"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Corp Spatial Analytics API (Test)",
+    "version": "v1",
+    "version_module": true
+}

@@ -1,0 +1,209 @@
+{
+    "basePath": "",
+    "baseUrl": "https://staging-navigationsdkusage.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "NavigationSdkUsage",
+    "description": "Reports usage of the Navigation SDK by mobile clients.",
+    "discoveryVersion": "v1",
+    "documentationLink": "https://developers.google.com/maps/documentation/navigation-sdk-android/",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "navigationsdkusage:v1",
+    "kind": "discovery#restDescription",
+    "name": "navigationsdkusage",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "v1": {
+            "methods": {
+                "reportUsage": {
+                    "description": "Reports usage of the Navigation SDK.",
+                    "flatPath": "v1:reportUsage",
+                    "httpMethod": "POST",
+                    "id": "navigationsdkusage.reportUsage",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1:reportUsage",
+                    "request": {
+                        "$ref": "ReportUsageRequest"
+                    },
+                    "response": {
+                        "$ref": "Empty"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190919",
+    "rootUrl": "https://staging-navigationsdkusage.sandbox.googleapis.com/",
+    "schemas": {
+        "Empty": {
+            "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+            "id": "Empty",
+            "properties": {},
+            "type": "object"
+        },
+        "ReportUsageRequest": {
+            "description": "The type and quantity of usage being reported.\nNext ID: 11",
+            "id": "ReportUsageRequest",
+            "properties": {
+                "androidApiToken": {
+                    "description": "The API token provided by Android clients. Optional.",
+                    "type": "string"
+                },
+                "appId": {
+                    "description": "On Android, the package name of the app. On iOS, the bundle ID. Required.",
+                    "type": "string"
+                },
+                "navSdkVersion": {
+                    "description": "A string identifying the version of the Navigation SDK client. Required.",
+                    "type": "string"
+                },
+                "platform": {
+                    "description": "The platform from which the request was sent. Required.",
+                    "enum": [
+                        "PLATFORM_UNSPECIFIED",
+                        "ANDROID",
+                        "IOS"
+                    ],
+                    "enumDescriptions": [
+                        "The default platform, for detecting when the platform is unspecified or\nnot recognized.",
+                        "The request was sent from Android Nav SDK.",
+                        "The request was sent from iOS Nav SDK."
+                    ],
+                    "type": "string"
+                },
+                "requestTime": {
+                    "description": "The client's timestamp. Required for PICK_UP and DROP_OFF requests.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "s2CellId": {
+                    "description": "The S2 cell ID provided with PICK_UP and DROP_OFF requests. Optional.\nThis is a level 12 cell, representing an area of 3.31 - 6.38 square km.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "transactionId": {
+                    "description": "Transaction IDs provided with PICK_UP and DROP_OFF requests. Optional.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "description": "Usage type. Required.",
+                    "enum": [
+                        "USAGE_TYPE_UNSPECIFIED",
+                        "NAVIGATION_INIT",
+                        "NAVIGATION_SET_WAYPOINTS",
+                        "PICK_UP",
+                        "DROP_OFF"
+                    ],
+                    "enumDescriptions": [
+                        "The default usage type, for detecting when the type is unspecified or\nnot recognized.",
+                        "The Navigation SDK was initialized.",
+                        "The Navigation SDK was used to generate a route using waypoints.\nThe number of waypoints is specified in the num_waypoints field.",
+                        "A pick up request.",
+                        "A drop off request."
+                    ],
+                    "type": "string"
+                },
+                "waypointCount": {
+                    "description": "Number of waypoints used in a NAVIGATION_SET_WAYPOINTS request. Optional.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "zwiebackCookie": {
+                    "description": "The device's zwieback cookie.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Navigation SDK",
+    "version": "v1",
+    "version_module": true
+}

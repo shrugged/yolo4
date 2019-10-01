@@ -1,0 +1,1307 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/userinfo.email": {
+                    "description": "View your email address"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://qa-brisk-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Cloud Incident Externalization",
+    "description": "",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://go/brisk-docs",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "qa_brisk_pa_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "qa_brisk_pa_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "channels": {
+            "methods": {
+                "list": {
+                    "description": "Gets a list of all channels used by a team for a given scope and severity.",
+                    "flatPath": "v1/channels",
+                    "httpMethod": "GET",
+                    "id": "qa_brisk_pa_sandbox.channels.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "location.cells": {
+                            "description": "E.g hx, jo",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        },
+                        "location.metros": {
+                            "description": "The GCP metro code the incident occurred in.",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        },
+                        "location.multiregions": {
+                            "description": "E.g Europe / US",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        },
+                        "location.private": {
+                            "description": "Whether or not the location information represents a private location.\ne.g. europe-west5",
+                            "location": "query",
+                            "type": "boolean"
+                        },
+                        "location.regions": {
+                            "description": "E.g europe-west5, us-central1",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        },
+                        "location.type": {
+                            "description": "Type should be specified when only one of the below fields is filled out\nThis would generally be used when selecting an impact radius.",
+                            "enum": [
+                                "UNKNOWN",
+                                "GLOBAL",
+                                "MULTIREGIONAL",
+                                "REGIONAL",
+                                "ZONAL",
+                                "CELLULAR"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "location.zones": {
+                            "description": "E.g europe-west5-a, us-central1-c",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        },
+                        "scope": {
+                            "description": "The scope to use in the channel lookup.",
+                            "enum": [
+                                "SCOPE_UNASSESSED",
+                                "SCOPE_UNKNOWN",
+                                "SCOPE_VERY_LOW",
+                                "SCOPE_LOW",
+                                "SCOPE_MEDIUM",
+                                "SCOPE_HIGH",
+                                "SCOPE_NO_CUSTOMER_IMPACT",
+                                "SCOPE_CRLA_DETECTED_IMPACT"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "severity": {
+                            "description": "The severity to use in the channel lookup.",
+                            "enum": [
+                                "SEVERITY_UNASSESSED",
+                                "SEVERITY_UNKNOWN",
+                                "SEVERITY_LOW",
+                                "SEVERITY_HIGH"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "team": {
+                            "description": "The team whose channels should be returned.",
+                            "enum": [
+                                "TEAM_UNKNOWN",
+                                "TEAM_GCP",
+                                "TEAM_FIREBASE",
+                                "TEAM_GSUITE"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/channels",
+                    "response": {
+                        "$ref": "ListChannelsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                }
+            }
+        },
+        "closingChannels": {
+            "methods": {
+                "list": {
+                    "description": "Gets a list of all closing channels based on change in metadata.",
+                    "flatPath": "v1/closingChannels",
+                    "httpMethod": "GET",
+                    "id": "qa_brisk_pa_sandbox.closingChannels.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "newMetadata.location.cells": {
+                            "description": "E.g hx, jo",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        },
+                        "newMetadata.location.metros": {
+                            "description": "The GCP metro code the incident occurred in.",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        },
+                        "newMetadata.location.multiregions": {
+                            "description": "E.g Europe / US",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        },
+                        "newMetadata.location.private": {
+                            "description": "Whether or not the location information represents a private location.\ne.g. europe-west5",
+                            "location": "query",
+                            "type": "boolean"
+                        },
+                        "newMetadata.location.regions": {
+                            "description": "E.g europe-west5, us-central1",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        },
+                        "newMetadata.location.type": {
+                            "description": "Type should be specified when only one of the below fields is filled out\nThis would generally be used when selecting an impact radius.",
+                            "enum": [
+                                "UNKNOWN",
+                                "GLOBAL",
+                                "MULTIREGIONAL",
+                                "REGIONAL",
+                                "ZONAL",
+                                "CELLULAR"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "newMetadata.location.zones": {
+                            "description": "E.g europe-west5-a, us-central1-c",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        },
+                        "newMetadata.scope": {
+                            "description": "The scope to use in the channel lookup.",
+                            "enum": [
+                                "SCOPE_UNASSESSED",
+                                "SCOPE_UNKNOWN",
+                                "SCOPE_VERY_LOW",
+                                "SCOPE_LOW",
+                                "SCOPE_MEDIUM",
+                                "SCOPE_HIGH",
+                                "SCOPE_NO_CUSTOMER_IMPACT",
+                                "SCOPE_CRLA_DETECTED_IMPACT"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "newMetadata.severity": {
+                            "description": "The severity to use in the channel lookup.",
+                            "enum": [
+                                "SEVERITY_UNASSESSED",
+                                "SEVERITY_UNKNOWN",
+                                "SEVERITY_LOW",
+                                "SEVERITY_HIGH"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "newMetadata.team": {
+                            "description": "The team whose channels should be returned.",
+                            "enum": [
+                                "TEAM_UNKNOWN",
+                                "TEAM_GCP",
+                                "TEAM_FIREBASE",
+                                "TEAM_GSUITE"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "oldMetadata.location.cells": {
+                            "description": "E.g hx, jo",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        },
+                        "oldMetadata.location.metros": {
+                            "description": "The GCP metro code the incident occurred in.",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        },
+                        "oldMetadata.location.multiregions": {
+                            "description": "E.g Europe / US",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        },
+                        "oldMetadata.location.private": {
+                            "description": "Whether or not the location information represents a private location.\ne.g. europe-west5",
+                            "location": "query",
+                            "type": "boolean"
+                        },
+                        "oldMetadata.location.regions": {
+                            "description": "E.g europe-west5, us-central1",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        },
+                        "oldMetadata.location.type": {
+                            "description": "Type should be specified when only one of the below fields is filled out\nThis would generally be used when selecting an impact radius.",
+                            "enum": [
+                                "UNKNOWN",
+                                "GLOBAL",
+                                "MULTIREGIONAL",
+                                "REGIONAL",
+                                "ZONAL",
+                                "CELLULAR"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "oldMetadata.location.zones": {
+                            "description": "E.g europe-west5-a, us-central1-c",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        },
+                        "oldMetadata.scope": {
+                            "description": "The scope to use in the channel lookup.",
+                            "enum": [
+                                "SCOPE_UNASSESSED",
+                                "SCOPE_UNKNOWN",
+                                "SCOPE_VERY_LOW",
+                                "SCOPE_LOW",
+                                "SCOPE_MEDIUM",
+                                "SCOPE_HIGH",
+                                "SCOPE_NO_CUSTOMER_IMPACT",
+                                "SCOPE_CRLA_DETECTED_IMPACT"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "oldMetadata.severity": {
+                            "description": "The severity to use in the channel lookup.",
+                            "enum": [
+                                "SEVERITY_UNASSESSED",
+                                "SEVERITY_UNKNOWN",
+                                "SEVERITY_LOW",
+                                "SEVERITY_HIGH"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "oldMetadata.team": {
+                            "description": "The team whose channels should be returned.",
+                            "enum": [
+                                "TEAM_UNKNOWN",
+                                "TEAM_GCP",
+                                "TEAM_FIREBASE",
+                                "TEAM_GSUITE"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/closingChannels",
+                    "response": {
+                        "$ref": "ListClosingChannelsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                }
+            }
+        },
+        "incidents": {
+            "methods": {
+                "create": {
+                    "description": "Creates an incident, and returns the new incident.\nReturns INVALID_ARGUMENT if incident.metadata.taxonomy_id is not set or\ndoes not match a known GCP product or if incident.metadata.omg_id is set\nbut does not map to a valid OMG incident.",
+                    "flatPath": "v1/incidents",
+                    "httpMethod": "POST",
+                    "id": "qa_brisk_pa_sandbox.incidents.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/incidents",
+                    "request": {
+                        "$ref": "Incident"
+                    },
+                    "response": {
+                        "$ref": "Incident"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "get": {
+                    "description": "Gets an incident.\nReturns NOT_FOUND if the incident does not exist.",
+                    "flatPath": "v1/incidents/{incidentsId}",
+                    "httpMethod": "GET",
+                    "id": "qa_brisk_pa_sandbox.incidents.get",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "The name of the incident to retrieve.",
+                            "location": "path",
+                            "pattern": "^incidents/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "Incident"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "list": {
+                    "description": "Lists incidents. The order will be descending by incident.create_date.",
+                    "flatPath": "v1/incidents",
+                    "httpMethod": "GET",
+                    "id": "qa_brisk_pa_sandbox.incidents.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "filter": {
+                            "description": "Standard query filter for Brisk. See go/brisk-filter",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "pageSize": {
+                            "description": "Requested page size. Server may return fewer shelves than requested.\nIf unspecified, server will pick an appropriate default.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageToken": {
+                            "description": "A token identifying a page of results the server should return.\nTypically, this is the value of\nListIncidentsResponse.next_page_token\nreturned from the previous call to `ListIncidents` method.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/incidents",
+                    "response": {
+                        "$ref": "ListIncidentsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "sendUpdate": {
+                    "description": "Sends an update to an incident.\nReturns NOT_FOUND if the incident does not exist.",
+                    "flatPath": "v1/incidents/{incidentsId}:sendUpdate",
+                    "httpMethod": "POST",
+                    "id": "qa_brisk_pa_sandbox.incidents.sendUpdate",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "The name of the omg_incident to send the update to.",
+                            "location": "path",
+                            "pattern": "^incidents/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}:sendUpdate",
+                    "request": {
+                        "$ref": "SendIncidentUpdateRequest"
+                    },
+                    "response": {
+                        "$ref": "Incident"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                }
+            }
+        },
+        "omgIncidents": {
+            "methods": {
+                "get": {
+                    "description": "Gets an omg_incident.\nReturns NOT_FOUND if the omg_incident does not exist.",
+                    "flatPath": "v1/omgIncidents/{omgIncidentsId}",
+                    "httpMethod": "GET",
+                    "id": "qa_brisk_pa_sandbox.omgIncidents.get",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "The name of the omg_incident to retrieve.",
+                            "location": "path",
+                            "pattern": "^omgIncidents/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "OmgIncident"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "list": {
+                    "description": "Lists omg_incidents. The order will be descending by\nomg_incident.create_date.",
+                    "flatPath": "v1/omgIncidents",
+                    "httpMethod": "GET",
+                    "id": "qa_brisk_pa_sandbox.omgIncidents.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "filter": {
+                            "description": "Standard query filter for Brisk. See go/brisk-filter",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "pageSize": {
+                            "description": "Requested page size. Server may return fewer shelves than requested.\nIf unspecified, server will pick an appropriate default.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageToken": {
+                            "description": "A token identifying a page of results the server should return.\nTypically, this is the value of\nListOmgIncidentsResponse.next_page_token\nreturned from the previous call to `ListOmgIncidents` method.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/omgIncidents",
+                    "response": {
+                        "$ref": "ListOmgIncidentsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                }
+            }
+        },
+        "permissions": {
+            "methods": {
+                "check": {
+                    "description": "Checks if the caller has the specified permission.",
+                    "flatPath": "v1/permissions/{permissionsId}:check",
+                    "httpMethod": "GET",
+                    "id": "qa_brisk_pa_sandbox.permissions.check",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "The name of the permission to check.",
+                            "location": "path",
+                            "pattern": "^permissions/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}:check",
+                    "response": {
+                        "$ref": "CheckPermissionResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                }
+            }
+        },
+        "products": {
+            "methods": {
+                "list": {
+                    "description": "Gets a list of all GCP products supported by Brisk.",
+                    "flatPath": "v1/products",
+                    "httpMethod": "GET",
+                    "id": "qa_brisk_pa_sandbox.products.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "listMask": {
+                            "description": "Field mask representing which fields in the\nListProductsResponse.products\nfield will be populated.",
+                            "format": "google-fieldmask",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "team": {
+                            "description": "The team whose products will be listed in the response.",
+                            "enum": [
+                                "TEAM_UNKNOWN",
+                                "TEAM_GCP",
+                                "TEAM_FIREBASE",
+                                "TEAM_GSUITE"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/products",
+                    "response": {
+                        "$ref": "ListProductsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                }
+            }
+        }
+    },
+    "revision": "20190918",
+    "rootUrl": "https://qa-brisk-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "CheckPermissionResponse": {
+            "description": "Response message for BriskApi.CheckPermission.",
+            "id": "CheckPermissionResponse",
+            "properties": {
+                "authorized": {
+                    "description": "Whether the call was authorized to use the checked permission.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "Details": {
+            "description": "The externally-visible details of this incident.",
+            "id": "Details",
+            "properties": {
+                "description": {
+                    "description": "A detailed description of the incident and current state of our\ninvestigation/mitigation.",
+                    "type": "string"
+                },
+                "diagnosis": {
+                    "description": "How a user can determine if they are impacted by this incident.",
+                    "type": "string"
+                },
+                "nextUpdateTime": {
+                    "description": "The next promised update time.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "summary": {
+                    "description": "Short (512 character max) summary of this incident. Primarily used as a\ntitle.",
+                    "type": "string"
+                },
+                "workaround": {
+                    "description": "How a user can mitigate the impact of this incident.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Incident": {
+            "description": "Represents an incident that is being tracked by Brisk.",
+            "id": "Incident",
+            "properties": {
+                "createTime": {
+                    "description": "When this incident was created.\nOutput only.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "details": {
+                    "$ref": "Details",
+                    "description": "The externally-visible details of this incident.\nOutput only."
+                },
+                "incidentId": {
+                    "description": "Unique ID of this incident. Provided by Buganizer when the tracking bug is\ncreated.\nOutput only.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "metadata": {
+                    "$ref": "Metadata",
+                    "description": "Metadata regarding what is broken and how badly."
+                },
+                "state": {
+                    "description": "The current state of the incident.\nOutput only.",
+                    "enum": [
+                        "STATE_UNASSESSED",
+                        "STATE_AUTO_POSTED",
+                        "STATE_OPEN",
+                        "STATE_CLOSED"
+                    ],
+                    "enumDescriptions": [
+                        "This incident has not yet been assessed.",
+                        "This incident was auto-posted.",
+                        "This incident is open.",
+                        "This incident is closed."
+                    ],
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "When this incident was last modified.\nOutput only.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "updates": {
+                    "description": "All updates which have been made to this incident.\nOutput only.",
+                    "items": {
+                        "$ref": "Update"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListChannelsResponse": {
+            "description": "Response message for BriskApi.ListChannels.",
+            "id": "ListChannelsResponse",
+            "properties": {
+                "channels": {
+                    "description": "All channels which will be posted to for an update with the given team,\nscope and severity.",
+                    "enumDescriptions": [
+                        "Unknown channel.",
+                        "CSD FYI.",
+                        "CSD incident severity is Medium.",
+                        "CSD incident severity is High.",
+                        "Rhino state is cases only.",
+                        "Rhino state is cases with outgoing GCSC communication.",
+                        "To send updates to private customers.",
+                        "Updates to OMG.",
+                        "Updates to Galaxy Region.",
+                        "Updates to IRM.",
+                        "Updates to customers opted in for CRLA alerts."
+                    ],
+                    "items": {
+                        "enum": [
+                            "CHANNEL_UNKNOWN",
+                            "CHANNEL_CSD_FYI",
+                            "CHANNEL_CSD_ORANGE",
+                            "CHANNEL_CSD_RED",
+                            "CHANNEL_RHINO_CASES",
+                            "CHANNEL_RHINO_CASE_OUTAGE",
+                            "CHANNEL_PRIVATE_CUSTOMERS",
+                            "CHANNEL_OMG",
+                            "CHANNEL_GALAXY",
+                            "CHANNEL_IRM",
+                            "CHANNEL_CRLA"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListClosingChannelsResponse": {
+            "description": "Response message for BriskApi.ListClosingChannels.",
+            "id": "ListClosingChannelsResponse",
+            "properties": {
+                "closingChannels": {
+                    "description": "All closing channels expected as a result of change in metadata.",
+                    "enumDescriptions": [
+                        "Unknown channel.",
+                        "CSD FYI.",
+                        "CSD incident severity is Medium.",
+                        "CSD incident severity is High.",
+                        "Rhino state is cases only.",
+                        "Rhino state is cases with outgoing GCSC communication.",
+                        "To send updates to private customers.",
+                        "Updates to OMG.",
+                        "Updates to Galaxy Region.",
+                        "Updates to IRM.",
+                        "Updates to customers opted in for CRLA alerts."
+                    ],
+                    "items": {
+                        "enum": [
+                            "CHANNEL_UNKNOWN",
+                            "CHANNEL_CSD_FYI",
+                            "CHANNEL_CSD_ORANGE",
+                            "CHANNEL_CSD_RED",
+                            "CHANNEL_RHINO_CASES",
+                            "CHANNEL_RHINO_CASE_OUTAGE",
+                            "CHANNEL_PRIVATE_CUSTOMERS",
+                            "CHANNEL_OMG",
+                            "CHANNEL_GALAXY",
+                            "CHANNEL_IRM",
+                            "CHANNEL_CRLA"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListIncidentsResponse": {
+            "description": "Response message for BriskApi.ListIncidents.",
+            "id": "ListIncidentsResponse",
+            "properties": {
+                "incidents": {
+                    "description": "The list of incidents.",
+                    "items": {
+                        "$ref": "Incident"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "A token to retrieve next page of results.\nPass this value in the\nListIncidentsRequest.next_page_token\nfield in the subsequent call to `ListIncidents` method to retrieve the next\npage of results.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListOmgIncidentsResponse": {
+            "description": "Response message for BriskApi.ListOmgIncidents.",
+            "id": "ListOmgIncidentsResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "A token to retrieve next page of results.\nPass this value in the\nListOmgIncidentsRequest.next_page_token\nfield in the subsequent call to `ListOmgIncidents` method to retrieve the\nnext page of results.",
+                    "type": "string"
+                },
+                "omgIncidents": {
+                    "description": "The list of omg_incidents.",
+                    "items": {
+                        "$ref": "OmgIncident"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListProductsResponse": {
+            "description": "Response message for BriskApi.ListProducts.",
+            "id": "ListProductsResponse",
+            "properties": {
+                "products": {
+                    "description": "The list of products.",
+                    "items": {
+                        "$ref": "Product"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Location": {
+            "description": "Representation of a cloud location",
+            "id": "Location",
+            "properties": {
+                "cells": {
+                    "description": "E.g hx, jo",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "metros": {
+                    "description": "The GCP metro code the incident occurred in.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "multiregions": {
+                    "description": "E.g Europe / US",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "private": {
+                    "description": "Whether or not the location information represents a private location.\ne.g. europe-west5",
+                    "type": "boolean"
+                },
+                "regions": {
+                    "description": "E.g europe-west5, us-central1",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "description": "Type should be specified when only one of the below fields is filled out\nThis would generally be used when selecting an impact radius.",
+                    "enum": [
+                        "UNKNOWN",
+                        "GLOBAL",
+                        "MULTIREGIONAL",
+                        "REGIONAL",
+                        "ZONAL",
+                        "CELLULAR"
+                    ],
+                    "enumDescriptions": [
+                        "Default, unknown location likely the most common",
+                        "Global impact",
+                        "Multiregional, e.g. BQ us multirgion or GCS us multiregion",
+                        "A regional location, like us-central1",
+                        "Usually there are multiple zones in a region, e.g. us-central1-{a,b,c}",
+                        "Zones are usually made up of 1 or more cells (jo,jc,jv,ir)"
+                    ],
+                    "type": "string"
+                },
+                "zones": {
+                    "description": "E.g europe-west5-a, us-central1-c",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Metadata": {
+            "description": "Metadata regarding what is broken and how badly.",
+            "id": "Metadata",
+            "properties": {
+                "crlaChannelId": {
+                    "description": "CRLA channel ID (Buganizer ID)",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "crlaDetectedImpact": {
+                    "description": "Was the incident detected by CRLA",
+                    "type": "boolean"
+                },
+                "crlaId": {
+                    "type": "string"
+                },
+                "csdFyiId": {
+                    "description": "The ID of the cloud status dashboard (CSD) FYI entry for this incident.\nOutput only.",
+                    "type": "string"
+                },
+                "csdId": {
+                    "description": "The ID of the cloud status dashboard (CSD) orange/red entry for this\nincident.\nOutput only.",
+                    "type": "string"
+                },
+                "galaxyId": {
+                    "description": "Galaxy id to update, corresponding to a bug id.\nOutput only",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "irmName": {
+                    "description": "The id/pathname of the underlying IRM incident.",
+                    "type": "string"
+                },
+                "irmTriggered": {
+                    "description": "Whether the incident was triggered by IRM.",
+                    "type": "boolean"
+                },
+                "isCrlaManaged": {
+                    "description": "Is incident managed by CRLA; i.e No human interaction",
+                    "type": "boolean"
+                },
+                "location": {
+                    "$ref": "Location",
+                    "description": "Location of an incident"
+                },
+                "omgId": {
+                    "description": "The ID of the underlying OMG that triggered this incident.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "scope": {
+                    "description": "How many uses are impacted by this incident.",
+                    "enum": [
+                        "SCOPE_UNASSESSED",
+                        "SCOPE_UNKNOWN",
+                        "SCOPE_VERY_LOW",
+                        "SCOPE_LOW",
+                        "SCOPE_MEDIUM",
+                        "SCOPE_HIGH",
+                        "SCOPE_NO_CUSTOMER_IMPACT",
+                        "SCOPE_CRLA_DETECTED_IMPACT"
+                    ],
+                    "enumDescriptions": [
+                        "The scope has not yet been assessed.",
+                        "The scope of the incident has not been determined yet.",
+                        "< 1%",
+                        "<= 10%",
+                        "<= 50%",
+                        "> 50%",
+                        "There is no customer impact for this incident.",
+                        "CRLA detected impact"
+                    ],
+                    "type": "string"
+                },
+                "severity": {
+                    "description": "How much impact this incident has on affected users.",
+                    "enum": [
+                        "SEVERITY_UNASSESSED",
+                        "SEVERITY_UNKNOWN",
+                        "SEVERITY_LOW",
+                        "SEVERITY_HIGH"
+                    ],
+                    "enumDescriptions": [
+                        "The severity has not yet been assessed.",
+                        "The severity of the incident has not been determined yet.",
+                        "Workaround exists, takes less than 10 minutes to implement.",
+                        "No workaround or workaround is not easy to implement quickly."
+                    ],
+                    "type": "string"
+                },
+                "shard": {
+                    "description": "The support shard which owns this incident.",
+                    "enum": [
+                        "SHARD_UNKNOWN",
+                        "SHARD_DATA",
+                        "SHARD_INFRA",
+                        "SHARD_NETWORKING",
+                        "SHARD_PLATFORM"
+                    ],
+                    "enumDescriptions": [
+                        "Support shard not specified. This is an invalid choice.",
+                        "GCP Data shard.",
+                        "GCP Infrastructure shard.",
+                        "GCP Networking shard.",
+                        "GCP Platform shard."
+                    ],
+                    "type": "string"
+                },
+                "taxonomyId": {
+                    "description": "The Taxonomy ID of the product which is impacted by this incident.\nCan only be set during incident creation.",
+                    "type": "string"
+                },
+                "team": {
+                    "description": "The TSE team that is managing this incident.\nCan only be set during incident creation.",
+                    "enum": [
+                        "TEAM_UNKNOWN",
+                        "TEAM_GCP",
+                        "TEAM_FIREBASE",
+                        "TEAM_GSUITE"
+                    ],
+                    "enumDescriptions": [
+                        "Team not specified. This is an invalid choice.",
+                        "GCP Support",
+                        "Firebase",
+                        "G Suite"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "OmgIncident": {
+            "description": "Brisk's findings when processing an OMG incident.",
+            "id": "OmgIncident",
+            "properties": {
+                "createTime": {
+                    "description": "The time at which we detected this OMG incident.\nOutput only.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "findings": {
+                    "description": "All findings about this OMG incident while processing.\nOutput only.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "irmManaged": {
+                    "description": "Whether the OMG incident is IRM managed.\nOutput only.",
+                    "type": "boolean"
+                },
+                "omgId": {
+                    "description": "The ID of the processed OMG incident.\nOutput only.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "The status of this OMG incident at the time of processing.\nOutput only.",
+                    "enum": [
+                        "STATUS_UNKNOWN",
+                        "STATUS_VALID",
+                        "STATUS_BLACKLISTED",
+                        "STATUS_UNIDENTIFIED_PRODUCT",
+                        "STATUS_DUPLICATE_INCIDENT",
+                        "STATUS_NOT_GCP_OMG",
+                        "STATUS_NOT_CUSTOMER_VISIBLE"
+                    ],
+                    "enumDescriptions": [
+                        "This OMG was not processed at all.",
+                        "This was a valid OMG incident and we processed it.",
+                        "This OMG incident contained blacklisted terms.",
+                        "We couldn't determine the public name of the GCP product impacted by this\nOMG incident.",
+                        "We already have an open incident for all products impacted by this OMG\nincident in Brisk.",
+                        "This OMG incident is not related to GCP.",
+                        "This OMG is not impacting external customers."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Product": {
+            "description": "A Cloud product.",
+            "id": "Product",
+            "properties": {
+                "csdKey": {
+                    "description": "The service key that this product maps to in the CLoud Status Dashboard.\nTemporary.",
+                    "type": "string"
+                },
+                "launchStatus": {
+                    "description": "The launch status of the product.",
+                    "enum": [
+                        "LAUNCH_UNKNOWN",
+                        "LAUNCH_EAP",
+                        "LAUNCH_ALPHA",
+                        "LAUNCH_BETA",
+                        "LAUNCH_GA"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown launch state. Not able to process this incident.",
+                        "Not eligible for comms.",
+                        "Not eligible for comms.",
+                        "Eligible for private comms.",
+                        "Eligible for public comms."
+                    ],
+                    "type": "string"
+                },
+                "publicName": {
+                    "description": "The public (external) name of this product.",
+                    "type": "string"
+                },
+                "shard": {
+                    "description": "The shard which owns this product.",
+                    "enum": [
+                        "SHARD_UNKNOWN",
+                        "SHARD_DATA",
+                        "SHARD_INFRA",
+                        "SHARD_NETWORKING",
+                        "SHARD_PLATFORM"
+                    ],
+                    "enumDescriptions": [
+                        "Support shard not specified. This is an invalid choice.",
+                        "GCP Data shard.",
+                        "GCP Infrastructure shard.",
+                        "GCP Networking shard.",
+                        "GCP Platform shard."
+                    ],
+                    "type": "string"
+                },
+                "taxonomyId": {
+                    "description": "The taxonomy id of this product.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Response": {
+            "description": "The response received from an external service during this update.",
+            "id": "Response",
+            "properties": {
+                "channel": {
+                    "description": "The the notification channel for this update.\nOutput only.",
+                    "enum": [
+                        "CHANNEL_UNKNOWN",
+                        "CHANNEL_CSD_FYI",
+                        "CHANNEL_CSD_ORANGE",
+                        "CHANNEL_CSD_RED",
+                        "CHANNEL_RHINO_CASES",
+                        "CHANNEL_RHINO_CASE_OUTAGE",
+                        "CHANNEL_PRIVATE_CUSTOMERS",
+                        "CHANNEL_OMG",
+                        "CHANNEL_GALAXY",
+                        "CHANNEL_IRM",
+                        "CHANNEL_CRLA"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown channel.",
+                        "CSD FYI.",
+                        "CSD incident severity is Medium.",
+                        "CSD incident severity is High.",
+                        "Rhino state is cases only.",
+                        "Rhino state is cases with outgoing GCSC communication.",
+                        "To send updates to private customers.",
+                        "Updates to OMG.",
+                        "Updates to Galaxy Region.",
+                        "Updates to IRM.",
+                        "Updates to customers opted in for CRLA alerts."
+                    ],
+                    "type": "string"
+                },
+                "info": {
+                    "description": "The human readable info about what happened during this update.\nOutput only.",
+                    "type": "string"
+                },
+                "response": {
+                    "description": "The response from the service; likely the primary key used or\ngenerated.\nOutput only.",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "The status of the response.\nOutput only.",
+                    "enum": [
+                        "STATUS_UNKNOWN",
+                        "STATUS_SUCCESS",
+                        "STATUS_FAIL",
+                        "STATUS_SKIP"
+                    ],
+                    "enumDescriptions": [
+                        "This is not a valid response.",
+                        "The request was successful.",
+                        "The request was unsuccessful.",
+                        "The request was intentionally skipped."
+                    ],
+                    "type": "string"
+                },
+                "url": {
+                    "description": "A direct link to the service as of this update.\nOutput only.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SendIncidentUpdateRequest": {
+            "description": "Request message for BriskApi.SendIncidentUpdate.",
+            "id": "SendIncidentUpdateRequest",
+            "properties": {
+                "update": {
+                    "$ref": "Update",
+                    "description": "The type of update that this is."
+                },
+                "updateMask": {
+                    "description": "Field mask representing which fields in the\nSendIncidentUpdateRequest.update\nfield were updated.",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Update": {
+            "description": "An updates which has been made to this incident.",
+            "id": "Update",
+            "properties": {
+                "closingMessage": {
+                    "description": "A message to be sent to any channels which are closed as a result of this\nupdate.",
+                    "type": "string"
+                },
+                "createIrBug": {
+                    "description": "If an incident report tracking bug should be created.",
+                    "type": "boolean"
+                },
+                "details": {
+                    "$ref": "Details",
+                    "description": "The new details of the incident as of this update."
+                },
+                "metadata": {
+                    "$ref": "Metadata",
+                    "description": "The new metadata of the incident as of this update."
+                },
+                "requesterLdap": {
+                    "description": "The LDAP username of the person who requested this update.\nOutput only.",
+                    "type": "string"
+                },
+                "responses": {
+                    "description": "The responses received from external services during this update.\nOutput only.",
+                    "items": {
+                        "$ref": "Response"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "description": "The type of update that this was.\nRequired.",
+                    "enum": [
+                        "TYPE_UNKNOWN",
+                        "TYPE_AUTO_POST",
+                        "TYPE_INCREMENTAL",
+                        "TYPE_CLOSE",
+                        "TYPE_CLOSE_FALSE_POSITIVE"
+                    ],
+                    "enumDescriptions": [
+                        "This is not a valid update.",
+                        "This is an auto-post by Brisk Bot.",
+                        "This is an incremental update.",
+                        "This is a closing update.",
+                        "This is a closing update as false positive.\nCAVEAT - Do not add enum element below TYPE_CLOSE or\nTYPE_CLOSE_FALSE_POSITIVE unless it is similar to TYPE_CLOSE."
+                    ],
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "The time that this update was initiated.\nOutput only.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Cloud Incident Externalization QA Private API",
+    "version": "v1",
+    "version_module": true
+}

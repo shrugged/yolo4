@@ -1,0 +1,898 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/userinfo.email": {
+                    "description": "View your email address"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://test-partnertrip.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "PartnerTrip",
+    "description": "API to enable partner companies to request trips with Waymo cars; a partner company may request trips on behalf of their users by issuing calls to this API.",
+    "discoveryVersion": "v1",
+    "documentationLink": "https://waymo.com",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "partnertrip:v1",
+    "kind": "discovery#restDescription",
+    "name": "partnertrip",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "debug_behaviors": {
+            "methods": {
+                "create": {
+                    "description": "Adds a debug behavior for a given end user, to be triggered later during\nthe handling of a regular PartnerTrips API call. Debug behaviors can only\nbe added for the fake endpoint.\n\nRecorded debug behaviors remain active for a period of time (typically\n30 minutes). A debug behavior can be deleted earlier than this by\ncalling DeleteDebugBehavior. While the behavior is active, all calls\nto the matching rpc's will be affected by the specified behavior.\n\nIf CreateDebugBehavior is called with a behavior that has already been\nadded and is still active, the call will extend the expiration time\nof the behavior and return OK.\n\nIf multiple debug behaviors have been added for the same end user and are\nstill not expired and matching, the newest one will be used.",
+                    "flatPath": "v1/debug_behaviors",
+                    "httpMethod": "POST",
+                    "id": "partnertrip.debug_behaviors.create",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "user.firstName": {
+                            "description": "The first name. As with all 'string' fields, non-ASCII characters should\nbe encoded with UTF-8 (which may be handled by the protobuf implementation,\ndepending on programming language).",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "user.lastName": {
+                            "description": "The last name. As with all 'string' fields non-ASCII characters should be\nencoded with UTF-8 (which may be handled by the protobuf implementation,\ndepending on programming language).",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "user.phoneNumber.e164Number": {
+                            "description": "Phone number in E.164 format.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/debug_behaviors",
+                    "request": {
+                        "$ref": "DebugBehavior"
+                    },
+                    "response": {
+                        "$ref": "DebugBehavior"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "delete": {
+                    "description": "Deletes the behavior previously added by CreateDebugBehavior. Once\nDeleteDebugBehavior returned success, that debug behavior will no longer\nbe triggered for that end user.\n\nNote: For expired behaviors, DeleteDebugBehavior may either succeed\nor return a \"not found\" error. Typically, it succeeds for several hours\nafter the expiration (until it's garbage collected internally). After that,\nthe call returns \"not found\".",
+                    "flatPath": "v1/debug_behaviors/{debug_behaviorsId}",
+                    "httpMethod": "DELETE",
+                    "id": "partnertrip.debug_behaviors.delete",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "The name returned by CreateDebugBehavior.",
+                            "location": "path",
+                            "pattern": "^debug_behaviors/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "Empty"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                }
+            }
+        },
+        "fake_vehicles": {
+            "methods": {
+                "list": {
+                    "description": "Returns the fake cars present and whether they are available.",
+                    "flatPath": "v1/fake_vehicles",
+                    "httpMethod": "GET",
+                    "id": "partnertrip.fake_vehicles.list",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/fake_vehicles",
+                    "response": {
+                        "$ref": "ListFakeVehiclesResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "patch": {
+                    "description": "Changes the availability of the specified car. If not explicitly made\navailable again, a fake car only stays unavailable for a period of time\n(typically three hours), after which it becomes available again.",
+                    "flatPath": "v1/fake_vehicles/{fake_vehiclesId}",
+                    "httpMethod": "PATCH",
+                    "id": "partnertrip.fake_vehicles.patch",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Output only. The resource name identifying the fake vehicle.\nFormat: \"fake_vehicles/<license plate>\"\nExample: \"fake_vehicles/Fake 1234\"",
+                            "location": "path",
+                            "pattern": "^fake_vehicles/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "updateMask": {
+                            "description": "Field mask to specify which fields to update. Must be present. A request\nwith an empty mask will not update anything, just return the current state\nof the fake vehicle.\n\nExample of a request that will make the car refuse to accept ride requests:\n\nfake_vehicle {\n  name: \"fake_vehicles/Fake 1234\"\n  ride_capable: false\n}\nupdate_mask {\n  paths: \"ride_capable\"\n}\n\nFor the `FieldMask` definition,\nsee\nhttps://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask",
+                            "format": "google-fieldmask",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "request": {
+                        "$ref": "FakeVehicle"
+                    },
+                    "response": {
+                        "$ref": "FakeVehicle"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                }
+            }
+        },
+        "trips": {
+            "methods": {
+                "cancel": {
+                    "description": "Requests cancellation of a trip.\n\nNote cancellation often does not take effect immediately, as the request\nneeds to be sent to the car, the car may need to pull over to let out the\nrider, etc. As usual, updated details of the trip may be retrieved by\nperiodically polling the GetTrip rpc\n\nIf no such trip exists, a NOT_FOUND error will be returned.\n\nIf the trip exists but is no longer active, a FAILED_PRECONDITION error\nwill be returned.",
+                    "flatPath": "v1/trips/{tripsId}:cancel",
+                    "httpMethod": "POST",
+                    "id": "partnertrip.trips.cancel",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Resource name identifying the trip.",
+                            "location": "path",
+                            "pattern": "^trips/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}:cancel",
+                    "request": {
+                        "$ref": "CancelTripRequest"
+                    },
+                    "response": {
+                        "$ref": "CancelTripResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "create": {
+                    "description": "Creates a new trip, which starts in REQUESTED state. Updated details of the\ntrip may be retrieved by periodically polling the GetTrip rpc.\n\nIf the TripProposal specified for the trip has expired, an ABORTED error\nwill be returned, and CreateTripErrorDetails will be attached to the error;\nin this case, call the ProposeTripPlan rpc again to get a new proposal.\n\nIf a trip already exists for the PartnerUser, a FAILED_PRECONDITION error\nwill be returned, and CreateTripErrorDetails will be attached to the error;\nnote this does not necessarily indicate a mistake on the part of the caller\nas it may arise naturally in case of a retry, e.g., in the rpc layer.",
+                    "flatPath": "v1/trips",
+                    "httpMethod": "POST",
+                    "id": "partnertrip.trips.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/trips",
+                    "request": {
+                        "$ref": "Trip"
+                    },
+                    "response": {
+                        "$ref": "Trip"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "get": {
+                    "description": "Returns the latest state about a trip.\n\nIf no such trip exists, a NOT_FOUND error will be returned.",
+                    "flatPath": "v1/trips/{tripsId}",
+                    "httpMethod": "GET",
+                    "id": "partnertrip.trips.get",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Resource name identifying the trip.",
+                            "location": "path",
+                            "pattern": "^trips/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "Trip"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "propose": {
+                    "description": "Returns a TripProposal that indicates the fare, time estimates, and other\ndetails for a desired trip.\n\nTo create a trip from the resulting proposal, call the CreateTrip rpc with\nthe 'trip_proposal_token' field from the proposal. The proposal will remain\nvalid for a few minutes; attempts to create the trip after expiration of\nthe proposal will result in an error.\n\nIt's also possible to get estimates for a trip that's not fully-specified;\nfor example, an estimated time-to-pickup for a given pickup location.\n\nIn case of a returned error, a ProposeTripPlanErrorDetails object may be\nattached to the returned error.",
+                    "flatPath": "v1/trips:propose",
+                    "httpMethod": "POST",
+                    "id": "partnertrip.trips.propose",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/trips:propose",
+                    "request": {
+                        "$ref": "ProposeTripPlanRequest"
+                    },
+                    "response": {
+                        "$ref": "ProposeTripPlanResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "requestSupportCallback": {
+                    "description": "Requests that Waymo Rider Support should contact the user.\n\nIf no such trip exists, a NOT_FOUND error will be returned.\n\nIf the trip exists but is no longer active, a FAILED_PRECONDITION error\nwill be returned.\n\nIf the server could be reached but an error was encountered in requesting a\ncallback, RequestSupportCallbackErrorDetails may be attached to the error.",
+                    "flatPath": "v1/trips/{tripsId}:requestSupportCallback",
+                    "httpMethod": "POST",
+                    "id": "partnertrip.trips.requestSupportCallback",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Trip identifier returned by the trip creation call.",
+                            "location": "path",
+                            "pattern": "^trips/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}:requestSupportCallback",
+                    "request": {
+                        "$ref": "RequestSupportCallbackRequest"
+                    },
+                    "response": {
+                        "$ref": "RequestSupportCallbackResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "unlockDoors": {
+                    "description": "Requests the vehicle assigned to the trip to unlock its doors. This must be\ndone once the vehicle has reached the pickup location and the user is ready\nto board the vehicle. (It is up to the caller of the API to decide when the\nuser is \"ready to board\".)\n\nIf no such trip exists, a NOT_FOUND error will be returned.\n\nIf the trip exists but is no longer active, or if there is no vehicle\nassigned to the trip, or if the assigned vehicle has already picked up the\nrider, a FAILED_PRECONDITION error will be returned.",
+                    "flatPath": "v1/trips/{tripsId}:unlockDoors",
+                    "httpMethod": "POST",
+                    "id": "partnertrip.trips.unlockDoors",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Resource name identifying the trip.",
+                            "location": "path",
+                            "pattern": "^trips/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}:unlockDoors",
+                    "request": {
+                        "$ref": "UnlockDoorsRequest"
+                    },
+                    "response": {
+                        "$ref": "UnlockDoorsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                }
+            },
+            "resources": {
+                "feedback": {
+                    "methods": {
+                        "create": {
+                            "description": "Provides feedback about the trip.\n\nIf no such trip exists, a NOT_FOUND error will be returned.\n\nIf the trip has not yet been completed or cancelled (or had cancellation\nrequested), a FAILED_PRECONDITION error will be returned.\n\nIf feedback has already been provided for the trip, an ALREADY_EXISTS error\nmay be returned.",
+                            "flatPath": "v1/trips/{tripsId}/feedback",
+                            "httpMethod": "POST",
+                            "id": "partnertrip.trips.feedback.create",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "Resource name identifying the trip to which this feedback applies.",
+                                    "location": "path",
+                                    "pattern": "^trips/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/feedback",
+                            "request": {
+                                "$ref": "TripFeedback"
+                            },
+                            "response": {
+                                "$ref": "TripFeedback"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.email"
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190920",
+    "rootUrl": "https://test-partnertrip.sandbox.googleapis.com/",
+    "schemas": {
+        "CancelFeeback": {
+            "description": "Feedback explaining why a trip was cancelled.",
+            "id": "CancelFeeback",
+            "properties": {
+                "comment": {
+                    "description": "Free-form text the user entered.",
+                    "type": "string"
+                },
+                "reason": {
+                    "description": "A short string corresponding to the option the users selected from\nthe list the app displayed, if any. (We're not using an enum for this\nsince we want to give partners the latitude to choose what options\nare displayed.)",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CancelTripRequest": {
+            "id": "CancelTripRequest",
+            "properties": {},
+            "type": "object"
+        },
+        "CancelTripResponse": {
+            "id": "CancelTripResponse",
+            "properties": {
+                "trip": {
+                    "$ref": "Trip",
+                    "description": "Updated details of the trip. (Same as returned by GetTrip.)\n\nSince cancellation typically is not immediate (pending acknowledgement\nfrom the car, etc.), usually the status will not be CANCELLED yet, but\n'trip.trip_status.is_cancel_requested' will be true."
+                }
+            },
+            "type": "object"
+        },
+        "DebugBehavior": {
+            "id": "DebugBehavior",
+            "properties": {
+                "name": {
+                    "description": "Output only. The resource name identifying the debug behavior.\n\nExample: \"debug_behaviors/TNk43rfaajsBHDF\"",
+                    "type": "string"
+                },
+                "type": {
+                    "enum": [
+                        "UNSPECIFIED_DEBUG_BEHAVIOR",
+                        "FORCE_UNAVAILABLE_ERROR",
+                        "FORCE_DEADLINE_EXCEEDED"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "Makes ProposeTripPlan requests fail with\nProposeTripPlanErrorDetails::UNAVAILABLE error.",
+                        "Makes all requests fail immediately with the DEADLINE_EXCEEDED error."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Driver": {
+            "id": "Driver",
+            "properties": {
+                "familyName": {
+                    "description": "Driver's family name.",
+                    "type": "string"
+                },
+                "givenName": {
+                    "description": "Driver's given name.",
+                    "type": "string"
+                },
+                "photoUri": {
+                    "description": "Driver photo resource as a HTTP/S URL or base64-encoded data URI.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Empty": {
+            "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+            "id": "Empty",
+            "properties": {},
+            "type": "object"
+        },
+        "FakeVehicle": {
+            "id": "FakeVehicle",
+            "properties": {
+                "name": {
+                    "description": "Output only. The resource name identifying the fake vehicle.\nFormat: \"fake_vehicles/<license plate>\"\nExample: \"fake_vehicles/Fake 1234\"",
+                    "type": "string"
+                },
+                "rideCapable": {
+                    "description": "Whether the vehicle is available to accept rides. This can be changed\nwith the UpdateFakeVehicle rpc.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "LatLng": {
+            "description": "An object representing a latitude/longitude pair. This is expressed as a pair\nof doubles representing degrees latitude and degrees longitude. Unless\nspecified otherwise, this must conform to the\n<a href=\"http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf\">WGS84\nstandard</a>. Values must be within normalized ranges.",
+            "id": "LatLng",
+            "properties": {
+                "latitude": {
+                    "description": "The latitude in degrees. It must be in the range [-90.0, +90.0].",
+                    "format": "double",
+                    "type": "number"
+                },
+                "longitude": {
+                    "description": "The longitude in degrees. It must be in the range [-180.0, +180.0].",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "ListFakeVehiclesResponse": {
+            "id": "ListFakeVehiclesResponse",
+            "properties": {
+                "fakeVehicles": {
+                    "description": "Information about the fake cars present and whether they're available\nto serve trips.",
+                    "items": {
+                        "$ref": "FakeVehicle"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Money": {
+            "description": "Represents an amount of money with its currency type.",
+            "id": "Money",
+            "properties": {
+                "currencyCode": {
+                    "description": "The 3-letter currency code defined in ISO 4217.",
+                    "type": "string"
+                },
+                "nanos": {
+                    "description": "Number of nano (10^-9) units of the amount.\nThe value must be between -999,999,999 and +999,999,999 inclusive.\nIf `units` is positive, `nanos` must be positive or zero.\nIf `units` is zero, `nanos` can be positive, zero, or negative.\nIf `units` is negative, `nanos` must be negative or zero.\nFor example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "units": {
+                    "description": "The whole units of the amount.\nFor example if `currencyCode` is `\"USD\"`, then 1 unit is one US dollar.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PartnerUser": {
+            "description": "first_name, last_name, and phone_number together are used to uniquely\nidentify users within the system, e.g., to prevent accidental creations\nof two simultaneous trips for the same user.",
+            "id": "PartnerUser",
+            "properties": {
+                "firstName": {
+                    "description": "The first name. As with all 'string' fields, non-ASCII characters should\nbe encoded with UTF-8 (which may be handled by the protobuf implementation,\ndepending on programming language).",
+                    "type": "string"
+                },
+                "lastName": {
+                    "description": "The last name. As with all 'string' fields non-ASCII characters should be\nencoded with UTF-8 (which may be handled by the protobuf implementation,\ndepending on programming language).",
+                    "type": "string"
+                },
+                "phoneNumber": {
+                    "$ref": "PhoneNumber",
+                    "description": "Phone number that may be used to contact the user for the duration of the\ntrip. In particular, Waymo customer support may need to call the user."
+                }
+            },
+            "type": "object"
+        },
+        "PhoneNumber": {
+            "id": "PhoneNumber",
+            "properties": {
+                "e164Number": {
+                    "description": "Phone number in E.164 format.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Polyline": {
+            "id": "Polyline",
+            "properties": {
+                "encodedPolyline": {
+                    "description": "A chain of points on the map that approximates the car's predicted\nroute. For bandwidth efficiency, encoded using\nhttps://developers.google.com/maps/documentation/utilities/polylinealgorithm",
+                    "type": "string"
+                },
+                "precision": {
+                    "enum": [
+                        "UNSPECIFIED_PRECISION",
+                        "E5",
+                        "E6",
+                        "E7"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PostTripFeedback": {
+            "description": "Feedback submitted after the completion of the trip.",
+            "id": "PostTripFeedback",
+            "properties": {
+                "comment": {
+                    "description": "Free-form text the user entered.",
+                    "type": "string"
+                },
+                "rideRating": {
+                    "description": "Number of stars, 1 to 5.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "ProposeTripPlanRequest": {
+            "id": "ProposeTripPlanRequest",
+            "properties": {
+                "tripPlan": {
+                    "$ref": "TripPlan",
+                    "description": "Describes the desired trip.\n\nMay contain one or two waypoints:\n- If only one waypoint is present, the server assumes that it's the pickup,\n  and the response will only include fleet availability and estimated ETA,\n  but no price estimate.\n- If two waypoints are provided, the first one is assumed to be the pickup\n  and the second one the dropoff.\n\nSupport for more complex trip plans may be added in the future."
+                },
+                "user": {
+                    "$ref": "PartnerUser",
+                    "description": "Information about the requesting end user. This may be left unset if only a\nsingle waypoint is specified in 'trip_plan'."
+                }
+            },
+            "type": "object"
+        },
+        "ProposeTripPlanResponse": {
+            "id": "ProposeTripPlanResponse",
+            "properties": {
+                "tripProposal": {
+                    "$ref": "TripProposal",
+                    "description": "Describes the fare, time estimates, and other details for the trip proposed\nin the request."
+                }
+            },
+            "type": "object"
+        },
+        "ProposedWaypoint": {
+            "id": "ProposedWaypoint",
+            "properties": {
+                "location": {
+                    "$ref": "LatLng"
+                },
+                "waypointDuration": {
+                    "description": "Incremental time it would take for the car to get to this waypoint in the\nrequested 'trip_plan', if a trip were created by specifying the\n'trip_proposal_token' from this proposal.\n\nNote it is assumed that the pickup boarding step would happen\ninstantaneously; additional padding may be warranted since users take\nsome time to enter the vehicle, etc.",
+                    "format": "google-duration",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RequestSupportCallbackRequest": {
+            "id": "RequestSupportCallbackRequest",
+            "properties": {
+                "userPhoneNumberOverride": {
+                    "$ref": "PhoneNumber",
+                    "description": "If provided, this phone number will be used for the call to the end user,\ninstead of the one sent with the trip creation request."
+                }
+            },
+            "type": "object"
+        },
+        "RequestSupportCallbackResponse": {
+            "id": "RequestSupportCallbackResponse",
+            "properties": {},
+            "type": "object"
+        },
+        "RouteSegment": {
+            "id": "RouteSegment",
+            "properties": {
+                "polyline": {
+                    "$ref": "Polyline",
+                    "description": "A polyline describing an estimated route for this segment."
+                },
+                "stage": {
+                    "description": "Which part of the route the segment pertains to.",
+                    "enum": [
+                        "UNSPECIFIED_STAGE",
+                        "TO_PREVIOUS_DROPOFF",
+                        "TO_PICKUP",
+                        "PICKUP_TO_DROPOFF"
+                    ],
+                    "enumDescriptions": [
+                        "Should not be used.",
+                        "If the assigned vehicle is currently servicing another trip, this is\nthe route segment from car's current location to the dropoff of that\nprevious trip.",
+                        "The route from car's current location, or (if the car is servicing\nanother trip) from the previous trip's dropoff, to the pickup point.",
+                        "The route between the trip's pickup and dropoff points."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Trip": {
+            "id": "Trip",
+            "properties": {
+                "name": {
+                    "description": "Output only. Resource name identifying the trip.\n\nExample: \"trips/ABqw93bx02\"",
+                    "type": "string"
+                },
+                "status": {
+                    "$ref": "TripStatus",
+                    "description": "Output only. Overall state of the trip."
+                },
+                "tripProposalToken": {
+                    "description": "The 'trip_proposal_token' of a TripProposal returned from GetTripProposal.\nThis describes the trip to be taken and must be set when creating a trip.",
+                    "type": "string"
+                },
+                "vehicle": {
+                    "$ref": "Vehicle",
+                    "description": "Output only. The vehicle currently assigned to the trip, if any."
+                }
+            },
+            "type": "object"
+        },
+        "TripFeedback": {
+            "id": "TripFeedback",
+            "properties": {
+                "cancelFeedback": {
+                    "$ref": "CancelFeeback"
+                },
+                "postTripFeedback": {
+                    "$ref": "PostTripFeedback"
+                }
+            },
+            "type": "object"
+        },
+        "TripPlan": {
+            "id": "TripPlan",
+            "properties": {
+                "waypoints": {
+                    "description": "Should contain one or two waypoints. If only one waypoint is present, that\nmeans just the pickup (such incomplete trip plan can be used for requesting\nthe pickup ETA). If two waypoints are provided, the first one is assumed\nto be the pickup and the second one the dropoff.",
+                    "items": {
+                        "$ref": "Waypoint"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "TripProposal": {
+            "description": "Details about a trip which the server thinks can be satisfied.",
+            "id": "TripProposal",
+            "properties": {
+                "proposedWaypoints": {
+                    "description": "The pickup and dropoff locations, each annotated with the ETA.\n\nNote: The exact locations returned here might not be exactly identical to\nthe points passed in the request; the server may move them slightly (to\naccount for the present abilities and limitations of the cars).",
+                    "items": {
+                        "$ref": "ProposedWaypoint"
+                    },
+                    "type": "array"
+                },
+                "tripPrice": {
+                    "$ref": "Money",
+                    "description": "Proposed fare. This fare will be respected if a trip is created by\nspecifying the 'trip_proposal_token' from this proposal."
+                },
+                "tripProposalToken": {
+                    "description": "Opaque token describing this TripProposal. Only populated if the proposal\ndescribes a full trip with both waypoints (i.e, empty for proposals sent in\nresponse to pickup ETA requests). Must be sent by the client in\nthe following trip request. Remains valid for several minutes.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TripStatus": {
+            "id": "TripStatus",
+            "properties": {
+                "isCancelRequested": {
+                    "description": "The trip is being cancelled by the user, customer support agent, or by the\nserver (e.g., in case of a no-show). The cancellation hasn't been yet\nfinalized which in particular means the car may not have received the\ncommand to stop serving the trip, or (in case of trips cancelled while\nriding) is still looking for a place to pull over.",
+                    "type": "boolean"
+                },
+                "noShowDepartureTime": {
+                    "description": "If the car is waiting for a passenger, it will leave due to no-show at this\ntime.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "state": {
+                    "enum": [
+                        "UNSPECIFIED_STATE",
+                        "REQUESTED",
+                        "QUEUED",
+                        "INFEASIBLE",
+                        "TO_PICKUP",
+                        "PICKUP_MOVE_ALONG",
+                        "AT_PICKUP",
+                        "NO_SHOW",
+                        "RIDING",
+                        "COMPLETED",
+                        "CANCELLED"
+                    ],
+                    "enumDescriptions": [
+                        "Should not be used.",
+                        "The trip was accepted by the server, and is waiting to be assigned\nto a vehicle.",
+                        "The trip was accepted by the server. A car has been selected but it is\ncurrently serving another trip.",
+                        "The trip was accepted by the server but later rejected by the car. This\nshould be rare and may require an action by a customer support agent.",
+                        "The car is on its way to pick up the user.",
+                        "The car had already reached pickup, but needed to \"move along\", and is in\nthe process of circling the block or otherwise reparking.",
+                        "The car is at pickup, waiting for the user. This includes the boarding\nstep.",
+                        "The passenger did not arrive at the pickup location.",
+                        "The car is driving with a user on board, or has already arrived at the\nfinal destination but the user hasn't gotten out yet.",
+                        "The trip has completed.",
+                        "The trip is cancelled."
+                    ],
+                    "type": "string"
+                },
+                "waypointStatus": {
+                    "description": "Will have exactly two entries, one for the pickup and one for the dropoff.\n\nOnce the waypoint is completed, the corresponding 'waypoint_status' will\nstill be present but will be an empty object.",
+                    "items": {
+                        "$ref": "WaypointStatus"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "UnlockDoorsRequest": {
+            "id": "UnlockDoorsRequest",
+            "properties": {},
+            "type": "object"
+        },
+        "UnlockDoorsResponse": {
+            "id": "UnlockDoorsResponse",
+            "properties": {},
+            "type": "object"
+        },
+        "Vehicle": {
+            "id": "Vehicle",
+            "properties": {
+                "driver": {
+                    "$ref": "Driver",
+                    "description": "The safety driver, if any."
+                },
+                "licensePlate": {
+                    "description": "License plate. Just upper-case letters and digits.",
+                    "type": "string"
+                },
+                "position": {
+                    "$ref": "LatLng",
+                    "description": "Most recent position of the vehicle."
+                },
+                "routeSegments": {
+                    "description": "Encoded route for each segment. Segments already finished might\nnot be included.",
+                    "items": {
+                        "$ref": "RouteSegment"
+                    },
+                    "type": "array"
+                },
+                "yawE3": {
+                    "description": "Yaw in e3 radians; ranges between -pi*1e3 and pi*1e3, truncated to an int.\nMeasured counter-clockwise, with east = 0. May be unset if unknown.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "Waypoint": {
+            "id": "Waypoint",
+            "properties": {
+                "descriptions": {
+                    "description": "The location description, which may be displayed in the car. Should be the\nstreet address as produced by reverse-geocoding. Two strings should be\nprovided: One containing the street address (e.g., \"5040 Wild Horse Pass\nBlvd\") the other one with the city name and the zip code (e.g., \"Chandler,\nAZ 85226\").\n\nThis field is optional. The car may not always show the provided strings.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "location": {
+                    "$ref": "LatLng",
+                    "description": "Lat/lng of the waypoint."
+                },
+                "name": {
+                    "description": "An arbitrary label for the location to display to the user, eg \"Glenview\nMall\". May override the descriptions if you include both fields.\nThis field is optional. If unset, Waymo will choose how to describe the\nlocation.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "WaypointStatus": {
+            "id": "WaypointStatus",
+            "properties": {
+                "etaTime": {
+                    "description": "Absolute time at which the car is expected to arrive at the waypoint.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Partner Trip API (Test)",
+    "version": "v1",
+    "version_module": true
+}

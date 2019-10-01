@@ -1,0 +1,371 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/drive": {
+                    "description": "See, edit, create, and delete all of your Google Drive files"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://autopush-presence.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Drive Presence",
+    "description": "Maintains user presence for Drive FS. See go/drive-presence",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://goto.google.com/drive-presence",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "autopush_presence_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "autopush_presence_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "files": {
+            "methods": {
+                "batchPing": {
+                    "description": "Accepts a batch of ping requests and returns presence information\nfor all files from the request.",
+                    "flatPath": "v1/files:batchPing",
+                    "httpMethod": "PUT",
+                    "id": "autopush_presence_sandbox.files.batchPing",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/files:batchPing",
+                    "request": {
+                        "$ref": "BatchPingRequest"
+                    },
+                    "response": {
+                        "$ref": "BatchPingResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/drive"
+                    ]
+                },
+                "ping": {
+                    "description": "Indicates user presence on an file and receive up-to-date roster.",
+                    "flatPath": "v1/files/{filesId}:ping",
+                    "httpMethod": "PUT",
+                    "id": "autopush_presence_sandbox.files.ping",
+                    "parameterOrder": [
+                        "parent"
+                    ],
+                    "parameters": {
+                        "parent": {
+                            "description": "Drive file id.\nFormat: \"files/{Drive ID of the file}\"",
+                            "location": "path",
+                            "pattern": "^files/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+parent}:ping",
+                    "request": {
+                        "$ref": "PingRequest"
+                    },
+                    "response": {
+                        "$ref": "PingResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/drive"
+                    ]
+                }
+            }
+        }
+    },
+    "revision": "20190925",
+    "rootUrl": "https://autopush-presence.sandbox.googleapis.com/",
+    "schemas": {
+        "BasicUserInfo": {
+            "description": "Basic user info for collaborators.",
+            "id": "BasicUserInfo",
+            "properties": {
+                "displayName": {
+                    "description": "Display name.",
+                    "type": "string"
+                },
+                "email": {
+                    "description": "User email. Not populated for anonymous users.",
+                    "type": "string"
+                },
+                "photoUrl": {
+                    "description": "User picture URL.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "BatchPingRequest": {
+            "description": "Version of a Ping request for batching.",
+            "id": "BatchPingRequest",
+            "properties": {
+                "pingRequests": {
+                    "items": {
+                        "$ref": "PingRequest"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BatchPingResponse": {
+            "description": "Version of a Ping response for batching.",
+            "id": "BatchPingResponse",
+            "properties": {
+                "filePresenceInfos": {
+                    "additionalProperties": {
+                        "$ref": "PingResponse"
+                    },
+                    "description": "All presences grouped by file id.",
+                    "type": "object"
+                },
+                "timeToWait": {
+                    "description": "The minimum amount of time the client should wait before sending another\nrequest. Same as in PingResponse.",
+                    "format": "google-duration",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FileDetails": {
+            "description": "Details about the file.",
+            "id": "FileDetails",
+            "properties": {
+                "revisionId": {
+                    "description": "Revision ID",
+                    "type": "string"
+                },
+                "revisionOrder": {
+                    "description": "This number indicates precedence of the revisions.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "syncState": {
+                    "description": "Synchronization state of the file.",
+                    "enum": [
+                        "SYNC_STATE_UNSPECIFIED",
+                        "SYNCHRONIZED",
+                        "UPLOADING"
+                    ],
+                    "enumDescriptions": [
+                        "Default. Unknown state.",
+                        "As far as we know, the file is in sync with some revision version\nmaybe not the latest.",
+                        "File is saved and being uploaded to the server."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PingRequest": {
+            "description": "Update the authenticated user's presence",
+            "id": "PingRequest",
+            "properties": {
+                "parent": {
+                    "description": "Drive file id.\nFormat: \"files/{Drive ID of the file}\"",
+                    "type": "string"
+                },
+                "sessionState": {
+                    "$ref": "SessionState",
+                    "description": "Updated state of a user on this file in this edit session."
+                },
+                "ttl": {
+                    "description": "An estimation on how long the user's session will be in this state.\nClients should send a new ping before this TTL expires to keep\nthe user in the roster.",
+                    "format": "google-duration",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PingResponse": {
+            "description": "Response to a ping request.",
+            "id": "PingResponse",
+            "properties": {
+                "presenceInfos": {
+                    "description": "Collection of all users currently present on the file\nand their states.",
+                    "items": {
+                        "$ref": "PresenceInfo"
+                    },
+                    "type": "array"
+                },
+                "timeToWait": {
+                    "description": "The minimum amount of time the client should wait before sending another\nPingRequest. If the response's time_to_wait is longer than the requests's\nttl, then the ttl will be extended to the former's value.\nThis is useful if servers are currently overloaded.",
+                    "format": "google-duration",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PresenceInfo": {
+            "description": "Presence information for one user's client per file.",
+            "id": "PresenceInfo",
+            "properties": {
+                "sessionStates": {
+                    "description": "States of different editing sessions for the user.",
+                    "items": {
+                        "$ref": "SessionState"
+                    },
+                    "type": "array"
+                },
+                "user": {
+                    "$ref": "User",
+                    "description": "A collaborator on the file. Can be anonymous or not."
+                }
+            },
+            "type": "object"
+        },
+        "Session": {
+            "description": "Represents one editing/viewing session such as a window or an editor's tab.\nThis message can also include information about the editor and environment.",
+            "id": "Session",
+            "properties": {
+                "sessionId": {
+                    "description": "An ID to distinguish between different sessions for one user for same file.\nThis id should be the same for different requests for the same\nwindow/machine. We recommend using random numbers to avoid collision with\nother sessions for the same user on different machines.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SessionState": {
+            "description": "State of user on this file in a single window/tab.",
+            "id": "SessionState",
+            "properties": {
+                "fileDetails": {
+                    "$ref": "FileDetails",
+                    "description": "State of the file."
+                },
+                "session": {
+                    "$ref": "Session",
+                    "description": "Unique immutable information identifying current edit session."
+                },
+                "userState": {
+                    "description": "Current user's action such as editing, viewing.",
+                    "enum": [
+                        "USER_STATE_UNSPECIFIED",
+                        "IDLE",
+                        "VIEWING",
+                        "EDITING",
+                        "EXITED"
+                    ],
+                    "enumDescriptions": [
+                        "The user is present but in an unknown state.",
+                        "The user has the file open but is not actively interacting with\nit. (Window is minimized.)",
+                        "The user is looking at the document.",
+                        "User made local changes but has not saved the file.",
+                        "The user is closing the document."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "User": {
+            "description": "A user visible in the roster.",
+            "id": "User",
+            "properties": {
+                "basicUserInfo": {
+                    "$ref": "BasicUserInfo",
+                    "description": "Limited basic user information. Optional for non-anonymized users."
+                },
+                "color": {
+                    "description": "The background color for the user in the format #rrggbb.",
+                    "type": "string"
+                },
+                "isMe": {
+                    "description": "True iff this user is the requesting user.",
+                    "type": "boolean"
+                },
+                "userId": {
+                    "description": "User id that will allow to get additional information from People API.\nThis will be empty for anonymized collaborators.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Apps Presence API",
+    "version": "v1",
+    "version_module": true
+}

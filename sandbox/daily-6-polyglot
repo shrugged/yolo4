@@ -1,0 +1,1471 @@
+{
+    "basePath": "",
+    "baseUrl": "https://daily-6-polyglot.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Polyglot",
+    "description": "",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://localization.google.com/polyglot",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "daily_6_polyglot_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "daily_6_polyglot_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "media": {
+            "methods": {
+                "download": {
+                    "description": "Downloads media. Download is supported\non the URI `/v1/media/{+name}?alt=media`.",
+                    "flatPath": "v1/media/{mediaId}",
+                    "httpMethod": "GET",
+                    "id": "daily_6_polyglot_sandbox.media.download",
+                    "parameterOrder": [
+                        "resourceName"
+                    ],
+                    "parameters": {
+                        "resourceName": {
+                            "description": "Name of the media that is being downloaded.  See\nReadRequest.resource_name.",
+                            "location": "path",
+                            "pattern": "^.+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/media/{+resourceName}",
+                    "response": {
+                        "$ref": "Media"
+                    },
+                    "supportsMediaDownload": true
+                },
+                "upload": {
+                    "description": "Uploads media. Upload is supported on\nthe URI `/upload/v1/media/{+name}`.",
+                    "flatPath": "v1/media/{mediaId}",
+                    "httpMethod": "POST",
+                    "id": "daily_6_polyglot_sandbox.media.upload",
+                    "mediaUpload": {
+                        "accept": [
+                            "*/*"
+                        ],
+                        "protocols": {
+                            "simple": {
+                                "multipart": true,
+                                "path": "/upload/v1/media/{+resourceName}"
+                            }
+                        }
+                    },
+                    "parameterOrder": [
+                        "resourceName"
+                    ],
+                    "parameters": {
+                        "resourceName": {
+                            "description": "Name of the media that is being downloaded.  See\nReadRequest.resource_name.",
+                            "location": "path",
+                            "pattern": "^.+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/media/{+resourceName}",
+                    "request": {
+                        "$ref": "Media"
+                    },
+                    "response": {
+                        "$ref": "Media"
+                    },
+                    "supportsMediaUpload": true
+                }
+            }
+        },
+        "permissions": {
+            "methods": {
+                "batchList": {
+                    "description": "Lists permissions for one or more tasks. Limit 300 ListPermissionRequests\nper batch. If limit exceed, will return an INVALID_ARGUMENT error.",
+                    "flatPath": "v1/permissions:batchList",
+                    "httpMethod": "GET",
+                    "id": "daily_6_polyglot_sandbox.permissions.batchList",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "parent": {
+                            "description": "The tasks for which permissions are requested. Any identifier for which a\ntask cannot be found will be ignored.",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/permissions:batchList",
+                    "response": {
+                        "$ref": "BatchListPermissionsResponse"
+                    }
+                },
+                "batchUpdate": {
+                    "description": "Creates one or more new permissions. Operation is atomic by resource, e.g.\nif two Permissions are for task 123 and a third is for task 456, the first\ntwo will either both succeed or both fail, but they can succeed while the\nthird fails or vice-versa.\nIn the event of a partial failure, the RPC will return OK, but individual\nmessage in the response will provide a status code indicating the type of\nerror and the reason for it.",
+                    "flatPath": "v1/permissions:batchUpdate",
+                    "httpMethod": "POST",
+                    "id": "daily_6_polyglot_sandbox.permissions.batchUpdate",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/permissions:batchUpdate",
+                    "request": {
+                        "$ref": "BatchChangePermissionRequest"
+                    },
+                    "response": {
+                        "$ref": "BatchChangePermissionResponse"
+                    }
+                }
+            }
+        },
+        "tasks": {
+            "methods": {
+                "batchCreate": {
+                    "description": "Creates tasks in multiple languages from the content of a single\nsource file.",
+                    "flatPath": "v1/tasks:batchCreate",
+                    "httpMethod": "POST",
+                    "id": "daily_6_polyglot_sandbox.tasks.batchCreate",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/tasks:batchCreate",
+                    "request": {
+                        "$ref": "BatchCreateTaskRequest"
+                    },
+                    "response": {
+                        "$ref": "BatchCreateTaskResponse"
+                    }
+                },
+                "batchCreateDryRun": {
+                    "description": "BatchCreateTask dry run.\nThis method will simulate BatchCreateTask's behavior, except the following:\n- it reads source content from InputDocument proto, instead of using\npre-uploaded file;\n- Machine translation is always disabled;\n- Execution results (the created tasks) are not saved in polyglot.",
+                    "flatPath": "v1/tasks:batchCreateDryRun",
+                    "httpMethod": "POST",
+                    "id": "daily_6_polyglot_sandbox.tasks.batchCreateDryRun",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/tasks:batchCreateDryRun",
+                    "request": {
+                        "$ref": "BatchCreateTaskRequest"
+                    },
+                    "response": {
+                        "$ref": "BatchCreateTaskResponse"
+                    }
+                },
+                "delete": {
+                    "description": "Delete the specified task.",
+                    "flatPath": "v1/tasks/{tasksId}",
+                    "httpMethod": "DELETE",
+                    "id": "daily_6_polyglot_sandbox.tasks.delete",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Name of the task to be deleted.",
+                            "location": "path",
+                            "pattern": "^tasks/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "Empty"
+                    }
+                },
+                "get": {
+                    "description": "Gets the specified task.",
+                    "flatPath": "v1/tasks/{tasksId}",
+                    "httpMethod": "GET",
+                    "id": "daily_6_polyglot_sandbox.tasks.get",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "includeProjectStats": {
+                            "description": "Compute current PROJECT_SCOPE Statistic elements in the Task.stats field.",
+                            "location": "query",
+                            "type": "boolean"
+                        },
+                        "name": {
+                            "description": "Required. The name of the task to be retrieved.",
+                            "location": "path",
+                            "pattern": "^tasks/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "Task"
+                    }
+                },
+                "getSourceContent": {
+                    "description": "Get source content for a specified task.",
+                    "flatPath": "v1/tasks/{tasksId}:getSourceContent",
+                    "httpMethod": "GET",
+                    "id": "daily_6_polyglot_sandbox.tasks.getSourceContent",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Required. Name of the task for which to download source content.",
+                            "location": "path",
+                            "pattern": "^tasks/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}:getSourceContent",
+                    "response": {
+                        "$ref": "GetSourceContentResponse"
+                    }
+                },
+                "list": {
+                    "description": "Finds all tasks accessible by the current user and filters them\naccording to criteria set in the request.",
+                    "flatPath": "v1/tasks",
+                    "httpMethod": "GET",
+                    "id": "daily_6_polyglot_sandbox.tasks.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "filter": {
+                            "description": "The filter expression for filtering tasks. We currently only support\nfiltering tasks by project_id. To do so, use the following syntax for your\nfiltering expression: project_id=12345",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "orderBy": {
+                            "description": "The sort order for the resultant list, using SQL syntax.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "pageSize": {
+                            "description": "The number of tasks to return for each list request.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageToken": {
+                            "description": "The pagination token from a previous list request (if any).",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/tasks",
+                    "response": {
+                        "$ref": "ListTasksResponse"
+                    }
+                },
+                "listHistory": {
+                    "description": "List revision history for a specified task, permission changes not\nincluded.",
+                    "flatPath": "v1/tasks:listHistory",
+                    "httpMethod": "GET",
+                    "id": "daily_6_polyglot_sandbox.tasks.listHistory",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "endTime": {
+                            "description": "If specified, the change records returned will be strictly before this\ntimestamp: returned timestamp < end_time.",
+                            "format": "google-datetime",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Name of the task for which to get revision history.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "pageSize": {
+                            "description": "The number of change records to return for each list request.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageToken": {
+                            "description": "The pagination token from a previous list request (if any).",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "readMask": {
+                            "description": "If set, the response will contain changes that involves fields specified\nin the field mask. Otherwise, all changes will be returned.\nCurrently the only supported field path is workflow_info.current_state",
+                            "format": "google-fieldmask",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "startTime": {
+                            "description": "If specified, the change records returned will be on or after this\ntimestamp: start_time <= returned timestamp.",
+                            "format": "google-datetime",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/tasks:listHistory",
+                    "response": {
+                        "$ref": "ListTaskHistoryResponse"
+                    }
+                },
+                "mergeTranslations": {
+                    "description": "Generates the translated version of the specified task, by merging the\ntranslations from the task with the source content initially uploaded when\ncreating the task.",
+                    "flatPath": "v1/tasks/{tasksId}:mergeTranslations",
+                    "httpMethod": "GET",
+                    "id": "daily_6_polyglot_sandbox.tasks.mergeTranslations",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "The name of the task for which to merge translations.",
+                            "location": "path",
+                            "pattern": "^tasks/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}:mergeTranslations",
+                    "response": {
+                        "$ref": "MergeTranslationsResponse"
+                    }
+                },
+                "patch": {
+                    "description": "Updates a specified task.",
+                    "flatPath": "v1/tasks/{tasksId}",
+                    "httpMethod": "PATCH",
+                    "id": "daily_6_polyglot_sandbox.tasks.patch",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Resource name of the task. Example name: tasks/123abc.",
+                            "location": "path",
+                            "pattern": "^tasks/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "updateMask": {
+                            "description": "Required. An update mask to be applied to `task`. Only fields specified in\nthe update mask will be used to update the task.",
+                            "format": "google-fieldmask",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "request": {
+                        "$ref": "Task"
+                    },
+                    "response": {
+                        "$ref": "Task"
+                    }
+                },
+                "startUpload": {
+                    "description": "Creates an upload session to start uploading file data. The resource\nname of the returned UploadFileRef is used with ByteStream:Write() to\nupload the byte content of a file.\n\nOnce the upload is complete, the UploadFileRef is used with\nBatchCreateTask() to create one or more new tasks for\ntranslation.",
+                    "flatPath": "v1/tasks:startUpload",
+                    "httpMethod": "POST",
+                    "id": "daily_6_polyglot_sandbox.tasks.startUpload",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/tasks:startUpload",
+                    "request": {
+                        "$ref": "Empty"
+                    },
+                    "response": {
+                        "$ref": "UploadFileRef"
+                    }
+                }
+            },
+            "resources": {
+                "permissions": {
+                    "methods": {
+                        "list": {
+                            "description": "Lists all permissions for a task.",
+                            "flatPath": "v1/tasks/{tasksId}/permissions",
+                            "httpMethod": "GET",
+                            "id": "daily_6_polyglot_sandbox.tasks.permissions.list",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "Required. The name of the parent task to get permissions for.",
+                                    "location": "path",
+                                    "pattern": "^tasks/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/permissions",
+                            "response": {
+                                "$ref": "ListPermissionsResponse"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "workflows": {
+            "methods": {
+                "create": {
+                    "description": "Creates a new workflow.",
+                    "flatPath": "v1/workflows",
+                    "httpMethod": "POST",
+                    "id": "daily_6_polyglot_sandbox.workflows.create",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "validateOnly": {
+                            "description": "True if the workflow should only be validated and not created.",
+                            "location": "query",
+                            "type": "boolean"
+                        }
+                    },
+                    "path": "v1/workflows",
+                    "request": {
+                        "$ref": "Workflow"
+                    },
+                    "response": {
+                        "$ref": "Workflow"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190913",
+    "rootUrl": "https://daily-6-polyglot.sandbox.googleapis.com/",
+    "schemas": {
+        "AttributeNamespace": {
+            "description": "Attributes within a namespace",
+            "id": "AttributeNamespace",
+            "properties": {
+                "attributes": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of key-value attributes within a single namespace",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "BatchChangePermissionRequest": {
+            "description": "Defines a list of changes to be made to permissions.\nEach message in this proto will define a change to be made to the permission\nit represents. Permission changes are processed in order, so if there are\nconflicting permission changes in this list, the last one will be the one\nthat ends up being applied to the permission it affects.",
+            "id": "BatchChangePermissionRequest",
+            "properties": {
+                "changes": {
+                    "description": "A list of changes to be made to the permissions for a task.",
+                    "items": {
+                        "$ref": "PermissionChange"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BatchChangePermissionResponse": {
+            "description": "The result of a batch change operation on permissions.",
+            "id": "BatchChangePermissionResponse",
+            "properties": {
+                "changeResults": {
+                    "description": "A list of all change results corresponding to a PermissionChange in the\nrequest. Each PermissionChangeResult will contain the initially\nrequested PermissionChange, along with a status indicating the result\nof the operation.\nThis is used in the event of a partial failure: in this case the RPC will\nreturn OK, but individual PermissionChangeResults will provide the status\ncode indicating the type of error and the reason for it.",
+                    "items": {
+                        "$ref": "PermissionChangeResult"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BatchCreateTaskRequest": {
+            "description": "Request to create one or more tasks from one or more input documents. If\nmultiple documents are supplied, word repetitions amongst them will be\ncomputed.",
+            "id": "BatchCreateTaskRequest",
+            "properties": {
+                "inputDocuments": {
+                    "description": "One or more input documents from which to create tasks.",
+                    "items": {
+                        "$ref": "InputDocument"
+                    },
+                    "type": "array"
+                },
+                "task": {
+                    "$ref": "Task",
+                    "description": "The metadata of the tasks to be created. The source_content_file_reference,\nas well as all other fields duplicated in InputDocument, will be ignored.\nIn the created tasks, those fields will receive values from\ninput_documents."
+                }
+            },
+            "type": "object"
+        },
+        "BatchCreateTaskResponse": {
+            "description": "Response message for Polyglot.BatchCreateTask.",
+            "id": "BatchCreateTaskResponse",
+            "properties": {
+                "tasks": {
+                    "description": "The created tasks.",
+                    "items": {
+                        "$ref": "Task"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BatchListPermissionResult": {
+            "description": "One result of batch list permission.",
+            "id": "BatchListPermissionResult",
+            "properties": {
+                "parent": {
+                    "description": "The requested task which the permissions belong to. \"tasks/{task_id}\"",
+                    "type": "string"
+                },
+                "permissions": {
+                    "description": "Permissions of the parent task.",
+                    "items": {
+                        "$ref": "Permission"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BatchListPermissionsResponse": {
+            "description": "Response message for [Polyglot.BatchListPermissions].",
+            "id": "BatchListPermissionsResponse",
+            "properties": {
+                "permissionResults": {
+                    "description": "The permissions results for the requested tasks. For each requested task,\nThere will be one corresponding result, if the task exists. If the task is\nnot found, there will be no corresponding result, and no error will be\nraised. If the requester doesn't have the access to any of task, will\nreturn PERMISSION_DENY error and no result.",
+                    "items": {
+                        "$ref": "BatchListPermissionResult"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CreatePermissionRequest": {
+            "description": "Create a permission for a given task.",
+            "id": "CreatePermissionRequest",
+            "properties": {
+                "parent": {
+                    "description": "Required. The name of the parent task for the created permission.",
+                    "type": "string"
+                },
+                "permission": {
+                    "$ref": "Permission",
+                    "description": "Required. The permission to be created."
+                }
+            },
+            "type": "object"
+        },
+        "DeletePermissionRequest": {
+            "description": "Delete the permission under that name.",
+            "id": "DeletePermissionRequest",
+            "properties": {
+                "name": {
+                    "description": "Required. The name of the permission to be deleted.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Empty": {
+            "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+            "id": "Empty",
+            "properties": {},
+            "type": "object"
+        },
+        "Extension": {
+            "description": "Extension for clients to associate extra information.",
+            "id": "Extension",
+            "properties": {
+                "reviewInfo": {
+                    "$ref": "ReviewInfo",
+                    "description": "Review information attached with the task."
+                }
+            },
+            "type": "object"
+        },
+        "GetSourceContentResponse": {
+            "description": "Provides the client with a url which points to the source content of a task.",
+            "id": "GetSourceContentResponse",
+            "properties": {
+                "url": {
+                    "description": "URL pointing to the source content of a task.\nThis URL is transient and you should download the file directly instead of\nstoring the URL for later access.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GlossaryInfo": {
+            "description": "Information about which glossaries and how they will be associated with a\ntask. A glossary is a database consisting of concept-oriented terminological\nentries and related information, such as definition, context, and suggested\ntranslations.",
+            "id": "GlossaryInfo",
+            "properties": {
+                "glossaryIds": {
+                    "description": "IDs of glossaries used by this task.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "preferenceTags": {
+                    "description": "Tags to be passed to the Glossary Service for ranking.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "InputDocument": {
+            "description": "An input document from which to create one or more translation tasks.",
+            "id": "InputDocument",
+            "properties": {
+                "attributeNamespaces": {
+                    "additionalProperties": {
+                        "$ref": "AttributeNamespace"
+                    },
+                    "description": "Map from namespace id to attribute map for this document.",
+                    "type": "object"
+                },
+                "content": {
+                    "description": "The actual content of the document to be used as the source. Only used\nin BatchCreateTaskDryRun",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "The display name for all tasks created from this document.",
+                    "type": "string"
+                },
+                "externalFileId": {
+                    "description": "Id of source file in client's (such as Orbis) system. It is not\ngenerated by polyglot. Polyglot cannot guarantee it to be unique.\nIf unset, the value in task.external_file_id is used.",
+                    "type": "string"
+                },
+                "formatId": {
+                    "description": "The specific format of this document. Typically, the Okapi filter ID.",
+                    "type": "string"
+                },
+                "instruction": {
+                    "$ref": "Instruction",
+                    "description": "The instruction of this document.\nUsed only if set. If unset, the value in the instruction field of the\ntask is used."
+                },
+                "machineTranslationConfig": {
+                    "description": "Machine translation configuration for this document.",
+                    "enum": [
+                        "MACHINE_TRANSLATION_CONFIG_UNSPECIFIED",
+                        "MACHINE_TRANSLATION_ON",
+                        "MACHINE_TRANSLATION_OFF"
+                    ],
+                    "enumDescriptions": [
+                        "Machine translation configuration unspecified",
+                        "Enable machine translation",
+                        "Disable machine translation"
+                    ],
+                    "type": "string"
+                },
+                "mimeType": {
+                    "description": "The MIME type of this document.",
+                    "type": "string"
+                },
+                "referenceFileInfo": {
+                    "description": "Reference files associated with this document. Used only if it contains\nat least one value. If empty, the value in the reference_file_info field\nof the task is used.",
+                    "items": {
+                        "$ref": "ReferenceFileMetadata"
+                    },
+                    "type": "array"
+                },
+                "serviceLevel": {
+                    "description": "Service level of this document. If empty, the value in the service_level\nfield of the task is used.",
+                    "type": "string"
+                },
+                "sourceCharset": {
+                    "description": "The character encoding of this document.",
+                    "type": "string"
+                },
+                "sourceFileName": {
+                    "description": "source file name is used only if set. If unset, the value in\ntask.source_file_name is used.",
+                    "type": "string"
+                },
+                "sourceFileUrl": {
+                    "description": "The source file url link.\nOnly used in BatchCreateTask for dropbox request.",
+                    "type": "string"
+                },
+                "targetLanguageCodes": {
+                    "description": "One or more target language codes for the tasks to be created. Each\nlanguage code must be unique.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "translationMemoryInfos": {
+                    "description": "Translation memory infos for this document. Used only if it contains at\nleast one value. If empty, the value in the translation_memory_infos\nfield of the task is used.",
+                    "items": {
+                        "$ref": "TranslationMemoryInfo"
+                    },
+                    "type": "array"
+                },
+                "uploadedTaskRef": {
+                    "$ref": "UploadFileRef",
+                    "description": "The reference for the uploaded task data to be used as the source. Only\nused in BatchCreateTask"
+                }
+            },
+            "type": "object"
+        },
+        "Instruction": {
+            "description": "Instruction to be displayed to the translators. The format is free form plain\ntext. These instructions will be displayed as is, and won't be localized.",
+            "id": "Instruction",
+            "properties": {
+                "text": {
+                    "description": "A free form text instruction.",
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "Output only. The last update timestamp of the instructions.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListPermissionsResponse": {
+            "description": "Response message for Polyglot.ListPermissions.",
+            "id": "ListPermissionsResponse",
+            "properties": {
+                "permissions": {
+                    "description": "The list of permissions associated with a task.",
+                    "items": {
+                        "$ref": "Permission"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListTaskHistoryResponse": {
+            "description": "Response message for Polyglot.ListTaskHistory",
+            "id": "ListTaskHistoryResponse",
+            "properties": {
+                "changes": {
+                    "description": "A list of task changes, sorted by commit time in descending order.",
+                    "items": {
+                        "$ref": "TaskChangeRecord"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "The next pagination token to be used for a subsequent list request.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListTasksResponse": {
+            "description": "Response message for Polyglot.ListTasksRequest.",
+            "id": "ListTasksResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "The next pagination token to be used for a subsequent list request.",
+                    "type": "string"
+                },
+                "tasks": {
+                    "description": "The list of tasks that match the search criteria.",
+                    "items": {
+                        "$ref": "Task"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Media": {
+            "description": "Media resource.",
+            "id": "Media",
+            "properties": {
+                "resourceName": {
+                    "description": "Name of the media resource.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MergeTranslationsResponse": {
+            "description": "Response message for Polyglot.MergeTranslationsResponse.",
+            "id": "MergeTranslationsResponse",
+            "properties": {
+                "url": {
+                    "description": "The URL of the translated task. This URL is transient and you should\ndownload the file directly instead of storing the URL for later access.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Permission": {
+            "description": "An object representing the access rights of a user. ACLs can be set on\nentities i.e. tasks and validation configurations.",
+            "id": "Permission",
+            "properties": {
+                "emailAddress": {
+                    "description": "The email address of the user or group to which this ACL refers.\nThis field is required for permission create request\nif name is missing. It is optional otherwise.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Resource name of the ACL.\nThis field is optional for permission create request\nif email_address is provided. It is required otherwise.\nIt must have the format of tasks/<task_id>/permissions/<user_id>.",
+                    "type": "string"
+                },
+                "role": {
+                    "description": "Required. The role of the user in the specified entity.",
+                    "enum": [
+                        "ROLE_UNSPECIFIED",
+                        "READER",
+                        "COMMENTER",
+                        "WRITER",
+                        "ADMIN",
+                        "OWNER"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified role. This value should never be used.",
+                        "Readers can view a task but cannot edit or comment on it.",
+                        "Commenters can view and comment on a task.",
+                        "Writers can view and comment on a task as well as edit translation units.\nThey can also change the current workflow state of the task if there\nare any predefined transitions from the task's current state in the\nworkflow graph. Writers can also share or unshare the task with other\nreaders, commenters or writers.",
+                        "Admins can modify permissions of non-owners, arbitrarily change the\nworkflow state of the task to any state in the workflow graph, and modify\nother document metadata. They can also do anything a writer can do.",
+                        "The owner of a task can delete it. They can also do anything an admin can\ndo."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PermissionChange": {
+            "description": "Represents a change on a permission.\n\nA change on a permission can either be a request to create a new permission,\nupdate a permission, or delete a permission.",
+            "id": "PermissionChange",
+            "properties": {
+                "create": {
+                    "$ref": "CreatePermissionRequest",
+                    "description": "A request to create a new permission."
+                },
+                "delete": {
+                    "$ref": "DeletePermissionRequest",
+                    "description": "A request to delete an existing permission."
+                },
+                "update": {
+                    "$ref": "UpdatePermissionRequest",
+                    "description": "A request to update an existing permission."
+                }
+            },
+            "type": "object"
+        },
+        "PermissionChangeResult": {
+            "description": "The result of a change operation on a permission.",
+            "id": "PermissionChangeResult",
+            "properties": {
+                "change": {
+                    "$ref": "PermissionChange",
+                    "description": "The permission change that was requested."
+                },
+                "result": {
+                    "$ref": "Status",
+                    "description": "The status of the change. Note that since the batch operation change\nis not atomic, it is possible for the RPC to return OK, while some\noperations may not have succeeded. Callers should ensure to check the\nresult of the operation by checking whether each change succeeded\nand retry those that failed."
+                }
+            },
+            "type": "object"
+        },
+        "ReferenceFileMetadata": {
+            "description": "Represents metadata of a reference file.",
+            "id": "ReferenceFileMetadata",
+            "properties": {
+                "fileReference": {
+                    "$ref": "UploadFileRef",
+                    "description": "A reference to Polyglot's copy of the uploaded file."
+                },
+                "uploadedName": {
+                    "description": "The name of the file, from the original filesystem when it was uploaded.\nThis will be displayed in the UI to the user.\nThis should be immutable, and not changed once it has been set for the\nfirst time, in order to avoid confusing translators.",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "Output only. Public access Url for the reference file.\nThis URL is permanent",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ReviewInfo": {
+            "description": "Review information attached with the task.",
+            "id": "ReviewInfo",
+            "properties": {
+                "estimatedReviewWordCount": {
+                    "description": "The estimated word count that needed for review. K2 will set this field.\nIt'll be sent from Polyglot to Qualyglot when moving workflow status,\nand used in review and arbitration process.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "isReviewTimeCapped": {
+                    "description": "Whether the review time has been capped, mt100 uses this info to decide\napply mt100 features or not.",
+                    "type": "boolean"
+                },
+                "reviewLevel": {
+                    "description": "The review level, plp or task.",
+                    "enum": [
+                        "REVIEW_LEVEL_UNSPECIFIED",
+                        "PLP",
+                        "TASK"
+                    ],
+                    "enumDescriptions": [
+                        "Review level unspecified.",
+                        "PLP (project-language-pair) level review.",
+                        "Task level review."
+                    ],
+                    "type": "string"
+                },
+                "reviewTimeEstimation": {
+                    "description": "The estimated time to finish the review.",
+                    "format": "google-duration",
+                    "type": "string"
+                },
+                "reviewType": {
+                    "description": "LQE review type that used by this task.",
+                    "enum": [
+                        "REVIEW_TYPE_UNSPECIFIED",
+                        "NO_REVIEW",
+                        "FULL",
+                        "SPOTCHECK"
+                    ],
+                    "enumDescriptions": [
+                        "Review type unspecified.",
+                        "This task was not review required.",
+                        "This task required full review.",
+                        "This task required spotcheck review."
+                    ],
+                    "type": "string"
+                },
+                "scoringTemplateId": {
+                    "description": "ID of scoring template that used by this task.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SideEffects": {
+            "description": "Side effects that are performed when a task is moved to a state or while a\ntask is in a state.",
+            "id": "SideEffects",
+            "properties": {
+                "isCompleteState": {
+                    "description": "Every workflow graph must have one and only one state with\nis_complete_state set to true. Tasks in this state are read-only and\nfunctionality in the editor will be limited.",
+                    "type": "boolean"
+                },
+                "lqeAvailable": {
+                    "description": "Make the Language Quality Evaluation (LQE) tool panel available while in\nthis state.",
+                    "type": "boolean"
+                },
+                "mt100SegmentMatchTypeAdjustmentBeforeEntry": {
+                    "description": "Adjust mt100 segments\u2019 match types from MT to ICE before entering this\nstate.",
+                    "type": "boolean"
+                },
+                "qmAvailable": {
+                    "description": "Make the Query Manager (QM) tool panel available while in this state.",
+                    "type": "boolean"
+                },
+                "saveToTmAsReviewed": {
+                    "description": "Save the task's translations to Translation Memory as reviewed when a task\nenters this state.",
+                    "type": "boolean"
+                },
+                "validateBeforeEntry": {
+                    "description": "Perform automated QA checking before entering this state.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "State": {
+            "description": "Details about a single workflow state.",
+            "id": "State",
+            "properties": {
+                "extensions": {
+                    "description": "Workflow state extensions.",
+                    "enumDescriptions": [
+                        "Extension unspecified",
+                        "Indicate that this is a monolingual workflow state"
+                    ],
+                    "items": {
+                        "enum": [
+                            "UNSPECIFIED",
+                            "MONOLINGUAL"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "followingStates": {
+                    "description": "Title of all possible states that the current state can transition\nto, in the order that they will be displayed in the UI. Each state in the\nlist must be unique and match the title of another state in the workflow.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "sideEffects": {
+                    "$ref": "SideEffects",
+                    "description": "Side effects to be performed when a task is moved to this state.\nSome side effects must be set for at least one state in the workflow."
+                },
+                "title": {
+                    "description": "Title of the state as it will be displayed in the UI. The title of\nevery state in a workflow must be unique.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Statistic": {
+            "description": "A statistic about the number of count units and their type in the document\nrepresented by a task.",
+            "id": "Statistic",
+            "properties": {
+                "count": {
+                    "description": "Output only. The number of units covered by this statistic.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "countUnitType": {
+                    "description": "Output only. The unit of count of this statistic.",
+                    "enum": [
+                        "COUNT_UNIT_TYPE_UNSPECIFIED",
+                        "WORD",
+                        "SEGMENT"
+                    ],
+                    "enumDescriptions": [
+                        "Count unit unspecified.",
+                        "Count refers to word count.",
+                        "Count refers to segment count."
+                    ],
+                    "type": "string"
+                },
+                "prefillType": {
+                    "description": "The following fields specify the type and scope of the unit count in this\nstatistic.",
+                    "enum": [
+                        "PREFILL_TYPE_UNSPECIFIED",
+                        "NO_PREFILL",
+                        "IN_CONTEXT_EXACT_MATCH",
+                        "EXACT_MATCH",
+                        "FUZZY_MATCH",
+                        "MACHINE_TRANSLATION",
+                        "PRE_TRANSLATED"
+                    ],
+                    "enumDescriptions": [
+                        "Prefill type unspecified",
+                        "This segment was not prefilled.",
+                        "This segment was prefilled by translation memory with an in context\nexact match.",
+                        "This segment was prefilled by translation memory with an exact match.",
+                        "This segment was prefilled by translation memory with a fuzzy match.",
+                        "This segment was generated by machine translation.",
+                        "This segment was supplied with the source as pre-translated text."
+                    ],
+                    "type": "string"
+                },
+                "repetitionType": {
+                    "description": "Output only. The repetition type of this statistic.",
+                    "enum": [
+                        "REPETITION_TYPE_UNSPECIFIED",
+                        "NON_REPEATED",
+                        "REPEATED"
+                    ],
+                    "enumDescriptions": [
+                        "Repetition type unspecified.",
+                        "This count applies to segments that either are not repeated, or are the\nfirst segment of a group of repeated segments.",
+                        "This count applies to repeated segments. The first segment of a group of\nrepeated segments is counted as NON_REPEATED, and the remainder are\ncounted as REPEATED."
+                    ],
+                    "type": "string"
+                },
+                "scope": {
+                    "description": "Output only. The scope of this statistic.",
+                    "enum": [
+                        "SCOPE_UNSPECIFIED",
+                        "TASK_SCOPE",
+                        "PROJECT_SCOPE"
+                    ],
+                    "enumDescriptions": [
+                        "Scope unspecified.",
+                        "This count was made within this task.",
+                        "This count was made across this task and all other tasks belonging to the\nsame project as this task."
+                    ],
+                    "type": "string"
+                },
+                "segmentType": {
+                    "description": "Output only. The type of segment that this statistic is for.",
+                    "enum": [
+                        "SEGMENT_TYPE_UNSPECIFIED",
+                        "SOURCE_SEGMENT",
+                        "TARGET_SEGMENT"
+                    ],
+                    "enumDescriptions": [
+                        "Segment type unspecified.",
+                        "This count applies to source segments.",
+                        "This count applies to target segments."
+                    ],
+                    "type": "string"
+                },
+                "tag": {
+                    "description": "Output only. The segment tag that this statistic is for.",
+                    "type": "string"
+                },
+                "textUnitType": {
+                    "description": "Output only. The type of text unit that this statistic is for.",
+                    "enum": [
+                        "TEXT_UNIT_TYPE_UNSPECIFIED",
+                        "ONE_TO_ONE",
+                        "MANY_TO_MANY"
+                    ],
+                    "enumDescriptions": [
+                        "Text unit type unspecified.",
+                        "This count applies to one-to-one text units.",
+                        "This count applies to many-to-many text units."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Status": {
+            "description": "The `Status` type defines a logical error model that is suitable for\ndifferent programming environments, including REST APIs and RPC APIs. It is\nused by [gRPC](https://github.com/grpc). Each `Status` message contains\nthree pieces of data: error code, error message, and error details.\n\nYou can find out more about this error model and how to work with it in the\n[API Design Guide](https://cloud.google.com/apis/design/errors).",
+            "id": "Status",
+            "properties": {
+                "code": {
+                    "description": "The status code, which should be an enum value of google.rpc.Code.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "details": {
+                    "description": "A list of messages that carry the error details.  There is a common set of\nmessage types for APIs to use.",
+                    "items": {
+                        "additionalProperties": {
+                            "description": "Properties of the object. Contains field @type with type URL.",
+                            "type": "any"
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "message": {
+                    "description": "A developer-facing error message, which should be in English. Any\nuser-facing error message should be localized and sent in the\ngoogle.rpc.Status.details field, or localized by the client.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Task": {
+            "description": "Represents the metadata of a Task.",
+            "id": "Task",
+            "properties": {
+                "attributeNamespaces": {
+                    "additionalProperties": {
+                        "$ref": "AttributeNamespace"
+                    },
+                    "description": "Map from namespace id to attribute map",
+                    "type": "object"
+                },
+                "createTime": {
+                    "description": "Output only. The creation timestamp of the task.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "The name of the task, displayed to the translators.",
+                    "type": "string"
+                },
+                "extensionPoints": {
+                    "additionalProperties": {
+                        "$ref": "Extension"
+                    },
+                    "description": "Map from namespace id to Extension. The available namespaces are declared\nin i18n/polyglot/proto/extensionnamespace/extension_namespace.proto",
+                    "type": "object"
+                },
+                "externalFileId": {
+                    "description": "The Id of source file in client's system. It is not generated by polyglot.\nPolyglot cannot guarantee it to be unique.",
+                    "type": "string"
+                },
+                "filterId": {
+                    "description": "The Okapi filter ID to be used on this task that specifies how the\ntask should be handled. Can only be set during task creation and is\nimmutable afterwards. An invalid value for this field will result in a\nvalidation error. See\nhttp://okapiframework.org/wiki/index.php?title=Understanding_Filter_Configurations\nfor documentation on what the format of this field should be.\n.",
+                    "type": "string"
+                },
+                "glossaryInfo": {
+                    "$ref": "GlossaryInfo",
+                    "description": "Glossaries and preference tags associated with this task. This field can\nonly be modified by admins or owners."
+                },
+                "instruction": {
+                    "$ref": "Instruction",
+                    "description": "Instruction to be displayed to the translators."
+                },
+                "machineTranslationConfig": {
+                    "description": "Whether or not machine translation can be used to prefill this task.",
+                    "enum": [
+                        "MACHINE_TRANSLATION_CONFIG_UNSPECIFIED",
+                        "MACHINE_TRANSLATION_ON",
+                        "MACHINE_TRANSLATION_OFF"
+                    ],
+                    "enumDescriptions": [
+                        "Machine translation configuration unspecified",
+                        "Enable machine translation",
+                        "Disable machine translation"
+                    ],
+                    "type": "string"
+                },
+                "mimeType": {
+                    "description": "The MIME type of the task. This is only mutable when used in\nCreateTaskRequest. If left blank, the mimetype will be determined from\nthe uploaded content's MIME type.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Resource name of the task. Example name: tasks/123abc.",
+                    "type": "string"
+                },
+                "previewTemplateReference": {
+                    "$ref": "UploadFileRef",
+                    "description": "Preview template reference in Bigstore."
+                },
+                "projectId": {
+                    "description": "The project id that this task belongs to.\nRefers to a \"localization project\", i.e. a collection of tasks for\ntranslators to accomplish.",
+                    "type": "string"
+                },
+                "referenceFiles": {
+                    "description": "A list of reference files (e.g. style guide, etc.) that can be viewed by\ntranslators when translating content.",
+                    "items": {
+                        "$ref": "ReferenceFileMetadata"
+                    },
+                    "type": "array"
+                },
+                "serviceLevel": {
+                    "description": "The service level at which translation memories prefill this task and save\ntranslated strings.",
+                    "type": "string"
+                },
+                "sourceCharset": {
+                    "description": "The charset of the task's source document.",
+                    "type": "string"
+                },
+                "sourceContentFileReference": {
+                    "$ref": "UploadFileRef",
+                    "description": "Output only. A reference to Polyglot's copy of the source task content."
+                },
+                "sourceFileName": {
+                    "description": "source file name e.g. \"request_1_1.gmb\" e.g. \"request_2_2.html\".",
+                    "type": "string"
+                },
+                "sourceFileUrl": {
+                    "description": "Output only. The source file url if a link is provided in the input file.",
+                    "type": "string"
+                },
+                "sourceLanguageCode": {
+                    "description": "The BCP-47 source language code of the task, e.g. \"en-US\" or \"sr-Latn\".",
+                    "type": "string"
+                },
+                "sourceWordCount": {
+                    "description": "Output only. Total source word count. Can be calculated by iterating all\ntext units, then iterating all source segments, and adding the segment\nword count. It is populated when the task is created, and never changes\nafter that.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "stats": {
+                    "description": "Word count statistics for this task. This is set after this task has been\nprefilled. If a statistic for a specific type is absent from this list, it\nmay be assumed to have a word count of zero. Only non-overlapping leaf word\ncounts are provided; there are no aggregate counts. This means, for\ninstance, that to obtain a total source word count, sum all entries for\nwhich the segment type is source. Output only.",
+                    "items": {
+                        "$ref": "Statistic"
+                    },
+                    "type": "array"
+                },
+                "targetCharset": {
+                    "description": "The charset of the task's target document.",
+                    "type": "string"
+                },
+                "targetLanguageCode": {
+                    "description": "The BCP-47 target language code of the task, e.g. \"en-US\" or \"sr-Latn\".",
+                    "type": "string"
+                },
+                "translationMemoryInfos": {
+                    "description": "Any Translation Memories associated with this task.\nThere should be at least one TranslationMemoryInfo in this list that has\nsave_translations set to true.\nThis field can only be modified by admins or owners.\nThe order influences the TM's ranking of search matches, and thus affects\nprefilling and suggestion results. It should be sorted, from the most\nimportant to the least important.",
+                    "items": {
+                        "$ref": "TranslationMemoryInfo"
+                    },
+                    "type": "array"
+                },
+                "updateTime": {
+                    "description": "Output only. The last update timestamp of the task.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "workflowInfo": {
+                    "$ref": "WorkflowInfo",
+                    "description": "Details about the stage of the workflow that the task is currently in."
+                }
+            },
+            "type": "object"
+        },
+        "TaskChangeRecord": {
+            "description": "A change on the task metadata, excluding any changes to its permissions.",
+            "id": "TaskChangeRecord",
+            "properties": {
+                "commitTime": {
+                    "description": "The commit time of this change.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "task": {
+                    "$ref": "Task",
+                    "description": "The task metadata after this change happens."
+                },
+                "userEmail": {
+                    "description": "The email address of the user who made this change.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TranslationMemoryInfo": {
+            "description": "Information about how a translation memory will be used by a task.\nA Translation Memory (TM), is a database that stores \"segments\", which can be\nsentences, paragraphs or sentence-like units that have previously been\ntranslated, in order to aid human translators.",
+            "id": "TranslationMemoryInfo",
+            "properties": {
+                "saveTranslations": {
+                    "description": "Specifies whether the translations of the task should be saved to this TM.",
+                    "type": "boolean"
+                },
+                "translationMemoryId": {
+                    "description": "The ID of a translation memory used by this task, as provided by the\ntranslation memory server.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdatePermissionRequest": {
+            "description": "Update the corresponding permission's fields according to the update_mask.",
+            "id": "UpdatePermissionRequest",
+            "properties": {
+                "permission": {
+                    "$ref": "Permission",
+                    "description": "Required. A Permission resource containing fields to be updated."
+                },
+                "updateMask": {
+                    "description": "Required. An update mask to be applied to `permission`. Only fields\nspecified in the field mask will be used to update the permission.\nThe only valid path can be set in this field mask is 'role'.",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UploadFileRef": {
+            "description": "A reference to an uploaded file",
+            "id": "UploadFileRef",
+            "properties": {
+                "name": {
+                    "description": "A ByteStream resource name to write the raw data for a file. The format is\nthe prefix \"files\" followed by the date this name is assigned in ISO 8601\nformat and resource id, for example,\n\"files/yyyy-mm-dd/cc5ca58e-5263-4a89-81e4-792a69235c38\".",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Workflow": {
+            "description": "A workflow graph specifying the possible workflow states that a task can\nbe in and transition to. Workflow graphs do not have permissions and are\nimmutable after creation. A workflow graph can be associated with multiple\ntasks.",
+            "id": "Workflow",
+            "properties": {
+                "name": {
+                    "description": "Output only. The format will be /workflows/workflow_id with workflow id a unique\ninteger.",
+                    "type": "string"
+                },
+                "states": {
+                    "description": "All possible states in the workflow, in the order that they\nwill be displayed to admins in the UI.",
+                    "items": {
+                        "$ref": "State"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "WorkflowInfo": {
+            "description": "Information about a task's state within the workflow it's associated with.",
+            "id": "WorkflowInfo",
+            "properties": {
+                "currentState": {
+                    "description": "Required. The current workflow state of the task. `current_state` must be\npresent in the workflow graph identified by `workflow_name`.\nIf this is not provided, the request will return a status error of\nBAD_REQUEST.",
+                    "type": "string"
+                },
+                "dueTimes": {
+                    "additionalProperties": {
+                        "format": "google-datetime",
+                        "type": "string"
+                    },
+                    "description": "A mapping of workflow states to their deadlines. All workflow states in the\nmapping must also exist in the task's workflow graph. For example, an entry\nwith key 'in review' and value '12/30/2017' means this task should be moved\n*out* of 'in review' state before '12/30/2017'.",
+                    "type": "object"
+                },
+                "workflowName": {
+                    "description": "Required. Resource name of the workflow graph associated with the task.\nIf this is not provided, the request will return a status error of\nBAD_REQUEST.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Polyglot API (Daily 6)",
+    "version": "v1",
+    "version_module": true
+}

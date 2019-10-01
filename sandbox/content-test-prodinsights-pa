@@ -1,0 +1,796 @@
+{
+    "basePath": "",
+    "baseUrl": "https://test-prodinsights-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Production Insights",
+    "description": "Production Insights Private API.",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://go/production-insights",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "prodinsights_pa:v1",
+    "kind": "discovery#restDescription",
+    "name": "prodinsights_pa",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "aliases": {
+            "methods": {
+                "list": {
+                    "description": "List the collection of NodeAliases.",
+                    "flatPath": "v1/aliases",
+                    "httpMethod": "GET",
+                    "id": "prodinsights_pa.aliases.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "appName": {
+                            "description": "Application name whose alias data needs to be queried for.\nApplication enum has a list of applications that are available.\ne.g. \"OMG\" for OMG application.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "query": {
+                            "description": "Search query for aliases.\ne.g. \"Cloud\".",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/aliases",
+                    "response": {
+                        "$ref": "ListNodeAliasResponse"
+                    }
+                }
+            }
+        },
+        "taxonomies": {
+            "methods": {
+                "get": {
+                    "description": "Gets the specified taxonomy.",
+                    "flatPath": "v1/taxonomies/{taxonomiesId}",
+                    "httpMethod": "GET",
+                    "id": "prodinsights_pa.taxonomies.get",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Resource name of a taxonomy.\ne.g. \"taxonomies/g3project\"",
+                            "location": "path",
+                            "pattern": "^taxonomies/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "Taxonomy"
+                    }
+                },
+                "list": {
+                    "description": "Lists the collection of taxonomies.",
+                    "flatPath": "v1/taxonomies",
+                    "httpMethod": "GET",
+                    "id": "prodinsights_pa.taxonomies.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "filter": {
+                            "description": "The filter expression (go/filtering).",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "pageSize": {
+                            "description": "The maximum number of items to return.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageToken": {
+                            "description": "The `next_page_token` returned from a previous `ListTaxonomies`.\nThis is a base 64 encoded string representation of PageToken proto\nExample: \"b2Zmc2V0OiA0IGRhdGFfdWlkOiAiWFhYIg==\" is a base 64 encoded\nstring representation of \"offset: 4 data_uid: \\\"XXX\\\"\"",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/taxonomies",
+                    "response": {
+                        "$ref": "ListTaxonomiesResponse"
+                    }
+                }
+            },
+            "resources": {
+                "nodes": {
+                    "methods": {
+                        "get": {
+                            "description": "Gets the specified node.",
+                            "flatPath": "v1/taxonomies/{taxonomiesId}/nodes/{nodesId}",
+                            "httpMethod": "GET",
+                            "id": "prodinsights_pa.taxonomies.nodes.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Resource name of a `Node`.\ne.g. \"taxonomies/g3project/nodes/uXasf34adf\"",
+                                    "location": "path",
+                                    "pattern": "^taxonomies/[^/]+/nodes/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "redirect": {
+                                    "description": "Redirect specifies whether or not a node should redirect to its newest\nidentity.",
+                                    "location": "query",
+                                    "type": "boolean"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "response": {
+                                "$ref": "Node"
+                            }
+                        },
+                        "getAliases": {
+                            "description": "Get all alias entries for a given node and an optional application type.\nIf application type is not specified (default UNKNOWN_APPLICATION),\nreturn aliases from all application types.",
+                            "flatPath": "v1/taxonomies/{taxonomiesId}/nodes/{nodesId}:aliases",
+                            "httpMethod": "GET",
+                            "id": "prodinsights_pa.taxonomies.nodes.getAliases",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "appName": {
+                                    "description": "Application name whose alias data needs to be queried for.\nApplication enum has a list of applications that are available.\ne.g. \"OMG\" for OMG.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "description": "Resource name of a `Node`.\ne.g. \"taxonomies/g3project/nodes/uXasf34adf\".",
+                                    "location": "path",
+                                    "pattern": "^taxonomies/[^/]+/nodes/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}:aliases",
+                            "response": {
+                                "$ref": "GetAliasesForNodeResponse"
+                            }
+                        },
+                        "getChild": {
+                            "description": "Retrieves list of descendant nodes.",
+                            "flatPath": "v1/taxonomies/{taxonomiesId}/nodes/{nodesId}:child",
+                            "httpMethod": "GET",
+                            "id": "prodinsights_pa.taxonomies.nodes.getChild",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "generation": {
+                                    "description": "Generation - inclusive - up to which descendants are returned.\ne.g. generation = 2 returns generations 1 and 2.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "name": {
+                                    "description": "The node whose descendants will be retrieved.",
+                                    "location": "path",
+                                    "pattern": "^taxonomies/[^/]+/nodes/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}:child",
+                            "response": {
+                                "$ref": "GetDescendantNodesResponse"
+                            }
+                        },
+                        "getRelate": {
+                            "description": "Get relationships for a specified node.",
+                            "flatPath": "v1/taxonomies/{taxonomiesId}/nodes/{nodesId}:relate",
+                            "httpMethod": "GET",
+                            "id": "prodinsights_pa.taxonomies.nodes.getRelate",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "filter": {
+                                    "description": "The filter expression (go/filtering).",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "maxDepth": {
+                                    "description": "The max depth to recurse relations.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "name": {
+                                    "description": "Resource name of a `Node`.\ne.g. \"taxonomies/g3project/nodes/uXasf34adf\"",
+                                    "location": "path",
+                                    "pattern": "^taxonomies/[^/]+/nodes/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}:relate",
+                            "response": {
+                                "$ref": "GetRelatedNodesResponse"
+                            }
+                        },
+                        "list": {
+                            "description": "Lists the collection of nodes.",
+                            "flatPath": "v1/taxonomies/{taxonomiesId}/nodes",
+                            "httpMethod": "GET",
+                            "id": "prodinsights_pa.taxonomies.nodes.list",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "allowInactiveNodes": {
+                                    "description": "allow_inactive_nodes and allow_redirected_nodes are more explicit filters\nthat allow for filtering out inactive nodes, or nodes that now redirect.\n\nRedirected nodes are a subset of the inactive nodes.\n\nWhen either or both are set to true, it will override the behavior of\noptions that are set to false.",
+                                    "location": "query",
+                                    "type": "boolean"
+                                },
+                                "allowRedirectedNodes": {
+                                    "description": "allow_redirected_nodes sets whether or not redirected nodes should be\nincluded in the returned set.\n\nsee the note above allow_inactive_nodes for more details.",
+                                    "location": "query",
+                                    "type": "boolean"
+                                },
+                                "context.user": {
+                                    "description": "The username of the end user, e.g. \"vpatnala\".",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "filter": {
+                                    "description": "The filter expression (go/filtering).",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "pageSize": {
+                                    "description": "The maximum number of items to return.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "The `next_page_token` returned from a previous `ListNodesResponse`.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "parent": {
+                                    "description": "Resource name of the parent taxonomy resource collection\ne.g. \"taxonomies/g3project\" or the wildard collection id \"taxonomies/-\"\nas specified in\nhttp://go/apistyle/design_patterns.md?cl=head#ListSubCollections",
+                                    "location": "path",
+                                    "pattern": "^taxonomies/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "userId": {
+                                    "description": "The user's ID to be used for Smart Sort",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/nodes",
+                            "response": {
+                                "$ref": "ListNodesResponse"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190925",
+    "rootUrl": "https://test-prodinsights-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "Descendant": {
+            "description": "Descendants of a Node by generation.",
+            "id": "Descendant",
+            "properties": {
+                "descendantName": {
+                    "description": "Resource name of the child - should match the childIds field in the Node.\nmessage",
+                    "type": "string"
+                },
+                "generation": {
+                    "description": "Child's 'generation', or distance from the parent. A direct child.\nhas generation 1, for example.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "DescendantNode": {
+            "description": "Descendant data for a Node.",
+            "id": "DescendantNode",
+            "properties": {
+                "descendants": {
+                    "description": "A list of childNodes.",
+                    "items": {
+                        "$ref": "Descendant"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "Node ID for the node - should match the Name field in Node message.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GetAliasesForNodeResponse": {
+            "description": "Response for the `GetAliasesForNode` method.",
+            "id": "GetAliasesForNodeResponse",
+            "properties": {
+                "alias": {
+                    "description": "A list of NodeAlias which contain the aliases.",
+                    "items": {
+                        "$ref": "NodeAlias"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GetDescendantNodesResponse": {
+            "description": "Response for the `GetDescendantNodes` method.",
+            "id": "GetDescendantNodesResponse",
+            "properties": {
+                "descendants": {
+                    "$ref": "DescendantNode",
+                    "description": "The descendants of a node up to the requested generation."
+                }
+            },
+            "type": "object"
+        },
+        "GetRelatedNodesResponse": {
+            "description": "Response for the `GetRelatedNodes` method.",
+            "id": "GetRelatedNodesResponse",
+            "properties": {
+                "relatedNodes": {
+                    "$ref": "RelatedNode",
+                    "description": "A RelatedNode message containing zero or more Links."
+                }
+            },
+            "type": "object"
+        },
+        "Hierarchy": {
+            "description": "Hierarchy indicates grouping relative to other nodes in the taxonomy.",
+            "id": "Hierarchy",
+            "properties": {
+                "childIds": {
+                    "description": "This field is populated with all direct-descendants of the node.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "labels": {
+                    "description": "Ordered list of hierarchy labels.\ne.g. [\"Google\", \"TI\", \"Cloud\"]",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "nodeIds": {
+                    "description": "Ordered list of Taxonomy Node IDs which represent this Nodes position\nin the hierarchy. The Node's own ID is the last entry. This is redundant\nbut mirrors the 'labels' field above for consistency.\n\nThis field is only populated for taxonomies which have non-leaf node\nstructures and where all non-leafs are nodes.\n\nExample values:\n[\"taxonomies/teamsproduct/nodes/uXasf34adf\",  // \"Google\"\n \"taxonomies/teamsproduct/nodes/olpadsf234\",  // \"Google > TI\"\n \"taxonomies/teamsproduct/nodes/oiaeurwq3b\",] // \"Google > TI > Cloud\"",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "parentId": {
+                    "description": "This field stores the id of the node's direct parent.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "History": {
+            "description": "Abridged historical information about this node.\nNOTE: This is not an exhaustive chronology.\n",
+            "id": "History",
+            "properties": {
+                "displayNames": {
+                    "description": "Historical human-readable names associated with this node.\ne.g. [\"Google > Eng > Actual Cloud\", \"Google > Cloud > Cumulus\"]",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "entries": {
+                    "description": "A list of changes that have occurred against this node since its\ncreation.",
+                    "items": {
+                        "$ref": "HistoryEntry"
+                    },
+                    "type": "array"
+                },
+                "splitInto": {
+                    "description": "The Node IDs for the nodes that the current node was split into. This\nfield will either be empty or populated by two or more IDs.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "HistoryEntry": {
+            "description": "An Entry describes a change that has occurred in a Node's history.",
+            "id": "HistoryEntry",
+            "properties": {
+                "fromId": {
+                    "description": "The original identifier that is being changed.",
+                    "type": "string"
+                },
+                "timestamp": {
+                    "description": "The timestamp of the change.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "toId": {
+                    "description": "The identifier that 'from_id' has become.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "The type of change that is represented by this entry.",
+                    "enum": [
+                        "UNKNOWN",
+                        "DISPLAY_NAME",
+                        "NODE_ID",
+                        "NODE_SPLITS",
+                        "NODE_MERGES"
+                    ],
+                    "enumDescriptions": [
+                        "An unknown type of change.",
+                        "Changes to the DISPLAY_NAME can happen from things such as the\nprevious_name_tool adding names or from things like node edits in\nTeamsProduct.",
+                        "Changes to the NODE_ID happen generally only for redirections.",
+                        "Changes that happen because of node splits (eg. reorganization of a team\nor product).",
+                        "Changes that happen because of node merges (eg. reorganization of a team\nor product)."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Link": {
+            "description": "Link describes a connection between this resource and other Node\nresources.",
+            "id": "Link",
+            "properties": {
+                "confidence": {
+                    "description": "The confidence we have in the link. AUTOMATED_LINKs have a confidence of\n1.0. INFERRED_LINKs have confidences between [0, 1). MANUAL_LINKS\nignore the confidence field.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "direction": {
+                    "description": "The direction of the related node link.",
+                    "enum": [
+                        "UNKNOWN_DIRECTION",
+                        "OUTGOING",
+                        "INCOMING",
+                        "BIDIRECTIONAL"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown direction.",
+                        "Outgoing links have the top-level node id as the source node.",
+                        "Incoming links have the top-level node id as the destination node.",
+                        "BiDi links have links that go both ways from the same generation\nsource."
+                    ],
+                    "type": "string"
+                },
+                "metadata": {
+                    "$ref": "Metadata",
+                    "description": "Additional metadata context associated with the link."
+                },
+                "nodeId": {
+                    "description": "Resource name of the `Node` being linked to in a RelatedNode.\ne.g. \"taxonomies/teamsproduct/nodes/1227438072\"",
+                    "type": "string"
+                },
+                "taxonomy": {
+                    "description": "The name of the Taxonomy (or source) of the resource.\ne.g. \"teamsproduct\"\nThis field is provided as a convenience so that clients don't need\nextract the source manually. It must match the value in 'name'.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListNodeAliasResponse": {
+            "description": "Response for the `ListNodeAlias` method.",
+            "id": "ListNodeAliasResponse",
+            "properties": {
+                "alias": {
+                    "description": "A list of NodeAlias which contain the nodeids.",
+                    "items": {
+                        "$ref": "NodeAlias"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListNodesResponse": {
+            "description": "Response for the `ListNodes` method.",
+            "id": "ListNodesResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "Token to retrieve the next page of results, if any.",
+                    "type": "string"
+                },
+                "nodes": {
+                    "description": "A list of node resources.",
+                    "items": {
+                        "$ref": "Node"
+                    },
+                    "type": "array"
+                },
+                "suggestedNodes": {
+                    "description": "A list of suggestions, provided the context.",
+                    "items": {
+                        "$ref": "SuggestedNode"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListTaxonomiesResponse": {
+            "description": "Response for the `ListTaxonomies` method.",
+            "id": "ListTaxonomiesResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "Token to retrieve the next page of results, if any.\nThis is a base 64 encoded string representation of PageToken proto\nExample: \"b2Zmc2V0OiA0IGRhdGFfdWlkOiAiWFhYIg==\" is a base 64 encoded\nstring representation of \"offset: 4 data_uid: \\\"XXX\\\"\"",
+                    "type": "string"
+                },
+                "taxonomies": {
+                    "description": "A list of taxonomy resources.",
+                    "items": {
+                        "$ref": "Taxonomy"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Metadata": {
+            "description": "Additional metadata context associated a given link.",
+            "id": "Metadata",
+            "properties": {
+                "method": {
+                    "description": "How a given link is created. A single source may have\nmultiple means of generating links.",
+                    "enum": [
+                        "UNKNOWN_GENERATION_TYPE",
+                        "AUTOMATED_LINK",
+                        "INFERRED_LINK",
+                        "MANUAL_LINK"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown Link generation method.",
+                        "Automated link - These are links generated from data.",
+                        "Automated link that are generated based on inferences from the data.",
+                        "Manual link - these are links generated from manual sources or input\nby hand."
+                    ],
+                    "type": "string"
+                },
+                "source": {
+                    "description": "The source association function of a related node.",
+                    "type": "string"
+                },
+                "verb": {
+                    "description": "The type of link between two nodes.",
+                    "enum": [
+                        "UNKNOWN_LINK_VERB"
+                    ],
+                    "enumDescriptions": [
+                        "An unknown relationship type."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Node": {
+            "description": "A single classification (of a entity) within a taxonomy.",
+            "id": "Node",
+            "properties": {
+                "active": {
+                    "description": "Whether this node is considered active.",
+                    "type": "boolean"
+                },
+                "displayName": {
+                    "description": "Human-readable name of the node.",
+                    "type": "string"
+                },
+                "hierarchy": {
+                    "$ref": "Hierarchy",
+                    "description": "Hierarchy metadata."
+                },
+                "history": {
+                    "$ref": "History",
+                    "description": "Historical metadata."
+                },
+                "name": {
+                    "description": "Resource name of the `Node`.\ne.g. \"taxonomies/g3project/nodes/uXasf34adf\"",
+                    "type": "string"
+                },
+                "redirect": {
+                    "description": "The final redirect target for a given node. If empty there is no redirect\nnecessary.",
+                    "type": "string"
+                },
+                "shortName": {
+                    "description": "Human readble short name of the node.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "The type of this node.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "NodeAlias": {
+            "description": "NodeAlias maps the specific application\u2019s alias name to a list of Taxonomy.\nnode ids.",
+            "id": "NodeAlias",
+            "properties": {
+                "aliasName": {
+                    "description": "Application\u2019s alias name.",
+                    "type": "string"
+                },
+                "appName": {
+                    "description": "The name of the applications/tools such as omg/requiem.",
+                    "enum": [
+                        "UNKNOWN_APPLICATION",
+                        "FAKE_APP_TESTING",
+                        "OMG",
+                        "REQUIEM",
+                        "INSIGHTS_CUBE"
+                    ],
+                    "enumDescriptions": [
+                        "The default value of application.",
+                        "Fake application type used for testing.",
+                        "Application type OMG.",
+                        "Application type REQUIEM.",
+                        "Application for Insights Cube mappings"
+                    ],
+                    "type": "string"
+                },
+                "nodeIds": {
+                    "description": "Resource name of the `Node` associated with the alias name.\ne.g. \"taxonomies/g3project/nodes/uXasf34adf\".",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "RelatedNode": {
+            "description": "Relationship data for a Node.",
+            "id": "RelatedNode",
+            "properties": {
+                "linkedNodes": {
+                    "description": "A list of Nodes linked to this resource.",
+                    "items": {
+                        "$ref": "Link"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "Resource name of the `Node`.\ne.g. \"taxonomies/g3project/nodes/uXasf34adf\"",
+                    "type": "string"
+                },
+                "taxonomy": {
+                    "description": "The name of the Taxonomy (or source) of the resource.\ne.g. \"g3project\"\nThis field is provided as a convenience so that clients don't need\nextract the source manually. It must match the value in 'name'.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SuggestedNode": {
+            "description": "Metadata of a suggested node.",
+            "id": "SuggestedNode",
+            "properties": {
+                "node": {
+                    "$ref": "Node",
+                    "description": "The suggested node."
+                },
+                "reason": {
+                    "description": "The reason this was suggested.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Taxonomy": {
+            "description": "A single taxonomy.",
+            "id": "Taxonomy",
+            "properties": {
+                "displayName": {
+                    "description": "Human-readable name of the taxonomy.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Resource name of the taxonomy.\ne.g. \"taxonomies/g3project\"",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Production Insights Private API",
+    "version": "v1",
+    "version_module": true
+}

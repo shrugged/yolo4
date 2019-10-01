@@ -1,0 +1,316 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/xapi.zoo": {
+                    "description": "Test scope for access to the Zoo service"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://staging-ma-sq-backend.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Media Analyzer Library",
+    "description": "Media Analyzer Subjective Quality Test Platform.",
+    "discoveryVersion": "v1",
+    "documentationLink": "https://none-for-now",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "ma_sq_backend:v1",
+    "kind": "discovery#restDescription",
+    "name": "ma_sq_backend",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "v1": {
+            "methods": {
+                "process": {
+                    "description": "RPC to analyze video and return metrics.",
+                    "flatPath": "v1/process",
+                    "httpMethod": "POST",
+                    "id": "ma_sq_backend.process",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/process",
+                    "request": {
+                        "$ref": "VideoMediaprocProcessRequest"
+                    },
+                    "response": {
+                        "$ref": "VideoMediaprocProcessResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/xapi.zoo"
+                    ]
+                }
+            }
+        }
+    },
+    "revision": "20190410",
+    "rootUrl": "https://staging-ma-sq-backend.sandbox.googleapis.com/",
+    "schemas": {
+        "VideoMediaprocExperimentOptions": {
+            "id": "VideoMediaprocExperimentOptions",
+            "properties": {
+                "countDownUrl": {
+                    "description": "Customizable URLs used in the UI before and between plays",
+                    "type": "string"
+                },
+                "defaultPosterTimeout": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "play1PosterUrl": {
+                    "type": "string"
+                },
+                "play2PosterUrl": {
+                    "type": "string"
+                },
+                "playTwice": {
+                    "description": "Whether the stimulus should be shown once or twice.",
+                    "type": "boolean"
+                },
+                "testMode": {
+                    "description": "The \"mode\" of the test.",
+                    "enum": [
+                        "TEST_MODE_NONE",
+                        "TEST_MODE_SINGLE_STIMULUS",
+                        "TEST_MODE_DUAL_STIMULUS"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "waitVideoUrl": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "VideoMediaprocProcessRequest": {
+            "id": "VideoMediaprocProcessRequest",
+            "properties": {
+                "clientType": {
+                    "enum": [
+                        "INVALID",
+                        "PLAYER",
+                        "VIEWER",
+                        "COMBINED_UI"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "experimentId": {
+                    "type": "string"
+                },
+                "qualityGrade": {
+                    "description": "Three quality grades: \"bad\", \"ok\", \"great\".",
+                    "type": "string"
+                },
+                "qualityType": {
+                    "enum": [
+                        "SUBJECTIVE_UNDEFINED",
+                        "SUBJECTIVE_JERKINESS",
+                        "SUBJECTIVE_RQO",
+                        "SUBJECTIVE_RQO_H264",
+                        "SUBJECTIVE_RQO_VP9",
+                        "SUBJECTIVE_RQO_H264_SET_1",
+                        "SUBJECTIVE_RQO_H264_SET_2",
+                        "SUBJECTIVE_RQO_H264_SET_3",
+                        "SUBJECTIVE_RQO_RELAXED_SET_1",
+                        "SUBJECTIVE_RQO_RELAXED_SET_2",
+                        "SUBJECTIVE_MAEVE_MOBILE_SET_1",
+                        "SUBJECTIVE_MAEVE_MOBILE_SET_2",
+                        "SUBJECTIVE_MAEVE_MOBILE_SET_3",
+                        "SUBJECTIVE_MAEVE_MOBILE_SET_4"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "startTest": {
+                    "type": "boolean"
+                },
+                "stopTest": {
+                    "type": "boolean"
+                },
+                "subjectiveScore": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "videoIndex": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "viewerId": {
+                    "description": "For viewer only",
+                    "type": "string"
+                },
+                "viewers": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "VideoMediaprocProcessResponse": {
+            "id": "VideoMediaprocProcessResponse",
+            "properties": {
+                "errorMessage": {
+                    "type": "string"
+                },
+                "experimentOptions": {
+                    "$ref": "VideoMediaprocExperimentOptions",
+                    "description": "Options for the experiment (that the player can use)."
+                },
+                "referenceVideoUrl": {
+                    "type": "string"
+                },
+                "status": {
+                    "enum": [
+                        "ERROR",
+                        "PENDING",
+                        "START",
+                        "OK",
+                        "FINISHED"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "videoHeight": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "videoIndex": {
+                    "description": "The index of the video to be played on the player",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "videoUrl": {
+                    "description": "The url of the video to be played on the player",
+                    "type": "string"
+                },
+                "videoWidth": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "viewers": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "MA Subjective Quality Test",
+    "version": "v1",
+    "version_module": true
+}

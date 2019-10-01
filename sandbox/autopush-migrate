@@ -1,0 +1,177 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/userinfo.email": {
+                    "description": "View your email address"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://autopush-migrate.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Migrate",
+    "description": "",
+    "discoveryVersion": "v1",
+    "documentationLink": "https://support.google.com/gsuitemigrate",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "autopush_migrate_sandbox:v1beta1",
+    "kind": "discovery#restDescription",
+    "name": "autopush_migrate_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "users": {
+            "methods": {
+                "get": {
+                    "description": "Checks the service enablement and authorization state for the given user.",
+                    "flatPath": "v1beta1/users/{usersId}",
+                    "httpMethod": "GET",
+                    "id": "autopush_migrate_sandbox.users.get",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "The resource name, in the format `users/{user_id}`.\n\nSpecifying `users/me` returns the resource specific to the authenticated\nuser. In the current version, user resources can only be retrieved by the\ncorresponding user.",
+                            "location": "path",
+                            "pattern": "^users/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "version": {
+                            "description": "Version of the platform making the request.\nShould take the form of a semantic version number.\nThe content of the response may vary based on the platform.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1beta1/{+name}",
+                    "response": {
+                        "$ref": "User"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                }
+            }
+        }
+    },
+    "revision": "20190923",
+    "rootUrl": "https://autopush-migrate.sandbox.googleapis.com/",
+    "schemas": {
+        "User": {
+            "description": "Returned from UserInfo RPC requests.",
+            "id": "User",
+            "properties": {
+                "canAccessDeployment": {
+                    "description": "Whether the user can access Migrate deployments.",
+                    "type": "boolean"
+                },
+                "canManageDeployment": {
+                    "description": "Whether the user has full control of Migrate deployments.",
+                    "type": "boolean"
+                },
+                "customerId": {
+                    "description": "The customer resource name that owns the user. Not provided if none.\nThis references a Customer resource from the Directory API.",
+                    "type": "string"
+                },
+                "migrateEnabled": {
+                    "description": "Whether the user has the Migrate application installed and enabled.",
+                    "type": "boolean"
+                },
+                "name": {
+                    "description": "Resource name for this user, of the form `users/{user_id}`.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "G Suite Migrate Autopush API",
+    "version": "v1beta1",
+    "version_module": true
+}

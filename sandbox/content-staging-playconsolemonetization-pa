@@ -1,0 +1,1006 @@
+{
+    "basePath": "",
+    "baseUrl": "https://staging-playconsolemonetization-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Play Console Monetization",
+    "description": "",
+    "discoveryVersion": "v1",
+    "documentationLink": "https://goto.google.com/bip/monetization",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "playconsolemonetization_pa:v1",
+    "kind": "discovery#restDescription",
+    "name": "playconsolemonetization_pa",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "developer": {
+            "resources": {
+                "app": {
+                    "resources": {
+                        "subscription": {
+                            "methods": {
+                                "cancel": {
+                                    "description": "Cancels a subscription associated with a given order.",
+                                    "flatPath": "v1/developer/{value}/app/{value1}/subscription:cancel",
+                                    "httpMethod": "POST",
+                                    "id": "playconsolemonetization_pa.developer.app.subscription.cancel",
+                                    "parameterOrder": [
+                                        "value",
+                                        "value1"
+                                    ],
+                                    "parameters": {
+                                        "value": {
+                                            "description": "The account ID for this developer.\nMust be set to non-zero value.",
+                                            "format": "int64",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "value1": {
+                                            "description": "The ID for this app\nMust be set to non-zero value.",
+                                            "format": "int64",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/developer/{value}/app/{value1}/subscription:cancel",
+                                    "request": {
+                                        "$ref": "CancelSubscriptionRequest"
+                                    },
+                                    "response": {
+                                        "$ref": "Empty"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "orders": {
+                    "methods": {
+                        "fetch": {
+                            "description": "Fetches a list of orders.",
+                            "flatPath": "v1/developer/{value}/orders:fetch",
+                            "httpMethod": "POST",
+                            "id": "playconsolemonetization_pa.developer.orders.fetch",
+                            "parameterOrder": [
+                                "value"
+                            ],
+                            "parameters": {
+                                "value": {
+                                    "description": "The account ID for this developer.\nMust be set to non-zero value.",
+                                    "format": "int64",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/developer/{value}/orders:fetch",
+                            "request": {
+                                "$ref": "FetchOrdersRequest"
+                            },
+                            "response": {
+                                "$ref": "FetchOrdersResponse"
+                            }
+                        },
+                        "fetchTaxRefundAmount": {
+                            "description": "Fetches the amount of taxes required for a given partial refund.",
+                            "flatPath": "v1/developer/{value}/orders:fetchTaxRefundAmount",
+                            "httpMethod": "POST",
+                            "id": "playconsolemonetization_pa.developer.orders.fetchTaxRefundAmount",
+                            "parameterOrder": [
+                                "value"
+                            ],
+                            "parameters": {
+                                "value": {
+                                    "description": "The account ID for this developer.\nMust be set to non-zero value.",
+                                    "format": "int64",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/developer/{value}/orders:fetchTaxRefundAmount",
+                            "request": {
+                                "$ref": "FetchTaxRefundAmountRequest"
+                            },
+                            "response": {
+                                "$ref": "FetchTaxRefundAmountResponse"
+                            }
+                        },
+                        "fetchUserLatestOrders": {
+                            "description": "Fetches a user's latest orders.",
+                            "flatPath": "v1/developer/{value}/orders:fetchUserLatestOrders",
+                            "httpMethod": "POST",
+                            "id": "playconsolemonetization_pa.developer.orders.fetchUserLatestOrders",
+                            "parameterOrder": [
+                                "value"
+                            ],
+                            "parameters": {
+                                "value": {
+                                    "description": "The account ID for this developer.\nMust be set to non-zero value.",
+                                    "format": "int64",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/developer/{value}/orders:fetchUserLatestOrders",
+                            "request": {
+                                "$ref": "FetchUserLatestOrdersRequest"
+                            },
+                            "response": {
+                                "$ref": "FetchOrdersResponse"
+                            }
+                        },
+                        "refund": {
+                            "description": "Refunds a set of orders.",
+                            "flatPath": "v1/developer/{value}/orders:refund",
+                            "httpMethod": "POST",
+                            "id": "playconsolemonetization_pa.developer.orders.refund",
+                            "parameterOrder": [
+                                "value"
+                            ],
+                            "parameters": {
+                                "value": {
+                                    "description": "The account ID for this developer.\nMust be set to non-zero value.",
+                                    "format": "int64",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/developer/{value}/orders:refund",
+                            "request": {
+                                "$ref": "RefundOrdersRequest"
+                            },
+                            "response": {
+                                "$ref": "RefundOrdersResponse"
+                            }
+                        }
+                    }
+                },
+                "userLibrary": {
+                    "methods": {
+                        "fetchUserEntitlementDetails": {
+                            "description": "Fetches user entitlement details for a set of orders.",
+                            "flatPath": "v1/developer/{value}/userLibrary:fetchUserEntitlementDetails",
+                            "httpMethod": "POST",
+                            "id": "playconsolemonetization_pa.developer.userLibrary.fetchUserEntitlementDetails",
+                            "parameterOrder": [
+                                "value"
+                            ],
+                            "parameters": {
+                                "value": {
+                                    "description": "The account ID for this developer.\nMust be set to non-zero value.",
+                                    "format": "int64",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/developer/{value}/userLibrary:fetchUserEntitlementDetails",
+                            "request": {
+                                "$ref": "FetchUserEntitlementDetailsRequest"
+                            },
+                            "response": {
+                                "$ref": "FetchUserEntitlementDetailsResponse"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190920",
+    "rootUrl": "https://staging-playconsolemonetization-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "Address": {
+            "description": "The customer's billing address.",
+            "id": "Address",
+            "properties": {
+                "city": {
+                    "description": "The city/town portion of an address.  In regions of the world where\ncity is not well defined or do not fit into this structure well\nleave locality_name empty and use address_line.\nExamples: US city, IT comune, UK post town.",
+                    "type": "string"
+                },
+                "countryCode": {
+                    "description": "Two letter country code based on ISO-3166-1 Alpha-2 (UN country codes).",
+                    "type": "string"
+                },
+                "postalCode": {
+                    "description": "Examples: \"94043\", \"SW1W\", \"SW1W 9TQ\".",
+                    "type": "string"
+                },
+                "state": {
+                    "description": "Top-level administrative subdivision of this country.\nExamples: US state, IT region, UK constituent nation, JP prefecture.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AppId": {
+            "description": "Uniquely identifies an app.",
+            "id": "AppId",
+            "properties": {
+                "value": {
+                    "description": "The ID for this app\nMust be set to non-zero value.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AppReference": {
+            "description": "Unique reference to an app and the developer who owns it.\nAPIs should request and return AppReference in preference to AppId.",
+            "id": "AppReference",
+            "properties": {
+                "appId": {
+                    "$ref": "AppId",
+                    "description": "The ID for this app.\nMust be set."
+                },
+                "developerId": {
+                    "$ref": "DeveloperId",
+                    "description": "The developer that owns this app.\nMust be set."
+                }
+            },
+            "type": "object"
+        },
+        "CancelSubscriptionRequest": {
+            "description": "Cancels a user's subscription recurrence. The subscription remains valid\nuntil its expiration time. Next field: 4",
+            "id": "CancelSubscriptionRequest",
+            "properties": {
+                "app": {
+                    "$ref": "AppReference",
+                    "description": "Cancel the subscription only if it belongs to this app."
+                },
+                "orderId": {
+                    "description": "The id of the order associated with the subscription to be cancelled.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DeveloperId": {
+            "description": "Uniquely identifies a developer.",
+            "id": "DeveloperId",
+            "properties": {},
+            "type": "object"
+        },
+        "Empty": {
+            "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+            "id": "Empty",
+            "properties": {},
+            "type": "object"
+        },
+        "Event": {
+            "description": "An event that has happened to this order. In the Play order model this maps\nto the context messages (e.g. ChargedContext) associated with the order. We\ncollect them and sort by update time.",
+            "id": "Event",
+            "properties": {
+                "details": {
+                    "description": "A localized description to be shown to the user.",
+                    "type": "string"
+                },
+                "orderStatus": {
+                    "description": "The status of the order after this event.",
+                    "enum": [
+                        "ORDER_STATUS_UNSPECIFIED",
+                        "PREORDER",
+                        "PENDING",
+                        "CHARGEABLE",
+                        "CHARGED",
+                        "CANCELLED_INITIATED",
+                        "CANCELLED_FINISHED",
+                        "PARTIALLY_REFUNDING",
+                        "PARTIALLY_REFUNDED"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified enum value.",
+                        "The initial status an order goes through.",
+                        "The order has not been charged yet.",
+                        "The order is chargeable and will be charged soon.",
+                        "The order has been charged.",
+                        "A cancellation is in progress.",
+                        "The order was cancelled.",
+                        "The order is in the process of being partially refunded.",
+                        "The order is partially refunded (but not fully refunded)."
+                    ],
+                    "type": "string"
+                },
+                "time": {
+                    "description": "Timestamp indicating when the event took place.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FetchOrdersRequest": {
+            "description": "Lists all of the orders that match a specific set of filters.\nNext field: 9",
+            "id": "FetchOrdersRequest",
+            "properties": {
+                "appIds": {
+                    "description": "Only retrieve orders for these packages.\nIf empty, the response will contain orders for all packages.",
+                    "items": {
+                        "$ref": "AppId"
+                    },
+                    "type": "array"
+                },
+                "developerId": {
+                    "$ref": "DeveloperId",
+                    "description": "Public id of the developer who owns the orders."
+                },
+                "filter": {
+                    "$ref": "OrdersFilter",
+                    "description": "The filter criteria for this request."
+                },
+                "pageSize": {
+                    "description": "The maximum number of orders to include in one page.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "pageToken": {
+                    "description": "A page token returned by a previous request. If not specified the first\npage is retrieved.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FetchOrdersResponse": {
+            "description": "Next field: 3",
+            "id": "FetchOrdersResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "An opaque token to retrieve the next page (see\nFetchOrdersRequest.page_token).",
+                    "type": "string"
+                },
+                "orders": {
+                    "description": "The list of orders matching the filter criteria.",
+                    "items": {
+                        "$ref": "PcOrder"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "FetchTaxRefundAmountRequest": {
+            "description": "Fetches the amount of tax that will be refunded when issuing refunds.",
+            "id": "FetchTaxRefundAmountRequest",
+            "properties": {
+                "appIds": {
+                    "description": "The list of apps the orders belong to. Used for permissions checking.",
+                    "items": {
+                        "$ref": "AppId"
+                    },
+                    "type": "array"
+                },
+                "developerId": {
+                    "$ref": "DeveloperId",
+                    "description": "Public id of the logged-in developer account."
+                },
+                "taxQueries": {
+                    "description": "A list of tax refund amount queries. The response will contain one result\nfor each one of them.\nEach query should be associated with a different order.",
+                    "items": {
+                        "$ref": "TaxRefundAmountQuery"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "FetchTaxRefundAmountResponse": {
+            "description": "Specifies the amount of tax that will be refunded when issuing refunds.",
+            "id": "FetchTaxRefundAmountResponse",
+            "properties": {
+                "outOfDateOrderIds": {
+                    "description": "Contains the order ids of the orders where an invalid consistency token was\nspecified.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "taxRefunds": {
+                    "description": "Contains the tax refund amounts for the queries where the consistency_token\nis up to date.",
+                    "items": {
+                        "$ref": "TaxRefund"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "FetchUserEntitlementDetailsRequest": {
+            "description": "Fetches user entitlement details for a set of orders. This should only be\ncalled for in-app purchases and subscriptions.\nNext field: 4.",
+            "id": "FetchUserEntitlementDetailsRequest",
+            "properties": {
+                "appIds": {
+                    "description": "Only retrieve orders for these packages.\nIf empty, the query will return data for all packages.",
+                    "items": {
+                        "$ref": "AppId"
+                    },
+                    "type": "array"
+                },
+                "developerId": {
+                    "$ref": "DeveloperId",
+                    "description": "Public id of the logged-in developer account."
+                },
+                "orderIds": {
+                    "description": "The order id identifying the product.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "FetchUserEntitlementDetailsResponse": {
+            "description": "See FetchUserEntitlementDetailsRequest.\nNext field: 4.",
+            "id": "FetchUserEntitlementDetailsResponse",
+            "properties": {
+                "userEntitlementDetails": {
+                    "description": "Contains the user entitlement details for all order ids supplied in the\nrequest.",
+                    "items": {
+                        "$ref": "UserEntitlementDetails"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "FetchUserLatestOrdersRequest": {
+            "description": "Lists the latest orders for the Customer that issued a given Order.\nNext field: 4",
+            "id": "FetchUserLatestOrdersRequest",
+            "properties": {
+                "appIds": {
+                    "description": "The list of apps the orders belong to. Used for permissions checking.",
+                    "items": {
+                        "$ref": "AppId"
+                    },
+                    "type": "array"
+                },
+                "developerId": {
+                    "$ref": "DeveloperId",
+                    "description": "Public id of the developer who owns the orders."
+                },
+                "orderId": {
+                    "description": "The order identifying the customer to retrieve orders for.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Item": {
+            "description": "Represents an item in an order. All orders have a single item.\n\nExample calculation for :\nhttp://google3/javatests/com/google/wireless/android/finsky/billing/exportedorders/orderarchive/golden_protos/play/discount.pbtext\n\nprice         = $2.49\ndiscount      = $0.25 (10% discount offered by **Google** to Play Music\n                       subscribers, not part of the proto)\ntotal         = $2.24 (including all taxes)\ntaxes         = $0.39 (all taxes including VAT)\nvat           = $0.39 (to be paid by Google on seller's behalf)\nfee           = $0.62 (30% of [$2.49 - $0.39]. This is Google's 30% cut\n                       calculated on the original product price excluding\n                       tax and discounts offered by the merchant. Discounts\n                       offered by Google are not deducted.)\nnet_revenue   = $2.49 - $0.62 - $0.39 = $1.48\nNext id: 13.",
+            "id": "Item",
+            "properties": {
+                "description": {
+                    "description": "Description of the  product in the default locale.",
+                    "type": "string"
+                },
+                "fee": {
+                    "$ref": "Money",
+                    "description": "Google's cut from this purchase plus any third party fees e.g. Direct\nCarrier Billing."
+                },
+                "name": {
+                    "description": "The product title in the default locale.",
+                    "type": "string"
+                },
+                "netRevenue": {
+                    "$ref": "Money",
+                    "description": "net_revenue = total - googleRemittedTax - fee\nAmount paid (in buyer's currency) by Google to seller for this purchase.\nIt includes the tax that the seller is liable to pay except VAT which is\npaid by Google on behalf of the seller to tax authorities. Any discount\noffered by Google on the product is not deducted from the seller's\nrevenue (e.g. Play Music subscribers get a 10% discount on all media\npurchases on Play Store)."
+                },
+                "netRevenueSellerCurrency": {
+                    "$ref": "Money",
+                    "description": "Same as net_revenue field but converted to the merchant billing account's\ncurrency."
+                },
+                "price": {
+                    "$ref": "Money",
+                    "description": "Item's listed price on Play Store, this may or may not include tax."
+                },
+                "priceIncludingTax": {
+                    "$ref": "Money",
+                    "description": "Item's listed price on Play Store including tax."
+                },
+                "priceIsTaxInclusive": {
+                    "description": "Indicates whether the listed price was tax inclusive or not.",
+                    "type": "boolean"
+                },
+                "sku": {
+                    "description": "Identifier of the product within the context of an app.",
+                    "type": "string"
+                },
+                "taxes": {
+                    "$ref": "Money",
+                    "description": "Total tax liable to the authorities from this purchase."
+                },
+                "total": {
+                    "$ref": "Money",
+                    "description": "Amount charged (or pending to be charged ) to the customer."
+                },
+                "vat": {
+                    "$ref": "Money",
+                    "description": "Tax portion paid as VAT by Google on behalf of seller. In some countries\nGoogle is responsible for collecting and paying VAT to tax authorities on\nbehalf of the seller for all Play Store purchases therefore this amount\nis deducted from the net revenue paid out to seller.\nSee the following link for more details :\nhttps://support.google.com/googleplay/android-developer/answer/138000"
+                }
+            },
+            "type": "object"
+        },
+        "Money": {
+            "description": "Represents an amount of money with its currency type.",
+            "id": "Money",
+            "properties": {
+                "currencyCode": {
+                    "description": "The 3-letter currency code defined in ISO 4217.",
+                    "type": "string"
+                },
+                "nanos": {
+                    "description": "Number of nano (10^-9) units of the amount.\nThe value must be between -999,999,999 and +999,999,999 inclusive.\nIf `units` is positive, `nanos` must be positive or zero.\nIf `units` is zero, `nanos` can be positive, zero, or negative.\nIf `units` is negative, `nanos` must be negative or zero.\nFor example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "units": {
+                    "description": "The whole units of the amount.\nFor example if `currencyCode` is `\"USD\"`, then 1 unit is one US dollar.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "OrderToCancel": {
+            "description": "Specifies the details of an order cancellation.\nNext field: 8",
+            "id": "OrderToCancel",
+            "properties": {
+                "consistencyToken": {
+                    "description": "See PcOrder.consistency_token.",
+                    "type": "string"
+                },
+                "orderId": {
+                    "description": "Identifies the order to be cancelled.",
+                    "type": "string"
+                },
+                "partialRefundAmount": {
+                    "$ref": "Money",
+                    "description": "[optional] If set, a partial refund will be issued."
+                },
+                "partialRefundToken": {
+                    "description": "See PcOrder.partial_refund_token.",
+                    "type": "string"
+                },
+                "revoke": {
+                    "description": "Whether to revoke the entitlement to the given in-app product/subscription.\nThis field is ignored for paid apps' orders.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "OrdersFilter": {
+            "description": "Filter all orders such that only orders matching the following criteria\nare supported.",
+            "id": "OrdersFilter",
+            "properties": {
+                "fromDate": {
+                    "description": "Requests orders since this time.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "searchString": {
+                    "description": "The text entered into a search box in the UI. In MC3 this can either be\nan order ID, or an email address.",
+                    "type": "string"
+                },
+                "toDate": {
+                    "description": "Requests orders up to this time.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PcOrder": {
+            "description": "Represents a customer order in Play Console.\nNext id: 24.",
+            "id": "PcOrder",
+            "properties": {
+                "appId": {
+                    "$ref": "AppId",
+                    "description": "The identifier of the app this order belongs to."
+                },
+                "cancellationReason": {
+                    "description": "The cancellation reason holds the reasons why an order is cancelled. If\nthe order is not in the cancelled state then this field will not be\npopulated.",
+                    "enum": [
+                        "CANCELLATION_REASON_UNSPECIFIED",
+                        "PAYMENT_DECLINED",
+                        "CHARGEBACK",
+                        "REVERSE_CHARGEBACK"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified enum value.",
+                        "The payment was declined.",
+                        "Chargeback was already accepted for the order.",
+                        "A reverse chargeback was processed."
+                    ],
+                    "type": "string"
+                },
+                "consistencyToken": {
+                    "description": "An opaque token used for optimistic concurrency conflict detection when\nissuing partial refunds.\nSee finsky.billing.oms.Order.consistency_token.",
+                    "type": "string"
+                },
+                "creationTimeMillis": {
+                    "description": "The time this order was created, constant once set.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "customerBillingAddress": {
+                    "$ref": "Address",
+                    "description": "Partial information from the customers billing address."
+                },
+                "deliveryState": {
+                    "description": "The delivery state of the order at the point it was retrieved.",
+                    "enum": [
+                        "DELIVERY_STATE_UNSPECIFIED",
+                        "NEW",
+                        "DELIVERED",
+                        "CANCELLED"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified enum value.",
+                        "State in which order can be delivered (as soon as funds guarantee is\nobtained i.e. payments state moved to chargeable)",
+                        "The order was delivered.",
+                        "The order was never delivered or was revoked from the user's library."
+                    ],
+                    "type": "string"
+                },
+                "events": {
+                    "description": "The set of events associated with the order. These describe the states the\norder has gone through on it's journey to its current state.",
+                    "items": {
+                        "$ref": "Event"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "Order ID as the buyer + seller would see it (e.g. \"GPA.XXX-XXX-XX\").",
+                    "type": "string"
+                },
+                "item": {
+                    "$ref": "Item",
+                    "description": "Information about the product sold."
+                },
+                "lastUpdateTime": {
+                    "description": "The last time the order was updated.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "minimumPreTaxRefundableAmount": {
+                    "$ref": "Money",
+                    "description": "The minimum amount that can be refunded in case of a partial refund."
+                },
+                "packageName": {
+                    "description": "The package name of the app the purchased item belongs to.",
+                    "type": "string"
+                },
+                "partialRefundToken": {
+                    "description": "This token should be passed when partially refunding an order.\nIt prevents out of date views of an order that has been partially refunded\nsince it was loaded by a client from being refunded.",
+                    "type": "string"
+                },
+                "partiallyRefundable": {
+                    "description": "Whether this order can be partially refunded.",
+                    "type": "boolean"
+                },
+                "postTaxRefundableAmount": {
+                    "$ref": "Money",
+                    "description": "The refundable amount including taxes."
+                },
+                "preTaxRefundableAmount": {
+                    "$ref": "Money",
+                    "description": "The refundable amount without taxes."
+                },
+                "purchaseToken": {
+                    "description": "A token that uniquely identifies a purchase for a given item and user pair.\nSee https://goo.gl/64c34U.",
+                    "type": "string"
+                },
+                "refundType": {
+                    "description": "Present if a refund was requested for this order. This field will be set to\ntrue while the order is cancelling (e.g. refund has not yet processed) and\nonce it is cancelled (e..g the refund request has been fulfilled).",
+                    "enum": [
+                        "REFUND_TYPE_UNSPECIFIED",
+                        "ONE_SIDED",
+                        "TWO_SIDED"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified enum value.",
+                        "Google funded refund.",
+                        "Developer funded refund."
+                    ],
+                    "type": "string"
+                },
+                "refundability": {
+                    "description": "Whether the order is refundable. In case the order is not refundable by the\nlogged in user, this field indicates the reason.",
+                    "enum": [
+                        "REFUNDABILITY_UNSPECIFIED",
+                        "REFUNDABLE",
+                        "NON_REFUNDABLE_NO_PERMISSONS",
+                        "NON_REFUNDABLE_NOT_CHARGED",
+                        "NON_REFUNDABLE_FULL_REFUND_REQUESTED",
+                        "NON_REFUNDABLE_CDP",
+                        "NON_REFUNDABLE_TOO_OLD",
+                        "NON_REFUNDABLE_ZERO_BALANCE",
+                        "NON_REFUNDABLE_UNSPECIFIED",
+                        "NON_REFUNDABLE_LOYALTY_POINTS",
+                        "NON_REFUNDABLE_REVERSE_CHARGEBACK"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified enum value.",
+                        "The order can be refunded.",
+                        "The logged in user doesn't have refund permissions for the order's app.",
+                        "The order has not been charged yet.",
+                        "The order has been fully refunded already.",
+                        "Legacy CDP order which cannot be refunded.",
+                        "Order is too old to be refunded.",
+                        "The refundable amount is zero, despite the absence of refunds.\nThis could be due to pseudo-credit or other forms of discounts which made\nthe product free of charge for the customer.",
+                        "The order is not refundable for an unknown reason. This can only happen\nif the underlying Play OMS order is flagged as not refundable, despite\npassing the refundability checks on our side.",
+                        "The purchase was paid using Play loyalty points, which can't be refunded.",
+                        "The order was reverse-chargebacked and thus not refundable in Play OMS.\ndesign: go/play-chargeback-design"
+                    ],
+                    "type": "string"
+                },
+                "remainingTotal": {
+                    "$ref": "Money",
+                    "description": "Remaining order total, including taxes. Refunds are subtracted, if any."
+                },
+                "status": {
+                    "description": "The current status of the order. This reflects the state machine provided\nby Play OMS. For some states (e.g. both cancellation states) there is\nlikely additional context in the refund_requested and cancellation_reason\nfields to identify why the order is in this state.",
+                    "enum": [
+                        "ORDER_STATUS_UNSPECIFIED",
+                        "PREORDER",
+                        "PENDING",
+                        "CHARGEABLE",
+                        "CHARGED",
+                        "CANCELLED_INITIATED",
+                        "CANCELLED_FINISHED",
+                        "PARTIALLY_REFUNDING",
+                        "PARTIALLY_REFUNDED"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified enum value.",
+                        "The initial status an order goes through.",
+                        "The order has not been charged yet.",
+                        "The order is chargeable and will be charged soon.",
+                        "The order has been charged.",
+                        "A cancellation is in progress.",
+                        "The order was cancelled.",
+                        "The order is in the process of being partially refunded.",
+                        "The order is partially refunded (but not fully refunded)."
+                    ],
+                    "type": "string"
+                },
+                "testOrder": {
+                    "description": "A test order is created by a developer as part of testing an app.\nhttps://developer.android.com/google/play/billing/billing_testing.html",
+                    "type": "boolean"
+                },
+                "type": {
+                    "description": "The product type of the purchased item.",
+                    "enum": [
+                        "ITEM_TYPE_UNSPECIFIED",
+                        "PAID_APP",
+                        "IN_APP_PRODUCT",
+                        "SUBSCRIPTION"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified enum value.",
+                        "A paid app.",
+                        "An in-app product.",
+                        "Subscriptions are a kind of in-app product."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RefundOrdersRequest": {
+            "description": "Refunds a set of orders and optionally revokes a user's purchase.\nNext field: 12.",
+            "id": "RefundOrdersRequest",
+            "properties": {
+                "appIds": {
+                    "description": "Only refund orders for these packages.\nIf empty, refunds for any package will be accepted.",
+                    "items": {
+                        "$ref": "AppId"
+                    },
+                    "type": "array"
+                },
+                "developerId": {
+                    "$ref": "DeveloperId",
+                    "description": "Public id of the logged-in developer account."
+                },
+                "messageToCustomer": {
+                    "description": "Message explaining the reason for partially/fully cancelling the order.",
+                    "type": "string"
+                },
+                "ordersToCancel": {
+                    "description": "The list of orders to cancel.\nSee OrderToCancel.",
+                    "items": {
+                        "$ref": "OrderToCancel"
+                    },
+                    "type": "array"
+                },
+                "reason": {
+                    "description": "The refund reason as provided by the user when issuing a refund.",
+                    "enum": [
+                        "REFUND_REASON_UNSPECIFIED",
+                        "REMORSE",
+                        "NOT_RECEIVED",
+                        "DEFECTIVE",
+                        "ACCIDENTAL_PURCHASE",
+                        "FRAUD",
+                        "FRIENDLY_FRAUD",
+                        "OTHER"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified enum value.",
+                        "Customer remorse.",
+                        "The customer didn't receive the item.",
+                        "The item didn't work as expected.",
+                        "The item was purchased by accident.",
+                        "The transaction was fraudulent.",
+                        "Order is refunded due to friendly fraud.",
+                        "Another reason not listed above."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RefundOrdersResponse": {
+            "description": "See RefundOrdersRequest.",
+            "id": "RefundOrdersResponse",
+            "properties": {
+                "dailyQuotaExceeded": {
+                    "description": "Whether the daily quota for issuing refunds was exceeded during request,\nthis will lead to failure of all order ids.",
+                    "type": "boolean"
+                },
+                "failedOrderIds": {
+                    "description": "The list of order which failed to be refunded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "TaxRefund": {
+            "description": "Specifies the amount of tax to be refunded according to a query.\nSee TaxRefundAmountQuery.",
+            "id": "TaxRefund",
+            "properties": {
+                "amount": {
+                    "$ref": "Money",
+                    "description": "The tax refund amount associated with this query."
+                },
+                "orderId": {
+                    "description": "The order id supplied in the query.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TaxRefundAmountQuery": {
+            "description": "Specifies an amount to be refunded for a particular version of an order.",
+            "id": "TaxRefundAmountQuery",
+            "properties": {
+                "consistencyToken": {
+                    "description": "The consistency_token field of the client-side cached version of the\norder.",
+                    "type": "string"
+                },
+                "orderId": {
+                    "description": "The order id.",
+                    "type": "string"
+                },
+                "preTaxRefundAmount": {
+                    "$ref": "Money",
+                    "description": "The pre-tax amount to be refunded."
+                }
+            },
+            "type": "object"
+        },
+        "UserEntitlementDetails": {
+            "description": "Describes the entitlement of a customer to a product of a given order.",
+            "id": "UserEntitlementDetails",
+            "properties": {
+                "entitlementActive": {
+                    "description": "Whether or not the user is entitled for this IAP/subscription.",
+                    "type": "boolean"
+                },
+                "orderId": {
+                    "description": "The identifier of the order representing the product.",
+                    "type": "string"
+                },
+                "purchaseToken": {
+                    "description": "The purchase token associated with this order.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Play Console Monetization Private API (Staging)",
+    "version": "v1",
+    "version_module": true
+}

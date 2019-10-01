@@ -1,0 +1,3540 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/userinfo.email": {
+                    "description": "View your email address"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://autopush-datacompute.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Data Compute",
+    "description": "Data Compute API for public access.",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://www.google.com/",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "autopush_datacompute_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "autopush_datacompute_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "media": {
+            "methods": {
+                "download": {
+                    "description": "Prototype. Do not use.",
+                    "flatPath": "v1/media/{mediaId}",
+                    "httpMethod": "GET",
+                    "id": "autopush_datacompute_sandbox.media.download",
+                    "parameterOrder": [
+                        "mediaPath"
+                    ],
+                    "parameters": {
+                        "mediaPath": {
+                            "location": "path",
+                            "pattern": "^.+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/media/{+mediaPath}",
+                    "response": {
+                        "$ref": "Media"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ],
+                    "supportsMediaDownload": true,
+                    "useMediaDownloadService": true
+                }
+            }
+        },
+        "v1": {
+            "methods": {
+                "getUserContext": {
+                    "description": "Retrieves the user context for the calling user.",
+                    "flatPath": "v1:userContext",
+                    "httpMethod": "GET",
+                    "id": "autopush_datacompute_sandbox.getUserContext",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1:userContext",
+                    "response": {
+                        "$ref": "UserContext"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "userPermissions": {
+                    "description": "Retrieves the set of permissions for a specified user. A PERMISSION_DENIED\nerror will be returned if the invoking user is not a superuser.\nUnstable API method, not for general use.",
+                    "flatPath": "v1:userPermissions",
+                    "httpMethod": "POST",
+                    "id": "autopush_datacompute_sandbox.userPermissions",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "emailAddress": {
+                            "description": "Email address of the user to retrieve permissions information for.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1:userPermissions",
+                    "response": {
+                        "$ref": "UserPermissions"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                }
+            }
+        },
+        "worker_pools": {
+            "methods": {
+                "create": {
+                    "description": "Creates a new worker pool. Returns a PERMISSION_DENIED error if the user\ndoes not have superuser privileges.",
+                    "flatPath": "v1/worker_pools",
+                    "httpMethod": "POST",
+                    "id": "autopush_datacompute_sandbox.worker_pools.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/worker_pools",
+                    "request": {
+                        "$ref": "WorkerPool"
+                    },
+                    "response": {
+                        "$ref": "WorkerPool"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "delete": {
+                    "description": "Deletes a worker pool, removing all users and workspace associations.\nOnly superusers may delete worker pools.",
+                    "flatPath": "v1/worker_pools/{worker_poolsId}",
+                    "httpMethod": "DELETE",
+                    "id": "autopush_datacompute_sandbox.worker_pools.delete",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Required. The resource name in the format:\n<code>worker&#95;pools/{id}</code>",
+                            "location": "path",
+                            "pattern": "^worker_pools/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "Empty"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "get": {
+                    "description": "Retrieves a specific worker pool. Returns a PERMISSION_DENIED error if\nthe user is not a member of the specified worker pool (either as a worker\nor manager).",
+                    "flatPath": "v1/worker_pools/{worker_poolsId}",
+                    "httpMethod": "GET",
+                    "id": "autopush_datacompute_sandbox.worker_pools.get",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Required. The resource name in the format:\n<code>worker&#95;pools/{id}</code>",
+                            "location": "path",
+                            "pattern": "^worker_pools/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "WorkerPool"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "getWorkspacePriority": {
+                    "description": "Gets the priority of a workspace for an enabled worker pool.  Returns\nNOT_FOUND if the worker pool is not enabled for the workspace.",
+                    "flatPath": "v1/worker_pools/{worker_poolsId}:getWorkspacePriority",
+                    "httpMethod": "GET",
+                    "id": "autopush_datacompute_sandbox.worker_pools.getWorkspacePriority",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Worker pool name in the form <code>worker&#95;pools/{id}</code>",
+                            "location": "path",
+                            "pattern": "^worker_pools/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "workspaceName": {
+                            "description": "Workspace name in the form <code>workspaces/{id}</code>",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}:getWorkspacePriority",
+                    "response": {
+                        "$ref": "WorkspacePriority"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "list": {
+                    "description": "Retrieves a list of all worker pools visible to the user.",
+                    "flatPath": "v1/worker_pools",
+                    "httpMethod": "GET",
+                    "id": "autopush_datacompute_sandbox.worker_pools.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "filter": {
+                            "description": "Filter expression.\nOnly single-field equality expressions are supported, for example:\n<ul>\n  <li><code>role = \"worker\"</code>\n  <li><code>workspace = \"workspaces/myworkspace\"</code>\n</ul>",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "pageSize": {
+                            "description": "Required. Maximum number of results to return in a single response. Must be\nnon-negative.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageToken": {
+                            "description": "The next_page_token from a previous request, if any.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/worker_pools",
+                    "response": {
+                        "$ref": "ListWorkerPoolsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "modifyWorkspacePriority": {
+                    "description": "Modifies the priority of a workspace for an enabled worker pool.  Returns\nNOT_FOUND if the worker pool is not enabled for the workspace.",
+                    "flatPath": "v1/worker_pools/{worker_poolsId}:modifyWorkspacePriority",
+                    "httpMethod": "POST",
+                    "id": "autopush_datacompute_sandbox.worker_pools.modifyWorkspacePriority",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Worker pool name in the form <code>worker&#95;pools/{id}</code>",
+                            "location": "path",
+                            "pattern": "^worker_pools/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}:modifyWorkspacePriority",
+                    "request": {
+                        "$ref": "ModifyWorkspacePriorityRequest"
+                    },
+                    "response": {
+                        "$ref": "WorkspacePriority"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "patch": {
+                    "description": "Updates worker pool information and returns the new worker pool.\nReturns a PERMISSION_DENIED error if the user is not a manager of the\nworker pool.",
+                    "flatPath": "v1/worker_pools/{worker_poolsId}",
+                    "httpMethod": "PATCH",
+                    "id": "autopush_datacompute_sandbox.worker_pools.patch",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Required. The resource name in the format:\n<code>worker&#95;pools/{id}</code>",
+                            "location": "path",
+                            "pattern": "^worker_pools/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "request": {
+                        "$ref": "WorkerPool"
+                    },
+                    "response": {
+                        "$ref": "WorkerPool"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                }
+            },
+            "resources": {
+                "managers": {
+                    "methods": {
+                        "create": {
+                            "description": "Creates a new manager in the specified worker pool and returns the new\nmanager. Returns a PERMISSION_DENIED error if the user is not a manager in\nthe worker pool.",
+                            "flatPath": "v1/worker_pools/{worker_poolsId}/managers",
+                            "httpMethod": "POST",
+                            "id": "autopush_datacompute_sandbox.worker_pools.managers.create",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "Required. The collection name in the format:\n<code>worker&#95;pools/{id}</code>",
+                                    "location": "path",
+                                    "pattern": "^worker_pools/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/managers",
+                            "request": {
+                                "$ref": "Manager"
+                            },
+                            "response": {
+                                "$ref": "Manager"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.email"
+                            ]
+                        },
+                        "delete": {
+                            "description": "Deletes a manager from a worker pool. Returns a PERMISSION_DENIED error if\nthe user is not a manager of the worker pool.",
+                            "flatPath": "v1/worker_pools/{worker_poolsId}/managers/{managersId}",
+                            "httpMethod": "DELETE",
+                            "id": "autopush_datacompute_sandbox.worker_pools.managers.delete",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Required. The resource name in the format:\n<code>worker&#95;pools/{id}/managers/{id}</code>",
+                                    "location": "path",
+                                    "pattern": "^worker_pools/[^/]+/managers/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "response": {
+                                "$ref": "Empty"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.email"
+                            ]
+                        },
+                        "get": {
+                            "description": "Retrieves the specified manager. Returns a PERMISSION_DENIED error if the\nuser is not a manager of the worker pool.",
+                            "flatPath": "v1/worker_pools/{worker_poolsId}/managers/{managersId}",
+                            "httpMethod": "GET",
+                            "id": "autopush_datacompute_sandbox.worker_pools.managers.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Required. The resource name in the format:\n<code>worker&#95;pools/{id}/managers/{id}</code>",
+                                    "location": "path",
+                                    "pattern": "^worker_pools/[^/]+/managers/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "response": {
+                                "$ref": "Manager"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.email"
+                            ]
+                        },
+                        "list": {
+                            "description": "Retrieves a list of managers in a worker pool. Returns a PERMISSION_DENIED\nerror if the user is not a manager of the worker pool.",
+                            "flatPath": "v1/worker_pools/{worker_poolsId}/managers",
+                            "httpMethod": "GET",
+                            "id": "autopush_datacompute_sandbox.worker_pools.managers.list",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "filter": {
+                                    "description": "Filter expression.\n<ul>\n  <li><code>email&#95;address = \"foo@google.com\"</code>\n</ul>\nMultiple email addresses may be specified as a comma-separated list.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "pageSize": {
+                                    "description": "Required. Maximum number of results to return in a single response. Must be\nnon-negative.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "The next_page_token from a previous request, if any.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "parent": {
+                                    "description": "Required. The collection name in the format:\n<code>worker&#95;pools/{id}</code>",
+                                    "location": "path",
+                                    "pattern": "^worker_pools/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/managers",
+                            "response": {
+                                "$ref": "ListManagersResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.email"
+                            ]
+                        },
+                        "patch": {
+                            "description": "Updates manager information and returns the new manager. Returns a\nPERMISSION_DENIED error if the user is not a manager of the worker pool.",
+                            "flatPath": "v1/worker_pools/{worker_poolsId}/managers/{managersId}",
+                            "httpMethod": "PATCH",
+                            "id": "autopush_datacompute_sandbox.worker_pools.managers.patch",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The resource name in the format:\n<code>worker&#95;pools/{id}/managers/{id}</code>",
+                                    "location": "path",
+                                    "pattern": "^worker_pools/[^/]+/managers/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "request": {
+                                "$ref": "Manager"
+                            },
+                            "response": {
+                                "$ref": "Manager"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.email"
+                            ]
+                        }
+                    }
+                },
+                "workers": {
+                    "methods": {
+                        "acknowledgeNotification": {
+                            "description": "Acknowledge notification for a specific worker. Returns a PERMISSION_DENIED\nerror if the user is not the specific worker.",
+                            "flatPath": "v1/worker_pools/{worker_poolsId}/workers/{workersId}:acknowledgeNotification",
+                            "httpMethod": "POST",
+                            "id": "autopush_datacompute_sandbox.worker_pools.workers.acknowledgeNotification",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Required. The worker name in the format:\n<code>worker&#95;pools/{id}/workers/{id}</code>",
+                                    "location": "path",
+                                    "pattern": "^worker_pools/[^/]+/workers/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}:acknowledgeNotification",
+                            "request": {
+                                "$ref": "AcknowledgeNotificationRequest"
+                            },
+                            "response": {
+                                "$ref": "NotificationHistory"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.email"
+                            ]
+                        },
+                        "create": {
+                            "description": "Creates a new worker in a worker pool and returns the new worker. Returns\na PERMISSION_DENIED error if the user is not a manager of the worker pool.",
+                            "flatPath": "v1/worker_pools/{worker_poolsId}/workers",
+                            "httpMethod": "POST",
+                            "id": "autopush_datacompute_sandbox.worker_pools.workers.create",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "Required. Worker pool name in the format:\n<code>worker&#95;pools/{id}</code>",
+                                    "location": "path",
+                                    "pattern": "^worker_pools/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/workers",
+                            "request": {
+                                "$ref": "Worker"
+                            },
+                            "response": {
+                                "$ref": "Worker"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.email"
+                            ]
+                        },
+                        "delete": {
+                            "description": "Deletes a worker from a worker pool. Returns a PERMISSION_DENIED error if\nthe user is neither the specified worker nor a manager in the worker pool.",
+                            "flatPath": "v1/worker_pools/{worker_poolsId}/workers/{workersId}",
+                            "httpMethod": "DELETE",
+                            "id": "autopush_datacompute_sandbox.worker_pools.workers.delete",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Required. The worker name in the format:\n<code>worker&#95;pools/{id}/workers/{id}</code>",
+                                    "location": "path",
+                                    "pattern": "^worker_pools/[^/]+/workers/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "response": {
+                                "$ref": "Empty"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.email"
+                            ]
+                        },
+                        "get": {
+                            "description": "Retrieves a specific worker in a worker pool. Returns a\nPERMISSION_DENIED error if the user is neither the specified worker nor a\nmanager in the worker pool.",
+                            "flatPath": "v1/worker_pools/{worker_poolsId}/workers/{workersId}",
+                            "httpMethod": "GET",
+                            "id": "autopush_datacompute_sandbox.worker_pools.workers.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "includeAssignments": {
+                                    "description": "Whether or not to include the worker assignments field in results.",
+                                    "location": "query",
+                                    "type": "boolean"
+                                },
+                                "name": {
+                                    "description": "Required. The worker name in the format:\n<code>worker&#95;pools/{id}/workers/{id}</code>\nThe worker pool id may be a wildcard (\"-\") to fetch a worker by worker id\nwhen the worker pool is unknown.",
+                                    "location": "path",
+                                    "pattern": "^worker_pools/[^/]+/workers/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "response": {
+                                "$ref": "Worker"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.email"
+                            ]
+                        },
+                        "getAssignments": {
+                            "description": "Retrieves the list of assigned question types and workspaces for a specific\nworker.",
+                            "flatPath": "v1/worker_pools/{worker_poolsId}/workers/{workersId}:getAssignments",
+                            "httpMethod": "GET",
+                            "id": "autopush_datacompute_sandbox.worker_pools.workers.getAssignments",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Required. The worker name in the format:\n<code>worker&#95;pools/{id}/workers/{id}</code>",
+                                    "location": "path",
+                                    "pattern": "^worker_pools/[^/]+/workers/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}:getAssignments",
+                            "response": {
+                                "$ref": "WorkerAssignments"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.email"
+                            ]
+                        },
+                        "getNotificationHistory": {
+                            "description": "Retrieves notification history for a specific worker. Returns a\nPERMISSION_DENIED error if the user is not the specific worker.",
+                            "flatPath": "v1/worker_pools/{worker_poolsId}/workers/{workersId}:getNotificationHistory",
+                            "httpMethod": "GET",
+                            "id": "autopush_datacompute_sandbox.worker_pools.workers.getNotificationHistory",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Required. The worker name in the format:\n<code>worker&#95;pools/{id}/workers/{id}</code>",
+                                    "location": "path",
+                                    "pattern": "^worker_pools/[^/]+/workers/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}:getNotificationHistory",
+                            "response": {
+                                "$ref": "NotificationHistory"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.email"
+                            ]
+                        },
+                        "list": {
+                            "description": "Retrieves a list of all workers in a worker pool. Returns a\nPERMISSION_DENIED error if the user is not a manager of the specified\nworker pool.",
+                            "flatPath": "v1/worker_pools/{worker_poolsId}/workers",
+                            "httpMethod": "GET",
+                            "id": "autopush_datacompute_sandbox.worker_pools.workers.list",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "filter": {
+                                    "description": "Filter expression.\nOnly single-field equality expressions are supported, for example:\n<ul>\n  <li><code>email&#95;address = \"foo@google.com\"</code>\n  <li><code>email&#95;address = \"foo@google.com,bar@google.com\"</code>\n  <li><code>question&#95;type&#95;prefix =\n  \"workspaces/foo/question&#95;types/prefix\"</code>\n  <li><code>question&#95;type =\n  \"workspaces/foo/question&#95;types/bar\"</code>\n</ul>",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "includeAssignments": {
+                                    "description": "Whether or not to include the worker assignments field in results.",
+                                    "location": "query",
+                                    "type": "boolean"
+                                },
+                                "pageSize": {
+                                    "description": "Required. Maximum number of results to return in a single response. Must be\nnon-negative.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "The next_page_token from a previous request, if any.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "parent": {
+                                    "description": "Required. The collection name in the format:\n<code>worker&#95;pools/{id}</code>",
+                                    "location": "path",
+                                    "pattern": "^worker_pools/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/workers",
+                            "response": {
+                                "$ref": "ListWorkersResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.email"
+                            ]
+                        },
+                        "modifyAssignments": {
+                            "description": "Update the list of assigned question types and workspaces for a specific\nworker.",
+                            "flatPath": "v1/worker_pools/{worker_poolsId}/workers/{workersId}:modifyAssignments",
+                            "httpMethod": "POST",
+                            "id": "autopush_datacompute_sandbox.worker_pools.workers.modifyAssignments",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Worker name in the format:\n<code>worker&#95;pools/{id}/workers/{id}</code>",
+                                    "location": "path",
+                                    "pattern": "^worker_pools/[^/]+/workers/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}:modifyAssignments",
+                            "request": {
+                                "$ref": "ModifyWorkerAssignmentsRequest"
+                            },
+                            "response": {
+                                "$ref": "WorkerAssignments"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.email"
+                            ]
+                        },
+                        "patch": {
+                            "description": "Updates worker information and return the new worker. Returns a\nPERMISSION_DENIED error if the user is neither the specified worker nor a\nmanager in the worker pool.",
+                            "flatPath": "v1/worker_pools/{worker_poolsId}/workers/{workersId}",
+                            "httpMethod": "PATCH",
+                            "id": "autopush_datacompute_sandbox.worker_pools.workers.patch",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The resource name in the format:\n<code>worker&#95;pools/{id}/workers/{id}</code>",
+                                    "location": "path",
+                                    "pattern": "^worker_pools/[^/]+/workers/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "request": {
+                                "$ref": "Worker"
+                            },
+                            "response": {
+                                "$ref": "Worker"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.email"
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "workspaces": {
+            "methods": {
+                "create": {
+                    "description": "Creates a new workspace. Only superusers may create new workspaces.",
+                    "flatPath": "v1/workspaces",
+                    "httpMethod": "POST",
+                    "id": "autopush_datacompute_sandbox.workspaces.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/workspaces",
+                    "request": {
+                        "$ref": "Workspace"
+                    },
+                    "response": {
+                        "$ref": "Workspace"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "delete": {
+                    "description": "Deletes a workspace, removing all question/answer contents, users and\nsettings. Only superusers may delete workspaces.",
+                    "flatPath": "v1/workspaces/{workspacesId}",
+                    "httpMethod": "DELETE",
+                    "id": "autopush_datacompute_sandbox.workspaces.delete",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Required. The resource name in the format:\n<code>workspaces/{id}</code>",
+                            "location": "path",
+                            "pattern": "^workspaces/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "Empty"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "get": {
+                    "description": "Retrieves a specific workspace. A PERMISSION_DENIED error will be returned\nif the user does not have access to the specified workspace.",
+                    "flatPath": "v1/workspaces/{workspacesId}",
+                    "httpMethod": "GET",
+                    "id": "autopush_datacompute_sandbox.workspaces.get",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Required. The name of the workspace to retrieve in the format:\n<code>workspaces/{id}</code>",
+                            "location": "path",
+                            "pattern": "^workspaces/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}",
+                    "response": {
+                        "$ref": "Workspace"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "leaseQuestions": {
+                    "description": "Obtains a lease for questions based on worker capabilities.",
+                    "flatPath": "v1/workspaces:leaseQuestions",
+                    "httpMethod": "POST",
+                    "id": "autopush_datacompute_sandbox.workspaces.leaseQuestions",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/workspaces:leaseQuestions",
+                    "request": {
+                        "$ref": "LeaseQuestionsRequest"
+                    },
+                    "response": {
+                        "$ref": "LeaseQuestionsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "list": {
+                    "description": "Retrieves a list of workspaces visible to the user.",
+                    "flatPath": "v1/workspaces",
+                    "httpMethod": "GET",
+                    "id": "autopush_datacompute_sandbox.workspaces.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "filter": {
+                            "description": "Filter expression.\nOnly single-field equality expressions are supported, for example:\n<ul>\n  <li><code>role = \"worker\"</code>\n  <li><code>worker&#95;pool = \"worker&#95;pools/foo\"</code>\n</ul>",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "pageSize": {
+                            "description": "Required. Maximum number of results to return in a single response. Must\nbe non-negative.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageToken": {
+                            "description": "The next_page_token from a previous request, if any.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "showAll": {
+                            "description": "Deprecated. Superusers will now get all workspaces by default.",
+                            "location": "query",
+                            "type": "boolean"
+                        },
+                        "workerPoolId": {
+                            "description": "Deprecated. Specify the worker pool in the filter field instead.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/workspaces",
+                    "response": {
+                        "$ref": "ListWorkspacesResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "listEnabledWorkerPools": {
+                    "description": "Lists the set of worker pools allowed to access a given workspace. Returns\na PERMISSION_DENIED error if the user is not a requester of the workspace.",
+                    "flatPath": "v1/workspaces/{workspacesId}:listEnabledWorkerPools",
+                    "httpMethod": "GET",
+                    "id": "autopush_datacompute_sandbox.workspaces.listEnabledWorkerPools",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Workspace name in the form <code>workspaces/{id}</code>",
+                            "location": "path",
+                            "pattern": "^workspaces/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "pageSize": {
+                            "description": "Required. Maximum number of results to return in a single response. Must be\nnon-negative.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageToken": {
+                            "description": "The next_page_token from a previous request, if any.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}:listEnabledWorkerPools",
+                    "response": {
+                        "$ref": "ListEnabledWorkerPoolsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "modifyEnabledWorkerPools": {
+                    "description": "Modifies the set of worker pool allowed to access a workspace. Returns a\nPERMISSION_DENIED error if the user is not a requester of the workspace.",
+                    "flatPath": "v1/workspaces/{workspacesId}:modifyEnabledWorkerPools",
+                    "httpMethod": "POST",
+                    "id": "autopush_datacompute_sandbox.workspaces.modifyEnabledWorkerPools",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Workspace name in the form <code>workspaces/{id}</code>",
+                            "location": "path",
+                            "pattern": "^workspaces/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/{+name}:modifyEnabledWorkerPools",
+                    "request": {
+                        "$ref": "ModifyEnabledWorkerPoolsRequest"
+                    },
+                    "response": {
+                        "$ref": "ModifyEnabledWorkerPoolsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                }
+            },
+            "resources": {
+                "question_types": {
+                    "methods": {
+                        "create": {
+                            "description": "Creates a new question type. A PERMISSION_DENIED error will be returned if\nthe user does not have requester access to the specified workspace.",
+                            "flatPath": "v1/workspaces/{workspacesId}/question_types",
+                            "httpMethod": "POST",
+                            "id": "autopush_datacompute_sandbox.workspaces.question_types.create",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "Required. The collection name in the format: <code>workspaces/{id}</code>",
+                                    "location": "path",
+                                    "pattern": "^workspaces/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "questionTypeId": {
+                                    "description": "Required. Question type id to use for creation.",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/question_types",
+                            "request": {
+                                "$ref": "QuestionType"
+                            },
+                            "response": {
+                                "$ref": "QuestionType"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.email"
+                            ]
+                        },
+                        "delete": {
+                            "description": "Deletes a specific question type. A PERMISSION_DENIED error will be\nreturned if the user does not have access to the specified question type.\nWarning: This will delete the Question Type and all enqueued questions and\ntheir answers regardless of completion.  This operation cannot be undone.",
+                            "flatPath": "v1/workspaces/{workspacesId}/question_types/{question_typesId}",
+                            "httpMethod": "DELETE",
+                            "id": "autopush_datacompute_sandbox.workspaces.question_types.delete",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Required. The name of the question type to delete in the format:\n<code>workspaces/{id}/question&#95;types/{id}</code>",
+                                    "location": "path",
+                                    "pattern": "^workspaces/[^/]+/question_types/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "response": {
+                                "$ref": "Empty"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.email"
+                            ]
+                        },
+                        "enqueueQuestion": {
+                            "description": "Enqueues a new question into a specific question type. A PERMISSION_DENIED\nerror will be returned if the user does not have access to the specified\nquestion type. Questions may only be enqueued into question types that use\nthe Uberqueue scheduler.",
+                            "flatPath": "v1/workspaces/{workspacesId}/question_types/{question_typesId}:enqueueQuestion",
+                            "httpMethod": "POST",
+                            "id": "autopush_datacompute_sandbox.workspaces.question_types.enqueueQuestion",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "The question type to enqueue into, in the format:\n<code>workspaces/{id}/question&#95;types/{id}</code>",
+                                    "location": "path",
+                                    "pattern": "^workspaces/[^/]+/question_types/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}:enqueueQuestion",
+                            "request": {
+                                "$ref": "EnqueueQuestionRequest"
+                            },
+                            "response": {
+                                "$ref": "Question"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.email"
+                            ]
+                        },
+                        "get": {
+                            "description": "Retrieves a specific question type. A PERMISSION_DENIED error will be\nreturned if the user does not have access to the specified question type.",
+                            "flatPath": "v1/workspaces/{workspacesId}/question_types/{question_typesId}",
+                            "httpMethod": "GET",
+                            "id": "autopush_datacompute_sandbox.workspaces.question_types.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "includeStatistics": {
+                                    "description": "If true, response will include question type statistics.",
+                                    "location": "query",
+                                    "type": "boolean"
+                                },
+                                "name": {
+                                    "description": "Required. The name of the question type to retrieve in the format:\n<code>workspaces/{id}/question_types/{id}</code>",
+                                    "location": "path",
+                                    "pattern": "^workspaces/[^/]+/question_types/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "response": {
+                                "$ref": "QuestionType"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.email"
+                            ]
+                        },
+                        "list": {
+                            "description": "Lists question types in the specified workspace. A PERMISSION_DENIED error\nwill be returned if the user does not have access to the specified\nworkspace.",
+                            "flatPath": "v1/workspaces/{workspacesId}/question_types",
+                            "httpMethod": "GET",
+                            "id": "autopush_datacompute_sandbox.workspaces.question_types.list",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "filter": {
+                                    "description": "Filter expression.\nFilter to constrain limit results by exact question_type or\nquestion_type_prefix (though not both), which can be combined with\nexclude_empty with AND logical conjunction only. <ul>\n  <li><code>question&#95;type&#95;prefix =\n  \"prefix\"</code>\n  <li><code>question&#95;type =\n  \"bar\"</code>\n  <li><code>exclude&#95;empty =\n  true</code>\n</ul>",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "includeStatistics": {
+                                    "description": "If true, response will include question type statistics.",
+                                    "location": "query",
+                                    "type": "boolean"
+                                },
+                                "pageSize": {
+                                    "description": "Required. Maximum number of results to return in a single response. Must\nbe non-negative.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "The next_page_token from a previous request, if any.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "parent": {
+                                    "description": "Required. The collection name in the format: <code>workspaces/{id}</code>",
+                                    "location": "path",
+                                    "pattern": "^workspaces/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/question_types",
+                            "response": {
+                                "$ref": "ListQuestionTypesResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.email"
+                            ]
+                        }
+                    },
+                    "resources": {
+                        "questions": {
+                            "methods": {
+                                "cancelQuestion": {
+                                    "description": "Permanently prevents the question from being served to workers. Question\ntype must be using the Uberqueue scheduler, and the question must not be in\nthe COMPLETED or EXPORTED state. Returns OK if the question is already\nCANCELLED.",
+                                    "flatPath": "v1/workspaces/{workspacesId}/question_types/{question_typesId}/questions/{questionsId}:cancelQuestion",
+                                    "httpMethod": "POST",
+                                    "id": "autopush_datacompute_sandbox.workspaces.question_types.questions.cancelQuestion",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "name": {
+                                            "description": "Required. The name of the question to cancel:\n<code>workspaces/{id}/question&#95;types/{id}/questions/{id}</code>",
+                                            "location": "path",
+                                            "pattern": "^workspaces/[^/]+/question_types/[^/]+/questions/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/{+name}:cancelQuestion",
+                                    "response": {
+                                        "$ref": "Empty"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/userinfo.email"
+                                    ]
+                                },
+                                "exportQuestion": {
+                                    "description": "Permanently marks the question as being scheduled by a system outside of\nCrowd Compute. Question type must be using the Uberqueue scheduler, and the\nquestion must not be in the COMPLETED or CANCELLED state. Returns OK if the\nquestion is already EXPORTED.",
+                                    "flatPath": "v1/workspaces/{workspacesId}/question_types/{question_typesId}/questions/{questionsId}:exportQuestion",
+                                    "httpMethod": "POST",
+                                    "id": "autopush_datacompute_sandbox.workspaces.question_types.questions.exportQuestion",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "name": {
+                                            "description": "Required. The name of the question to export:\n<code>workspaces/{id}/question&#95;types/{id}/questions/{id}</code>",
+                                            "location": "path",
+                                            "pattern": "^workspaces/[^/]+/question_types/[^/]+/questions/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/{+name}:exportQuestion",
+                                    "response": {
+                                        "$ref": "Empty"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/userinfo.email"
+                                    ]
+                                },
+                                "get": {
+                                    "description": "Gets a question by question name. A PERMISSION_DENIED error will be\nreturned if the user does not have access to the specified question type.\nUNIMPLEMENTED.",
+                                    "flatPath": "v1/workspaces/{workspacesId}/question_types/{question_typesId}/questions/{questionsId}",
+                                    "httpMethod": "GET",
+                                    "id": "autopush_datacompute_sandbox.workspaces.question_types.questions.get",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "name": {
+                                            "description": "The question to get, in the format:\n<code>workspaces/{id}/question&#95;types/{id}/questions/{id}</code>",
+                                            "location": "path",
+                                            "pattern": "^workspaces/[^/]+/question_types/[^/]+/questions/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/{+name}",
+                                    "response": {
+                                        "$ref": "Question"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/userinfo.email"
+                                    ]
+                                },
+                                "list": {
+                                    "description": "Lists questions from a specific question type. A PERMISSION_DENIED\nerror will be returned if the user does not have access to the specified\nquestion type.",
+                                    "flatPath": "v1/workspaces/{workspacesId}/question_types/{question_typesId}/questions",
+                                    "httpMethod": "GET",
+                                    "id": "autopush_datacompute_sandbox.workspaces.question_types.questions.list",
+                                    "parameterOrder": [
+                                        "parent"
+                                    ],
+                                    "parameters": {
+                                        "filter": {
+                                            "description": "Filter to constrain limit results by language, expert, gold, and\nServingState.  Filters can be combined with AND logical conjunction only.\n<ul>\n  <li><code>languages = (en fr)</code>\n  <li><code>gold = True</code>\n  <li><code>expert = False</code>\n  <li><code>state = COMPLETED</code>\n</ul>",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "pageSize": {
+                                            "description": "Required. Maximum number of results to return in a single response. Must\nbe non-negative.",
+                                            "format": "int32",
+                                            "location": "query",
+                                            "type": "integer"
+                                        },
+                                        "pageToken": {
+                                            "description": "The next_page_token from a previous request, if any.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "parent": {
+                                            "description": "The question type to list from, in the format:\n<code>workspaces/{id}/question&#95;types/{id}</code>",
+                                            "location": "path",
+                                            "pattern": "^workspaces/[^/]+/question_types/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/{+parent}/questions",
+                                    "response": {
+                                        "$ref": "ListQuestionsResponse"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/userinfo.email"
+                                    ]
+                                },
+                                "listQuestionPayloads": {
+                                    "description": "Lists payloads for a specific question. This does not retrieve the\nunderlying payload data, just the payload name and MIME type information.",
+                                    "flatPath": "v1/workspaces/{workspacesId}/question_types/{question_typesId}/questions/{questionsId}:listQuestionPayloads",
+                                    "httpMethod": "GET",
+                                    "id": "autopush_datacompute_sandbox.workspaces.question_types.questions.listQuestionPayloads",
+                                    "parameterOrder": [
+                                        "questionName"
+                                    ],
+                                    "parameters": {
+                                        "pageSize": {
+                                            "description": "Required. Maximum number of results to return in a single response. Must\nbe non-negative.",
+                                            "format": "int32",
+                                            "location": "query",
+                                            "type": "integer"
+                                        },
+                                        "pageToken": {
+                                            "description": "The next_page_token from a previous request, if any.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "questionName": {
+                                            "description": "Required. The question name to list payloads for in the format:\n<code>workspaces/{id}/question&#95;types/{id}/questions/{id}</code>",
+                                            "location": "path",
+                                            "pattern": "^workspaces/[^/]+/question_types/[^/]+/questions/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/{+questionName}:listQuestionPayloads",
+                                    "response": {
+                                        "$ref": "ListQuestionPayloadsResponse"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/userinfo.email"
+                                    ]
+                                },
+                                "pauseQuestion": {
+                                    "description": "Prevents a question from being served to workers until the question is\nresumed. Question type must be using the Uberqueue scheduler, and the\nquestion must not be in a final state (COMPLETED, CANCELLED, EXPORTED).",
+                                    "flatPath": "v1/workspaces/{workspacesId}/question_types/{question_typesId}/questions/{questionsId}:pauseQuestion",
+                                    "httpMethod": "POST",
+                                    "id": "autopush_datacompute_sandbox.workspaces.question_types.questions.pauseQuestion",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "name": {
+                                            "description": "Required. The name of the question to pause:\n<code>workspaces/{id}/question&#95;types/{id}/questions/{id}</code>",
+                                            "location": "path",
+                                            "pattern": "^workspaces/[^/]+/question_types/[^/]+/questions/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/{+name}:pauseQuestion",
+                                    "response": {
+                                        "$ref": "Empty"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/userinfo.email"
+                                    ]
+                                },
+                                "resumeQuestion": {
+                                    "description": "If the question has been paused, attempts to make the question available to\nserve to workers. Question type must be using the Uberqueue scheduler, and\nthe question must not be in a final state (COMPLETED, CANCELLED, EXPORTED).\nIf the question was also awaiting further processing within the Crowd\nCompute system, it will transition into the PENDING state, and\nautomatically be made AVAILABLE when this processing is done.",
+                                    "flatPath": "v1/workspaces/{workspacesId}/question_types/{question_typesId}/questions/{questionsId}:resumeQuestion",
+                                    "httpMethod": "POST",
+                                    "id": "autopush_datacompute_sandbox.workspaces.question_types.questions.resumeQuestion",
+                                    "parameterOrder": [
+                                        "name"
+                                    ],
+                                    "parameters": {
+                                        "name": {
+                                            "description": "Required. The name of the question to resume:\n<code>workspaces/{id}/question&#95;types/{id}/questions/{id}</code>",
+                                            "location": "path",
+                                            "pattern": "^workspaces/[^/]+/question_types/[^/]+/questions/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/{+name}:resumeQuestion",
+                                    "response": {
+                                        "$ref": "Empty"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/userinfo.email"
+                                    ]
+                                },
+                                "submitAnswer": {
+                                    "description": "Submits a new answer for a question. Returns a PERMISSION_DENIED error if\nthe user is not authorized to submit answers for the specified question.\nReturns a BAD_REQUEST error if the supplied answer data exceeds the maximum\nallowable size limit.",
+                                    "flatPath": "v1/workspaces/{workspacesId}/question_types/{question_typesId}/questions/{questionsId}:submitAnswer",
+                                    "httpMethod": "POST",
+                                    "id": "autopush_datacompute_sandbox.workspaces.question_types.questions.submitAnswer",
+                                    "parameterOrder": [
+                                        "parent"
+                                    ],
+                                    "parameters": {
+                                        "parent": {
+                                            "description": "Required. The name of the question being answered in the format\n<code>workspaces/{id}/question&#95;types/{id}/questions/{id}</code>",
+                                            "location": "path",
+                                            "pattern": "^workspaces/[^/]+/question_types/[^/]+/questions/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/{+parent}:submitAnswer",
+                                    "request": {
+                                        "$ref": "SubmitAnswerRequest"
+                                    },
+                                    "response": {
+                                        "$ref": "SubmitAnswerResponse"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/userinfo.email"
+                                    ]
+                                },
+                                "submitPartialAnswer": {
+                                    "description": "Submit the partial answer by a worker. Will return permission denied error\nif the person submitting the partial answer is not allowed.",
+                                    "flatPath": "v1/workspaces/{workspacesId}/question_types/{question_typesId}/questions/{questionsId}:submitPartialAnswer",
+                                    "httpMethod": "POST",
+                                    "id": "autopush_datacompute_sandbox.workspaces.question_types.questions.submitPartialAnswer",
+                                    "parameterOrder": [
+                                        "parent"
+                                    ],
+                                    "parameters": {
+                                        "parent": {
+                                            "description": "Required. The name of the question being answered in the format\n<code>workspaces/{workspaceId}/question&#95;types/{questionTypeId}/questions/{questionId}</code>",
+                                            "location": "path",
+                                            "pattern": "^workspaces/[^/]+/question_types/[^/]+/questions/[^/]+$",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/{+parent}:submitPartialAnswer",
+                                    "request": {
+                                        "$ref": "SubmitPartialAnswerRequest"
+                                    },
+                                    "response": {
+                                        "$ref": "SubmitPartialAnswerResponse"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/userinfo.email"
+                                    ]
+                                }
+                            },
+                            "resources": {
+                                "partial_answers": {
+                                    "methods": {
+                                        "get": {
+                                            "description": "Get the partial Answer submitted by a worker for a given question type and\nquestion id.",
+                                            "flatPath": "v1/workspaces/{workspacesId}/question_types/{question_typesId}/questions/{questionsId}/partial_answers/{partial_answersId}",
+                                            "httpMethod": "GET",
+                                            "id": "autopush_datacompute_sandbox.workspaces.question_types.questions.partial_answers.get",
+                                            "parameterOrder": [
+                                                "name"
+                                            ],
+                                            "parameters": {
+                                                "name": {
+                                                    "description": "Required. The partial answer resource name in the format:\n<code>workspaces/{workspaceId}/question&#95;types/{questionTypeId}/questions/{questionId}/partial&#95;answers/{partialAnswerId}</code>",
+                                                    "location": "path",
+                                                    "pattern": "^workspaces/[^/]+/question_types/[^/]+/questions/[^/]+/partial_answers/[^/]+$",
+                                                    "required": true,
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "path": "v1/{+name}",
+                                            "response": {
+                                                "$ref": "PartialAnswer"
+                                            },
+                                            "scopes": [
+                                                "https://www.googleapis.com/auth/userinfo.email"
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "requesters": {
+                    "methods": {
+                        "create": {
+                            "description": "Creates a new requester in the specified workspace and returns the new\nrequester. Returns a PERMISSION_DENIED error if the user is not a requester\nin the workspace.",
+                            "flatPath": "v1/workspaces/{workspacesId}/requesters",
+                            "httpMethod": "POST",
+                            "id": "autopush_datacompute_sandbox.workspaces.requesters.create",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "Required. The collection name in the format: <code>workspaces/{id}</code>",
+                                    "location": "path",
+                                    "pattern": "^workspaces/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/requesters",
+                            "request": {
+                                "$ref": "Requester"
+                            },
+                            "response": {
+                                "$ref": "Requester"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.email"
+                            ]
+                        },
+                        "delete": {
+                            "description": "Deletes a requester from a workspace. Returns a PERMISSION_DENIED error if\nthe user is not a requester of the workspace.",
+                            "flatPath": "v1/workspaces/{workspacesId}/requesters/{requestersId}",
+                            "httpMethod": "DELETE",
+                            "id": "autopush_datacompute_sandbox.workspaces.requesters.delete",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Required. The resource name in the format:\n<code>workspaces/{id}/requesters/{id}</code>",
+                                    "location": "path",
+                                    "pattern": "^workspaces/[^/]+/requesters/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "response": {
+                                "$ref": "Empty"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.email"
+                            ]
+                        },
+                        "get": {
+                            "description": "Retrieves the specified requester. Returns a PERMISSION_DENIED error if the\nuser is not a requester of the worker pool.",
+                            "flatPath": "v1/workspaces/{workspacesId}/requesters/{requestersId}",
+                            "httpMethod": "GET",
+                            "id": "autopush_datacompute_sandbox.workspaces.requesters.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Required. The resource name in the format:\n<code>workspaces/{id}/requesters/{id}</code>",
+                                    "location": "path",
+                                    "pattern": "^workspaces/[^/]+/requesters/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "response": {
+                                "$ref": "Requester"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.email"
+                            ]
+                        },
+                        "list": {
+                            "description": "Retrieves a list of requesters in a workspace. Returns a PERMISSION_DENIED\nerror if the user is not a requester in the workspace.",
+                            "flatPath": "v1/workspaces/{workspacesId}/requesters",
+                            "httpMethod": "GET",
+                            "id": "autopush_datacompute_sandbox.workspaces.requesters.list",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "filter": {
+                                    "description": "Filter expression.\nOnly single-field equality expressions are supported, for example:\n<ul>\n  <li><code>email&#95;address = \"foo@google.com\"</code>\n</ul>",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "pageSize": {
+                                    "description": "Required. Maximum number of results to return in a single response. Must be\nnon-negative.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "The next_page_token from a previous request, if any.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "parent": {
+                                    "description": "Required. The collection name in the format:\n<code>workspaces/{id}</code>",
+                                    "location": "path",
+                                    "pattern": "^workspaces/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/requesters",
+                            "response": {
+                                "$ref": "ListRequestersResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.email"
+                            ]
+                        }
+                    }
+                },
+                "tasks": {
+                    "methods": {
+                        "create": {
+                            "description": "Creates a new task, in a filling state.\nUNIMPLEMENTED",
+                            "flatPath": "v1/workspaces/{workspacesId}/tasks",
+                            "httpMethod": "POST",
+                            "id": "autopush_datacompute_sandbox.workspaces.tasks.create",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "Required. The collection name in the format:\n<code>workspaces/{id}</code>",
+                                    "location": "path",
+                                    "pattern": "^workspaces/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/tasks",
+                            "request": {
+                                "$ref": "Task"
+                            },
+                            "response": {
+                                "$ref": "Task"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.email"
+                            ]
+                        },
+                        "get": {
+                            "description": "Get the metadata associated with a task.\nUNIMPLEMENTED",
+                            "flatPath": "v1/workspaces/{workspacesId}/tasks/{tasksId}",
+                            "httpMethod": "GET",
+                            "id": "autopush_datacompute_sandbox.workspaces.tasks.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Required. Resource name for the task in the format:\n<code>workspaces/{id}/tasks/{id}</code>",
+                                    "location": "path",
+                                    "pattern": "^workspaces/[^/]+/tasks/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "response": {
+                                "$ref": "Task"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.email"
+                            ]
+                        },
+                        "list": {
+                            "description": "Lists the tasks contained in a workspace.\nUNIMPLEMENTED",
+                            "flatPath": "v1/workspaces/{workspacesId}/tasks",
+                            "httpMethod": "GET",
+                            "id": "autopush_datacompute_sandbox.workspaces.tasks.list",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "pageSize": {
+                                    "description": "Required. Maximum number of results to return in a single response. Must\nbe non-negative.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "The next_page_token from a previous request, if any.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "parent": {
+                                    "description": "The workspace to list from, in the format:\n<code>workspaces/{id}</code>",
+                                    "location": "path",
+                                    "pattern": "^workspaces/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/tasks",
+                            "response": {
+                                "$ref": "ListTasksResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.email"
+                            ]
+                        },
+                        "listTaskQuestions": {
+                            "description": "List the questions that are in a task. Offers listing questions by question\ntype or by state.\nUNIMPLEMENTED",
+                            "flatPath": "v1/workspaces/{workspacesId}/tasks/{tasksId}:listTaskQuestions",
+                            "httpMethod": "GET",
+                            "id": "autopush_datacompute_sandbox.workspaces.tasks.listTaskQuestions",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "filter": {
+                                    "description": "Optional. Filter expression.\nOnly equality expressions on the following fields are supported:\nquestion_type (string with full one platform name for some question)\nserving_state (Question.ServingState enum)\n\nFiltering on multiple fields at once is allowed.\n\nFor example:\n<ul>\n  <li><code>serving&#95;state = AVAILABLE</code>\n  <li><code>question&#95;type =\n  \"workspaces/foo/question&#95;types/bar\"</code>\n</ul>",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "description": "Required. Resource name for the task in the format:\n<code>workspaces/{id}/tasks/{id}</code>",
+                                    "location": "path",
+                                    "pattern": "^workspaces/[^/]+/tasks/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "pageSize": {
+                                    "description": "Required. Maximum number of results to return in a single response. Must be\nnon-negative.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "Optional. The next_page_token from a previous request, if any.",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}:listTaskQuestions",
+                            "response": {
+                                "$ref": "ListTaskQuestionsResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.email"
+                            ]
+                        },
+                        "markTaskFilled": {
+                            "description": "Mark the task as being filled. This will cause the task to send out a\nnotification when all the questions in that task are done.\nUNIMPLEMENTED",
+                            "flatPath": "v1/workspaces/{workspacesId}/tasks/{tasksId}:markTaskFilled",
+                            "httpMethod": "POST",
+                            "id": "autopush_datacompute_sandbox.workspaces.tasks.markTaskFilled",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Required. Resource name for the task in the format:\n<code>workspaces/{id}/tasks/{id}</code>",
+                                    "location": "path",
+                                    "pattern": "^workspaces/[^/]+/tasks/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}:markTaskFilled",
+                            "request": {
+                                "$ref": "MarkTaskFilledRequest"
+                            },
+                            "response": {
+                                "$ref": "Empty"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/userinfo.email"
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190923",
+    "rootUrl": "https://autopush-datacompute.sandbox.googleapis.com/",
+    "schemas": {
+        "AcknowledgeNotificationRequest": {
+            "id": "AcknowledgeNotificationRequest",
+            "properties": {
+                "notificationTime": {
+                    "description": "Required. Notification time to acknowledge.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "questionType": {
+                    "description": "Required. Question type name to acknowledge in the format:\n<code>workspaces/{id}/question&#95;types/{id}</code>",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Blobstore2Info": {
+            "description": "Information to read/write to blobstore2.",
+            "id": "Blobstore2Info",
+            "properties": {
+                "blobGeneration": {
+                    "description": "The blob generation id.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "blobId": {
+                    "description": "The blob id, e.g., /blobstore/prod/playground/scotty",
+                    "type": "string"
+                },
+                "downloadReadHandle": {
+                    "description": "Read handle passed from Bigstore -> Scotty for a GCS download.\nThis is a signed, serialized blobstore2.ReadHandle proto which must never\nbe set outside of Bigstore, and is not applicable to non-GCS media\ndownloads.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "readToken": {
+                    "description": "The blob read token. Needed to read blobs that have not been\nreplicated. Might not be available until the final call.",
+                    "type": "string"
+                },
+                "uploadMetadataContainer": {
+                    "description": "Metadata passed from Blobstore -> Scotty for a new GCS upload.\nThis is a signed, serialized blobstore2.BlobMetadataContainer proto which\nmust never be consumed outside of Bigstore, and is not applicable to\nnon-GCS media uploads.",
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ClientAnswerData": {
+            "description": "Answer data as provided by the client. This does not contain derived answer\ndata that may be generated by the Crowd Compute system.",
+            "id": "ClientAnswerData",
+            "properties": {
+                "answerData": {
+                    "description": "Client supplied answer data. This data will be used by Crowd Compute for\nquality control and answer comparison purposes.\nMax size can be 2 MB",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "elapsedTime": {
+                    "description": "The elapsed time taken for this answer to be submitted (from the time the\nquestion was first presented to the worker). This may be shorter than the\ntime between when the question lease was obtained and when the answer was\nsubmitted if the client caches multiple questions.",
+                    "format": "google-duration",
+                    "type": "string"
+                },
+                "rejection": {
+                    "$ref": "Rejection",
+                    "description": "Client supplied question rejection data."
+                },
+                "sidecarData": {
+                    "description": "Optional client supplied sidecar data. This data may be associated with an\nanswer but will not be used by Crowd Compute for any quality control or\nanswer comparison purposes. Crowd Compute will impose a maximum allowable\nsize for the 'sidecar_proto' field. SubmitAnswer requests will be rejected\nif the size exceeds this limit. Actual size limit TBD.",
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ClientPartialAnswerData": {
+            "description": "Partial Answer data as provided by the client.",
+            "id": "ClientPartialAnswerData",
+            "properties": {
+                "elapsedTime": {
+                    "description": "The time taken for this partial answer to be submitted. It is not the total\ntime spent on answering the question but is the time spent for only the\ncurrent partial answer.",
+                    "format": "google-duration",
+                    "type": "string"
+                },
+                "partialAnswerData": {
+                    "description": "Client supplied partial answer data.\nCrowd Compute will impose a maximum allowable size for the\n'partial_answer_proto' field. SubmitPartialAnswer requests will be rejected\nif the size exceeds this limit. Actual size limit is TBD.",
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CompositeMedia": {
+            "description": "A sequence of media data references representing composite data.\nIntroduced to support Bigstore composite objects. For details, visit\nhttp://go/bigstore-composites.",
+            "id": "CompositeMedia",
+            "properties": {
+                "blobRef": {
+                    "description": "Blobstore v1 reference, set if reference_type is BLOBSTORE_REF\nThis should be the byte representation of a blobstore.BlobRef.\nSince Blobstore is deprecating v1, use blobstore2_info instead.\nFor now, any v2 blob will also be represented in this field as\nv1 BlobRef.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "blobstore2Info": {
+                    "$ref": "Blobstore2Info",
+                    "description": "Blobstore v2 info, set if reference_type is BLOBSTORE_REF and it refers\nto a v2 blob."
+                },
+                "cosmoBinaryReference": {
+                    "description": "A binary data reference for a media download. Serves as a\ntechnology-agnostic binary reference in some Google infrastructure.\nThis value is a serialized storage_cosmo.BinaryReference proto. Storing\nit as bytes is a hack to get around the fact that the cosmo proto\n(as well as others it includes) doesn't support JavaScript. This\nprevents us from including the actual type of this field.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "crc32cHash": {
+                    "description": "crc32.c hash for the payload.",
+                    "format": "uint32",
+                    "type": "integer"
+                },
+                "inline": {
+                    "description": "Media data, set if reference_type is INLINE",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "length": {
+                    "description": "Size of the data, in bytes",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "md5Hash": {
+                    "description": "MD5 hash for the payload.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "objectId": {
+                    "$ref": "ObjectId",
+                    "description": "Reference to a TI Blob, set if reference_type is BIGSTORE_REF."
+                },
+                "path": {
+                    "description": "Path to the data, set if reference_type is PATH",
+                    "type": "string"
+                },
+                "referenceType": {
+                    "description": "Describes what the field reference contains.",
+                    "enum": [
+                        "PATH",
+                        "BLOB_REF",
+                        "INLINE",
+                        "BIGSTORE_REF",
+                        "COSMO_BINARY_REFERENCE"
+                    ],
+                    "enumDescriptions": [
+                        "Reference contains a GFS path or a local path.",
+                        "Reference points to a blobstore object. This could be either\na v1 blob_ref or a v2 blobstore2_info. Clients should check\nblobstore2_info first, since v1 is being deprecated.",
+                        "Data is included into this proto buffer",
+                        "Reference points to a bigstore object",
+                        "Indicates the data is stored in cosmo_binary_reference."
+                    ],
+                    "type": "string"
+                },
+                "sha1Hash": {
+                    "description": "SHA-1 hash for the payload.",
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ConsensusReplicationOptions": {
+            "description": "Options for replication determined by majority consensus.",
+            "id": "ConsensusReplicationOptions",
+            "properties": {
+                "maxReplication": {
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "ContentTypeInfo": {
+            "description": "Detailed Content-Type information from Scotty. The Content-Type of the media\nwill typically be filled in by the header or Scotty's best_guess, but this\nextended information provides the backend with more information so that it\ncan make a better decision if needed. This is only used on media upload\nrequests from Scotty.",
+            "id": "ContentTypeInfo",
+            "properties": {
+                "bestGuess": {
+                    "description": "Scotty's best guess of what the content type of the file is.",
+                    "type": "string"
+                },
+                "fromBytes": {
+                    "description": "The content type of the file derived by looking at specific\nbytes (i.e. \"magic bytes\") of the actual file.",
+                    "type": "string"
+                },
+                "fromFileName": {
+                    "description": "The content type of the file derived from the file extension of\nthe original file name used by the client.",
+                    "type": "string"
+                },
+                "fromHeader": {
+                    "description": "The content type of the file as specified in the request headers,\nmultipart headers, or RUPIO start request.",
+                    "type": "string"
+                },
+                "fromUrlPath": {
+                    "description": "The content type of the file derived from the file extension of the\nURL path.  The URL path is assumed to represent a file name (which\nis typically only true for agents that are providing a REST API).",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CustomReplicationOptions": {
+            "description": "Options for replication determined by invocation of a custom Cloud Function.",
+            "id": "CustomReplicationOptions",
+            "properties": {
+                "initialReplication": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "maxReplication": {
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "DiffChecksumsResponse": {
+            "description": "Backend response for a Diff get checksums response.\nFor details on the Scotty Diff protocol,\nvisit http://go/scotty-diff-protocol.",
+            "id": "DiffChecksumsResponse",
+            "properties": {
+                "checksumsLocation": {
+                    "$ref": "CompositeMedia",
+                    "description": "Exactly one of these fields must be populated.\n\nIf checksums_location is filled, the server will return the corresponding\ncontents to the user.  If object_location is filled, the server will\ncalculate the checksums based on the content there and return that to the\nuser.\nFor details on the format of the checksums,\nsee http://go/scotty-diff-protocol."
+                },
+                "chunkSizeBytes": {
+                    "description": "The chunk size of checksums.  Must be a multiple of 256KB.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "objectLocation": {
+                    "$ref": "CompositeMedia",
+                    "description": "If set, calculate the checksums based on the contents and return them to\nthe caller."
+                },
+                "objectSizeBytes": {
+                    "description": "The total size of the server object.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "objectVersion": {
+                    "description": "The object version of the object the checksums are being returned for.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DiffDownloadResponse": {
+            "description": "Backend response for a Diff download response.\nFor details on the Scotty Diff protocol,\nvisit http://go/scotty-diff-protocol.",
+            "id": "DiffDownloadResponse",
+            "properties": {
+                "objectLocation": {
+                    "$ref": "CompositeMedia",
+                    "description": "The original object location."
+                }
+            },
+            "type": "object"
+        },
+        "DiffUploadRequest": {
+            "description": "A Diff upload request.\nFor details on the Scotty Diff protocol,\nvisit http://go/scotty-diff-protocol.",
+            "id": "DiffUploadRequest",
+            "properties": {
+                "checksumsInfo": {
+                    "$ref": "CompositeMedia",
+                    "description": "The location of the checksums for the new object.\nAgents must clone the object located here, as the upload server will\ndelete the contents once a response is received.\nFor details on the format of the checksums,\nsee http://go/scotty-diff-protocol."
+                },
+                "objectInfo": {
+                    "$ref": "CompositeMedia",
+                    "description": "The location of the new object.\nAgents must clone the object located here, as the upload server will\ndelete the contents once a response is received."
+                },
+                "objectVersion": {
+                    "description": "The object version of the object that is the base version the incoming\ndiff script will be applied to.\nThis field will always be filled in.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DiffUploadResponse": {
+            "description": "Backend response for a Diff upload request.\nFor details on the Scotty Diff protocol,\nvisit http://go/scotty-diff-protocol.",
+            "id": "DiffUploadResponse",
+            "properties": {
+                "objectVersion": {
+                    "description": "The object version of the object at the server. Must be included in the\nend notification response.\nThe version in the end notification response must correspond to the new\nversion of the object that is now stored at the server, after the upload.",
+                    "type": "string"
+                },
+                "originalObject": {
+                    "$ref": "CompositeMedia",
+                    "description": "The location of the original file for a diff upload request. Must be\nfilled in if responding to an upload start notification."
+                }
+            },
+            "type": "object"
+        },
+        "DiffVersionResponse": {
+            "description": "Backend response for a Diff get version response.\nFor details on the Scotty Diff protocol,\nvisit http://go/scotty-diff-protocol.",
+            "id": "DiffVersionResponse",
+            "properties": {
+                "objectSizeBytes": {
+                    "description": "The total size of the server object.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "objectVersion": {
+                    "description": "The version of the object stored at the server.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DownloadParameters": {
+            "description": "Parameters specific to media downloads.",
+            "id": "DownloadParameters",
+            "properties": {
+                "allowGzipCompression": {
+                    "description": "A boolean to be returned in the response to Scotty. Allows/disallows gzip\nencoding of the payload content when the server thinks it's\nadvantageous (hence, does not guarantee compression) which allows\nScotty to GZip the response to the client.",
+                    "type": "boolean"
+                },
+                "ignoreRange": {
+                    "description": "Determining whether or not Apiary should skip the inclusion\nof any Content-Range header on its response to Scotty.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "Empty": {
+            "description": "A simulacrum of google.protobuf.Empty which sets generate_xid so it can be\nused by Wiz.\nSee https://yaqs.googleplex.com/eng/q/6062588241903616",
+            "id": "Empty",
+            "properties": {},
+            "type": "object"
+        },
+        "EnqueueQuestionRequest": {
+            "id": "EnqueueQuestionRequest",
+            "properties": {
+                "blacklistedWorkers": {
+                    "description": "The initial set of blacklisted workers, specified as full worker names:\n<code>worker&#95;pools/{id}/workers/{id}</code>",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "goldAnswers": {
+                    "description": "The initial set of known-acceptable answers for gold questions.",
+                    "items": {
+                        "$ref": "ClientAnswerData"
+                    },
+                    "type": "array"
+                },
+                "payloads": {
+                    "description": "Optional list of associated question payloads.",
+                    "items": {
+                        "$ref": "QuestionPayloadData"
+                    },
+                    "type": "array"
+                },
+                "question": {
+                    "$ref": "Question",
+                    "description": "The question to enqueue."
+                },
+                "whitelistedWorkers": {
+                    "description": "The initial set of whitelisted workers, specified as full worker names:\n<code>worker&#95;pools/{id}/workers/{id}</code>",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Identity": {
+            "description": "Represents a specific role that a user may act as.",
+            "id": "Identity",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Role-specific name, such as\n<code>worker&#95;pools/{id}/workers/{id}</code> or\n<code>workspaces/{id}/requesters/{id}</code> or",
+                    "type": "string"
+                },
+                "parentId": {
+                    "description": "Represents a workspace id for requester roles, and worker pool id for\nmanager and worker roles.",
+                    "type": "string"
+                },
+                "role": {
+                    "enum": [
+                        "ROLE_UNSPECIFIED",
+                        "REQUESTER",
+                        "MANAGER",
+                        "WORKER"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "status": {
+                    "description": "Read-only status based on optional group membership",
+                    "enum": [
+                        "STATUS_UNSPECIFIED",
+                        "STATUS_ENABLED",
+                        "STATUS_DISABLED_NOT_IN_GROUP"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "Signifies that the user is enabled for the specified role",
+                        "Signifies a user is not a member of the enabled_workers_group and\nrestricted from access"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "LeaseQuestionsRequest": {
+            "id": "LeaseQuestionsRequest",
+            "properties": {
+                "labels": {
+                    "description": "The set of question labels to select.\nDEPRECATED. Labels are a property of the worker.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "leaseRenewals": {
+                    "description": "The set of questions to renew leases for. Questions are specified as:\n<code>workspaces/{id}/question&#95;types/{id}/questions/{id}</code>\nThis is best-effort - renewals are not guaranteed.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "leaseSize": {
+                    "description": "Number of question leases to acquire. Actual number acquired may be\ndifferent. If this field is negative, the number of returned leases will be\ndetermined by the backend.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "workerName": {
+                    "description": "The name of the worker for whom to obtain question leases.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "LeaseQuestionsResponse": {
+            "id": "LeaseQuestionsResponse",
+            "properties": {
+                "leases": {
+                    "items": {
+                        "$ref": "QuestionLease"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListEnabledWorkerPoolsResponse": {
+            "id": "ListEnabledWorkerPoolsResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "Token which may be provided to a subsequent request for paginated results.",
+                    "type": "string"
+                },
+                "workerPools": {
+                    "items": {
+                        "$ref": "WorkerPool"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListManagersResponse": {
+            "id": "ListManagersResponse",
+            "properties": {
+                "managers": {
+                    "items": {
+                        "$ref": "Manager"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "Token which may be provided to a subsequent request for paginated results.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListQuestionPayloadsResponse": {
+            "id": "ListQuestionPayloadsResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "Token which may be provided to a subsequent request for paginated results.",
+                    "type": "string"
+                },
+                "payloads": {
+                    "items": {
+                        "$ref": "QuestionPayload"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListQuestionTypesResponse": {
+            "id": "ListQuestionTypesResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "Token which may be provided to a subsequent request for paginated results.",
+                    "type": "string"
+                },
+                "questionTypes": {
+                    "items": {
+                        "$ref": "QuestionType"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListQuestionsResponse": {
+            "id": "ListQuestionsResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "Token which may be provided to a subsequent request for paginated results.",
+                    "type": "string"
+                },
+                "question": {
+                    "description": "A page of questions.",
+                    "items": {
+                        "$ref": "Question"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListRequestersResponse": {
+            "id": "ListRequestersResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "Token which may be provided to a subsequent request for paginated results.",
+                    "type": "string"
+                },
+                "requesters": {
+                    "items": {
+                        "$ref": "Requester"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListTaskQuestionsResponse": {
+            "id": "ListTaskQuestionsResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "The next_page_token from a previous request, if any.",
+                    "type": "string"
+                },
+                "questions": {
+                    "description": "Questions contained in the task.",
+                    "items": {
+                        "$ref": "Question"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListTasksResponse": {
+            "id": "ListTasksResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "Token which may be provided to a subsequent request for paginated results.",
+                    "type": "string"
+                },
+                "tasks": {
+                    "description": "The list of tasks contained in a workspace.",
+                    "items": {
+                        "$ref": "Task"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListWorkerPoolsResponse": {
+            "id": "ListWorkerPoolsResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "Token which may be provided to a subsequent request for paginated results.",
+                    "type": "string"
+                },
+                "workerPools": {
+                    "items": {
+                        "$ref": "WorkerPool"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListWorkersResponse": {
+            "id": "ListWorkersResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "Token which may be provided to a subsequent request for paginated results.",
+                    "type": "string"
+                },
+                "totalSize": {
+                    "description": "Total size of the result set being paged over.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "workers": {
+                    "items": {
+                        "$ref": "Worker"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListWorkspacesResponse": {
+            "id": "ListWorkspacesResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "Token which may be provided to a subsequent request for paginated results.",
+                    "type": "string"
+                },
+                "workspaces": {
+                    "items": {
+                        "$ref": "Workspace"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Manager": {
+            "description": "A role which allows users to manage workers in a worker pool.",
+            "id": "Manager",
+            "properties": {
+                "createTime": {
+                    "description": "Output only. The time the manager was created.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "emailAddress": {
+                    "description": "The manager email address.",
+                    "type": "string"
+                },
+                "managerId": {
+                    "description": "Output only. The manager id component of the 'name' field.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The resource name in the format:\n<code>worker&#95;pools/{id}/managers/{id}</code>",
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "Output only. The time the manager was last updated.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "workerPoolId": {
+                    "description": "Output only. The worker pool id component of the 'name' field.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MarkTaskFilledRequest": {
+            "id": "MarkTaskFilledRequest",
+            "properties": {},
+            "type": "object"
+        },
+        "Media": {
+            "description": "A reference to data stored on the filesystem, on GFS or in blobstore.",
+            "id": "Media",
+            "properties": {
+                "algorithm": {
+                    "description": "Deprecated, use one of explicit hash type fields instead.\nAlgorithm used for calculating the hash.\nAs of 2011/01/21, \"MD5\" is the only possible value for this field.\nNew values may be added at any time.",
+                    "type": "string"
+                },
+                "bigstoreObjectRef": {
+                    "description": "Use object_id instead.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "blobRef": {
+                    "description": "Blobstore v1 reference, set if reference_type is BLOBSTORE_REF\nThis should be the byte representation of a blobstore.BlobRef.\nSince Blobstore is deprecating v1, use blobstore2_info instead.\nFor now, any v2 blob will also be represented in this field as\nv1 BlobRef.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "blobstore2Info": {
+                    "$ref": "Blobstore2Info",
+                    "description": "Blobstore v2 info, set if reference_type is BLOBSTORE_REF and it refers\nto a v2 blob."
+                },
+                "compositeMedia": {
+                    "description": "A composite media composed of one or more media objects, set if\nreference_type is COMPOSITE_MEDIA. The media length field must be set\nto the sum of the lengths of all composite media objects.\n\nNote: All composite media must have length specified.",
+                    "items": {
+                        "$ref": "CompositeMedia"
+                    },
+                    "type": "array"
+                },
+                "contentType": {
+                    "description": "MIME type of the data",
+                    "type": "string"
+                },
+                "contentTypeInfo": {
+                    "$ref": "ContentTypeInfo",
+                    "description": "Extended content type information provided for Scotty uploads."
+                },
+                "cosmoBinaryReference": {
+                    "description": "A binary data reference for a media download. Serves as a\ntechnology-agnostic binary reference in some Google infrastructure.\nThis value is a serialized storage_cosmo.BinaryReference proto. Storing\nit as bytes is a hack to get around the fact that the cosmo proto\n(as well as others it includes) doesn't support JavaScript. This\nprevents us from including the actual type of this field.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "crc32cHash": {
+                    "description": "For Scotty Uploads:\nScotty-provided hashes for uploads\n\nFor Scotty Downloads:\n(WARNING: DO NOT USE WITHOUT PERMISSION FROM THE SCOTTY TEAM.)\nA Hash provided by the agent to be used to verify the data being\ndownloaded. Currently only supported for inline payloads.\nFurther, only crc32c_hash is currently supported.",
+                    "format": "uint32",
+                    "type": "integer"
+                },
+                "diffChecksumsResponse": {
+                    "$ref": "DiffChecksumsResponse",
+                    "description": "Set if reference_type is DIFF_CHECKSUMS_RESPONSE."
+                },
+                "diffDownloadResponse": {
+                    "$ref": "DiffDownloadResponse",
+                    "description": "Set if reference_type is DIFF_DOWNLOAD_RESPONSE."
+                },
+                "diffUploadRequest": {
+                    "$ref": "DiffUploadRequest",
+                    "description": "Set if reference_type is DIFF_UPLOAD_REQUEST."
+                },
+                "diffUploadResponse": {
+                    "$ref": "DiffUploadResponse",
+                    "description": "Set if reference_type is DIFF_UPLOAD_RESPONSE."
+                },
+                "diffVersionResponse": {
+                    "$ref": "DiffVersionResponse",
+                    "description": "Set if reference_type is DIFF_VERSION_RESPONSE."
+                },
+                "downloadParameters": {
+                    "$ref": "DownloadParameters",
+                    "description": "Parameters for a media download."
+                },
+                "filename": {
+                    "description": "Original file name",
+                    "type": "string"
+                },
+                "hash": {
+                    "description": "Deprecated, use one of explicit hash type fields instead.\nThese two hash related fields will only be populated on Scotty based media\nuploads and will contain the content of the hash group in the\nNotificationRequest:\nhttps://cs/#google3/uploader/service/proto/upload_listener.proto&q=class:Hash\nHex encoded hash value of the uploaded media.",
+                    "type": "string"
+                },
+                "hashVerified": {
+                    "description": "For Scotty uploads only. If a user sends a hash code and the backend has\nrequested that Scotty verify the upload against the client hash,\nScotty will perform the check on behalf of the backend and will reject it\nif the hashes don't match. This is set to true if Scotty performed\nthis verification.",
+                    "type": "boolean"
+                },
+                "inline": {
+                    "description": "Media data, set if reference_type is INLINE",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "isPotentialRetry": {
+                    "description": "|is_potential_retry| is set false only when Scotty is\ncertain that it has not sent the request before. When a client resumes\nan upload, this field must be set true in agent calls, because Scotty\ncannot be certain that it has never sent the request before due\nto potential failure in the session state persistence.",
+                    "type": "boolean"
+                },
+                "length": {
+                    "description": "Size of the data, in bytes",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "md5Hash": {
+                    "description": "Scotty-provided MD5 hash for an upload.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "mediaId": {
+                    "description": "Media id to forward to the operation GetMedia.\nCan be set if reference_type is GET_MEDIA.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "objectId": {
+                    "$ref": "ObjectId",
+                    "description": "Reference to a TI Blob, set if reference_type is BIGSTORE_REF."
+                },
+                "path": {
+                    "description": "Path to the data, set if reference_type is PATH",
+                    "type": "string"
+                },
+                "referenceType": {
+                    "description": "Describes what the field reference contains.",
+                    "enum": [
+                        "PATH",
+                        "BLOB_REF",
+                        "INLINE",
+                        "GET_MEDIA",
+                        "COMPOSITE_MEDIA",
+                        "BIGSTORE_REF",
+                        "DIFF_VERSION_RESPONSE",
+                        "DIFF_CHECKSUMS_RESPONSE",
+                        "DIFF_DOWNLOAD_RESPONSE",
+                        "DIFF_UPLOAD_REQUEST",
+                        "DIFF_UPLOAD_RESPONSE",
+                        "COSMO_BINARY_REFERENCE",
+                        "ARBITRARY_BYTES"
+                    ],
+                    "enumDescriptions": [
+                        "Reference contains a GFS path or a local path.",
+                        "Reference points to a blobstore object. This could be either\na v1 blob_ref or a v2 blobstore2_info. Clients should check\nblobstore2_info first, since v1 is being deprecated.",
+                        "Data is included into this proto buffer",
+                        "Data should be accessed from the current service\nusing the operation GetMedia.",
+                        "The content for this media object is stored across\nmultiple partial media objects under the\ncomposite_media field.",
+                        "Reference points to a bigstore object",
+                        "Indicates the data is stored in diff_version_response.",
+                        "Indicates the data is stored in diff_checksums_response.",
+                        "Indicates the data is stored in diff_download_response.",
+                        "Indicates the data is stored in diff_upload_request.",
+                        "Indicates the data is stored in diff_upload_response.",
+                        "Indicates the data is stored in cosmo_binary_reference.",
+                        "Informs Scotty to generate a response payload with the size specified\nin the length field. The contents of the payload are generated by\nScotty and are undefined. This is useful for testing download speeds\nbetween the user and Scotty without involving a real payload source.\n\nNote: range is not supported when using arbitrary_bytes."
+                    ],
+                    "type": "string"
+                },
+                "sha1Hash": {
+                    "description": "Scotty-provided SHA1 hash for an upload.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "sha256Hash": {
+                    "description": "Scotty-provided SHA256 hash for an upload.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "timestamp": {
+                    "description": "Time at which the media data was last updated,\nin milliseconds since UNIX epoch",
+                    "format": "uint64",
+                    "type": "string"
+                },
+                "token": {
+                    "description": "A unique fingerprint/version id for the media data",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ModifyEnabledWorkerPoolsRequest": {
+            "id": "ModifyEnabledWorkerPoolsRequest",
+            "properties": {
+                "addedWorkerPools": {
+                    "description": "List of worker pools to add in the form <code>worker_pools/{id}</code>",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "removedWorkerPools": {
+                    "description": "List of worker pools to remove in the form <code>worker_pools/{id}</code>",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ModifyEnabledWorkerPoolsResponse": {
+            "id": "ModifyEnabledWorkerPoolsResponse",
+            "properties": {
+                "enabledWorkerPools": {
+                    "description": "List of worker pools enabled in the form <code>worker_pools/{id}</code>",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "Workspace name in the form <code>workspaces/{id}</code>",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ModifyWorkerAssignmentsRequest": {
+            "id": "ModifyWorkerAssignmentsRequest",
+            "properties": {
+                "addedQuestionTypes": {
+                    "description": "List of question types to add as assignments. Question type names must be\nin the format: <code>workspaces/{id}/question&#95;types/{id}</code>\nNote: a question type may not appear in both the added and removed lists.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "removedQuestionTypes": {
+                    "description": "List of question types to remove as assignments. Question type names must\nbe in the format: <code>workspaces/{id}/question&#95;types/{id}</code>\nNote: a question type may not appear in both the added and removed lists.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ModifyWorkspacePriorityRequest": {
+            "id": "ModifyWorkspacePriorityRequest",
+            "properties": {
+                "priorityValue": {
+                    "description": "The priority value for the workspace.\nNegative values are a higher priority.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "workspaceName": {
+                    "description": "Workspace name in the form <code>workspaces/{id}</code>",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "NotificationHistory": {
+            "description": "Records of notification acknowledge history for question types.",
+            "id": "NotificationHistory",
+            "properties": {
+                "records": {
+                    "items": {
+                        "$ref": "NotificationHistoryRecord"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "NotificationHistoryRecord": {
+            "description": "A record for when notification of a question type is acknowledged.",
+            "id": "NotificationHistoryRecord",
+            "properties": {
+                "notificationTime": {
+                    "description": "Latest acknowledged notification time.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "questionType": {
+                    "description": "Question type name in the format:\n<code>workspaces/{id}/question&#95;types/{id}</code>",
+                    "type": "string"
+                },
+                "questionTypeId": {
+                    "description": "Question type id component of the 'question_type' field.",
+                    "type": "string"
+                },
+                "workspaceId": {
+                    "description": "Workspace id component of the 'question_type' field.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ObjectId": {
+            "description": "This is a copy of the tech.blob.ObjectId proto, which could not\nbe used directly here due to transitive closure issues with\nJavaScript support; see http://b/8801763.",
+            "id": "ObjectId",
+            "properties": {
+                "bucketName": {
+                    "description": "The name of the bucket to which this object belongs.",
+                    "type": "string"
+                },
+                "generation": {
+                    "description": "Generation of the object. Generations are monotonically increasing\nacross writes, allowing them to be be compared to determine which\ngeneration is newer. If this is omitted in a request, then you are\nrequesting the live object.\nSee https://go/bigstore-versions",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "objectName": {
+                    "description": "The name of the object.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PartialAnswer": {
+            "description": "Partial answer is an incomplete answer provided by a worker.",
+            "id": "PartialAnswer",
+            "properties": {
+                "applicationVersion": {
+                    "description": "Client application version.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The resource name in the format:\n<code>workspaces/{workspaceId}/question&#95;types/{questionTypeId}/questions/{questionId}/partial&#95;answers/{partialAnswerId}</code>",
+                    "type": "string"
+                },
+                "partialAnswerData": {
+                    "$ref": "ClientPartialAnswerData",
+                    "description": "The partial answer data provided by the worker."
+                },
+                "partialAnswerId": {
+                    "description": "The partial answer ID component of the name field.",
+                    "type": "string"
+                },
+                "questionId": {
+                    "description": "The question Id component of the name field.",
+                    "type": "string"
+                },
+                "questionTypeId": {
+                    "description": "The question type id component of the name field.",
+                    "type": "string"
+                },
+                "submitTime": {
+                    "description": "The time at which this partial answer was submitted.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "userName": {
+                    "description": "The user who provided the partial answer of the format:\n<code>worker&95;pools/{workerpoolId}/workers/{workerId}</code>",
+                    "type": "string"
+                },
+                "workspaceId": {
+                    "description": "The workspace id component of the name field.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Question": {
+            "description": "Represents a question to be answered by one or more workers.",
+            "id": "Question",
+            "properties": {
+                "clientGroupByKey": {
+                    "description": "Optional hint to clients for grouping multiple question leases together\nfor display purposes, for example, to display multiple questions together\nbased on topic.",
+                    "type": "string"
+                },
+                "createTime": {
+                    "description": "Output only. The time the question was created.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "externalKey": {
+                    "description": "Optional client provided external key. Must be unique within a question\ntype if not empty. Question creation will fail if a duplicate external key\nalready exists.",
+                    "type": "string"
+                },
+                "gold": {
+                    "description": "Set to true if this is a gold question for quality control purposes.",
+                    "type": "boolean"
+                },
+                "metadata": {
+                    "$ref": "QuestionMetadata",
+                    "description": "Output only. Data about the current state of a question."
+                },
+                "name": {
+                    "description": "The resource name in the format:\n<code>workspaces/{id}/question&#95;types/{id}/questions/{id}</code>",
+                    "type": "string"
+                },
+                "questionId": {
+                    "description": "The question id component of the 'name' field.",
+                    "type": "string"
+                },
+                "questionTypeId": {
+                    "description": "The question type id component of the 'name' field.",
+                    "type": "string"
+                },
+                "replicationOptions": {
+                    "$ref": "ReplicationOptions"
+                },
+                "schedulingOptions": {
+                    "$ref": "SchedulingOptions"
+                },
+                "sidecarData": {
+                    "description": "Optional requester supplied sidecar data. This data may be associated with\nan question but will not be visible to workers/managers nor used by Crowd\nCompute. Actual size limit TBD.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "task": {
+                    "description": "Optional. The task that this question is a part of. If no task is\nprovided, the question will not be included to a task. Must be in the\nformat:\n<code>workspaces/{id}/tasks/{id}</code>",
+                    "type": "string"
+                },
+                "workspaceId": {
+                    "description": "The workspace id component of the 'name' field.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "QuestionLease": {
+            "description": "Data about a single question lease.",
+            "id": "QuestionLease",
+            "properties": {
+                "clientGroupByKey": {
+                    "description": "Optional hint to clients for grouping multiple question leases together\nfor display purposes, for example, to display multiple questions together\nbased on topic.",
+                    "type": "string"
+                },
+                "expireTime": {
+                    "description": "The time at which this lease expires.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "labels": {
+                    "description": "The set of labels that have been associated with the underlying question.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "questionId": {
+                    "description": "The question id component of the name field.",
+                    "type": "string"
+                },
+                "questionName": {
+                    "description": "The question name in the format:\n<code>workspaces/{id}/question&#95;types/{id}/questions/{id}</code>",
+                    "type": "string"
+                },
+                "questionTypeId": {
+                    "description": "The question type id component of the name field.",
+                    "type": "string"
+                },
+                "workspaceId": {
+                    "description": "The workspace id component of the name field.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "QuestionMetadata": {
+            "description": "Data about the current state of a question. This state will change\nover time as a question progresses through its life cycle.",
+            "id": "QuestionMetadata",
+            "properties": {
+                "answerCount": {
+                    "description": "Number of answers submitted (including rejections). This count does not\ninclude gold answers associated with the question.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "blacklistedWorkers": {
+                    "description": "List of workers to exempt from scheduling. Takes precedence over the\n'whitelisted_workers' field. Workers must be specified by resource name:\n<code>worker&#95;pools/{id}/workers/{id}</code>",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "rejectionCount": {
+                    "description": "Number of rejections submitted.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "servingState": {
+                    "enum": [
+                        "SERVING_STATE_UNSPECIFIED",
+                        "AVAILABLE",
+                        "PENDING",
+                        "COMPLETED",
+                        "PAUSED",
+                        "CANCELLED",
+                        "EXPORTED"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "Question is available to be scheduled to a suitable worker.",
+                        "Question is awaiting further processing within the system before\ntransitioning to a new state. Questions in the PENDING state will not\nbe served to workers.",
+                        "Question has reached its target replication and will no longer be\nscheduled to workers. This is a final state.",
+                        "Question has been explicitly paused by a requester and will not be\nserved to workers until it has been unpaused. A paused question will\ncontinue to have the clock tick for purposes of ttl expiration.",
+                        "Question has been explicitly cancelled by a requester and will not be\nserved to workers. This is a final state.",
+                        "Question scheduling has been delegated to an external system. Crowd\nCompute will neither schedule this question to workers nor update its\nstate once a question has been exported. This is a final state."
+                    ],
+                    "type": "string"
+                },
+                "targetReplication": {
+                    "description": "Total number of (non-rejection) answers desired. This may change over the\nlifetime of a question, such as when custom replication function determines\nthat more answers are required.\nremaining replication =\n    target_replication - (answer_count - rejection_count)",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "whitelistedWorkers": {
+                    "description": "If set, only the workers specified here will be eligible for having this\nquestion scheduled. Workers must be specified by resource name:\n<code>worker&#95;pools/{id}/workers/{id}</code>",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "QuestionPayload": {
+            "description": "A question payload represents a reference to payload data and provides a URL\nwhich can be used to retrieve the actual payload data bytes.",
+            "id": "QuestionPayload",
+            "properties": {
+                "mimeType": {
+                    "description": "Output only (when known). Payload media type, such as \"image/jpeg\".",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Payload name, such as \"args.json\".",
+                    "type": "string"
+                },
+                "uri": {
+                    "description": "URI used to fetch the actual payload data bytes. For small payloads, data\nmay be encoded as a data URI (RFC 2397).",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "QuestionPayloadData": {
+            "description": "Payload data as provided by requesters when enqueueing questions.",
+            "id": "QuestionPayloadData",
+            "properties": {
+                "media": {
+                    "$ref": "Media",
+                    "description": "Requester-supplied payload media will result in payload URIs of the form:\nhttp://datacompute.googleapis.com/v1/media/..."
+                },
+                "name": {
+                    "description": "Payload name, such as \"args.json\".",
+                    "type": "string"
+                },
+                "uri": {
+                    "description": "Payload data provided as a URI will be returned to clients unaltered.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "QuestionType": {
+            "description": "Represents a set of questions to be served to contributors.",
+            "id": "QuestionType",
+            "properties": {
+                "createTime": {
+                    "description": "Output only. The time the question type was created.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The resource name in the format:\n<code>workspaces/{id}/question&#95;types/{id}</code>",
+                    "type": "string"
+                },
+                "questionTypeId": {
+                    "description": "Output only. The question type id component of the 'name' field.",
+                    "type": "string"
+                },
+                "statistics": {
+                    "$ref": "QuestionTypeStatistics",
+                    "description": "Output only. The set of various computed question type statistics. Must be\nexplicitly requested in requests that return QuestionType messages,\notherwise, this field will not be set."
+                },
+                "updateTime": {
+                    "description": "Output only. The time the question type was last updated.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "workspaceId": {
+                    "description": "Output only. The workspace id component of the 'name' field.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "QuestionTypeStatistic": {
+            "description": "Question type statistics are broken down along three dimensions:\nlanguage_code, expert, and gold.",
+            "id": "QuestionTypeStatistic",
+            "properties": {
+                "expert": {
+                    "description": "Dimension field.",
+                    "type": "boolean"
+                },
+                "gold": {
+                    "description": "Dimension field.",
+                    "type": "boolean"
+                },
+                "languageCode": {
+                    "description": "Dimension field.",
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "Time at which this statistic was last updated.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "Statistic value.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "QuestionTypeStatistics": {
+            "id": "QuestionTypeStatistics",
+            "properties": {
+                "questionActiveCount": {
+                    "description": "The number of active questions available to be assigned to workers.",
+                    "items": {
+                        "$ref": "QuestionTypeStatistic"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Rejection": {
+            "description": "For unanswerable questions, an answer may be submitted with rejection data in\nlieu of answer data to indicate the reason that a question was unable to be\nanswered by a worker.",
+            "id": "Rejection",
+            "properties": {
+                "message": {
+                    "description": "Optional client supplied descriptive text for this rejection.",
+                    "type": "string"
+                },
+                "reason": {
+                    "description": "The reason the question was rejected by the worker.",
+                    "enum": [
+                        "REJECTION_REASON_UNSPECIFIED",
+                        "OTHER"
+                    ],
+                    "enumDescriptions": [
+                        "Client failed to specify a reason.",
+                        "Client rejected the question for a reason not specifically listed. The\n'message' field should be used to provide additional details."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ReplicationOptions": {
+            "description": "Per-question options that affect the replication behavior of a question.",
+            "id": "ReplicationOptions",
+            "properties": {
+                "consensusReplication": {
+                    "$ref": "ConsensusReplicationOptions"
+                },
+                "customReplication": {
+                    "$ref": "CustomReplicationOptions"
+                },
+                "staticReplication": {
+                    "$ref": "StaticReplicationOptions"
+                }
+            },
+            "type": "object"
+        },
+        "Requester": {
+            "description": "A role which allows users to enqueue questions and pull answers from\nworkspaces.",
+            "id": "Requester",
+            "properties": {
+                "createTime": {
+                    "description": "Output only. The time the requester was created.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "emailAddress": {
+                    "description": "Required. The requester email address.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Required. The resource name in the format:\n<code>workspaces/{id}/requesters/{id}</code>",
+                    "type": "string"
+                },
+                "requesterId": {
+                    "description": "Output only. The requester id component of the 'name' field.",
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "Output only. The time the requester was last updated.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "workspaceId": {
+                    "description": "Output only. The workspace id component of the 'name' field.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SchedulingOptions": {
+            "description": "Per-question options that affect how questions are scheduled to workers.",
+            "id": "SchedulingOptions",
+            "properties": {
+                "expert": {
+                    "description": "True if this question may only be served to expert workers.",
+                    "type": "boolean"
+                },
+                "labels": {
+                    "description": "The set of question labels.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "languageCodes": {
+                    "description": "The set of languages in BCP-47 format. Currently, at most one language may\nbe set for a question.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "priority": {
+                    "description": "64-bit priority value. Lower values indicate higher priority, negative\nvalues are permitted.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "StaticReplicationOptions": {
+            "description": "Options for replication based on a fixed number of replications.",
+            "id": "StaticReplicationOptions",
+            "properties": {
+                "staticReplication": {
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "SubmitAnswerRequest": {
+            "id": "SubmitAnswerRequest",
+            "properties": {
+                "applicationVersion": {
+                    "description": "Optional client application version.",
+                    "type": "string"
+                },
+                "clientAnswerData": {
+                    "$ref": "ClientAnswerData",
+                    "description": "Client supplied answer data."
+                },
+                "userName": {
+                    "description": "The user for whom this answer was submitted in the format:\n<code>worker&#95;pools/{id}/workers/{id}</code>",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SubmitAnswerResponse": {
+            "id": "SubmitAnswerResponse",
+            "properties": {
+                "name": {
+                    "description": "Name of the submitted answer in the format:\n<code>workspaces/{id}/question&#95;types/{id}/questions/{id}/answers/{id}</code>",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SubmitPartialAnswerRequest": {
+            "id": "SubmitPartialAnswerRequest",
+            "properties": {
+                "applicationVersion": {
+                    "description": "Optional client application version.",
+                    "type": "string"
+                },
+                "clientPartialAnswerData": {
+                    "$ref": "ClientPartialAnswerData",
+                    "description": "Client supplied answer data."
+                },
+                "userName": {
+                    "description": "The user for whom this answer was submitted in the format:\n<code>worker&#95;pools/{workerpoolId}/workers/{workerId}</code>",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SubmitPartialAnswerResponse": {
+            "id": "SubmitPartialAnswerResponse",
+            "properties": {
+                "name": {
+                    "description": "The partial answer resource name in the format:\n<code>workspaces/{workspaceId}/question&#95;types/{questionTypeId}/questions/{questionId}/partial&#95;answers/{partialAnswerId}</code>",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Task": {
+            "description": "Represents a task; a named group of questions that one can monitor and\nmanage together.\nTasks will not directly impact question serving, and they are entirely\nopt-in.",
+            "id": "Task",
+            "properties": {
+                "completeTime": {
+                    "description": "Output only. Time all questions in the task were completed.\nOnly present if the task is in state COMPLETED.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "createTime": {
+                    "description": "Output only. Time that the task was created.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "Name of the task which is displayed in UI's.\nThis is a user specified string which should be human readable.",
+                    "type": "string"
+                },
+                "externalKey": {
+                    "description": "Optional. This is a user specified string which is required to be unique\nacross tasks in a workspace. Writes where the external_key already exists\nwill fail. This can be empty without being an error.",
+                    "type": "string"
+                },
+                "metadata": {
+                    "$ref": "TaskMetadata",
+                    "description": "Output only. Metadata about the state of the task and the questions\ntherein. This can change over the course of the lifetime of the task."
+                },
+                "name": {
+                    "description": "Output only. Resource name for the task in the format:\n<code>workspaces/{id}/tasks/{id}</code>",
+                    "type": "string"
+                },
+                "taskId": {
+                    "description": "Output only. The id of the task.\nA unique identifier for a task in a workspace.",
+                    "type": "string"
+                },
+                "workspaceId": {
+                    "description": "Output only. Resource name for the parent workspace in the format:\n<code>workspaces/{id}</code>",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TaskMetadata": {
+            "description": "Metadata about the state of the task and the questions therein.",
+            "id": "TaskMetadata",
+            "properties": {
+                "questionActiveCount": {
+                    "description": "Total number of questions uploaded to this task which are in the PENDING or\nAVAILABLE states.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "questionCompletedCount": {
+                    "description": "Number of questions in this task that have met replication and moved into\nthe COMPLETED servingstate.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "state": {
+                    "description": "The state that the task is in.",
+                    "enum": [
+                        "STATE_UNSPECIFIED",
+                        "FILLING",
+                        "FILLED",
+                        "COMPLETED"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "FILLING tasks are still accepting questions.\nQuestions enqueued to a filling task are immediately served; a task in\nthe FILLING state doesn't automatically pause the questions therein.",
+                        "FILLED tasks aren\u2019t accepting new uploads.\nIf a task is in the FILLED state, then it will provide a pubsub message\nwhen it is completed.",
+                        "COMPLETED tasks are ones where all of their questions are completed."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UserContext": {
+            "description": "Describes the set of roles, worker pools, and workspaces that a user\nhas been granted access to.",
+            "id": "UserContext",
+            "properties": {
+                "identities": {
+                    "description": "The set of identities for the user.",
+                    "items": {
+                        "$ref": "Identity"
+                    },
+                    "type": "array"
+                },
+                "managedWorkerPoolIds": {
+                    "description": "The set of worker pools the user has access to as a manager.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "ownedWorkspaceIds": {
+                    "description": "The set of workspaces the user has access to as a requester.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "superuser": {
+                    "description": "True iff the user has been granted superuser privileges.",
+                    "type": "boolean"
+                },
+                "workerPoolIds": {
+                    "description": "The set of worker pools the user has access to as a worker.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "UserPermissions": {
+            "description": "Describes the set of roles a user has access to.",
+            "id": "UserPermissions",
+            "properties": {
+                "identities": {
+                    "description": "The set of identities for the user.",
+                    "items": {
+                        "$ref": "Identity"
+                    },
+                    "type": "array"
+                },
+                "superuser": {
+                    "description": "True iff the user has been granted superuser privileges.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "Worker": {
+            "description": "A role which permits users to contribute answers to questions.",
+            "id": "Worker",
+            "properties": {
+                "assignments": {
+                    "$ref": "WorkerAssignments",
+                    "description": "Output only (must be explicitly requested as an output field). The set of\nassigned question types."
+                },
+                "capabilities": {
+                    "$ref": "WorkerCapabilities",
+                    "description": "Worker capabilities."
+                },
+                "createTime": {
+                    "description": "Output only. The time the worker was created.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "emailAddress": {
+                    "description": "The worker email address.",
+                    "type": "string"
+                },
+                "labels": {
+                    "description": "The set of labels on which to get questions.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "managerNote": {
+                    "description": "Free-form text field to allow managers to provide additional worker\ninformation. Neither editable by nor visible to workers.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The resource name in the format:\n<code>worker&#95;pools/{id}/workers/{id}</code>",
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "Output only. The time the worker was last updated.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "workerId": {
+                    "description": "Output only. The worker id component of the 'name' field.",
+                    "type": "string"
+                },
+                "workerPoolId": {
+                    "description": "Output only. The worker pool id component of the 'name' field.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "WorkerAssignment": {
+            "description": "Represents a worker assignment as a worker/question type pair.",
+            "id": "WorkerAssignment",
+            "properties": {
+                "questionType": {
+                    "description": "Question type name in the format:\n<code>workspaces/{id}/question&#95;types/{id}</code>",
+                    "type": "string"
+                },
+                "questionTypeId": {
+                    "description": "Question type id component of the 'question_type' field.",
+                    "type": "string"
+                },
+                "worker": {
+                    "description": "Worker name in the format: <code>worker&#95;pools/{id}/workers/{id}</code>",
+                    "type": "string"
+                },
+                "workerId": {
+                    "description": "Worker id component of the 'worker' field.",
+                    "type": "string"
+                },
+                "workerPoolId": {
+                    "description": "Worker pool component of the 'worker' field.",
+                    "type": "string"
+                },
+                "workspaceId": {
+                    "description": "Workspace id component of the 'question_type' field.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "WorkerAssignments": {
+            "description": "The set of question types a worker has been assigned to.",
+            "id": "WorkerAssignments",
+            "properties": {
+                "assignments": {
+                    "description": "List of assigned question types as individual worker/question type pairs.",
+                    "items": {
+                        "$ref": "WorkerAssignment"
+                    },
+                    "type": "array"
+                },
+                "questionTypes": {
+                    "description": "List of assigned question types in the format:\n<code>workspaces/{id}/question&#95;types/{id}</code>",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "WorkerCapabilities": {
+            "description": "Worker capabilities and attributes that affect permissions and scheduling.",
+            "id": "WorkerCapabilities",
+            "properties": {
+                "allowExpertQuestions": {
+                    "description": "If true, allow expert questions to be scheduled to this worker. This\nattribute may only be set by managers and is neither editable by nor\nvisible to workers.",
+                    "type": "boolean"
+                },
+                "languageCodes": {
+                    "description": "The set of languages the worker is proficient in. Must conform to the\nformat for language tags specified in BCP 47.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "trusted": {
+                    "description": "Trusted workers may have additional permissions within the system. Not\neditable by workers.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "WorkerPool": {
+            "description": "Worker pools are the top level construct for managing groups of workers.",
+            "id": "WorkerPool",
+            "properties": {
+                "allowSelfAssignment": {
+                    "description": "If true, allow workers to modify their own question type assignments. If\nset, workers will only be permitted to modify their assignments based on\nthe set of accessible workspaces.",
+                    "type": "boolean"
+                },
+                "allowSelfWorkerCreation": {
+                    "description": "If true, allow users to create a new worker role for themselves in this\nworker pool.",
+                    "type": "boolean"
+                },
+                "createTime": {
+                    "description": "Output only. The time the worker pool was created.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "enabledWorkersGroup": {
+                    "description": "If set, workers in the pool must also be members of the group to have a\nSTATUS_ENABLED. Workers that are not members of the group will have a\nSTATUS_DISABLED_NOT_IN_GROUP.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Required. The resource name in the format:\n<code>worker&#95;pools/{id}</code>",
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "Output only. The time the worker pool was last updated.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "workerPoolId": {
+                    "description": "Output only. The worker pool id component of the 'name' field.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Workspace": {
+            "description": "Top level construct for grouping question types that share the same access\ncontrol policies.",
+            "id": "Workspace",
+            "properties": {
+                "createTime": {
+                    "description": "Output only. The time the workspace was created.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The resource name in the format: <code>workspaces/{id}</code>",
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "Output only. The time the workspace was last updated.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "workspaceId": {
+                    "description": "Output only. The workspace id component of the 'name' field.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "WorkspacePriority": {
+            "description": "The priority of a workspace within an enabled pool.",
+            "id": "WorkspacePriority",
+            "properties": {
+                "priorityValue": {
+                    "description": "The priority value for the workspace.\nNegative values are a higher priority.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "workerPoolId": {
+                    "description": "The worker pool id component of the 'worker_pool_name' field.",
+                    "type": "string"
+                },
+                "workerPoolName": {
+                    "description": "Worker pool name in the form <code>worker&#95;pools/{id}</code>",
+                    "type": "string"
+                },
+                "workspaceId": {
+                    "description": "The workspace id component of the 'workspace_name' field.",
+                    "type": "string"
+                },
+                "workspaceName": {
+                    "description": "Workspace name in the form <code>workspaces/{id}</code>",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Data Compute API (Autopush)",
+    "version": "v1",
+    "version_module": true
+}

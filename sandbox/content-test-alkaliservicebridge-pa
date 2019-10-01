@@ -1,0 +1,611 @@
+{
+    "basePath": "",
+    "baseUrl": "https://test-alkaliservicebridge-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Alkali Servicebridge",
+    "description": "A service that is responsible for service introspection and generic RPC invocation",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://go/alkali",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "alkaliservicebridge_pa:v1",
+    "kind": "discovery#restDescription",
+    "name": "alkaliservicebridge_pa",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "echo": {
+            "methods": {
+                "create": {
+                    "description": "Responds back with same message.",
+                    "flatPath": "v1/echo",
+                    "httpMethod": "POST",
+                    "id": "alkaliservicebridge_pa.echo.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/echo",
+                    "request": {
+                        "$ref": "CreateEchoRequest"
+                    },
+                    "response": {
+                        "$ref": "Echo"
+                    }
+                }
+            }
+        },
+        "services": {
+            "resources": {
+                "methods": {
+                    "methods": {
+                        "get": {
+                            "description": "Returns metadata about the target backend method such as the request and\nresponse types.",
+                            "flatPath": "v1/services/{address}/methods/{method}",
+                            "httpMethod": "GET",
+                            "id": "alkaliservicebridge_pa.services.methods.get",
+                            "parameterOrder": [
+                                "address",
+                                "method"
+                            ],
+                            "parameters": {
+                                "address": {
+                                    "description": "The address of the backend target. For targeting a Stubby service, use the\nGSLB or blade address, e.g. blade:foo or gslb:spec:1.",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "method": {
+                                    "description": "The method of the backend target. For a Stubby service method, use the full\nmethod name, including the service name, e.g. FooService.Bar where\nFooService is the service name and Bar is the method name.",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "serviceAccountCredentialType.scopeCodes": {
+                                    "description": "The scope ids to use when building the end user credentials.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "repeated": true,
+                                    "type": "integer"
+                                },
+                                "serviceAccountCredentialType.serviceAccountEmail": {
+                                    "description": "The client service account to make the call with.",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/services/{address}/methods/{method}",
+                            "response": {
+                                "$ref": "BackendTarget"
+                            }
+                        },
+                        "invoke": {
+                            "description": "Invokes that specified method in the target address through RPC.",
+                            "flatPath": "v1/services/{address}/methods/{method}:invoke",
+                            "httpMethod": "POST",
+                            "id": "alkaliservicebridge_pa.services.methods.invoke",
+                            "parameterOrder": [
+                                "address",
+                                "method"
+                            ],
+                            "parameters": {
+                                "address": {
+                                    "description": "The address of the backend target. For targeting a Stubby service, use the\nGSLB or blade address, e.g. blade:foo or gslb:spec:1.",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "method": {
+                                    "description": "The method of the backend target. For a Stubby service method, use the full\nmethod name, including the service name, e.g. FooService.Bar where\nFooService is the service name and Bar is the method name.",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/services/{address}/methods/{method}:invoke",
+                            "request": {
+                                "$ref": "InvokeBackendTargetRequest"
+                            },
+                            "response": {
+                                "$ref": "InvokeBackendTargetResponse"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190918",
+    "rootUrl": "https://test-alkaliservicebridge-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "BackendTarget": {
+            "description": "Metadata for a backend method.",
+            "id": "BackendTarget",
+            "properties": {
+                "endpoint": {
+                    "$ref": "TargetEndpoint",
+                    "description": "The endpoint for the backend method."
+                },
+                "enumDependencies": {
+                    "description": "A list of enum type dependencies from the request and response.",
+                    "items": {
+                        "$ref": "Enum"
+                    },
+                    "type": "array"
+                },
+                "messageDependencies": {
+                    "description": "A list of message type dependencies from the request and response. It may\nalso include the request and response types.",
+                    "items": {
+                        "$ref": "Type"
+                    },
+                    "type": "array"
+                },
+                "request": {
+                    "$ref": "Type",
+                    "description": "The request message type."
+                },
+                "response": {
+                    "$ref": "Type",
+                    "description": "The response message type."
+                }
+            },
+            "type": "object"
+        },
+        "CreateEchoRequest": {
+            "description": "Echo request.",
+            "id": "CreateEchoRequest",
+            "properties": {
+                "in": {
+                    "description": "Input message to echo.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Echo": {
+            "description": "Echo response.",
+            "id": "Echo",
+            "properties": {
+                "out": {
+                    "description": "Echoed input message.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Enum": {
+            "description": "Enum type definition.",
+            "id": "Enum",
+            "properties": {
+                "enumvalue": {
+                    "description": "Enum value definitions.",
+                    "items": {
+                        "$ref": "EnumValue"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "Enum type name.",
+                    "type": "string"
+                },
+                "options": {
+                    "description": "Protocol buffer options.",
+                    "items": {
+                        "$ref": "Option"
+                    },
+                    "type": "array"
+                },
+                "sourceContext": {
+                    "$ref": "SourceContext",
+                    "description": "The source context."
+                },
+                "syntax": {
+                    "description": "The source syntax.",
+                    "enum": [
+                        "SYNTAX_PROTO2",
+                        "SYNTAX_PROTO3"
+                    ],
+                    "enumDescriptions": [
+                        "Syntax `proto2`.",
+                        "Syntax `proto3`."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "EnumValue": {
+            "description": "Enum value definition.",
+            "id": "EnumValue",
+            "properties": {
+                "name": {
+                    "description": "Enum value name.",
+                    "type": "string"
+                },
+                "number": {
+                    "description": "Enum value number.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "options": {
+                    "description": "Protocol buffer options.",
+                    "items": {
+                        "$ref": "Option"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Field": {
+            "description": "A single field of a message type.",
+            "id": "Field",
+            "properties": {
+                "cardinality": {
+                    "description": "The field cardinality.",
+                    "enum": [
+                        "CARDINALITY_UNKNOWN",
+                        "CARDINALITY_OPTIONAL",
+                        "CARDINALITY_REQUIRED",
+                        "CARDINALITY_REPEATED"
+                    ],
+                    "enumDescriptions": [
+                        "For fields with unknown cardinality.",
+                        "For optional fields.",
+                        "For required fields. Proto2 syntax only.",
+                        "For repeated fields."
+                    ],
+                    "type": "string"
+                },
+                "defaultValue": {
+                    "description": "The string value of the default value of this field. Proto2 syntax only.",
+                    "type": "string"
+                },
+                "jsonName": {
+                    "description": "The field JSON name.",
+                    "type": "string"
+                },
+                "kind": {
+                    "description": "The field type.",
+                    "enum": [
+                        "TYPE_UNKNOWN",
+                        "TYPE_DOUBLE",
+                        "TYPE_FLOAT",
+                        "TYPE_INT64",
+                        "TYPE_UINT64",
+                        "TYPE_INT32",
+                        "TYPE_FIXED64",
+                        "TYPE_FIXED32",
+                        "TYPE_BOOL",
+                        "TYPE_STRING",
+                        "TYPE_GROUP",
+                        "TYPE_MESSAGE",
+                        "TYPE_BYTES",
+                        "TYPE_UINT32",
+                        "TYPE_ENUM",
+                        "TYPE_SFIXED32",
+                        "TYPE_SFIXED64",
+                        "TYPE_SINT32",
+                        "TYPE_SINT64"
+                    ],
+                    "enumDescriptions": [
+                        "Field type unknown.",
+                        "Field type double.",
+                        "Field type float.",
+                        "Field type int64.",
+                        "Field type uint64.",
+                        "Field type int32.",
+                        "Field type fixed64.",
+                        "Field type fixed32.",
+                        "Field type bool.",
+                        "Field type string.",
+                        "Field type group. Proto2 syntax only, and deprecated.",
+                        "Field type message.",
+                        "Field type bytes.",
+                        "Field type uint32.",
+                        "Field type enum.",
+                        "Field type sfixed32.",
+                        "Field type sfixed64.",
+                        "Field type sint32.",
+                        "Field type sint64."
+                    ],
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The field name.",
+                    "type": "string"
+                },
+                "number": {
+                    "description": "The field number.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "oneofIndex": {
+                    "description": "The index of the field type in `Type.oneofs`, for message or enumeration\ntypes. The first type has index 1; zero means the type is not in the list.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "options": {
+                    "description": "The protocol buffer options.",
+                    "items": {
+                        "$ref": "Option"
+                    },
+                    "type": "array"
+                },
+                "packed": {
+                    "description": "Whether to use alternative packed wire representation.",
+                    "type": "boolean"
+                },
+                "typeUrl": {
+                    "description": "The field type URL, without the scheme, for message or enumeration\ntypes. Example: `\"type.googleapis.com/google.protobuf.Timestamp\"`.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "InvokeBackendTargetRequest": {
+            "description": "Request for invoking a backend target.",
+            "id": "InvokeBackendTargetRequest",
+            "properties": {
+                "endpoint": {
+                    "$ref": "TargetEndpoint",
+                    "description": "The endpoint to invoke."
+                },
+                "serviceAccountCredentialType": {
+                    "$ref": "ServiceAccountCredential",
+                    "description": "Credential generated from client service account."
+                },
+                "targetRequestMessage": {
+                    "additionalProperties": {
+                        "description": "Properties of the object.",
+                        "type": "any"
+                    },
+                    "description": "The request message used when invoking the RPC. If this field is empty, an\nempty request will be used.",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "InvokeBackendTargetResponse": {
+            "description": "Response from invoking the target backend.",
+            "id": "InvokeBackendTargetResponse",
+            "properties": {
+                "error": {
+                    "$ref": "Status",
+                    "description": "The error result from invoking the target backend."
+                },
+                "rpcResponse": {
+                    "additionalProperties": {
+                        "description": "Properties of the object.",
+                        "type": "any"
+                    },
+                    "description": "The normal response of the operation in case of success.",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "Option": {
+            "description": "A protocol buffer option, which can be attached to a message, field,\nenumeration, etc.",
+            "id": "Option",
+            "properties": {
+                "name": {
+                    "description": "The option's name. For protobuf built-in options (options defined in\ndescriptor.proto), this is the short name. For example, `\"map_entry\"`.\nFor custom options, it should be the fully-qualified name. For example,\n`\"google.api.http\"`.",
+                    "type": "string"
+                },
+                "value": {
+                    "additionalProperties": {
+                        "description": "Properties of the object. Contains field @type with type URL.",
+                        "type": "any"
+                    },
+                    "description": "The option's value packed in an Any message. If the value is a primitive,\nthe corresponding wrapper type defined in google/protobuf/wrappers.proto\nshould be used. If the value is an enum, it should be stored as an int32\nvalue using the google.protobuf.Int32Value type.",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "ServiceAccountCredential": {
+            "description": "Credential generated from service accounts.",
+            "id": "ServiceAccountCredential",
+            "properties": {
+                "scopeCodes": {
+                    "description": "The scope ids to use when building the end user credentials.",
+                    "items": {
+                        "format": "int32",
+                        "type": "integer"
+                    },
+                    "type": "array"
+                },
+                "serviceAccountEmail": {
+                    "description": "The client service account to make the call with.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SourceContext": {
+            "description": "`SourceContext` represents information about the source of a\nprotobuf element, like the file in which it is defined.",
+            "id": "SourceContext",
+            "properties": {
+                "fileName": {
+                    "description": "The path-qualified name of the .proto file that contained the associated\nprotobuf element.  For example: `\"google/protobuf/source_context.proto\"`.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Status": {
+            "description": "The `Status` type defines a logical error model that is suitable for\ndifferent programming environments, including REST APIs and RPC APIs. It is\nused by [gRPC](https://github.com/grpc). Each `Status` message contains\nthree pieces of data: error code, error message, and error details.\n\nYou can find out more about this error model and how to work with it in the\n[API Design Guide](https://cloud.google.com/apis/design/errors).",
+            "id": "Status",
+            "properties": {
+                "code": {
+                    "description": "The status code, which should be an enum value of google.rpc.Code.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "details": {
+                    "description": "A list of messages that carry the error details.  There is a common set of\nmessage types for APIs to use.",
+                    "items": {
+                        "additionalProperties": {
+                            "description": "Properties of the object. Contains field @type with type URL.",
+                            "type": "any"
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "message": {
+                    "description": "A developer-facing error message, which should be in English. Any\nuser-facing error message should be localized and sent in the\ngoogle.rpc.Status.details field, or localized by the client.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TargetEndpoint": {
+            "description": "The endpoint for the target backend.",
+            "id": "TargetEndpoint",
+            "properties": {
+                "address": {
+                    "description": "The address of the backend target. For targeting a Stubby service, use the\nGSLB or blade address, e.g. blade:foo or gslb:spec:1.",
+                    "type": "string"
+                },
+                "method": {
+                    "description": "The method of the backend target. For a Stubby service method, use the full\nmethod name, including the service name, e.g. FooService.Bar where\nFooService is the service name and Bar is the method name.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Type": {
+            "description": "A protocol buffer message type.",
+            "id": "Type",
+            "properties": {
+                "fields": {
+                    "description": "The list of fields.",
+                    "items": {
+                        "$ref": "Field"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "The fully qualified message name.",
+                    "type": "string"
+                },
+                "oneofs": {
+                    "description": "The list of types appearing in `oneof` definitions in this type.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "options": {
+                    "description": "The protocol buffer options.",
+                    "items": {
+                        "$ref": "Option"
+                    },
+                    "type": "array"
+                },
+                "sourceContext": {
+                    "$ref": "SourceContext",
+                    "description": "The source context."
+                },
+                "syntax": {
+                    "description": "The source syntax.",
+                    "enum": [
+                        "SYNTAX_PROTO2",
+                        "SYNTAX_PROTO3"
+                    ],
+                    "enumDescriptions": [
+                        "Syntax `proto2`.",
+                        "Syntax `proto3`."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Alkali Servicebridge Private API (Test)",
+    "version": "v1",
+    "version_module": true
+}

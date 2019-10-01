@@ -1,0 +1,467 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/dogfood": {
+                    "description": "Manage your Google dogfood apps"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://autopush-primes-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Primes",
+    "description": "",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://go/primes",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "autopush_primes_pa_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "autopush_primes_pa_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "kong": {
+            "resources": {
+                "v1": {
+                    "resources": {
+                        "apps": {
+                            "resources": {
+                                "performance": {
+                                    "resources": {
+                                        "memory": {
+                                            "resources": {
+                                                "summary": {
+                                                    "methods": {
+                                                        "get": {
+                                                            "description": "Gets summary of Memory usage for an Android application.\n\nNote: In order to maintain backward-compatibility, we need to preserve the\n\"/kong\" prefix in the http mappings.",
+                                                            "flatPath": "kong/v1/apps/performance/memory/summary/{packageName}",
+                                                            "httpMethod": "GET",
+                                                            "id": "autopush_primes_pa_sandbox.kong.v1.apps.performance.memory.summary.get",
+                                                            "parameterOrder": [
+                                                                "packageName"
+                                                            ],
+                                                            "parameters": {
+                                                                "packageName": {
+                                                                    "description": "Package name. This identifies the app on Android.\nE.g. \"com.google.android.apps.books\".",
+                                                                    "location": "path",
+                                                                    "required": true,
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "path": "kong/v1/apps/performance/memory/summary/{packageName}",
+                                                            "response": {
+                                                                "$ref": "MemoryPerformanceInfo"
+                                                            },
+                                                            "scopes": [
+                                                                "https://www.googleapis.com/auth/dogfood"
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "top5": {
+                                                    "methods": {
+                                                        "get": {
+                                                            "description": "Gets the top 5 devices according to their memory usage for an Android\napplication.",
+                                                            "flatPath": "kong/v1/apps/performance/memory/top5/{packageName}/{deviceClass}",
+                                                            "httpMethod": "GET",
+                                                            "id": "autopush_primes_pa_sandbox.kong.v1.apps.performance.memory.top5.get",
+                                                            "parameterOrder": [
+                                                                "packageName",
+                                                                "deviceClass"
+                                                            ],
+                                                            "parameters": {
+                                                                "deviceClass": {
+                                                                    "description": "Device class. This identifies which type of device to get data for.",
+                                                                    "enum": [
+                                                                        "ALL",
+                                                                        "LOW_END",
+                                                                        "MID_RANGE",
+                                                                        "HIGH_END",
+                                                                        "UNKNOWN"
+                                                                    ],
+                                                                    "location": "path",
+                                                                    "required": true,
+                                                                    "type": "string"
+                                                                },
+                                                                "packageName": {
+                                                                    "description": "Package name. This identifies the app on Android.\nE.g. \"com.google.android.apps.books\"",
+                                                                    "location": "path",
+                                                                    "required": true,
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "path": "kong/v1/apps/performance/memory/top5/{packageName}/{deviceClass}",
+                                                            "response": {
+                                                                "$ref": "GetTop5DevicesForMemoryResponse"
+                                                            },
+                                                            "scopes": [
+                                                                "https://www.googleapis.com/auth/dogfood"
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "trends": {
+                                                    "methods": {
+                                                        "get": {
+                                                            "description": "Gets trends of Memory usage for an Android application.\n\nNote: In order to maintain backward-compatibility, we need to preserve the\n\"/kong\" prefix in the http mappings.",
+                                                            "flatPath": "kong/v1/apps/performance/memory/trends/{packageName}/{deviceClass}/{timeRange}",
+                                                            "httpMethod": "GET",
+                                                            "id": "autopush_primes_pa_sandbox.kong.v1.apps.performance.memory.trends.get",
+                                                            "parameterOrder": [
+                                                                "packageName",
+                                                                "deviceClass",
+                                                                "timeRange"
+                                                            ],
+                                                            "parameters": {
+                                                                "deviceClass": {
+                                                                    "description": "Identifies which type of device to get data for. Currently ignored.",
+                                                                    "enum": [
+                                                                        "ALL",
+                                                                        "LOW_END",
+                                                                        "MID_RANGE",
+                                                                        "HIGH_END",
+                                                                        "UNKNOWN"
+                                                                    ],
+                                                                    "location": "path",
+                                                                    "required": true,
+                                                                    "type": "string"
+                                                                },
+                                                                "packageName": {
+                                                                    "description": "Package name. This identifies the app on Android.\nE.g. \"com.google.android.apps.books\".",
+                                                                    "location": "path",
+                                                                    "required": true,
+                                                                    "type": "string"
+                                                                },
+                                                                "timeRange": {
+                                                                    "description": "Time range for the query. Currently ignored.",
+                                                                    "format": "int32",
+                                                                    "location": "path",
+                                                                    "required": true,
+                                                                    "type": "integer"
+                                                                }
+                                                            },
+                                                            "path": "kong/v1/apps/performance/memory/trends/{packageName}/{deviceClass}/{timeRange}",
+                                                            "response": {
+                                                                "$ref": "MemoryPerformanceInfo"
+                                                            },
+                                                            "scopes": [
+                                                                "https://www.googleapis.com/auth/dogfood"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "primes_data": {
+                                            "methods": {
+                                                "get": {
+                                                    "description": "Data source for generic Primes data including memory and crash metrics.\n\nNote: In order to maintain backward-compatibility, we need to preserve the\n\"/kong\" prefix in the http mappings as well as the \"primes_data\" collection\nid.",
+                                                    "flatPath": "kong/v1/apps/performance/primes_data/{requestType}/{packageName}",
+                                                    "httpMethod": "GET",
+                                                    "id": "autopush_primes_pa_sandbox.kong.v1.apps.performance.primes_data.get",
+                                                    "parameterOrder": [
+                                                        "requestType",
+                                                        "packageName"
+                                                    ],
+                                                    "parameters": {
+                                                        "packageName": {
+                                                            "description": "Package name. This identifies the app on Android.\nE.g. \"com.google.android.apps.books\".",
+                                                            "location": "path",
+                                                            "required": true,
+                                                            "type": "string"
+                                                        },
+                                                        "requestType": {
+                                                            "description": "Specifies the data that should be returned.\nSee http://google3/devrel/primes/protos/aggregated_data_service.proto?l=45\nfor supported values.",
+                                                            "format": "int32",
+                                                            "location": "path",
+                                                            "required": true,
+                                                            "type": "integer"
+                                                        }
+                                                    },
+                                                    "path": "kong/v1/apps/performance/primes_data/{requestType}/{packageName}",
+                                                    "response": {
+                                                        "$ref": "PrimesDataResponseWrapper"
+                                                    },
+                                                    "scopes": [
+                                                        "https://www.googleapis.com/auth/dogfood"
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190920",
+    "rootUrl": "https://autopush-primes-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "DeviceInfo": {
+            "description": "Contains information about a device.",
+            "id": "DeviceInfo",
+            "properties": {
+                "deviceClass": {
+                    "description": "Device's class",
+                    "enum": [
+                        "ALL",
+                        "LOW_END",
+                        "MID_RANGE",
+                        "HIGH_END",
+                        "UNKNOWN"
+                    ],
+                    "enumDescriptions": [
+                        "All devices",
+                        "Low end devices",
+                        "Mid range devices",
+                        "High end devices",
+                        "Unknown device class"
+                    ],
+                    "type": "string"
+                },
+                "deviceName": {
+                    "description": "Device's name",
+                    "type": "string"
+                },
+                "ramSizeMb": {
+                    "description": "Device's total RAM in megabytes",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "DeviceMemoryInfo": {
+            "description": "Contains information about the memory usage of a device.",
+            "id": "DeviceMemoryInfo",
+            "properties": {
+                "device": {
+                    "$ref": "DeviceInfo",
+                    "description": "Device that the usage relates to"
+                },
+                "eventCode": {
+                    "description": "Event the usage corresponds to",
+                    "enum": [
+                        "FOREGROUND",
+                        "BACKGROUND"
+                    ],
+                    "enumDescriptions": [
+                        "Foregroud events",
+                        "Background events"
+                    ],
+                    "type": "string"
+                },
+                "memoryUsage": {
+                    "description": "Memory usage for the device",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "GetTop5DevicesForMemoryResponse": {
+            "description": "Response message for GetTop5DevicesForMemory.",
+            "id": "GetTop5DevicesForMemoryResponse",
+            "properties": {
+                "devicesWithMemoryData": {
+                    "description": "Devices that contain memory info.",
+                    "items": {
+                        "$ref": "DeviceMemoryInfo"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "MemoryPerformanceInfo": {
+            "description": "Response message for GetMemorySummary and GetMemoryTrend.",
+            "id": "MemoryPerformanceInfo",
+            "properties": {
+                "allDeviceStats": {
+                    "description": "Memory stats for all devices.",
+                    "items": {
+                        "$ref": "MemoryStatsForEventCode"
+                    },
+                    "type": "array"
+                },
+                "highEndDeviceStats": {
+                    "description": "Memory stats for high-end devices.",
+                    "items": {
+                        "$ref": "MemoryStatsForEventCode"
+                    },
+                    "type": "array"
+                },
+                "lowEndDeviceStats": {
+                    "description": "Memory stats for low-end devices.",
+                    "items": {
+                        "$ref": "MemoryStatsForEventCode"
+                    },
+                    "type": "array"
+                },
+                "midRangeDeviceStats": {
+                    "description": "Memory stats for mid-range devices.",
+                    "items": {
+                        "$ref": "MemoryStatsForEventCode"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "MemoryStatsForEventCode": {
+            "description": "MemoryStats Associated with an event code",
+            "id": "MemoryStatsForEventCode",
+            "properties": {
+                "eventCode": {
+                    "description": "The events this data corresponds to (e.g. foreground or background).",
+                    "enum": [
+                        "FOREGROUND",
+                        "BACKGROUND"
+                    ],
+                    "enumDescriptions": [
+                        "Foregroud events",
+                        "Background events"
+                    ],
+                    "type": "string"
+                },
+                "memoryStats": {
+                    "description": "A list of memory stats.",
+                    "items": {
+                        "$ref": "Stats"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "PrimesDataResponseWrapper": {
+            "description": "A wrapper around PrimesDataResponse protocol buffers.\nSee http://google3/devrel/primes/protos/aggregated_data_service.proto?l=89\nfor the PrimesDataResponse definition.",
+            "id": "PrimesDataResponseWrapper",
+            "properties": {
+                "message": {
+                    "description": "A PrimesDataResponse in binary format.",
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Stats": {
+            "description": "Contains a single datapoint.",
+            "id": "Stats",
+            "properties": {
+                "highPercentile": {
+                    "description": "Memory usage at the 95th Percentile",
+                    "format": "double",
+                    "type": "number"
+                },
+                "lowPercentile": {
+                    "description": "Memory usage at the 25th Percentile",
+                    "format": "double",
+                    "type": "number"
+                },
+                "median": {
+                    "description": "Memory usage at the 50th Percentile",
+                    "format": "double",
+                    "type": "number"
+                },
+                "timestamp": {
+                    "description": "Timestamp",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "PRIMES Private API (Autopush)",
+    "version": "v1",
+    "version_module": true
+}

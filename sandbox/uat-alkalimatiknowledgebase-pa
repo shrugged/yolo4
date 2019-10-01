@@ -1,0 +1,1728 @@
+{
+    "basePath": "",
+    "baseUrl": "https://uat-alkalimatiknowledgebase-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Alkali MatiKnowledgeBase",
+    "description": "Integrates information about past MATI integrations and allows for easy search",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://go/alkali",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "uat_alkalimatiknowledgebase_pa_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "uat_alkalimatiknowledgebase_pa_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "deal": {
+            "methods": {
+                "create": {
+                    "description": "Create Deal.",
+                    "flatPath": "v1/deal",
+                    "httpMethod": "POST",
+                    "id": "uat_alkalimatiknowledgebase_pa_sandbox.deal.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/deal",
+                    "request": {
+                        "$ref": "CreateDealRequest"
+                    },
+                    "response": {
+                        "$ref": "Deal"
+                    }
+                },
+                "createBulk": {
+                    "description": "Create Deals in bulk",
+                    "flatPath": "v1/deal:createBulk",
+                    "httpMethod": "POST",
+                    "id": "uat_alkalimatiknowledgebase_pa_sandbox.deal.createBulk",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/deal:createBulk",
+                    "request": {
+                        "$ref": "BulkCreateDealsRequest"
+                    },
+                    "response": {
+                        "$ref": "BulkCreateDealsResponse"
+                    }
+                },
+                "delete": {
+                    "description": "Delete Deal.",
+                    "flatPath": "v1/deal/{codeName}",
+                    "httpMethod": "DELETE",
+                    "id": "uat_alkalimatiknowledgebase_pa_sandbox.deal.delete",
+                    "parameterOrder": [
+                        "codeName"
+                    ],
+                    "parameters": {
+                        "codeName": {
+                            "description": "Unique codename for the deal.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/deal/{codeName}",
+                    "response": {
+                        "$ref": "Empty"
+                    }
+                },
+                "get": {
+                    "description": "Get Deal.",
+                    "flatPath": "v1/deal/{codeName}",
+                    "httpMethod": "GET",
+                    "id": "uat_alkalimatiknowledgebase_pa_sandbox.deal.get",
+                    "parameterOrder": [
+                        "codeName"
+                    ],
+                    "parameters": {
+                        "codeName": {
+                            "description": "Unique codename for the deal.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/deal/{codeName}",
+                    "response": {
+                        "$ref": "Deal"
+                    }
+                },
+                "getInfraData": {
+                    "description": "Get infrastructure data from TVL/AVL Sheets.",
+                    "flatPath": "v1/deal:getInfraData",
+                    "httpMethod": "POST",
+                    "id": "uat_alkalimatiknowledgebase_pa_sandbox.deal.getInfraData",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/deal:getInfraData",
+                    "request": {
+                        "$ref": "GetInfraDataFromSheetsRequest"
+                    },
+                    "response": {
+                        "$ref": "GetInfraDataFromSheetsResponse"
+                    }
+                },
+                "listGetAll": {
+                    "description": "List all the Deals.",
+                    "flatPath": "v1/deal:getAll",
+                    "httpMethod": "GET",
+                    "id": "uat_alkalimatiknowledgebase_pa_sandbox.deal.listGetAll",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/deal:getAll",
+                    "response": {
+                        "$ref": "ListDealsResponse"
+                    }
+                },
+                "patch": {
+                    "description": "Update Deal.",
+                    "flatPath": "v1/deal/{dealCodeName}",
+                    "httpMethod": "PATCH",
+                    "id": "uat_alkalimatiknowledgebase_pa_sandbox.deal.patch",
+                    "parameterOrder": [
+                        "dealCodeName"
+                    ],
+                    "parameters": {
+                        "dealCodeName": {
+                            "description": "Unique code name of the deal.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/deal/{dealCodeName}",
+                    "request": {
+                        "$ref": "UpdateDealRequest"
+                    },
+                    "response": {
+                        "$ref": "Deal"
+                    }
+                },
+                "searchByKeyword": {
+                    "description": "List Deals that contains keyword in Deal Details.",
+                    "flatPath": "v1/deal:searchByKeyword",
+                    "httpMethod": "POST",
+                    "id": "uat_alkalimatiknowledgebase_pa_sandbox.deal.searchByKeyword",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/deal:searchByKeyword",
+                    "request": {
+                        "$ref": "ListDealsByKeywordRequest"
+                    },
+                    "response": {
+                        "$ref": "ListDealsByKeywordResponse"
+                    }
+                }
+            }
+        },
+        "echo": {
+            "methods": {
+                "create": {
+                    "description": "Responds back with same message.",
+                    "flatPath": "v1/echo",
+                    "httpMethod": "POST",
+                    "id": "uat_alkalimatiknowledgebase_pa_sandbox.echo.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/echo",
+                    "request": {
+                        "$ref": "CreateEchoRequest"
+                    },
+                    "response": {
+                        "$ref": "Echo"
+                    }
+                }
+            }
+        },
+        "v1": {
+            "methods": {
+                "getSpreadsheetsData": {
+                    "description": "Get Data.",
+                    "flatPath": "v1/getSpreadsheetsData",
+                    "httpMethod": "POST",
+                    "id": "uat_alkalimatiknowledgebase_pa_sandbox.getSpreadsheetsData",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/getSpreadsheetsData",
+                    "request": {
+                        "$ref": "SpreadsheetsDataRequest"
+                    },
+                    "response": {
+                        "$ref": "SpreadsheetsDataResponse"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190711",
+    "rootUrl": "https://uat-alkalimatiknowledgebase-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "AllAuthenticatedUsersProto": {
+            "description": "Represents a principal who has authenticated as any kind of user which\nthe application understands.  This is typically used for \"wiki-like\"\nsecurity, where anyone is allowed access so long as they can be held\naccountable for that access.  Since the purpose is knowing whom to\nblame, it is up to the application to decide what kinds of users it\nknows how to blame.  For example, an application might choose to include\nGAIA users in \"all authenticated users\", but not include MDB users.\nNothing here.",
+            "id": "AllAuthenticatedUsersProto",
+            "properties": {},
+            "type": "object"
+        },
+        "BriefDeal": {
+            "description": "Message for brief deal information.",
+            "id": "BriefDeal",
+            "properties": {
+                "codeName": {
+                    "description": "Unique codename for the deal.",
+                    "type": "string"
+                },
+                "dealName": {
+                    "description": "Name for the deal.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "BulkCreateDealsRequest": {
+            "description": "Request message to bulk create deals (through google sheets)",
+            "id": "BulkCreateDealsRequest",
+            "properties": {},
+            "type": "object"
+        },
+        "BulkCreateDealsResponse": {
+            "description": "Response to bulk create deals.",
+            "id": "BulkCreateDealsResponse",
+            "properties": {
+                "briefDeals": {
+                    "description": "Brief deal information",
+                    "items": {
+                        "$ref": "BriefDeal"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CapTokenHolderProto": {
+            "description": "Represents a principal which possesses a particular secret string\nwhose cryptographic hash is specified here. CapTokens (\"Capability Tokens\")\nare used in ACLProto.\nIt's expected that ACLs with CapTokenHolders will strongly enforce them\nby Keystore-wrapping crypto keys for the corresponding CapTokens.",
+            "id": "CapTokenHolderProto",
+            "properties": {
+                "tokenHmacSha1Prefix": {
+                    "description": "The hash of the corresponding capability token.\nThe value is defined to be identical to the one in acl.proto's\nCapTokenMetadata:\n10-byte prefix of HMAC-SHA1 of the token.  The HMAC key is the\nfollowing fixed (non-secret) 512-bit value:\n    79b1c8f4 82baf523 b8a9ab4a e960f438\n    c45be041 11f1f222 e8a3f64d aeb05e3d\n    c3576acc ec649194 aede422c 4e48e0d1\n    ff21234a a6ed6b49 a7fa592e efd7bba3",
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ChatProto": {
+            "description": "Represents the invitees or other users associated with a Babel Chat\n(see http://goto/babel).\nCorresponds to GroupType CHAT in //social/graph/storage/proto/data.proto.",
+            "id": "ChatProto",
+            "properties": {
+                "chatId": {
+                    "description": "Chat IDs consist of alphanumeric characters and colons.\nCurrently required.",
+                    "type": "string"
+                },
+                "memberType": {
+                    "description": "The type of Chat members to consider, e.g. \"all members\" vs. \"invitee\"\nThese are defined by legacy_relation_id values in\nsocial.graph.storage.EdgeTypeEnum.EdgeType enum options in\nsocial/graph/storage/proto/id.proto.\nSee chat.pb (defined in\nproduction/config/cdd/socialgraph/mixer_config/prod/node_type_config) for\nall valid edge types associated with chat.\nCurrently required.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "CircleProto": {
+            "description": "Represents a Google+ Circle.\n\nCurrently (12/2011), a Circle is identical to the ContactGroup with matching\nparameters, but Circle must only be used for true Circles and not other\nFocus groups, and should be preferred over ContactGroup where applicable.\nSoon it may become more efficient to check membership in a Circle than in a\nContactGroup (see http://go/superglue).\n\nSupport for this principal type is currently (12/2011) incomplete --\ne.g., Keystore does not support it yet (see b/5703421).",
+            "id": "CircleProto",
+            "properties": {
+                "circleId": {
+                    "description": "Circle ID is unique only relative to the owner's Gaia ID.\nCurrently required.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "ownerGaiaId": {
+                    "description": "The owner of the circle. Currently required.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "requiredConsistencyTimestampUsec": {
+                    "description": "If present, then tests for membership in this circle must use data\nknown to be at least as fresh as the given (FBS-assigned) timestamp.\nSee http://go/fbs-consistent-read-after-important-write\n\nBefore using this, be sure that any service checking authorization against\nthis circle supports checking consistency timestamps. For example, as of\n12/2011, Keystore only supports this for the Moonshine configuration, and\nin others authorization checks will fail if the timestamp is present.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ContactGroupProto": {
+            "description": "A group of contacts for a given user, as described in\nhttp://cs/p#google3/focus/backend/proto/backend.proto\nHistorically (and in still-existing ACLs), this was used to represent\nGoogle+ circles as well as contact groups, but this use is now deprecated.\nNew code should use the CIRCLE principal type to represent Google+ circles.",
+            "id": "ContactGroupProto",
+            "properties": {
+                "groupId": {
+                    "description": "Group ID is unique only relative to the owner's Gaia ID.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "ownerGaiaId": {
+                    "format": "int64",
+                    "type": "string"
+                },
+                "requiredConsistencyTimestampUsec": {
+                    "description": "If present, then tests for membership in this ContactGroup must use data\nknown to be at least as fresh as the given (FBS-assigned) timestamp.\nSee http://go/fbs-consistent-read-after-important-write\n\nBefore using this, be sure that any service checking authorization against\nthis group supports checking consistency timestamps. For example, as of\n12/2011, Keystore only supports this for the Moonshine configuration, and\nin others authorization checks will fail if the timestamp is present.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CreateDealRequest": {
+            "description": "Request message to create deal.",
+            "id": "CreateDealRequest",
+            "properties": {
+                "deal": {
+                    "$ref": "Deal",
+                    "description": "Deal data message that needs to be created."
+                }
+            },
+            "type": "object"
+        },
+        "CreateEchoRequest": {
+            "description": "Echo request.",
+            "id": "CreateEchoRequest",
+            "properties": {
+                "in": {
+                    "description": "Input message to echo.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Deal": {
+            "description": "A Deal is a representation of data that relates to an acquisition or\ndivestiture made by Google or a Bet.\nNext id: 12",
+            "id": "Deal",
+            "properties": {
+                "confidentialityStatus": {
+                    "description": "Used to determine confidentiality status of the deal.",
+                    "enum": [
+                        "UNKNOWN_CONFIDENTIALITY_STATUS",
+                        "CONFIDENTIAL_CONFIDENTIALITY_STATUS",
+                        "NON_CONFIDENTIAL_CONFIDENTIALITY_STATUS"
+                    ],
+                    "enumDescriptions": [
+                        "Not enough information.",
+                        "The deal is confidential. No internal/external announcement.",
+                        "The deal is publicly announced."
+                    ],
+                    "type": "string"
+                },
+                "createdTime": {
+                    "description": "Created time in DB.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "dealArtifacts": {
+                    "description": "A list of artifacts of the deal.",
+                    "items": {
+                        "$ref": "DealArtifact"
+                    },
+                    "type": "array"
+                },
+                "dealContacts": {
+                    "description": "A list of contacts of the deal.",
+                    "items": {
+                        "$ref": "DealContact"
+                    },
+                    "type": "array"
+                },
+                "dealInfra": {
+                    "description": "A list of infrastructure of the deal.",
+                    "items": {
+                        "$ref": "DealInfra"
+                    },
+                    "type": "array"
+                },
+                "dealOffices": {
+                    "description": "A List of offices of the deal.",
+                    "items": {
+                        "$ref": "DealOffice"
+                    },
+                    "type": "array"
+                },
+                "dealStatus": {
+                    "description": "Used to determine status of the deal.",
+                    "enum": [
+                        "UNKNOWN_DEAL_STATUS",
+                        "INITIAL_DEAL_STATUS",
+                        "INTEGRATION_DEAL_STATUS",
+                        "COMPLETE_DEAL_STATUS",
+                        "CANCELED_DEAL_STATUS",
+                        "CLOSE_OUT_DEAL_STATUS",
+                        "PLANNING_DEAL_STATUS"
+                    ],
+                    "enumDescriptions": [
+                        "Not enough information.",
+                        "The deal is initiated.",
+                        "The deal is in the process of integration.",
+                        "The deal is finished.",
+                        "The deal is canceled.",
+                        "The deal is in the close out phase.",
+                        "The deal is in the planning phase."
+                    ],
+                    "type": "string"
+                },
+                "dealSummary": {
+                    "$ref": "DealSummary",
+                    "description": "Used to hold base deal information."
+                },
+                "key": {
+                    "$ref": "DealKey",
+                    "description": "Key of the Spanner object."
+                },
+                "lastModifiedTime": {
+                    "description": "Last modified time in DB.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "versionInfo": {
+                    "$ref": "VersionInfo",
+                    "description": "Version info."
+                }
+            },
+            "type": "object"
+        },
+        "DealArtifact": {
+            "description": "Message containing a deal artifact.\nNext id: 4",
+            "id": "DealArtifact",
+            "properties": {
+                "artifactDescription": {
+                    "description": "Description of the artifact.",
+                    "type": "string"
+                },
+                "artifactLink": {
+                    "description": "Link of the artifact.",
+                    "type": "string"
+                },
+                "artifactName": {
+                    "description": "Name of the artifact.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DealContact": {
+            "description": "Message containing the deal contact(s) for various verticals (HR,\nFinance, etc...).\nNext id: 7",
+            "id": "DealContact",
+            "properties": {
+                "email": {
+                    "description": "Email of the contact.",
+                    "type": "string"
+                },
+                "firstName": {
+                    "description": "First name of the contact.",
+                    "type": "string"
+                },
+                "function": {
+                    "description": "The function of the contact.",
+                    "enum": [
+                        "OTHER_FUNCTION",
+                        "MA_HR_FUNCTION",
+                        "MA_FINANCE_FUNCTION",
+                        "FIMO_FUNCTION",
+                        "LEGAL_MA_FUNCTION",
+                        "CORP_DEV_FUNCTION",
+                        "CORP_DEV_INTEGRATION_FUNCTION",
+                        "REWS_FUNCTION",
+                        "MA_SECURITY_FUNCTION",
+                        "MA_PRIVACY_FUNCTION",
+                        "NET_OPS_FUNCTION",
+                        "MA_COE_FUNCTION",
+                        "MA_VCI_FUNCTION",
+                        "GTLM_FUNCTION",
+                        "ENG_COMPLIANCE_FUNCTION",
+                        "LEGAL_PRIVACY_FUNCTION",
+                        "LEGAL_COMMERCIAL_FUNCTION",
+                        "MA_SRT_FUNCTION",
+                        "MA_IST_FUNCTION",
+                        "MA_GTM_FUNCTION",
+                        "MA_BSA_FUNCTION",
+                        "MA_GTI_FUNCTION",
+                        "LEGAL_PRODUCT_FUNCTION",
+                        "LEGAL_OTHER_FUNCTION",
+                        "MA_PGM_LEAD_FUNCTION",
+                        "OSS_FUNCTION",
+                        "GTM_FUNCTION"
+                    ],
+                    "enumDescriptions": [
+                        "Not enough information.",
+                        "Mergers & Acquisitions HR Counsel.",
+                        "Mergers & Acquisitions Finance Counsel.",
+                        "Finance Integration Management Operations Counsel.",
+                        "Legal (Mergers & Acquisitions) Counsel.",
+                        "Corporate Development Counsel.",
+                        "Corporate Development Integrations Counsel.",
+                        "Real Estate & Workplace Services Counsel.",
+                        "Mergers & Acquisitions Security Counsel.",
+                        "Mergers & Acquisitions Privacy Counsel.",
+                        "Network Operations Counsel.",
+                        "Corporate Operations Engineer Counsel.",
+                        "Vendor & Contact Integration Consel.",
+                        "Google Technology Lifecycle Management (Software Asset Management)\nCounsel.",
+                        "Engineering Compliance Counsel.",
+                        "Legal (Privacy) Counsel.",
+                        "Legal (Commercial) Counsel.",
+                        "Mergers & Acquisitions Security Remediation & Tools Counsel.",
+                        "Mergers & Acquisitions Infrastructure Services Team Counsel.",
+                        "Mergers & Acquisitions Go to Market Counsel.",
+                        "Mergers & Acquisitions Business System Analyst Counsel.",
+                        "Mergers & Acquisitions GTI (EngEDU) Counsel.",
+                        "Legal (Product) Counsel.",
+                        "Legal (Other) Counsel.",
+                        "Mergers & Acqusitions PGM Lead.",
+                        "Open Source Software Counsel.",
+                        "Go to Market Counsel."
+                    ],
+                    "type": "string"
+                },
+                "lastName": {
+                    "description": "Last name of the contact.",
+                    "type": "string"
+                },
+                "primary": {
+                    "description": "The boolean will be set to true if the person is primary contact\nand false if the person is secondary contact.",
+                    "type": "boolean"
+                },
+                "username": {
+                    "description": "Unique username of the contact.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DealInfra": {
+            "description": "Message containing a deal infrastructure.\nNext id: 11",
+            "id": "DealInfra",
+            "properties": {
+                "infraActualDestination": {
+                    "description": "Actual destination or replacement of the infrastructure.",
+                    "type": "string"
+                },
+                "infraActualDurationMonths": {
+                    "description": "Actual duration of the infrastructure in months.",
+                    "type": "string"
+                },
+                "infraDescription": {
+                    "description": "Description of the infrastructure.",
+                    "type": "string"
+                },
+                "infraDisposition": {
+                    "description": "XFN disposition of the infrastructure.",
+                    "type": "string"
+                },
+                "infraFunction": {
+                    "description": "Target function of the infrastructure.",
+                    "type": "string"
+                },
+                "infraId": {
+                    "description": "ID of the infrastructure.",
+                    "type": "string"
+                },
+                "infraLink": {
+                    "description": "Tracking link of the infrasturcture.",
+                    "type": "string"
+                },
+                "infraName": {
+                    "description": "Name of the system or 3rd party.",
+                    "type": "string"
+                },
+                "infraPlanningDestination": {
+                    "description": "Planned destination or replacement of the infrastructure.",
+                    "type": "string"
+                },
+                "infraPlanningDurationMonths": {
+                    "description": "Estimate duration of the infrastructure in months.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DealInfraInString": {
+            "description": "Message for deal infrastructure in string format for import preview.\nNext id: 11",
+            "id": "DealInfraInString",
+            "properties": {
+                "infraActualDestination": {
+                    "description": "Actual destination or replacement of the infrastructure.",
+                    "type": "string"
+                },
+                "infraActualDurationMonths": {
+                    "description": "Actual duration of the infrastructure in months.",
+                    "type": "string"
+                },
+                "infraDescription": {
+                    "description": "Description of the infrastructure.",
+                    "type": "string"
+                },
+                "infraDisposition": {
+                    "description": "XFN disposition of the infrastructure.",
+                    "type": "string"
+                },
+                "infraFunction": {
+                    "description": "Target function of the infrastructure.",
+                    "type": "string"
+                },
+                "infraId": {
+                    "description": "ID of the infrastructure.",
+                    "type": "string"
+                },
+                "infraLink": {
+                    "description": "Tracking link of the infrasturcture.",
+                    "type": "string"
+                },
+                "infraName": {
+                    "description": "Name of the system or 3rd party.",
+                    "type": "string"
+                },
+                "infraPlanningDestination": {
+                    "description": "Planned destination or replacement of the infrastructure.",
+                    "type": "string"
+                },
+                "infraPlanningDurationMonths": {
+                    "description": "Estimate duration of the infrastructure in months.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DealKey": {
+            "description": "Key message stored in spanner.",
+            "id": "DealKey",
+            "properties": {
+                "codeName": {
+                    "description": "Code name for the deal.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DealOffice": {
+            "description": "Message containing a deal office.\nNext id: 5",
+            "id": "DealOffice",
+            "properties": {
+                "officeLink": {
+                    "description": "Link of the office.",
+                    "type": "string"
+                },
+                "officeLocation": {
+                    "description": "Location of the office.",
+                    "type": "string"
+                },
+                "officeNumOfPeople": {
+                    "description": "Number of people.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "officeSiteDisposition": {
+                    "description": "Site disposition of office.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DealSummary": {
+            "description": "Message containing a summary of the deal.\nNext id: 17",
+            "id": "DealSummary",
+            "properties": {
+                "announcedStatus": {
+                    "description": "Used to determine announced status of the deal.",
+                    "enum": [
+                        "UNKNOWN_ANNOUNCED_STATUS",
+                        "NOT_ANNOUNCED_ANNOUNCED_STATUS",
+                        "PUBLICLY_ANNOUNCED_ANNOUNCED_STATUS",
+                        "INTERNALLY_ANNOUNCED_ANNOUNCED_STATUS"
+                    ],
+                    "enumDescriptions": [
+                        "Not enough information.",
+                        "The deal has not been not announced. No internal/external announcement.",
+                        "The deal is publicly announced.",
+                        "The deal is internally announced."
+                    ],
+                    "type": "string"
+                },
+                "companyDescription": {
+                    "description": "Description of the company involved in the deal.",
+                    "type": "string"
+                },
+                "companyName": {
+                    "description": "Name of the company involved in the deal.",
+                    "type": "string"
+                },
+                "companyProduct": {
+                    "description": "Description of the product from the company involved in the deal.",
+                    "type": "string"
+                },
+                "dealCodeName": {
+                    "description": "Unique code name of the deal.",
+                    "type": "string"
+                },
+                "dealComplexity": {
+                    "description": "The deal's complexity.",
+                    "enum": [
+                        "UNKNOWN_COMPLEXITY",
+                        "LOW_COMPLEXITY",
+                        "MEDIUM_LOW_COMPLEXITY",
+                        "MEDIUM_COMPLEXITY",
+                        "MEDIUM_HIGH_COMPLEXITY",
+                        "HIGH_COMPLEXITY"
+                    ],
+                    "enumDescriptions": [
+                        "Not enough information.",
+                        "Low.",
+                        "Medium-low.",
+                        "Medium.",
+                        "Medium-high.",
+                        "High."
+                    ],
+                    "type": "string"
+                },
+                "dealDescription": {
+                    "description": "Description of the deal.",
+                    "type": "string"
+                },
+                "dealHeadcount": {
+                    "description": "The deal's headcount.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "dealLegalAgreement": {
+                    "description": "The deal's legal agreement type.",
+                    "enum": [
+                        "OTHER_LEGAL_AGREEMENT",
+                        "LICENSE_AND_RELEASE_LEGAL_AGREEMENT",
+                        "INVESTMENT_LEGAL_AGREEMENT",
+                        "ASSET_PURCHASE_LEGAL_AGREEMENT",
+                        "DIVESTITURE_LEGAL_AGREEMENT",
+                        "STOCK_PURCHASE_OR_MERGER_LEGAL_AGREEMENT",
+                        "UNKNOWN_LEGAL_AGREEMENT"
+                    ],
+                    "enumDescriptions": [
+                        "None of the other types.",
+                        "Tech and Talent.",
+                        "Acquisition Hire.",
+                        "Asset.",
+                        "Divestiture.",
+                        "Full Integration.",
+                        "Not enough information."
+                    ],
+                    "type": "string"
+                },
+                "dealName": {
+                    "description": "Name of the deal.",
+                    "type": "string"
+                },
+                "dealSponsors": {
+                    "description": "A list of all sponsors involved in the deal.",
+                    "items": {
+                        "$ref": "Sponsor"
+                    },
+                    "type": "array"
+                },
+                "dealTime": {
+                    "$ref": "DealTime",
+                    "description": "A list of all timepoints of the deal."
+                },
+                "dealType": {
+                    "description": "Type of the deal.",
+                    "enum": [
+                        "OTHER_DEAL_TYPE",
+                        "TECH_AND_TALENT_DEAL_TYPE",
+                        "ACQUI_HIRE_DEAL_TYPE",
+                        "ASSET_DEAL_TYPE",
+                        "DIVESTITURE_DEAL_TYPE",
+                        "FULL_BUSINESS_DEAL_TYPE",
+                        "SPIN_OUT_DEAL_TYPE"
+                    ],
+                    "enumDescriptions": [
+                        "Not enough information, or none of the other types.",
+                        "Tech and Talent.",
+                        "Acquisition Hire.",
+                        "Asset.",
+                        "Divestiture.",
+                        "Full Business.",
+                        "Spin Out."
+                    ],
+                    "type": "string"
+                },
+                "locations": {
+                    "description": "The deal's location(s).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "productArea": {
+                    "description": "The deal's product area.",
+                    "type": "string"
+                },
+                "targetTeam": {
+                    "$ref": "TargetTeam",
+                    "description": "Target team (leaders and co-founders) of the company."
+                }
+            },
+            "type": "object"
+        },
+        "DealTime": {
+            "description": "Message containing details about deal times and dates\nNext ID: 8",
+            "id": "DealTime",
+            "properties": {
+                "dealAnnouncedDate": {
+                    "description": "The date on which the deal was announced, represented as MM/DD/YYYY.",
+                    "type": "string"
+                },
+                "dealClosedDate": {
+                    "description": "The date on which the deal was closed, represented as MM/DD/YYYY.",
+                    "type": "string"
+                },
+                "dealCompletionDate": {
+                    "description": "The date on which the deal was completed, represented as MM/DD/YYYY.",
+                    "type": "string"
+                },
+                "dealOnboardingDate": {
+                    "description": "The date on which the deal was on-boarding, represented as MM/DD/YYYY.",
+                    "type": "string"
+                },
+                "dealSignedDate": {
+                    "description": "The date on which the deal was signed, represented as MM/DD/YYYY.",
+                    "type": "string"
+                },
+                "loiSignedDate": {
+                    "description": "The date on which the letter of intent was signed, represented as\nMM/DD/YYYY.",
+                    "type": "string"
+                },
+                "termSheetSignedDate": {
+                    "description": "The date on which the term sheet was signed, represented as MM/DD/YYYY.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Echo": {
+            "description": "Echo response.",
+            "id": "Echo",
+            "properties": {
+                "out": {
+                    "description": "Echoed input message.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "EmailOwnerProto": {
+            "description": "Represents a verified owner of the given email address. Note that a single\naddress may have many owners, and a single user may own many addresses.\n(All lower-case, in display form -- see com.google.gaia.client.GaiaEmail)",
+            "id": "EmailOwnerProto",
+            "properties": {
+                "email": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Empty": {
+            "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+            "id": "Empty",
+            "properties": {},
+            "type": "object"
+        },
+        "EventProto": {
+            "description": "Represents the invitees or other users associated with a Google+ Event\n(see http://goto/events-backend-design).",
+            "id": "EventProto",
+            "properties": {
+                "eventId": {
+                    "description": "Event IDs consist of alphanumeric characters and colons.\nCurrently required.",
+                    "type": "string"
+                },
+                "memberType": {
+                    "description": "The type of Event members to consider, e.g. \"all members\" vs. \"owners\"\nvs. \"admins\".  These are defined by legacy_relation_id values in\nsocial.graph.storage.EdgeTypeEnum.EdgeType enum options in\nsocial/graph/storage/proto/id.proto.\nSee event.pb (defined in\nproduction/config/cdd/socialgraph/mixer_config/prod/node_type_config) for\nall valid edge types associated with event.\nCurrently required.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "GaiaGroupProto": {
+            "id": "GaiaGroupProto",
+            "properties": {
+                "groupId": {
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GaiaUserProto": {
+            "id": "GaiaUserProto",
+            "properties": {
+                "userId": {
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GetInfraDataFromSheetsRequest": {
+            "description": "Request message for getting infrastructure data from TVL/AVL Sheets.\nNext id: 14",
+            "id": "GetInfraDataFromSheetsRequest",
+            "properties": {
+                "infraActualDestinationColumn": {
+                    "description": "Column for actual destination or replacement of the infrastructure.",
+                    "type": "string"
+                },
+                "infraActualDurationMonthsColumn": {
+                    "description": "Column for actual duration of the infrastructure in months.",
+                    "type": "string"
+                },
+                "infraDescriptionColumn": {
+                    "description": "Column for description of the infrastructure.",
+                    "type": "string"
+                },
+                "infraDispositionColumn": {
+                    "description": "Column for XFN disposition of the infrastructure.",
+                    "type": "string"
+                },
+                "infraFunctionColumn": {
+                    "description": "Column for target function of the infrastructure.",
+                    "type": "string"
+                },
+                "infraIdColumn": {
+                    "description": "Column for ID of the infrastructure.",
+                    "type": "string"
+                },
+                "infraLinkColumn": {
+                    "description": "Column for tracking link of the infrasturcture.",
+                    "type": "string"
+                },
+                "infraNameColumn": {
+                    "description": "Column for name of the system or 3rd party.",
+                    "type": "string"
+                },
+                "infraPlanningDestinationColumn": {
+                    "description": "Column for planned destination or replacement of the infrastructure.",
+                    "type": "string"
+                },
+                "infraPlanningDurationMonthsColumn": {
+                    "description": "Column for estimate duration of the infrastructure in months.",
+                    "type": "string"
+                },
+                "sheetIndex": {
+                    "description": "Index of the sheet itself within the spreadsheet.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "sheetUrl": {
+                    "description": "Url of the spreadsheet to be ingested.",
+                    "type": "string"
+                },
+                "startRow": {
+                    "description": "Start row the infrastructure data in the spreadsheet.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "GetInfraDataFromSheetsResponse": {
+            "description": "Response message for getting infrastructure data from TVL/AVL Sheets.",
+            "id": "GetInfraDataFromSheetsResponse",
+            "properties": {
+                "dealInfras": {
+                    "description": "Deals infrastructure.",
+                    "items": {
+                        "$ref": "DealInfraInString"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "HostProto": {
+            "description": "Represents a single host. Optionally, the MDB owner of the host can be\nspecified.",
+            "id": "HostProto",
+            "properties": {
+                "hostName": {
+                    "description": "Lower-case, fully qualified hostname.",
+                    "type": "string"
+                },
+                "hostOwner": {
+                    "description": "If present, then any checks that compare this Principal to LOAS\npeer info must confirm the peer's machine owner is equal to 'host_owner'.\nIf absent, then any peer machine owner is acceptable.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "LdapGroupProto": {
+            "id": "LdapGroupProto",
+            "properties": {
+                "groupName": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "LdapUserProto": {
+            "id": "LdapUserProto",
+            "properties": {
+                "userName": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListDealsByKeywordRequest": {
+            "description": "Request message for listing deals that contains the keyword in Deal Details.",
+            "id": "ListDealsByKeywordRequest",
+            "properties": {
+                "dealKeyword": {
+                    "description": "Keyword to be searched.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListDealsByKeywordResponse": {
+            "description": "Response message for listing deals that contains the keyword in Deal Details.",
+            "id": "ListDealsByKeywordResponse",
+            "properties": {
+                "serializedDeals": {
+                    "description": "Deals information.",
+                    "items": {
+                        "$ref": "SerializedDeal"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListDealsResponse": {
+            "description": "Response to list deals.",
+            "id": "ListDealsResponse",
+            "properties": {
+                "briefDeals": {
+                    "description": "Brief deal information.",
+                    "items": {
+                        "$ref": "BriefDeal"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "MdbGroupProto": {
+            "description": "An entity from the MDB namespace that is to be interpreted as a group.\nIf using this for authorization, you should do an exact match of the peer\nrole against group_name or any of the names in the Chubby expansion\nof the MDB group named group_name.",
+            "id": "MdbGroupProto",
+            "properties": {
+                "groupName": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MdbUserProto": {
+            "description": "An entity from the MDB namespace that is to be interpreted as a user.\nIf using this for authorization, you should only do an exact match on the\npeer role against user_name.",
+            "id": "MdbUserProto",
+            "properties": {
+                "gaiaId": {
+                    "description": "Do not set this field. Contact credentials-eng@ if you believe you\nabsolutely need to use it. This is the @prod.google.com Gaia ID that\ncorresponds to the MDB user, see go/authn-merge for details. This field\nmay always be safely ignored when performing an authorization check.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "userName": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "OAuthConsumerProto": {
+            "description": "Represents an OAuth consumer, a/k/a AuthSub target.\nThese principals are identified by domain name (e.g., example.com).\nHistorically, Dasher domain GAIA group IDs have been used instead,\nbut that doesn't work: http://go/tricky-gaia-ids",
+            "id": "OAuthConsumerProto",
+            "properties": {
+                "domain": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PostiniUserProto": {
+            "description": "See\nhttp://s/?fileprint=//depot/google3/security/authentication/postini/auth_token.proto",
+            "id": "PostiniUserProto",
+            "properties": {
+                "postiniUserId": {
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PrincipalProto": {
+            "description": "A Principal represents something to which permissions are assigned,\noften but not always a user or group of some kind. It is most\nappropriate for use in ACLs and authorization checks.\n\nCallers should prefer to use the wrapper classes in\n  java/com/google/security/credentials (Java)\n  security/credentials (C++)\nunless direct proto access is essential. If you update this protocol buffer,\nplease update the wrapper classes as well.",
+            "id": "PrincipalProto",
+            "properties": {
+                "allAuthenticatedUsers": {
+                    "$ref": "AllAuthenticatedUsersProto",
+                    "description": "scope = ALL_AUTHENTICATED_USERS"
+                },
+                "capTokenHolder": {
+                    "$ref": "CapTokenHolderProto",
+                    "description": "scope = CAP_TOKEN_HOLDER"
+                },
+                "chat": {
+                    "$ref": "ChatProto",
+                    "description": "scope = CHAT"
+                },
+                "circle": {
+                    "$ref": "CircleProto",
+                    "description": "scope = CIRCLE"
+                },
+                "contactGroup": {
+                    "$ref": "ContactGroupProto",
+                    "description": "scope = CONTACT_GROUP"
+                },
+                "emailOwner": {
+                    "$ref": "EmailOwnerProto",
+                    "description": "scope = EMAIL_OWNER"
+                },
+                "event": {
+                    "$ref": "EventProto",
+                    "description": "scope = EVENT"
+                },
+                "gaiaGroup": {
+                    "$ref": "GaiaGroupProto",
+                    "description": "scope = GAIA_GROUP"
+                },
+                "gaiaUser": {
+                    "$ref": "GaiaUserProto",
+                    "description": "scope = GAIA_USER"
+                },
+                "host": {
+                    "$ref": "HostProto",
+                    "description": "scope = HOST"
+                },
+                "ldapGroup": {
+                    "$ref": "LdapGroupProto",
+                    "description": "scope = LDAP_GROUP"
+                },
+                "ldapUser": {
+                    "$ref": "LdapUserProto",
+                    "description": "scope = LDAP_USER"
+                },
+                "mdbGroup": {
+                    "$ref": "MdbGroupProto",
+                    "description": "scope = MDB_GROUP"
+                },
+                "mdbUser": {
+                    "$ref": "MdbUserProto",
+                    "description": "scope = MDB_USER"
+                },
+                "oauthConsumer": {
+                    "$ref": "OAuthConsumerProto",
+                    "description": "scope = OAUTH_CONSUMER;"
+                },
+                "postiniUser": {
+                    "$ref": "PostiniUserProto",
+                    "description": "scope = POSTINI_USER"
+                },
+                "rbacRole": {
+                    "$ref": "RbacRoleProto",
+                    "description": "scope = RBAC_ROLE"
+                },
+                "rbacSubject": {
+                    "$ref": "RbacSubjectProto",
+                    "description": "scope = RBAC_SUBJECT"
+                },
+                "resourceRole": {
+                    "$ref": "ResourceRoleProto",
+                    "description": "scope = RESOURCE_ROLE"
+                },
+                "scope": {
+                    "description": "This is only optional because required enums cannot be extended.\nCurrently required.",
+                    "enum": [
+                        "INVALID",
+                        "GAIA_USER",
+                        "GAIA_GROUP",
+                        "LDAP_USER",
+                        "LDAP_GROUP",
+                        "MDB_USER",
+                        "MDB_GROUP",
+                        "POSTINI_USER",
+                        "CONTACT_GROUP",
+                        "SIMPLE_SECRET_HOLDER",
+                        "SIGNING_KEY_POSSESSOR",
+                        "ALL_AUTHENTICATED_USERS",
+                        "OAUTH_CONSUMER",
+                        "HOST",
+                        "SOCIAL_GRAPH_NODE",
+                        "EMAIL_OWNER",
+                        "CAP_TOKEN_HOLDER",
+                        "CIRCLE",
+                        "SQUARE",
+                        "EVENT",
+                        "RESOURCE_ROLE",
+                        "CHAT",
+                        "YOUTUBE_USER",
+                        "UNUSED_ZWIEBACK_SESSION",
+                        "ZWIEBACK_SESSION",
+                        "RBAC_ROLE",
+                        "RBAC_SUBJECT"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "next tag: 28"
+                    ],
+                    "type": "string"
+                },
+                "signingKeyPossessor": {
+                    "$ref": "SigningKeyPossessorProto",
+                    "description": "scope = SIGNING_KEY_POSSESSOR"
+                },
+                "simpleSecretHolder": {
+                    "$ref": "SimpleSecretHolderProto",
+                    "description": "scope = SIMPLE_SECRET_HOLDER"
+                },
+                "socialGraphNode": {
+                    "$ref": "SocialGraphNodeProto",
+                    "description": "scope = SOCIAL_GRAPH_NODE"
+                },
+                "square": {
+                    "$ref": "SquareProto",
+                    "description": "scope = SQUARE"
+                },
+                "youtubeUser": {
+                    "$ref": "YoutubeUserProto",
+                    "description": "scope = YOUTUBE_USER"
+                },
+                "zwiebackSession": {
+                    "$ref": "ZwiebackSessionProto",
+                    "description": "scope = ZWIEBACK_SESSION"
+                }
+            },
+            "type": "object"
+        },
+        "RbacRoleProto": {
+            "description": "Principal associated with a given RBAC role. This principal is used by\nSphinx Provisioning Service for RBAC (go/cedi-auth) provisionable\n(go/sphinx-rbacz-design).",
+            "id": "RbacRoleProto",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "objectId": {
+                    "type": "string"
+                },
+                "rbacNamespace": {
+                    "description": "DEPRECATED as of 01.11.2019",
+                    "type": "string"
+                },
+                "rbacRoleName": {
+                    "description": "Format: \"RbacNamespaceName.RbacRoleName(/field=value)*\", e.g.,\n\"hr.v1.Reader\",\n\"hr.v1.Reader/language=EN_US/country=USA/room=NYC-9th-11A201\".",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RbacSubjectProto": {
+            "description": "Principal associated with a given RBAC subject. This principal is used by\nSphinx Provisioning Service for RBAC (go/cedi-auth) provisionable\n(go/sphinx-rbacz-design).",
+            "id": "RbacSubjectProto",
+            "properties": {
+                "username": {
+                    "description": "Format: \"user@domain\", e.g., \"foo@waze.com\", \"foo@hr_v1.zan\".",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ResourceRoleProto": {
+            "description": "A type of sharing target that points to some resource's ACL.\nUsed to refer to the set of Principals that have the given privilege\n('role_id') for the given resource ('application_id', 'object_id',\n'object_part').   The meaning of 'role_id' is interpreted only by\nimplementations of AclRpcService and is usually dependent on 'application_id'\nAll fields except object_part are required.  If present, object_part\nmust be non-empty.",
+            "id": "ResourceRoleProto",
+            "properties": {
+                "applicationId": {
+                    "type": "string"
+                },
+                "objectId": {
+                    "type": "string"
+                },
+                "objectPart": {
+                    "type": "string"
+                },
+                "roleId": {
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "SerializedDeal": {
+            "description": "Message for deal that serialize deal details.",
+            "id": "SerializedDeal",
+            "properties": {
+                "codeName": {
+                    "description": "Unique codename for the deal.",
+                    "type": "string"
+                },
+                "dealStr": {
+                    "description": "Serialized deal detail portion.",
+                    "type": "string"
+                },
+                "serializedColumn": {
+                    "description": "Column that contains the serialized deal detail portion",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SigningKeyPossessorProto": {
+            "description": "Represents a principal who possesses a signing key corresponding to the\nverification key described here.",
+            "id": "SigningKeyPossessorProto",
+            "properties": {
+                "keymasterKeyType": {
+                    "description": "This value must be from the KeyMetadata.Type enum in keymaster.proto",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "serializedVerificationKey": {
+                    "description": "The actual verification key bytes corresponding to the above type",
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SimpleSecretHolderProto": {
+            "description": "Represents a principal which possesses a particular, presumably\nsecret, string.  Useful for things like \"auth keys,\" used for\nanonymous sharing. Since representing this principal with the actual\nsecret included reveals the secret, it's best if the requisite condition is\nenforced in some other way, for example via Keystore wrapping attributes\n(Keystore will unwrap only if the specified secret, aka \"attribute\",\nis presented). All that's stored here is an identifying label.",
+            "id": "SimpleSecretHolderProto",
+            "properties": {
+                "label": {
+                    "$ref": "SimpleSecretLabelProto",
+                    "description": "A descriptive label to help identify a relevant ACL entry or\notherwise disambiguate this instance."
+                }
+            },
+            "type": "object"
+        },
+        "SimpleSecretLabelProto": {
+            "description": "SimpleSecretProto (in authenticator.proto) and SimpleSecretHolderProto\n(below) share the notion of a \"label\", which identifies a particular secret\nwithout (hopefully) revealing the secret.\n\nNote that a SimpleSecretLabel only disambiguates between secrets used to\nget access to some particular object.  Two different secrets that apply to\ntwo different objects could have the same label.  For example, in the\ncommon sharing model, each object has no more than one \"auth key\".\nTherefore, the label for an auth key simply has type = AUTH_KEY with no\nadditional information.\n\nIn theory, we could add some sort of resource ID to SimpleSecretLabel to\nmake it more explicit.  However, in practice, this is never really needed.\nA SimpleSecret for one object is never used to authorize a request on some\nother object, so there is no ambiguity.  Also, since SimpleSecrets must\nobviously be unguessable, there is no risk that a SimpleSecret intended\nfor one object will accidentally grant access to another.",
+            "id": "SimpleSecretLabelProto",
+            "properties": {
+                "capabilityId": {
+                    "description": "***DEPRECATED (3-Oct-2011) ***\nThis field should be deleted when code stops using CAP_TOKEN labels.\n\nUsed when type = CAP_TOKEN.\nWhen a CAP_TOKEN label appears in a SimpleSecretHolder Principal,\n|capability_id| must be filled in to identify one of the capabilities on\nthe ACL.  When a CAP_TOKEN label appears in a SimpleSecret Authenticator,\nit is NOT necessary to fill in |capability_id| -- ACL Service will find\nthe ID by searching all capabilities on the ACL for one associated with\nthe token given by the SimpleSecret's secret data.  If |capability_id| is\nspecified, though, then the Authenticator will only be accepted if it\nactually matches that particular token ID.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "genericLabel": {
+                    "description": "Used when type = GENERIC_SECRET",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "inviteId": {
+                    "description": "Used when type == INVITE.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "This is optional because required enums cannot be extended.",
+                    "enum": [
+                        "INVALID",
+                        "AUTH_KEY",
+                        "INVITE",
+                        "GENERIC_SECRET",
+                        "CAP_TOKEN",
+                        "REKE"
+                    ],
+                    "enumDescriptions": [
+                        "Used as a default value.",
+                        "The singleton auth key for a common-sharing ACL.  No other fields of\nSimpleSecretLabelProto need to be filled in, since there is only one of\nthese per ACL.  The corresponding secret is the auth key encoded in\n64-bit big-endian.",
+                        "A common-sharing invite token.  |invite_id| (below) must be set to\nidentify the invite.  The corresponding secret is the SecretMaterial, as\ndefined by InviteToken.SecretMaterial in acl.proto, encoded in 64-bit\nbig-endian.  If there is no SecretMaterial, the secret should be omitted;\nin this case the invite ID itself is the secret, which is less secure.",
+                        "A generic secret value. Do not use this if any more specific type is\nappropriate.",
+                        "***DEPRECATED (3-Oct-2011)***\nUse the new CapTokenProto and CapTokenHolderProto instead.\n\nA capability token.  The corresponding secret is an arbitrary-length\nrandom byte string (recommended: 128 bits).  |capability_id| may be\nfilled in (see below).\n\nSee CapTokenMetadata in acl.proto.",
+                        "Identifies a principal that can perform a successful REKE handshake.\n\nThe holder is not authenticated by presenting a SimpleSecretProto, but\nrather by knowing either the REKE resumption ticket secret or the private\nkey corresponding to a public key specified outside the PrincipalProto.\nFor more information, see: http://goto.google.com/loas2cert"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SocialGraphNodeProto": {
+            "description": "Represents a user pseudonym.  Pseudonyms are linked accounts on Google and\nthird-party services (e.g. YouTube or Twitter) and are described by a Social\nGraph Node.",
+            "id": "SocialGraphNodeProto",
+            "properties": {
+                "sgnDomain": {
+                    "description": "The fields from ccc/socialgraph/socialgraphnode.proto:SgnNode that uniquely\nidentify a social graph node.  The 'ident' field is not included here\nbecause its value can be changed.",
+                    "type": "string"
+                },
+                "sgnPk": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Sponsor": {
+            "description": "Message containing details about a deal sponsor.\nNext ID: 5",
+            "id": "Sponsor",
+            "properties": {
+                "firstName": {
+                    "description": "First name of the sponsor.",
+                    "type": "string"
+                },
+                "lastName": {
+                    "description": "Last name of the sponsor.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "Type of the sponsorship.",
+                    "enum": [
+                        "UNKNOWN_SPONSOR_TYPE",
+                        "DEAL_SPONSOR_SPONSOR_TYPE",
+                        "PRODUCT_LEAD_SPONSOR_TYPE",
+                        "ENG_LEAD_SPONSOR_TYPE"
+                    ],
+                    "enumDescriptions": [
+                        "Not enough information.",
+                        "Business sponsor.",
+                        "Product lead.",
+                        "Engineer lead."
+                    ],
+                    "type": "string"
+                },
+                "username": {
+                    "description": "Unique username of the sponsor.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SpreadsheetsDataRequest": {
+            "description": "Request message for SpreadsheetsDataService.GetSpreadsheetsData",
+            "id": "SpreadsheetsDataRequest",
+            "properties": {
+                "sheetIndex": {
+                    "description": "Index of the sheet itself within the spreadsheet.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "sheetUrl": {
+                    "description": "Url of the spreadsheet to be ingested.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SpreadsheetsDataResponse": {
+            "description": "Response message for SpreadsheetsDataService.GetSpreadsheetsData",
+            "id": "SpreadsheetsDataResponse",
+            "properties": {
+                "sheetContent": {
+                    "description": "Unique identifier.",
+                    "items": {
+                        "items": {
+                            "type": "any"
+                        },
+                        "type": "array"
+                    },
+                    "type": "array"
+                },
+                "statusCode": {
+                    "description": "Canonical code.",
+                    "enum": [
+                        "OK",
+                        "CANCELLED",
+                        "UNKNOWN",
+                        "INVALID_ARGUMENT",
+                        "DEADLINE_EXCEEDED",
+                        "NOT_FOUND",
+                        "ALREADY_EXISTS",
+                        "PERMISSION_DENIED",
+                        "UNAUTHENTICATED",
+                        "RESOURCE_EXHAUSTED",
+                        "FAILED_PRECONDITION",
+                        "ABORTED",
+                        "OUT_OF_RANGE",
+                        "UNIMPLEMENTED",
+                        "INTERNAL",
+                        "UNAVAILABLE",
+                        "DATA_LOSS"
+                    ],
+                    "enumDescriptions": [
+                        "Not an error; returned on success\n\nHTTP Mapping: 200 OK",
+                        "The operation was cancelled, typically by the caller.\n\nHTTP Mapping: 499 Client Closed Request",
+                        "Unknown error.  For example, this error may be returned when\na `Status` value received from another address space belongs to\nan error space that is not known in this address space.  Also\nerrors raised by APIs that do not return enough error information\nmay be converted to this error.\n\nHTTP Mapping: 500 Internal Server Error",
+                        "The client specified an invalid argument.  Note that this differs\nfrom `FAILED_PRECONDITION`.  `INVALID_ARGUMENT` indicates arguments\nthat are problematic regardless of the state of the system\n(e.g., a malformed file name).\n\nHTTP Mapping: 400 Bad Request",
+                        "The deadline expired before the operation could complete. For operations\nthat change the state of the system, this error may be returned\neven if the operation has completed successfully.  For example, a\nsuccessful response from a server could have been delayed long\nenough for the deadline to expire.\n\nHTTP Mapping: 504 Gateway Timeout",
+                        "Some requested entity (e.g., file or directory) was not found.\n\nNote to server developers: if a request is denied for an entire class\nof users, such as gradual feature rollout or undocumented whitelist,\n`NOT_FOUND` may be used. If a request is denied for some users within\na class of users, such as user-based access control, `PERMISSION_DENIED`\nmust be used.\n\nHTTP Mapping: 404 Not Found",
+                        "The entity that a client attempted to create (e.g., file or directory)\nalready exists.\n\nHTTP Mapping: 409 Conflict",
+                        "The caller does not have permission to execute the specified\noperation. `PERMISSION_DENIED` must not be used for rejections\ncaused by exhausting some resource (use `RESOURCE_EXHAUSTED`\ninstead for those errors). `PERMISSION_DENIED` must not be\nused if the caller can not be identified (use `UNAUTHENTICATED`\ninstead for those errors). This error code does not imply the\nrequest is valid or the requested entity exists or satisfies\nother pre-conditions.\n\nHTTP Mapping: 403 Forbidden",
+                        "The request does not have valid authentication credentials for the\noperation.\n\nHTTP Mapping: 401 Unauthorized",
+                        "Some resource has been exhausted, perhaps a per-user quota, or\nperhaps the entire file system is out of space.\n\nHTTP Mapping: 429 Too Many Requests",
+                        "The operation was rejected because the system is not in a state\nrequired for the operation's execution.  For example, the directory\nto be deleted is non-empty, an rmdir operation is applied to\na non-directory, etc.\n\nService implementors can use the following guidelines to decide\nbetween `FAILED_PRECONDITION`, `ABORTED`, and `UNAVAILABLE`:\n (a) Use `UNAVAILABLE` if the client can retry just the failing call.\n (b) Use `ABORTED` if the client should retry at a higher level\n     (e.g., when a client-specified test-and-set fails, indicating the\n     client should restart a read-modify-write sequence).\n (c) Use `FAILED_PRECONDITION` if the client should not retry until\n     the system state has been explicitly fixed.  E.g., if an \"rmdir\"\n     fails because the directory is non-empty, `FAILED_PRECONDITION`\n     should be returned since the client should not retry unless\n     the files are deleted from the directory.\n\nHTTP Mapping: 400 Bad Request",
+                        "The operation was aborted, typically due to a concurrency issue such as\na sequencer check failure or transaction abort.\n\nSee the guidelines above for deciding between `FAILED_PRECONDITION`,\n`ABORTED`, and `UNAVAILABLE`.\n\nHTTP Mapping: 409 Conflict",
+                        "The operation was attempted past the valid range.  E.g., seeking or\nreading past end-of-file.\n\nUnlike `INVALID_ARGUMENT`, this error indicates a problem that may\nbe fixed if the system state changes. For example, a 32-bit file\nsystem will generate `INVALID_ARGUMENT` if asked to read at an\noffset that is not in the range [0,2^32-1], but it will generate\n`OUT_OF_RANGE` if asked to read from an offset past the current\nfile size.\n\nThere is a fair bit of overlap between `FAILED_PRECONDITION` and\n`OUT_OF_RANGE`.  We recommend using `OUT_OF_RANGE` (the more specific\nerror) when it applies so that callers who are iterating through\na space can easily look for an `OUT_OF_RANGE` error to detect when\nthey are done.\n\nHTTP Mapping: 400 Bad Request",
+                        "The operation is not implemented or is not supported/enabled in this\nservice.\n\nHTTP Mapping: 501 Not Implemented",
+                        "Internal errors.  This means that some invariants expected by the\nunderlying system have been broken.  This error code is reserved\nfor serious errors.\n\nHTTP Mapping: 500 Internal Server Error",
+                        "The service is currently unavailable.  This is most likely a\ntransient condition, which can be corrected by retrying with\na backoff. Note that it is not always safe to retry\nnon-idempotent operations.\n\nSee the guidelines above for deciding between `FAILED_PRECONDITION`,\n`ABORTED`, and `UNAVAILABLE`.\n\nHTTP Mapping: 503 Service Unavailable",
+                        "Unrecoverable data loss or corruption.\n\nHTTP Mapping: 500 Internal Server Error"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SquareProto": {
+            "description": "Represents the set of members (of a given type) in a Google+ Square\n(see http://go/squares).\nA Square with default member_type is currently (1/2012) identical to the\nGaiaGroup with the same ID, but that is expected to change soon\n(see http://go/superglue).\n\nSupport for this principal type is currently (1/2012) incomplete --\ne.g., Keystore does not support it yet (see b/5703421).",
+            "id": "SquareProto",
+            "properties": {
+                "memberType": {
+                    "description": "The type of Square members to consider, e.g. \"all members\" vs. \"owners\"\nvs. \"admins\".  These are defined by legacy_relation_id values in\nsocial.graph.storage.EdgeTypeEnum.EdgeType enum options in\nsocial/graph/storage/proto/id.proto.\nSee square.pb (defined in\nproduction/config/cdd/socialgraph/mixer_config/prod/node_type_config) for\nall valid edge types associated with square.\nCurrently required.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "squareId": {
+                    "description": "Currently required.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TargetTeam": {
+            "description": "Message containing the company's target team.\nNext ID: 2",
+            "id": "TargetTeam",
+            "properties": {
+                "names": {
+                    "description": "A list of all names of the persons in target team.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateDealRequest": {
+            "description": "Request message for updating information for already created deal.",
+            "id": "UpdateDealRequest",
+            "properties": {
+                "deal": {
+                    "$ref": "Deal",
+                    "description": "Deal data message that needs to be updated."
+                },
+                "updateMask": {
+                    "description": "Field mask listing fields that need to be updated.",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "VersionInfo": {
+            "description": "Entity version info (embedded in each entity)",
+            "id": "VersionInfo",
+            "properties": {
+                "createdBy": {
+                    "$ref": "PrincipalProto"
+                },
+                "creationTimestampMs": {
+                    "format": "int64",
+                    "type": "string"
+                },
+                "lastUpdateBy": {
+                    "$ref": "PrincipalProto"
+                },
+                "lastUpdateTimestampMs": {
+                    "format": "int64",
+                    "type": "string"
+                },
+                "operation": {
+                    "enum": [
+                        "INSERT",
+                        "UPDATE",
+                        "DELETE"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "uniqueId": {
+                    "description": "Unique id which identifies the actual task which created/modified the\nrecord. This is used to detect cases where the storage client reports a\nfailure when the operation succeeded on the server side.",
+                    "type": "string"
+                },
+                "version": {
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "YoutubeUserProto": {
+            "id": "YoutubeUserProto",
+            "properties": {
+                "youtubeUserId": {
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ZwiebackSessionProto": {
+            "description": "See go/zwieback. New uses of Zwieback sessions must be approved via\ngo/zwieback-request.",
+            "id": "ZwiebackSessionProto",
+            "properties": {
+                "zwiebackSessionId": {
+                    "format": "uint64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Alkali Mati Knowledge Base Private API (UAT)",
+    "version": "v1",
+    "version_module": true
+}

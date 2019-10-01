@@ -1,0 +1,2617 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/cloud-platform": {
+                    "description": "View and manage your data across Google Cloud Platform services"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://dev-mediaaccess.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Cloud Video Access",
+    "description": "The Google Cloud Media Access APIs.",
+    "discoveryVersion": "v1",
+    "documentationLink": "https://cloud.google.com/solutions/media-entertainment",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "dev_mediaaccess_sandbox:v1alpha",
+    "kind": "discovery#restDescription",
+    "name": "dev_mediaaccess_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "projects": {
+            "methods": {
+                "entitlement": {
+                    "description": "Check if a user is entitled re-directly",
+                    "flatPath": "v1alpha/projects/{projectsId}/entitlement",
+                    "httpMethod": "GET",
+                    "id": "dev_mediaaccess_sandbox.projects.entitlement",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "anvack": {
+                            "description": "Anvato access key identifying media provider configuration",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Target resource for entitlement check",
+                            "location": "path",
+                            "pattern": "^projects/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "user.deviceId": {
+                            "description": "The device serial number",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "user.deviceType": {
+                            "description": "The device type",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "user.geoLocation.latlng.latitude": {
+                            "description": "The latitude in degrees. It must be in the range [-90.0, +90.0].",
+                            "format": "double",
+                            "location": "query",
+                            "type": "number"
+                        },
+                        "user.geoLocation.latlng.longitude": {
+                            "description": "The longitude in degrees. It must be in the range [-180.0, +180.0].",
+                            "format": "double",
+                            "location": "query",
+                            "type": "number"
+                        },
+                        "user.geoLocation.zipcode": {
+                            "description": "The location zip code",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "user.mvpd": {
+                            "description": "Multichannel video programming distributor",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "user.serviceLocation.latlng.latitude": {
+                            "description": "The latitude in degrees. It must be in the range [-90.0, +90.0].",
+                            "format": "double",
+                            "location": "query",
+                            "type": "number"
+                        },
+                        "user.serviceLocation.latlng.longitude": {
+                            "description": "The longitude in degrees. It must be in the range [-180.0, +180.0].",
+                            "format": "double",
+                            "location": "query",
+                            "type": "number"
+                        },
+                        "user.serviceLocation.zipcode": {
+                            "description": "The location zip code",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1alpha/{+name}/entitlement",
+                    "response": {
+                        "$ref": "GoogleCloudVideoAccessV1alpha__CheckEntitlementResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                },
+                "esni": {
+                    "description": "Pushes metadata to ESNI service",
+                    "flatPath": "v1alpha/projects/{projectsId}/esni",
+                    "httpMethod": "POST",
+                    "id": "dev_mediaaccess_sandbox.projects.esni",
+                    "parameterOrder": [
+                        "parent"
+                    ],
+                    "parameters": {
+                        "parent": {
+                            "description": "Required. Project Id",
+                            "location": "path",
+                            "pattern": "^projects/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1alpha/{+parent}/esni",
+                    "request": {
+                        "$ref": "GoogleCloudVideoAccessV1alpha__EsniIngestMetadata"
+                    },
+                    "response": {
+                        "$ref": "GoogleCloudVideoAccessV1alpha__EsniIngestMetadata"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                },
+                "getResolveLocation": {
+                    "description": "Gets the location details for the given location parameters",
+                    "flatPath": "v1alpha/projects/{projectsId}:resolveLocation",
+                    "httpMethod": "GET",
+                    "id": "dev_mediaaccess_sandbox.projects.getResolveLocation",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "ip": {
+                            "description": "The IP address for which the location details are requested",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "latlng.latitude": {
+                            "description": "The latitude in degrees. It must be in the range [-90.0, +90.0].",
+                            "format": "double",
+                            "location": "query",
+                            "type": "number"
+                        },
+                        "latlng.longitude": {
+                            "description": "The longitude in degrees. It must be in the range [-180.0, +180.0].",
+                            "format": "double",
+                            "location": "query",
+                            "type": "number"
+                        },
+                        "name": {
+                            "description": "Required. Project Id",
+                            "location": "path",
+                            "pattern": "^projects/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "zipcode": {
+                            "description": "The zip code of the location",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1alpha/{+name}:resolveLocation",
+                    "response": {
+                        "$ref": "GoogleCloudVideoAccessV1alpha__LocationDetails"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                },
+                "isEntitled": {
+                    "description": "Check if a user is entitled re-directly",
+                    "flatPath": "v1alpha/projects/{projectsId}:isEntitled",
+                    "httpMethod": "POST",
+                    "id": "dev_mediaaccess_sandbox.projects.isEntitled",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Target resource for entitlement check",
+                            "location": "path",
+                            "pattern": "^projects/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1alpha/{+name}:isEntitled",
+                    "request": {
+                        "$ref": "GoogleCloudVideoAccessV1alpha__CheckEntitlementRequest"
+                    },
+                    "response": {
+                        "$ref": "GoogleCloudVideoAccessV1alpha__CheckEntitlementResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                }
+            },
+            "resources": {
+                "accessConfigs": {
+                    "methods": {
+                        "create": {
+                            "description": "Creates access configuration for the specified project",
+                            "flatPath": "v1alpha/projects/{projectsId}/accessConfigs",
+                            "httpMethod": "POST",
+                            "id": "dev_mediaaccess_sandbox.projects.accessConfigs.create",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "The project where the access config will be created.",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+parent}/accessConfigs",
+                            "request": {
+                                "$ref": "GoogleCloudVideoAccessV1alpha__AccessConfig"
+                            },
+                            "response": {
+                                "$ref": "GoogleCloudVideoAccessV1alpha__AccessConfig"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "delete": {
+                            "description": "Deletes access configuration for the specified project",
+                            "flatPath": "v1alpha/projects/{projectsId}/accessConfigs/{accessConfigsId}",
+                            "httpMethod": "DELETE",
+                            "id": "dev_mediaaccess_sandbox.projects.accessConfigs.delete",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The project id",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/accessConfigs/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+name}",
+                            "response": {
+                                "$ref": "GoogleProtobuf__Empty"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "get": {
+                            "description": "Gets access configuration for the specified project",
+                            "flatPath": "v1alpha/projects/{projectsId}/accessConfigs/{accessConfigsId}",
+                            "httpMethod": "GET",
+                            "id": "dev_mediaaccess_sandbox.projects.accessConfigs.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The project id",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/accessConfigs/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+name}",
+                            "response": {
+                                "$ref": "GoogleCloudVideoAccessV1alpha__AccessConfig"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "patch": {
+                            "description": "Updates access configuration for the specified project",
+                            "flatPath": "v1alpha/projects/{projectsId}/accessConfigs/{accessConfigsId}",
+                            "httpMethod": "PATCH",
+                            "id": "dev_mediaaccess_sandbox.projects.accessConfigs.patch",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Project id",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/accessConfigs/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "updateMask": {
+                                    "description": "The mask used when doing a partial update.",
+                                    "format": "google-fieldmask",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+name}",
+                            "request": {
+                                "$ref": "GoogleCloudVideoAccessV1alpha__AccessConfig"
+                            },
+                            "response": {
+                                "$ref": "GoogleCloudVideoAccessV1alpha__AccessConfig"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        }
+                    }
+                },
+                "channels": {
+                    "methods": {
+                        "entitlement": {
+                            "description": "Checks if a user is entitled to access a channel",
+                            "flatPath": "v1alpha/projects/{projectsId}/channels/{channelsId}/entitlement",
+                            "httpMethod": "GET",
+                            "id": "dev_mediaaccess_sandbox.projects.channels.entitlement",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "anvack": {
+                                    "description": "Anvato access key identifying media provider configuration",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "description": "Target resource for entitlement check",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/channels/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "user.deviceId": {
+                                    "description": "The device serial number",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "user.deviceType": {
+                                    "description": "The device type",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "user.geoLocation.latlng.latitude": {
+                                    "description": "The latitude in degrees. It must be in the range [-90.0, +90.0].",
+                                    "format": "double",
+                                    "location": "query",
+                                    "type": "number"
+                                },
+                                "user.geoLocation.latlng.longitude": {
+                                    "description": "The longitude in degrees. It must be in the range [-180.0, +180.0].",
+                                    "format": "double",
+                                    "location": "query",
+                                    "type": "number"
+                                },
+                                "user.geoLocation.zipcode": {
+                                    "description": "The location zip code",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "user.mvpd": {
+                                    "description": "Multichannel video programming distributor",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "user.serviceLocation.latlng.latitude": {
+                                    "description": "The latitude in degrees. It must be in the range [-90.0, +90.0].",
+                                    "format": "double",
+                                    "location": "query",
+                                    "type": "number"
+                                },
+                                "user.serviceLocation.latlng.longitude": {
+                                    "description": "The longitude in degrees. It must be in the range [-180.0, +180.0].",
+                                    "format": "double",
+                                    "location": "query",
+                                    "type": "number"
+                                },
+                                "user.serviceLocation.zipcode": {
+                                    "description": "The location zip code",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+name}/entitlement",
+                            "response": {
+                                "$ref": "GoogleCloudVideoAccessV1alpha__CheckEntitlementResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "getChannelMetadata": {
+                            "description": "Gets the metadata of a channel",
+                            "flatPath": "v1alpha/projects/{projectsId}/channels/{channelsId}",
+                            "httpMethod": "POST",
+                            "id": "dev_mediaaccess_sandbox.projects.channels.getChannelMetadata",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Channel id",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/channels/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+name}",
+                            "request": {
+                                "$ref": "GoogleCloudVideoAccessV1alpha__GetChannelMetadataRequest"
+                            },
+                            "response": {
+                                "$ref": "GoogleCloudVideoAccessV1alpha__ChannelMetadata"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "getSchedule": {
+                            "description": "Gets the schedule metadata of a channel",
+                            "flatPath": "v1alpha/projects/{projectsId}/channels/{channelsId}:getSchedule",
+                            "httpMethod": "POST",
+                            "id": "dev_mediaaccess_sandbox.projects.channels.getSchedule",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The channel id",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/channels/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+name}:getSchedule",
+                            "request": {
+                                "$ref": "GoogleCloudVideoAccessV1alpha__GetScheduleMetadataRequest"
+                            },
+                            "response": {
+                                "$ref": "GoogleCloudVideoAccessV1alpha__ScheduleMetadata"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "getTve": {
+                            "description": "Gets the TVE metadata for a channel",
+                            "flatPath": "v1alpha/projects/{projectsId}/channels/{channelsId}:getTve",
+                            "httpMethod": "POST",
+                            "id": "dev_mediaaccess_sandbox.projects.channels.getTve",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Identifier for the TVE Object resource\nin the form \"/projects/{projectNumber}/channels/{channel_id}\"",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/channels/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+name}:getTve",
+                            "request": {
+                                "$ref": "GoogleCloudVideoAccessV1alpha__GetTveMetadataRequest"
+                            },
+                            "response": {
+                                "$ref": "GoogleCloudVideoAccessV1alpha__TveMetadata"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "isEntitled": {
+                            "description": "Checks if a user is entitled to access a channel",
+                            "flatPath": "v1alpha/projects/{projectsId}/channels/{channelsId}:isEntitled",
+                            "httpMethod": "POST",
+                            "id": "dev_mediaaccess_sandbox.projects.channels.isEntitled",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Target resource for entitlement check",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/channels/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+name}:isEntitled",
+                            "request": {
+                                "$ref": "GoogleCloudVideoAccessV1alpha__CheckEntitlementRequest"
+                            },
+                            "response": {
+                                "$ref": "GoogleCloudVideoAccessV1alpha__CheckEntitlementResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        }
+                    }
+                },
+                "esni": {
+                    "methods": {
+                        "get": {
+                            "description": "Gets ESNI metadata",
+                            "flatPath": "v1alpha/projects/{projectsId}/esni/{esniId}",
+                            "httpMethod": "GET",
+                            "id": "dev_mediaaccess_sandbox.projects.esni.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Required. Project_id + reference_id\nThe reference_id refers to an ESNI element id within a project\n  e.g. 'projects/cust_proj_x/esni/audiences/companyX/devices/any",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/esni/.+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+name}",
+                            "response": {
+                                "$ref": "GoogleCloudVideoAccessV1alpha__EsniMetadata"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        }
+                    }
+                },
+                "events": {
+                    "methods": {
+                        "entitlement": {
+                            "description": "Checks if a user is entitled to access a event",
+                            "flatPath": "v1alpha/projects/{projectsId}/events/{eventsId}/entitlement",
+                            "httpMethod": "GET",
+                            "id": "dev_mediaaccess_sandbox.projects.events.entitlement",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "anvack": {
+                                    "description": "Anvato access key identifying media provider configuration",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "description": "Target resource for entitlement check",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/events/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "user.deviceId": {
+                                    "description": "The device serial number",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "user.deviceType": {
+                                    "description": "The device type",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "user.geoLocation.latlng.latitude": {
+                                    "description": "The latitude in degrees. It must be in the range [-90.0, +90.0].",
+                                    "format": "double",
+                                    "location": "query",
+                                    "type": "number"
+                                },
+                                "user.geoLocation.latlng.longitude": {
+                                    "description": "The longitude in degrees. It must be in the range [-180.0, +180.0].",
+                                    "format": "double",
+                                    "location": "query",
+                                    "type": "number"
+                                },
+                                "user.geoLocation.zipcode": {
+                                    "description": "The location zip code",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "user.mvpd": {
+                                    "description": "Multichannel video programming distributor",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "user.serviceLocation.latlng.latitude": {
+                                    "description": "The latitude in degrees. It must be in the range [-90.0, +90.0].",
+                                    "format": "double",
+                                    "location": "query",
+                                    "type": "number"
+                                },
+                                "user.serviceLocation.latlng.longitude": {
+                                    "description": "The longitude in degrees. It must be in the range [-180.0, +180.0].",
+                                    "format": "double",
+                                    "location": "query",
+                                    "type": "number"
+                                },
+                                "user.serviceLocation.zipcode": {
+                                    "description": "The location zip code",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+name}/entitlement",
+                            "response": {
+                                "$ref": "GoogleCloudVideoAccessV1alpha__CheckEntitlementResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "getEventMetadata": {
+                            "description": "Gets the metadata of a event",
+                            "flatPath": "v1alpha/projects/{projectsId}/events/{eventsId}",
+                            "httpMethod": "POST",
+                            "id": "dev_mediaaccess_sandbox.projects.events.getEventMetadata",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "event id or UPID",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/events/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+name}",
+                            "request": {
+                                "$ref": "GoogleCloudVideoAccessV1alpha__GetEventMetadataRequest"
+                            },
+                            "response": {
+                                "$ref": "GoogleCloudVideoAccessV1alpha__EventMetadata"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "isEntitled": {
+                            "description": "Checks if a user is entitled to access a event",
+                            "flatPath": "v1alpha/projects/{projectsId}/events/{eventsId}:isEntitled",
+                            "httpMethod": "POST",
+                            "id": "dev_mediaaccess_sandbox.projects.events.isEntitled",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Target resource for entitlement check",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/events/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+name}:isEntitled",
+                            "request": {
+                                "$ref": "GoogleCloudVideoAccessV1alpha__CheckEntitlementRequest"
+                            },
+                            "response": {
+                                "$ref": "GoogleCloudVideoAccessV1alpha__CheckEntitlementResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        }
+                    }
+                },
+                "playerConfigs": {
+                    "methods": {
+                        "get": {
+                            "description": "Gets the player configuration (aka. anvack configuration)",
+                            "flatPath": "v1alpha/projects/{projectsId}/playerConfigs/{playerConfigsId}",
+                            "httpMethod": "GET",
+                            "id": "dev_mediaaccess_sandbox.projects.playerConfigs.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Player config id, aka. anvack",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/playerConfigs/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+name}",
+                            "response": {
+                                "$ref": "GoogleCloudVideoAccessV1alpha__PlayerConfig"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        }
+                    }
+                },
+                "upids": {
+                    "methods": {
+                        "entitlement": {
+                            "description": "Checks if a user is entitled to access a upid",
+                            "flatPath": "v1alpha/projects/{projectsId}/upids/{upidsId}/entitlement",
+                            "httpMethod": "GET",
+                            "id": "dev_mediaaccess_sandbox.projects.upids.entitlement",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "anvack": {
+                                    "description": "Anvato access key identifying media provider configuration",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "description": "Target resource for entitlement check",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/upids/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "user.deviceId": {
+                                    "description": "The device serial number",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "user.deviceType": {
+                                    "description": "The device type",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "user.geoLocation.latlng.latitude": {
+                                    "description": "The latitude in degrees. It must be in the range [-90.0, +90.0].",
+                                    "format": "double",
+                                    "location": "query",
+                                    "type": "number"
+                                },
+                                "user.geoLocation.latlng.longitude": {
+                                    "description": "The longitude in degrees. It must be in the range [-180.0, +180.0].",
+                                    "format": "double",
+                                    "location": "query",
+                                    "type": "number"
+                                },
+                                "user.geoLocation.zipcode": {
+                                    "description": "The location zip code",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "user.mvpd": {
+                                    "description": "Multichannel video programming distributor",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "user.serviceLocation.latlng.latitude": {
+                                    "description": "The latitude in degrees. It must be in the range [-90.0, +90.0].",
+                                    "format": "double",
+                                    "location": "query",
+                                    "type": "number"
+                                },
+                                "user.serviceLocation.latlng.longitude": {
+                                    "description": "The longitude in degrees. It must be in the range [-180.0, +180.0].",
+                                    "format": "double",
+                                    "location": "query",
+                                    "type": "number"
+                                },
+                                "user.serviceLocation.zipcode": {
+                                    "description": "The location zip code",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+name}/entitlement",
+                            "response": {
+                                "$ref": "GoogleCloudVideoAccessV1alpha__CheckEntitlementResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "isEntitled": {
+                            "description": "Checks if a user is entitled to access a upid",
+                            "flatPath": "v1alpha/projects/{projectsId}/upids/{upidsId}:isEntitled",
+                            "httpMethod": "POST",
+                            "id": "dev_mediaaccess_sandbox.projects.upids.isEntitled",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Target resource for entitlement check",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/upids/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+name}:isEntitled",
+                            "request": {
+                                "$ref": "GoogleCloudVideoAccessV1alpha__CheckEntitlementRequest"
+                            },
+                            "response": {
+                                "$ref": "GoogleCloudVideoAccessV1alpha__CheckEntitlementResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        }
+                    }
+                },
+                "videos": {
+                    "methods": {
+                        "entitlement": {
+                            "description": "Checks if a user is entitled to access a video",
+                            "flatPath": "v1alpha/projects/{projectsId}/videos/{videosId}/entitlement",
+                            "httpMethod": "GET",
+                            "id": "dev_mediaaccess_sandbox.projects.videos.entitlement",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "anvack": {
+                                    "description": "Anvato access key identifying media provider configuration",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "description": "Target resource for entitlement check",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/videos/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "user.deviceId": {
+                                    "description": "The device serial number",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "user.deviceType": {
+                                    "description": "The device type",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "user.geoLocation.latlng.latitude": {
+                                    "description": "The latitude in degrees. It must be in the range [-90.0, +90.0].",
+                                    "format": "double",
+                                    "location": "query",
+                                    "type": "number"
+                                },
+                                "user.geoLocation.latlng.longitude": {
+                                    "description": "The longitude in degrees. It must be in the range [-180.0, +180.0].",
+                                    "format": "double",
+                                    "location": "query",
+                                    "type": "number"
+                                },
+                                "user.geoLocation.zipcode": {
+                                    "description": "The location zip code",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "user.mvpd": {
+                                    "description": "Multichannel video programming distributor",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "user.serviceLocation.latlng.latitude": {
+                                    "description": "The latitude in degrees. It must be in the range [-90.0, +90.0].",
+                                    "format": "double",
+                                    "location": "query",
+                                    "type": "number"
+                                },
+                                "user.serviceLocation.latlng.longitude": {
+                                    "description": "The longitude in degrees. It must be in the range [-180.0, +180.0].",
+                                    "format": "double",
+                                    "location": "query",
+                                    "type": "number"
+                                },
+                                "user.serviceLocation.zipcode": {
+                                    "description": "The location zip code",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+name}/entitlement",
+                            "response": {
+                                "$ref": "GoogleCloudVideoAccessV1alpha__CheckEntitlementResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "getVideoMetadata": {
+                            "description": "Gets the metadata of a VOD",
+                            "flatPath": "v1alpha/projects/{projectsId}/videos/{videosId}",
+                            "httpMethod": "POST",
+                            "id": "dev_mediaaccess_sandbox.projects.videos.getVideoMetadata",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The video id",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/videos/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+name}",
+                            "request": {
+                                "$ref": "GoogleCloudVideoAccessV1alpha__GetVideoMetadataRequest"
+                            },
+                            "response": {
+                                "$ref": "GoogleCloudVideoAccessV1alpha__VideoMetadata"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "isEntitled": {
+                            "description": "Checks if a user is entitled to access a video",
+                            "flatPath": "v1alpha/projects/{projectsId}/videos/{videosId}:isEntitled",
+                            "httpMethod": "POST",
+                            "id": "dev_mediaaccess_sandbox.projects.videos.isEntitled",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Target resource for entitlement check",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/videos/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+name}:isEntitled",
+                            "request": {
+                                "$ref": "GoogleCloudVideoAccessV1alpha__CheckEntitlementRequest"
+                            },
+                            "response": {
+                                "$ref": "GoogleCloudVideoAccessV1alpha__CheckEntitlementResponse"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        }
+                    }
+                },
+                "zipcodeEncKeys": {
+                    "methods": {
+                        "create": {
+                            "description": "Creates a zipcode encryption key for the specified project",
+                            "flatPath": "v1alpha/projects/{projectsId}/zipcodeEncKeys",
+                            "httpMethod": "POST",
+                            "id": "dev_mediaaccess_sandbox.projects.zipcodeEncKeys.create",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "The project where the zipcode encryption key will be created.",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+parent}/zipcodeEncKeys",
+                            "request": {
+                                "$ref": "GoogleCloudVideoAccessV1alpha__ZipcodeEncKey"
+                            },
+                            "response": {
+                                "$ref": "GoogleCloudVideoAccessV1alpha__ZipcodeEncKey"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "delete": {
+                            "description": "Deletes a zipcode encryption key for the specified project",
+                            "flatPath": "v1alpha/projects/{projectsId}/zipcodeEncKeys/{zipcodeEncKeysId}",
+                            "httpMethod": "DELETE",
+                            "id": "dev_mediaaccess_sandbox.projects.zipcodeEncKeys.delete",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The Adobe Pass certificate name",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/zipcodeEncKeys/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+name}",
+                            "response": {
+                                "$ref": "GoogleProtobuf__Empty"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "get": {
+                            "description": "Gets a zipcode encryption key for the specified project",
+                            "flatPath": "v1alpha/projects/{projectsId}/zipcodeEncKeys/{zipcodeEncKeysId}",
+                            "httpMethod": "GET",
+                            "id": "dev_mediaaccess_sandbox.projects.zipcodeEncKeys.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The Adobe Pass certificate name",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/zipcodeEncKeys/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+name}",
+                            "response": {
+                                "$ref": "GoogleCloudVideoAccessV1alpha__ZipcodeEncKey"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        },
+                        "patch": {
+                            "description": "Updates a zipcode encryption key for the specified project",
+                            "flatPath": "v1alpha/projects/{projectsId}/zipcodeEncKeys/{zipcodeEncKeysId}",
+                            "httpMethod": "PATCH",
+                            "id": "dev_mediaaccess_sandbox.projects.zipcodeEncKeys.patch",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The key name",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/zipcodeEncKeys/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "updateMask": {
+                                    "description": "The mask used when doing a partial update.",
+                                    "format": "google-fieldmask",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha/{+name}",
+                            "request": {
+                                "$ref": "GoogleCloudVideoAccessV1alpha__ZipcodeEncKey"
+                            },
+                            "response": {
+                                "$ref": "GoogleCloudVideoAccessV1alpha__ZipcodeEncKey"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190717",
+    "rootUrl": "https://dev-mediaaccess.sandbox.googleapis.com/",
+    "schemas": {
+        "GoogleCloudVideoAccessV1alpha_AccessConfigVodConfig_StitcherConfig": {
+            "description": "Message of ads stitcher server configuration",
+            "id": "GoogleCloudVideoAccessV1alpha_AccessConfigVodConfig_StitcherConfig",
+            "properties": {
+                "adTagDefaults": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Default value for ad tag parameters",
+                    "type": "object"
+                },
+                "adTagKeyRemappings": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "The remapping of ad tag parameters",
+                    "type": "object"
+                },
+                "adTagRequestType": {
+                    "description": "Ad tag type",
+                    "type": "string"
+                },
+                "adTagServer": {
+                    "description": "The type of ad tag server, e.g. \"mmp\", \"freewheel\"",
+                    "type": "string"
+                },
+                "adTagTemplate": {
+                    "description": "Ad tag url template",
+                    "type": "string"
+                },
+                "stitcherHost": {
+                    "description": "Stitcher endpoint, e.g. \"vod-prod1.nbc.anvato.net\"",
+                    "type": "string"
+                },
+                "stitcherProtocol": {
+                    "description": "Stitcher protocol, e.g. \"http\"",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha_AccessConfig_DataSource": {
+            "description": "Configuration of the data source",
+            "id": "GoogleCloudVideoAccessV1alpha_AccessConfig_DataSource",
+            "properties": {
+                "bucket": {
+                    "description": "The bucket name",
+                    "type": "string"
+                },
+                "cacheExpiration": {
+                    "description": "Cache expiration time in ms",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "keyTemplate": {
+                    "description": "The object path template",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "Data source type",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha_AccessConfig_TveConfig": {
+            "description": "Message for Channel TVE configuration",
+            "id": "GoogleCloudVideoAccessV1alpha_AccessConfig_TveConfig",
+            "properties": {
+                "fallbackStation": {
+                    "description": "The geo fallback station",
+                    "type": "string"
+                },
+                "logoUrl": {
+                    "description": "The logo url of the TVE channel",
+                    "type": "string"
+                },
+                "tveChannels": {
+                    "description": "The list of tve channels in the MCP",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "websiteUrl": {
+                    "description": "The website url of the TVE channel",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha_AccessConfig_VodConfig": {
+            "description": "Message for VOD configuration",
+            "id": "GoogleCloudVideoAccessV1alpha_AccessConfig_VodConfig",
+            "properties": {
+                "enforceGeoRestrictions": {
+                    "description": "If geo restrictions need to be enforced for VOD",
+                    "type": "boolean"
+                },
+                "signManifestUrl": {
+                    "description": "Indicate if the raw VOD manifest url needs to be signed",
+                    "type": "boolean"
+                },
+                "stitcherConfigs": {
+                    "additionalProperties": {
+                        "$ref": "GoogleCloudVideoAccessV1alpha_AccessConfigVodConfig_StitcherConfig"
+                    },
+                    "description": "A map of stitcher configs indexed by config key",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha_Station_Rights": {
+            "description": "Object containing information on streaming and retrans rights",
+            "id": "GoogleCloudVideoAccessV1alpha_Station_Rights",
+            "properties": {
+                "reason": {
+                    "description": "Reason for granting or not granting the right",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "Boolean value that tells if the request can be granted the particualar\nright or not",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha_User_Location": {
+            "description": "Location info",
+            "id": "GoogleCloudVideoAccessV1alpha_User_Location",
+            "properties": {
+                "latlng": {
+                    "$ref": "GoogleType__LatLng",
+                    "description": "The location latitude and longitude"
+                },
+                "zipcode": {
+                    "description": "The location zip code",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha_VideoMetadataAdsDetails_AdSlot": {
+            "description": "The message to describe an ad slot\nAd slot can be used by ad-stitcher to dynamically insert ad to the VOD",
+            "id": "GoogleCloudVideoAccessV1alpha_VideoMetadataAdsDetails_AdSlot",
+            "properties": {
+                "duration": {
+                    "description": "The duration of the ad lost, in \"s.ms\" format",
+                    "format": "double",
+                    "type": "number"
+                },
+                "id": {
+                    "description": "The slot id",
+                    "type": "string"
+                },
+                "startOffset": {
+                    "description": "The start time of the ad slot, in \"s.ms\" format",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha_VideoMetadataPreview_PreviewMatrix": {
+            "description": "The specification of a preview matrix",
+            "id": "GoogleCloudVideoAccessV1alpha_VideoMetadataPreview_PreviewMatrix",
+            "properties": {
+                "matrixUrls": {
+                    "description": "The list of prview matrix relative urls",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "thumbnailHeight": {
+                    "description": "The height in pixels of each thumbnail",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "thumbnailWidth": {
+                    "description": "The width in pixels of each thumbnail",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha_VideoMetadataProfileDetails_AudioStreamProfile": {
+            "description": "The specification of the audio stream",
+            "id": "GoogleCloudVideoAccessV1alpha_VideoMetadataProfileDetails_AudioStreamProfile",
+            "properties": {
+                "channelCount": {
+                    "description": "The count of the audio channel",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "codec": {
+                    "description": "The audio codec",
+                    "type": "string"
+                },
+                "sampleRate": {
+                    "description": "The sample rate of the audio",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha_VideoMetadataProfileDetails_VideoStreamProfile": {
+            "description": "The specification of the video stream",
+            "id": "GoogleCloudVideoAccessV1alpha_VideoMetadataProfileDetails_VideoStreamProfile",
+            "properties": {
+                "bitrate": {
+                    "description": "The bitrate of the video in kbps",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "codec": {
+                    "description": "The video codec",
+                    "type": "string"
+                },
+                "frameRate": {
+                    "description": "The frame rate of the video",
+                    "type": "string"
+                },
+                "height": {
+                    "description": "The video height in pixel",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "highProfile": {
+                    "description": "Indicate whether video is encoded with high profile",
+                    "type": "boolean"
+                },
+                "width": {
+                    "description": "The video width in pixel",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha_VideoMetadata_AdsDetails": {
+            "description": "The details of the ads in the video",
+            "id": "GoogleCloudVideoAccessV1alpha_VideoMetadata_AdsDetails",
+            "properties": {
+                "adsCueFlag": {
+                    "description": "Indicate how DCS will return adbreaks information",
+                    "enum": [
+                        "ADS_CUE_FLAG_UNSPECIFIED",
+                        "CUE_IN_MANIFEST",
+                        "CUE_LINK",
+                        "CUE_JSON"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified cue flag",
+                        "Ads cue embedded is in manifest",
+                        "Url contains ads cue information",
+                        "Ads cue in Json format"
+                    ],
+                    "type": "string"
+                },
+                "midrollAdSlots": {
+                    "description": "The list of ad slots in the video",
+                    "items": {
+                        "$ref": "GoogleCloudVideoAccessV1alpha_VideoMetadataAdsDetails_AdSlot"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha_VideoMetadata_Caption": {
+            "description": "The caption info of the video",
+            "id": "GoogleCloudVideoAccessV1alpha_VideoMetadata_Caption",
+            "properties": {
+                "format": {
+                    "description": "The caption file format, e.g. vtt",
+                    "type": "string"
+                },
+                "language": {
+                    "description": "The caption language",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "The caption file url",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha_VideoMetadata_Preview": {
+            "description": "The preview info of the video",
+            "id": "GoogleCloudVideoAccessV1alpha_VideoMetadata_Preview",
+            "properties": {
+                "count": {
+                    "description": "The total number of thumbnails for preview",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "largeThumbnailMatrix": {
+                    "$ref": "GoogleCloudVideoAccessV1alpha_VideoMetadataPreview_PreviewMatrix",
+                    "description": "The dimension of 5 x 5 thumbnail matrix"
+                },
+                "prefixUrl": {
+                    "description": "The prefix url for each preview thumbnail",
+                    "type": "string"
+                },
+                "smallThumbnailMatrix": {
+                    "$ref": "GoogleCloudVideoAccessV1alpha_VideoMetadataPreview_PreviewMatrix",
+                    "description": "The dimension of 10 x 10 thumbnail matrix"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha_VideoMetadata_ProfileDetails": {
+            "description": "The profile datails of the source video",
+            "id": "GoogleCloudVideoAccessV1alpha_VideoMetadata_ProfileDetails",
+            "properties": {
+                "audioProfile": {
+                    "$ref": "GoogleCloudVideoAccessV1alpha_VideoMetadataProfileDetails_AudioStreamProfile",
+                    "description": "The spec of the audio stream"
+                },
+                "container": {
+                    "description": "The container of the video, e.g. mp4",
+                    "type": "string"
+                },
+                "fileMd5": {
+                    "description": "The md5 hash of the video file",
+                    "type": "string"
+                },
+                "fileSize": {
+                    "description": "The size of the video file",
+                    "type": "string"
+                },
+                "videoProfile": {
+                    "$ref": "GoogleCloudVideoAccessV1alpha_VideoMetadataProfileDetails_VideoStreamProfile",
+                    "description": "The spec of the video stream"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha_VideoMetadata_ProgramDetails": {
+            "description": "The details of the program",
+            "id": "GoogleCloudVideoAccessV1alpha_VideoMetadata_ProgramDetails",
+            "properties": {
+                "episode": {
+                    "description": "Video espisode number",
+                    "type": "string"
+                },
+                "programDescription": {
+                    "description": "Video program description",
+                    "type": "string"
+                },
+                "programName": {
+                    "description": "Video program name",
+                    "type": "string"
+                },
+                "season": {
+                    "description": "Video seaon name",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha_VideoMetadata_Recommendation": {
+            "description": "A recommended video that is related to the video",
+            "id": "GoogleCloudVideoAccessV1alpha_VideoMetadata_Recommendation",
+            "properties": {
+                "description": {
+                    "description": "The description of the recommended video",
+                    "type": "string"
+                },
+                "duration": {
+                    "description": "The duration of the recommend video",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "The id of the recommended video",
+                    "type": "string"
+                },
+                "imageUrl": {
+                    "description": "The image of the recommended video",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "The title of the recommended video",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha__AccessConfig": {
+            "description": "Message of the access configuration for the specified project",
+            "id": "GoogleCloudVideoAccessV1alpha__AccessConfig",
+            "properties": {
+                "gdtId": {
+                    "description": "Geo data table id",
+                    "type": "string"
+                },
+                "metadataMapping": {
+                    "additionalProperties": {
+                        "type": "any"
+                    },
+                    "description": "The config for derived metadata mapping",
+                    "type": "object"
+                },
+                "metadataSources": {
+                    "additionalProperties": {
+                        "$ref": "GoogleCloudVideoAccessV1alpha_AccessConfig_DataSource"
+                    },
+                    "description": "The GCS location of different metadata types",
+                    "type": "object"
+                },
+                "name": {
+                    "description": "Project id",
+                    "type": "string"
+                },
+                "ownerId": {
+                    "description": "The brand owner id inside a project",
+                    "type": "string"
+                },
+                "tveConfig": {
+                    "$ref": "GoogleCloudVideoAccessV1alpha_AccessConfig_TveConfig",
+                    "description": "TVE config for live streaming"
+                },
+                "vodConfig": {
+                    "$ref": "GoogleCloudVideoAccessV1alpha_AccessConfig_VodConfig",
+                    "description": "VOD config"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha__Ads": {
+            "description": "Ads information used by stitcher",
+            "id": "GoogleCloudVideoAccessV1alpha__Ads",
+            "properties": {
+                "adTagUrl": {
+                    "description": "An ad tag url to configure stitched ads for VOD",
+                    "type": "string"
+                },
+                "adsCueFlag": {
+                    "description": "Control how stitcher will return the ads cue for VOD",
+                    "enum": [
+                        "ADS_CUE_FLAG_UNSPECIFIED",
+                        "CUE_IN_MANIFEST",
+                        "CUE_LINK",
+                        "CUE_JSON"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified cue flag",
+                        "Ads cue embedded is in manifest",
+                        "Url contains ads cue information",
+                        "Ads cue in Json format"
+                    ],
+                    "type": "string"
+                },
+                "dfp": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "The info of DoubleClick for Publisher",
+                    "type": "object"
+                },
+                "freewheel": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "The info of Freewheel",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha__ChannelMetadata": {
+            "description": "Response message of the channel metadata",
+            "id": "GoogleCloudVideoAccessV1alpha__ChannelMetadata",
+            "properties": {
+                "backupStream": {
+                    "description": "The id of the backup stream",
+                    "type": "string"
+                },
+                "callsign": {
+                    "description": "The affiliate callsign of the channel",
+                    "type": "string"
+                },
+                "customMetadata": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "The channel's custom metadatas",
+                    "type": "object"
+                },
+                "derivedMetadata": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "The channel's derived metadatas, which are generated on the fly",
+                    "type": "object"
+                },
+                "failoverStream": {
+                    "description": "The id of the failover stream",
+                    "type": "string"
+                },
+                "imageUrl": {
+                    "description": "The url of the channel's image",
+                    "type": "string"
+                },
+                "kind": {
+                    "description": "Video type. Expect the value to be LIVE",
+                    "enum": [
+                        "VIDEO_TYPE_UNSPECIFIED",
+                        "LONG_FORM",
+                        "CLIP",
+                        "LIVE"
+                    ],
+                    "enumDescriptions": [
+                        "Invalid video Type",
+                        "Video-on-demand",
+                        "Video Clip",
+                        "Channel live streaming"
+                    ],
+                    "type": "string"
+                },
+                "logoUrl": {
+                    "description": "The url of the channel's logo",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Channel id",
+                    "type": "string"
+                },
+                "ownerId": {
+                    "description": "Channel owner id",
+                    "type": "string"
+                },
+                "primaryStream": {
+                    "description": "The id of the primary stream",
+                    "type": "string"
+                },
+                "streamInfos": {
+                    "description": "A list of channel's streams",
+                    "items": {
+                        "$ref": "GoogleCloudVideoAccessV1alpha__StreamInfo"
+                    },
+                    "type": "array"
+                },
+                "title": {
+                    "description": "The channel title",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha__CheckEntitlementRequest": {
+            "description": "Request message for checking user entitlement",
+            "id": "GoogleCloudVideoAccessV1alpha__CheckEntitlementRequest",
+            "properties": {
+                "anvack": {
+                    "description": "Anvato access key identifying media provider configuration",
+                    "type": "string"
+                },
+                "user": {
+                    "$ref": "GoogleCloudVideoAccessV1alpha__User",
+                    "description": "Information about the user/client requesting entitlement"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha__CheckEntitlementResponse": {
+            "description": "Response message for checking user titlement",
+            "id": "GoogleCloudVideoAccessV1alpha__CheckEntitlementResponse",
+            "properties": {
+                "entitled": {
+                    "description": "Indicate whether user is entitled to watch the video content",
+                    "type": "boolean"
+                },
+                "notEntitledReasons": {
+                    "description": "The list of reasons to explain why user is not entitled to watch",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha__EsniIngestMetadata": {
+            "id": "GoogleCloudVideoAccessV1alpha__EsniIngestMetadata",
+            "properties": {
+                "datatype": {
+                    "description": "Required. Datatype of the metadata",
+                    "enum": [
+                        "INGEST_DATA_TYPE_UNSPECIFIED",
+                        "EVENT",
+                        "VIDEO",
+                        "CHANNEL",
+                        "UPID",
+                        "SCHEDULE",
+                        "ACCESS_RULE",
+                        "CDN_ORIGIN",
+                        "ADTAG",
+                        "DRMKEY"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "metadata": {
+                    "description": "Metadata to be stored",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Required. Identifier of the metadata\nin form \"/projects/{projectNumber}/metadata/{metadata_id}\"",
+                    "type": "string"
+                },
+                "ownerId": {
+                    "description": "Required. Owner Id for the metadata",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha__EsniMetadata": {
+            "description": "Response message for ESNI pull",
+            "id": "GoogleCloudVideoAccessV1alpha__EsniMetadata",
+            "properties": {
+                "name": {
+                    "description": "Metadata name",
+                    "type": "string"
+                },
+                "xmlResponse": {
+                    "description": "ESNI in XML format",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha__EventMetadata": {
+            "description": "Response message of the event metadata",
+            "id": "GoogleCloudVideoAccessV1alpha__EventMetadata",
+            "properties": {
+                "callsign": {
+                    "description": "The affiliate callsign that this event belongs to",
+                    "type": "string"
+                },
+                "customMetadata": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "The map of the channel's custom metadatas",
+                    "type": "object"
+                },
+                "derivedMetadata": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "The map of the channel's derived metadatas, which are generated on the fly",
+                    "type": "object"
+                },
+                "description": {
+                    "description": "The event description",
+                    "type": "string"
+                },
+                "endTime": {
+                    "description": "The end time of the event",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "imageUrl": {
+                    "description": "The url of the event's image",
+                    "type": "string"
+                },
+                "kind": {
+                    "description": "Video type. Expect the value to be LIVE",
+                    "enum": [
+                        "VIDEO_TYPE_UNSPECIFIED",
+                        "LONG_FORM",
+                        "CLIP",
+                        "LIVE"
+                    ],
+                    "enumDescriptions": [
+                        "Invalid video Type",
+                        "Video-on-demand",
+                        "Video Clip",
+                        "Channel live streaming"
+                    ],
+                    "type": "string"
+                },
+                "logoUrl": {
+                    "description": "The url of the event\u2019s logo",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The event id",
+                    "type": "string"
+                },
+                "ownerId": {
+                    "description": "Event owner id",
+                    "type": "string"
+                },
+                "source": {
+                    "description": "The source of the event",
+                    "type": "string"
+                },
+                "startTime": {
+                    "description": "The start time of the event",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "streamInfos": {
+                    "description": "The details of the channel streaming information, including the streaming\nurls",
+                    "items": {
+                        "$ref": "GoogleCloudVideoAccessV1alpha__StreamInfo"
+                    },
+                    "type": "array"
+                },
+                "title": {
+                    "description": "The event title",
+                    "type": "string"
+                },
+                "unifiedProgramId": {
+                    "description": "The unified program id of the event, aka. upid",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha__ExternalManifest": {
+            "description": "External Manifest",
+            "id": "GoogleCloudVideoAccessV1alpha__ExternalManifest",
+            "properties": {
+                "duration": {
+                    "description": "Video duration",
+                    "format": "double",
+                    "type": "number"
+                },
+                "format": {
+                    "description": "Manifest format",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "Video type",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "Manifest url",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha__GetChannelMetadataRequest": {
+            "description": "Request message to get the processed metadata of a channel",
+            "id": "GoogleCloudVideoAccessV1alpha__GetChannelMetadataRequest",
+            "properties": {
+                "ads": {
+                    "$ref": "GoogleCloudVideoAccessV1alpha__Ads",
+                    "description": "The player ads plugins information"
+                },
+                "externalManifest": {
+                    "$ref": "GoogleCloudVideoAccessV1alpha__ExternalManifest",
+                    "description": "Use external manifest url for stitching"
+                },
+                "plugins": {
+                    "$ref": "GoogleCloudVideoAccessV1alpha__Plugins",
+                    "description": "The player plugins information"
+                },
+                "streamFormat": {
+                    "description": "Set the preferred stream format",
+                    "type": "string"
+                },
+                "user": {
+                    "$ref": "GoogleCloudVideoAccessV1alpha__User",
+                    "description": "The user information"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha__GetEventMetadataRequest": {
+            "description": "Request message to get the processed metadata of a channel",
+            "id": "GoogleCloudVideoAccessV1alpha__GetEventMetadataRequest",
+            "properties": {
+                "ads": {
+                    "$ref": "GoogleCloudVideoAccessV1alpha__Ads",
+                    "description": "The player ads plugins information"
+                },
+                "isUpid": {
+                    "description": "Is the event id an UPID",
+                    "type": "boolean"
+                },
+                "plugins": {
+                    "$ref": "GoogleCloudVideoAccessV1alpha__Plugins",
+                    "description": "The player plugins information"
+                },
+                "streamFormat": {
+                    "description": "Set the preferred stream format",
+                    "enum": [
+                        "STREAM_FORMAT_UNSPECIFIED",
+                        "HLS",
+                        "DASH",
+                        "HDS"
+                    ],
+                    "enumDescriptions": [
+                        "Invalid stream format",
+                        "HTTP Live Streaming",
+                        "Dynamic Adaptive Streaming over HTTP",
+                        "Adobe HTTP Live Streaming"
+                    ],
+                    "type": "string"
+                },
+                "user": {
+                    "$ref": "GoogleCloudVideoAccessV1alpha__User",
+                    "description": "The user information"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha__GetScheduleMetadataRequest": {
+            "description": "Request message to get the schedule of the specified channel",
+            "id": "GoogleCloudVideoAccessV1alpha__GetScheduleMetadataRequest",
+            "properties": {
+                "eventCount": {
+                    "description": "The number of events need to be returned, default is 5",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "user": {
+                    "$ref": "GoogleCloudVideoAccessV1alpha__User",
+                    "description": "The user information"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha__GetTveMetadataRequest": {
+            "description": "Request message to get TVE results",
+            "id": "GoogleCloudVideoAccessV1alpha__GetTveMetadataRequest",
+            "properties": {
+                "anvack": {
+                    "description": "Anvato access key identifying media provider configuration",
+                    "type": "string"
+                },
+                "parent": {
+                    "description": "The project id",
+                    "type": "string"
+                },
+                "user": {
+                    "$ref": "GoogleCloudVideoAccessV1alpha__User",
+                    "description": "Information about the user"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha__GetVideoMetadataRequest": {
+            "description": "Request to get a processed video metadata",
+            "id": "GoogleCloudVideoAccessV1alpha__GetVideoMetadataRequest",
+            "properties": {
+                "ads": {
+                    "$ref": "GoogleCloudVideoAccessV1alpha__Ads",
+                    "description": "Ads related information"
+                },
+                "externalManifest": {
+                    "$ref": "GoogleCloudVideoAccessV1alpha__ExternalManifest",
+                    "description": "Use external manifest url for stitching"
+                },
+                "plugins": {
+                    "$ref": "GoogleCloudVideoAccessV1alpha__Plugins",
+                    "description": "Player plugins information"
+                },
+                "streamFormat": {
+                    "description": "Set the preferred stream format",
+                    "enum": [
+                        "STREAM_FORMAT_UNSPECIFIED",
+                        "HLS",
+                        "DASH",
+                        "HDS"
+                    ],
+                    "enumDescriptions": [
+                        "Invalid stream format",
+                        "HTTP Live Streaming",
+                        "Dynamic Adaptive Streaming over HTTP",
+                        "Adobe HTTP Live Streaming"
+                    ],
+                    "type": "string"
+                },
+                "user": {
+                    "$ref": "GoogleCloudVideoAccessV1alpha__User",
+                    "description": "User information"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha__LocationDetails": {
+            "description": "Response message from Location service",
+            "id": "GoogleCloudVideoAccessV1alpha__LocationDetails",
+            "properties": {
+                "autonomousSystemNumber": {
+                    "description": "The autonomous system number associated with the IP address",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "autonomousSystemOrganization": {
+                    "description": "The organization associated with the registered autonomous system number\nfor the IP address",
+                    "type": "string"
+                },
+                "country": {
+                    "description": "Code for the country of the location result",
+                    "type": "string"
+                },
+                "dma": {
+                    "description": "DMA code",
+                    "type": "string"
+                },
+                "inferredIp": {
+                    "description": "The IP address of the client making the request",
+                    "type": "string"
+                },
+                "isp": {
+                    "description": "The name of the ISP associated with the IP address",
+                    "type": "string"
+                },
+                "region": {
+                    "description": "Code for the region or state of the location result",
+                    "type": "string"
+                },
+                "zipcode": {
+                    "description": "The location zip code",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha__PlayerConfig": {
+            "id": "GoogleCloudVideoAccessV1alpha__PlayerConfig",
+            "properties": {
+                "name": {
+                    "description": "Player config id, aka. anvack",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha__Plugins": {
+            "id": "GoogleCloudVideoAccessV1alpha__Plugins",
+            "properties": {
+                "comscore": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "The info of Comscore",
+                    "type": "object"
+                },
+                "nielsen": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "The info of Nielsen",
+                    "type": "object"
+                },
+                "openPixel": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "The info of Open Pixel",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha__ScheduleMetadata": {
+            "id": "GoogleCloudVideoAccessV1alpha__ScheduleMetadata",
+            "properties": {
+                "events": {
+                    "description": "The list of upcoming events",
+                    "items": {
+                        "$ref": "GoogleCloudVideoAccessV1alpha__EventMetadata"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "The channel id",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha__Station": {
+            "description": "Information on the broadcasting station",
+            "id": "GoogleCloudVideoAccessV1alpha__Station",
+            "properties": {
+                "dmaCode": {
+                    "description": "DMA code",
+                    "type": "string"
+                },
+                "hasRetransRights": {
+                    "$ref": "GoogleCloudVideoAccessV1alpha_Station_Rights",
+                    "description": "Information on whethere the player making the request\nhas retransmission rights"
+                },
+                "hasStreamingRights": {
+                    "$ref": "GoogleCloudVideoAccessV1alpha_Station_Rights",
+                    "description": "Information on whether the player making the request\nhas streaming rights"
+                },
+                "logoUrl": {
+                    "description": "URL to get the logo of the station",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Name of the broadcasting station",
+                    "type": "string"
+                },
+                "websiteUrl": {
+                    "description": "URL to the website for the station",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha__StreamInfo": {
+            "description": "The info of a video stream, including the profile and CDN url",
+            "id": "GoogleCloudVideoAccessV1alpha__StreamInfo",
+            "properties": {
+                "backupDrmLicenseUrl": {
+                    "description": "The backup DRM license url",
+                    "type": "string"
+                },
+                "backupStreamUrl": {
+                    "description": "The backup url of the same stream",
+                    "type": "string"
+                },
+                "bitrate": {
+                    "description": "The video stream's bitrate, in kilobits per second",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "cdnName": {
+                    "description": "The name of the CDN where the video stream is distributed",
+                    "type": "string"
+                },
+                "drmLicenseUrl": {
+                    "description": "The DRM license url",
+                    "type": "string"
+                },
+                "format": {
+                    "description": "The format of the stream, for example: \"mp4\" or \"m3u8-variant\"",
+                    "type": "string"
+                },
+                "height": {
+                    "description": "The video content height in pixels",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "isStitched": {
+                    "description": "The flag indicates if the stream is ads stitched",
+                    "type": "boolean"
+                },
+                "streamUrl": {
+                    "description": "The embedded url of the CDN or Ad-Stitching server",
+                    "type": "string"
+                },
+                "width": {
+                    "description": "The video content width in pixels",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha__TveMetadata": {
+            "description": "Response message from TVE service",
+            "id": "GoogleCloudVideoAccessV1alpha__TveMetadata",
+            "properties": {
+                "geoStation": {
+                    "$ref": "GoogleCloudVideoAccessV1alpha__Station",
+                    "description": "Information on the station in user's current geo-location"
+                },
+                "homeStation": {
+                    "$ref": "GoogleCloudVideoAccessV1alpha__Station",
+                    "description": "Information on the station in user's home-location"
+                },
+                "name": {
+                    "description": "Identifier for the TVE Object resource\nin the form \"/projects/{projectNumber}/channels/{channel_id}\"",
+                    "type": "string"
+                },
+                "schedule": {
+                    "$ref": "GoogleCloudVideoAccessV1alpha__ScheduleMetadata",
+                    "description": "Information on the upcoming broadcasting events"
+                },
+                "serverTime": {
+                    "description": "The timestamp in seconds when the request was received by the server",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "tveResults": {
+                    "$ref": "GoogleCloudVideoAccessV1alpha__TveResults",
+                    "description": "Object containing information on TVE rights"
+                },
+                "unauthorizedReasons": {
+                    "description": "List of unauthorized reasons for a particular TVE request",
+                    "items": {
+                        "$ref": "GoogleCloudVideoAccessV1alpha__UnauthorizedReason"
+                    },
+                    "type": "array"
+                },
+                "user": {
+                    "$ref": "GoogleCloudVideoAccessV1alpha__TveUser",
+                    "description": "Object containing information on request parameters passed\nby the user"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha__TveResults": {
+            "description": "Information on TVE rights",
+            "id": "GoogleCloudVideoAccessV1alpha__TveResults",
+            "properties": {
+                "tveAuthorized": {
+                    "description": "If TVE rights is authorized",
+                    "type": "boolean"
+                },
+                "tvePreviewAuthorized": {
+                    "description": "If TVE preview rights is authorized",
+                    "type": "boolean"
+                },
+                "tveRetransRights": {
+                    "description": "If TVE retransmission rights is authorized",
+                    "type": "boolean"
+                },
+                "tveStreamingRights": {
+                    "description": "If TVE streaming rights is authorized",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha__TveUser": {
+            "description": "Response object containing information on request parameters passed\nby the user for a TVE Request",
+            "id": "GoogleCloudVideoAccessV1alpha__TveUser",
+            "properties": {
+                "countryCode": {
+                    "description": "Code for the country of user's geo-location",
+                    "type": "string"
+                },
+                "encryptedHomeZipcode": {
+                    "description": "Encrypted service zipcode",
+                    "type": "string"
+                },
+                "geoLookupType": {
+                    "description": "Geo lookup type",
+                    "type": "string"
+                },
+                "geoZipcode": {
+                    "description": "Zipcode of user's current geo-location",
+                    "type": "string"
+                },
+                "homeLookupType": {
+                    "description": "Lookup type for",
+                    "type": "string"
+                },
+                "homeZipcode": {
+                    "description": "Zipcode of user's current home-location",
+                    "type": "string"
+                },
+                "mvpd": {
+                    "description": "Multichannel video programming distributor",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha__UnauthorizedReason": {
+            "description": "Detailed information on the unauthorized reason",
+            "id": "GoogleCloudVideoAccessV1alpha__UnauthorizedReason",
+            "properties": {
+                "code": {
+                    "description": "Unauthorized reason code",
+                    "type": "string"
+                },
+                "desc": {
+                    "description": "Description for the unauthorized reason",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha__User": {
+            "description": "User message contains information for a specific end customer",
+            "id": "GoogleCloudVideoAccessV1alpha__User",
+            "properties": {
+                "deviceId": {
+                    "description": "The device serial number",
+                    "type": "string"
+                },
+                "deviceType": {
+                    "description": "The device type",
+                    "type": "string"
+                },
+                "geoLocation": {
+                    "$ref": "GoogleCloudVideoAccessV1alpha_User_Location",
+                    "description": "The user's current location"
+                },
+                "mvpd": {
+                    "description": "Multichannel video programming distributor",
+                    "type": "string"
+                },
+                "serviceLocation": {
+                    "$ref": "GoogleCloudVideoAccessV1alpha_User_Location",
+                    "description": "The user's service(home) location"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha__VideoMetadata": {
+            "description": "The metadata of a VOD asset",
+            "id": "GoogleCloudVideoAccessV1alpha__VideoMetadata",
+            "properties": {
+                "adsDetails": {
+                    "$ref": "GoogleCloudVideoAccessV1alpha_VideoMetadata_AdsDetails",
+                    "description": "The details of the ads in the video"
+                },
+                "airEndTime": {
+                    "description": "The timestamp of when the video will not be air",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "airStartTime": {
+                    "description": "The timestamp of when the video will be on air",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "captions": {
+                    "description": "The list of available captions of the video",
+                    "items": {
+                        "$ref": "GoogleCloudVideoAccessV1alpha_VideoMetadata_Caption"
+                    },
+                    "type": "array"
+                },
+                "categories": {
+                    "description": "A list of video categories that the video belongs to",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "createTime": {
+                    "description": "The timestamp of when the video metadata is created",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "customMetadata": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "The list of custom metadata of the video",
+                    "type": "object"
+                },
+                "derivedMetadata": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "The list of derived metadata of the video, which is generated on the fly",
+                    "type": "object"
+                },
+                "description": {
+                    "description": "The video description",
+                    "type": "string"
+                },
+                "duration": {
+                    "description": "The duration of the video content",
+                    "type": "string"
+                },
+                "expireTime": {
+                    "description": "The timestamp of when the video metadata will expire",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "imageUrl": {
+                    "description": "The url of the video's image",
+                    "type": "string"
+                },
+                "kind": {
+                    "description": "The video type, should be either LONG_FORM or CLIP",
+                    "enum": [
+                        "VIDEO_TYPE_UNSPECIFIED",
+                        "LONG_FORM",
+                        "CLIP",
+                        "LIVE"
+                    ],
+                    "enumDescriptions": [
+                        "Invalid video Type",
+                        "Video-on-demand",
+                        "Video Clip",
+                        "Channel live streaming"
+                    ],
+                    "type": "string"
+                },
+                "language": {
+                    "description": "The language of the video content",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The id of the video",
+                    "type": "string"
+                },
+                "ownerId": {
+                    "description": "The owner of the video",
+                    "type": "string"
+                },
+                "previews": {
+                    "$ref": "GoogleCloudVideoAccessV1alpha_VideoMetadata_Preview",
+                    "description": "The preview info of the video"
+                },
+                "programDetails": {
+                    "$ref": "GoogleCloudVideoAccessV1alpha_VideoMetadata_ProgramDetails",
+                    "description": "The program details of the video"
+                },
+                "publishTime": {
+                    "description": "The timestamp of when the video metadata is published",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "rating": {
+                    "description": "The video's TVPG rating, e.g. TV-PG",
+                    "type": "string"
+                },
+                "recommendations": {
+                    "description": "The list of recommended videos",
+                    "items": {
+                        "$ref": "GoogleCloudVideoAccessV1alpha_VideoMetadata_Recommendation"
+                    },
+                    "type": "array"
+                },
+                "sourceProfileDetails": {
+                    "$ref": "GoogleCloudVideoAccessV1alpha_VideoMetadata_ProfileDetails",
+                    "description": "The details of the video file"
+                },
+                "streamInfos": {
+                    "description": "The list of the video streaming format and streaming url",
+                    "items": {
+                        "$ref": "GoogleCloudVideoAccessV1alpha__StreamInfo"
+                    },
+                    "type": "array"
+                },
+                "subratings": {
+                    "description": "The list of subrating of the video,\ne.g. Dialogue, Violence, Sexual Content, and etc.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "tags": {
+                    "description": "A list of keyword tags associated with the video",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "thumbnailUrl": {
+                    "description": "The url of the video's thumbnail",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "The video title",
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "The timestamp of when the video metadata is updated",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudVideoAccessV1alpha__ZipcodeEncKey": {
+            "description": "The message for Adobe Pass certificate",
+            "id": "GoogleCloudVideoAccessV1alpha__ZipcodeEncKey",
+            "properties": {
+                "data": {
+                    "description": "The key data in base64",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "keyPass": {
+                    "description": "The password to protect PKCS#12 certificate",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The key name",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "The type of the encryption key",
+                    "enum": [
+                        "KEY_TYPE_UNSPECIFIED",
+                        "AES128_CBC",
+                        "PKCS_12"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified key type",
+                        "AES_128_CBC key",
+                        "PKCS#12 key"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleProtobuf__Empty": {
+            "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+            "id": "GoogleProtobuf__Empty",
+            "properties": {},
+            "type": "object"
+        },
+        "GoogleType__LatLng": {
+            "description": "An object representing a latitude/longitude pair. This is expressed as a pair\nof doubles representing degrees latitude and degrees longitude. Unless\nspecified otherwise, this must conform to the\n<a href=\"http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf\">WGS84\nstandard</a>. Values must be within normalized ranges.",
+            "id": "GoogleType__LatLng",
+            "properties": {
+                "latitude": {
+                    "description": "The latitude in degrees. It must be in the range [-90.0, +90.0].",
+                    "format": "double",
+                    "type": "number"
+                },
+                "longitude": {
+                    "description": "The longitude in degrees. It must be in the range [-180.0, +180.0].",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Cloud Media Access API (Dev)",
+    "version": "v1alpha",
+    "version_module": true
+}

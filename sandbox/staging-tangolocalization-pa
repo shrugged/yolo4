@@ -1,0 +1,614 @@
+{
+    "basePath": "",
+    "baseUrl": "https://staging-tangolocalization-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Tango Localization Service",
+    "description": "The Tango Localization API allows devices to localize themselves wrt the environment.",
+    "discoveryVersion": "v1",
+    "documentationLink": "https://get.google.com/tango/",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "tangolocalization_pa:v1",
+    "kind": "discovery#restDescription",
+    "name": "tangolocalization_pa",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "v1": {
+            "methods": {
+                "localize": {
+                    "description": "Attempts to localize the user in 6DoF from extracted image descriptors and\nlocation priors.",
+                    "flatPath": "v1/localize",
+                    "httpMethod": "POST",
+                    "id": "tangolocalization_pa.localize",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/localize",
+                    "request": {
+                        "$ref": "LocalizeRequestProto"
+                    },
+                    "response": {
+                        "$ref": "LocalizeResponseProto"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190917",
+    "rootUrl": "https://staging-tangolocalization-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "CameraModelProto": {
+            "description": "Equivalent to a map_structure::Camera.",
+            "id": "CameraModelProto",
+            "properties": {
+                "height": {
+                    "description": "The height of the camera image in pixels.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "iTCam": {
+                    "$ref": "TransformationProto",
+                    "description": "The transformation between the camera and the keyframe (IMU coordinates):\ni_point = i_t_cam * cam_point."
+                },
+                "parameters": {
+                    "$ref": "Parameters",
+                    "description": "The camera intrinsic parameters."
+                },
+                "sensorId": {
+                    "description": "This field is just here so that we can instantiate a map_structure::Camera\nfrom this message, but we don't have specific logic that relies on these\nvalues.",
+                    "enum": [
+                        "CAMERA_ID_UNKNOWN",
+                        "CAMERA_ID_FEATURE_TRACKING_PRIMARY",
+                        "CAMERA_ID_FEATURE_TRACKING_SECONDARY",
+                        "CAMERA_ID_COLOR_PRIMARY",
+                        "CAMERA_ID_POINT_CLOUD_PRIMARY"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown camera.",
+                        "Primary feature-tracking camera.",
+                        "Secondary feature-tracking camera.",
+                        "Primary color camera.",
+                        "Primary point-cloud (e.g. depth) camera."
+                    ],
+                    "type": "string"
+                },
+                "width": {
+                    "description": "The width of the camera image in pixels.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "CameraProto": {
+            "description": "Represents a single camera on the device.",
+            "id": "CameraProto",
+            "properties": {
+                "congasImageFeatures": {
+                    "$ref": "CongasImageFeaturesProto",
+                    "description": "Extracted Congas feature in the image."
+                },
+                "freakImageFeatures": {
+                    "$ref": "FreakImageFeaturesProto",
+                    "description": "Extracted FREAK features in the image frame."
+                },
+                "iTC": {
+                    "$ref": "TransformationProto",
+                    "description": "The camera's offset from the IMU."
+                },
+                "imageData": {
+                    "description": "A camera image encoded in JPEG format. If this field is used, a full\nCameraModelProto must be present.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "model": {
+                    "$ref": "CameraModelProto",
+                    "description": "The full camera model. This is required if the provided image feature\nmeasurements are not normalized."
+                }
+            },
+            "type": "object"
+        },
+        "CompressedFreakDescriptorsProto": {
+            "description": "A set of compressed FREAK descriptors.",
+            "id": "CompressedFreakDescriptorsProto",
+            "properties": {
+                "numBytesPerDescriptor": {
+                    "description": "Number of bytes per descriptor.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "orderedSamplingPointBytes": {
+                    "description": "Compressed by encoding the sampling point ordering. Column major ordering\nto be deserialized to a matrix which contains one descriptor per column.",
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CongasImageFeaturesProto": {
+            "description": "Congas features.\n\nRepresents all the extracted Congas features in an image. Each feature has a\nmeasurement position in the image, an orientation and a descriptor.\n\nA Congas descriptor are 40 dimensional floats. These are quantized into bytes\nand are stored concatenated in the data field of this proto. Each individual\ndescriptor can be decoded by:\nreal_value[i] := data_scale * bit_cast<int8>(value[i])",
+            "id": "CongasImageFeaturesProto",
+            "properties": {
+                "data": {
+                    "description": "Quantized descriptors.\n40 x [num_features] bytes.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "dataFactor": {
+                    "description": "Multiplier when to multiply the descriptors with when dequantizing.\nA list of [num_features] items.",
+                    "items": {
+                        "format": "float",
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "featureMeasurements": {
+                    "$ref": "QuantizedArrayProto",
+                    "description": "The pixel measurement positions in the image where the features are\ndetected. A list of 2 x [num_features] items."
+                },
+                "featureOrientations": {
+                    "$ref": "QuantizedArrayProto",
+                    "description": "Orientation of the keypoint in radians.\nOrientation is in the image coordinate system (y-axis points down)\nwith positive orientation corresponding to anti-clockwise rotation in the\nrange -pi, pi.\nA list of 1 x [num_features] items."
+                },
+                "featureScales": {
+                    "$ref": "QuantizedArrayProto",
+                    "description": "Feature scales in pixels (sigma in scale-space).\nA list of 1 x [num_features] items."
+                },
+                "featureStrengths": {
+                    "$ref": "QuantizedArrayProto",
+                    "description": "Feature detection strength."
+                },
+                "normalizedMeasurements": {
+                    "$ref": "QuantizedArrayProto",
+                    "description": "The normalized positions in the image where the features are detected.\nA list of 2 x [num_features] items.\nThis field is not supported by CLS, and is slated for removal."
+                },
+                "numFeatures": {
+                    "description": "Number of features in this image.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "DistortionCityblockFisheye": {
+            "description": "Cityblock (Street View) fisheye distortion model.",
+            "id": "DistortionCityblockFisheye",
+            "properties": {
+                "k1": {
+                    "description": "k1 radial distortion coefficient.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "k2": {
+                    "description": "k2 radial distortion coefficient.",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "DistortionFoV": {
+            "description": "Field of view distortion model.\nFor more information see:\nhttps://hal.archives-ouvertes.fr/file/index/docid/267247/filename/distcalib.pdf",
+            "id": "DistortionFoV",
+            "properties": {
+                "w": {
+                    "description": "Denotes the field-of-view relative to an ideal fisheye lens.",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "DistortionOpencv": {
+            "description": "OpenCV distortion model with radial and tangential distortion.",
+            "id": "DistortionOpencv",
+            "properties": {
+                "k1": {
+                    "description": "k1 radial distortion coefficient.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "k2": {
+                    "description": "k2 radial distortion coefficient.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "k3": {
+                    "description": "k3 radial distortion coefficient.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "p1": {
+                    "description": "p1 tangential distortion coefficient.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "p2": {
+                    "description": "p2 tangential distortion coefficient.",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "DistortionPoly3": {
+            "description": "Poly3 distortion model.\nFor more information see:\nhttps://users.aalto.fi/~kannalj1/publications/tpami2006.pdf",
+            "id": "DistortionPoly3",
+            "properties": {
+                "k0": {
+                    "description": "k0 coefficient of the polynomial distortion model.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "k1": {
+                    "description": "k1 coefficient of the polynomial distortion model.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "k2": {
+                    "description": "k2 coefficient of the polynomial distortion model.",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "FreakImageFeaturesProto": {
+            "description": "FREAK features.\n\nRepresents all the extracted FREAK features in an image. Each feature has a\nmeasurement position in the image, an orientation and a descriptor.",
+            "id": "FreakImageFeaturesProto",
+            "properties": {
+                "compressedFreakDescriptors": {
+                    "$ref": "CompressedFreakDescriptorsProto",
+                    "description": "Compressed FREAK descriptors."
+                },
+                "featureMeasurements": {
+                    "$ref": "QuantizedArrayProto",
+                    "description": "The pixel measurement positions in the image where the features are\ndetected. A list of 2 x [num_features] items."
+                },
+                "featureOrientations": {
+                    "$ref": "QuantizedArrayProto",
+                    "description": "Orientation of the keypoint in radians.\nOrientation is in the image coordinate system (y-axis points down)\nwith positive orientation corresponding to anti-clockwise rotation in the\nrange -pi, pi.\nA list of 1 x [num_features] items."
+                },
+                "featureScales": {
+                    "$ref": "QuantizedArrayProto",
+                    "description": "Feature scales in pixels^2 (sigma^2 in scale-space).\nA list of 1 x [num_features] items."
+                },
+                "featureStrengths": {
+                    "$ref": "QuantizedArrayProto",
+                    "description": "Feature detection strength."
+                },
+                "normalizedMeasurements": {
+                    "$ref": "QuantizedArrayProto",
+                    "description": "The normalized positions in the image where the features are detected.\nA list of 2 x [num_features] items."
+                },
+                "numFeatures": {
+                    "description": "Number of features in this image.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "LocalizeRequestProto": {
+            "description": "A Localize request.\n\nNext field id: 10",
+            "id": "LocalizeRequestProto",
+            "properties": {
+                "cameras": {
+                    "description": "Camera frames to localize. Currently only one camera is supported.",
+                    "items": {
+                        "$ref": "CameraProto"
+                    },
+                    "type": "array"
+                },
+                "latitudeDegrees": {
+                    "description": "Approximate latitude, in degrees, of the device.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "locationAccuracyMeters": {
+                    "description": "The uncertainty, in meters, of the device's location.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "longitudeDegrees": {
+                    "description": "Approximate longitude, in degrees, of the device.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "token": {
+                    "description": "Token for keeping state between requests. Copy over from the previous\nresponse or leave it unset if not yet available.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "vioTI": {
+                    "$ref": "TransformationProto",
+                    "description": "The IMU's pose in the VIO frame of reference. In case the position is\nunknown this should at least contain the gravity orientation."
+                }
+            },
+            "type": "object"
+        },
+        "LocalizeResponseProto": {
+            "description": "A Localize response.\n\nNext field id: 6",
+            "id": "LocalizeResponseProto",
+            "properties": {
+                "ecefTI": {
+                    "$ref": "TransformationProto",
+                    "description": "The localized pose of the device in ECEF."
+                },
+                "localizationContext": {
+                    "description": "The localization context as an opaque blob.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "The status of the localization.",
+                    "enum": [
+                        "STATUS_UNSPECIFIED",
+                        "SUCCESSFUL",
+                        "MISSING_LOCALIZATION_DATA",
+                        "NO_MATCHES"
+                    ],
+                    "enumDescriptions": [
+                        "Default Unknown value.",
+                        "Successfully localizaed the query.",
+                        "Malformed Request (No localization data)",
+                        "There is no mapped data around the query location (lat/lng)."
+                    ],
+                    "type": "string"
+                },
+                "token": {
+                    "description": "Token for keeping state between requests. This should be copied over to the\nnext request.",
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Parameters": {
+            "description": "Additional parameters for the camera.",
+            "id": "Parameters",
+            "properties": {
+                "distortionCityblockFisheye": {
+                    "$ref": "DistortionCityblockFisheye",
+                    "description": "Cityblock (Street View) fisheye distortion model."
+                },
+                "distortionFov": {
+                    "$ref": "DistortionFoV",
+                    "description": "Field of view distortion model."
+                },
+                "distortionOpencv": {
+                    "$ref": "DistortionOpencv",
+                    "description": "OpenCV distortion model with radial and tangential distortion."
+                },
+                "distortionPoly3": {
+                    "$ref": "DistortionPoly3",
+                    "description": "Poly3 distortion model."
+                },
+                "focalLength": {
+                    "$ref": "Vector2Proto",
+                    "description": "Focal length in pixels (fx, fy)."
+                },
+                "principalPoint": {
+                    "$ref": "Vector2Proto",
+                    "description": "Image center in pixels (cx, cy)."
+                },
+                "shutterOffsetUs": {
+                    "description": "Shutter time offset from the exposures's nominal time.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "shutterReadoutXUs": {
+                    "description": "The time between scanning the first and last column of an image. Values\ngreater than zero model a rolling shutter camera.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "shutterReadoutYUs": {
+                    "description": "The time between scanning the first and last row of an image. Values\ngreater than zero model a rolling shutter camera.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "QuantizedArrayProto": {
+            "description": "A quantized representation of an array of floating-point values.",
+            "id": "QuantizedArrayProto",
+            "properties": {
+                "maxOriginalValue": {
+                    "description": "A value that is greater or equal to the maximum value.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "minOriginalValue": {
+                    "description": "A value that is lower or equal to the minimum value.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "quantizationBits": {
+                    "description": "Number of bits used for the quantized integer representation, plus one(!).\nThis is an old deprecated field, only used to be compatible with old\nclients. Use \"quantization_bits\" instead. b/62019142.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "quantizationBits2": {
+                    "description": "Number of bits used for the quantized integer representation.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "quantizedValues": {
+                    "description": "The quantized values. Proto uint64s are serialized as a varints, which\nmeans the memory consumption will depend on the number of quantization\nbits. E.g. with 14 bits the largest possible value will be serialized in\n2 bytes, while for 15 bits it will take 3 bytes. See: go/proto-encoding.",
+                    "items": {
+                        "format": "uint64",
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "QuaternionProto": {
+            "description": "A quaternion of rotation in JPL notation.",
+            "id": "QuaternionProto",
+            "properties": {
+                "w": {
+                    "description": "The w-coordinate of the quaternion.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "x": {
+                    "description": "The x-coordinate of the quaternion.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "y": {
+                    "description": "The y-coordinate of the quaternion.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "z": {
+                    "description": "The z-coordinate of the quaternion.",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "TransformationProto": {
+            "description": "A transformation (translation + rotation).",
+            "id": "TransformationProto",
+            "properties": {
+                "p": {
+                    "$ref": "Vector3Proto",
+                    "description": "The translation component of the transformation."
+                },
+                "q": {
+                    "$ref": "QuaternionProto",
+                    "description": "The rotation component of the transformation."
+                }
+            },
+            "type": "object"
+        },
+        "Vector2Proto": {
+            "description": "A 2D vector.",
+            "id": "Vector2Proto",
+            "properties": {
+                "x": {
+                    "description": "The x-coordinate of the vector.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "y": {
+                    "description": "The y-coordinate of the vector.",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "Vector3Proto": {
+            "description": "A 3D vector.",
+            "id": "Vector3Proto",
+            "properties": {
+                "x": {
+                    "description": "The x-coordinate of the vector.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "y": {
+                    "description": "The y-coordinate of the vector.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "z": {
+                    "description": "The z-coordinate of the vector.",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Tango Localization API (Staging)",
+    "version": "v1",
+    "version_module": true
+}

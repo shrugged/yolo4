@@ -1,0 +1,1546 @@
+{
+    "basePath": "",
+    "baseUrl": "https://qa-alkalifishfood-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Alkali Fishfood",
+    "description": "",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://go/alkali",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "qa_alkalifishfood_pa_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "qa_alkalifishfood_pa_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "bugs": {
+            "methods": {
+                "list": {
+                    "description": "Lists bugs for a given user.",
+                    "flatPath": "v1/bugs",
+                    "httpMethod": "GET",
+                    "id": "qa_alkalifishfood_pa_sandbox.bugs.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "pageSize": {
+                            "description": "Page size of bugs to get. Default/maximum is 1000.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageToken": {
+                            "description": "Token of requested page.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "userName": {
+                            "description": "User name to list bugs for. This is optional, if missing, it defaults to\nthe caller.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/bugs",
+                    "response": {
+                        "$ref": "ListBugsResponse"
+                    }
+                }
+            }
+        },
+        "datasources": {
+            "methods": {
+                "downloadAsCsv": {
+                    "description": "Returns the dataset retrieved as a result of the given query as a CSV.",
+                    "flatPath": "v1/datasources:downloadAsCsv",
+                    "httpMethod": "POST",
+                    "id": "qa_alkalifishfood_pa_sandbox.datasources.downloadAsCsv",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/datasources:downloadAsCsv",
+                    "request": {
+                        "$ref": "DownloadAsCsvRequest"
+                    },
+                    "response": {
+                        "$ref": "DownloadAsCsvResponse"
+                    }
+                },
+                "executeQuery": {
+                    "description": "Executes a query on the Data Source and returns the results.",
+                    "flatPath": "v1/datasources:executeQuery",
+                    "httpMethod": "POST",
+                    "id": "qa_alkalifishfood_pa_sandbox.datasources.executeQuery",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/datasources:executeQuery",
+                    "request": {
+                        "$ref": "ExecuteQueryRequest"
+                    },
+                    "response": {
+                        "$ref": "ExecuteQueryResponse"
+                    }
+                },
+                "getSchema": {
+                    "description": "Gets the schema for the Data Source.",
+                    "flatPath": "v1/datasources:getSchema",
+                    "httpMethod": "POST",
+                    "id": "qa_alkalifishfood_pa_sandbox.datasources.getSchema",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/datasources:getSchema",
+                    "request": {
+                        "$ref": "GetSchemaRequest"
+                    },
+                    "response": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoSchema"
+                    }
+                }
+            }
+        },
+        "echo": {
+            "methods": {
+                "create": {
+                    "description": "Responds back with same message.",
+                    "flatPath": "v1/echo",
+                    "httpMethod": "POST",
+                    "id": "qa_alkalifishfood_pa_sandbox.echo.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/echo",
+                    "request": {
+                        "$ref": "CreateEchoRequest"
+                    },
+                    "response": {
+                        "$ref": "Echo"
+                    }
+                }
+            }
+        },
+        "uploads": {
+            "methods": {
+                "submit": {
+                    "description": "Process an upload submitted by the app frontend's Uploader Widget.",
+                    "flatPath": "v1/uploads:submit",
+                    "httpMethod": "POST",
+                    "id": "qa_alkalifishfood_pa_sandbox.uploads.submit",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/uploads:submit",
+                    "request": {
+                        "$ref": "SubmitUploadRequest"
+                    },
+                    "response": {
+                        "$ref": "SubmitUploadResponse"
+                    }
+                }
+            }
+        },
+        "v1": {
+            "methods": {
+                "batchGetDashboardData": {
+                    "description": "This method needs to be called repeatedly until all of the responses in\nthe batch response are complete. Essentially, even though we're rendering\nonly one dashboard, we could have multiple data sources that we need to\nquery (especially if we have multiple widgets), so the response sequence\ncould look something like this:\nfirst response [\n   {id: 1, status: PENDING, ...},\n   {id: 2, status: PENDING, ...}]\nsecond response [\n   {id: 1, status: COMPLETE, ...},\n   {id: 2, status: PENDING, ...}]\nthird response [\n   {id: 2: status: COMPLETE, ...}]",
+                    "flatPath": "v1/batchGetDashboardData",
+                    "httpMethod": "POST",
+                    "id": "qa_alkalifishfood_pa_sandbox.batchGetDashboardData",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/batchGetDashboardData",
+                    "request": {
+                        "$ref": "BatchRequest"
+                    },
+                    "response": {
+                        "$ref": "BatchResponse"
+                    }
+                },
+                "getDashboardSpec": {
+                    "description": "The dashboard spec is the first piece of data that should go to the viewer.\nAfter the spec is loaded, BatchGetDashboardData should be called. These\nmethods are not combined because loading the spec and all the data for\nevery data source can take a while.",
+                    "flatPath": "v1/getDashboardSpec",
+                    "httpMethod": "POST",
+                    "id": "qa_alkalifishfood_pa_sandbox.getDashboardSpec",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/getDashboardSpec",
+                    "request": {
+                        "$ref": "GetDashboardSpecRequest"
+                    },
+                    "response": {
+                        "$ref": "GetDashboardSpecResponse"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190802",
+    "rootUrl": "https://qa-alkalifishfood-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "BatchRequest": {
+            "id": "BatchRequest",
+            "properties": {
+                "request": {
+                    "items": {
+                        "$ref": "QueryRequest"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BatchResponse": {
+            "id": "BatchResponse",
+            "properties": {
+                "response": {
+                    "items": {
+                        "$ref": "QueryResponse"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BernoulliSampleSpec": {
+            "id": "BernoulliSampleSpec",
+            "properties": {
+                "percentage": {
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "Bug": {
+            "description": "Buganizer bug.",
+            "id": "Bug",
+            "properties": {
+                "id": {
+                    "description": "Id of the bug",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "summary": {
+                    "description": "Summary of the bug",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CreateEchoRequest": {
+            "description": "Echo request.",
+            "id": "CreateEchoRequest",
+            "properties": {
+                "in": {
+                    "description": "Input message to echo.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DashboardDataSource": {
+            "id": "DashboardDataSource",
+            "properties": {
+                "dashboardId": {
+                    "type": "string"
+                },
+                "dataSpecId": {
+                    "type": "string"
+                },
+                "parameter": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "type": "object"
+                },
+                "version": {
+                    "enum": [
+                        "PUBLISHED",
+                        "DRAFT"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DashboardParameter": {
+            "id": "DashboardParameter",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DownloadAsCsvRequest": {
+            "description": "Request message for download the data as CSV.",
+            "id": "DownloadAsCsvRequest",
+            "properties": {
+                "columnOptions": {
+                    "additionalProperties": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoCsvDownloadColumn"
+                    },
+                    "description": "A columnId/alias -> columnOptions map. Optional.",
+                    "type": "object"
+                },
+                "dataSourceId": {
+                    "description": "Specifies the data source to download the data as CSV.",
+                    "type": "string"
+                },
+                "params": {
+                    "description": "Optional parameters to pass to the data source. This allows additional\nbusiness logic that can not be expressed through the query.",
+                    "items": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoDataSourceParam"
+                    },
+                    "type": "array"
+                },
+                "query": {
+                    "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoQuery",
+                    "description": "The query to execute."
+                }
+            },
+            "type": "object"
+        },
+        "DownloadAsCsvResponse": {
+            "description": "Response message for Download as CSV action.",
+            "id": "DownloadAsCsvResponse",
+            "properties": {
+                "csvContent": {
+                    "description": "The dataset retrieved as a CSV.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Echo": {
+            "description": "Echo response.",
+            "id": "Echo",
+            "properties": {
+                "out": {
+                    "description": "Echoed input message.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ExecuteQueryRequest": {
+            "description": "Execute query request.",
+            "id": "ExecuteQueryRequest",
+            "properties": {
+                "dataSourceId": {
+                    "description": "Specifies the data source to execute the query.",
+                    "type": "string"
+                },
+                "params": {
+                    "description": "Optional parameters to pass to the data source. This allows additional\nbusiness logic that can not be expressed through the query.",
+                    "items": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoDataSourceParam"
+                    },
+                    "type": "array"
+                },
+                "queries": {
+                    "description": "The batch of queries to execute.",
+                    "items": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoQuery"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ExecuteQueryResponse": {
+            "description": "Execute query response.",
+            "id": "ExecuteQueryResponse",
+            "properties": {
+                "datasets": {
+                    "description": "Batch of datasets where each one corresponds to a query in the request.",
+                    "items": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoDataset"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ExpressionField": {
+            "description": "An object that contains the unparsed string representation of an expression.",
+            "id": "ExpressionField",
+            "properties": {
+                "expression": {
+                    "description": "Required. String representation of a simple or custom expression used in\ndimensions, simple selected columns or measures.",
+                    "type": "string"
+                },
+                "outputColumn": {
+                    "description": "Required. The column name to output values as.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FileKey": {
+            "description": "A unique File Key to identify an uploaded file.",
+            "id": "FileKey",
+            "properties": {
+                "keyId": {
+                    "description": "The name (UUID) of this file key.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FilterSpec": {
+            "description": "A data filter specification.",
+            "id": "FilterSpec",
+            "properties": {
+                "expression": {
+                    "description": "Required: The expression that this filter is applied to. It can either be\na column name or a custom expression. Examples:\n<ul>\n<li>column_1\n<li>column_1 + column_2\n<li>FLOOR(column_1) * column_3\n<li>CONCAT('string', column_1)\n<li>MAX(column_1)\n</ul>\nIf the expression only contains non-aggregated input columns, it will be\napplied pre-aggregation (e.g. sql where clause). If it contains\naggregations it will be applied post aggregation (e.g. sql having clause).",
+                    "type": "string"
+                },
+                "operation": {
+                    "description": "Required: The filtering operation to perform.",
+                    "enum": [
+                        "UNKNOWN_OPERATION",
+                        "EQ",
+                        "NOT_EQ",
+                        "LESS_THAN",
+                        "LESS_THAN_OR_EQ",
+                        "GREATER_THAN",
+                        "GREATER_THAN_OR_EQ",
+                        "IS_NULL",
+                        "IS_NOT_NULL",
+                        "IS_INF",
+                        "IS_NOT_INF",
+                        "IS_NAN",
+                        "IS_NOT_NAN",
+                        "IN",
+                        "NOT_IN",
+                        "BETWEEN",
+                        "NOT_BETWEEN"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "inclusive at both ends.",
+                        "exclusive at both ends."
+                    ],
+                    "type": "string"
+                },
+                "value": {
+                    "description": "Required: The values to be passed to the filter.\nIf more values are provided than the filter Operation requires, then they\nwill be ignored.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GetDashboardSpecRequest": {
+            "id": "GetDashboardSpecRequest",
+            "properties": {
+                "id": {
+                    "description": "ID of the dashboard, e.g., \"google::_e866f518_8e5a_4461_b1a2_1dfdf80b52f8\".",
+                    "type": "string"
+                },
+                "parameter": {
+                    "description": "Additional custom parameters set in the client element.",
+                    "items": {
+                        "$ref": "DashboardParameter"
+                    },
+                    "type": "array"
+                },
+                "version": {
+                    "description": "Version of the dashboard, default to \"PUBLISHED\" if not set.",
+                    "enum": [
+                        "PUBLISHED",
+                        "DRAFT"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GetDashboardSpecResponse": {
+            "id": "GetDashboardSpecResponse",
+            "properties": {
+                "parameter": {
+                    "description": "Additional custom parameters provided in the server-side configuration.",
+                    "items": {
+                        "$ref": "DashboardParameter"
+                    },
+                    "type": "array"
+                },
+                "spec": {
+                    "description": "Spec of the dashboard, in JavaScript Apiary proto JSON format.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GetSchemaRequest": {
+            "description": "Get schema request.",
+            "id": "GetSchemaRequest",
+            "properties": {
+                "dataSourceId": {
+                    "description": "Specifies the data source to get the schema from.",
+                    "type": "string"
+                },
+                "params": {
+                    "description": "Optional parameters to pass to the data source. This allows additional\nbusiness logic that modifies the returned schema.",
+                    "items": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoDataSourceParam"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListBugsResponse": {
+            "description": "Response to list bugs.",
+            "id": "ListBugsResponse",
+            "properties": {
+                "bugs": {
+                    "description": "Bugs that the user is assigned to.",
+                    "items": {
+                        "$ref": "Bug"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "Token for next page that user can use for their next\nListBugsRequest. This will be empty if there are no\nmore pages to retrieve.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "OrderingSpec": {
+            "description": "A data ordering specification.",
+            "id": "OrderingSpec",
+            "properties": {
+                "columnName": {
+                    "description": "Required: The name of the column to sort by. Only output columns are\ncurrently supported.",
+                    "type": "string"
+                },
+                "order": {
+                    "description": "Required: The filtering operation to perform.",
+                    "enum": [
+                        "UNKNOWN_ORDER",
+                        "ASC",
+                        "DESC"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PartnerservicesAlkaliApplicationCommonReportsProtoAggregation": {
+            "id": "PartnerservicesAlkaliApplicationCommonReportsProtoAggregation",
+            "properties": {
+                "customReturnType": {
+                    "description": "Might be set for custom aggregations specified in a Schema.\n(Ignored in queries.)",
+                    "enum": [
+                        "UNKNOWN_TYPE",
+                        "STRING",
+                        "INTEGER",
+                        "DECIMAL",
+                        "BOOLEAN",
+                        "TIMESTAMP_MS"
+                    ],
+                    "enumDescriptions": [
+                        "Type is not specified.",
+                        "String type.",
+                        "Integer type.",
+                        "Decimal type.",
+                        "Boolean type.",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "customType": {
+                    "description": "Data Sources can implement their own custom (non-standard) aggregation\nmethods, by setting type to CUSTOM and supply a string identifier here.",
+                    "type": "string"
+                },
+                "parameter": {
+                    "description": "Any additional parameters accepted by this aggregation.\nDO NOT USE DIRECTLY (YET) (Unless you are really brave)",
+                    "items": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoParamMapEntry"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "description": "The type of aggregation.",
+                    "enum": [
+                        "NONE",
+                        "CUSTOM",
+                        "COUNT",
+                        "SUM",
+                        "AVG",
+                        "MEDIAN",
+                        "MIN",
+                        "MAX"
+                    ],
+                    "enumDescriptions": [
+                        "None.",
+                        "Custom.",
+                        "Count.",
+                        "Sum.",
+                        "Average.",
+                        "Median.",
+                        "Minimum.",
+                        "Maximum."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PartnerservicesAlkaliApplicationCommonReportsProtoColumn": {
+            "description": "Column definition.",
+            "id": "PartnerservicesAlkaliApplicationCommonReportsProtoColumn",
+            "properties": {
+                "id": {
+                    "description": "required",
+                    "type": "string"
+                },
+                "isSortable": {
+                    "description": "Indicates if sorting by this column is supported.",
+                    "type": "boolean"
+                },
+                "maxValue": {
+                    "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoValue",
+                    "description": "currently not used"
+                },
+                "minValue": {
+                    "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoValue",
+                    "description": "For numeric columns (only present if known).\ncurrently not used"
+                },
+                "possibleValue": {
+                    "description": "For columns that can only contain a finite (small) set of values, like\nenums (only present if known).",
+                    "items": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoValue"
+                    },
+                    "type": "array"
+                },
+                "role": {
+                    "description": "not used",
+                    "enum": [
+                        "UNKNOWN",
+                        "MEASURE",
+                        "DIMENSION",
+                        "ATTRIBUTE"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown.",
+                        "Measure.",
+                        "Dimension.",
+                        "Attribute."
+                    ],
+                    "type": "string"
+                },
+                "supportedAggregation": {
+                    "description": "List of supported aggregation methods for this column (can be empty).",
+                    "items": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoAggregation"
+                    },
+                    "type": "array"
+                },
+                "supportedOperators": {
+                    "description": "List of supported condition operators for this column (can be empty).",
+                    "enumDescriptions": [
+                        "Expects two values.",
+                        "Contains the specified values.",
+                        "Contains the specified values ignoring case.",
+                        "NOTE(albinr): Not currently supported!",
+                        "Equals the values.",
+                        "Equals the values ignoring case.",
+                        "Greater than the value.",
+                        "Greater than or equal to the value.",
+                        "Expects zero or more values.",
+                        "Expects no values.",
+                        "Expects no values.",
+                        "Expects no values.",
+                        "Expects no values.",
+                        "Less than the value.",
+                        "Less than or equal to the value.",
+                        "Similar to sql like.",
+                        "Similar to sql like ignoring case.",
+                        "Does not contain the specified values.",
+                        "Not containing the values ignoring case.",
+                        "Not Equal.",
+                        "Not equal",
+                        "Expects zero or more values.",
+                        "Full (not partial) regular expression match.",
+                        "Expects string value.",
+                        "Expects string value."
+                    ],
+                    "items": {
+                        "enum": [
+                            "BETWEEN",
+                            "CONTAINS",
+                            "CONTAINS_IGNORE_CASE",
+                            "CUSTOM",
+                            "EQ",
+                            "EQ_IGNORE_CASE",
+                            "GREATER_THAN",
+                            "GREATER_OR_EQ",
+                            "IN",
+                            "IS_EMPTY",
+                            "IS_NOT_EMPTY",
+                            "IS_NULL",
+                            "IS_NOT_NULL",
+                            "LESS_THAN",
+                            "LESS_OR_EQ",
+                            "LIKE",
+                            "LIKE_IGNORE_CASE",
+                            "NOT_CONTAINS",
+                            "NOT_CONTAINS_IGNORE_CASE",
+                            "NOT_EQ",
+                            "NOT_EQ_IGNORE_CASE",
+                            "NOT_IN",
+                            "REGEXP_MATCHES",
+                            "STARTS_WITH",
+                            "STARTS_WITH_IGNORE_CASE"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "supportedTransformation": {
+                    "description": "List of supported transformation methods for this column (can be empty).",
+                    "items": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoTransformation"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "description": "required",
+                    "enum": [
+                        "UNKNOWN_TYPE",
+                        "STRING",
+                        "INTEGER",
+                        "DECIMAL",
+                        "BOOLEAN",
+                        "TIMESTAMP_MS"
+                    ],
+                    "enumDescriptions": [
+                        "Type is not specified.",
+                        "String type.",
+                        "Integer type.",
+                        "Decimal type.",
+                        "Boolean type.",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PartnerservicesAlkaliApplicationCommonReportsProtoCondition": {
+            "description": "The specifier for a query.\nLINT.IfChange",
+            "id": "PartnerservicesAlkaliApplicationCommonReportsProtoCondition",
+            "properties": {
+                "column": {
+                    "description": "The column id. Required.",
+                    "type": "string"
+                },
+                "customOperator": {
+                    "description": "Not currently supported!",
+                    "type": "string"
+                },
+                "operator": {
+                    "description": "The operator for the condition.",
+                    "enum": [
+                        "BETWEEN",
+                        "CONTAINS",
+                        "CONTAINS_IGNORE_CASE",
+                        "CUSTOM",
+                        "EQ",
+                        "EQ_IGNORE_CASE",
+                        "GREATER_THAN",
+                        "GREATER_OR_EQ",
+                        "IN",
+                        "IS_EMPTY",
+                        "IS_NOT_EMPTY",
+                        "IS_NULL",
+                        "IS_NOT_NULL",
+                        "LESS_THAN",
+                        "LESS_OR_EQ",
+                        "LIKE",
+                        "LIKE_IGNORE_CASE",
+                        "NOT_CONTAINS",
+                        "NOT_CONTAINS_IGNORE_CASE",
+                        "NOT_EQ",
+                        "NOT_EQ_IGNORE_CASE",
+                        "NOT_IN",
+                        "REGEXP_MATCHES",
+                        "STARTS_WITH",
+                        "STARTS_WITH_IGNORE_CASE"
+                    ],
+                    "enumDescriptions": [
+                        "Expects two values.",
+                        "Contains the specified values.",
+                        "Contains the specified values ignoring case.",
+                        "NOTE(albinr): Not currently supported!",
+                        "Equals the values.",
+                        "Equals the values ignoring case.",
+                        "Greater than the value.",
+                        "Greater than or equal to the value.",
+                        "Expects zero or more values.",
+                        "Expects no values.",
+                        "Expects no values.",
+                        "Expects no values.",
+                        "Expects no values.",
+                        "Less than the value.",
+                        "Less than or equal to the value.",
+                        "Similar to sql like.",
+                        "Similar to sql like ignoring case.",
+                        "Does not contain the specified values.",
+                        "Not containing the values ignoring case.",
+                        "Not Equal.",
+                        "Not equal",
+                        "Expects zero or more values.",
+                        "Full (not partial) regular expression match.",
+                        "Expects string value.",
+                        "Expects string value."
+                    ],
+                    "type": "string"
+                },
+                "value": {
+                    "description": "The type of the value must match that of the specified column. The number\nof values must match what the operator expects (most only take one). If\nmore than one value is specified they must all have the same type.",
+                    "items": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoValue"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "PartnerservicesAlkaliApplicationCommonReportsProtoConditionGroup": {
+            "description": "Note: An empty condition group (no sub-groups or conditions) evaluates to\nTRUE (that is, the condition matches).",
+            "id": "PartnerservicesAlkaliApplicationCommonReportsProtoConditionGroup",
+            "properties": {
+                "condition": {
+                    "description": "List of conditions. Can be empty.",
+                    "items": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoCondition"
+                    },
+                    "type": "array"
+                },
+                "conditionGroup": {
+                    "description": "List of sub-condition-groups. Can be empty.",
+                    "items": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoConditionGroup"
+                    },
+                    "type": "array"
+                },
+                "operator": {
+                    "description": "The operator to use (AND or OR) when evaluating this group.",
+                    "enum": [
+                        "AND",
+                        "OR"
+                    ],
+                    "enumDescriptions": [
+                        "And.",
+                        "Or."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PartnerservicesAlkaliApplicationCommonReportsProtoCsvDownloadColumn": {
+            "description": "Options for one column in a CSV download.",
+            "id": "PartnerservicesAlkaliApplicationCommonReportsProtoCsvDownloadColumn",
+            "properties": {
+                "displayName": {
+                    "description": "Custom display name for the column.",
+                    "type": "string"
+                },
+                "format": {
+                    "description": "Format of the column. This will be interpreted as a NumberFormat for\nnumeric columns, or a DateTimeFormat for timestamp columns.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PartnerservicesAlkaliApplicationCommonReportsProtoDataSourceParam": {
+            "description": "Extra parameters to pass to the data source methods\n(e.g. GetSchema and ExecuteQuery).",
+            "id": "PartnerservicesAlkaliApplicationCommonReportsProtoDataSourceParam",
+            "properties": {
+                "key": {
+                    "description": "The key of the entry. Required.",
+                    "type": "string"
+                },
+                "value": {
+                    "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoValue",
+                    "description": "The value of the entry."
+                }
+            },
+            "type": "object"
+        },
+        "PartnerservicesAlkaliApplicationCommonReportsProtoDataset": {
+            "description": "Dataset.",
+            "id": "PartnerservicesAlkaliApplicationCommonReportsProtoDataset",
+            "properties": {
+                "columnId": {
+                    "description": "Column IDs used in the dataset. The Values in the Row protos must match\nthese (in particular, the number of values in each row must be equal to\nthe number of columns).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "Leave empty if there is no next page (=all rows have been returned) or\nif pagination is not supported.",
+                    "type": "string"
+                },
+                "previousPageToken": {
+                    "description": "Leave empty if there is no previous page (=this is the first page) or if\npagination is not supported.\nNOTE(aabdagic): Current API Style Guide doesn't mention the total number of\nrows as a field and we do not currently need it. We can reevaluate this\nwhen the need arises.",
+                    "type": "string"
+                },
+                "row": {
+                    "description": "The rows within the dataset. (See column_id for invariant.)",
+                    "items": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoRow"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "PartnerservicesAlkaliApplicationCommonReportsProtoParamMapEntry": {
+            "description": "Parameter map entry (VOLATILE: will likely be removed in favor of a real map;\nplease contact partnerdash-team before using).",
+            "id": "PartnerservicesAlkaliApplicationCommonReportsProtoParamMapEntry",
+            "properties": {
+                "key": {
+                    "description": "The key of the entry.",
+                    "type": "string"
+                },
+                "value": {
+                    "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoValue",
+                    "description": "The value of the entry."
+                }
+            },
+            "type": "object"
+        },
+        "PartnerservicesAlkaliApplicationCommonReportsProtoQuery": {
+            "description": "The query definition.",
+            "id": "PartnerservicesAlkaliApplicationCommonReportsProtoQuery",
+            "properties": {
+                "column": {
+                    "description": "The columns to retrieve.",
+                    "items": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoQueryColumn"
+                    },
+                    "type": "array"
+                },
+                "conditionGroup": {
+                    "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoConditionGroup",
+                    "description": "The conditions/filters to apply (can be empty). Only column+operator\ncombinations that are listed as supported by the Schema can be used."
+                },
+                "distinct": {
+                    "description": "Should the query only return distinct rows.",
+                    "type": "boolean"
+                },
+                "ordering": {
+                    "description": "How to sort the dataset (optional). More than one sort criterion can\nbe specified (the order is respected). Only columns listed as \"sortable\"\nin the schema can be used.",
+                    "items": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoSortCriterion"
+                    },
+                    "type": "array"
+                },
+                "pageSize": {
+                    "description": "The (max) number of rows to return. This setting must be respected by all\ndata sources.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "pageToken": {
+                    "description": "The token/id of the result page to return. Only allowed if the data\nsource's schema indicates that pagination is supported.\nAbsent or an empty string indicates the first page.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PartnerservicesAlkaliApplicationCommonReportsProtoQueryColumn": {
+            "description": "A column definition for the query.",
+            "id": "PartnerservicesAlkaliApplicationCommonReportsProtoQueryColumn",
+            "properties": {
+                "aggregation": {
+                    "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoAggregation",
+                    "description": "Optionally apply an aggregation to the column before returning it. The\nspecified aggregation must be listed as supported by this column in the\nschema. Can not be used at the same time as transformation.\nNOTE(albinr): Aggregating by at least one column will usually trigger\n\"group by\" behavior by SQL-like data sources (e.g. Dremel), e.g. all\nnon aggregated columns will be grouped by (effectively removing duplicates\nput potentially slowing down the query)."
+                },
+                "alias": {
+                    "description": "Optional alias, used instead of the id in the returned DataSet.\n(All DataSources MUST support aliases.)",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "ID of the requested column.\nrequired",
+                    "type": "string"
+                },
+                "transformation": {
+                    "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoTransformation",
+                    "description": "Optionally apply a transformation to the column before returning it. The\nspecified transformation must be listed as supported by this column in the\nschema. Can not be used at the same time as aggregation."
+                }
+            },
+            "type": "object"
+        },
+        "PartnerservicesAlkaliApplicationCommonReportsProtoRow": {
+            "description": "LINT.IfChange",
+            "id": "PartnerservicesAlkaliApplicationCommonReportsProtoRow",
+            "properties": {
+                "value": {
+                    "description": "The values in a row. (See Dataset.column_id for invariant.)",
+                    "items": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoValue"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "PartnerservicesAlkaliApplicationCommonReportsProtoSchema": {
+            "description": "The schema of the data source.",
+            "id": "PartnerservicesAlkaliApplicationCommonReportsProtoSchema",
+            "properties": {
+                "column": {
+                    "description": "List of columns in this data source.",
+                    "items": {
+                        "$ref": "PartnerservicesAlkaliApplicationCommonReportsProtoColumn"
+                    },
+                    "type": "array"
+                },
+                "isDistinctSupported": {
+                    "description": "Indicates if distinct (e.g. \"SELECT DISTINCT a, b FROM c\") is supported.",
+                    "type": "boolean"
+                },
+                "isPaginationSupported": {
+                    "description": "Indicates if pagination (\"Query.page_token\") is supported. Note that\n\"Query.page_size\" MUST be supported by all data sources, regardless of\nthis setting.",
+                    "type": "boolean"
+                },
+                "maxPageSize": {
+                    "description": "Optionally indicates the maximum page size supported by the data source.\nUnset (<=0) means there is no maximum page size.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "totalRows": {
+                    "description": "Optionally indicates the total number of rows in this data source, which\nmight be useful to client-side components (for a small number of rows,\nthey might want to load all data client-side). Currently not implemented.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PartnerservicesAlkaliApplicationCommonReportsProtoSortCriterion": {
+            "description": "The sort criterion.",
+            "id": "PartnerservicesAlkaliApplicationCommonReportsProtoSortCriterion",
+            "properties": {
+                "columnId": {
+                    "description": "The column to apply the sort.",
+                    "type": "string"
+                },
+                "direction": {
+                    "description": "The direction of the sort criterion.",
+                    "enum": [
+                        "NONE",
+                        "ASC",
+                        "DESC"
+                    ],
+                    "enumDescriptions": [
+                        "None.",
+                        "Ascending.",
+                        "Descending."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PartnerservicesAlkaliApplicationCommonReportsProtoTransformation": {
+            "description": "A message for the transformation that can (getSchema) and is (executeQuery)\napplied to the query.",
+            "id": "PartnerservicesAlkaliApplicationCommonReportsProtoTransformation",
+            "properties": {
+                "customReturnType": {
+                    "description": "Might be set for custom transformations specified in a Schema.\n(Ignored in queries.)",
+                    "enum": [
+                        "UNKNOWN_TYPE",
+                        "STRING",
+                        "INTEGER",
+                        "DECIMAL",
+                        "BOOLEAN",
+                        "TIMESTAMP_MS"
+                    ],
+                    "enumDescriptions": [
+                        "Type is not specified.",
+                        "String type.",
+                        "Integer type.",
+                        "Decimal type.",
+                        "Boolean type.",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "customType": {
+                    "description": "Data Sources can implement their own custom (non-standard) transformation\nmethods, by setting type to CUSTOM and supply a string identifier here.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "The type of transformation.",
+                    "enum": [
+                        "NONE",
+                        "CUSTOM",
+                        "HOUR",
+                        "DAY",
+                        "WEEK",
+                        "MONTH",
+                        "QUARTER",
+                        "YEAR"
+                    ],
+                    "enumDescriptions": [
+                        "No transformation.",
+                        "Custom transformation, as specified below.",
+                        "Changes a timestamp, shifting it to the hour it belongs to.",
+                        "Changes a timestamp, shifting it to the day it belongs to in UTC.",
+                        "Changes a timestamp, shifting it to the week it belongs to in UTC.",
+                        "Changes a timestamp, shifting it to the month it belongs to in UTC.",
+                        "Changes a timestamp, shifting it to the quarter it belongs to in UTC.",
+                        "Changes a timestamp, shifting it to the year it belongs to in UTC."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PartnerservicesAlkaliApplicationCommonReportsProtoValue": {
+            "description": "A single value representation",
+            "id": "PartnerservicesAlkaliApplicationCommonReportsProtoValue",
+            "properties": {
+                "booleanValue": {
+                    "description": "A boolean value.",
+                    "type": "boolean"
+                },
+                "decimalValue": {
+                    "description": "A decimal value.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "integerValue": {
+                    "description": "An integer value.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "stringValue": {
+                    "description": "Exactly one, matching type, must be set.\nA string value.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "The type of value.",
+                    "enum": [
+                        "UNKNOWN_TYPE",
+                        "STRING",
+                        "INTEGER",
+                        "DECIMAL",
+                        "BOOLEAN",
+                        "TIMESTAMP_MS"
+                    ],
+                    "enumDescriptions": [
+                        "Type is not specified.",
+                        "String type.",
+                        "Integer type.",
+                        "Decimal type.",
+                        "Boolean type.",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ProjectionSpec": {
+            "description": "A data projection specification.",
+            "id": "ProjectionSpec",
+            "properties": {
+                "bernoulli": {
+                    "$ref": "BernoulliSampleSpec",
+                    "description": "All rows have equal probability of being included in the sample. Whether\neach row is included or not is independent of one another."
+                },
+                "field": {
+                    "description": "String expressions that represent dimensions or measures. For example:\nfields : {output: \"output_col1\" expression:\"col1\"},\n{output:\"output_col2\" expression: \"col2\"},\n{output: \"output_col3\" expression: \"SUM(col3 + col4)\" }\nwill result in two dimensions and one aggregation.",
+                    "items": {
+                        "$ref": "ExpressionField"
+                    },
+                    "type": "array"
+                },
+                "filter": {
+                    "description": "Optional: Any filters which are to be applied to the input.",
+                    "items": {
+                        "$ref": "FilterSpec"
+                    },
+                    "type": "array"
+                },
+                "isGrouped": {
+                    "description": "Optional: Flag to indicate whether dimensions should be grouped in the\nabsence of any aggregations.",
+                    "type": "boolean"
+                },
+                "limitToNumRows": {
+                    "description": "Optional: Number of rows to limit the output to.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "ordering": {
+                    "description": "Optional: The ordering to be applied, if any.",
+                    "items": {
+                        "$ref": "OrderingSpec"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "QueryCacheControl": {
+            "description": "Cache control equivalent to\nhttp://google3/datawarehouse/plx/api/public/v1/common.proto?l=81&rcl=170603851.",
+            "id": "QueryCacheControl",
+            "properties": {
+                "minCacheTimestampMs": {
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "QueryExecutionIdentifier": {
+            "id": "QueryExecutionIdentifier",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "token": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "QueryExecutionState": {
+            "id": "QueryExecutionState",
+            "properties": {
+                "errorCode": {
+                    "description": "The canonical error code enum in string format. Present only if the\nexecution failed.",
+                    "type": "string"
+                },
+                "errorDetail": {
+                    "description": "Detail about the error, if the execution failed.",
+                    "type": "string"
+                },
+                "percentComplete": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "state": {
+                    "enum": [
+                        "UNKNOWN_EXECUTION_STATE",
+                        "PENDING",
+                        "RUNNING",
+                        "DONE"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "An entity that has been submitted but not processed yet.",
+                        "An entity that is currently being executed.",
+                        "An entity that has been successfully or unsuccessfully completed."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "QueryRequest": {
+            "id": "QueryRequest",
+            "properties": {
+                "cacheControl": {
+                    "$ref": "QueryCacheControl"
+                },
+                "dataSource": {
+                    "$ref": "DashboardDataSource"
+                },
+                "executionId": {
+                    "$ref": "QueryExecutionIdentifier"
+                },
+                "projection": {
+                    "$ref": "ProjectionSpec"
+                },
+                "type": {
+                    "enum": [
+                        "QUERY_TYPE_UNKNOWN",
+                        "CREATE",
+                        "GET"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "QueryResponse": {
+            "id": "QueryResponse",
+            "properties": {
+                "data": {
+                    "type": "string"
+                },
+                "executionId": {
+                    "$ref": "QueryExecutionIdentifier"
+                },
+                "fieldMetadata": {
+                    "items": {
+                        "$ref": "ResultFieldMetadata"
+                    },
+                    "type": "array"
+                },
+                "state": {
+                    "$ref": "QueryExecutionState"
+                }
+            },
+            "type": "object"
+        },
+        "ResultFieldMetadata": {
+            "description": "Metadata of the fields in the output data in Projection.",
+            "id": "ResultFieldMetadata",
+            "properties": {
+                "dataType": {
+                    "description": "The data value type of the field",
+                    "enum": [
+                        "UNKNOWN_FIELD_DATA_TYPE",
+                        "TYPE_INT32",
+                        "TYPE_INT64",
+                        "TYPE_UINT32",
+                        "TYPE_UINT64",
+                        "TYPE_BOOL",
+                        "TYPE_FLOAT",
+                        "TYPE_DOUBLE",
+                        "TYPE_STRING",
+                        "TYPE_BYTES",
+                        "TYPE_DATE",
+                        "TYPE_TIMESTAMP",
+                        "TYPE_TIMESTAMP_MICROS",
+                        "TYPE_TIMESTAMP_MILLIS",
+                        "TYPE_TIMESTAMP_SECONDS",
+                        "TYPE_TIMESTAMP_NANOS",
+                        "TYPE_ENUM"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "Consistent with GoogleSql TIMESTAMP in micros.",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The fully qualified name of this field.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SubmitUploadRequest": {
+            "description": "Request for submitting an upload and processing the uploaded files.",
+            "id": "SubmitUploadRequest",
+            "properties": {
+                "files": {
+                    "description": "The details of each uploaded file.",
+                    "items": {
+                        "$ref": "UploadedFile"
+                    },
+                    "type": "array"
+                },
+                "uploadDetails": {
+                    "additionalProperties": {
+                        "description": "Properties of the object. Contains field @type with type URL.",
+                        "type": "any"
+                    },
+                    "description": "This is an Any proto to allow each frontend app to provide contextually\nrelevant information about the upload session to its upload handler.\nThis type must be added to your Alkali app's OnePlatform config file\n(cs/internal/alkali/applications/APP_NAME/APP_NAME.yaml) for the upload\nhandler to correctly handle the request.",
+                    "type": "object"
+                },
+                "uploadKey": {
+                    "$ref": "UploadKey",
+                    "description": "A unique Upload Key identifying the upload session."
+                }
+            },
+            "type": "object"
+        },
+        "SubmitUploadResponse": {
+            "description": "Result of submitting an upload. This response is set by the upload handler\nand gets passed through the Alkali Uploader to the frontend.",
+            "id": "SubmitUploadResponse",
+            "properties": {
+                "response": {
+                    "additionalProperties": {
+                        "description": "Properties of the object. Contains field @type with type URL.",
+                        "type": "any"
+                    },
+                    "description": "This is an Any proto to allow each upload handler to determine its own\nresponse type. This type must be added to your Alkali app's OnePlatform\nconfig file (cs/internal/alkali/applications/APP_NAME/APP_NAME.yaml)\nfor the frontend to correctly handle the response.",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "UploadKey": {
+            "description": "A unique Upload Key to identify this upload session.",
+            "id": "UploadKey",
+            "properties": {
+                "keyId": {
+                    "description": "The name (UUID) of this upload key.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UploadResponse": {
+            "description": "Response type (contained within the SubmitUploadResponse proto) returned by\nthe Fishfood upload handler.",
+            "id": "UploadResponse",
+            "properties": {
+                "displayMessage": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UploadedFile": {
+            "description": "Details about an uploaded file.",
+            "id": "UploadedFile",
+            "properties": {
+                "fileKey": {
+                    "$ref": "FileKey",
+                    "description": "The unique File Key for an uploaded file. To get a url for this file, call\nUploadService.AcquireFileUrls with this along with the Upload key."
+                },
+                "filename": {
+                    "description": "The file's original filename; does not include original path or directory.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Alkali Fishfood Private API (QA)",
+    "version": "v1",
+    "version_module": true
+}

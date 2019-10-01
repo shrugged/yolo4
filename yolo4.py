@@ -86,7 +86,7 @@ def process_message(message):
     #    logger.debug(e)
 
 def run_yolo(headers, payloads):
-    URL = 'https://www.googleapis.com/$discovery/rest'
+    URL = 'http://www.googleapis.com/$discovery/rest'
                    
     logger.info(headers)
     logger.debug(payloads)

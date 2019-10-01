@@ -1,0 +1,296 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/xapi.zoo": {
+                    "description": "Test scope for access to the Zoo service"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://staging-fiberwarehousecpe-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Fiber Warehouse CPE",
+    "description": "API to query if the firmware on CPE devices in Warehouse is up to date.",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://go/fiberwarehousecpe",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "fiberwarehousecpe_pa:v1",
+    "kind": "discovery#restDescription",
+    "name": "fiberwarehousecpe_pa",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "accountDevice": {
+            "methods": {
+                "install": {
+                    "description": "Installs a CPE device to an account.  If a device of the same device_type\nis already installed on the account, it will be replaced.\nWARNING: This should only be used for test accounts.",
+                    "flatPath": "v1/accountDevice:install",
+                    "httpMethod": "GET",
+                    "id": "fiberwarehousecpe_pa.accountDevice.install",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "accountId": {
+                            "description": "The required Account ID for the Account to which the device will be\ninstalled.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "serial": {
+                            "description": "The required device serial number.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/accountDevice:install",
+                    "response": {
+                        "$ref": "InstallDeviceResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/xapi.zoo"
+                    ]
+                }
+            }
+        },
+        "deviceStatuses": {
+            "methods": {
+                "getBatchGet": {
+                    "description": "Gets status for one or more CPE devices.",
+                    "flatPath": "v1/deviceStatuses:batchGet",
+                    "httpMethod": "GET",
+                    "id": "fiberwarehousecpe_pa.deviceStatuses.getBatchGet",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "serials": {
+                            "description": "The required device serial numbers.",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/deviceStatuses:batchGet",
+                    "response": {
+                        "$ref": "GetDeviceStatusesResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/xapi.zoo"
+                    ]
+                }
+            }
+        },
+        "v1": {
+            "methods": {
+                "getAccountDevice": {
+                    "description": "Gets account information for a CPE device.",
+                    "flatPath": "v1/accountDevice",
+                    "httpMethod": "GET",
+                    "id": "fiberwarehousecpe_pa.getAccountDevice",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "serial": {
+                            "description": "The required device serial number.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/accountDevice",
+                    "response": {
+                        "$ref": "GetAccountDeviceResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/xapi.zoo"
+                    ]
+                },
+                "getMinimumVersions": {
+                    "description": "A service to query the minimum required version for each device model\nso that it may be downloaded to the local Nitro machine prior to performing\nany firmware upgrades.",
+                    "flatPath": "v1/minimumVersions",
+                    "httpMethod": "GET",
+                    "id": "fiberwarehousecpe_pa.getMinimumVersions",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/minimumVersions",
+                    "response": {
+                        "$ref": "GetMinimumVersionsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/xapi.zoo"
+                    ]
+                }
+            }
+        }
+    },
+    "revision": "20190917",
+    "rootUrl": "https://staging-fiberwarehousecpe-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "DeviceStatus": {
+            "description": "The status of a device.",
+            "id": "DeviceStatus",
+            "properties": {
+                "isUnlockRequested": {
+                    "description": "True if device requests \"unlock\" in device options.",
+                    "type": "boolean"
+                },
+                "lastBootTime": {
+                    "description": "The last boot time of the device.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "serial": {
+                    "description": "The device identifier.",
+                    "type": "string"
+                },
+                "swMinimumRequiredVersion": {
+                    "description": "The minimum required software version of the device model.",
+                    "type": "string"
+                },
+                "swUpToDate": {
+                    "description": "True if the software on the device is up-to-date.",
+                    "type": "boolean"
+                },
+                "swVersion": {
+                    "description": "The software version on the device.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GetAccountDeviceResponse": {
+            "description": "Response for GetAccountDevice RPC method.",
+            "id": "GetAccountDeviceResponse",
+            "properties": {
+                "accountId": {
+                    "description": "Account ID for the Account with this device.",
+                    "type": "string"
+                },
+                "isInstalled": {
+                    "description": "Whether the device is installed.",
+                    "type": "boolean"
+                },
+                "serial": {
+                    "description": "Device serial number, should be same as the request, but included for\nconvenience.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GetDeviceStatusesResponse": {
+            "description": "Response for GetDeviceStatuses RPC method.",
+            "id": "GetDeviceStatusesResponse",
+            "properties": {
+                "deviceStatuses": {
+                    "description": "Status of the devices.\nThere is no entry for devices not found in data store.",
+                    "items": {
+                        "$ref": "DeviceStatus"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GetMinimumVersionsResponse": {
+            "description": "Response for GetMinimumVersion RPC method.",
+            "id": "GetMinimumVersionsResponse",
+            "properties": {
+                "deviceSwMinimumVersions": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Minimum required SW install images.",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "InstallDeviceResponse": {
+            "description": "Response for InstallDevice RPC method.",
+            "id": "InstallDeviceResponse",
+            "properties": {},
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Fiber Warehouse CPE Private API (Staging)",
+    "version": "v1",
+    "version_module": true
+}

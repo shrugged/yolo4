@@ -1,0 +1,1212 @@
+{
+    "basePath": "",
+    "baseUrl": "https://autopush-wingdronesnearby-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Wing Drones Nearby",
+    "description": "API for managing Wing Drones Nearby API.",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://go/uas-airspace-access",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "autopush_wingdronesnearby_pa_sandbox:v1alpha1",
+    "kind": "discovery#restDescription",
+    "name": "autopush_wingdronesnearby_pa_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "displayData": {
+            "methods": {
+                "search": {
+                    "description": "Returns a list of flights according to the RID spec.\nDepending on the size of the input bounding box, the RPC may contain\nclusters of drones or drone telemetry.",
+                    "flatPath": "v1alpha1/displayData:search",
+                    "httpMethod": "GET",
+                    "id": "autopush_wingdronesnearby_pa_sandbox.displayData.search",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "boundingBox.pointA.latitude": {
+                            "description": "The latitude in degrees. It must be in the range [-90.0, +90.0].",
+                            "format": "double",
+                            "location": "query",
+                            "type": "number"
+                        },
+                        "boundingBox.pointA.longitude": {
+                            "description": "The longitude in degrees. It must be in the range [-180.0, +180.0].",
+                            "format": "double",
+                            "location": "query",
+                            "type": "number"
+                        },
+                        "boundingBox.pointB.latitude": {
+                            "description": "The latitude in degrees. It must be in the range [-90.0, +90.0].",
+                            "format": "double",
+                            "location": "query",
+                            "type": "number"
+                        },
+                        "boundingBox.pointB.longitude": {
+                            "description": "The longitude in degrees. It must be in the range [-180.0, +180.0].",
+                            "format": "double",
+                            "location": "query",
+                            "type": "number"
+                        }
+                    },
+                    "path": "v1alpha1/displayData:search",
+                    "response": {
+                        "$ref": "SearchDisplayDataResponse"
+                    }
+                }
+            }
+        },
+        "flights": {
+            "methods": {
+                "getDetails": {
+                    "description": "Returns more details for Flight selected from SearchDisplayData.",
+                    "flatPath": "v1alpha1/flights/{token}/details",
+                    "httpMethod": "GET",
+                    "id": "autopush_wingdronesnearby_pa_sandbox.flights.getDetails",
+                    "parameterOrder": [
+                        "token"
+                    ],
+                    "parameters": {
+                        "token": {
+                            "description": "Base64 token used to validate request for flight details.  token is\nobtained through SearchDisplayData RPC.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1alpha1/flights/{token}/details",
+                    "response": {
+                        "$ref": "FlightDetails"
+                    }
+                }
+            }
+        },
+        "flightsByBoundingBox": {
+            "methods": {
+                "list": {
+                    "description": "Returns the clusters of drones that are within the given bounding box.",
+                    "flatPath": "v1alpha1/flightsByBoundingBox",
+                    "httpMethod": "GET",
+                    "id": "autopush_wingdronesnearby_pa_sandbox.flightsByBoundingBox.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "boundingBox.northEast.latitude": {
+                            "description": "The latitude in degrees. It must be in the range [-90.0, +90.0].",
+                            "format": "double",
+                            "location": "query",
+                            "type": "number"
+                        },
+                        "boundingBox.northEast.longitude": {
+                            "description": "The longitude in degrees. It must be in the range [-180.0, +180.0].",
+                            "format": "double",
+                            "location": "query",
+                            "type": "number"
+                        },
+                        "boundingBox.southWest.latitude": {
+                            "description": "The latitude in degrees. It must be in the range [-90.0, +90.0].",
+                            "format": "double",
+                            "location": "query",
+                            "type": "number"
+                        },
+                        "boundingBox.southWest.longitude": {
+                            "description": "The longitude in degrees. It must be in the range [-180.0, +180.0].",
+                            "format": "double",
+                            "location": "query",
+                            "type": "number"
+                        }
+                    },
+                    "path": "v1alpha1/flightsByBoundingBox",
+                    "response": {
+                        "$ref": "ListFlightsByBoundingBoxResponse"
+                    }
+                }
+            }
+        },
+        "publicFlightDetails": {
+            "methods": {
+                "get": {
+                    "description": "Returns more details for Flight selected from ListFlightsByBoundingBox.",
+                    "flatPath": "v1alpha1/publicFlightDetails/{flightInfoId}",
+                    "httpMethod": "GET",
+                    "id": "autopush_wingdronesnearby_pa_sandbox.publicFlightDetails.get",
+                    "parameterOrder": [
+                        "flightInfoId"
+                    ],
+                    "parameters": {
+                        "flightInfoId": {
+                            "description": "Encrypted identifier for PublicMapFlightInfo from ListFlightsByBoundingBox.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1alpha1/publicFlightDetails/{flightInfoId}",
+                    "response": {
+                        "$ref": "PublicFlightDetails"
+                    }
+                }
+            }
+        },
+        "uss": {
+            "resources": {
+                "flights": {
+                    "methods": {
+                        "getDetails": {
+                            "description": "Retrieve details of a flight to meet remote ID requirements.",
+                            "flatPath": "v1alpha1/uss/flights/{id}/details",
+                            "httpMethod": "GET",
+                            "id": "autopush_wingdronesnearby_pa_sandbox.uss.flights.getDetails",
+                            "parameterOrder": [
+                                "id"
+                            ],
+                            "parameters": {
+                                "id": {
+                                    "description": "Remote ID flight ID for this flight; may be obtained in general /flights\nquery.",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha1/uss/flights/{id}/details",
+                            "response": {
+                                "$ref": "HttpBody"
+                            }
+                        },
+                        "list": {
+                            "description": "Retrieve basic flight information to meet remote ID requirements. This\nendpoint will be polled by remote ID display providers to display basic\naircraft activity near a user in real time. All flights that have any\nrecent positions (past [NetUasInAreaWindow] seconds) inside the requested\nview must be returned. The response is the JSON version of RidFlights.",
+                            "flatPath": "v1alpha1/uss/flights",
+                            "httpMethod": "GET",
+                            "id": "autopush_wingdronesnearby_pa_sandbox.uss.flights.list",
+                            "parameterOrder": [],
+                            "parameters": {
+                                "include_recent_positions": {
+                                    "description": "If specified as true, include recent positions. Otherwise, do not include\nrecent positions.\n\nA display provider's first poll of this endpoint for a particular view will\nusually request recent positions while follow-up polls for that same view\nwill usually not need to request recent positions.",
+                                    "location": "query",
+                                    "type": "boolean"
+                                },
+                                "view": {
+                                    "description": "The area of this view: lat1,lng1,lat2,lng2.  Size may not exceed a diagonal\nlength specified in the standard.  The view is the smallest box bounded by\nthe provided corner points.",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha1/uss/flights",
+                            "response": {
+                                "$ref": "HttpBody"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190920",
+    "rootUrl": "https://autopush-wingdronesnearby-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "Accuracy": {
+            "description": "Accuracies of various fields if desired.",
+            "id": "Accuracy",
+            "properties": {
+                "groundSpeedAccuracy": {
+                    "description": "Accuracy of horizontal ground speed.",
+                    "enum": [
+                        "GROUND_SPEED_ACCURACY_UNSPECIFIED",
+                        "SAUNKNOWN",
+                        "SA10MPS_PLUS",
+                        "SA10MPS",
+                        "SA3MPS",
+                        "SA1MPS",
+                        "SA03MPS"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified speed accuracy.",
+                        "Unknown speed accuracy.",
+                        "> 10 m/s",
+                        "> 10 m/s",
+                        "< 3 m/s",
+                        "< 1 m/s",
+                        "< 0.3 m/s"
+                    ],
+                    "type": "string"
+                },
+                "horizontalAccuracy": {
+                    "description": "Horizontal error that is likely to be present in this reported position.",
+                    "enum": [
+                        "HORIZONTAL_ACCURACY_UNSPECIFIED",
+                        "HAUNKNOWN",
+                        "HA10NM_PLUS",
+                        "HA10NM",
+                        "HA4NM",
+                        "HA2NM",
+                        "HA1NM",
+                        "HA05NM",
+                        "HA03NM",
+                        "HA01NM",
+                        "HA005NM",
+                        "HA30M",
+                        "HA10M",
+                        "HA3M",
+                        "HA1M"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified horizontal accuracy.",
+                        "Unknown horizontal accuracy.",
+                        "> 10NM (18.52km)",
+                        "< 10NM (18.52km)",
+                        "< 4NM (7.408km)",
+                        "< 2NM (3.704km)",
+                        "< 1NM (1852m)",
+                        "< 0.5NM (926m)",
+                        "< 0.3NM (555.6m)",
+                        "< 0.1NM (185.2m)",
+                        "< 0.05NM (92.6m)",
+                        "< 30m",
+                        "< 10m",
+                        "< 3m",
+                        "< 1m"
+                    ],
+                    "type": "string"
+                },
+                "timestampAccuracySeconds": {
+                    "description": "Largest difference between reported timestamp and the true time at which\nthe measurement most distant in time was taken, 95% confidence interval.\nThe standard text from which this field originates is:\n\nDeclaration of timestamp accuracy, which is the largest difference between\nTimestamp and true time of applicability for any of the following fields:\nLatitude, Longitude, Geodetic Altitude, Pressure Altitude of Position,\nHeight.\nThe accuracy reflects the 95% uncertainty bound value for the timestamp.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "verticalAccuracy": {
+                    "description": "Vertical error that is likely to be present in this reported position.",
+                    "enum": [
+                        "VERTICAL_ACCURACY_UNSPECIFIED",
+                        "VAUNKNOWN",
+                        "VA150M_PLUS",
+                        "VA150M",
+                        "VA45M",
+                        "VA25M",
+                        "VA10M",
+                        "VA3M",
+                        "VA1M"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified vertical accuracy.",
+                        "Unknown vertical accuracy.",
+                        "> 150m",
+                        "< 150m",
+                        "< 45m",
+                        "< 25m",
+                        "< 10m",
+                        "< 3m",
+                        "< 1m"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AircraftModel": {
+            "description": "The model of aircraft.",
+            "id": "AircraftModel",
+            "properties": {
+                "imageUrl": {
+                    "description": "Aircraft image url.",
+                    "type": "string"
+                },
+                "make": {
+                    "description": "The manufacturer producing this aircraft model.",
+                    "type": "string"
+                },
+                "model": {
+                    "description": "The model of the aircraft given by manufacturer.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Altitude": {
+            "description": "Altitude information in various forms.",
+            "id": "Altitude",
+            "properties": {
+                "altitudeAboveBuildingMeters": {
+                    "description": "Height above the building for the drone in meters.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "altitudeAboveGroundMeters": {
+                    "description": "Height above the ground for the drone in meters.",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "AltitudeRange": {
+            "description": "A span of altitude. Half-open interval [lower, upper).",
+            "id": "AltitudeRange",
+            "properties": {
+                "lower": {
+                    "description": "Optional. If not specified, assume all the way to the ground. Inclusive.\nThe altitudes are in meters. Unless specified otherwise, this must be an\ninclusive value that's relative to the\n<a href=\"http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf\">WGS84</a>\nellipsoid (see also <a\nhref=\"http://earth-info.nga.mil/GandG/publications/tr8350.2/tr8350_2.html\">\nNGA: DoD World Geodetic System 1984</a>).",
+                    "format": "double",
+                    "type": "number"
+                },
+                "upper": {
+                    "description": "Optional. If not specified, assume all the way up. Exclusive.\nThe altitudes are in meters. Unless specified otherwise, this must be an\nexclusive value that's relative to the\n<a href=\"http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf\">WGS84</a>\nellipsoid (see also <a\nhref=\"http://earth-info.nga.mil/GandG/publications/tr8350.2/tr8350_2.html\">\nNGA: DoD World Geodetic System 1984</a>).",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "BoundingBox": {
+            "description": "A bounding box instance represents a rectangle in geographical coordinates,\nincluding one that crosses the 180 degrees longitudinal meridian.",
+            "id": "BoundingBox",
+            "properties": {
+                "northEast": {
+                    "$ref": "LatLng",
+                    "description": "Required. Coordinate representing the latitude/longitude pair of the north\neast (upper right) corner of the rectangle."
+                },
+                "southWest": {
+                    "$ref": "LatLng",
+                    "description": "Required. Coordinate representing the latitude/longitude pair of the south\nwest (lower left) corner of the rectangle."
+                }
+            },
+            "type": "object"
+        },
+        "Cluster": {
+            "description": "A cluster of drones in a given area. No identifying information will be\nsupplied at this level.",
+            "id": "Cluster",
+            "properties": {
+                "boundingBox": {
+                    "$ref": "GeneralBoundingBox",
+                    "description": "The bounding box is to provide the ability for client software to pass in a\nsubsequent request if the user wants to observe a specific cluster of\ndrones.  Note that point_a of the bounding_box message will point to the\nsouthwest corner and point_b will point to the northeast corner of the\nbounding box."
+                },
+                "droneCount": {
+                    "description": "The number of drones in the cluster.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "Clusters": {
+            "description": "Clusters wrapper for repeated clusters field.",
+            "id": "Clusters",
+            "properties": {
+                "clusters": {
+                    "description": "Each cluster has its location and a count of drones.",
+                    "items": {
+                        "$ref": "Cluster"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Component": {
+            "description": "Component which represents a region with optional holes.",
+            "id": "Component",
+            "properties": {
+                "holes": {
+                    "description": "Optional holes within the main loop.",
+                    "items": {
+                        "$ref": "Loop"
+                    },
+                    "type": "array"
+                },
+                "shell": {
+                    "$ref": "Loop",
+                    "description": "Main loop of the component."
+                }
+            },
+            "type": "object"
+        },
+        "Flight": {
+            "description": "Either volume or telemetry of the given flight with other general data.",
+            "id": "Flight",
+            "properties": {
+                "aircraftModel": {
+                    "$ref": "AircraftModel",
+                    "description": "Model information for the aircraft."
+                },
+                "aircraftType": {
+                    "description": "Type of aircraft for the purposes of remote ID.",
+                    "enum": [
+                        "AIRCRAFT_TYPE_UNSPECIFIED",
+                        "AEROPLANE",
+                        "ROTORCRAFT",
+                        "GYROPLANE",
+                        "VTOL",
+                        "ORNITHOPTER",
+                        "GLIDER",
+                        "KITE",
+                        "FREE_BALLOON",
+                        "CAPTIVE_BALLOON",
+                        "AIRSHIP",
+                        "FREE_FALL_OR_PARACHUTE",
+                        "ROCKET",
+                        "GROUND_OBSTACLE",
+                        "RESERVED",
+                        "OTHER"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified aircraft type.",
+                        "Aeroplane.",
+                        "All rotorcrafts including multi-rotor.",
+                        "Gyroplanes.",
+                        "Vertical Take Off and Landing. Fixed wing aircraft that can take off\nvertically",
+                        "Ornithopters.",
+                        "Gliders.",
+                        "Kites.",
+                        "Free balloons.",
+                        "Captive balloons.",
+                        "Airships.",
+                        "Free falling devices or devices with parachute.",
+                        "Rockets.",
+                        "Obstacles.",
+                        "Reserved.",
+                        "Other aircrafts not specified above."
+                    ],
+                    "type": "string"
+                },
+                "flightId": {
+                    "description": "Unique identifier of the flight.",
+                    "type": "string"
+                },
+                "telemetry": {
+                    "$ref": "Telemetries",
+                    "description": "Telemetry of the drone movement (Preferred)."
+                },
+                "token": {
+                    "description": "base64 token used for requesting individual flight details.  Token expires\nafter a set amount of time.",
+                    "type": "string"
+                },
+                "volumes": {
+                    "$ref": "Volumes",
+                    "description": "4d Volumes of the drone movement (Back-up)."
+                }
+            },
+            "type": "object"
+        },
+        "FlightDetails": {
+            "description": "Response for GetFlightDetailsRequest RPC.",
+            "id": "FlightDetails",
+            "properties": {
+                "flightId": {
+                    "description": "ID for this flight, matching argument in request.",
+                    "type": "string"
+                },
+                "operationDescription": {
+                    "description": "The description of the given operation.",
+                    "type": "string"
+                },
+                "operatorId": {
+                    "description": "CAA-issued registration/license ID for the remote pilot or operator, if\nrequired by law in a region.",
+                    "type": "string"
+                },
+                "operatorName": {
+                    "description": "Name of the operator.",
+                    "type": "string"
+                },
+                "operatorPosition": {
+                    "$ref": "LatLng",
+                    "description": "Location associated with the operator."
+                },
+                "operatorWebsite": {
+                    "description": "Website of the operator.",
+                    "type": "string"
+                },
+                "registrationNumber": {
+                    "description": "If a CAA provides a method of registering UAS, this number is provided by\nthe CAA or its authorized representative. Required when required by law in\na region.",
+                    "type": "string"
+                },
+                "serialNumber": {
+                    "description": "Can be specified when no registration ID exists and required by law in a\nregion. This is expressed in the ANSI/CTA-2063 Physical Serial Number\nformat.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Flights": {
+            "description": "Flights wrapper for repeated flights field.",
+            "id": "Flights",
+            "properties": {
+                "flights": {
+                    "description": "Represents precise location or operational volume of drones and\ninformation about the drones.",
+                    "items": {
+                        "$ref": "Flight"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GeneralBoundingBox": {
+            "description": "A bounding box instance represents a rectangle in geographical coordinates,\nincluding one that crosses longitudinal antimeridian (i.e. lng = +/-180).\npoint_a and point_b define two opposite points on the bounding box.  For\nexample, the client can provide the southwest corners in point_a and the\nnortheast point in point_b to define the rectangle.  Note that the box\nidentified will always be the SMALLEST box defined by the two points.",
+            "id": "GeneralBoundingBox",
+            "properties": {
+                "pointA": {
+                    "$ref": "LatLng",
+                    "description": "Required. Coordinate representing the latitude/longitude pair of one point\nof the rectangle."
+                },
+                "pointB": {
+                    "$ref": "LatLng",
+                    "description": "Required. Coordinate representing the latitude/longitude pair the point of\nthe rectangle farthest from point_a."
+                }
+            },
+            "type": "object"
+        },
+        "HttpBody": {
+            "description": "Message that represents an arbitrary HTTP body. It should only be used for\npayload formats that can't be represented as JSON, such as raw binary or\nan HTML page.\n\n\nThis message can be used both in streaming and non-streaming API methods in\nthe request as well as the response.\n\nIt can be used as a top-level request field, which is convenient if one\nwants to extract parameters from either the URL or HTTP template into the\nrequest fields and also want access to the raw HTTP body.\n\nExample:\n\n    message GetResourceRequest {\n      // A unique request id.\n      string request_id = 1;\n\n      // The raw HTTP body is bound to this field.\n      google.api.HttpBody http_body = 2;\n    }\n\n    service ResourceService {\n      rpc GetResource(GetResourceRequest) returns (google.api.HttpBody);\n      rpc UpdateResource(google.api.HttpBody) returns\n      (google.protobuf.Empty);\n    }\n\nExample with streaming methods:\n\n    service CaldavService {\n      rpc GetCalendar(stream google.api.HttpBody)\n        returns (stream google.api.HttpBody);\n      rpc UpdateCalendar(stream google.api.HttpBody)\n        returns (stream google.api.HttpBody);\n    }\n\nUse of this type only changes how the request and response bodies are\nhandled, all other features will continue to work unchanged.",
+            "id": "HttpBody",
+            "properties": {
+                "contentType": {
+                    "description": "The HTTP Content-Type header value specifying the content type of the body.",
+                    "type": "string"
+                },
+                "data": {
+                    "description": "The HTTP request/response body as raw binary.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "extensions": {
+                    "description": "Application specific response metadata. Must be set in the first response\nfor streaming APIs.",
+                    "items": {
+                        "additionalProperties": {
+                            "description": "Properties of the object. Contains field @type with type URL.",
+                            "type": "any"
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "LatLng": {
+            "description": "An object representing a latitude/longitude pair. This is expressed as a pair\nof doubles representing degrees latitude and degrees longitude. Unless\nspecified otherwise, this must conform to the\n<a href=\"http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf\">WGS84\nstandard</a>. Values must be within normalized ranges.",
+            "id": "LatLng",
+            "properties": {
+                "latitude": {
+                    "description": "The latitude in degrees. It must be in the range [-90.0, +90.0].",
+                    "format": "double",
+                    "type": "number"
+                },
+                "longitude": {
+                    "description": "The longitude in degrees. It must be in the range [-180.0, +180.0].",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "ListFlightsByBoundingBoxError": {
+            "description": "Represents ListFlightsByBoundingBox error in google.rpc.status details.",
+            "id": "ListFlightsByBoundingBoxError",
+            "properties": {
+                "boundingBoxStatus": {
+                    "description": "Error caused by invalid bounding box status.",
+                    "enum": [
+                        "UNSPECIFIED",
+                        "VALID",
+                        "INVALID_BOUNDING_BOX_TOO_LARGE"
+                    ],
+                    "enumDescriptions": [
+                        "Default bounding box status when not specified.",
+                        "Bounding box is valid, response returns with data related with flight.",
+                        "Bounding box is too large, this will be thrown as error in ErrorResponse."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListFlightsByBoundingBoxResponse": {
+            "description": "If the bounding box is larger than the radius_of_detailed_view, then\nclusters will be returned. If the bounding box is smaller, then the flight\ndetails will be returned.\nNext ID: 5",
+            "id": "ListFlightsByBoundingBoxResponse",
+            "properties": {
+                "clusters": {
+                    "description": "Each cluster has it's own bounding box of location and a count of drones.",
+                    "items": {
+                        "$ref": "PublicMapCluster"
+                    },
+                    "type": "array"
+                },
+                "flightInfo": {
+                    "description": "Represents precise location of drones and information about the drones.",
+                    "items": {
+                        "$ref": "PublicMapFlightInfo"
+                    },
+                    "type": "array"
+                },
+                "publicMapVolumes": {
+                    "description": "Volumes of drones when the telemetry is not available.",
+                    "items": {
+                        "$ref": "PublicMapVolume"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Loop": {
+            "description": "An area of the earth in the shape of a polygon on the\n<a href=\"http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf\">WGS84</a>\nellipsoid (see also <a\nhref=\"http://earth-info.nga.mil/GandG/publications/tr8350.2/tr8350_2.html\">\nNGA: DoD World Geodetic System 1984</a>).\nThis is equivalent to an S2Loop.",
+            "id": "Loop",
+            "properties": {
+                "vertices": {
+                    "description": "Required. The vertices of the polygon. At least three vertices must be\nprovided. The polygon is implicitly closed, with the last vertex connecting\nto the first vertex.",
+                    "items": {
+                        "$ref": "LatLng"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "MultiPolygon": {
+            "description": "MultiPolygon which is composed of multiple components.\nThis is equivalent to an S2Polygon.",
+            "id": "MultiPolygon",
+            "properties": {
+                "components": {
+                    "description": "Required. The various components that make up the given polygon.",
+                    "items": {
+                        "$ref": "Component"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Period": {
+            "description": "A span of time. Unless specified otherwise, this must be the half-open\ninterval [start_time, end_time).",
+            "id": "Period",
+            "properties": {
+                "endTime": {
+                    "description": "Optional. The end of the period. If not set, assume infinitely far into\nthe future.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "startTime": {
+                    "description": "Optional. The start of the period. If not set, assume infinitely far into\nthe past.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PublicFlightDetails": {
+            "description": "Additional details not given by the ListFlightsByBoundingBox.\nNEXT_ID: 6",
+            "id": "PublicFlightDetails",
+            "properties": {
+                "flightInfoId": {
+                    "description": "Encrypted identifier for flight info.",
+                    "type": "string"
+                },
+                "organization": {
+                    "$ref": "PublicOrganization",
+                    "description": "Organization of the Drone Operator. Not filled in for USS flights."
+                },
+                "registrationId": {
+                    "description": "The registration_id of the aircraft. Not filled in for USS flights.",
+                    "type": "string"
+                },
+                "ussPublicFlightDetails": {
+                    "$ref": "UssPublicFlightDetails",
+                    "description": "Flight information from USS Partner. Filled in if the aircraft is\na partner aircraft."
+                }
+            },
+            "type": "object"
+        },
+        "PublicMapAircraftModel": {
+            "description": "The aircraft model information visible to the public.",
+            "id": "PublicMapAircraftModel",
+            "properties": {
+                "imageUrl": {
+                    "description": "Aircraft image url.",
+                    "type": "string"
+                },
+                "make": {
+                    "description": "The manufacturer producing this aircraft type.",
+                    "type": "string"
+                },
+                "model": {
+                    "description": "The model name that the manufacturer has given to this aircraft.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PublicMapCluster": {
+            "description": "Represents a group of drones in a bounding box without containing\ninformation about each of the drone.\nNEXT_ID: 4",
+            "id": "PublicMapCluster",
+            "properties": {
+                "boundingBox": {
+                    "$ref": "BoundingBox",
+                    "description": "The bounding box of the cluster."
+                },
+                "droneCount": {
+                    "description": "The number of drones in the cluster.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "PublicMapFlightInfo": {
+            "description": "Details of the drone. Only used for public map purposes.\nNEXT_ID: 10",
+            "id": "PublicMapFlightInfo",
+            "properties": {
+                "aircraftModel": {
+                    "$ref": "PublicMapAircraftModel",
+                    "description": "The type of aircraft."
+                },
+                "droneType": {
+                    "description": "Type of drone.",
+                    "enum": [
+                        "UNKNOWN",
+                        "VTOL",
+                        "FIXED_WING",
+                        "MULTIROTOR"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown type.",
+                        "Vertical Take-Off and Landing Drone.",
+                        "Fixed wing drone.",
+                        "Multirotor drone."
+                    ],
+                    "type": "string"
+                },
+                "flightType": {
+                    "description": "Whether the flight is a commercial flight or personal flight.",
+                    "enum": [
+                        "UNSPECIFIED",
+                        "WING_DELIVERY",
+                        "PERSONAL_UNLICENSED",
+                        "PERSONAL_LICENSED",
+                        "COMMERCIAL_FAA",
+                        "COMMERCIAL_CASA"
+                    ],
+                    "enumDescriptions": [
+                        "Should never be UNSPECIFIED.",
+                        "Wing Drones.",
+                        "Personal Flight. Unlicensed.",
+                        "Personal Flight. Licensed.",
+                        "Commercial Flight. FAA Compliant.",
+                        "Commercial Flight. CASA Compliant."
+                    ],
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Used to distinguish flights from each other, so that we can keep a\nconsistent model across different RPCs. This is an encrypted key.",
+                    "type": "string"
+                },
+                "telemetry": {
+                    "description": "List of telemetry on the given drone.",
+                    "items": {
+                        "$ref": "PublicMapTelemetry"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "PublicMapTelemetry": {
+            "description": "A telemetry report from an unmanned aircraft system (UAS) with additional\ninformation for the public map.\nNEXT_ID: 8",
+            "id": "PublicMapTelemetry",
+            "properties": {
+                "altitudeAboveBuilding": {
+                    "description": "Height above the building for the drone in meters.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "altitudeAboveGround": {
+                    "description": "Height above the ground for the drone in meters.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "groundSpeed": {
+                    "description": "Ground speed in the direction of travel (very close to airspeed\nsince so close to the ground). Expressed as meters/second.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "heading": {
+                    "description": "The direction in which the aircraft's nose is facing relative to\ntrue north in degrees in the range [0.0, 360.0).",
+                    "format": "double",
+                    "type": "number"
+                },
+                "position": {
+                    "$ref": "LatLng",
+                    "description": "Required. The position of the UAS at the time that this record was\ngenerated."
+                },
+                "reportTime": {
+                    "description": "Required. The time that this report was generated.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "Type to keep track of whether the telemetry is inside the bounding box.",
+                    "enum": [
+                        "UNDEFINED",
+                        "OUTSIDE_POINT",
+                        "INSIDE_POINT"
+                    ],
+                    "enumDescriptions": [
+                        "Should not be reached.",
+                        "The point given outside the bounding box to extrapolate where the drone\ncame from or went to. These should not be connected to any other than\nadjacent inside telemetry points.",
+                        "The point given inside the bounding box."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PublicMapVolume": {
+            "description": "Volumes represented in Drones Nearby.\nVolumes represent physical bounds of an aircraft's operation space.",
+            "id": "PublicMapVolume",
+            "properties": {
+                "droneType": {
+                    "description": "Type of drone. Will be only filled in when the bounding box is at detailed\nview level.",
+                    "enum": [
+                        "UNKNOWN",
+                        "VTOL",
+                        "FIXED_WING",
+                        "MULTIROTOR"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown type.",
+                        "Vertical Take-Off and Landing Drone.",
+                        "Fixed wing drone.",
+                        "Multirotor drone."
+                    ],
+                    "type": "string"
+                },
+                "flightInfoId": {
+                    "description": "Encrypted identifier for flight info. Will be only filled in when the\nbounding box is at detailed view level.",
+                    "type": "string"
+                },
+                "volume": {
+                    "$ref": "Volume",
+                    "description": "The physical volume of the given flight."
+                }
+            },
+            "type": "object"
+        },
+        "PublicOrganization": {
+            "description": "Organization of the Drone Operator.",
+            "id": "PublicOrganization",
+            "properties": {
+                "description": {
+                    "description": "Short description of the Organization.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Name of the Organization.",
+                    "type": "string"
+                },
+                "website": {
+                    "description": "Public website of the Organization.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SearchDisplayDataResponse": {
+            "description": "If the diagonal of the bounding box is larger than 1km, then\nclusters will be returned. If the bounding box is smaller, then the flight\ndetails will be returned.\nIf the box is larger than 3.6km in diameter, then we will return an invalid\nargument error.",
+            "id": "SearchDisplayDataResponse",
+            "properties": {
+                "clusters": {
+                    "$ref": "Clusters",
+                    "description": "Clusters in the searching area."
+                },
+                "flights": {
+                    "$ref": "Flights",
+                    "description": "Flights in the searching area."
+                }
+            },
+            "type": "object"
+        },
+        "Status": {
+            "description": "The `Status` type defines a logical error model that is suitable for\ndifferent programming environments, including REST APIs and RPC APIs. It is\nused by [gRPC](https://github.com/grpc). Each `Status` message contains\nthree pieces of data: error code, error message, and error details.\n\nYou can find out more about this error model and how to work with it in the\n[API Design Guide](https://cloud.google.com/apis/design/errors).",
+            "id": "Status",
+            "properties": {
+                "code": {
+                    "description": "The status code, which should be an enum value of google.rpc.Code.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "details": {
+                    "description": "A list of messages that carry the error details.  There is a common set of\nmessage types for APIs to use.",
+                    "items": {
+                        "additionalProperties": {
+                            "description": "Properties of the object. Contains field @type with type URL.",
+                            "type": "any"
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "message": {
+                    "description": "A developer-facing error message, which should be in English. Any\nuser-facing error message should be localized and sent in the\ngoogle.rpc.Status.details field, or localized by the client.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Telemetries": {
+            "description": "Wrapper for repeated telemetry field.",
+            "id": "Telemetries",
+            "properties": {
+                "telemetry": {
+                    "description": "List of telemetry of the drone organized by report_time in descending\norder.",
+                    "items": {
+                        "$ref": "Telemetry"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Telemetry": {
+            "description": "A telemetry report from an unmanned aircraft system (UAS) with additional\ninformation for the public map.",
+            "id": "Telemetry",
+            "properties": {
+                "accuracy": {
+                    "$ref": "Accuracy",
+                    "description": "Accuracy of the data in various forms."
+                },
+                "altitude": {
+                    "$ref": "Altitude",
+                    "description": "Altitude of the data in various forms."
+                },
+                "extrapolated": {
+                    "description": "True if this position was generated primarily by computation rather than\nprimarily from a direct instrument measurement.",
+                    "enum": [
+                        "POSITION_GENERATION_METHOD_UNSPECIFIED",
+                        "REPORTED",
+                        "EXTRAPOLATED"
+                    ],
+                    "enumDescriptions": [
+                        "Default value. Unused.",
+                        "The position was reported by an instrument.",
+                        "Position was estimated by extrapolation."
+                    ],
+                    "type": "string"
+                },
+                "position": {
+                    "$ref": "LatLng",
+                    "description": "The position of the UAS at the time that this record was\ngenerated."
+                },
+                "reportTime": {
+                    "description": "The time that this measurement was taken.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "Type to keep track of whether the telemetry is inside the bounding box.",
+                    "enum": [
+                        "POINT_TYPE_UNSPECIFIED",
+                        "OUTSIDE_POINT",
+                        "INSIDE_POINT"
+                    ],
+                    "enumDescriptions": [
+                        "Should not be reached.",
+                        "The point given outside the bounding box to extrapolate where the drone\ncame from or went to. These should not be connected to any other than\nadjacent inside telemetry points.",
+                        "The point given inside the bounding box."
+                    ],
+                    "type": "string"
+                },
+                "velocity": {
+                    "$ref": "Velocity",
+                    "description": "Contains speed and track of the drone."
+                }
+            },
+            "type": "object"
+        },
+        "UssPublicFlightDetails": {
+            "description": "Flight details available from the USS partners.",
+            "id": "UssPublicFlightDetails",
+            "properties": {
+                "droneType": {
+                    "description": "Type of drone.",
+                    "enum": [
+                        "UNKNOWN",
+                        "VTOL",
+                        "FIXED_WING",
+                        "MULTIROTOR"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown type.",
+                        "Vertical Take-Off and Landing Drone.",
+                        "Fixed wing drone.",
+                        "Multirotor drone."
+                    ],
+                    "type": "string"
+                },
+                "make": {
+                    "description": "Optional. The manufacturer of the vehicle.",
+                    "type": "string"
+                },
+                "model": {
+                    "description": "Optional. The model of the vehicle.",
+                    "type": "string"
+                },
+                "operationDetail": {
+                    "description": "Optional. Text of Operator and Purpose.",
+                    "type": "string"
+                },
+                "operationId": {
+                    "description": "Optional. Operation flight ID from the UTM system.",
+                    "type": "string"
+                },
+                "registrationId": {
+                    "description": "Optional. Regulator registration ID.",
+                    "type": "string"
+                },
+                "serialId": {
+                    "description": "Optional. Serial ID of the Aircraft.",
+                    "type": "string"
+                },
+                "utmProvider": {
+                    "description": "The UTM provider this data is coming from. Currently not filled in.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Velocity": {
+            "description": "Speed and track of the drone.",
+            "id": "Velocity",
+            "properties": {
+                "groundSpeedMetersPerSecond": {
+                    "description": "Ground speed in the direction of travel. Expressed as meters/second.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "trackDegrees": {
+                    "description": "Direction of flight expressed as a \"True North-based\" ground track angle.\nThis value is provided in degrees East of North with a minimum resolution\nof 1 degree. 90 degrees is be East.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "verticalSpeedMetersPerSecond": {
+                    "description": "Speed up (vertically) WGS84-HAE, m/s.",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "Volume": {
+            "description": "Volume of space represented by the polygon of area and the altitude ranges.",
+            "id": "Volume",
+            "properties": {
+                "altitudeRange": {
+                    "$ref": "AltitudeRange",
+                    "description": "Optional. The range of altitude this MultiPolygon covers."
+                },
+                "multiPolygon": {
+                    "$ref": "MultiPolygon",
+                    "description": "MultiPolygon representing the shape of the area."
+                },
+                "period": {
+                    "$ref": "Period",
+                    "description": "Optional. The range of time this MultiPolygon covers."
+                }
+            },
+            "type": "object"
+        },
+        "Volumes": {
+            "description": "Wrapper for repeated volumes field.",
+            "id": "Volumes",
+            "properties": {
+                "volumes": {
+                    "description": "The physical volumes of the given flight.",
+                    "items": {
+                        "$ref": "Volume"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Wing Drones Nearby Private API -- AUTOPUSH",
+    "version": "v1alpha1",
+    "version_module": true
+}

@@ -1,0 +1,814 @@
+{
+    "basePath": "",
+    "baseUrl": "https://dev-moviesanywhere.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Movies Anywhere",
+    "description": "Movies Anywhere API",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://cloud.google.com",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "dev_moviesanywhere_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "dev_moviesanywhere_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "retailerApplication": {
+            "methods": {
+                "notification": {
+                    "description": "Notifies Play Movies about user state change, entitlement update, or title\nchange. Push notification send by KeyChest to Play Movies.",
+                    "flatPath": "v1/retailerApplication/notification",
+                    "httpMethod": "POST",
+                    "id": "dev_moviesanywhere_sandbox.retailerApplication.notification",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/retailerApplication/notification",
+                    "request": {
+                        "$ref": "NotifyRequest"
+                    },
+                    "response": {
+                        "$ref": "Empty"
+                    }
+                }
+            }
+        },
+        "users": {
+            "resources": {
+                "entitlements": {
+                    "methods": {
+                        "listKeychestEntitlements": {
+                            "description": "Lists the Keychest entitlements for a user that have been sent to the Play\nMovies so they can be audited for accuracy by KeyChest.",
+                            "flatPath": "v1/users/{retailerUserId}/entitlements/{accountType}",
+                            "httpMethod": "GET",
+                            "id": "dev_moviesanywhere_sandbox.users.entitlements.listKeychestEntitlements",
+                            "parameterOrder": [
+                                "retailerUserId",
+                                "accountType"
+                            ],
+                            "parameters": {
+                                "accountType": {
+                                    "description": "Account type of the user.",
+                                    "enum": [
+                                        "ACCOUNT_TYPE_UNSPECIFIED",
+                                        "DMA",
+                                        "MA"
+                                    ],
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "pageToken": {
+                                    "description": "The batch of entitlements to return.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "retailerUserId": {
+                                    "description": "User id in the retailer's system.",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/users/{retailerUserId}/entitlements/{accountType}",
+                            "response": {
+                                "$ref": "ListKeychestEntitlementsResponse"
+                            }
+                        }
+                    }
+                },
+                "link": {
+                    "methods": {
+                        "createAccountLink": {
+                            "description": "Links a user's Movies Anywhere (MA) account to Play Movies.\nWhen a user is linked, future valid MA purchases should be sent to\nKeyChest.",
+                            "flatPath": "v1/users/{retailerUserId}/link/{accountType}",
+                            "httpMethod": "POST",
+                            "id": "dev_moviesanywhere_sandbox.users.link.createAccountLink",
+                            "parameterOrder": [
+                                "retailerUserId",
+                                "accountType"
+                            ],
+                            "parameters": {
+                                "accountType": {
+                                    "description": "Account type of the user.",
+                                    "enum": [
+                                        "ACCOUNT_TYPE_UNSPECIFIED",
+                                        "DMA",
+                                        "MA"
+                                    ],
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "retailerUserId": {
+                                    "description": "User id in the retailer's system.",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/users/{retailerUserId}/link/{accountType}",
+                            "request": {
+                                "$ref": "CreateAccountLinkRequest"
+                            },
+                            "response": {
+                                "$ref": "Empty"
+                            }
+                        },
+                        "delete": {
+                            "description": "Deletes the link between a user's Movies Anywhere (MA) account to Play\nMovies. When a user is unlinked, future valid MA purchases should no longer\nbe sent to KeyChest.",
+                            "flatPath": "v1/users/{retailerUserId}/link/{accountType}",
+                            "httpMethod": "DELETE",
+                            "id": "dev_moviesanywhere_sandbox.users.link.delete",
+                            "parameterOrder": [
+                                "retailerUserId",
+                                "accountType"
+                            ],
+                            "parameters": {
+                                "accountType": {
+                                    "description": "Account type of the user.",
+                                    "enum": [
+                                        "ACCOUNT_TYPE_UNSPECIFIED",
+                                        "DMA",
+                                        "MA"
+                                    ],
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "clientId": {
+                                    "description": "The client requesting the unlink.\nUsed to determine whether",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "keyChestUserToken": {
+                                    "description": "User token used by KeyChest V3.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "retailerUserId": {
+                                    "description": "The user ID in retailer\u2019s system; i.e. in Play Movies.",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/users/{retailerUserId}/link/{accountType}",
+                            "response": {
+                                "$ref": "Empty"
+                            }
+                        }
+                    }
+                },
+                "transactions": {
+                    "methods": {
+                        "listKeychestTransactions": {
+                            "description": "Lists the Keychest transactions made by the user in Play Movies that have\nto be sent to KeyChest.",
+                            "flatPath": "v1/users/{retailerUserId}/transactions/{accountType}",
+                            "httpMethod": "GET",
+                            "id": "dev_moviesanywhere_sandbox.users.transactions.listKeychestTransactions",
+                            "parameterOrder": [
+                                "retailerUserId",
+                                "accountType"
+                            ],
+                            "parameters": {
+                                "accountType": {
+                                    "description": "Account type of the user.",
+                                    "enum": [
+                                        "ACCOUNT_TYPE_UNSPECIFIED",
+                                        "DMA",
+                                        "MA"
+                                    ],
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "pageToken": {
+                                    "description": "The batch of transactions to return.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "retailerUserId": {
+                                    "description": "The user ID in retailer\u2019s system; i.e. in Play Movies.",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/users/{retailerUserId}/transactions/{accountType}",
+                            "response": {
+                                "$ref": "ListKeychestTransactionsResponse"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190913",
+    "rootUrl": "https://dev-moviesanywhere.sandbox.googleapis.com/",
+    "schemas": {
+        "CreateAccountLinkRequest": {
+            "description": "Link request to  link a user's Movies Anywhere (MA) account to Play Movies.\nWhen a user is linked, future valid MA purchases should be sent to\nKeyChest.\nNext tag: 5",
+            "id": "CreateAccountLinkRequest",
+            "properties": {
+                "correlationId": {
+                    "description": "Unique id that should be attached to all asynchronous batches used to send\nPlay transactions back to KeyChest V3.",
+                    "type": "string"
+                },
+                "keyChestUserToken": {
+                    "description": "User token used by KeyChest V3.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Empty": {
+            "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+            "id": "Empty",
+            "properties": {},
+            "type": "object"
+        },
+        "KeychestEntitlement": {
+            "description": "Details about KeyChest entitlement of a user.\nNext tag: 9",
+            "id": "KeychestEntitlement",
+            "properties": {
+                "assetId": {
+                    "description": "Asset ID of the title.",
+                    "type": "string"
+                },
+                "assetType": {
+                    "description": "Type of the asset.",
+                    "type": "string"
+                },
+                "entitlementLevel": {
+                    "description": "The highest level for which KeyChest has a transaction.",
+                    "enum": [
+                        "KEYCHEST_ENTITLEMENT_LEVEL_UNSPECIFIED",
+                        "DIGITAL_SD",
+                        "DIGITAL_HD",
+                        "DIGITAL_UHD",
+                        "DIGITAL_THREE_D"
+                    ],
+                    "enumDescriptions": [
+                        "Entitlement level unspecified.",
+                        "SD.",
+                        "HD.",
+                        "UHD.",
+                        "3D."
+                    ],
+                    "type": "string"
+                },
+                "revisionNumber": {
+                    "format": "int64",
+                    "type": "string"
+                },
+                "source": {
+                    "description": "Play Movies business key or OTHER, if entitlement based on transaction\noriginated elsewhere.",
+                    "enum": [
+                        "KEYCHEST_PROVIDER_UNSPECIFIED",
+                        "OTHER",
+                        "DMA",
+                        "QOO",
+                        "GOO",
+                        "QMA"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown Keychest provider",
+                        "Examples in the spec list OTHER as a possible value.",
+                        "DMA.",
+                        "Returned if the transaction came from Google.",
+                        "Returned if the transaction came from Google.",
+                        "DMA QA environment."
+                    ],
+                    "type": "string"
+                },
+                "titleName": {
+                    "description": "Name of the title.",
+                    "type": "string"
+                },
+                "transactionDate": {
+                    "description": "Transaction date as ISO 8601 date string with timezone and fractional\nseconds. For example, \"2017-05-22T02:00:45.000+00:00\"",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "KeychestRetailerTitleIds": {
+            "description": "Contains  the set of Ids for KeyChest integrated retailers.\nNext Tag: 6",
+            "id": "KeychestRetailerTitleIds",
+            "properties": {
+                "adamIds": {
+                    "description": "List of ADAM Ids associated with the title.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "asinIds": {
+                    "description": "List of ASIN IDs for Amazon.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "defaultAdamId": {
+                    "description": "The primary ADAM Id to use when referencing this title.",
+                    "type": "string"
+                },
+                "googleTitleIds": {
+                    "description": "List of Google-specific IDs for this title.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "otherRetailerIds": {
+                    "description": "Placeholder indicating we can extend this object to contain other\nretailer-specific IDs.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "KeychestTitle": {
+            "description": "Contains the information for a DMA or MA enabled title.\nNext Tag: 12",
+            "id": "KeychestTitle",
+            "properties": {
+                "added": {
+                    "description": "Date that the title was added, in milliseconds since the epoch.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A description of the title.",
+                    "type": "string"
+                },
+                "eidrEditId": {
+                    "description": "The Id of the edit node in Entertainment ID Repository (EIDR)",
+                    "type": "string"
+                },
+                "eidrTitleId": {
+                    "description": "The Id of the title node in Entertainment ID Repository (EIDR)",
+                    "type": "string"
+                },
+                "goLiveDate": {
+                    "description": "For pre-orders, the date that the title is scheduled to go live in the MA\necosystem.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "isDMATitle": {
+                    "description": "Whether the title is enabled for DMA.",
+                    "type": "boolean"
+                },
+                "isMATitle": {
+                    "description": "Whether the title is enabled for MA.",
+                    "type": "boolean"
+                },
+                "retailerTitleIds": {
+                    "$ref": "KeychestRetailerTitleIds",
+                    "description": "The Ids of the title in retailer systems."
+                },
+                "studio": {
+                    "description": "The studio the film belongs to.",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Title of the film.",
+                    "type": "string"
+                },
+                "updated": {
+                    "description": "Date that the title was last updated, in milliseconds since the epoch.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "KeychestTransaction": {
+            "description": "Details of a KeyChest Transaction of a user.\nNext tag: 14",
+            "id": "KeychestTransaction",
+            "properties": {
+                "assetId": {
+                    "description": "Asset ID of the title.",
+                    "type": "string"
+                },
+                "assetType": {
+                    "description": "Type of asset_id.",
+                    "type": "string"
+                },
+                "originalTransactionId": {
+                    "description": "The original providerTransactionId passed in for the purchase that will be\nupgraded or refunded. Only used for refunds and upgrades. Optional.",
+                    "type": "string"
+                },
+                "price": {
+                    "description": "The price paid by the consumer (USD) at the retailer's site.\nOptional.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "profile": {
+                    "description": "The video format. Valid values are SD480, HD720, HD1080, UHD, and THREE-D.",
+                    "type": "string"
+                },
+                "redemptionCode": {
+                    "description": "Disney Movie Rewards redemption code.\nOptional.",
+                    "type": "string"
+                },
+                "sourceType": {
+                    "description": "The origination point of a transaction being sent to Keychest.",
+                    "enum": [
+                        "KEYCHEST_SOURCE_TYPE_UNSPECIFIED",
+                        "EST",
+                        "SELL_THROUGH",
+                        "DCOPY",
+                        "ECOPY",
+                        "PHYSICAL_UPGRADE",
+                        "DIGITAL_UPGRADE",
+                        "COMP"
+                    ],
+                    "enumDescriptions": [
+                        "Source type unspecfied.",
+                        "EST.",
+                        "Sell through.",
+                        "Dcopy.",
+                        "Ecopuy.",
+                        "Physical upgrade.",
+                        "Digital upgrade.",
+                        "Free entitlement from Disney for first time linking."
+                    ],
+                    "type": "string"
+                },
+                "transactionDate": {
+                    "description": "Transaction date as ISO 8601 date string with timezone and fractional\nseconds. For example, \"2017-05-22T02:00:45.000+00:00\"",
+                    "type": "string"
+                },
+                "transactionId": {
+                    "description": "The transaction's ID in retailer's system.\nWe use the Purchase Id as the transaction Id sent to Keychest.\nIf this is a refund, this will be the purchase Id being refunded with\n.REFUND appended; i.e. \"purchase_id\" getting refunded would have the id\n\"purchase_id.REFUND\".",
+                    "type": "string"
+                },
+                "transactionType": {
+                    "description": "Type of the transaction.",
+                    "enum": [
+                        "KEYCHEST_TRANSACTION_TYPE_UNSPECIFIED",
+                        "RECORD",
+                        "REFUND",
+                        "UNPAID_PREORDER"
+                    ],
+                    "enumDescriptions": [
+                        "Transaction type unspecified.",
+                        "Record.",
+                        "Refund.",
+                        "Unpaid preorder."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "KeychestUserDetails": {
+            "description": "Details about the user.\nNext tag: 3",
+            "id": "KeychestUserDetails",
+            "properties": {
+                "registeredWithDMA": {
+                    "description": "Whether the user has an active DMA account.",
+                    "type": "boolean"
+                },
+                "registeredWithMA": {
+                    "description": "Whether the user has an active MA account.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "ListKeychestEntitlementsResponse": {
+            "description": "Response containing the list of entitlements that have been sent to the Play\nMovies so they can be audited for accuracy by KeyChest via\nListKeychestEntitlements.\nNext tag: 7",
+            "id": "ListKeychestEntitlementsResponse",
+            "properties": {
+                "cancelledUnpaidPreorderedEntitlements": {
+                    "description": "The list of entitlements for cancelled unpaid preorders.\nThese entitlements show that an unpaid preorder was cancelled because\neither the user cancelled the preorder on the retailer\u2019s site, the user\nunlinked, or the grace period for the unpaid preorder has expired.",
+                    "items": {
+                        "$ref": "KeychestEntitlement"
+                    },
+                    "type": "array"
+                },
+                "entitlements": {
+                    "description": "The list of entitlements.",
+                    "items": {
+                        "$ref": "KeychestEntitlement"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "Set for large locker. If there is more entitlements to be fetched later.",
+                    "type": "string"
+                },
+                "preorderedEntitlements": {
+                    "description": "The list of entitlements for preorders.",
+                    "items": {
+                        "$ref": "KeychestEntitlement"
+                    },
+                    "type": "array"
+                },
+                "refundedEntitlements": {
+                    "description": "The list of refunded entitlements.",
+                    "items": {
+                        "$ref": "KeychestEntitlement"
+                    },
+                    "type": "array"
+                },
+                "unpaidPreorderedEntitlements": {
+                    "description": "The list of entitlements for unpaid preorders.\nThese entitlements show that the title was preordered at some point. It is\npossible for there to be a paid record in the entitlements array for the\nsame title. Once the go-live date for an unpaid preorder\u2019s title has\npassed, the unpaid preorder no longer affects the entitlement count for\nthat title.",
+                    "items": {
+                        "$ref": "KeychestEntitlement"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListKeychestTransactionsResponse": {
+            "description": "Response containing the list of transactions made by the user via\nListKeychestTransactions.\nNext tag: 5",
+            "id": "ListKeychestTransactionsResponse",
+            "properties": {
+                "correlationId": {
+                    "description": "Set when large_locker=true. Unique id generated by Play Movies and should\nbe attached to all asynchronous batches used to fulfill the\nListTransactions request.",
+                    "type": "string"
+                },
+                "largeLocker": {
+                    "description": "Indicates whether the user has a large locker.",
+                    "type": "boolean"
+                },
+                "nextPageToken": {
+                    "description": "Set when large_locker=true and if there is more transactions to be fetched\nfor the same correlation_id.",
+                    "type": "string"
+                },
+                "transactions": {
+                    "description": "List of KeyChest transactions for the user.",
+                    "items": {
+                        "$ref": "KeychestTransaction"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "NotificationBody": {
+            "description": "The details about the push notification from KeyChest to Play Movies.\nNext tag: 18",
+            "id": "NotificationBody",
+            "properties": {
+                "cancelledUnpaidPreorderedEntitlements": {
+                    "description": "The list of entitlements for cancelled unpaid preorders.\nThese entitlements show that an unpaid preorder was cancelled because\neither the user cancelled the preorder on the retailer\u2019s site, the user\nunlinked, or the grace period for the unpaid preorder has expired.\nSet for ENTITLEMENT_UPDATE notification type.",
+                    "items": {
+                        "$ref": "KeychestEntitlement"
+                    },
+                    "type": "array"
+                },
+                "correlationId": {
+                    "description": "Unique id that should be attached to all asynchronous batches used to send\nPlay transactions back to KeyChest V3.\nSet for USER_STATE_CHANGE notification type.",
+                    "type": "string"
+                },
+                "disneyConsumerId": {
+                    "description": "SHA-1 Hex of the userId for DMA. Will be null if the user is not\nparticipating in DMA.\nWill be deprecated soon by Disney KeyChest to be replaced by\nkey_chest_user_token.\nSet for USER_STATE_CHANGE notification type.",
+                    "type": "string"
+                },
+                "entitlements": {
+                    "description": "The list of entitlements.\nSet for ENTITLEMENT_UPDATE notification type.",
+                    "items": {
+                        "$ref": "KeychestEntitlement"
+                    },
+                    "type": "array"
+                },
+                "keyChestUserToken": {
+                    "description": "SHA-1 Hex of the userId for the linked movie hub (Either MA or DMA). This\nwill be either MA\u2019s user id or the DMA user id. Will be null if the user is\nnot participating in either program.\nSet for USER_STATE_CHANGE notification type.",
+                    "type": "string"
+                },
+                "linkEventDate": {
+                    "description": "The date of the link or unlink event.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "moviesAnywhereConsumerId": {
+                    "description": "SHA-1 Hex of the userId for MA. Will be null if the user is not\nparticipating in MA.\nWill be deprecated soon by Disney KeyChest to be replaced by\nkey_chest_user_token.\nSet for USER_STATE_CHANGE notification type.",
+                    "type": "string"
+                },
+                "preorderedEntitlements": {
+                    "description": "The list of entitlements for preorders.\nSet for ENTITLEMENT_UPDATE notification type.",
+                    "items": {
+                        "$ref": "KeychestEntitlement"
+                    },
+                    "type": "array"
+                },
+                "promoEntitlements": {
+                    "description": "The list of entitlements for promotional entitlements (empty array if\nnone). Each item\u2019s fields same as entitlements. These entitlements result\nfrom redeeming promotion codes through MA. They are only shared\nwith/visible on MA.",
+                    "items": {
+                        "$ref": "KeychestEntitlement"
+                    },
+                    "type": "array"
+                },
+                "reasonCode": {
+                    "description": "The reason for the notification.",
+                    "enum": [
+                        "REASON_CODE_UNSPECIFIED",
+                        "USER_LINK",
+                        "USER_UNLINK",
+                        "PURCHASE",
+                        "LINK_SYNCHRONIZATION_COMPLETE",
+                        "TITLE_SYNC",
+                        "TRANSACTION_RECEIVED",
+                        "ACCOUNT_SYNCHRONIZATION",
+                        "LINK_SYNCHRONIZATION_PENDING",
+                        "VPPA_REACCEPTED",
+                        "VPPA_EXPIRED",
+                        "IMPORT_DMA",
+                        "LINK_SYNCHRONIZATION",
+                        "REGISTER_WITH_MA",
+                        "CODE_REDEEMED"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown reason code.",
+                        "User has linked their account to Movies Anywhere.\nOnly used for USER_STATE_CHANGE notification type.",
+                        "User has unlinked their account to Movies Anywhere.\nOnly used for USER_STATE_CHANGE notification type.",
+                        "Entitlement update due to user purchase.\nOnly used for ENTITLEMENT_UPDATE notification type.",
+                        "Entitlement update due to account link synchronization.\nOnly used for ENTITLEMENT_UPDATE notification type.",
+                        "Indicates that a title has been added/changed in the title service.",
+                        "Transaction received.",
+                        "Account synchronization.",
+                        "Link synchronization pending.",
+                        "VPPA agreement reaccepted.",
+                        "VPPA agreement expired.",
+                        "Import DMA.",
+                        "Link synchronization.",
+                        "Register with MA.",
+                        "Code redeemed."
+                    ],
+                    "type": "string"
+                },
+                "refundedEntitlements": {
+                    "description": "The list of refunded entitlements.\nSet for ENTITLEMENT_UPDATE notification type.",
+                    "items": {
+                        "$ref": "KeychestEntitlement"
+                    },
+                    "type": "array"
+                },
+                "retailerBusinessKey": {
+                    "description": "The business key of the retailer to which the user was linked.",
+                    "type": "string"
+                },
+                "retailerUserId": {
+                    "description": "User id in the retailer's system.",
+                    "type": "string"
+                },
+                "title": {
+                    "$ref": "KeychestTitle",
+                    "description": "Title details for title that is added/updated.\nSet for TITLE_CHANGE notification type."
+                },
+                "titleChangeType": {
+                    "description": "Set for TITLE_CHANGE notification type.",
+                    "enum": [
+                        "TITLE_CHANGE_TYPE_UNSPECIFIED",
+                        "ADD",
+                        "UPDATE",
+                        "REMOVE"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown change to the title.",
+                        "Newly added title.",
+                        "Title updated.",
+                        "Title removed."
+                    ],
+                    "type": "string"
+                },
+                "unpaidPreorderedEntitlements": {
+                    "description": "The list of entitlements for unpaid preorders.\nThese entitlements show that the title was preordered at some point. It is\npossible for there to be a paid record in the entitlements array for the\nsame title. Once the go-live date for an unpaid preorder\u2019s title has\npassed, the unpaid preorder no longer affects the entitlement count for\nthat title.\nSet for ENTITLEMENT_UPDATE notification type.",
+                    "items": {
+                        "$ref": "KeychestEntitlement"
+                    },
+                    "type": "array"
+                },
+                "userDetails": {
+                    "$ref": "KeychestUserDetails",
+                    "description": "Details about the user.\nSet for USER_STATE_CHANGE notification type."
+                }
+            },
+            "type": "object"
+        },
+        "NotifyRequest": {
+            "description": "Request representing push notification from KeyChest to Play Movies caused\nby user-state change, entitlement update, or title change.\nNext tag: 4",
+            "id": "NotifyRequest",
+            "properties": {
+                "notificationBody": {
+                    "$ref": "NotificationBody",
+                    "description": "The details about the notification."
+                },
+                "notificationReferenceId": {
+                    "description": "Unique ID for this notification",
+                    "type": "string"
+                },
+                "notificationType": {
+                    "description": "The type of notification.",
+                    "enum": [
+                        "NOTIFICATION_TYPE_UNSPECIFIED",
+                        "USER_STATE_CHANGE",
+                        "ENTITLEMENT_UPDATE",
+                        "TITLE_CHANGE"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "Indicates a change in user state.",
+                        "Indicates an update in user's entitlement.",
+                        "Indicates an update or change in a title."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Dev Movies Anywhere API",
+    "version": "v1",
+    "version_module": true
+}

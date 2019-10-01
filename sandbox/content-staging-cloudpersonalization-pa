@@ -1,0 +1,543 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/cloud-platform": {
+                    "description": "View and manage your data across Google Cloud Platform services"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://staging-cloudpersonalization-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Cloud Personalization",
+    "description": "Private APIs for personalizing the user experience in Cloud",
+    "discoveryVersion": "v1",
+    "documentationLink": "https://goto.google.com/p6n-product-recommendations",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "cloudpersonalization_pa:v1alpha1",
+    "kind": "discovery#restDescription",
+    "name": "cloudpersonalization_pa",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "v1alpha1": {
+            "methods": {
+                "globalsearchselection": {
+                    "description": "Get recent search selections",
+                    "flatPath": "v1alpha1/globalsearchselection",
+                    "httpMethod": "POST",
+                    "id": "cloudpersonalization_pa.globalsearchselection",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1alpha1/globalsearchselection",
+                    "request": {
+                        "$ref": "CloudpersonalizationPaGlobalSearchSelectionRequest"
+                    },
+                    "response": {
+                        "$ref": "CloudpersonalizationPaGlobalSearchSelectionResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                },
+                "pantheonpathranking": {
+                    "description": "Get the personalized ranking for paths in Pantheon\ngo/pantheon-path-ranking",
+                    "flatPath": "v1alpha1/pantheonpathranking",
+                    "httpMethod": "POST",
+                    "id": "cloudpersonalization_pa.pantheonpathranking",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1alpha1/pantheonpathranking",
+                    "request": {
+                        "$ref": "CloudpersonalizationPaPantheonPathRankingRequest"
+                    },
+                    "response": {
+                        "$ref": "CloudpersonalizationPaPantheonPathRankingResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                },
+                "personalizationsetting": {
+                    "description": "Update personalization setting",
+                    "flatPath": "v1alpha1/personalizationsetting",
+                    "httpMethod": "POST",
+                    "id": "cloudpersonalization_pa.personalizationsetting",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1alpha1/personalizationsetting",
+                    "request": {
+                        "$ref": "CloudpersonalizationPaUpdatePersonalizationSettingRequest"
+                    },
+                    "response": {
+                        "$ref": "CloudpersonalizationPaUpdatePersonalizationSettingResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                },
+                "quickaccesssuggestions": {
+                    "description": "Get quick access suggestions",
+                    "flatPath": "v1alpha1/quickaccesssuggestions",
+                    "httpMethod": "POST",
+                    "id": "cloudpersonalization_pa.quickaccesssuggestions",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1alpha1/quickaccesssuggestions",
+                    "request": {
+                        "$ref": "CloudpersonalizationPaQuickAccessSuggestionsRequest"
+                    },
+                    "response": {
+                        "$ref": "CloudpersonalizationPaQuickAccessSuggestionsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                },
+                "relevantscopes": {
+                    "description": "Get relevant scopes",
+                    "flatPath": "v1alpha1/relevantscopes",
+                    "httpMethod": "POST",
+                    "id": "cloudpersonalization_pa.relevantscopes",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1alpha1/relevantscopes",
+                    "request": {
+                        "$ref": "CloudpersonalizationPaRelevantScopesRequest"
+                    },
+                    "response": {
+                        "$ref": "CloudpersonalizationPaRelevantScopesResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                },
+                "resourceranking": {
+                    "description": "Get the personalized ranking for resources\ngo/p6n-search-ranking",
+                    "flatPath": "v1alpha1/resourceranking",
+                    "httpMethod": "POST",
+                    "id": "cloudpersonalization_pa.resourceranking",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1alpha1/resourceranking",
+                    "request": {
+                        "$ref": "CloudpersonalizationPaResourceRankingRequest"
+                    },
+                    "response": {
+                        "$ref": "CloudpersonalizationPaResourceRankingResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                }
+            }
+        }
+    },
+    "revision": "20190921",
+    "rootUrl": "https://staging-cloudpersonalization-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "CloudpersonalizationPaGlobalSearchSelection": {
+            "id": "CloudpersonalizationPaGlobalSearchSelection",
+            "properties": {
+                "iconOrSectionId": {
+                    "type": "string"
+                },
+                "iconType": {
+                    "type": "string"
+                },
+                "openExternally": {
+                    "type": "boolean"
+                },
+                "primaryTitle": {
+                    "type": "string"
+                },
+                "route": {
+                    "type": "string"
+                },
+                "secondaryTitle": {
+                    "type": "string"
+                },
+                "typeId": {
+                    "type": "string"
+                },
+                "uid": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CloudpersonalizationPaGlobalSearchSelectionRequest": {
+            "id": "CloudpersonalizationPaGlobalSearchSelectionRequest",
+            "properties": {
+                "experiments": {
+                    "description": "Optional",
+                    "items": {
+                        "$ref": "CloudpersonalizationPaPantheonExperiment"
+                    },
+                    "type": "array"
+                },
+                "maxDays": {
+                    "description": "Required\nThe maximum number of days to check",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "maxSelections": {
+                    "description": "Required\nThe maximum number of recent global search selections to return",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "CloudpersonalizationPaGlobalSearchSelectionResponse": {
+            "id": "CloudpersonalizationPaGlobalSearchSelectionResponse",
+            "properties": {
+                "recentSelections": {
+                    "description": "Ordered by most recent first",
+                    "items": {
+                        "$ref": "CloudpersonalizationPaGlobalSearchSelection"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CloudpersonalizationPaPantheonExperiment": {
+            "id": "CloudpersonalizationPaPantheonExperiment",
+            "properties": {
+                "name": {
+                    "description": "The name of the experiment.  This will take the same string as the\nClientFlagProvider annotation in Pantheon's Java code.",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "This value may need to be parsed into a float/boolean/int/etc.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CloudpersonalizationPaPantheonPathRankingRequest": {
+            "id": "CloudpersonalizationPaPantheonPathRankingRequest",
+            "properties": {
+                "experiments": {
+                    "items": {
+                        "$ref": "CloudpersonalizationPaPantheonExperiment"
+                    },
+                    "type": "array"
+                },
+                "templatizedPaths": {
+                    "description": "A list of templatized paths that contain no identifying data that the\nclient would like to rank.\n\nExample:\n    /appengine\n    /appengine/versions\n    /billing/:accountBillingId/budgets\n    ....",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CloudpersonalizationPaPantheonPathRankingResponse": {
+            "id": "CloudpersonalizationPaPantheonPathRankingResponse",
+            "properties": {
+                "templatizedPathRanks": {
+                    "description": "The ranks for the requested paths.  The ranks will be normalized to 1.",
+                    "items": {
+                        "format": "float",
+                        "type": "number"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CloudpersonalizationPaProjectResourceTypeRanking": {
+            "id": "CloudpersonalizationPaProjectResourceTypeRanking",
+            "properties": {
+                "projectNumber": {
+                    "description": "Optional\nIf specified, this ranking is for a specific project and resource type.\nIf not specified, this ranking is not specific to a project.\nWhen using this data use the most specific information that exists.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "ranking": {
+                    "description": "Required",
+                    "format": "float",
+                    "type": "number"
+                },
+                "resourceType": {
+                    "description": "Required\nNCon resource type\nhttps://g3doc.corp.google.com/google/cloud/resourcesearch/g3doc/types.md",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CloudpersonalizationPaQuickAccessSuggestion": {
+            "description": "This message is likely to change as the internal demo receives feedback.",
+            "id": "CloudpersonalizationPaQuickAccessSuggestion",
+            "properties": {
+                "projectId": {
+                    "description": "Optional",
+                    "type": "string"
+                },
+                "templateUrl": {
+                    "description": "Optional\nURL without PII\nExample: \"/iam-admin/quotas\"",
+                    "type": "string"
+                },
+                "timestamp": {
+                    "description": "Required",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Required",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "Required\nURL with PII\nExample: \"/iam-admin/quotas?project=google.com:omnia-officia\"",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CloudpersonalizationPaQuickAccessSuggestionsRequest": {
+            "id": "CloudpersonalizationPaQuickAccessSuggestionsRequest",
+            "properties": {
+                "maxDays": {
+                    "description": "Required\nThe maximum number of days to check",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "maxSuggestions": {
+                    "description": "Required\nThe maximum number of quick access suggestions to return",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "projectId": {
+                    "description": "Optional\nIf this projectId is specified, then suggestions won't be made for pages\nassociated with *other* projects. Suggestions that aren't associated with\n*any* projects will still be shown though. For instance, the\n\"Projects by billing account\" page isn't scoped to any project, by it's\nstill worth suggesting for folks interested in billing.",
+                    "type": "string"
+                },
+                "rankingAlgorithm": {
+                    "description": "Optional\nAlgorithm that determines the ranking of suggestions.",
+                    "enum": [
+                        "DEFAULT",
+                        "MOST_VIEWED_MOST_RECENT_ROUND_ROBIN",
+                        "EXPONENTIAL",
+                        "NEURAL_NETWORK_V1"
+                    ],
+                    "enumDescriptions": [
+                        "The preferred algorithm, left to be defined by implementations.",
+                        "Ranks suggestions by choosing round-robin from lists of the (1) most viewed\nand (2) most recently viewed pages.",
+                        "Ranks suggestions exponentially higher the closer they are to the front of\neither the most viewed or most recent lists.",
+                        "Ranks suggestions with a neural network model. go/gcp-quick-access-model"
+                    ],
+                    "type": "string"
+                },
+                "tuningParams": {
+                    "$ref": "CloudpersonalizationPaQuickAccessSuggestionsRequestTuningParams",
+                    "description": "Optional\nParams that affect how suggestions are generated - used for tuning"
+                }
+            },
+            "type": "object"
+        },
+        "CloudpersonalizationPaQuickAccessSuggestionsRequestTuningParams": {
+            "id": "CloudpersonalizationPaQuickAccessSuggestionsRequestTuningParams",
+            "properties": {
+                "blacklistedUrlPrefixes": {
+                    "description": "Optional\nList of blacklisted URL prefixes. If a URL's path starts with one of these\nprefixes, the URL won't be suggested",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "extraFootprintsToFetch": {
+                    "description": "Optional\nNumber of extra footprints to fetch",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "CloudpersonalizationPaQuickAccessSuggestionsResponse": {
+            "id": "CloudpersonalizationPaQuickAccessSuggestionsResponse",
+            "properties": {
+                "id": {
+                    "description": "Describes the ranking algorithm used. In the longer term, this field can\nstore a unique identifier which correlates the response with detailed logs.",
+                    "type": "string"
+                },
+                "pantheonPersonalizationIsEnabled": {
+                    "description": "Describes whether the Pantheon Personalization setting is enabled. This\nallows frontends to show explanatory messaging if setting is disabled.",
+                    "type": "boolean"
+                },
+                "suggestion": {
+                    "description": "Ordered by most relevant first",
+                    "items": {
+                        "$ref": "CloudpersonalizationPaQuickAccessSuggestion"
+                    },
+                    "type": "array"
+                },
+                "waaIsEnabled": {
+                    "description": "Describes whether the WAA setting is enabled. This allows frontends to show\nexplanatory messaging if WAA is disabled.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "CloudpersonalizationPaRelevantScope": {
+            "id": "CloudpersonalizationPaRelevantScope",
+            "properties": {},
+            "type": "object"
+        },
+        "CloudpersonalizationPaRelevantScopesRequest": {
+            "id": "CloudpersonalizationPaRelevantScopesRequest",
+            "properties": {
+                "maxScopesToReturn": {
+                    "description": "Required\nThe maximum number of scopes to return",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "CloudpersonalizationPaRelevantScopesResponse": {
+            "id": "CloudpersonalizationPaRelevantScopesResponse",
+            "properties": {
+                "relevantScope": {
+                    "description": "Ordered by most relevant first",
+                    "items": {
+                        "$ref": "CloudpersonalizationPaRelevantScope"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CloudpersonalizationPaResourceRankingRequest": {
+            "id": "CloudpersonalizationPaResourceRankingRequest",
+            "properties": {
+                "experiments": {
+                    "items": {
+                        "$ref": "CloudpersonalizationPaPantheonExperiment"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CloudpersonalizationPaResourceRankingResponse": {
+            "id": "CloudpersonalizationPaResourceRankingResponse",
+            "properties": {
+                "rankings": {
+                    "description": "The ranks of various resource types. The ranks will be normalized to 1.",
+                    "items": {
+                        "$ref": "CloudpersonalizationPaProjectResourceTypeRanking"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CloudpersonalizationPaUpdatePersonalizationSettingRequest": {
+            "description": "This request assumes there's only one personalization setting for Pantheon.\nIf more personalization settings are added, feel free to scrap this proto.",
+            "id": "CloudpersonalizationPaUpdatePersonalizationSettingRequest",
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "languageCode": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CloudpersonalizationPaUpdatePersonalizationSettingResponse": {
+            "id": "CloudpersonalizationPaUpdatePersonalizationSettingResponse",
+            "properties": {},
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Cloud Personalization Private API",
+    "version": "v1alpha1",
+    "version_module": true
+}

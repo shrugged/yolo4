@@ -1,0 +1,2222 @@
+{
+    "basePath": "",
+    "baseUrl": "https://autopush-pluscommunities.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Plus Communities",
+    "description": "Enables Community management from the owner, moderator, domain admin, and member perspective.\n",
+    "discoveryVersion": "v1",
+    "documentationLink": "https://developers.google.com",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "autopush_pluscommunities_sandbox:v0",
+    "kind": "discovery#restDescription",
+    "name": "autopush_pluscommunities_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "communities": {
+            "methods": {
+                "create": {
+                    "description": "Creates a community. The requesting user becomes the owner.",
+                    "flatPath": "v0/communities",
+                    "httpMethod": "POST",
+                    "id": "autopush_pluscommunities_sandbox.communities.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v0/communities",
+                    "request": {
+                        "$ref": "Community"
+                    },
+                    "response": {
+                        "$ref": "Community"
+                    }
+                },
+                "delete": {
+                    "description": "Deletes a community that the requesting user has appropriate permissions\nfor.",
+                    "flatPath": "v0/communities/{communitiesId}",
+                    "httpMethod": "DELETE",
+                    "id": "autopush_pluscommunities_sandbox.communities.delete",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Resource name of the community, like communities/{community_id}.",
+                            "location": "path",
+                            "pattern": "^communities/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v0/{+name}",
+                    "response": {
+                        "$ref": "Empty"
+                    }
+                },
+                "get": {
+                    "description": "Gets a community.",
+                    "flatPath": "v0/communities/{communitiesId}",
+                    "httpMethod": "GET",
+                    "id": "autopush_pluscommunities_sandbox.communities.get",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "The resource name of the community to be retrieved, like\ncommunities/{community_id}",
+                            "location": "path",
+                            "pattern": "^communities/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v0/{+name}",
+                    "response": {
+                        "$ref": "Community"
+                    }
+                },
+                "list": {
+                    "description": "Lists communities for the requested user.\n\nWhen the requested user is the caller (e.g. \"users/me\"), then all\ncommunities in which the caller is involved are returned including not only\nthose where they are a member/moderator/owner, but also communities they've\nrequested to join or have been invited to.\n\nWhen the requested user is not the caller, the only communities that are\nreturned are those in which the requested user is a member/moderator/owner\nand the requested user has chosen to make their membership in that\ncommunity visible to others.",
+                    "flatPath": "v0/communities",
+                    "httpMethod": "GET",
+                    "id": "autopush_pluscommunities_sandbox.communities.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "filter": {
+                            "description": "Optional. A filter for communities. Only supports filtering based\non user_role. For example, query = \"viewer_role = community_member\". To\nconstruct other viewer role queries, prepend \"community_\" with other\nUserRole enum values.\n\nWhen filtering by community_member, communities that the user is a\nmoderator or owner is also returned. Likewise, when filtering by\ncommunity_moderator, communities that the user is a owner is also returned.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "pageSize": {
+                            "description": "Optional. Requested page size. Server may return fewer communities than\nrequested. If unspecified, server will pick an appropriate default.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageToken": {
+                            "description": "Optional. A token identifying a page of results the server should return.\nIf unspecified, fetches the communities from the beginning.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "userName": {
+                            "description": "Optional. Resource name of the user like 'users/{user_id}'.\nIf unspecified or 'users/me', lists the requester's communities.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v0/communities",
+                    "response": {
+                        "$ref": "ListCommunitiesResponse"
+                    }
+                },
+                "patch": {
+                    "description": "Updates the community with the specified properties that the requesting\nuser has appropriate permission for.",
+                    "flatPath": "v0/communities/{communitiesId}",
+                    "httpMethod": "PATCH",
+                    "id": "autopush_pluscommunities_sandbox.communities.patch",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "Resource name of the community, in the form \"communities/{community_id}\".",
+                            "location": "path",
+                            "pattern": "^communities/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "updateMask": {
+                            "description": "Required. Only fields specified in the update mask will be updated in the\ncommunity. For the `FieldMask` definition, see\nhttps://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask",
+                            "format": "google-fieldmask",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v0/{+name}",
+                    "request": {
+                        "$ref": "Community"
+                    },
+                    "response": {
+                        "$ref": "Community"
+                    }
+                },
+                "reorderCommunityCategories": {
+                    "description": "Reorders the categories in a community. The API will fail if the request\ndoes not include a complete set of the community's categories, or if the\nrequest includes categories not found in the community.",
+                    "flatPath": "v0/communities/{communitiesId}:reorderCommunityCategories",
+                    "httpMethod": "POST",
+                    "id": "autopush_pluscommunities_sandbox.communities.reorderCommunityCategories",
+                    "parameterOrder": [
+                        "parent"
+                    ],
+                    "parameters": {
+                        "parent": {
+                            "description": "Required. Resource name of the parent community to which the categories\nbelong, like communities/{community_id}.",
+                            "location": "path",
+                            "pattern": "^communities/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v0/{+parent}:reorderCommunityCategories",
+                    "request": {
+                        "$ref": "ReorderCommunityCategoriesRequest"
+                    },
+                    "response": {
+                        "$ref": "Empty"
+                    }
+                },
+                "updateAllMemberModeration": {
+                    "description": "Updates MemberModeration for all users with UserRole MEMBER within a\ncommunity. This call will set community's HoldForReviewType to\nREVIEW_TYPE_MEMBER_MODERATION.",
+                    "flatPath": "v0/communities/{communitiesId}:updateAllMemberModeration",
+                    "httpMethod": "POST",
+                    "id": "autopush_pluscommunities_sandbox.communities.updateAllMemberModeration",
+                    "parameterOrder": [
+                        "name"
+                    ],
+                    "parameters": {
+                        "name": {
+                            "description": "The resource name of the community whose members' moderation fields are\nbeing updated. For example, communities/{community_id}.",
+                            "location": "path",
+                            "pattern": "^communities/[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v0/{+name}:updateAllMemberModeration",
+                    "request": {
+                        "$ref": "UpdateAllMemberModerationRequest"
+                    },
+                    "response": {
+                        "$ref": "UpdateAllMemberModerationResponse"
+                    }
+                }
+            },
+            "resources": {
+                "categories": {
+                    "methods": {
+                        "create": {
+                            "description": "Creates a community category. New categories are appended to the end.\nDuplicate category names are allowed.",
+                            "flatPath": "v0/communities/{communitiesId}/categories",
+                            "httpMethod": "POST",
+                            "id": "autopush_pluscommunities_sandbox.communities.categories.create",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "Required. Resource name of the parent community to which the category will\nbe added, like communities/{community_id}.",
+                                    "location": "path",
+                                    "pattern": "^communities/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v0/{+parent}/categories",
+                            "request": {
+                                "$ref": "CommunityCategory"
+                            },
+                            "response": {
+                                "$ref": "CommunityCategory"
+                            }
+                        },
+                        "delete": {
+                            "description": "Deletes a community category.",
+                            "flatPath": "v0/communities/{communitiesId}/categories/{categoriesId}",
+                            "httpMethod": "DELETE",
+                            "id": "autopush_pluscommunities_sandbox.communities.categories.delete",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Required. Resource name of the community category, like\ncommunities/{community_id}/categories/{category_id}.",
+                                    "location": "path",
+                                    "pattern": "^communities/[^/]+/categories/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v0/{+name}",
+                            "response": {
+                                "$ref": "Empty"
+                            }
+                        },
+                        "patch": {
+                            "description": "Updates a community category with the specified properties.",
+                            "flatPath": "v0/communities/{communitiesId}/categories/{categoriesId}",
+                            "httpMethod": "PATCH",
+                            "id": "autopush_pluscommunities_sandbox.communities.categories.patch",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Category name, like communities/<community_id>/categories/<category_id>",
+                                    "location": "path",
+                                    "pattern": "^communities/[^/]+/categories/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "updateMask": {
+                                    "description": "Required. Only fields specified in the update mask will be updated in the\ncommunity category. For the `FieldMask` definition, see\nhttps://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask",
+                                    "format": "google-fieldmask",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v0/{+name}",
+                            "request": {
+                                "$ref": "CommunityCategory"
+                            },
+                            "response": {
+                                "$ref": "CommunityCategory"
+                            }
+                        }
+                    }
+                },
+                "communityUsers": {
+                    "methods": {
+                        "create": {
+                            "description": "Adds a user to a community with a particular role.",
+                            "flatPath": "v0/communities/{communitiesId}/communityUsers",
+                            "httpMethod": "POST",
+                            "id": "autopush_pluscommunities_sandbox.communities.communityUsers.create",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "The parent community to which the member will be added.",
+                                    "location": "path",
+                                    "pattern": "^communities/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "userId": {
+                                    "description": "Required. User.id. This must correspond to a User.id that already exists in\nGoogle+.",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v0/{+parent}/communityUsers",
+                            "request": {
+                                "$ref": "CommunityUser"
+                            },
+                            "response": {
+                                "$ref": "CommunityUser"
+                            }
+                        },
+                        "delete": {
+                            "description": "Removes a user from having any role in the community.",
+                            "flatPath": "v0/communities/{communitiesId}/communityUsers/{communityUsersId}",
+                            "httpMethod": "DELETE",
+                            "id": "autopush_pluscommunities_sandbox.communities.communityUsers.delete",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The resource name of the community user to be deleted. For example,\ncommunities/{community_id}/communityUsers/{community_user_id}.",
+                                    "location": "path",
+                                    "pattern": "^communities/[^/]+/communityUsers/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v0/{+name}",
+                            "response": {
+                                "$ref": "Empty"
+                            }
+                        },
+                        "get": {
+                            "description": "Gets a particular community user related to a community.",
+                            "flatPath": "v0/communities/{communitiesId}/communityUsers/{communityUsersId}",
+                            "httpMethod": "GET",
+                            "id": "autopush_pluscommunities_sandbox.communities.communityUsers.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The resource name of the community user to be retrieved. For example,\ncommunities/{community_id}/communityUsers/{community_user_id}.",
+                                    "location": "path",
+                                    "pattern": "^communities/[^/]+/communityUsers/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v0/{+name}",
+                            "response": {
+                                "$ref": "CommunityUser"
+                            }
+                        },
+                        "getPreferences": {
+                            "description": "Gets the user preferences for a particular owner, moderator, or member\nof the community. Only the user who owns the preferences has access to this\nresource.",
+                            "flatPath": "v0/communities/{communitiesId}/communityUsers/{communityUsersId}/preferences",
+                            "httpMethod": "GET",
+                            "id": "autopush_pluscommunities_sandbox.communities.communityUsers.getPreferences",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The name of the preference to be retrieved. For example,\ncommunities/{community_id}/communityUsers/{community_user_id}/preferences.",
+                                    "location": "path",
+                                    "pattern": "^communities/[^/]+/communityUsers/[^/]+/preferences$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v0/{+name}",
+                            "response": {
+                                "$ref": "Preferences"
+                            }
+                        },
+                        "list": {
+                            "description": "Lists the community users related to a particular community.",
+                            "flatPath": "v0/communities/{communitiesId}/communityUsers",
+                            "httpMethod": "GET",
+                            "id": "autopush_pluscommunities_sandbox.communities.communityUsers.list",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "filter": {
+                                    "description": "Optional. A filter for community users. Only supports filtering based\non user_role. For example, query = \"user_role = community_member\". To\nconstruct other viewer role queries, prepend \"community_\" with other\nUserRole enum values.\n\nWhen filtering by community_member, community users of type moderator and\nowner are also returned. Likewise, when filtering by\ncommunity_moderator, community users of type owner are also returned.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "pageSize": {
+                                    "description": "Optional. Requested page size. Server may return fewer community users than\nrequested. If unspecified, server will pick an appropriate default. The max\npage size is 100.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "Optional. A token identifying a page of results the server should return.\nIf unspecified, fetches the community users from the beginning.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "parent": {
+                                    "description": "The parent resource, like communities/{community_id}.",
+                                    "location": "path",
+                                    "pattern": "^communities/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v0/{+parent}/communityUsers",
+                            "response": {
+                                "$ref": "ListCommunityUsersResponse"
+                            }
+                        },
+                        "patch": {
+                            "description": "Updates the user's role and member moderation in a community.",
+                            "flatPath": "v0/communities/{communitiesId}/communityUsers/{communityUsersId}",
+                            "httpMethod": "PATCH",
+                            "id": "autopush_pluscommunities_sandbox.communities.communityUsers.patch",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Resource name, like\n\"communities/{community_id}/communityUsers/{community_user_id}\".\ncommunity_user_id should be the same as user_id in User.name (e.g.\n\"users/{user_id}\").",
+                                    "location": "path",
+                                    "pattern": "^communities/[^/]+/communityUsers/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "updateMask": {
+                                    "description": "Required. Only fields specified in the update mask will be updated in the\ncommunity user. For the `FieldMask` definition, see\nhttps://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask",
+                                    "format": "google-fieldmask",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v0/{+name}",
+                            "request": {
+                                "$ref": "CommunityUser"
+                            },
+                            "response": {
+                                "$ref": "CommunityUser"
+                            }
+                        },
+                        "updatePreferences": {
+                            "description": "Updates the user preferences for a particular owner, moderator, or member\nof the community. Only the user who owns the preferences has permission to\nupdate this resource.",
+                            "flatPath": "v0/communities/{communitiesId}/communityUsers/{communityUsersId}/preferences",
+                            "httpMethod": "PATCH",
+                            "id": "autopush_pluscommunities_sandbox.communities.communityUsers.updatePreferences",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Resource name, like\n\"communities/{community_id}/communityUsers/{community_user_id}/preferences\".",
+                                    "location": "path",
+                                    "pattern": "^communities/[^/]+/communityUsers/[^/]+/preferences$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "updateMask": {
+                                    "description": "Only fields specified in the update mask will be updated in the preference.\nNot specifying an update mask is an error. For the `FieldMask` definition,\nsee\nhttps://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask",
+                                    "format": "google-fieldmask",
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v0/{+name}",
+                            "request": {
+                                "$ref": "Preferences"
+                            },
+                            "response": {
+                                "$ref": "Preferences"
+                            }
+                        }
+                    }
+                },
+                "insights": {
+                    "methods": {
+                        "get": {
+                            "description": "Get a particular insight for the community.",
+                            "flatPath": "v0/communities/{communitiesId}/insights/{insightsId}",
+                            "httpMethod": "GET",
+                            "id": "autopush_pluscommunities_sandbox.communities.insights.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "The resource name of the insight to be retrieved. For example,\ncommunities/{community_id}/insights/{insight_id}.",
+                                    "location": "path",
+                                    "pattern": "^communities/[^/]+/insights/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "pointsSelector": {
+                                    "description": "Optional. Selector to choose how points data is populated in the response.\nBy default, no points are returned.",
+                                    "enum": [
+                                        "POINTS_SELECTOR_UNSPECIFIED",
+                                        "POINTS_SELECTOR"
+                                    ],
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "timeWindowSelector": {
+                                    "description": "Optional. Selector to choose what time window (seven day, etc.) to\nreturn in the response. If none is provided, thirty day data is\nreturned.",
+                                    "enum": [
+                                        "TIME_WINDOW_SELECTOR_UNSPECIFIED",
+                                        "SEVEN_DAY_SELECTOR",
+                                        "THIRTY_DAY_SELECTOR"
+                                    ],
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v0/{+name}",
+                            "response": {
+                                "$ref": "Insight"
+                            }
+                        },
+                        "getChartImage": {
+                            "description": "Get a chart image corresponding to a particular resource.",
+                            "flatPath": "v0/communities/{communitiesId}/insights/{insightsId}:getChartImage",
+                            "httpMethod": "GET",
+                            "id": "autopush_pluscommunities_sandbox.communities.insights.getChartImage",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "height": {
+                                    "description": "The height of the image that should be returned. The maximum size that can\nbe requested is 2000px. If unspecified, a height of 512 pixels will be\nused.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "name": {
+                                    "description": "The resource name of the insight whose chart is requested. For example,\ncommunities/{community_id}/insights/{insight_id}.",
+                                    "location": "path",
+                                    "pattern": "^communities/[^/]+/insights/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "timeWindowSelector": {
+                                    "description": "Optional. Selector to choose what time window (seven day, etc.) to\nuse in the chart. If none is provided, thirty day data is\nused.",
+                                    "enum": [
+                                        "TIME_WINDOW_SELECTOR_UNSPECIFIED",
+                                        "SEVEN_DAY_SELECTOR",
+                                        "THIRTY_DAY_SELECTOR"
+                                    ],
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "width": {
+                                    "description": "The width of the image that should be returned. The maximum size that can\nbe requested is 2000px. If unspecified, a width of 512 pixels will be\nused.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                }
+                            },
+                            "path": "v0/{+name}:getChartImage",
+                            "response": {
+                                "$ref": "HttpBody"
+                            }
+                        },
+                        "list": {
+                            "description": "List insights for a particular community.",
+                            "flatPath": "v0/communities/{communitiesId}/insights",
+                            "httpMethod": "GET",
+                            "id": "autopush_pluscommunities_sandbox.communities.insights.list",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "filter": {
+                                    "description": "Optional. A filter for insights. Only supports filtering based\non insight_type using a \"Field Search\" without boolean\noperators. For example, query = \"insight_type = new_users\". See\nhttps://cloud.google.com/appengine/docs/standard/java/search/query_strings\nfor more information on syntax.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "pageSize": {
+                                    "description": "Optional. Requested page size. The server may return fewer insights than\nrequested. If unspecified, the server will pick an appropriate default.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "Optional. A token identifying a page of results the server should return.\nIf unspecified, fetches the insights from the beginning.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "parent": {
+                                    "description": "The parent resource, like communities/{community_id}.",
+                                    "location": "path",
+                                    "pattern": "^communities/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "pointsSelector": {
+                                    "description": "Optional. Selector to choose how points data is populated in the response.\nBy default, no points are returned.",
+                                    "enum": [
+                                        "POINTS_SELECTOR_UNSPECIFIED",
+                                        "POINTS_SELECTOR"
+                                    ],
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "timeWindowSelector": {
+                                    "description": "Optional. Selector to choose what time window (seven day, etc.) to\nreturn in the response. If none is provided, thirty day data is\nreturned.",
+                                    "enum": [
+                                        "TIME_WINDOW_SELECTOR_UNSPECIFIED",
+                                        "SEVEN_DAY_SELECTOR",
+                                        "THIRTY_DAY_SELECTOR"
+                                    ],
+                                    "location": "query",
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v0/{+parent}/insights",
+                            "response": {
+                                "$ref": "ListInsightsResponse"
+                            }
+                        }
+                    }
+                },
+                "posts": {
+                    "methods": {
+                        "list": {
+                            "description": "Lists posts within the specified community.",
+                            "flatPath": "v0/communities/{communitiesId}/posts",
+                            "httpMethod": "GET",
+                            "id": "autopush_pluscommunities_sandbox.communities.posts.list",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "pageSize": {
+                                    "description": "Optional. Requested page size. Server may return fewer followers than\nrequested. If unspecified, server will pick an appropriate default.",
+                                    "format": "int32",
+                                    "location": "query",
+                                    "type": "integer"
+                                },
+                                "pageToken": {
+                                    "description": "Optional. A token identifying a page of results the server should return.\nIf unspecified, fetches the followers from the beginning.",
+                                    "location": "query",
+                                    "type": "string"
+                                },
+                                "parent": {
+                                    "description": "Required. The resource name of the community, like\ncommunities/{community_id}.",
+                                    "location": "path",
+                                    "pattern": "^communities/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v0/{+parent}/posts",
+                            "response": {
+                                "$ref": "ListCommunityPostsResponse"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190918",
+    "rootUrl": "https://autopush-pluscommunities.sandbox.googleapis.com/",
+    "schemas": {
+        "AddToCircles": {
+            "description": "Dictates if the viewer can add the user to a circle and if not provides\nreasons why.",
+            "id": "AddToCircles",
+            "properties": {
+                "disallowedReason": {
+                    "description": "A list of the reasons why the viewer is not allowed to add the user to\ntheir circles.",
+                    "enumDescriptions": [
+                        "Unknown disallowed reason.",
+                        "Viewer has blocked user.",
+                        "Prohibited based on preference settings of the user under circle\nconsideration.",
+                        "The viewer has settings from their organization that does not allow\nthem to add users from outside their organization. The user is not\npart of the viewer's organization.",
+                        "Viewer cannot circle self."
+                    ],
+                    "items": {
+                        "enum": [
+                            "DISALLOWED_REASON_UNKNOWN",
+                            "BLOCK",
+                            "INTERACTION_SETTINGS_RESTRICTED",
+                            "DOMAIN_RESTRICTED",
+                            "OWN_PROFILE"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "isAddToCirclesAllowed": {
+                    "description": "Indicates if the viewer is allowed to add this user to their circles,\nor if not, what the reason is.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "Album": {
+            "description": "Represents an album.",
+            "id": "Album",
+            "properties": {
+                "media": {
+                    "description": "The media in the album.",
+                    "items": {
+                        "$ref": "Media"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "Resource name of the album, like \"albums/<album_id>\"",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AlbumReference": {
+            "description": "Reference to an album.",
+            "id": "AlbumReference",
+            "properties": {
+                "name": {
+                    "description": "Resource name of the album, like \"albums/<album_id>\".",
+                    "type": "string"
+                },
+                "postReference": {
+                    "$ref": "PostReference",
+                    "description": "Reference to the post containing the album."
+                }
+            },
+            "type": "object"
+        },
+        "CircleReference": {
+            "description": "Reference to a circle.",
+            "id": "CircleReference",
+            "properties": {
+                "name": {
+                    "description": "Resource name of the circle, like \"circles/<circle_id>\"\nOnly populated for type = CIRCLE_TYPE_USER_CIRCLE",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "Type of the circle.",
+                    "enum": [
+                        "CIRCLE_TYPE_UNKNOWN",
+                        "CIRCLE_TYPE_PUBLIC",
+                        "CIRCLE_TYPE_DOMAIN",
+                        "CIRCLE_TYPE_EXTENDED_CIRCLES",
+                        "CIRCLE_TYPE_YOUR_CIRCLES",
+                        "CIRCLE_TYPE_USER_CIRCLE"
+                    ],
+                    "enumDescriptions": [
+                        "Never used.",
+                        "Public circle.",
+                        "Domain circle.",
+                        "Virtual Circle that shares with Your",
+                        "Circles, and with all the Circles of the\npeople in Your Circles.\nVirtual Circle that shares to a set of",
+                        "user-selected User Circles.\nCircle created by user."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CollectionAcl": {
+            "description": "ACL representing sharing with a collection and +mentioning users.",
+            "id": "CollectionAcl",
+            "properties": {
+                "collection": {
+                    "$ref": "CollectionReference",
+                    "description": "Collection in which the post was made."
+                },
+                "users": {
+                    "description": "Users who were +mentioned in the post.",
+                    "items": {
+                        "$ref": "UserReference"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CollectionAttachment": {
+            "description": "Reference to a collection inside a Post.",
+            "id": "CollectionAttachment",
+            "properties": {
+                "coverPhoto": {
+                    "$ref": "Media",
+                    "description": "Cover photo of the collection shared."
+                },
+                "coverPhotoUrl": {
+                    "description": "Output only. URL of the collection cover photo.",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "Required. Display name of the collection.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Resource name of the collection, in the form of\n\"users/{user_id}/collections/{collection_id}\".",
+                    "type": "string"
+                },
+                "owner": {
+                    "$ref": "User",
+                    "description": "Output only. The Google+ User who owns this collection."
+                },
+                "permalink": {
+                    "description": "Output only. Defines a permanent URL for accessing the\ncollection from a web browser.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CollectionReference": {
+            "description": "Reference to collection.",
+            "id": "CollectionReference",
+            "properties": {
+                "displayName": {
+                    "description": "Name of the collection. Might not be populated if the user does not have\naccess to the collection.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Resource name of the collection, like \"collections/<collection_id>\".",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Community": {
+            "description": "Google+ Community.",
+            "id": "Community",
+            "properties": {
+                "communityAccessSettings": {
+                    "$ref": "CommunityAccessSettings",
+                    "description": "Required. Settings that defines who has access to this community."
+                },
+                "communityCategories": {
+                    "description": "Output only. The set of community categories.\nCommunity categories can be managed with\ngoogle.plus.communities.v0.CommunitiesService.CreateCommunityCategory,\ngoogle.plus.communities.v0.CommunitiesService.UpdateCommunityCategory,\ngoogle.plus.communities.v0.CommunitiesService.DeleteCommunityCategory,\nand\ngoogle.plus.communities.v0.CommunitiesService.ReorderCommunityCategories.",
+                    "items": {
+                        "$ref": "CommunityCategory"
+                    },
+                    "type": "array"
+                },
+                "communityModerationSettings": {
+                    "$ref": "CommunityModerationSettings",
+                    "description": "Settings that control how a community is moderated. If not populated,\ndefault community moderation settings will be used. This field is only\navailable to moderators and owners."
+                },
+                "coverPhoto": {
+                    "$ref": "Media",
+                    "description": "The cover_photo as Media."
+                },
+                "coverPhotoUrl": {
+                    "description": "Output only. The URL of the community cover photo.",
+                    "type": "string"
+                },
+                "createTime": {
+                    "description": "Deprecated. Not populated. Time at which the community was created.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "Description of the community.",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "Required. Display Name of the community.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Resource name of the community, in the form \"communities/{community_id}\".",
+                    "type": "string"
+                },
+                "permalink": {
+                    "description": "Output only. Permanent link to the community.",
+                    "type": "string"
+                },
+                "relatedLinks": {
+                    "description": "Links associated with this community.",
+                    "items": {
+                        "$ref": "RelatedLink"
+                    },
+                    "type": "array"
+                },
+                "tagline": {
+                    "description": "Tagline of the community.",
+                    "type": "string"
+                },
+                "viewerRole": {
+                    "description": "Output only. The role of the viewer with regards to the community.",
+                    "enum": [
+                        "USER_ROLE_UNSPECIFIED",
+                        "NO_COMMUNITY_ROLE",
+                        "OWNER",
+                        "MODERATOR",
+                        "MEMBER",
+                        "MEMBER_GROUP",
+                        "INVITEE",
+                        "APPLICANT",
+                        "BANNED_USER"
+                    ],
+                    "enumDescriptions": [
+                        "Should never be used.",
+                        "Indicates that the user has no role in the community. Not allowed for\ncommunity users.",
+                        "Can perform all actions on a community. Owners can perform actions other\nroles cannot perform, such as deleting the community. Owners can also\nperform actions moderators and regular members can.",
+                        "Can only perform moderation operations, such as approving posts and\nmanaging users. Moderators can also perform actions regular members can.",
+                        "Regular member of a community representing a Google+ user. Can post and\ncomment.",
+                        "Regular member of a community representing a Google group. Members of the\ngroup can post and comment.",
+                        "A user who was invited by a moderator to join the community, but has not\naccepted yet.",
+                        "A user who requested to join a community and is awaiting a response from\nmoderators.",
+                        "A user who has been banned from the community. Join requests from this user\nwill be rejected and the user can't be invited again."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CommunityAccessSettings": {
+            "description": "Settings that contains all access information associated with a community.",
+            "id": "CommunityAccessSettings",
+            "properties": {
+                "communityAccessType": {
+                    "description": "Required. Setting that determines who has the ability to view content in\nthe community.",
+                    "enum": [
+                        "COMMUNITY_ACCESS_TYPE_UNSPECIFIED",
+                        "ANYONE_CAN_JOIN",
+                        "ASK_TO_JOIN",
+                        "PRIVATE_DISCOVERABLE",
+                        "PRIVATE_SECRET"
+                    ],
+                    "enumDescriptions": [
+                        "Should never be used.",
+                        "A community that any G+ user can join. The community's profile, content,\nand member list are visibly to anyone. Note that if the DomainAccessType in\nthe CommunityAccessSettings is SINGLE_DOMAIN then all access is restricted\nto users in the Community's domain.",
+                        "A community that users must apply to join and be approved or must be\ninvited in order to become a member of the community. The community's\nprofile, content, and member list are visibly to anyone. Note that if the\nDomainAccessType in the CommunityAccessSettings is SINGLE_DOMAIN then all\naccess is restricted to users in the Community's domain.",
+                        "A community that users must apply to join and be approved or must be\ninvited in order to become a member of the community. Only invitees and\nmembers can see the community's profile, content, and content. However,\nthe community name and cover photo is visible to anyone. Note that if the\nDomainAccessType in the CommunityAccessSettings is SINGLE_DOMAIN then all\naccess is restricted to users in the Community's domain.",
+                        "A community that users must be invited to in order to join the community.\nOnly members can see the square's profile, contents and member list. The\ncommunity is not accessible to everyone and is not discoverable. However,\nthe community name and cover photo is visible to anyone with a link to the\ncommunity. If DomainAccessType in the CommunityAccessSettings is\nSINGLE_DOMAIN then all access is restricted to users in the Community's\ndomain."
+                    ],
+                    "type": "string"
+                },
+                "domainAccessType": {
+                    "description": "Required. Setting that indicates how the community is shared outside of the\ncommunity viewer's domain.",
+                    "enum": [
+                        "DOMAIN_ACCESS_TYPE_UNSPECIFIED",
+                        "NO_DOMAIN_RESTRICTION",
+                        "SINGLE_DOMAIN"
+                    ],
+                    "enumDescriptions": [
+                        "Should never be used.",
+                        "Not domain restricted.",
+                        "Restricted to a single domain (note that if a company has multiple domains,\nall domains can see communities/content from all domains)."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CommunityAcl": {
+            "description": "ACL representing sharing with a community and +mentioning users.",
+            "id": "CommunityAcl",
+            "properties": {
+                "community": {
+                    "$ref": "CommunityReference",
+                    "description": "Community in which the post was made."
+                },
+                "users": {
+                    "description": "Users who were +mentioned in the post.",
+                    "items": {
+                        "$ref": "UserReference"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CommunityAttachment": {
+            "description": "Reference to community inside of a Post.",
+            "id": "CommunityAttachment",
+            "properties": {
+                "coverPhoto": {
+                    "$ref": "Media",
+                    "description": "Cover photo of the community shared."
+                },
+                "coverPhotoUrl": {
+                    "description": "Cover photo of the community shared.",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "Name of the community. Might not be populated if the user does not have\naccess to the community.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Resource name of the community, like \"communities/<community_id>\"",
+                    "type": "string"
+                },
+                "permalink": {
+                    "description": "The url of this community.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CommunityCategory": {
+            "description": "Community category.",
+            "id": "CommunityCategory",
+            "properties": {
+                "displayName": {
+                    "description": "Display name for this category.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Category name, like communities/<community_id>/categories/<category_id>",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CommunityModerationSettings": {
+            "description": "Settings that determine how posts in the community are moderated.",
+            "id": "CommunityModerationSettings",
+            "properties": {
+                "contentControl": {
+                    "description": "Required. Type that determines whether stronger content filters and\ncontrols are enabled.",
+                    "enum": [
+                        "CONTENT_CONTROL_UNSPECIFIED",
+                        "WEAKER_CONTENT_CONTROLS",
+                        "STRONGER_CONTENT_CONTROLS"
+                    ],
+                    "enumDescriptions": [
+                        "Should never be used.",
+                        "Content in the community that appear questionable is less likely to be\nflagged for moderation.",
+                        "Content in the community that appear questionable is more likely to be\nflagged for moderation."
+                    ],
+                    "type": "string"
+                },
+                "holdForReviewType": {
+                    "description": "Required. Type that determines how posts submitted to the community\nmust be reviewed before they are visible to the entire community.",
+                    "enum": [
+                        "HOLD_FOR_REVIEW_TYPE_UNSPECIFIED",
+                        "REVIEW_TYPE_NONE",
+                        "REVIEW_TYPE_MEMBER_MODERATION"
+                    ],
+                    "enumDescriptions": [
+                        "Should never be used.",
+                        "No (non-spam) posts will be held for moderation. All existing members'\ncommunity membership settings become FULL_MEMBER when a community is set\nto this type. Moreover, new members will have to have community membership\nsettings of FULL_MEMBER while this is set.",
+                        "Posts by community users with community membership setting LIMITED_MEMBER\nwill be held for moderation. Moreover, newly created members' community\nmembership setting will default to LIMITED_MEMBER."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CommunityPost": {
+            "description": "Represents a single post within a community.",
+            "id": "CommunityPost",
+            "properties": {
+                "post": {
+                    "$ref": "Post",
+                    "description": "A post within a community."
+                }
+            },
+            "type": "object"
+        },
+        "CommunityReference": {
+            "description": "Reference to community.",
+            "id": "CommunityReference",
+            "properties": {
+                "categoryDisplayName": {
+                    "description": "Name of the category to which the community belongs to. Might not be\npopulated if the user does not have access to the community.",
+                    "type": "string"
+                },
+                "categoryName": {
+                    "description": "Resource name of the category to which the community belongs to, like\n\"communities/<community_id>/categories/<category_id>\". Might not be\npopulated if the user does not have access to the community.",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "Name of the community. Might not be populated if the user does not have\naccess to the community.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Resource name of the community, like \"communities/<community_id>\"",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CommunityUser": {
+            "description": "User with some relation to a community.",
+            "id": "CommunityUser",
+            "properties": {
+                "group": {
+                    "$ref": "Group",
+                    "description": "Output only. The Google group corresponding to this community user. Only\npopulated if the CommunityUser corresponds to a group."
+                },
+                "memberModeration": {
+                    "description": "Settings that control moderation for this community member's\nposts. This field is affected by the community's hold for review type and\nis only visible to owners, moderators, and domain administrators who have\nthe appropriate permissions. In addition to a normal\ngoogle.plus.communities.v0.CommunitiesService.UpdateCommunityUser\ncall, this field can be updated using the custom method\ngoogle.plus.communities.v0.CommunitiesService.UpdateAllMemberModeration. Please see the custom method for more info.",
+                    "enum": [
+                        "MEMBER_MODERATION_UNSPECIFIED",
+                        "LIMITED_MEMBER",
+                        "FULL_MEMBER"
+                    ],
+                    "enumDescriptions": [
+                        "For community users roles aside from MEMBER, this value should be used.\nFor role MEMBER_GROUP, users within the group might be in the state\nLIMITED_MEMBER or FULL_MEMBER depending on when the user was added to group\nand when the community's Hold For Review Type setting was set. To\nexplicitly set a user's member moderation setting, directly add them to\ncommunity as a member and set their MemberModeration setting.",
+                        "Member is limited. Posts made by this member will have to be approved by a\nmoderator.",
+                        "Member is full. Posts made by this member are automatically shared to the\ncommunity."
+                    ],
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Resource name, like\n\"communities/{community_id}/communityUsers/{community_user_id}\".\ncommunity_user_id should be the same as user_id in User.name (e.g.\n\"users/{user_id}\").",
+                    "type": "string"
+                },
+                "user": {
+                    "$ref": "User",
+                    "description": "Output only. The Google+ user corresponding to this community user. Only\npopulated if the CommunityUser corresponds to a user."
+                },
+                "userRole": {
+                    "description": "Required. Role of the user with regard to the community.",
+                    "enum": [
+                        "USER_ROLE_UNSPECIFIED",
+                        "NO_COMMUNITY_ROLE",
+                        "OWNER",
+                        "MODERATOR",
+                        "MEMBER",
+                        "MEMBER_GROUP",
+                        "INVITEE",
+                        "APPLICANT",
+                        "BANNED_USER"
+                    ],
+                    "enumDescriptions": [
+                        "Should never be used.",
+                        "Indicates that the user has no role in the community. Not allowed for\ncommunity users.",
+                        "Can perform all actions on a community. Owners can perform actions other\nroles cannot perform, such as deleting the community. Owners can also\nperform actions moderators and regular members can.",
+                        "Can only perform moderation operations, such as approving posts and\nmanaging users. Moderators can also perform actions regular members can.",
+                        "Regular member of a community representing a Google+ user. Can post and\ncomment.",
+                        "Regular member of a community representing a Google group. Members of the\ngroup can post and comment.",
+                        "A user who was invited by a moderator to join the community, but has not\naccepted yet.",
+                        "A user who requested to join a community and is awaiting a response from\nmoderators.",
+                        "A user who has been banned from the community. Join requests from this user\nwill be rejected and the user can't be invited again."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ContentFormatting": {
+            "description": "Formatting information for a segment.",
+            "id": "ContentFormatting",
+            "properties": {
+                "bold": {
+                    "description": "Bold.",
+                    "type": "boolean"
+                },
+                "italics": {
+                    "description": "Italics.",
+                    "type": "boolean"
+                },
+                "strikethrough": {
+                    "description": "Strikethrough.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "ContentSegment": {
+            "description": "An individual segment of content.",
+            "id": "ContentSegment",
+            "properties": {
+                "formatting": {
+                    "$ref": "ContentFormatting",
+                    "description": "Segment formatting.\n\nFormatting to be applied when rendering the segment.  For all segment\ntypes, this is the standard way of representing that the segment should be\nrendered in bold, italics, etc."
+                },
+                "text": {
+                    "description": "Text content of the segment.\n\nAs a general rule, this field should contain the actual text that should\nbe rendered in the UI.  Thus, for a hashtag, it should be \"#Foo\", and for\na link, it should be the display text.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ContentSegments": {
+            "description": "ContentSegments represent structured social content, e.g. the contents of a\nG+ stream post or chat message.  A single post or message may consist of a\nsequence of segments, each representing a type of content, e.g. plain text,\nhash tag, mention, etc.  Segments correspond approximately to units of\ncontent delimited by HTML tags, so that a piece of bolded text would be a\ndistinct Segment, a link would be a distinct Segment, and so forth.  A single\nSegment may have multiple such qualifiers; e.g. it may be a bold link.\nInformation about all such qualifiers will be encoded in the ContentSegment\nproto.",
+            "id": "ContentSegments",
+            "properties": {
+                "contentSegments": {
+                    "description": "Formatted content represented as multiple segments.",
+                    "items": {
+                        "$ref": "ContentSegment"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Empty": {
+            "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+            "id": "Empty",
+            "properties": {},
+            "type": "object"
+        },
+        "EventAcl": {
+            "description": "ACL representing sharing with a Google+ Event.",
+            "id": "EventAcl",
+            "properties": {
+                "event": {
+                    "$ref": "EventReference",
+                    "description": "Event to which the post was shared."
+                }
+            },
+            "type": "object"
+        },
+        "EventReference": {
+            "description": "Reference to a Google+ Event.",
+            "id": "EventReference",
+            "properties": {
+                "displayName": {
+                    "description": "Name of the event. Might not be populated if the user does not have access\nto the event.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Resource name of the Google+ Event, like \"events/<event_id>\".",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Gender": {
+            "description": "The user's gender.",
+            "id": "Gender",
+            "properties": {
+                "type": {
+                    "description": "The type of the user's gender; male, female, or other.",
+                    "enum": [
+                        "TYPE_UNKNOWN",
+                        "MALE",
+                        "FEMALE",
+                        "OTHER"
+                    ],
+                    "enumDescriptions": [
+                        "User gender is not specified.",
+                        "User gender is male.",
+                        "User gender is female.",
+                        "User gender is other."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleDriveObject": {
+            "description": "Represents an object in Google Drive. You can retrieve the object with the\nDrive API using the file_id.\nGeneric file:\nhttps://developers.google.com/drive/v3/reference/files/get\nGoogle Docs, Slides, Sheets, Forms, Drawings:\nhttps://developers.google.com/drive/v3/reference/files/export\nSample usage: https://developers.google.com/drive/v3/web/manage-downloads",
+            "id": "GoogleDriveObject",
+            "properties": {
+                "fileId": {
+                    "description": "fileId in the Google Drive API.",
+                    "type": "string"
+                },
+                "link": {
+                    "$ref": "Link",
+                    "description": "Link to the object."
+                },
+                "objectName": {
+                    "description": "Name of the object. For example, it could be the file name.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "Type of Google Drive Object.",
+                    "enum": [
+                        "GOOGLE_DRIVE_OBJECT_TYPE_UNKNOWN",
+                        "GOOGLE_DRIVE_FILE",
+                        "GOOGLE_DOCUMENT",
+                        "GOOGLE_SPREADSHEET",
+                        "GOOGLE_PRESENTATION",
+                        "GOOGLE_DRAWING",
+                        "GOOGLE_FORM"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown object type.",
+                        "Google Drive file.",
+                        "Google Docs object.",
+                        "Google Sheets object.",
+                        "Google Slides object.",
+                        "Google Drawings object.",
+                        "Google Forms object."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Group": {
+            "description": "Represents a Google Group.",
+            "id": "Group",
+            "properties": {
+                "displayName": {
+                    "description": "Display name for the group.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Resource name of the group, like \"groups/<group_id>\".",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "URL of the group.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "HttpBody": {
+            "description": "Message that represents an arbitrary HTTP body. It should only be used for\npayload formats that can't be represented as JSON, such as raw binary or\nan HTML page.\n\n\nThis message can be used both in streaming and non-streaming API methods in\nthe request as well as the response.\n\nIt can be used as a top-level request field, which is convenient if one\nwants to extract parameters from either the URL or HTTP template into the\nrequest fields and also want access to the raw HTTP body.\n\nExample:\n\n    message GetResourceRequest {\n      // A unique request id.\n      string request_id = 1;\n\n      // The raw HTTP body is bound to this field.\n      google.api.HttpBody http_body = 2;\n    }\n\n    service ResourceService {\n      rpc GetResource(GetResourceRequest) returns (google.api.HttpBody);\n      rpc UpdateResource(google.api.HttpBody) returns\n      (google.protobuf.Empty);\n    }\n\nExample with streaming methods:\n\n    service CaldavService {\n      rpc GetCalendar(stream google.api.HttpBody)\n        returns (stream google.api.HttpBody);\n      rpc UpdateCalendar(stream google.api.HttpBody)\n        returns (stream google.api.HttpBody);\n    }\n\nUse of this type only changes how the request and response bodies are\nhandled, all other features will continue to work unchanged.",
+            "id": "HttpBody",
+            "properties": {
+                "contentType": {
+                    "description": "The HTTP Content-Type header value specifying the content type of the body.",
+                    "type": "string"
+                },
+                "data": {
+                    "description": "The HTTP request/response body as raw binary.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "extensions": {
+                    "description": "Application specific response metadata. Must be set in the first response\nfor streaming APIs.",
+                    "items": {
+                        "additionalProperties": {
+                            "description": "Properties of the object. Contains field @type with type URL.",
+                            "type": "any"
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Insight": {
+            "description": "A metric for a community collected over time periods.",
+            "id": "Insight",
+            "properties": {
+                "insightType": {
+                    "description": "Output only. The type of insight measured.",
+                    "enum": [
+                        "INSIGHT_TYPE_UNSPECIFIED",
+                        "TOTAL_MEMBERS",
+                        "NEW_MEMBERS",
+                        "ACTIVE_MEMBERS",
+                        "NEW_POSTS",
+                        "NEW_COMMENTS",
+                        "NEW_PLUSONES",
+                        "EXTERNAL_MEMBERS",
+                        "INTERNAL_MEMBERS",
+                        "ACTIVE_EXTERNAL_MEMBERS",
+                        "ACTIVE_INTERNAL_MEMBERS"
+                    ],
+                    "enumDescriptions": [
+                        "Should never be used.",
+                        "The total number of members in the community.",
+                        "The number of new members that joined the community.",
+                        "The percent of members that interacted in the community.",
+                        "The number of new posts added to the community.",
+                        "The number of new comments added to the community.",
+                        "The number of +1s added to posts and comments within the community.",
+                        "The number of external (non-domain) members in the community. Applicable to\nDasher communities only.",
+                        "The number of internal (domain) members in the community. Applicable to\nDasher communities only.",
+                        "The number of active external (non-domain) members in the community.\nApplicable to Dasher communities only.",
+                        "The number of active internal (domain) members in the community. Applicable\nto Dasher communities only."
+                    ],
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Resource name of the insight, in the form\n\"communities/{community_id}/insights/{insight_id}\".",
+                    "type": "string"
+                },
+                "ninetyDayData": {
+                    "$ref": "InsightData",
+                    "description": "Output only. The data of the insight for the last ninety days. By default,\nthis data is not included in the response."
+                },
+                "parent": {
+                    "description": "Resource name of the parent community.",
+                    "type": "string"
+                },
+                "sevenDayData": {
+                    "$ref": "InsightData",
+                    "description": "Output only. The data of the insight for the last seven days. By default,\nthis data is not included in the response."
+                },
+                "thirtyDayData": {
+                    "$ref": "InsightData",
+                    "description": "Output only. The data of the insight for the last thirty days. This data is\nselectively populated depending on its corresponding view."
+                }
+            },
+            "type": "object"
+        },
+        "InsightData": {
+            "description": "Data for a Insight over a specified time window.",
+            "id": "InsightData",
+            "properties": {
+                "changeType": {
+                    "description": "Output only. Type that describes how the value changed from this time\nperiod compared to the previous time period.",
+                    "enum": [
+                        "CHANGE_TYPE_UNSPECIFIED",
+                        "INCREASE",
+                        "DECREASE",
+                        "UNCHANGED"
+                    ],
+                    "enumDescriptions": [
+                        "Change type is unspecified. This means the change type could not be\ncomputed, or is in another unspecified state.",
+                        "The value of insight increased.",
+                        "The value of the insight decreased.",
+                        "The value of the insight did not change."
+                    ],
+                    "type": "string"
+                },
+                "intValue": {
+                    "description": "The integer value of the insight.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "percentChange": {
+                    "description": "Output only. The percent change of the value from this time period compared\nto the previous time period. Can be negative. The value might be absent if\nunable to calculate or not supported for this insight type.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "points": {
+                    "description": "Output only. The data points to be graphed: a time-ordered list of the Y\nvalues of an Insight over the time range (starting with the latest values).\nThere is no guarantee on the number of data points returned. The\npoints will be evenly spaced across the time window covered by this\ninsight. By default, this field is not included in the response.",
+                    "items": {
+                        "format": "int32",
+                        "type": "integer"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "LatLng": {
+            "description": "An object representing a latitude/longitude pair. This is expressed as a pair\nof doubles representing degrees latitude and degrees longitude. Unless\nspecified otherwise, this must conform to the\n<a href=\"http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf\">WGS84\nstandard</a>. Values must be within normalized ranges.",
+            "id": "LatLng",
+            "properties": {
+                "latitude": {
+                    "description": "The latitude in degrees. It must be in the range [-90.0, +90.0].",
+                    "format": "double",
+                    "type": "number"
+                },
+                "longitude": {
+                    "description": "The longitude in degrees. It must be in the range [-180.0, +180.0].",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "Link": {
+            "description": "Represents a link.",
+            "id": "Link",
+            "properties": {
+                "imageUrl": {
+                    "description": "Image url of the image associated with the link.",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Title of the link.",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "Url of the link.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListCommunitiesResponse": {
+            "description": "Response message for ListCommunities.",
+            "id": "ListCommunitiesResponse",
+            "properties": {
+                "communities": {
+                    "description": "The current page of communities.",
+                    "items": {
+                        "$ref": "Community"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "A token to retrieve the next page of results.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListCommunityPostsResponse": {
+            "description": "Request message for ListCommunityPosts.",
+            "id": "ListCommunityPostsResponse",
+            "properties": {
+                "communityPosts": {
+                    "description": "The current page of community posts.",
+                    "items": {
+                        "$ref": "CommunityPost"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "A token to retrieve the next page of results.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListCommunityUsersResponse": {
+            "description": "Response message for ListCommunityUsers.",
+            "id": "ListCommunityUsersResponse",
+            "properties": {
+                "communityUsers": {
+                    "description": "List of community users.",
+                    "items": {
+                        "$ref": "CommunityUser"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "A token to retrieve the next page of results.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListInsightsResponse": {
+            "description": "Response message for ListInsights.",
+            "id": "ListInsightsResponse",
+            "properties": {
+                "insights": {
+                    "description": "List of insights.",
+                    "items": {
+                        "$ref": "Insight"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "A token to retrieve the next page of results.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Location": {
+            "description": "Location information.",
+            "id": "Location",
+            "properties": {
+                "displayName": {
+                    "description": "Name of the place where this activity occurred. Optional.",
+                    "type": "string"
+                },
+                "latLng": {
+                    "$ref": "LatLng",
+                    "description": "Latitude and longitude of the place where this activity occurred."
+                },
+                "mapsUrl": {
+                    "description": "Contains the url of the specific location of a business or\nattraction, for example. Optional.\nExample URL: https://www.google.com/maps?cid=14456547512843935304",
+                    "type": "string"
+                },
+                "physicalAddress": {
+                    "description": "Physical address of the place where this activity occurred. Optional.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Media": {
+            "description": "Represents a media item.",
+            "id": "Media",
+            "properties": {
+                "albumReference": {
+                    "$ref": "AlbumReference",
+                    "description": "Only populated if Image is part of a multi-image album."
+                },
+                "contentType": {
+                    "description": "Content-type of the media, e.g. \"image/jpeg\"\nAll \"image/*\" and \"video/*\" content-types are supported.",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "Text to display if media is not available. This may be read by screen\nreaders as accessibility text.\nUTF-8, no minimum or maximum length, all characters allowed.",
+                    "type": "string"
+                },
+                "height": {
+                    "description": "Height of the media in pixels.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "Resource name of the media, like \"media/<media_id>\"",
+                    "type": "string"
+                },
+                "postReference": {
+                    "$ref": "PostReference",
+                    "description": "The wrapper post for this Image which contains +1s and comments.\nFor single-image posts, this is identical to the parent post.\nFor album posts, this may not be populated if a Post doesn't yet exist.\nSometimes the Post which contains this Media might be different\nfrom the post being pointed to in this field due to implementation details:\nthe original post's +1s might be different from the +1s on the\nindividual media which is held by this \"post\"."
+                },
+                "url": {
+                    "description": "Absolute url to use for media retrieval.",
+                    "type": "string"
+                },
+                "width": {
+                    "description": "Width of the media in pixels.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "OrganizationalInfo": {
+            "description": "Contains information that is relevant to the organization of the user.",
+            "id": "OrganizationalInfo",
+            "properties": {
+                "jobTitle": {
+                    "description": "The job title of the user.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PlusOneInfo": {
+            "description": "Information about a +1.",
+            "id": "PlusOneInfo",
+            "properties": {
+                "isPlusOne": {
+                    "description": "Indicates if the viewer +1'd the post.",
+                    "type": "boolean"
+                },
+                "totalCount": {
+                    "description": "Total number of +1.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "Poll": {
+            "description": "Represents a poll.",
+            "id": "Poll",
+            "properties": {
+                "choices": {
+                    "description": "Choices associated with the poll.",
+                    "items": {
+                        "$ref": "PollChoice"
+                    },
+                    "type": "array"
+                },
+                "image": {
+                    "$ref": "Media",
+                    "description": "Optional image that might be present with the poll."
+                },
+                "imageUrl": {
+                    "description": "Optional cover image that might be present with the poll.\nUse cover_photo instead.",
+                    "type": "string"
+                },
+                "results": {
+                    "$ref": "PollResults",
+                    "description": "Results of the poll."
+                },
+                "viewerPollChoiceName": {
+                    "description": "The resource name of the viewer's choice for the poll.\nNot populated if viewer has not voted.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PollChoice": {
+            "description": "Represents a poll choice.",
+            "id": "PollChoice",
+            "properties": {
+                "description": {
+                    "description": "Text description of the choice.",
+                    "type": "string"
+                },
+                "image": {
+                    "$ref": "Media",
+                    "description": "Optional image that might be present with the poll choice."
+                },
+                "imageUrl": {
+                    "description": "Optional image that might be present with the poll choice.\nUse image instead.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Resource name of the poll choice, like\n\"posts/<post_id>/pollChoices/<poll_choice_id>\".",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PollChoiceVotes": {
+            "description": "The poll choice along with the votes associated with that choice.",
+            "id": "PollChoiceVotes",
+            "properties": {
+                "count": {
+                    "description": "Number of votes on that poll choice.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "pollChoiceName": {
+                    "description": "Resource name of the poll choice, like\n\"posts/<post_id>/pollChoices/<poll_choice_id>\".",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PollResults": {
+            "description": "Results of the poll.",
+            "id": "PollResults",
+            "properties": {
+                "totalVotes": {
+                    "description": "Total number of votes on the poll.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "votes": {
+                    "description": "Results of the poll.",
+                    "items": {
+                        "$ref": "PollChoiceVotes"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Post": {
+            "description": "Represents a post.",
+            "id": "Post",
+            "properties": {
+                "album": {
+                    "$ref": "Album",
+                    "description": "Album of media."
+                },
+                "author": {
+                    "$ref": "User",
+                    "description": "Output only. Author of the post."
+                },
+                "collectionAcl": {
+                    "$ref": "CollectionAcl",
+                    "description": "Deprecated. Shared with a Collection and +mentioned users."
+                },
+                "collectionAttachment": {
+                    "$ref": "CollectionAttachment",
+                    "description": "Collection."
+                },
+                "communityAcl": {
+                    "$ref": "CommunityAcl",
+                    "description": "Deprecated. Shared with a Community and +mentioned users."
+                },
+                "communityAttachment": {
+                    "$ref": "CommunityAttachment",
+                    "description": "Community."
+                },
+                "content": {
+                    "description": "Text content of the post. Does not contain any formatting information.",
+                    "type": "string"
+                },
+                "contentSegments": {
+                    "$ref": "ContentSegments",
+                    "description": "Post content."
+                },
+                "createTime": {
+                    "description": "Output only. Time at which the post was created.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "googleDriveObject": {
+                    "$ref": "GoogleDriveObject",
+                    "description": "Google Drive object."
+                },
+                "isDomainRestricted": {
+                    "description": "Output only. Deprecated. Indicates if the post is restricted to the creator's domain.",
+                    "type": "boolean"
+                },
+                "link": {
+                    "$ref": "Link",
+                    "description": "Link."
+                },
+                "location": {
+                    "$ref": "Location",
+                    "description": "Additional location information that might be associated with the post.\nThis field is immutable after the post has been shared."
+                },
+                "media": {
+                    "$ref": "Media",
+                    "description": "Media like an image or video."
+                },
+                "name": {
+                    "description": "Resource name of the post of the form \"users/<user_id>/posts/<post_id>\".",
+                    "type": "string"
+                },
+                "originalTextContent": {
+                    "description": "Original text the user entered before being processed by our parsers.\nOnly populated in the case that the caller owns this post.",
+                    "type": "string"
+                },
+                "permalink": {
+                    "description": "Output only. Permanent link to the post.",
+                    "type": "string"
+                },
+                "plusOneInfo": {
+                    "$ref": "PlusOneInfo",
+                    "description": "Output only. Information about the +1 on the post."
+                },
+                "poll": {
+                    "$ref": "Poll",
+                    "description": "Poll."
+                },
+                "postAcl": {
+                    "$ref": "PostAcl",
+                    "description": "Output only. Defines who has access to the post."
+                },
+                "reshareInfo": {
+                    "$ref": "ReshareInfo",
+                    "description": "Output only. Information about the reshares on the post."
+                },
+                "resharedPost": {
+                    "$ref": "Post",
+                    "description": "Reshared post."
+                },
+                "title": {
+                    "description": "Title of the post. (go/plus-rich-posts-proposal)",
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "Output only. Time at which the post is updated.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "viewerStatus": {
+                    "$ref": "ViewerStatus",
+                    "description": "Output only. The status of the post as seen by the viewer."
+                },
+                "visibleToCollection": {
+                    "$ref": "CollectionReference",
+                    "description": "Deprecated. Collection that view this post."
+                },
+                "visibleToCommunity": {
+                    "$ref": "CommunityReference",
+                    "description": "Deprecated. Community that can view this post."
+                },
+                "visibleToStandardAcl": {
+                    "$ref": "StandardAcl",
+                    "description": "Deprecated. Standard ACL to users and circles."
+                }
+            },
+            "type": "object"
+        },
+        "PostAcl": {
+            "description": "Contains all ACL information associated with a post.",
+            "id": "PostAcl",
+            "properties": {
+                "collectionAcl": {
+                    "$ref": "CollectionAcl",
+                    "description": "Shared with a Collection and +mentioned users."
+                },
+                "communityAcl": {
+                    "$ref": "CommunityAcl",
+                    "description": "Shared with a Community and +mentioned users."
+                },
+                "eventAcl": {
+                    "$ref": "EventAcl",
+                    "description": "Shared with an event."
+                },
+                "isDomainRestricted": {
+                    "description": "Indicates if the post is restricted to the creator's domain.",
+                    "type": "boolean"
+                },
+                "isLegacyAcl": {
+                    "description": "Output only: Indicates that the post ACL has legacy elements, and this ACL\nis a best-effort representation of the actual ACL.",
+                    "type": "boolean"
+                },
+                "isPublic": {
+                    "description": "Output only: Indicates that the post has been shared publicly or to a\npublic community or collection.",
+                    "type": "boolean"
+                },
+                "visibleToStandardAcl": {
+                    "$ref": "StandardAcl",
+                    "description": "Standard ACL to users and circles."
+                }
+            },
+            "type": "object"
+        },
+        "PostReference": {
+            "description": "A reference to a Post.",
+            "id": "PostReference",
+            "properties": {
+                "name": {
+                    "description": "Resource name of the post, like \"users/<user_id>/posts/<post_id>\".",
+                    "type": "string"
+                },
+                "permalinkUrl": {
+                    "description": "Permanent link to the post.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Preferences": {
+            "description": "User-defined preferences for a community. Preferences only exist\nfor owners, moderators, and members of the community. Fetching preferences\nfor community users that don't have them is an error.",
+            "id": "Preferences",
+            "properties": {
+                "homeStreamPostAmount": {
+                    "description": "Required. Amount of posts in home stream.",
+                    "enum": [
+                        "HOME_STREAM_POST_AMOUNT_UNSPECIFIED",
+                        "NO_POSTS",
+                        "FEWER_POSTS",
+                        "STANDARD_POSTS",
+                        "MORE_POSTS"
+                    ],
+                    "enumDescriptions": [
+                        "Should never be used.",
+                        "No posts show up in the Home Stream.",
+                        "Fewer posts show up in the Home Stream.",
+                        "Standard amount of posts show up in the Home Stream.",
+                        "More posts show up in the Home Stream."
+                    ],
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Resource name, like\n\"communities/{community_id}/communityUsers/{community_user_id}/preferences\".",
+                    "type": "string"
+                },
+                "postSortOrder": {
+                    "description": "Required. How posts are sorted within a community.",
+                    "enum": [
+                        "POST_SORT_ORDER_UNSPECIFIED",
+                        "TOP_POSTS",
+                        "MOST_RECENT_POSTS"
+                    ],
+                    "enumDescriptions": [
+                        "Should never be used.",
+                        "Show top posts first in community.",
+                        "Show most recent posts first in community."
+                    ],
+                    "type": "string"
+                },
+                "subscriptionType": {
+                    "description": "Required. Type of subscription to community activities.",
+                    "enum": [
+                        "SUBSCRIPTION_TYPE_UNSPECIFIED",
+                        "SUBSCRIBED",
+                        "UNSUBSCRIBED"
+                    ],
+                    "enumDescriptions": [
+                        "Should never be used.",
+                        "Subscribed to notifications of community activities.",
+                        "Not subscribed to notifications of community activities."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RelatedLink": {
+            "description": "Related links about a community.",
+            "id": "RelatedLink",
+            "properties": {
+                "title": {
+                    "description": "Link title, that is displayed in the \"About Community\" section.",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "Link URL.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ReorderCommunityCategoriesRequest": {
+            "description": "Request message for ReorderCommunityCategories.",
+            "id": "ReorderCommunityCategoriesRequest",
+            "properties": {
+                "categoryNames": {
+                    "description": "Required. The resource names of all the categories of the parent community,\nin the order that they are supposed to be shown, like\ncommunities/{community_id}/categories/{category_id}.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ReshareInfo": {
+            "description": "Reshare information.",
+            "id": "ReshareInfo",
+            "properties": {
+                "totalCount": {
+                    "description": "Total number of reshares.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "StandardAcl": {
+            "description": "Standard ACL to users and/or circles. Might be empty to indicate that\nit is not shared with anyone else.",
+            "id": "StandardAcl",
+            "properties": {
+                "circles": {
+                    "description": "Circle ACLs. For Circle Types PUBLIC and DOMAIN, only one\nCircleReference will be present, and no UserReferences will be present.",
+                    "items": {
+                        "$ref": "CircleReference"
+                    },
+                    "type": "array"
+                },
+                "users": {
+                    "description": "User ACLs, either directly shared to, or indirectly shared to via a\n+mention.",
+                    "items": {
+                        "$ref": "UserReference"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateAllMemberModerationRequest": {
+            "description": "Request message for UpdateAllMemberModeration.",
+            "id": "UpdateAllMemberModerationRequest",
+            "properties": {
+                "memberModeration": {
+                    "description": "Required. The value to update MemberModeration values to. After this method\nis called, all users with UserRole MEMBER will have this value for\nMemberModeration. It is an error to set this field to\nMEMBER_MODERATION_UNSPECIFIED.",
+                    "enum": [
+                        "MEMBER_MODERATION_UNSPECIFIED",
+                        "LIMITED_MEMBER",
+                        "FULL_MEMBER"
+                    ],
+                    "enumDescriptions": [
+                        "For community users roles aside from MEMBER, this value should be used.\nFor role MEMBER_GROUP, users within the group might be in the state\nLIMITED_MEMBER or FULL_MEMBER depending on when the user was added to group\nand when the community's Hold For Review Type setting was set. To\nexplicitly set a user's member moderation setting, directly add them to\ncommunity as a member and set their MemberModeration setting.",
+                        "Member is limited. Posts made by this member will have to be approved by a\nmoderator.",
+                        "Member is full. Posts made by this member are automatically shared to the\ncommunity."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateAllMemberModerationResponse": {
+            "description": "Response message for UpdateAllMemberModeration. A custom message is provided\nin case fields need to be added to the response in the future.",
+            "id": "UpdateAllMemberModerationResponse",
+            "properties": {},
+            "type": "object"
+        },
+        "User": {
+            "description": "Represents a user.\nNext id: 17",
+            "id": "User",
+            "properties": {
+                "avatarImageUrl": {
+                    "description": "Avatar image url.",
+                    "type": "string"
+                },
+                "avatarPhoto": {
+                    "$ref": "Media",
+                    "description": "avatar photo which will replace avatar_image_url"
+                },
+                "delegateAccount": {
+                    "description": "The delegate account through which the user is performing the action.\nDeprecated. The name and ID of this user will be the delegate account if\nthis action was performed by a PlusPage.",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "Display name.",
+                    "type": "string"
+                },
+                "emailAddress": {
+                    "description": "E-mail address. Populated if the caller's credentials permit access to this\nuser's e-mail address. NOTE: Not guaranteed to be set and will be removed\nin v1.",
+                    "type": "string"
+                },
+                "familyName": {
+                    "description": "Last name.",
+                    "type": "string"
+                },
+                "gender": {
+                    "$ref": "Gender",
+                    "description": "The user's gender."
+                },
+                "givenName": {
+                    "description": "First name.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "The id in the Admin SDK.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Resource name of the user, like \"users/<user_id>\".",
+                    "type": "string"
+                },
+                "nickname": {
+                    "description": "Nickname.",
+                    "type": "string"
+                },
+                "organizationalInfo": {
+                    "$ref": "OrganizationalInfo",
+                    "description": "Contains information that is relevant to the organization of the user.\nOnly present if this is a GSuite user."
+                },
+                "profilePageUrl": {
+                    "description": "Profile page url.",
+                    "type": "string"
+                },
+                "viewerCapability": {
+                    "$ref": "ViewerCapability",
+                    "description": "Alloweble social interactions for the viewer on the user."
+                }
+            },
+            "type": "object"
+        },
+        "UserReference": {
+            "description": "Reference to a user.",
+            "id": "UserReference",
+            "properties": {
+                "displayName": {
+                    "description": "Name of the user. May not be populated for users with non-visible names.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Resource name of the user, like \"users/<user_id>\"",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ViewerCapability": {
+            "description": "Contains information about the viewer's allowable social interactions\nwith respect to this user.",
+            "id": "ViewerCapability",
+            "properties": {
+                "addToCircles": {
+                    "$ref": "AddToCircles",
+                    "description": "The viewer's capability to add the user to their circles."
+                }
+            },
+            "type": "object"
+        },
+        "ViewerStatus": {
+            "description": "The status of the post as seen by the viewer.",
+            "id": "ViewerStatus",
+            "properties": {
+                "canComment": {
+                    "description": "Indicates if commenting is enabled.",
+                    "type": "boolean"
+                },
+                "canReshare": {
+                    "description": "Indicates if resharing is enabled.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Google+ Communities API",
+    "version": "v0",
+    "version_module": true
+}

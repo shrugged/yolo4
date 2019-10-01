@@ -1,0 +1,262 @@
+{
+    "basePath": "",
+    "baseUrl": "https://autopush-widevinekeybox.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Widevine Keybox",
+    "description": "Widevine Keybox API is a partner API that allows Widevine device partners to request keyboxes.",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://www.widevine.com/",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "autopush_widevinekeybox_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "autopush_widevinekeybox_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "orgs": {
+            "resources": {
+                "orders": {
+                    "methods": {
+                        "create": {
+                            "description": "Creates a keybox order. It kicks off an asynchronous workflow to generate\na number of keyboxes and store the generated keyboxes in a file.",
+                            "flatPath": "v1/orgs/{orgsId}/orders",
+                            "httpMethod": "POST",
+                            "id": "autopush_widevinekeybox_sandbox.orgs.orders.create",
+                            "parameterOrder": [
+                                "parent"
+                            ],
+                            "parameters": {
+                                "parent": {
+                                    "description": "Required. Resource name of the parent resource (organization) which\nwill own the keybox order.\nIt is assigned by client in format of \"orgs/{ORG_NAME}\".\nFor example: \"orgs/roku\".",
+                                    "location": "path",
+                                    "pattern": "^orgs/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+parent}/orders",
+                            "request": {
+                                "$ref": "Order"
+                            },
+                            "response": {
+                                "$ref": "Order"
+                            }
+                        },
+                        "get": {
+                            "description": "Gets a keybox order. Once the `Order.status` becomes STATUS_COMPLETED,\nuse GetOrderDownloadUrl\nmethod to download the keybox file.",
+                            "flatPath": "v1/orgs/{orgsId}/orders/{ordersId}",
+                            "httpMethod": "GET",
+                            "id": "autopush_widevinekeybox_sandbox.orgs.orders.get",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Required. Resource name of a keybox order.\nIt is assigned by server in format of \"orgs/{ORG_NAME}/orders/{ORDER_ID}\".\nFor example:\n\"orgs/roku/orders/83521975-239f-4917-a5bd-305c29a4ffc0\".",
+                                    "location": "path",
+                                    "pattern": "^orgs/[^/]+/orders/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "response": {
+                                "$ref": "Order"
+                            }
+                        },
+                        "getOrderDownloadUrl": {
+                            "description": "Gets a download URL for a keybox order. Partner can issue a GET request\nagainst the returned URL to download a keybox file.",
+                            "flatPath": "v1/orgs/{orgsId}/orders/{ordersId}:getOrderDownloadUrl",
+                            "httpMethod": "GET",
+                            "id": "autopush_widevinekeybox_sandbox.orgs.orders.getOrderDownloadUrl",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Required. Resource name of a keybox order download URL.\nIt is assigned by server in format of \"orgs/{ORG_NAME}/orders/{ORDER_ID}\".\nFor example: \"orgs/roku/orders/83521975-239f-4917-a5bd-305c29a4ffc0\".",
+                                    "location": "path",
+                                    "pattern": "^orgs/[^/]+/orders/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}:getOrderDownloadUrl",
+                            "response": {
+                                "$ref": "GetOrderDownloadUrlResponse"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190924",
+    "rootUrl": "https://autopush-widevinekeybox.sandbox.googleapis.com/",
+    "schemas": {
+        "DeviceIdInfo": {
+            "description": "Example usage of DeviceIdInfo in a keybox order:\n|prefix| = \"Samsung_Galaxy_S8_\"\n|starting_index| = 100\n|count| = 3\nThen 3 keyboxes would be generated with their device IDs being\n\"Samsung_Galaxy_S8_100\", \"Samsung_Galaxy_S8_101\", \"Samsung_Galaxy_S8_102\".",
+            "id": "DeviceIdInfo",
+            "properties": {
+                "count": {
+                    "description": "Required. Must be positive. |count| number of device IDs will be\nconstructed when generating keyboxes, one keybox would be generated\nfor each device ID.",
+                    "format": "uint32",
+                    "type": "integer"
+                },
+                "prefix": {
+                    "description": "Optional. Common prefix of the device IDs. Empty string is a valid\nprefix, in which case the device IDs will just be numbers starting with\n|starting_index|.",
+                    "type": "string"
+                },
+                "startingIndex": {
+                    "description": "Optional. A sequence of numbers will be append to |prefix| to construct\na set of unique device IDs, this sequence starts with |starting_index|.\n0 would be used when unspecified.",
+                    "format": "uint32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "GetOrderDownloadUrlResponse": {
+            "description": "Response that carries a URL for downloading a generated keybox file.",
+            "id": "GetOrderDownloadUrlResponse",
+            "properties": {
+                "downloadUrl": {
+                    "description": "Output only. Partners can issue a subsequent GET request against this URL\nto download the generated keybox file.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Order": {
+            "description": "A keybox order resource in the Widevine Keybox API.",
+            "id": "Order",
+            "properties": {
+                "deviceIdInfo": {
+                    "$ref": "DeviceIdInfo",
+                    "description": "Required. The device ID info used by the server to generate one device\nID for each keybox.\nExample usage of DeviceIdInfo:\ndevice_id_info.prefix = \"Samsung_Galaxy_S8_\"\ndevice_id_info.starting_index = 100\ndevice_id_info.count = 3\nThen 3 keyboxes would be generated with their device IDs being\n\"Samsung_Galaxy_S8_100\", \"Samsung_Galaxy_S8_101\", \"Samsung_Galaxy_S8_102\"\nrespectively."
+                },
+                "name": {
+                    "description": "Required except in `CreateOrderRequest`.\nResource name of the keybox order.\nIt is assigned by server in format of \"orgs/{ORG_NAME}/orders/{ORDER_ID}\".\nFor example:\n\"orgs/roku/orders/83521975-239f-4917-a5bd-305c29a4ffc0\".",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "Output only. The status of a keybox generation request (a keybox order).\nKeyboxes of an order can only be downloaded when the order is in\nSTATUS_COMPLETED.",
+                    "enum": [
+                        "STATUS_UNSPECIFIED",
+                        "STATUS_REJECTED",
+                        "STATUS_ACCEPTED",
+                        "STATUS_STARTED",
+                        "STATUS_KEYBOX_GENERATED",
+                        "STATUS_COMPLETED",
+                        "STATUS_ERROR"
+                    ],
+                    "enumDescriptions": [
+                        "Status unknown.",
+                        "Keybox order was rejected. Probably there was an error in the request\nor client was not authorized to make the call. See `status_details`\nfor more details.",
+                        "Keybox order request was accepted, kicking off the generation workflow.",
+                        "Keybox generation workflow has been started.",
+                        "Keyboxes have been successfully generated, in the process of validating\nthe newly generated keyboxes.",
+                        "Keyboxes have been successfully generated and validated, they are ready\nfor download.",
+                        "Keybox generation resulted in error. Either the request contains\nan error or there has been an internal system error. See `status_details`\nfor more details."
+                    ],
+                    "type": "string"
+                },
+                "statusDetails": {
+                    "description": "Optional, more details about the `status`.",
+                    "type": "string"
+                },
+                "systemId": {
+                    "description": "Required, Widevine system ID that identifies a device type.",
+                    "format": "uint32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Widevine Keybox API (Autopush)",
+    "version": "v1",
+    "version_module": true
+}

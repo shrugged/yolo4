@@ -1,0 +1,1293 @@
+{
+    "basePath": "",
+    "baseUrl": "https://autopush-vrexpeditions-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "VR Expeditions",
+    "description": "A simple Expeditions API for Google VR efforts.",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://go/vr/expeditions",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "expeditions:v1",
+    "kind": "discovery#restDescription",
+    "name": "expeditions",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "tour": {
+            "methods": {
+                "copytour": {
+                    "description": "COPY TOUR",
+                    "flatPath": "v1/tour:copytour",
+                    "httpMethod": "POST",
+                    "id": "expeditions.tour.copytour",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/tour:copytour",
+                    "request": {
+                        "$ref": "CopyTourRequest"
+                    },
+                    "response": {
+                        "$ref": "CopyTourResponse"
+                    }
+                },
+                "createtour": {
+                    "description": "CREATE TOUR",
+                    "flatPath": "v1/tour:createtour",
+                    "httpMethod": "POST",
+                    "id": "expeditions.tour.createtour",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/tour:createtour",
+                    "request": {
+                        "$ref": "CreateTourRequest"
+                    },
+                    "response": {
+                        "$ref": "CreateTourResponse"
+                    }
+                },
+                "deletefiles": {
+                    "description": "DELETE FILES FOR TOUR",
+                    "flatPath": "v1/tour:deletefiles",
+                    "httpMethod": "POST",
+                    "id": "expeditions.tour.deletefiles",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/tour:deletefiles",
+                    "request": {
+                        "$ref": "DeleteFilesRequest"
+                    },
+                    "response": {
+                        "$ref": "DeleteFilesResponse"
+                    }
+                },
+                "deletetour": {
+                    "description": "DELETE TOUR",
+                    "flatPath": "v1/tour:deletetour",
+                    "httpMethod": "POST",
+                    "id": "expeditions.tour.deletetour",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/tour:deletetour",
+                    "request": {
+                        "$ref": "DeleteTourRequest"
+                    },
+                    "response": {
+                        "$ref": "DeleteTourResponse"
+                    }
+                },
+                "gettour": {
+                    "description": "GET TOUR",
+                    "flatPath": "v1/tour:gettour",
+                    "httpMethod": "POST",
+                    "id": "expeditions.tour.gettour",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/tour:gettour",
+                    "request": {
+                        "$ref": "GetTourRequest"
+                    },
+                    "response": {
+                        "$ref": "GetTourResponse"
+                    }
+                },
+                "listtours": {
+                    "description": "LIST TOURS",
+                    "flatPath": "v1/tour:listtours",
+                    "httpMethod": "POST",
+                    "id": "expeditions.tour.listtours",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/tour:listtours",
+                    "request": {
+                        "$ref": "ListToursRequest"
+                    },
+                    "response": {
+                        "$ref": "ListToursResponse"
+                    }
+                },
+                "publishtourtoweb": {
+                    "description": "Publish a tour to the web (zandria).",
+                    "flatPath": "v1/tour:publishtourtoweb",
+                    "httpMethod": "POST",
+                    "id": "expeditions.tour.publishtourtoweb",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/tour:publishtourtoweb",
+                    "request": {
+                        "$ref": "PublishTourToWebRequest"
+                    },
+                    "response": {
+                        "$ref": "PublishTourToWebResponse"
+                    }
+                },
+                "publishtourtowebv2": {
+                    "description": "PUBLISH TOUR. Note that this is the V2 implementation (based off of\nhaving in-progress tours in Poly, not Drive) of the PublishTourToWeb\nAPI call above.",
+                    "flatPath": "v1/tour:publishtourtowebv2",
+                    "httpMethod": "POST",
+                    "id": "expeditions.tour.publishtourtowebv2",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/tour:publishtourtowebv2",
+                    "request": {
+                        "$ref": "PublishTourToWebV2Request"
+                    },
+                    "response": {
+                        "$ref": "PublishTourToWebV2Response"
+                    }
+                },
+                "savefile": {
+                    "description": "SAVE FILE FOR TOUR",
+                    "flatPath": "v1/tour:savefile",
+                    "httpMethod": "POST",
+                    "id": "expeditions.tour.savefile",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/tour:savefile",
+                    "request": {
+                        "$ref": "SaveFileRequest"
+                    },
+                    "response": {
+                        "$ref": "SaveFileResponse"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190920",
+    "rootUrl": "https://autopush-vrexpeditions-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "AdminData": {
+            "description": "Admin-owned data for the Asset.",
+            "id": "AdminData",
+            "properties": {
+                "tag": {
+                    "description": "Tags applied by admin.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Asset": {
+            "description": "An asset is a set of one or more encoded formats which all represent the\nsame piece of data. For instance, an asset of a model may have both\n.obj and a .fbx formats.\nNext id: 23",
+            "id": "Asset",
+            "properties": {
+                "accessLevel": {
+                    "description": "Required. The level of access allowed to the asset. By default, access\nwill be set to PRIVATE so that it is only accessible by the owner.",
+                    "enum": [
+                        "UNKNOWN_ACCESS_LEVEL",
+                        "PRIVATE",
+                        "UNLISTED",
+                        "PUBLIC"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown (and invalid) access level.",
+                        "Access to the asset is restricted to its author.\nThe asset metadata WILL NOT be indexed and CANNOT be found through public\nlist or search APIs.",
+                        "Read-access to the asset is available to anyone with the asset ID.\nThe asset metadata WILL NOT be indexed and CANNOT be found through public\nlist or search APIs.",
+                        "Read-access to the asset is available to anyone with the asset ID.\nThe asset metadata WILL be indexed and CAN be found through public list or\nsearch APIs."
+                    ],
+                    "type": "string"
+                },
+                "accountId": {
+                    "description": "Required for consumer assets unless the original owner's GAIA has been\nwiped out; always empty for pro assets.  Unique ID of the user who owns the\nAsset.",
+                    "type": "string"
+                },
+                "adminData": {
+                    "$ref": "AdminData",
+                    "description": "Tags added by admins."
+                },
+                "assetId": {
+                    "description": "Required. Unique ID of the asset.",
+                    "type": "string"
+                },
+                "cameraParams": {
+                    "$ref": "CameraParams",
+                    "description": "The camera parameters for rendering this asset."
+                },
+                "category": {
+                    "description": "Category string. Technically free-form, but should match something\nwe show in the UI.  See: AssetInfo.Category.",
+                    "type": "string"
+                },
+                "createTime": {
+                    "description": "Required. Timestamp of when the asset was created.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "customIdentifier": {
+                    "description": "An id from the client/publishing app to map back to its own domain.\nMax 128 chars.",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "Optional. The human-readable description of the asset.",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "Required. The human-readable name of the asset.",
+                    "type": "string"
+                },
+                "format": {
+                    "additionalProperties": {
+                        "$ref": "Format"
+                    },
+                    "description": "Deprecated. A mapping between an FormatType and a Format. Only model types\nare supported (see comment for ElementType).",
+                    "type": "object"
+                },
+                "formatList": {
+                    "additionalProperties": {
+                        "$ref": "FormatList"
+                    },
+                    "description": "Required. A mapping between a FormatType and a FormatList. Only model\ntypes are supported (see comment for ElementType). Each value will contain\none or more formats of the ElementType in the key.",
+                    "type": "object"
+                },
+                "license": {
+                    "description": "Type of license.",
+                    "enum": [
+                        "UNLICENSED",
+                        "CREATIVE_COMMONS_BY"
+                    ],
+                    "enumDescriptions": [
+                        "The user has not licensed it.",
+                        "Creative Commons CC-BY"
+                    ],
+                    "type": "string"
+                },
+                "originalAssetId": {
+                    "description": "ID of the original assets from which this one was published.",
+                    "type": "string"
+                },
+                "projectId": {
+                    "description": "Required for pro assets; always empty for consumer assets.  Unique ID of\nthe project containing this asset. Still populated after wipeout.",
+                    "type": "string"
+                },
+                "publishedAssetId": {
+                    "description": "The id of the last asset that was published as a copy of this one.",
+                    "type": "string"
+                },
+                "realWorldScale": {
+                    "$ref": "RealWorldScale",
+                    "description": "Optional. The real world scale of the asset."
+                },
+                "remixInfo": {
+                    "$ref": "RemixInfo",
+                    "description": "The remix info for the asset."
+                },
+                "tag": {
+                    "description": "Optional. Human-readable tags for describing the asset.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "thumbnail": {
+                    "description": "Optional. A list of elements containing thumbnails of the asset. The\nelements must be a browser-viewable image type, such as JPEG, PNG, GIF or\nWEBP.",
+                    "items": {
+                        "$ref": "Element"
+                    },
+                    "type": "array"
+                },
+                "updateTime": {
+                    "description": "Required. Timestamp of when the asset was last modified.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AudioInfo": {
+            "description": "Information specific to audio formats.",
+            "id": "AudioInfo",
+            "properties": {},
+            "type": "object"
+        },
+        "CameraParams": {
+            "description": "Information about the camera used to render the asset.",
+            "id": "CameraParams",
+            "properties": {
+                "fieldOfView": {
+                    "description": "Optional - the field of view to use for the camera when rendering the\nasset. The same field of view is assumed for both horizontal and vertical\nalthough in practice it may be only one that's locked.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "matrix4x4": {
+                    "description": "A 4x4 matrix representing the position and rotation of the camera in\nrow-major order.",
+                    "items": {
+                        "format": "double",
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "motionPath": {
+                    "description": "Optional - which camera animation to play when the model first loads.",
+                    "enum": [
+                        "FULL_ROTATION",
+                        "SIDE_TO_SIDE",
+                        "HOVER"
+                    ],
+                    "enumDescriptions": [
+                        "The camera will rotate in a full circle around the model.",
+                        "The camera will rotate back and forth, horizontally.",
+                        "The camera will randomly bob around, as if it's handheld."
+                    ],
+                    "type": "string"
+                },
+                "targetVector": {
+                    "description": "Optional target - if this is set, it represents the focus of camera\norbit as a 3D vector.",
+                    "items": {
+                        "format": "double",
+                        "type": "number"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ContentInfo": {
+            "description": "Information about the content of an element.",
+            "id": "ContentInfo",
+            "properties": {
+                "byteSize": {
+                    "description": "Optional. Size of content in bytes.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "crc32cHash": {
+                    "description": "Optional. The CRC32C hash of the content.",
+                    "format": "uint32",
+                    "type": "integer"
+                },
+                "md5Hash": {
+                    "description": "Optional. The md5 hash of the content.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CopyTourRequest": {
+            "description": "COPY TOUR\nThe request message for {@code CopyTour} API.",
+            "id": "CopyTourRequest",
+            "properties": {
+                "assetId": {
+                    "description": "The asset ID of the tour to copy.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CopyTourResponse": {
+            "description": "The response message for {@code CopyTour} API.",
+            "id": "CopyTourResponse",
+            "properties": {
+                "assetId": {
+                    "description": "The newly copied asset ID.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CreateTourRequest": {
+            "description": "CREATE TOUR\nThe request message for {@code CreateTour} API.",
+            "id": "CreateTourRequest",
+            "properties": {
+                "tourJsonContents": {
+                    "description": "The tour.json file contents.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CreateTourResponse": {
+            "description": "The response message for {@code CreateTour} API.",
+            "id": "CreateTourResponse",
+            "properties": {
+                "assetId": {
+                    "description": "The PRIVATE Poly Asset ID created for this tour.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DeleteFilesRequest": {
+            "description": "DELETE FILES\nThe request message for {@code DeleteFiles} API.",
+            "id": "DeleteFilesRequest",
+            "properties": {
+                "assetId": {
+                    "description": "The asset ID to update.",
+                    "type": "string"
+                },
+                "filenames": {
+                    "description": "The filenames to delete.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "DeleteFilesResponse": {
+            "description": "The response message for {@code DeleteFile} API.",
+            "id": "DeleteFilesResponse",
+            "properties": {
+                "assetId": {
+                    "description": "The asset ID that was updated.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DeleteTourRequest": {
+            "description": "DELETE TOUR\nThe request message for {@code DeleteTour} API.",
+            "id": "DeleteTourRequest",
+            "properties": {
+                "assetId": {
+                    "description": "The asset ID to delete.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DeleteTourResponse": {
+            "description": "The response message for {@code DeleteTour} API.",
+            "id": "DeleteTourResponse",
+            "properties": {},
+            "type": "object"
+        },
+        "Element": {
+            "description": "An element is a primitive used to compose an asset, such as a mesh, texture\nor other opaque piece of data. The element message contains information about\nthat data.\n\nOnce created, an element is immutable. If a dependent asset requires\nmutation, it must create a new element and reference that instead.",
+            "id": "Element",
+            "properties": {
+                "contentInfo": {
+                    "$ref": "ContentInfo",
+                    "description": "Optional. Information about the content of the element such as the size."
+                },
+                "createTime": {
+                    "description": "Deprecated.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "dataUrl": {
+                    "description": "Required. The URL at which the element data can be retrieved.",
+                    "type": "string"
+                },
+                "elementId": {
+                    "description": "Required. Unique ID of the element.",
+                    "type": "string"
+                },
+                "elementType": {
+                    "description": "Required. The file type represented by the element.",
+                    "enum": [
+                        "UNKNOWN_TYPE",
+                        "WAVEFRONT_OBJ",
+                        "TILT_BRUSH",
+                        "SCENE_PROTO",
+                        "GLTF",
+                        "GLTF_BINARY",
+                        "AUTODESK_FBX",
+                        "BLOCKS",
+                        "USD",
+                        "USDA",
+                        "DRACO",
+                        "HTML",
+                        "POLY_EXPERIENCE_MANIFEST",
+                        "LULLABY",
+                        "SAND",
+                        "SAND_COMMANDS",
+                        "FPL_MESH",
+                        "USDZ",
+                        "SANDCASTLE_SCENE_GRAPH",
+                        "SANDCASTLE_COMMANDS",
+                        "SANDCASTLE_EXPERIENCE_MANIFEST",
+                        "COLLADA",
+                        "SANDCASTLE_XENO_RENDERER_MANIFEST",
+                        "SANDCASTLE_XENO_SOURCE_MANIFEST",
+                        "JPEG",
+                        "PNG",
+                        "GIF",
+                        "TIFF",
+                        "BMP",
+                        "WEBP",
+                        "WAVEFRONT_MTL",
+                        "GLSL",
+                        "FPL_MATERIAL",
+                        "FPL_SHADER",
+                        "LULLABY_SHADER",
+                        "BINARY",
+                        "ZIP_ARCHIVE",
+                        "EXPEDITIONS_TOURBUILDER_MANIFEST",
+                        "JAVASCRIPT",
+                        "DRACO_BINARY",
+                        "EXPEDITIONS_WEBVIEWER_MANIFEST",
+                        "ASTC",
+                        "KTX",
+                        "MATERIAL_DEF",
+                        "JSON",
+                        "TXT",
+                        "EXPEDITIONS_TOUR_PROTO",
+                        "MOTIVE_ANIMATION",
+                        "CSV",
+                        "IMPORT_MANIFEST",
+                        "SPACECRAFT_EDITOR_SETTINGS",
+                        "PROTO_TEXT",
+                        "PROTO_BINARY",
+                        "MP3_AUDIO",
+                        "WAV_AUDIO",
+                        "OGG_AUDIO",
+                        "OPUS_AUDIO",
+                        "MP4_VIDEO"
+                    ],
+                    "enumDescriptions": [
+                        "An unknown (and invalid) element type.",
+                        "A Wavefront .obj file.",
+                        "A Tilt Brush .tilt file.",
+                        "vr.assets.processing.proto.Scene proto format.",
+                        "A glTF file.",
+                        "A binary-endcoded glTF file.",
+                        "An Autodesk .fbx file.",
+                        "A Blocks .blocks file",
+                        "A Pixar USD binary file. Extension .usd or .usdc.",
+                        "A Pixar USD ascii file. Extension .usda.",
+                        "File for TB experiments.  For now: do not use in prod!",
+                        "Web site.  Temporarily (possibly permanently) will be used to host\nWebVR scenes.",
+                        "A JSON formatted manifest for experiences.",
+                        "The root file for a lullaby format.",
+                        "Export format for Sandcastle (See: vr/sandcastle/proto/sand.proto)",
+                        "Command format for Sandcastle",
+                        "An FPL mesh file.",
+                        "A USDZ file",
+                        "Export element for a sandcastle scene graph",
+                        "Export element for a sandcastle command list",
+                        "A JSON formatted manifest for sandcastle experiences.",
+                        "A COLLADA (COLLAborative Design Activity) file.",
+                        "A JSON formatted manifest for rendering sandcastle on devices.",
+                        "A JSON formatted manifest for working with xeno scenes.",
+                        "A .jpg image file.",
+                        "A .png image file.",
+                        "A .gif image file.",
+                        "A .tiff image file.",
+                        "A .bmp image file.",
+                        "A .webp image file.",
+                        "A Wavefront .mtl file.",
+                        "A GL Shader file.",
+                        "An FPL material file.",
+                        "An FPL shader file.",
+                        "An Lullaby shader file.",
+                        "A binary file.  May be used by glTF for storing vertex info.",
+                        "A zip file/archive.",
+                        "A JSON formatted Expeditions tour manifest.",
+                        "A Javascript file",
+                        "A draco-encoded binary file.",
+                        "A JSON formatted Expeditions web viewer manifest.",
+                        "A compressed texture.  Custom format.  Not supported by FIFE.",
+                        "A compressed texture.  Custom format.  Not supported by FIFE.",
+                        "A json material definiton. See //vr/assets/proto/material.proto.",
+                        "A json file.",
+                        "A text file.",
+                        "A binary Tour Proto (http://cs/symbol:vr.TourProto) representing the\ncentral configuration for an Expeditions Native Archive.",
+                        "A motive animation file.",
+                        "A comma-separated value file.",
+                        "A binary ImportManifest proto (http://cs/symbol:vr.assets.ImportManifest)\nthat represents the contents of an uploaded manifest file.",
+                        "A binary serialized spacecraft settings proto.",
+                        "A protobuf text file.",
+                        "A protobuf binary file.",
+                        "MP3 Audio file.",
+                        "WAV Audio file.",
+                        "OGG Audio file.",
+                        "Opus Audio file.",
+                        "MP4 Video file."
+                    ],
+                    "type": "string"
+                },
+                "filePath": {
+                    "description": "Required. The file path of the element as it existed on the host system.\nIf this is a resource element, this includes the path relative to the\nroot element.",
+                    "type": "string"
+                },
+                "typeInfo": {
+                    "$ref": "TypeInfo",
+                    "description": "Required. The type information of the element."
+                }
+            },
+            "type": "object"
+        },
+        "Format": {
+            "description": "The format for which an asset is encoded, such as an Obj or a Tilt Brush\nfile. Contains the root element data as well as any additional resource\ndependencies the root needs.",
+            "id": "Format",
+            "properties": {
+                "formatComplexity": {
+                    "$ref": "FormatComplexity",
+                    "description": "Optional. Complexity stats about the model as reported by the creating\nclient."
+                },
+                "formatId": {
+                    "description": "Required. The id of the format.",
+                    "type": "string"
+                },
+                "formatProperties": {
+                    "$ref": "FormatProperties",
+                    "description": "Other properties of formats."
+                },
+                "formatScale": {
+                    "$ref": "FormatScale",
+                    "description": "Deprecated. Use Asset.real_world_scale. Will not be returned in read apis."
+                },
+                "formatType": {
+                    "description": "Format type of this format",
+                    "enum": [
+                        "FORMAT_UNKNOWN_TYPE",
+                        "FORMAT_WAVEFRONT_OBJ",
+                        "FORMAT_TILT_BRUSH",
+                        "FORMAT_GLTF",
+                        "FORMAT_AUTODESK_FBX",
+                        "FORMAT_BLOCKS",
+                        "FORMAT_USD",
+                        "FORMAT_USDA",
+                        "FORMAT_HTML",
+                        "FORMAT_GLTF_2",
+                        "FORMAT_POLY_EXPERIENCE",
+                        "FORMAT_GLTF_2_DRACO",
+                        "FORMAT_TOUR_BUILDER",
+                        "FORMAT_LULLABY",
+                        "FORMAT_GLTF_BINARY",
+                        "FORMAT_SAND",
+                        "FORMAT_SAND_COMMANDS",
+                        "FORMAT_EXPEDITIONS_NATIVE_TOUR",
+                        "FORMAT_GLTF_2_SIZE_CONSTRAINED_2_M",
+                        "FORMAT_WAVEFRONT_OBJ_TRIANGULATED",
+                        "FORMAT_SPRITESHEET",
+                        "FORMAT_USDZ",
+                        "FORMAT_SANDCASTLE_PROJECT",
+                        "FORMAT_SANDCASTLE_RENDERER_XENO",
+                        "FORMAT_GLTF_2_SHOPPING",
+                        "FORMAT_PGLTF",
+                        "FORMAT_COLLIDERS",
+                        "FORMAT_SPACECRAFT_EDITOR",
+                        "FORMAT_PGLTF_DRACO_SIMPLIFIED",
+                        "FORMAT_SANDCASTLE_SOURCE_XENO",
+                        "FORMAT_GLTF_2_TILT_BRUSH",
+                        "FORMAT_GLTF_2_SIZE_CONSTRAINED_2_M_BINARY"
+                    ],
+                    "enumDescriptions": [
+                        "Unset format.",
+                        "Wavefront obj file.",
+                        "Tilt Brush custom file format.",
+                        "glTF 1.x file.",
+                        "Autodesk FBX file.",
+                        "Blocks custom file format.",
+                        "USD file.",
+                        "USD file.",
+                        "HTML package.",
+                        "glTF 2.x file.",
+                        "An experience type: a tour, for example.",
+                        "glTF 2.x file with geometry compressed using Draco according to the\nKHR_draco_mesh_compression extension.\nThe extension is *required* to use this format.",
+                        "Format specific to Tour Builder.",
+                        "Lullaby-compatible format.",
+                        "GLB 2.x file.",
+                        "Export format for Sandcastle (See: vr/sandcastle/proto/sand.proto)",
+                        "Commands format for Sandcastle",
+                        "Format specific to the Expeditions native applications (Android/iOS).",
+                        "A glTF 2.x model whose size is under 2Mb for serving clients with\nbandwidth and latency restrictions. To achieve this, the source asset may\nhave some elements such as textures reduced in detail to hit the limit.",
+                        "Triangulated Wavefront obj file.",
+                        "Spritesheet rendering of asset.",
+                        "USDZ file (go/usdz)",
+                        "Export format for Sandcastle editor to consume and produce.\n(See: vr/sandcastle/proto/sand.proto)",
+                        "Export format produced by the Sandcastle editor for Sandcastle's companion\napp and production releases to consume.",
+                        "The original glTF asset a user uploaded along with an associated manifest\nfile. An asset in this format has not undergone any shopping-specific\nvalidations.",
+                        "Format intended for delivery to the //vr/assets/viewer. See go/pgltf.",
+                        "Format for a set of colliders. See go/poly-colliders.",
+                        "Format for the spacecraft editor. See go/spacecraft,\ngo/spacecraft-editor-format.",
+                        "pglTF format that has a glTF 2.x file with simplified geometry using Draco.",
+                        "A format for developing human readable xeno scenes for sandcastle.",
+                        "glTF 2.x file for a Tilt Brush sketch. This uses a different format type so\nthat we have more control over exactly who consumes and can see this\nformat.",
+                        "GLB file of the FORMAT_GLTF_2_SIZE_CONSTRAINED_2_M."
+                    ],
+                    "type": "string"
+                },
+                "resource": {
+                    "description": "Optional. Any external dependencies of the root element. May include, but\nis not limited to, materials, textures, and shader programs.",
+                    "items": {
+                        "$ref": "Element"
+                    },
+                    "type": "array"
+                },
+                "root": {
+                    "$ref": "Element",
+                    "description": "Required. An element containing the root of the file hierarchy. For some\ntypes, such as a .tilt or .fbx file, which are self-contained, this is\nall of the data. Other formats, such as .obj files often reference other\ndata elements. These are contained in the resources field below."
+                }
+            },
+            "type": "object"
+        },
+        "FormatComplexity": {
+            "description": "Some indication of the size and complexity of the model for a given format.",
+            "id": "FormatComplexity",
+            "properties": {
+                "lodHint": {
+                    "description": "Hint for LOD of this format relative to other formats in this asset.\n0 is the most detailed version.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "shaderCount": {
+                    "description": "Approximate number of custom shaders.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "texelCount": {
+                    "description": "Approximate total number of pixels in all textures in the model.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "textureCount": {
+                    "description": "deprected: remove after prod launch",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "totalGzipByteSize": {
+                    "description": "Sum of all gzip byte sizes of resources in this model's format.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "triangleCount": {
+                    "description": "Approximately how many triangles to render this model.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "vertexCount": {
+                    "description": "Approximate number of vertices in this model.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FormatList": {
+            "description": "A list of formats of the same type.",
+            "id": "FormatList",
+            "properties": {
+                "format": {
+                    "description": "Required. The mapping from format ID to Format element.",
+                    "items": {
+                        "$ref": "Format"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "FormatProperties": {
+            "description": "Other properties of the format.",
+            "id": "FormatProperties",
+            "properties": {
+                "triangulated": {
+                    "description": "True if the format's properties only contain triangles.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "FormatScale": {
+            "description": "The scaling properties of a specific format. This is used to give real-world\nmeaning to creations, if needed.",
+            "id": "FormatScale",
+            "properties": {
+                "baseUnit": {
+                    "description": "Required. The unit base. This is multiplied or divided by an optional\nscaler to determine real-world dimension of 1 unit of the format.",
+                    "enum": [
+                        "UNIT_UNKNOWN",
+                        "UNIT_METER",
+                        "UNIT_FOOT",
+                        "UNIT_NAUTICAL_MILE"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown",
+                        "Metric system, SI units",
+                        "Imperial / US",
+                        "Marine / Aviation"
+                    ],
+                    "type": "string"
+                },
+                "scaler": {
+                    "description": "Optional. The scaling factor to apply to the base unit to determine the\nreal-world scale of 1 virtual unit. For example, base_unit=UNIT_FOOT and\nscaler=0.083 means 1 unit in the format is 1 inch. Default scaler is 1,\ni.e. 1 format unit is the base unit itself.",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "GetTourRequest": {
+            "description": "GET TOUR\nThe request message for {@code GetTour} API.",
+            "id": "GetTourRequest",
+            "properties": {
+                "assetId": {
+                    "description": "The asset ID of the tour to fetch.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GetTourResponse": {
+            "description": "The response message for {@code GetTour} API.",
+            "id": "GetTourResponse",
+            "properties": {
+                "asset": {
+                    "$ref": "Asset",
+                    "description": "The requested asset corresponding to this tour."
+                },
+                "tourMetadata": {
+                    "$ref": "TourMetadata",
+                    "description": "The tour metadata of this tour."
+                }
+            },
+            "type": "object"
+        },
+        "ImageInfo": {
+            "description": "Contains data specific to elements that are of image types.",
+            "id": "ImageInfo",
+            "properties": {
+                "fifeUrl": {
+                    "description": "Optional. The FIFE URL of the image.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListToursRequest": {
+            "description": "LIST TOURS\nThe request message for {@code ListTours} API.",
+            "id": "ListToursRequest",
+            "properties": {
+                "accountId": {
+                    "description": "The account ID, if fetching assets for a user other than the logged-in\nuser. Currently, this should only be used for fetching tour templates.",
+                    "type": "string"
+                },
+                "pageToken": {
+                    "description": "The page token, if any.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListToursResponse": {
+            "description": "The response message for {@code ListTour} API.",
+            "id": "ListToursResponse",
+            "properties": {
+                "asset": {
+                    "items": {
+                        "$ref": "Asset"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "The next page token, if any.",
+                    "type": "string"
+                },
+                "totalAssets": {
+                    "description": "The total number of assets, without pagination. This will include all\nassets (PRIAVTE, PUBLIC, and UNLISTED), so this will not necessarily be\nequal to the size of the asset field above.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "tourMetadata": {
+                    "description": "The list of tour metadata.",
+                    "items": {
+                        "$ref": "TourMetadata"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "MaterialInfo": {
+            "description": "Contains data specific to elements that are of material types, such as\nWavefront Mat files.",
+            "id": "MaterialInfo",
+            "properties": {},
+            "type": "object"
+        },
+        "ModelInfo": {
+            "description": "Contains data specific to elements that are of model types, such as\nWavefront Obj and Tilt Brush files.",
+            "id": "ModelInfo",
+            "properties": {},
+            "type": "object"
+        },
+        "OtherInfo": {
+            "description": "Contains data specific to elements that are of other types, such as\nbinary GLTF data.",
+            "id": "OtherInfo",
+            "properties": {},
+            "type": "object"
+        },
+        "PublishTourToWebRequest": {
+            "description": "The request message for {@code PublishTourToWeb} API.",
+            "id": "PublishTourToWebRequest",
+            "properties": {
+                "accessLevel": {
+                    "description": "Required. The access level, or visibility, of the asset in Poly. Valid\noptions are PRIVATE, UNLISTED, or PUBLIC.",
+                    "enum": [
+                        "UNKNOWN_ACCESS_LEVEL",
+                        "PRIVATE",
+                        "UNLISTED",
+                        "PUBLIC"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown (and invalid) access level.",
+                        "Access to the asset is restricted to its author.\nThe asset metadata WILL NOT be indexed and CANNOT be found through public\nlist or search APIs.",
+                        "Read-access to the asset is available to anyone with the asset ID.\nThe asset metadata WILL NOT be indexed and CANNOT be found through public\nlist or search APIs.",
+                        "Read-access to the asset is available to anyone with the asset ID.\nThe asset metadata WILL be indexed and CAN be found through public list or\nsearch APIs."
+                    ],
+                    "type": "string"
+                },
+                "assetId": {
+                    "description": "Optional. The asset id associated with the tour, if it was previously\npublished. If provided, this will update the published tour, instead of\ncreating a new one.",
+                    "type": "string"
+                },
+                "category": {
+                    "description": "Optional. The category for this asset in Poly. Corresponds to a Category\nfrom\nhttps://cs.corp.google.com/piper///depot/google3/vr/servers/boq/zandria/datakeys/asset_info.proto,\nbut all lowercase.",
+                    "type": "string"
+                },
+                "tourFolderDriveId": {
+                    "description": "Contains Drive ID of the parent folder.",
+                    "type": "string"
+                },
+                "tourId": {
+                    "description": "Deprecated.",
+                    "type": "string"
+                },
+                "workingCopyInfo": {
+                    "$ref": "WorkingCopyInfo",
+                    "description": "Optional. If set, the tour will be published to Poly as a working copy."
+                }
+            },
+            "type": "object"
+        },
+        "PublishTourToWebResponse": {
+            "description": "The response message for {@code PublishTourToWeb} API.",
+            "id": "PublishTourToWebResponse",
+            "properties": {
+                "assetId": {
+                    "description": "The asset id of the created tour.",
+                    "type": "string"
+                },
+                "viewInVrLink": {
+                    "description": "Deprecated.",
+                    "type": "string"
+                },
+                "watchPageLink": {
+                    "description": "The link asset's watch page in zandria.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PublishTourToWebV2Request": {
+            "description": "The request message for {@code PublishTourToWebV2} API.",
+            "id": "PublishTourToWebV2Request",
+            "properties": {
+                "accessLevel": {
+                    "description": "Required. The access level, or visibility, of the asset in Poly. Valid\noptions are UNLISTED or PUBLIC.",
+                    "enum": [
+                        "UNKNOWN_ACCESS_LEVEL",
+                        "PRIVATE",
+                        "UNLISTED",
+                        "PUBLIC"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown (and invalid) access level.",
+                        "Access to the asset is restricted to its author.\nThe asset metadata WILL NOT be indexed and CANNOT be found through public\nlist or search APIs.",
+                        "Read-access to the asset is available to anyone with the asset ID.\nThe asset metadata WILL NOT be indexed and CANNOT be found through public\nlist or search APIs.",
+                        "Read-access to the asset is available to anyone with the asset ID.\nThe asset metadata WILL be indexed and CAN be found through public list or\nsearch APIs."
+                    ],
+                    "type": "string"
+                },
+                "category": {
+                    "description": "Optional. The category for this asset in Poly. Corresponds to a Category\nfrom\nhttps://cs.corp.google.com/piper///depot/google3/vr/servers/boq/zandria/datakeys/asset_info.proto,\nbut all lowercase.",
+                    "type": "string"
+                },
+                "publishedAssetId": {
+                    "description": "The published asset ID of this tour, if it exists.",
+                    "type": "string"
+                },
+                "workingCopyAssetId": {
+                    "description": "Required. The asset id associated with this in-progress tour.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PublishTourToWebV2Response": {
+            "description": "The response message for {@code PublishTourToWeb} API.",
+            "id": "PublishTourToWebV2Response",
+            "properties": {
+                "assetId": {
+                    "description": "The asset id of the published tour.",
+                    "type": "string"
+                },
+                "watchPageLink": {
+                    "description": "The link asset's watch page in zandria.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PublishedAssetInfo": {
+            "description": "Holds information about the published version of this tour, which is\ninternally stored as a separate asset in Poly.",
+            "id": "PublishedAssetInfo",
+            "properties": {
+                "lastPublishedTime": {
+                    "description": "The last time the tour was published (if ever).",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "publishedAssetId": {
+                    "description": "The published asset ID of the tour, if it exists.",
+                    "type": "string"
+                },
+                "publishedAssetVisibility": {
+                    "description": "The asset visibility of the published tour, if it exists. Valid options are\nUNLISTED or PUBLIC.",
+                    "enum": [
+                        "UNKNOWN_ACCESS_LEVEL",
+                        "PRIVATE",
+                        "UNLISTED",
+                        "PUBLIC"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown (and invalid) access level.",
+                        "Access to the asset is restricted to its author.\nThe asset metadata WILL NOT be indexed and CANNOT be found through public\nlist or search APIs.",
+                        "Read-access to the asset is available to anyone with the asset ID.\nThe asset metadata WILL NOT be indexed and CANNOT be found through public\nlist or search APIs.",
+                        "Read-access to the asset is available to anyone with the asset ID.\nThe asset metadata WILL be indexed and CAN be found through public list or\nsearch APIs."
+                    ],
+                    "type": "string"
+                },
+                "publishedWebVrLink": {
+                    "description": "The Poly WebVR link of the published tour, if it exists.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RealWorldScale": {
+            "description": "Information about the real world scale of the asset. This allows the model to\nbe scaled and placed in a real world context such as an AR experience.",
+            "id": "RealWorldScale",
+            "properties": {
+                "scalingFactorMeters": {
+                    "description": "A scaling factor applied to one virtual unit to convert to one real-world\nmeter. For example with a scaling factor of 3, 1 virtual unit is equivalent\nto 3 meters.",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RemixInfo": {
+            "description": "Info about the sources of this asset (i.e. assets that were remixed to\ncreate this asset).",
+            "id": "RemixInfo",
+            "properties": {
+                "sourceAsset": {
+                    "description": "Asset ids for the sources of this remix.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "SaveFileRequest": {
+            "description": "SAVE FILE\nThe request message for {@code SaveFile} API.",
+            "id": "SaveFileRequest",
+            "properties": {
+                "assetId": {
+                    "description": "The asset ID to update.",
+                    "type": "string"
+                },
+                "base64Encoded": {
+                    "description": "If true, the file_contents are base64 encoded and must be decoded in the\nAPI server before uploading to Blobstore.",
+                    "type": "boolean"
+                },
+                "fileContents": {
+                    "description": "The file contents.",
+                    "type": "string"
+                },
+                "filename": {
+                    "description": "The filename to update.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SaveFileResponse": {
+            "description": "The response message for {@code SaveFile} API.",
+            "id": "SaveFileResponse",
+            "properties": {
+                "assetId": {
+                    "description": "The asset ID that was updated.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TourMetadata": {
+            "description": "Metadata about a tour to display in the creator UI.",
+            "id": "TourMetadata",
+            "properties": {
+                "assetId": {
+                    "description": "The Poly asset ID of the tour.",
+                    "type": "string"
+                },
+                "coverPhotoUrl": {
+                    "description": "The URL of the cover photo.",
+                    "type": "string"
+                },
+                "lastUpdateTime": {
+                    "description": "The last update time of the tour.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "numScenes": {
+                    "description": "The number of scenes in the tour.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "publishedAssetInfo": {
+                    "$ref": "PublishedAssetInfo",
+                    "description": "Information of the published version of this tour, if it exists."
+                },
+                "title": {
+                    "description": "The title of the tour.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TypeInfo": {
+            "description": "Information specific to the type of the element.",
+            "id": "TypeInfo",
+            "properties": {
+                "audioInfo": {
+                    "$ref": "AudioInfo",
+                    "description": "Information specific to audio formats."
+                },
+                "imageInfo": {
+                    "$ref": "ImageInfo",
+                    "description": "Information specific to image types."
+                },
+                "materialInfo": {
+                    "$ref": "MaterialInfo",
+                    "description": "Information specific to material types."
+                },
+                "modelInfo": {
+                    "$ref": "ModelInfo",
+                    "description": "Information specific to model types."
+                },
+                "otherInfo": {
+                    "$ref": "OtherInfo",
+                    "description": "Information specific to other types."
+                },
+                "videoInfo": {
+                    "$ref": "VideoInfo",
+                    "description": "Information specific to video formats."
+                }
+            },
+            "type": "object"
+        },
+        "VideoInfo": {
+            "description": "Information specific to video formats.",
+            "id": "VideoInfo",
+            "properties": {},
+            "type": "object"
+        },
+        "WorkingCopyInfo": {
+            "description": "Holds information about a working copy tour that is needed when publishing\nthe tour as a working copy to Poly.",
+            "id": "WorkingCopyInfo",
+            "properties": {
+                "lastUpdateTime": {
+                    "description": "The last update time of the tour, which will be written into the tour.json\nof the working copy.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "publishedAssetInfo": {
+                    "$ref": "PublishedAssetInfo",
+                    "description": "Optional. The asset info for the published version of the tour, if it\nexists. If provided, it will be written into the tour.json of the working\ncopy."
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "VrExpeditions Private API",
+    "version": "v1",
+    "version_module": true
+}

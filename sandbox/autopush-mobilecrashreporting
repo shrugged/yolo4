@@ -1,0 +1,1157 @@
+{
+    "basePath": "",
+    "baseUrl": "https://autopush-mobilecrashreporting.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Mobile Crash Reporting",
+    "description": "Mobile Crash Reporting API.",
+    "discoveryVersion": "v1",
+    "documentationLink": "https://firebase.google.com/docs/crash",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "autopush_mobilecrashreporting_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "autopush_mobilecrashreporting_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "apps": {
+            "resources": {
+                "symbolFileMappings": {
+                    "methods": {
+                        "upsert": {
+                            "description": "This API should be used by the client only after the file upload using the\nsigned url is completed. If the file is not uploaded before using this api\na NOT FOUND error will be returned. The API is used to instruct the server\nto link the metadata of the app to the symbol or mapping file uploaded to\nthe dropzone bucket. If a file already exists for the given app and app\nversion (debug id in case of Breakpad file), then the existing file will\nbe overwritten, if it mapping status field is set to anything other than\nMISSING, it will be overriden.",
+                            "flatPath": "v1/apps/{appsId}/symbolFileMappings:upsert",
+                            "httpMethod": "POST",
+                            "id": "autopush_mobilecrashreporting_sandbox.apps.symbolFileMappings.upsert",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Name of the resource.\nFormat: \"apps/{app_id}/symbolFileMappings\"\n\napp_id parameter identifies an application that has been registered with\nGMP. Contains the project id, platform and hash(package/bundle) for the\napp. The app id in this api is just used for authorizing with the caller\nidentity. The app id in the name overrides the app_id in\nsymbol_file_mapping.",
+                                    "location": "path",
+                                    "pattern": "^apps/[^/]+/symbolFileMappings$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}:upsert",
+                            "request": {
+                                "$ref": "UpsertMappingRequest"
+                            },
+                            "response": {
+                                "$ref": "UpsertMappingResponse"
+                            }
+                        }
+                    }
+                },
+                "symbolFileUploadLocation": {
+                    "methods": {
+                        "create": {
+                            "description": "Creates the signed URL which can be used by the Firebase UI or command\nline client to upload the debug info files to a temporary drop zone\nbigstore bucket. The debug files help the backends convert the symbols or\nobfuscated text present in the crashes to plaintext readable format.\nThese files help with link-ifying the code from the crash as well as help\nimprove the clustering and readability of the crash. Such a debug file is\nunique across a mobile application version.\n\n# Symbol file identifier model\n\nFor Android Proguard Mapping Files\n  |->Firebase Application [Gmp Project, Hash (package_name/bundle_id)]\n    |-> Version\n\nFor Breakpad Symbol Files\n  |->Firebase Application [Gmp Project, Hash (package_name/bundle_id)]\n    |-> Debug Identifier",
+                            "flatPath": "v1/apps/{appsId}/symbolFileUploadLocation",
+                            "httpMethod": "POST",
+                            "id": "autopush_mobilecrashreporting_sandbox.apps.symbolFileUploadLocation.create",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "Name of the resource.\nFormat: \"apps/{app_id}/symbolFileUploadLocation\"\n\napp_id parameter identifies an application that has been registered with\nGMP. Contains the project id, platform and hash(package/bundle) for the\napp. The app id in this api is just used for authorizing with the caller\nidentity.",
+                                    "location": "path",
+                                    "pattern": "^apps/[^/]+/symbolFileUploadLocation$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/{+name}",
+                            "request": {
+                                "$ref": "CreateUploadLocationRequest"
+                            },
+                            "response": {
+                                "$ref": "SymbolFileUploadLocation"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "crashes": {
+            "methods": {
+                "batchCreate": {
+                    "description": "Lets the Crash SDK push the mobile app crashes to Google backends.\n\nUploads are performed by the SDK library methods, not directly exposed to\nthe app developers. The upload will happen in real-time if the crashes are\nnon-fatal Or next time the app is started in case of fatal crashes. The\ncrashes *may* be uploaded in batches if SDK chooses to throttle the upload.\nThe response to the upload will contain the identifiers for the crashes.\n\n# Crash storage model\n\nFirebase Application [Gmp Project, Hash (package_name/bundle_id)]\n           |\n           |-> Crash {Timestamp, Version, Device Model, StackTrace}",
+                    "flatPath": "v1/crashes:batchCreate",
+                    "httpMethod": "POST",
+                    "id": "autopush_mobilecrashreporting_sandbox.crashes.batchCreate",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/crashes:batchCreate",
+                    "request": {
+                        "$ref": "BatchCreateCrashesRequest"
+                    },
+                    "response": {
+                        "$ref": "BatchCreateCrashesResponse"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190923",
+    "rootUrl": "https://autopush-mobilecrashreporting.sandbox.googleapis.com/",
+    "schemas": {
+        "AndroidApplication": {
+            "description": "------------------------------------------------\nmessage AndroidApplication:\n  Static application details that are Android specific\n## Next tag: 5",
+            "id": "AndroidApplication",
+            "properties": {
+                "googlePlayServicesVersion": {
+                    "description": "Version of google play services (Android)",
+                    "type": "string"
+                },
+                "installerPackageName": {
+                    "description": "Package name of the application which installed the application this\nreport pertains to. This identifies which Market the application came from.\nEx: com.android.vending\n(Android)",
+                    "type": "string"
+                },
+                "packageVersion": {
+                    "description": "Version of the application package. (Android, android:versionCode)",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "packageVersionName": {
+                    "description": "Version name of the package.  This is displayed to end users of the app.\n(Android)",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AndroidDevice": {
+            "description": "------------------------------------------------\nmessage AndroidDevice:\n  Device details that are Android specific\n## Next tag: 10",
+            "id": "AndroidDevice",
+            "properties": {
+                "board": {
+                    "description": "Value from android.os.Build.BOARD",
+                    "type": "string"
+                },
+                "brand": {
+                    "description": "Value from android.os.Build.BRAND",
+                    "type": "string"
+                },
+                "device": {
+                    "description": "Value from android.os.Build.DEVICE",
+                    "type": "string"
+                },
+                "hardware": {
+                    "description": "Value from android.os.Build.HARDWARE",
+                    "type": "string"
+                },
+                "isRooted": {
+                    "description": "Is device rooted (Android)",
+                    "type": "boolean"
+                },
+                "manufacturer": {
+                    "description": "Value from android.os.Build.MANUFACTURER",
+                    "type": "string"
+                },
+                "model": {
+                    "description": "Value from android.os.Build.MODEL",
+                    "type": "string"
+                },
+                "product": {
+                    "description": "Value from android.os.Build.PRODUCT",
+                    "type": "string"
+                },
+                "version": {
+                    "description": "Value from android.os.Build.VERSION",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Application": {
+            "description": "------------------------------------------------\nmessage Application:\n  Static application information\n## Next tag: 6",
+            "id": "Application",
+            "properties": {
+                "androidApplication": {
+                    "$ref": "AndroidApplication",
+                    "description": "Fields specific to an Android application"
+                },
+                "iosApplication": {
+                    "$ref": "IOSApplication",
+                    "description": "Fields specific to iOS"
+                },
+                "packageName": {
+                    "description": "Package name of the application (Android, iOS)",
+                    "type": "string"
+                },
+                "processName": {
+                    "description": "Process name of the application. (Android, iOS)",
+                    "type": "string"
+                },
+                "sdkVersion": {
+                    "description": "Version of the sdk (iOS - Semantic version, Android - ?)",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ApplicationState": {
+            "description": "------------------------------------------------\nmessage ApplicationState:\n  State of application at the time of crash.\n## Next tag: 6",
+            "id": "ApplicationState",
+            "properties": {
+                "applicationProcessState": {
+                    "description": "Application state when crash happened.",
+                    "enum": [
+                        "APPLICATION_PROCESS_STATE_UNSPECIFIED",
+                        "FOREGROUND",
+                        "BACKGROUND"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified application process state.",
+                        "Foreground crash.",
+                        "Background crash."
+                    ],
+                    "type": "string"
+                },
+                "locale": {
+                    "description": "Language/locale on device (iOS, newer versions of Android)",
+                    "type": "string"
+                },
+                "localeLanguage": {
+                    "description": "Locale language (Older versions of Android)",
+                    "type": "string"
+                },
+                "localeRegion": {
+                    "description": "Locale region (Older versions of Android)",
+                    "type": "string"
+                },
+                "memory": {
+                    "$ref": "MemorySample",
+                    "description": "Most recent memory sample"
+                }
+            },
+            "type": "object"
+        },
+        "BatchCreateCrashesRequest": {
+            "description": "Generic request to report crashes.\nCan cover native exceptions, caught exceptions, ANRs etc.",
+            "id": "BatchCreateCrashesRequest",
+            "properties": {
+                "appId": {
+                    "description": "Identifier for the application that has been registered with GMP.\nContains project number, platform and (package name or bundle id) fields.\n[Version]:[Project Number]:[Platform]:[Hash(package_name/bundle_id)]",
+                    "type": "string"
+                },
+                "application": {
+                    "$ref": "Application",
+                    "description": "Static info about application"
+                },
+                "crashes": {
+                    "description": "Crash dump (threads, registers, etc) and app state",
+                    "items": {
+                        "$ref": "Crash"
+                    },
+                    "type": "array"
+                },
+                "device": {
+                    "$ref": "Device",
+                    "description": "Information about user's device"
+                },
+                "userId": {
+                    "description": "Unique user identifier. GMP app instance ID.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "BatchCreateCrashesResponse": {
+            "description": "The response for a crash upload attempt.",
+            "id": "BatchCreateCrashesResponse",
+            "properties": {
+                "crashes": {
+                    "description": "The list of crash resources (with partial data) that got written.\nWill contain server allotted crash id and time of crash.\nClient SDK can use this to handle partial failures.",
+                    "items": {
+                        "$ref": "Crash"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "BatterySample": {
+            "description": "------------------------------------------------\nmessage BatterySample:\n  Details about the battery sample.\n## Next tag: 4",
+            "id": "BatterySample",
+            "properties": {
+                "batteryState": {
+                    "description": "Battery charging status",
+                    "enum": [
+                        "BATTERY_STATE_UNSPECIFIED",
+                        "UNPLUGGED",
+                        "CHARGING",
+                        "CHARGING_AC",
+                        "CHARGING_USB",
+                        "CHARGING_WIRELESS"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified battery state. ignored.",
+                        "Device is not charging.",
+                        "Device is charging.",
+                        "Android only - used in place of CHARGING\nDevice is charging via AC.",
+                        "Device is charging via USB.",
+                        "Device is charging via Wireless."
+                    ],
+                    "type": "string"
+                },
+                "chargeLevel": {
+                    "description": "Between 0 - 1 indicating the percentage of battery remaining\n(iOS - Accurate to 0.05)",
+                    "format": "float",
+                    "type": "number"
+                },
+                "samplingTime": {
+                    "description": "Time when battery sample was taken.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Breadcrumb": {
+            "description": "------------------------------------------------\nmessage Breadcrumb:\n  Developer breadcrumbs (generated by an SDK api call).\n  Log messages with an associated timestamp.\n## Next tag: 4",
+            "id": "Breadcrumb",
+            "properties": {
+                "content": {
+                    "description": "log message",
+                    "type": "string"
+                },
+                "loggingTime": {
+                    "description": "When log message was generated",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "params": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Scion event parameters",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "BuganizerConfig": {
+            "description": "------------------------------------------------\nmessage BuganizerConfig:\n  The configuration for integrating the Buganizer application with an Issue\n  Tracker.\n\n## Next tag: 3",
+            "id": "BuganizerConfig",
+            "properties": {
+                "componentId": {
+                    "description": "Name of the buganizer component id. Must be a numeric value.\nrequired",
+                    "type": "string"
+                },
+                "templateId": {
+                    "description": "Name of the buganizer template id. Must be a numeric value.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Crash": {
+            "description": "------------------------------------------------\nenum Crash:\n  Information about a crash or ANR.\n## Next tag: 26",
+            "id": "Crash",
+            "properties": {
+                "activity": {
+                    "description": "For ANRs only. The name of the activity which is not responding.",
+                    "type": "string"
+                },
+                "analyticsBreadcrumbs": {
+                    "description": "Analytics event breadcrumbs",
+                    "items": {
+                        "$ref": "Breadcrumb"
+                    },
+                    "type": "array"
+                },
+                "anrPreamble": {
+                    "description": "Preamble of ANR reports. See b/36996721 for an example.",
+                    "type": "string"
+                },
+                "applicationState": {
+                    "$ref": "ApplicationState",
+                    "description": "Snapshot of application state at the time of the exception or ANR"
+                },
+                "breadcrumbs": {
+                    "description": "User supplied breadcrumbs",
+                    "items": {
+                        "$ref": "Breadcrumb"
+                    },
+                    "type": "array"
+                },
+                "compressedMinidump": {
+                    "description": "GZIP compressed minidump bytes produced by Breakpad library. In\ngeneral, only the minidump or compressed_minidump field will be filled.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "crashClusterId": {
+                    "description": "Uniquely identifies the crash cluster which contains this crash report.\nA crash cluster may contain multiple crash reports.\nThis field is generated by the backend and is ignored in create calls.",
+                    "type": "string"
+                },
+                "crashReportId": {
+                    "description": "Uniquely identifies a single crash report.\nThis field is generated by the backend and is ignored in create calls.",
+                    "type": "string"
+                },
+                "crashTime": {
+                    "description": "Time the crash or ANR occurrence on the device.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "crashedThreadIndex": {
+                    "description": "Index (0-based) of the crashed thread in above list of threads.\nIf crashed_thread_index is greater than the number of threads, the first\nthread in the list is used for analysis.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "deobfuscationState": {
+                    "description": "Deobfuscation state of this report.",
+                    "type": "string"
+                },
+                "deviceState": {
+                    "$ref": "DeviceState",
+                    "description": "Snapshot of device state at the time of the exception or ANR"
+                },
+                "exception": {
+                    "$ref": "ExceptionInfo",
+                    "description": "Caught or uncaught exception, if there was one.\niOS - only present for NSException\nAndroid Java - only present when there was a thrown exception\nNot present for ANRs."
+                },
+                "exceptionName": {
+                    "description": "For reports with an exception, the name of the exception. This field is\npopulated from ExceptionInfo.type, which holds the exception type for both\nAndroid and iOS. Not present for ANRs.",
+                    "type": "string"
+                },
+                "experimentIds": {
+                    "description": "Experiments associated with this crash report.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "isInstantApp": {
+                    "description": "Whether this report is coming from an instant app.",
+                    "type": "boolean"
+                },
+                "minidump": {
+                    "description": "Raw minidump bytes produced by Breakpad library. Only applicable for\nBreakpad crashes.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "missingSymbolMappings": {
+                    "description": "The missing symbols/mapping files. If empty, it means there are no missing\nsymbols/mapping files.",
+                    "items": {
+                        "$ref": "SymbolFileMapping"
+                    },
+                    "type": "array"
+                },
+                "originalThreadCount": {
+                    "description": "The count of threads present in the uploaded report. Some\nthreads may be omitted during processing (if exceeding the configured\nmaximum), but this counter will contain the original total number.\nThis field is only set by crash reporting API when passing native stack\ntrace to UI. Do not set it in Crash uploading (use Crash.minidump instead).",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "reason": {
+                    "description": "OS-(and possibly CPU-)specific reason for the requested report's\nexception or ANR such as \"SIGSEGV\", \"EXCEPTON_ACCESS_VIOLATION\", or\n\"Input dispatching timed out ...\"",
+                    "type": "string"
+                },
+                "reportTime": {
+                    "description": "Time the server received this crash report.\nCrash reports are not always sent immediately, and sometimes sent in\nbatches, so a crash report's report_time may be significantly different\nthan its crash_time.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "reportType": {
+                    "description": "The type of report this is.",
+                    "enum": [
+                        "REPORT_TYPE_UNSPECIFIED",
+                        "FATAL_JAVA",
+                        "NON_FATAL_JAVA",
+                        "FATAL_NATIVE",
+                        "ANR"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified report type. It is treated as ALL the report types.",
+                        "Covers fatal Java crashes.",
+                        "Covers non-fatal Java crashes.",
+                        "Covers fatal native (C/C++) crashes on Android, and all iOS crashes.",
+                        "Covers ANR reports (currently only on Android)."
+                    ],
+                    "type": "string"
+                },
+                "sdkBreadcrumbs": {
+                    "description": "SDK supplied breadcrumbs (for SDK debugging, not for end user)",
+                    "items": {
+                        "$ref": "Breadcrumb"
+                    },
+                    "type": "array"
+                },
+                "threads": {
+                    "description": "Stack trace for all threads. Only present in native crashes and ANRs.\nThis field is only set by crash reporting API when passing native stack\ntraces to UI. Do not set it in Crash uploading (use Crash.minidump\ninstead).",
+                    "items": {
+                        "$ref": "Thread"
+                    },
+                    "type": "array"
+                },
+                "weight": {
+                    "description": "The sampling weight of this crash. Larger numbers means the report was\ningested when only a fraction of crashes were being ingested, and so it\ncounts more for statistics.",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "CreateUploadLocationRequest": {
+            "description": "The request for creating the upload location.",
+            "id": "CreateUploadLocationRequest",
+            "properties": {},
+            "type": "object"
+        },
+        "Device": {
+            "description": "------------------------------------------------\nmessage Device:\n  Info about user device\n## Next tag: 7",
+            "id": "Device",
+            "properties": {
+                "androidDevice": {
+                    "$ref": "AndroidDevice",
+                    "description": "Details for an android device"
+                },
+                "diskSize": {
+                    "description": "Available disk on device (iOS Only)",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "iosDevice": {
+                    "$ref": "IOSDevice",
+                    "description": "Details for an iOS device"
+                },
+                "osType": {
+                    "description": "The type of OS on the mobile device.",
+                    "enum": [
+                        "OS_TYPE_UNSPECIFIED",
+                        "ANDROID",
+                        "IOS"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified OS Type. Treated as an error.",
+                        "Android",
+                        "iOS"
+                    ],
+                    "type": "string"
+                },
+                "osVersion": {
+                    "description": "iOS - Major, minor, patch.  Android - API level",
+                    "type": "string"
+                },
+                "ram": {
+                    "description": "Ram on device in bytes",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DeviceState": {
+            "description": "------------------------------------------------\nmessage DeviceState:\n  Dynamic device state at time of crash\n## Next tag: 7",
+            "id": "DeviceState",
+            "properties": {
+                "battery": {
+                    "$ref": "BatterySample",
+                    "description": "Most recent battery sample"
+                },
+                "disk": {
+                    "$ref": "DiskSample",
+                    "description": "Most recent disk sample"
+                },
+                "distanceToUser": {
+                    "description": "Some android devices report proximity in cm rather than near/far",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "network": {
+                    "$ref": "Network",
+                    "description": "Most recent network sample"
+                },
+                "orientation": {
+                    "description": "Orientation of device",
+                    "enum": [
+                        "ORIENTATION_UNSPECIFIED",
+                        "LANDSCAPE",
+                        "PORTRAIT",
+                        "FACE_UP",
+                        "FACE_DOWN",
+                        "PORTRAIT_UPSIDE_DOWN",
+                        "LANDSCAPE_LEFT",
+                        "LANDSCAPE_RIGHT"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified device orientation. Ignored as unknown.",
+                        "Landscape orientation.",
+                        "Portrait orientation.",
+                        "UIDeviceOrientation.FaceUp. iOS Only.",
+                        "UIDeviceOrientation.FaceDown. iOS Only.",
+                        "UIDeviceOrientation.PortraitUpsideDown. iOS Only.",
+                        "UIDeviceOrientation.LandscapeLeft. iOS Only.",
+                        "UIDeviceOrientation.LandscapeRight. iOS Only."
+                    ],
+                    "type": "string"
+                },
+                "proximityToUser": {
+                    "description": "closeness of proximity sensor",
+                    "enum": [
+                        "PROXIMITY_UNSPECIFIED",
+                        "NEAR",
+                        "FAR"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified device proximity. Ignored.",
+                        "Sensor is close to user.",
+                        "Sensor is not close to user."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DiskSample": {
+            "description": "------------------------------------------------\nmessage DiskSample:\n  Details about the disk storage sample.\n## Next tag: 4",
+            "id": "DiskSample",
+            "properties": {
+                "freeBytes": {
+                    "description": "Free bytes remaining",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "samplingTime": {
+                    "description": "Time when disk sample was taken",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "usedBytes": {
+                    "description": "Disk consumed on device",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ExceptionInfo": {
+            "description": "------------------------------------------------\nmessage ExceptionInfo:\n  Description of actual exception thrown by Java language. Use this to\n  represent the Android Java stack trace. Can be caught or uncaught.\n\n## Next tag: 7",
+            "id": "ExceptionInfo",
+            "properties": {
+                "cause": {
+                    "$ref": "ExceptionInfo",
+                    "description": "Nested/wrapped exception that caused this one (Android)"
+                },
+                "errorMessage": {
+                    "description": "Error message associated with the exception\n(Android, iOS - NSException reason)",
+                    "type": "string"
+                },
+                "isFatal": {
+                    "description": "These 2 fields are only relevant for the top most exception object",
+                    "type": "boolean"
+                },
+                "isTruncated": {
+                    "description": "Whether the stack trace is truncated or not (true if truncated)\nMust be set in the inner-most ExceptionInfo",
+                    "type": "boolean"
+                },
+                "stackTraceElements": {
+                    "description": "The stack at the time of exception (Android)",
+                    "items": {
+                        "$ref": "StackTraceElement"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "description": "Name of the exception (Android - Java class, iOS - NSException name)",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "IOSApplication": {
+            "description": "------------------------------------------------\nmessage IOSApplication:\n  Static application details that are iOS specific\n## Next tag: 3",
+            "id": "IOSApplication",
+            "properties": {
+                "internalVersion": {
+                    "description": "Semantic version of app in app store - CFBundleVersion\nString comprised of non-negative, period-separated integers with the\nfirst integer being greater than zero. Eg: 1.2.3.",
+                    "type": "string"
+                },
+                "releaseVersion": {
+                    "description": "Semantic version of app used internally - CFBundleShortVersionString\nString comprised of non-negative, period-separated integers with the\nfirst digit being greater than zero. Usually major.minor.patch Eg: 1.2.3",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "IOSDevice": {
+            "description": "------------------------------------------------\nmessage IOSDevice:\n  Device details that are iOS specific\n## Next tag: 3",
+            "id": "IOSDevice",
+            "properties": {
+                "isJailbroken": {
+                    "description": "Is device jailbroken (iOS)",
+                    "type": "boolean"
+                },
+                "model": {
+                    "description": "iOS Device model (i.e. iPhone5.1)",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MemorySample": {
+            "description": "------------------------------------------------\nmessage MemorySample:\n  Details about the memory sample.\n## Next tag: 8",
+            "id": "MemorySample",
+            "properties": {
+                "mallocUsedBytes": {
+                    "description": "Number of bytes being used in malloc.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "residentUsedBytes": {
+                    "description": "Number of bytes being used in resident memory.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "samplingTime": {
+                    "description": "Time when memory sample was taken",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "virtualUsedBytes": {
+                    "description": "Number of bytes being used in virtual memory.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "vmFreeBytes": {
+                    "description": "Number of free bytes in vm. From java.lang.Runtime",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "vmMaxBytes": {
+                    "description": "Maximum number of allocated bytes to vm. From java.lang.Runtime",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "vmTotalBytes": {
+                    "description": "Total number of bytes in vm. From java.lang.Runtime",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Network": {
+            "description": "------------------------------------------------\nmessage Network:\n  Details about the network sample.\n## Next tag: 7",
+            "id": "Network",
+            "properties": {
+                "connectionState": {
+                    "description": "state of network connection on device.",
+                    "enum": [
+                        "CONNECTION_STATE_UNSPECIFIED",
+                        "DISCONNECTED",
+                        "WWAN",
+                        "WIFI"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified network connection state. Ignored.",
+                        "Disconnected from Network.",
+                        "Connected to cellular network.",
+                        "Connected to wifi network."
+                    ],
+                    "type": "string"
+                },
+                "radioName": {
+                    "description": "Type of radio being used",
+                    "type": "string"
+                },
+                "radioType": {
+                    "description": "Type of radio being used.",
+                    "enum": [
+                        "RADIO_TYPE_UNSPECIFIED",
+                        "GPRS",
+                        "EDGE",
+                        "WCDMA",
+                        "HSDPA",
+                        "HSUPA",
+                        "CDMA_1X",
+                        "CDMA_EVDO_0",
+                        "CDMA_EVDO_A",
+                        "CDMA_EVDO_B",
+                        "EHRPD",
+                        "LTE",
+                        "UMTS",
+                        "CDMA",
+                        "HSPA",
+                        "HSPA_PLUS",
+                        "IDEN",
+                        "GSM",
+                        "TD_SCDMA",
+                        "IWLAN",
+                        "UNIDENTIFIED"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified radio type.",
+                        "GPRS",
+                        "EDGE",
+                        "WCDMA",
+                        "HSDPA",
+                        "HSUPA",
+                        "CDMA_1X",
+                        "CDMA_EVDO_0",
+                        "CDMA_EVDO_A",
+                        "CDMA_EVDO_B",
+                        "EHRPD",
+                        "LTE",
+                        "UMTS",
+                        "CDMA",
+                        "HSPA",
+                        "HSPA_PLUS",
+                        "IDEN",
+                        "GSM",
+                        "TD_SCDMA",
+                        "IWLAN",
+                        "Unidentified radio type\nUsed for technologies unknown to fender sdk"
+                    ],
+                    "type": "string"
+                },
+                "simCarrierName": {
+                    "description": "Device carrier information. This network is tied to the\ndevice SIM card, which may be different than the connected\nnetwork if the device is roaming.",
+                    "type": "string"
+                },
+                "simMcc": {
+                    "description": "MCC = Mobile Country Code",
+                    "type": "string"
+                },
+                "simMnc": {
+                    "description": "MNC = Mobile Network Code",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "StackFrame": {
+            "description": "------------------------------------------------\nmessage StackFrame:\n  A single native stack frame in a thread.\n\n## Next tag: 8",
+            "id": "StackFrame",
+            "properties": {
+                "extraInfo": {
+                    "description": "Extra info of ANR stack frame.\nExample: extra_info is the line \"- locked <0x09073f36> ...\"\n  at java.lang.Daemons$FinalizerWatchdogDaemon.sleepUntilNeeded(\n      Daemons.java:269)\n  - locked <0x09073f36> (a java.lang.Daemons$FinalizerWatchdogDaemon",
+                    "type": "string"
+                },
+                "functionName": {
+                    "description": "The function name.  May be omitted if debug symbols are not available.",
+                    "type": "string"
+                },
+                "functionStartOffset": {
+                    "description": "The offset from the start address of the function.  For the innermost\nframe in a stackframe, this will be the offset to the crashing\ninstruction.  For all other frames, this will be an offset to the\ninstruction that caused execution to branch to a called function, but\nmay not necessarily be the offset to the beginning of that instruction.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "instruction": {
+                    "description": "The program counter location as an absolute virtual address.  For the\ninnermost called frame in a stack, this will be an exact program counter\nor instruction pointer value.  For all other frames, this will be within\nthe instruction that caused execution to branch to a called function, but\nmay not necessarily point to the exact beginning of that instruction.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "moduleName": {
+                    "description": "The path or file name that the code module was loaded from.",
+                    "type": "string"
+                },
+                "sourceFileName": {
+                    "description": "The source file name.  May be omitted if debug symbols are not available.",
+                    "type": "string"
+                },
+                "sourceLine": {
+                    "description": "The (1-based) source line number, may be omitted if debug symbols are not\navailable.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "StackTrace": {
+            "description": "------------------------------------------------\nmessage StackTrace:\n  Native stack trace info that is parsed from Crash.minidump.\n  An ordered list of native StackFrame messages (see above), along with\n  additional data which is not specific to a frame.\n\n## Next tag: 4",
+            "id": "StackTrace",
+            "properties": {
+                "droppedFrameStartIndex": {
+                    "description": "The index (in the above stacktrace) of the first dropped frame.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "numDroppedFrames": {
+                    "description": "This fields are only used by crash reporting API when passing native stack\ntrace to UI. Do not set them in Crash uploading.\nThe number of stackframes dropped from the stacktrace. For Java, bottom\nframes are dropped; for native, middle frames are dropped.\nThese frames can still be retrieved directly from the minidump, but\nthey are not stored in the Crash system; what does get stored is a\nselection of the top and bottom frames for native trace, and top frames for\nJava trace. Generally, stackframes are dropped when the stacktrace is too\nlarge. UI should show this numdber to users if it's greater than 0.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "stackFrames": {
+                    "description": "The stackframes which constitute a stacktrace.  The first frame\nis the top of the stack (ie, the frame in which the crashing\ninstruction occured).  In situations where the thread has a\nlogically-empty stack frame (eg, no module name, no offset, no\nsource info), this Stacktrace will contain an empty Stackframe\nentry; we will not omit \"unknown stack frames\".",
+                    "items": {
+                        "$ref": "StackFrame"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "StackTraceElement": {
+            "description": "------------------------------------------------\nmessage JavaStackTraceElement:\n  Android Java - Fields of java.lang.StackTraceElement\n\n## Next tag: 8",
+            "id": "StackTraceElement",
+            "properties": {
+                "alternativeMethodNames": {
+                    "description": "Any alternative method names this element has.\nWould be empty for non-ambiguous deobfuscated stacktraces.\nContains alternative method names if the obfuscated stacktrace has\nambiguous lines that have multiple alternative deobfuscation candidates.\nSee b/67782648.\nExample: when Proguard obfuscate both method1 and method2 to symbol 'a',\nand we have a stacktrace 'at Main.a()', it will be deobfuscated to:\n  at Main.method1()\n  at <OR> Main.method2()\n  at <OR> Main.method3()\n  at Main.method4()\n  at ...\nThe deobfuscated StackTraceElement will be:\n  class_name  method_name  alternative_method_names\n  Main        method1      [method2, method3]\n  Main        method4      []",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "className": {
+                    "description": "Class name for this stacktrace element",
+                    "type": "string"
+                },
+                "fileName": {
+                    "description": "File name for this stacktrace element",
+                    "type": "string"
+                },
+                "isNativeMethod": {
+                    "description": "Whether this method is system's native method",
+                    "type": "boolean"
+                },
+                "isPlatform": {
+                    "description": "Indicator of whether or not the class of this element is part of the\nAndroid platform",
+                    "type": "boolean"
+                },
+                "lineNumber": {
+                    "description": "Line number for this stacktrace element",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "methodName": {
+                    "description": "Method name for this stacktrace element",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "StorageReference": {
+            "description": "The location of the file in bigstore.",
+            "id": "StorageReference",
+            "properties": {
+                "bucket": {
+                    "description": "The name of the bucket where the file exists. Will be the permanent bucket\nbut set so that clients do not need to change if Fender changes the bucket\nnames or add config for bucket names for different environments in which\nthe service runs.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name of the file in the bucket.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SymbolFileMapping": {
+            "description": "Resource SymbolFileMapping: Contains details about a symbol file uploaded\nfor an app.\n Next tag: 11",
+            "id": "SymbolFileMapping",
+            "properties": {
+                "appId": {
+                    "description": "Identifies an application that has been registered with GMP.\nContains the project id, platform and hash(package/bundle) for the app.\nValue will be overwritten in requests which contain a name that includes\nthe app id.",
+                    "type": "string"
+                },
+                "appVersion": {
+                    "description": "The version of the mobile app. This is mandatory for Proguard Mapping,\nsince there is one Proguard mapping file for each app version.\nFor Breakpad symbol files, the version is optional since multiple versions\ncan share the same symbol file. The identifier in case of Breakpad symbol\nfiles is the debug identifier, which can be extracted from the file.",
+                    "type": "string"
+                },
+                "createTime": {
+                    "description": "The create time of the symbol file mapping. If not set, then the\ntransaction time of the insert to spanner is used.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "debugFileName": {
+                    "description": "The debug file name is the file name of a breakpad symbol file. This is\nextracted from the file uploaded and stored in the mapping metadata. If\nset in an upsert request, then it is overwritten.",
+                    "type": "string"
+                },
+                "debugId": {
+                    "description": "The debug identifier is the id which uniquely identifies a breakpad symbol\nfile. This is extracted from the file uploaded and stored in the mapping\nmetadata. If set in an upsert request, then it is overwritten.",
+                    "type": "string"
+                },
+                "mappingStatus": {
+                    "description": "The current status of the storage_reference.",
+                    "enum": [
+                        "MAPPING_STATUS_UNSPECIFIED",
+                        "MISSING",
+                        "DISMISSED",
+                        "OK"
+                    ],
+                    "enumDescriptions": [
+                        "This status means that the storage reference is unknown.",
+                        "This status means that a crash processing operation was run that needed\nthis mapping file, but it did not exist in our storage.\nIf this is true, the storage reference will be empty.",
+                        "Same as missing, but the \"missing mapping\" message was dismissed by\ndeveloper and will not show up on the crash reporting dashboard.",
+                        "This status means that there is a storage reference and the mapping file\nwas validated."
+                    ],
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name of the resource. The format is as follows:\nProguard: apps/{app_id}/symbolFileMappings/types/1/{app_version}\nBreakpad: apps/{app_id}/symbolFileMappings/types/2/{debug_id}\n\nWill only be populated in responses. If set in requests, will be ignored.",
+                    "type": "string"
+                },
+                "storageReference": {
+                    "$ref": "StorageReference",
+                    "description": "The location of the file in the permanent bigstore bucket. Used by clients\nwhich will need to read from bigstore. Will only be set in the response,\nignored if set in the request."
+                },
+                "symbolType": {
+                    "description": "The type of symbol file.",
+                    "enum": [
+                        "SYMBOL_TYPE_UNSPECIFIED",
+                        "PROGUARD",
+                        "BREAKPAD"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified symbol type. Treated as an error.",
+                        "The symbol file is a Proguard compatible mapping file.",
+                        "The symbol file is a Breakpad compatible symbol file.\nDEX and NATIVE_CODE are other types that could be supported later."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SymbolFileUploadLocation": {
+            "description": "Resource UploadLocation: Contains the url and key used by clients\nto upload their symbol files.",
+            "id": "SymbolFileUploadLocation",
+            "properties": {
+                "uploadKey": {
+                    "description": "The key of the file upload necessary to mark the upload as completed. This\nis necessary to identify the exact file which the client uploaded. There\ncould be multiple files uploaded to the dropzone bucket for the same\nproject and app version.",
+                    "type": "string"
+                },
+                "uploadUrl": {
+                    "description": "The signed URL that users can make a PUT call to, with the file in the\npayload. The format of the url:\nPath: 'https://<dropzone_bucket_name>.storage.googleapis.com/<upload_key>'\nQuery Parameters:\n  GoogleAccessId: <service_account@system.gserviceaccount.com>\n  Expires: <expiration_timestamp>\n  Signature: <string signed using service account private key>\nMore details here:\nhttps://cloud.google.com/storage/docs/access-control?hl=en#Signed-URLs",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Thread": {
+            "description": "------------------------------------------------\nmessage Thread:\n  Thread related data.\n\n## Next tag: 3",
+            "id": "Thread",
+            "properties": {
+                "stackTrace": {
+                    "$ref": "StackTrace",
+                    "description": "The execution stack trace for the thread."
+                },
+                "threadHeader": {
+                    "description": "Thread header for anr threads.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpsertMappingRequest": {
+            "description": "The request for symbol file mapping upsert api.",
+            "id": "UpsertMappingRequest",
+            "properties": {
+                "skipPackageNameValidation": {
+                    "description": "If set to true, skips validation of Android package name. Must be used in\nconjunction with validate_only. This allows the Play team to validate a\nmapping before a package name has been assigned.",
+                    "type": "boolean"
+                },
+                "symbolFileMapping": {
+                    "$ref": "SymbolFileMapping",
+                    "description": "The details about the symbol file mapping which is being upserted."
+                },
+                "uploadKey": {
+                    "description": "The upload key obtained from the CreateUploadLocation call. This\nkey is the key of the file dropped to the dropzone bucket. If a file with\nthis key does not exist in the dropzone bucket or if the file with the key\nhas expired due to the dropzone bucket's TTL configuration, then an\nexception will be thrown.",
+                    "type": "string"
+                },
+                "validateOnly": {
+                    "description": "If set to true, only validation is done without actually upserting the\nmapping",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "UpsertMappingResponse": {
+            "description": "The response for symbol file mapping upsert api.",
+            "id": "UpsertMappingResponse",
+            "properties": {
+                "symbolFileMapping": {
+                    "$ref": "SymbolFileMapping",
+                    "description": "The details about the symbol file mapping which got upserted."
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Mobile Crash Reporting AUTOPUSH API",
+    "version": "v1",
+    "version_module": true
+}

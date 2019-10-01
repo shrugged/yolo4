@@ -1,0 +1,1878 @@
+{
+    "basePath": "",
+    "baseUrl": "https://test-zoom-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Zoom",
+    "description": "An API to provides access to Zoom resources and services.",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://go/zoom/api",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "zoom_pa:v1",
+    "kind": "discovery#restDescription",
+    "name": "zoom_pa",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "navs": {
+            "methods": {
+                "delete": {
+                    "description": "Deletes a Nav. Returns NOT_FOUND if the nav does not exist.",
+                    "flatPath": "v1/navs/{navId}",
+                    "httpMethod": "DELETE",
+                    "id": "zoom_pa.navs.delete",
+                    "parameterOrder": [
+                        "navId"
+                    ],
+                    "parameters": {
+                        "navId": {
+                            "description": "The ID of the Nav to delete.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/navs/{navId}",
+                    "response": {
+                        "$ref": "Empty"
+                    }
+                },
+                "get": {
+                    "description": "Gets a Nav. Returns NOT_FOUND if the Nav does not exist.",
+                    "flatPath": "v1/navs/{navId}",
+                    "httpMethod": "GET",
+                    "id": "zoom_pa.navs.get",
+                    "parameterOrder": [
+                        "navId"
+                    ],
+                    "parameters": {
+                        "navId": {
+                            "description": "The id of the Nav named `navs/{nav_id}`. Also accepts vanity id, e.g.\n'v/my_vanity_id'.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "projectionId": {
+                            "description": "The requested projection for the Nav. Optional.\nA projection replaces or omits certain properties of the navigator (metrics\nor dimensions) for certain audiences. All Navs have a default projection,\nnamed 'default'.\nProjections are called 'Views' in user documentation and other parts of the\ncodebase. We use the name 'projection' here, since 'view' has another\nspecific meaning in APIs.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "revision": {
+                            "description": "The requested revision for the Nav. Optional. The latest revision is\nreturned if unspecified.",
+                            "format": "int64",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "view": {
+                            "description": "Specifies which parts of the Nav resource should be returned in the\nresponse.",
+                            "enum": [
+                                "FULL",
+                                "BASIC"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/navs/{navId}",
+                    "response": {
+                        "$ref": "Nav"
+                    }
+                },
+                "getCharts": {
+                    "description": "Gets a chart. Returns NOT_FOUND if the Chart does not exist.",
+                    "flatPath": "v1/navs/{navId}/charts",
+                    "httpMethod": "GET",
+                    "id": "zoom_pa.navs.getCharts",
+                    "parameterOrder": [
+                        "navId"
+                    ],
+                    "parameters": {
+                        "baselineIndex": {
+                            "description": "A 0-based number to indicate which line should be used as reference line.\nOnly valid if relative_to is equal to RELATIVE_TO_BASELINE",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "cereeDate": {
+                            "description": "ISO reference date for exchange rate correction.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "chartType": {
+                            "description": "The type of chart.",
+                            "enum": [
+                                "TIME_CHART",
+                                "BAR_CHART"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "cumulative": {
+                            "description": "Whether the chart is cumulative.",
+                            "location": "query",
+                            "type": "boolean"
+                        },
+                        "dimensions": {
+                            "description": "A list of filters for dimensions. Each entry is a string\nconsisting of the filter name, followed by its value, separated by a\ncolon. Multiple values can be given by separating them with '|'. They\nare interpreted as 'or' (while multiple dimensions names given are\ninterpreted as 'and').\nNote that the first set of filters is used as a baseline for the following\nsets of filters. See:\nhttp://google3/ads/dashboard/helper.py?l=1823&rcl=124919918",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        },
+                        "experimentalBase64Filters": {
+                            "description": "Dicer prototype: Experimental support for rich filters. Only one of\n|dimensions| or |epxerimental_base64_filters| must be populated.\nThis holds a websafe base64-encoded *text format* protobuf representation\nof cs/symbol:ads.zoom.dasnav.dicer.Filter$",
+                            "format": "byte",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        },
+                        "experimentalGroupByDimensions": {
+                            "description": "Dicer group-by hack: Specifies the dimension IDs to use group the results\nby. ",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        },
+                        "forceExactFx": {
+                            "description": "Whether to use the more precise exchange rate fix algorithm.",
+                            "location": "query",
+                            "type": "boolean"
+                        },
+                        "granularity": {
+                            "description": "Time granularity.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "growth": {
+                            "description": "Whether the growth rate is requested.",
+                            "location": "query",
+                            "type": "boolean"
+                        },
+                        "growthPercent": {
+                            "description": "Whether the growth is calculated as percent. If false, growth is calculated\nas absolute change. Ignored if growth is false.",
+                            "location": "query",
+                            "type": "boolean"
+                        },
+                        "ldapUser": {
+                            "description": "LDAP of user on whose behalf the request is made.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "length": {
+                            "description": "ISO duration specifying the length of the time intervals. The\nlength must be chosen so that each time interval consists of the same\nnumber of time points. To fulfill this requirement the unit of the\nlength is recommended to be comparable with the granularity.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "metricComp": {
+                            "description": "Whether the request is a metric comparison.",
+                            "location": "query",
+                            "type": "boolean"
+                        },
+                        "metrics": {
+                            "description": "List of metric names.",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        },
+                        "navId": {
+                            "description": "The id of the Nav named `navs/{nav_id}`. Vanity ids are not supported and\nmust be resolved as nav id first using GetNav.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "percentageOfTotal": {
+                            "location": "query",
+                            "type": "boolean"
+                        },
+                        "projectionId": {
+                            "description": "The requested projection for the Nav, referring to the ID of a DASNav view\n(see go/dasnav-ex-views). Optional.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "relativeTo": {
+                            "description": "Whether lines should use a reference.",
+                            "enum": [
+                                "RELATIVE_UNSPECIFIED",
+                                "BASELINE",
+                                "TOTAL"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "requestSetId": {
+                            "description": "A unique identifier for this request. Used for cancellation.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "revision": {
+                            "description": "The requested revision for the Nav. Call DasnavService.GetNav to retrieve\nthe latest revision.\nRequired.",
+                            "format": "int64",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "showNormal": {
+                            "description": "Whether to show original data when applying a chart transformation, e.g.\nmoving average.",
+                            "location": "query",
+                            "type": "boolean"
+                        },
+                        "startDates": {
+                            "description": "List of ISO start dates of the queried intervals in reverse time\norder. Each interval will consist of the same number of data points.",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        },
+                        "view": {
+                            "description": "Specifies which parts of the chart resource should be returned in the\nresponse.",
+                            "enum": [
+                                "FULL",
+                                "METADATA",
+                                "DATA"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/navs/{navId}/charts",
+                    "response": {
+                        "$ref": "Chart"
+                    }
+                },
+                "getTopn": {
+                    "description": "Gets a Top-N ranking. Returns NOT_FOUND if the nav does not exist.",
+                    "flatPath": "v1/navs/{navId}/topn",
+                    "httpMethod": "GET",
+                    "id": "zoom_pa.navs.getTopn",
+                    "parameterOrder": [
+                        "navId"
+                    ],
+                    "parameters": {
+                        "dimension": {
+                            "description": "The dimension to rank by.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "dimensionFilters": {
+                            "description": "A list of filters for dimensions. Each entry is a string\nconsisting of the filter name, followed by its value, separated by a\ncolon. Multiple values can be given by separating them with '|'. They\nare interpreted as 'or' (while multiple dimensions names given are\ninterpreted as 'and'). Only a single dimension_filter is supported, i.e.\nthe field is not actually repeated.\nExample: dimension_filters: \"Status:2|3,Duration:4\" where \"Status\" and\n\"Duration\" are dimension IDs and 2,3,4 are dimension value IDs.\ndimension_filters can't include restriction on the GetTopN dimension\nitself.",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        },
+                        "dimensionValueCandidates": {
+                            "description": "A list of dimension values for restricting those considered for ranking.\nFor example, to compare only the population of Spain and the population of\nItaly, the metric would be 'population', the dimension 'Country' and\nthe dimension_value_candidates 'Spain' and 'Italy'. If the list is empty,\nconsider all existing dimension values when ranking.",
+                            "location": "query",
+                            "repeated": true,
+                            "type": "string"
+                        },
+                        "granularity": {
+                            "description": "Time granularity.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "ldapUser": {
+                            "description": "LDAP of user on whose behalf the request is made.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "length": {
+                            "description": "The ISO duration of time interval considered for ranking.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "maximumCount": {
+                            "description": "How many results should be returned.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "metric": {
+                            "description": "The metric used for ranking.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "navId": {
+                            "description": "The id of the Nav named `navs/{nav_id}`. Vanity ids are not supported and\nmust be resolved as nav id first using GetNav.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "order": {
+                            "description": "The ranking order.",
+                            "enum": [
+                                "ORDER_UNSPECIFIED",
+                                "ORDER_DESCENDING",
+                                "ORDER_ASCENDING"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "projectionId": {
+                            "description": "The requested projection for the Nav. Optional.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "requestSetId": {
+                            "description": "A unique identifier for this request. Used for cancellation.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "revision": {
+                            "description": "The requested revision for the Nav. Call DasnavService.GetNav to retrieve\nthe latest revision.\nRequired.",
+                            "format": "int64",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "startDates": {
+                            "description": "The ISO start date of the time interval considered for ranking.",
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/navs/{navId}/topn",
+                    "response": {
+                        "$ref": "TopN"
+                    }
+                },
+                "list": {
+                    "description": "Lists Navs owned by the calling user.",
+                    "flatPath": "v1/navs",
+                    "httpMethod": "GET",
+                    "id": "zoom_pa.navs.list",
+                    "parameterOrder": [],
+                    "parameters": {
+                        "pageSize": {
+                            "description": "For pagination: number of Navs to return. Returns the full list if not set.",
+                            "format": "int32",
+                            "location": "query",
+                            "type": "integer"
+                        },
+                        "pageToken": {
+                            "description": "For pagination: continuation token, if not the first page.",
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "view": {
+                            "description": "Specifies which parts of the Nav resource should be returned in the\nresponse.",
+                            "enum": [
+                                "FULL",
+                                "BASIC"
+                            ],
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/navs",
+                    "response": {
+                        "$ref": "ListNavsResponse"
+                    }
+                }
+            },
+            "resources": {
+                "topn": {
+                    "methods": {
+                        "batchGet": {
+                            "description": "Gets a Top-N ranking. Returns NOT_FOUND if the nav does not exist.",
+                            "flatPath": "v1/navs/{navId}/topn:batchGet",
+                            "httpMethod": "POST",
+                            "id": "zoom_pa.navs.topn.batchGet",
+                            "parameterOrder": [
+                                "navId"
+                            ],
+                            "parameters": {
+                                "navId": {
+                                    "description": "The id of the Nav named `navs/{nav_id}`. Vanity ids are not supported and\nmust be resolved as nav id first using GetNav.",
+                                    "location": "path",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1/navs/{navId}/topn:batchGet",
+                            "request": {
+                                "$ref": "GetTopNRequest"
+                            },
+                            "response": {
+                                "$ref": "TopN"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "requests": {
+            "methods": {
+                "cancel": {
+                    "description": "Asynchronously cancels requests.",
+                    "flatPath": "v1/requests:cancel",
+                    "httpMethod": "POST",
+                    "id": "zoom_pa.requests.cancel",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/requests:cancel",
+                    "request": {
+                        "$ref": "CancelRequest"
+                    },
+                    "response": {
+                        "$ref": "Empty"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190921",
+    "rootUrl": "https://test-zoom-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "AutocompleteSpecF1": {
+            "description": "Autocompleter information to lookup value/name pairs from an F1 table.\nNext ID: 7.",
+            "id": "AutocompleteSpecF1",
+            "properties": {
+                "enableRegexp": {
+                    "description": "Whether regexp search is supported for this dimension. Only works in\nQueryNav/DisplayNav. Can't be set through Configuration Editor or API.",
+                    "type": "boolean"
+                },
+                "expandCardinality": {
+                    "description": "Size of autocomplete table. If set regular expression selections will be\nrewritten to IN statements with all values matching the regexp.\nDo not set if you want to send actual regexps to the backend.\nSee go/wp-qn-design-doc#heading=h.kdfffx9d3s5f for example use case.\nThis allows using regexps in PD data source.\nOnly works in QueryNav/DisplayNav, can't be set through\nConfiguration Editor or API.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "nameExpr": {
+                    "description": "F1 expression (or column) that returns the name of the corresponding value,\nas a human-readable string, to be displayed in chart titles, legends and\nfilters. The autocomplete box shows `value_expr` in addition to the\n`name_expr`, unless the `value_expr` is a preffix of the `name_expr`.",
+                    "type": "string"
+                },
+                "numSubentriesExpr": {
+                    "description": "F1 expression (or column) that represents number of entries corresponding\nto the value. Only works in QueryNav/DisplayNav, can't be set through\nConfiguration Editor or API.\nAutocomplete entries will be ordered descending by this value.",
+                    "type": "string"
+                },
+                "tableName": {
+                    "description": "Name of the table holding the value/name information for autocompletion.",
+                    "type": "string"
+                },
+                "valueExpr": {
+                    "description": "F1 expression (or column) that returns the value of the dimension. This is\nthe value that will be used in the query's dimension restrictions.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CancelRequest": {
+            "description": "Request message for cancelling requests.",
+            "id": "CancelRequest",
+            "properties": {
+                "requestSetIds": {
+                    "description": "The IDs of the request sets to cancel.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Chart": {
+            "description": "A chart is a graphic representation of data over a period of time.",
+            "id": "Chart",
+            "properties": {
+                "data": {
+                    "description": "The chart data. The chart is rendered by combining all its data parts.\nThese parts don't necessary have the same number of lines or the same\nxaxis. When all chunks are merged, it becomes the complete data for the\nchart.",
+                    "items": {
+                        "$ref": "ChartData"
+                    },
+                    "type": "array"
+                },
+                "metadata": {
+                    "description": "The chart metadata, split over how the chart compares metrics.",
+                    "items": {
+                        "$ref": "ChartMetadata"
+                    },
+                    "type": "array"
+                },
+                "requestId": {
+                    "description": "A human-readable string uniquely identifying the request that produced\nthis result, generated by the server. The format specification is not\npublic and may be server-specific (as such, 'uniquely' is relative to the\nrequests generated by the same version of servers).\nIt may be used to identify the request in logs or debugging interfaces.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ChartData": {
+            "description": "An instance of ChartData represents a part of, or the whole chart.",
+            "id": "ChartData",
+            "properties": {
+                "lines": {
+                    "description": "The xaxis will be applied to all of the lines, so each line_data should\nhave exactly same number of values as xaxis. For bar chart, there will be\nonly 1 value always.",
+                    "items": {
+                        "$ref": "LineData"
+                    },
+                    "type": "array"
+                },
+                "xaxis": {
+                    "description": "A list of dates in US/Pacific timezone represented as a ISO string to be\nused as xaxis. It can be missing for the bar chart.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ChartMetadata": {
+            "description": "Describes how a Chart is presented.",
+            "id": "ChartMetadata",
+            "properties": {
+                "earliestUnreliablePoint": {
+                    "description": "Time point after which the data is either unreliable or incomplete. Data\nmay only be aggregated for time points preceeding the reliability\nthreshold.",
+                    "type": "string"
+                },
+                "latestReliabilityPoint": {
+                    "description": "DEPRECATED: superceded by earliest_unreliable_point. Kept the name.",
+                    "type": "string"
+                },
+                "legendLabels": {
+                    "description": "The labels of the chart legends, in the same display order as the lines of\nthe data chunks",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "metrics": {
+                    "description": "The metric IDs associated with this metadata.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "subtitle": {
+                    "description": "The subtitle of the chart.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Config": {
+            "description": "Navigator configuration.",
+            "id": "Config",
+            "properties": {
+                "metaConfig": {
+                    "$ref": "MetaConfig",
+                    "description": "The configuration used for updating the Nav contents, e.g quota, importer\npermissions, etc..."
+                },
+                "navConfig": {
+                    "$ref": "NavConfig",
+                    "description": "The configuration used for serving the Nav contents."
+                }
+            },
+            "type": "object"
+        },
+        "CubeSpec": {
+            "description": "Specification of a cube within a Nav.\nNext ID: 19",
+            "id": "CubeSpec",
+            "properties": {
+                "atomicMetricMappings": {
+                    "description": "Mappings for a subset (or all of) the Nav's metrics. The id fields must\ncorrespond to IDs in the NavConfig's atomic_metrics field.",
+                    "items": {
+                        "$ref": "Mapping"
+                    },
+                    "type": "array"
+                },
+                "datasource": {
+                    "description": "Datasource to use for this cube, for example \"dasnav_dremel\".\nPossible values are defined in the DatasourceAccessor class in\nads/dashboard/accessor.py.",
+                    "type": "string"
+                },
+                "dimensionMappings": {
+                    "description": "Mappings for a subset (or all of) the Nav's dimensions. The id fields must\ncorrespond to IDs in the NavConfig's dimensions field.",
+                    "items": {
+                        "$ref": "Mapping"
+                    },
+                    "type": "array"
+                },
+                "f1ReplicationPrefix": {
+                    "description": "The prefix of the F1QueryOptimized replica path. If present, it allows\nquerying the table using files, without accessing Datascape table entity.",
+                    "type": "string"
+                },
+                "freshDataTable": {
+                    "description": "Another table with fresher data.\nIs ONLY used by pd_f1_composed data source for QueryNav: \"table\" field\nstores the PD table name and this field stores the F1/Mesa table name.",
+                    "type": "string"
+                },
+                "granularity": {
+                    "enum": [
+                        "HOURLY",
+                        "DAILY",
+                        "WEEKLY"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "The start of the week is the same for all cubes in the Navigator and is\nconfigured by NavConfig.granularities.week_begin.\nNote that due to complexities of correctly autodetecting/configuring\nweekly rollups, that feature shall not be exposed in the UI in the\nforeseeable future (spoken as of 2013-11-28)."
+                    ],
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Identifier of the cube, unique within the Nav. Matches a-z*.",
+                    "type": "string"
+                },
+                "jackKnifeCiDimension": {
+                    "description": "Used only by QueryNav/DisplayNav/Y!J.\nID of the dimension that contains jack knife buckets.\nMust be an integer dimension that contains either values from 1 to 20\n(inclusive), or 0 if confidence intervals are not desired for given row.",
+                    "type": "string"
+                },
+                "latestTimePoint": {
+                    "description": "The latest available date in the cube. Microseconds since epoch (UTC).\nBy convention, this marks the start of the last available bucket -- the\ndata will effectively cover 'latest_time_point' plus the cube's\ngranularity.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "loadTimePerGranularity": {
+                    "description": "Estimated load time (in seconds) for one 'granularity' of data.\nE.g. with hourly granularity, load_time_per_granularity should be equal to\ntime it takes to load one hour of data.\nIntended to be used only in QueryNav/DisplayNav through checked-in\nnav_config.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "pdServingReplicationPrefix": {
+                    "description": "The prefix of the PD Serving replica path. To obtain the full replica\npath concatenate this with the table field above, split by '/'. This\nfield should always be present if table_is_available_in_pdserving is true.",
+                    "type": "string"
+                },
+                "priority": {
+                    "description": "Priority of the cube within its granularity. It is going to be used when\nDASNav decides in which order the cubes are to be shown to the user.\nWhenever this flag is applied to any of the cubes in the nav_config the\nentire algorithm of how DASNav orders the cubes changes.\nE.g. without setting priority the cubes are sorted like this:\n * small_cube_weekly\n * small_cube_daily\n * small_cube_hourly\n * medium_cube_weekly\n * medium_cube_daily\n * medium_cube_hourly\n * large_cube_weekly\n * large_cube_daily\n * large_cube_hourly\nWith setting priority the cubes are sorted like this:\n * small_cube_weekly\n * medium_cube_weekly\n * large_cube_weekly\n * special_cube3_daily (priority = 1)\n * small_cube_daily\n * medium_cube_daily\n * large_cube_daily\n * special_cube1_hourly (priority = 2)\n * special_cube2_hourly (priority = 1)\n * small_cube_hourly\n * medium_cube_hourly\n * large_cube_hourly\nHigher priority is selected first.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "table": {
+                    "description": "Table this cube should query for data.",
+                    "type": "string"
+                },
+                "tableIsAvailableInF1": {
+                    "description": "Set to true if the cube's table was mirrored to F1QueryOptimized.",
+                    "type": "boolean"
+                },
+                "tableIsAvailableInPdserving": {
+                    "description": "This is set to true if the cube's table was mirrored to PDServing.",
+                    "type": "boolean"
+                },
+                "tableReplicationSource": {
+                    "description": "Location where data for the underlying datasource/table could be found.\nFor example, for Dremel tables it would be the full path on CNS in the\ncluster were the data was first imported.",
+                    "type": "string"
+                },
+                "timeMapping": {
+                    "$ref": "Mapping",
+                    "description": "Mapping of the \"datetime\" dimension. The id field should be empty."
+                },
+                "unreliableDataPeriodHours": {
+                    "description": "The period relative to current backend time, for which the data of this\ncube is considered unreliable. The time unit is hour.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "DasnavDremelMapping": {
+            "description": "Mapping for the dasnav_dremel datasource.\nNext ID: 3",
+            "id": "DasnavDremelMapping",
+            "properties": {
+                "column": {
+                    "description": "Column in the underlying Dremel table to use.",
+                    "type": "string"
+                },
+                "format": {
+                    "enum": [
+                        "STRING",
+                        "BOOLEAN",
+                        "ISO_DATE",
+                        "TIME_USEC"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "An ISO date ('YYYY-MM-DD'), interpreted as PST.",
+                        "Time in microseconds since epoch (UTC)."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Dimension": {
+            "description": "Configuration of a dimension.\nNext ID: 15",
+            "id": "Dimension",
+            "properties": {
+                "active": {
+                    "description": "Is this dimension actually shown on the UI?",
+                    "type": "boolean"
+                },
+                "approximateTopN": {
+                    "description": "Whether to issue an approximate query when computing top-n drilldown by\nthis dimension. Only used by dasnav_pd at the moment. See b/15531656.",
+                    "type": "boolean"
+                },
+                "autocomplete": {
+                    "description": "Whether to show an autocomplete field instead of a dimension value tree.\nThis gets enabled for large dimensions for which trees get unwieldy.",
+                    "type": "boolean"
+                },
+                "autocompleteSpecF1": {
+                    "$ref": "AutocompleteSpecF1",
+                    "description": "F1 autocomplete specification. Used only if autocomplete is set. If set,\nwill setup an autocomplete entry for an 'f1' datasource."
+                },
+                "defaultValues": {
+                    "description": "IDs of the dimension value nodes that must be selected by default whenever\na user opens the Nav (or more specifically a page where this dimension is\ndisplayed). If the dimension is not autocompleted these values must be\npresent in its value tree.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "deprecatedColumn": {
+                    "description": "The name of the column in the database table.\nDEPRECATED: This was superseded by Mappings.",
+                    "type": "string"
+                },
+                "deprecatedFormat": {
+                    "enum": [
+                        "STRING",
+                        "INTEGER",
+                        "BOOLEAN"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "Stored in decimal representation, without leading zeros.",
+                        "Stored as \"0\" for false, \"1\" for true."
+                    ],
+                    "type": "string"
+                },
+                "description": {
+                    "description": "Description string, used for tooltips.",
+                    "type": "string"
+                },
+                "exclusive": {
+                    "description": "Whether to restrict the selection to single values in the data source.\nIf this flag is set to true, the dimension tree nodes in the navigator\nwill be exclusive (i.e. will be rendered as radio buttons), and only the\nleaf nodes will be selectable. The 'all' dimension value won't be\ndisplayed at all.",
+                    "type": "boolean"
+                },
+                "id": {
+                    "description": "ID string, must be unique among the dimensions.",
+                    "type": "string"
+                },
+                "requireDimensionTree": {
+                    "description": "The navigator editor explicitly disabled autocompletion, therefore the\nimporter shouldn't enable it again. require_dimension_tree and\nautocomplete must not be true at the same time.",
+                    "type": "boolean"
+                },
+                "title": {
+                    "description": "Title, as displayed on the UI. Should be in plural.",
+                    "type": "string"
+                },
+                "values": {
+                    "description": "The dimension's value tree.",
+                    "items": {
+                        "$ref": "DimensionValue"
+                    },
+                    "type": "array"
+                },
+                "viewRestricted": {
+                    "description": "Whether the dimension was filtered in a View. If so, a restriction clause\non the dimension values must be present in all queries to datasources.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "DimensionCategory": {
+            "description": "Configuration of a dimension category.\nNext ID: 5",
+            "id": "DimensionCategory",
+            "properties": {
+                "collapsed": {
+                    "description": "Whether this category is shown collapsed (with a hidden dimension\ncontainer) on start or not.",
+                    "type": "boolean"
+                },
+                "description": {
+                    "description": "Plain text description of the category. Will be rendered as tooltip.",
+                    "type": "string"
+                },
+                "dimensionIds": {
+                    "description": "Dimensions in the category in UI order. All IDs must be valid, and must\nbe present in exactly one category.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "title": {
+                    "description": "Title to show on the UI.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DimensionValue": {
+            "description": "A single node in the value tree of a dimension.\nNext ID: 7",
+            "id": "DimensionValue",
+            "properties": {
+                "active": {
+                    "description": "Is this dimension value and its subtree actually shown on the UI?",
+                    "type": "boolean"
+                },
+                "data": {
+                    "description": "The value as found in the dimension's column. Must be set if the dimension\nvalue is a leaf. Non-leaves inherit the values of their children by\ndefault. In that case setting this field overrides the inherited values.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "Description string, used for tooltips.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "ID string, must be unique within its dimension and non-empty.",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Title, as displayed on the UI. Must be unique within its dimension.",
+                    "type": "string"
+                },
+                "values": {
+                    "description": "Child nodes in the dimension value tree. Can be empty.",
+                    "items": {
+                        "$ref": "DimensionValue"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Empty": {
+            "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+            "id": "Empty",
+            "properties": {},
+            "type": "object"
+        },
+        "EventConfig": {
+            "description": "Configuration for event annotations.\nNext ID: 4",
+            "id": "EventConfig",
+            "properties": {
+                "defaultFeed": {
+                    "description": "ID of the feed to select by default, when unset the user-created events in\nthe Nav are selected by default.",
+                    "type": "string"
+                },
+                "eventSourceIds": {
+                    "description": "List of event feeds to show.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "F1Mapping": {
+            "description": "Mapping for the f1 datasource.\nNext ID: 5",
+            "id": "F1Mapping",
+            "properties": {
+                "column": {
+                    "description": "Column in the underlying F1 table to use.",
+                    "type": "string"
+                },
+                "enumName": {
+                    "description": "Optional: Full name of the proto enum of this columns' schema. If provided,\nqueries will use SAFE_CAST to cast STRING or INTEGER values safely to\nenums, to prevent breakages if enum names are added or changed.\n\nWill apply only to columns with format STRING or INTEGER.",
+                    "type": "string"
+                },
+                "format": {
+                    "enum": [
+                        "STRING",
+                        "INTEGER",
+                        "BOOLEAN",
+                        "ISO_DATE",
+                        "ISO_DATE_PLUS_HOUR",
+                        "ISO_DATE_PLUS_HOUR_OF_DAY",
+                        "ISO_DATE_PLUS_CONV_HOUR"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "An ISO date ('YYYY-MM-DD'. As of 2012-12-17, all AdsDb dates are in PST).",
+                        "The AdsNav date format: ISO date string and an additional 'Hour' column.",
+                        "The AdScope date format: ISO date string and an additional 'HourOfDay'\ncolumn.",
+                        "For Conversion monitoring: 'Date' is given by the f1_mapping |column|,\nand 'Hour' is hardcoded as 'ConversionHour' (b/72055639)."
+                    ],
+                    "type": "string"
+                },
+                "repeatedHandling": {
+                    "enum": [
+                        "SINGLE_VALUE",
+                        "MATCH_SOME"
+                    ],
+                    "enumDescriptions": [
+                        "The underlying field is not repeated.",
+                        "When multiple items are specified (by the user) select any data that\nmatches at least one item, i.e. OR the items."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FileQuotaItem": {
+            "description": "Data relating to the file quota of a specific cube.",
+            "id": "FileQuotaItem",
+            "properties": {
+                "cubeId": {
+                    "description": "ID of cube.",
+                    "type": "string"
+                },
+                "highThresholdExceeded": {
+                    "description": "Hysteresis state. If true, the high threshold has already been exceeded\nbefore and a notification has been sent (unless suppressed via\nsilenced_usec). Don't send any more notifications until quota usage\nfalls below the low threshold again. When this happens, reset\nhigh_threshold_exceeded to false.",
+                    "type": "boolean"
+                },
+                "silencedUsec": {
+                    "description": "Don't send any notifications for this cube before this date. Specified\nas microseconds since 1970-01-01 UTC.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GetTopNRequest": {
+            "description": "Request message for DasnavService.GetTopN",
+            "id": "GetTopNRequest",
+            "properties": {
+                "dimension": {
+                    "description": "The dimension to rank by.",
+                    "type": "string"
+                },
+                "dimensionFilters": {
+                    "description": "A list of filters for dimensions. Each entry is a string\nconsisting of the filter name, followed by its value, separated by a\ncolon. Multiple values can be given by separating them with '|'. They\nare interpreted as 'or' (while multiple dimensions names given are\ninterpreted as 'and'). Only a single dimension_filter is supported, i.e.\nthe field is not actually repeated.\nExample: dimension_filters: \"Status:2|3,Duration:4\" where \"Status\" and\n\"Duration\" are dimension IDs and 2,3,4 are dimension value IDs.\ndimension_filters can't include restriction on the GetTopN dimension\nitself.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "dimensionValueCandidates": {
+                    "description": "A list of dimension values for restricting those considered for ranking.\nFor example, to compare only the population of Spain and the population of\nItaly, the metric would be 'population', the dimension 'Country' and\nthe dimension_value_candidates 'Spain' and 'Italy'. If the list is empty,\nconsider all existing dimension values when ranking.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "granularity": {
+                    "description": "Time granularity.",
+                    "type": "string"
+                },
+                "ldapUser": {
+                    "description": "LDAP of user on whose behalf the request is made.",
+                    "type": "string"
+                },
+                "length": {
+                    "description": "The ISO duration of time interval considered for ranking.",
+                    "type": "string"
+                },
+                "maximumCount": {
+                    "description": "How many results should be returned.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "metric": {
+                    "description": "The metric used for ranking.",
+                    "type": "string"
+                },
+                "order": {
+                    "description": "The ranking order.",
+                    "enum": [
+                        "ORDER_UNSPECIFIED",
+                        "ORDER_DESCENDING",
+                        "ORDER_ASCENDING"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "projectionId": {
+                    "description": "The requested projection for the Nav. Optional.",
+                    "type": "string"
+                },
+                "requestSetId": {
+                    "description": "A unique identifier for this request. Used for cancellation.",
+                    "type": "string"
+                },
+                "revision": {
+                    "description": "The requested revision for the Nav. Call DasnavService.GetNav to retrieve\nthe latest revision.\nRequired.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "startDates": {
+                    "description": "The ISO start date of the time interval considered for ranking.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Granularities": {
+            "description": "Nested granularity message.\nNext ID: 7.",
+            "id": "Granularities",
+            "properties": {
+                "daily": {
+                    "type": "boolean"
+                },
+                "hourly": {
+                    "type": "boolean"
+                },
+                "monthly": {
+                    "type": "boolean"
+                },
+                "quarterly": {
+                    "type": "boolean"
+                },
+                "weekBegin": {
+                    "description": "The first day of the week used by the time aggregation in weekly\ngranularity. 0 = Monday, ..., 6 = Sunday.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "weekly": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "LandingState": {
+            "description": "Describes the landing state.",
+            "id": "LandingState",
+            "properties": {
+                "labelIds": {
+                    "description": "IDs of labels to open. Should not contain duplicates.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "LineData": {
+            "description": "An instance of LineData represents the data for a chart line.",
+            "id": "LineData",
+            "properties": {
+                "comparisonIndex": {
+                    "description": "The index of the comparison line which the data is for. Starts from 0.\nWhat is being compared, whether metrics or dimensions, is defined by\nthe request.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "experimentalGroupByDimensionValues": {
+                    "description": "Dicer group-by hack: Identifies the dimension values this line represents.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "metrics": {
+                    "description": "The metric IDs associated with the line.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "values": {
+                    "description": "The values of the line, as many elements as xaxis.",
+                    "items": {
+                        "format": "double",
+                        "type": "number"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Link": {
+            "description": "A hyperlink.\nNext ID: 3",
+            "id": "Link",
+            "properties": {
+                "href": {
+                    "description": "The URL to which the link goes. Must be set.",
+                    "type": "string"
+                },
+                "text": {
+                    "description": "The text to display for the link. Must be set.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListNavsResponse": {
+            "description": "Response message for DasnavService.ListNavs.",
+            "id": "ListNavsResponse",
+            "properties": {
+                "navs": {
+                    "description": "The list of navs.",
+                    "items": {
+                        "$ref": "Nav"
+                    },
+                    "type": "array"
+                },
+                "nextPageToken": {
+                    "description": "For pagination: continuation token for subsequent requests.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Mapping": {
+            "description": "Mapping from a table's columns to a dimension or metric.",
+            "id": "Mapping",
+            "properties": {
+                "dasnavDremelMapping": {
+                    "$ref": "DasnavDremelMapping",
+                    "description": "This is a union of mappings of all known datasources."
+                },
+                "f1Mapping": {
+                    "$ref": "F1Mapping"
+                },
+                "id": {
+                    "description": "ID of the dimension or metric being mapped to. Empty for time mappings.",
+                    "type": "string"
+                },
+                "plxDremelMapping": {
+                    "$ref": "PlxDremelMapping"
+                },
+                "powerdrillMapping": {
+                    "$ref": "PowerdrillMapping"
+                },
+                "procellaMapping": {
+                    "$ref": "ProcellaMapping"
+                },
+                "rqeMapping": {
+                    "$ref": "RqeMapping"
+                }
+            },
+            "type": "object"
+        },
+        "MetaConfig": {
+            "description": "Meta configuration of a dashboard configuration, defines who can edit the\nconfiguration.\nNext ID: 13",
+            "id": "MetaConfig",
+            "properties": {
+                "autoUpdate": {
+                    "description": "For importer modules that support it: Should this Nav's data be auto-\nupdated by running regular reimports?",
+                    "type": "boolean"
+                },
+                "creationTimestampUsec": {
+                    "description": "Timestamp of when the Nav was created, in microseconds since epoch.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "creator": {
+                    "description": "The LDAP user name of the user who created the Nav.",
+                    "type": "string"
+                },
+                "editorAcls": {
+                    "description": "List of ACLs for editing the Nav. The expected format is\n  gaia/x - for members of the Gaia group x.\n  ldap/x - for members of the LDAP group x.\n  mdb/x  - for members of the MDB group x.\n  user/x - for both corp and borg user x.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "fileQuotaItems": {
+                    "items": {
+                        "$ref": "FileQuotaItem"
+                    },
+                    "type": "array"
+                },
+                "importerModule": {
+                    "description": "ID of the importer module used to import this Nav.\nThese are the same IDs as used in ImportRecipes, e.g. \"simple_columnio\" or\n\"logs_dremel\".",
+                    "type": "string"
+                },
+                "isTablePrivate": {
+                    "description": "Whether only the nav owner can view the underlying Datascape tables of\nclassic Navs.",
+                    "type": "boolean"
+                },
+                "owner": {
+                    "description": "The LDAP user name of the owner.",
+                    "type": "string"
+                },
+                "ownerAcceptedLogsPolicy": {
+                    "description": "Whether the owner of the navigator has accepted the logs usage policy.\nIt's the prerequisite of sharing the navigator with others.",
+                    "type": "boolean"
+                },
+                "quotaConfig": {
+                    "description": "Name of the quota config this navigator should be checked against. If not\nset, the service default will be used.",
+                    "type": "string"
+                },
+                "quotaEmails": {
+                    "description": "Email address(es) to send quota notifications to.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "tags": {
+                    "description": "The tags associated with this configuration. Navs may be tagged with\narbitrary strings to allow for easy retrieval by tag across all navs.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Metric": {
+            "description": "Configuration for both atomic or composite metrics.\nNext ID: 9",
+            "id": "Metric",
+            "properties": {
+                "aggregation": {
+                    "description": "Main aggregation function. Determines how to aggregate over time.",
+                    "enum": [
+                        "SUM",
+                        "AVERAGE",
+                        "INHERIT_OUTER",
+                        "PROHIBIT",
+                        "MAX",
+                        "MIN"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "This may only be set for inner_aggregation.",
+                        "That metric must not to be aggregated by DASNav. The metric mapping may\ndefine a backend-specific aggregation, though.",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "deprecatedColumn": {
+                    "description": "The name of the column in the database table. Only set for atomic metrics.\nDEPRECATED: This was superseded by Mappings.",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "Description string, used for tooltips.",
+                    "type": "string"
+                },
+                "format": {
+                    "enum": [
+                        "NUMBER",
+                        "CURRENCY",
+                        "PERCENT"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "formula": {
+                    "description": "Formula string, only set in composite metrics. Any metric names in the\nformula must exist in the same config.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "ID string, must be unique among the metrics.",
+                    "type": "string"
+                },
+                "innerAggregation": {
+                    "description": "Inner aggregation function. Determines how to aggregate rows within a time\nslot.",
+                    "enum": [
+                        "SUM",
+                        "AVERAGE",
+                        "INHERIT_OUTER",
+                        "PROHIBIT",
+                        "MAX",
+                        "MIN"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "This may only be set for inner_aggregation.",
+                        "That metric must not to be aggregated by DASNav. The metric mapping may\ndefine a backend-specific aggregation, though.",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "title": {
+                    "description": "The metric title displayed on the UI. Must be unique within the metrics.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MixfixPreset": {
+            "description": "A mixfix parameter set.\nNext ID: 5",
+            "id": "MixfixPreset",
+            "properties": {
+                "description": {
+                    "description": "The description, as displayed on the UI.",
+                    "type": "string"
+                },
+                "dimension": {
+                    "description": "The dimension whose propotions should be fixed.",
+                    "type": "string"
+                },
+                "metric": {
+                    "description": "The volume metric.",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "The title, as displayed on the UI.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Nav": {
+            "description": "Represents a DASNav Navigator.",
+            "id": "Nav",
+            "properties": {
+                "config": {
+                    "$ref": "Config",
+                    "description": "The configuration of the navigator."
+                },
+                "id": {
+                    "description": "Unique identifier for the navigator.",
+                    "type": "string"
+                },
+                "revision": {
+                    "description": "The latest revision of the navigator.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "The title used when displaying the navigator.",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "URL of the navigator.",
+                    "type": "string"
+                },
+                "vanityId": {
+                    "description": "Vanity ID. This is only set if the owner registered a vanity ID for this\nnavigator.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "NavConfig": {
+            "description": "The main configuration protobuf.\nThe fields must be defined so that whether they are unset or set to their\ndefault values doesn't matter in terms of semantics, otherwise comparison of\nNavConfigs for equality would be hard and error prone.\nNext ID: 38",
+            "id": "NavConfig",
+            "properties": {
+                "atomicMetrics": {
+                    "items": {
+                        "$ref": "Metric"
+                    },
+                    "type": "array"
+                },
+                "authorizationMessage": {
+                    "description": "The plain ASCII text to show when a viewer is unauthorized to access this\nnav.",
+                    "type": "string"
+                },
+                "auxiliaryDirectory": {
+                    "description": "Auxiliary directory for this version of the Nav config, if any. Relative to\nthe common root directory for aux. directories.",
+                    "type": "string"
+                },
+                "baseNavId": {
+                    "description": "The ID of the base (original) Nav, set only in the configs of staged Navs.",
+                    "type": "string"
+                },
+                "compositeMetrics": {
+                    "items": {
+                        "$ref": "Metric"
+                    },
+                    "type": "array"
+                },
+                "cubes": {
+                    "description": "Cubes for this Nav. There's always at least one. The union of dimensions\nand metrics by the cubes must be equal to the dimensions and atomic_metrics\nof the Nav.",
+                    "items": {
+                        "$ref": "CubeSpec"
+                    },
+                    "type": "array"
+                },
+                "defaultTimeIntervalIndex": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "deprecatedDatasource": {
+                    "description": "Deprecated. Datasource to use for this Nav.\nDefaults to DASNav's dremel backend.",
+                    "type": "string"
+                },
+                "deprecatedTable": {
+                    "description": "Table this Nav should query for data.\nIf not set this defaults to the Nav ID.\nDEPRECATED.",
+                    "type": "string"
+                },
+                "deprecatedTableIsAvailableInPdserving": {
+                    "description": "This is set to true if the Nav's table was mirrored to PDServing.\nDEPRECATED.",
+                    "type": "boolean"
+                },
+                "deprecatedTableReplicationSource": {
+                    "description": "Location where data for the underlying datasource/table could be found.\nFor example, for Dremel tables it would be the full path on CNS in the\ncluster were the data was first imported.\nDEPRECATED.",
+                    "type": "string"
+                },
+                "deprecatedTimeColumnName": {
+                    "description": "DEPRECATED global time format & column fields. These have been superseded\nby Mappings. Note that time_format used to be an enum value, which was\nsince removed. The int32 value has an equivalent protobuf wiretype.",
+                    "type": "string"
+                },
+                "deprecatedTimeFormat": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "deprecatedViewerGroups": {
+                    "description": "LDAP group IDs.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "deprecatedViewerUsers": {
+                    "description": "Deprecated. Unused access restrictions.\nUser IDs.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "dimensionCategories": {
+                    "description": "Dimension categories to group the dimensions on the UI.\nIf empty, no categories will be rendered, and the order of the dimensions\nwill be determined by the dimensions repeated field.",
+                    "items": {
+                        "$ref": "DimensionCategory"
+                    },
+                    "type": "array"
+                },
+                "dimensions": {
+                    "description": "Dimensions and metrics. See the descriptions of the sub-message\ndefinitions for documentation.",
+                    "items": {
+                        "$ref": "Dimension"
+                    },
+                    "type": "array"
+                },
+                "enablePowerdrillLinks": {
+                    "description": "Experimental flag. If true, the Nav UI will provide links to a PowerDrill\nsession looking at the same (or at least related) data as the Nav.",
+                    "type": "boolean"
+                },
+                "eventConfig": {
+                    "$ref": "EventConfig",
+                    "description": "Configuration for event annotations."
+                },
+                "granularities": {
+                    "$ref": "Granularities"
+                },
+                "id": {
+                    "description": "ID string, the key to the configuration bigtable and used as part of the\nnavigator's URL.",
+                    "type": "string"
+                },
+                "indicateDimensionValueRelevance": {
+                    "description": "If true, the irrelevant dimension values will be greyed out and the\nrelevant values of large dimensions will be listed below the autocomplete\nboxes. The feature is recommended to be turned off for slow navs as well\nas for navs with weekly rollups (b/20614256).",
+                    "type": "boolean"
+                },
+                "landingPageLabelId": {
+                    "description": "DEPRECATED: This was superseded by landing_page.",
+                    "type": "string"
+                },
+                "landingState": {
+                    "$ref": "LandingState",
+                    "description": "If unset, the first page will be selected by default."
+                },
+                "links": {
+                    "description": "Additional links that will be displayed in the navigator's UI.",
+                    "items": {
+                        "$ref": "Link"
+                    },
+                    "type": "array"
+                },
+                "mixfixPresets": {
+                    "description": "Mixfix parameter sets.",
+                    "items": {
+                        "$ref": "MixfixPreset"
+                    },
+                    "type": "array"
+                },
+                "nonEditableAcls": {
+                    "description": "ACLs that cannot be changed by the Nav editor. The format is the same as\nfor viewer_acls. As with viewer_acls, it is sufficient for a viewer to\nsatisfy one of the non_editable_acls.\nIf no non_editable_acls are set, only viewer_acls are considered.\nOtherwise, both viewer_acls and non_editable_acls must be satisfied by\nviewers.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "notification": {
+                    "$ref": "Notification",
+                    "description": "Butterbar notification."
+                },
+                "pages": {
+                    "description": "Pages holding the metrics. There must be at least one in the config.",
+                    "items": {
+                        "$ref": "Page"
+                    },
+                    "type": "array"
+                },
+                "tagManagerContainerId": {
+                    "description": "Google Tag Manager container ID. This is only set if the user specified\na GTM container for this navigator",
+                    "type": "string"
+                },
+                "timeIntervals": {
+                    "items": {
+                        "$ref": "TimeInterval"
+                    },
+                    "type": "array"
+                },
+                "timeRanges": {
+                    "$ref": "TimeRanges",
+                    "description": "Deprecated by time_intervals."
+                },
+                "title": {
+                    "description": "The navigator title shown on the UI.",
+                    "type": "string"
+                },
+                "truncateDataCliff": {
+                    "description": "Whether to truncate the data cliffs of the charts.",
+                    "type": "boolean"
+                },
+                "vanityId": {
+                    "description": "Vanity ID, in the form 'namespace/name'. This is only set if the owner\nregistered a vanity ID for this Nav.",
+                    "type": "string"
+                },
+                "viewerAcls": {
+                    "description": "Access restrictions. Format:\n  gaia/x - for members of the Gaia group x (x includes the email domain).\n  ldap/x - for members of the LDAP group x.\n  mdb/x  - for members of the MDB group x.\n  user/x - for both corp and borg user x.\nIf none of the fields is set, the dashboard will be fully public. If a\nviewer satisfies any of viewer_acls, the dashboard can be accessed.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "wtfConfig": {
+                    "$ref": "WtfConfig",
+                    "description": "Configuration for the WTF drilldown."
+                }
+            },
+            "type": "object"
+        },
+        "Notification": {
+            "description": "A notification shown to all Nav users, configurable by the editor.\nNext ID: 3",
+            "id": "Notification",
+            "properties": {
+                "href": {
+                    "description": "Optional URL, pointed to by the 'Learn more' link.",
+                    "type": "string"
+                },
+                "text": {
+                    "description": "Text to be shown in a butterbar at the top of the Nav. No notification is\nshown if text is not set or empty.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Page": {
+            "description": "Configuration of a page (aka tab) on the UI.\nNext ID: 6",
+            "id": "Page",
+            "properties": {
+                "description": {
+                    "description": "The description shown in the tab tooltip.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "ID string, must be unique within pages (including subtrees).",
+                    "type": "string"
+                },
+                "metrics": {
+                    "description": "List of metric IDs, each of which must correspond to the ID of a metric.\nMust not contain duplicates.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "pages": {
+                    "description": "List of sub-pages. If set there must be no metrics set for the page.",
+                    "items": {
+                        "$ref": "Page"
+                    },
+                    "type": "array"
+                },
+                "title": {
+                    "description": "The title shown on the tab. Must be unique within the pages.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PlxDremelMapping": {
+            "description": "Mapping for the plx_dremel datasource.\nNext ID: 3",
+            "id": "PlxDremelMapping",
+            "properties": {
+                "column": {
+                    "description": "Column in the underlying #plx table to use.",
+                    "type": "string"
+                },
+                "format": {
+                    "enum": [
+                        "STRING",
+                        "INTEGER",
+                        "BOOLEAN",
+                        "ISO_DATE",
+                        "TIME_USEC"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "An ISO date ('YYYY-MM-DD'), interpreted as PST.",
+                        "Time in microseconds since epoch (UTC)."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PowerdrillMapping": {
+            "description": "Mapping for the dasnav_pd datasource.\nNext ID: 6",
+            "id": "PowerdrillMapping",
+            "properties": {
+                "format": {
+                    "enum": [
+                        "STRING_COLUMN",
+                        "NUMERIC_COLUMN",
+                        "BOOLEAN_COLUMN",
+                        "METRIC_FORMULA"
+                    ],
+                    "enumDescriptions": [
+                        "Expect 1 string argument - the string column.",
+                        "",
+                        "Expects 1 string argument - the boolean column.",
+                        "Expects 1 or 2 string arguments - the metric formula expression, and an\noptional IS_NULL field or expression."
+                    ],
+                    "type": "string"
+                },
+                "formatArgs": {
+                    "description": "Arguments that detail how time is represented in the underlying data. Their\ntype and meaning change depending on the dimension or metric format -\nspecific information in the Format enum below.",
+                    "items": {
+                        "format": "byte",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "repeatedHandling": {
+                    "enum": [
+                        "SINGLE_VALUE",
+                        "MATCH_SOME"
+                    ],
+                    "enumDescriptions": [
+                        "The underlying field is not repeated.",
+                        "When multiple items are specified (by the user) select any data that\nmatches at least one item, i.e. OR the items."
+                    ],
+                    "type": "string"
+                },
+                "timeFormat": {
+                    "enum": [
+                        "ISO_DATE",
+                        "ISO_DATE_PLUS_INT_HOUR",
+                        "TIME_USEC"
+                    ],
+                    "enumDescriptions": [
+                        "An ISO date string in 'YYYY-MM-DD' format.\nExpects 1 sting argument - the date column name.",
+                        "The AdsNav date format: ISO date string and an additional integer hour\ncolumn.\nExpects 2 string arguments - the date and hour column names.",
+                        "Time in microseconds since epoch (UTC). Expects a single argument: the\ndate column name."
+                    ],
+                    "type": "string"
+                },
+                "timeFormatArgs": {
+                    "description": "Arguments that detail how time is represented in the underlying data. Their\ntype and meaning change depending on the time format - specific information\nis in the enum above.",
+                    "items": {
+                        "format": "byte",
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ProcellaMapping": {
+            "id": "ProcellaMapping",
+            "properties": {
+                "column": {
+                    "description": "Column name or procella SQL expression to be used when selecting data.",
+                    "type": "string"
+                },
+                "format": {
+                    "enum": [
+                        "STRING",
+                        "INTEGER",
+                        "BOOLEAN",
+                        "DATE_DECIMAL"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "An 8-digit integer representing the date: YYYYMMDD."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RqeMapping": {
+            "description": "Mapping for the RQE datasource.\nNext ID: 2",
+            "id": "RqeMapping",
+            "properties": {
+                "column": {
+                    "description": "Column in RQE to use.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TimeInterval": {
+            "description": "Configuration for time intervals.\nNext ID: 5",
+            "id": "TimeInterval",
+            "properties": {
+                "end": {
+                    "description": "Exclusive end date in ISO 8601 date format or the amount of time before\nnow in ISO 8601 duration format.\nIf the start date is relative, the end date must be relative too.",
+                    "type": "string"
+                },
+                "start": {
+                    "description": "Inclusive start date in ISO 8601 date format (e.g. \"2011-02-22\") or\nthe amount of time before now in ISO 8601 duration format (e.g. \"P7D\").",
+                    "type": "string"
+                },
+                "startAlignment": {
+                    "description": "The alignment of the 'start' field.",
+                    "enum": [
+                        "NEXT_MIDNIGHT",
+                        "MONTH",
+                        "QUARTER",
+                        "YEAR"
+                    ],
+                    "enumDescriptions": [
+                        "Start of the next day (00:00 inclusive).",
+                        "Start of month (00:00 inclusive).",
+                        "Start of quarter (00:00 inclusive).",
+                        "Start of year (00:00 inclusive)."
+                    ],
+                    "type": "string"
+                },
+                "title": {
+                    "description": "The time interval title displayed on the UI.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TimeRanges": {
+            "description": "Nested time range message. Deprecated by time_intervals.",
+            "id": "TimeRanges",
+            "properties": {
+                "month": {
+                    "type": "boolean"
+                },
+                "quarter": {
+                    "type": "boolean"
+                },
+                "week": {
+                    "type": "boolean"
+                },
+                "year": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "TopN": {
+            "description": "A Top-N is a ranking of dimensions for a given metric.",
+            "id": "TopN",
+            "properties": {
+                "items": {
+                    "description": "The ranked entries.",
+                    "items": {
+                        "$ref": "TopNItem"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "TopNItem": {
+            "description": "A Top-N ranking entry.",
+            "id": "TopNItem",
+            "properties": {
+                "dimensionValue": {
+                    "description": "The ranked dimension value.",
+                    "type": "string"
+                },
+                "metricValue": {
+                    "description": "The ranked metric value.",
+                    "format": "double",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "WtfConfig": {
+            "description": "Configuration for WTF drilldown.\nNext ID: 2",
+            "id": "WtfConfig",
+            "properties": {
+                "isCustomizable": {
+                    "description": "Whether custom combinations are allowed.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Zoom API",
+    "version": "v1",
+    "version_module": true
+}

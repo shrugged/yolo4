@@ -1,0 +1,637 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/cloud-platform": {
+                    "description": "View and manage your data across Google Cloud Platform services"
+                },
+                "https://www.googleapis.com/auth/monitoring": {
+                    "description": "View and write monitoring data for all of your Google and third-party Cloud and API projects"
+                },
+                "https://www.googleapis.com/auth/monitoring.read": {
+                    "description": "View monitoring data for all of your Google Cloud and third-party projects"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://test-keyvisualizer-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Key Visualizer",
+    "description": "Cloud Key Visualizer Private API used to list and load available scans.",
+    "discoveryVersion": "v1",
+    "documentationLink": "https://goto.google.com/visual-analytics/keysight",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "keyvisualizer_pa:v1",
+    "kind": "discovery#restDescription",
+    "name": "keyvisualizer_pa",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "domains": {
+            "resources": {
+                "projects": {
+                    "resources": {
+                        "scans": {
+                            "methods": {
+                                "get": {
+                                    "description": "Get scan data for a storage domain, project ID, and scan path.",
+                                    "flatPath": "v1/domains/{domain}/projects/{projectNumber}/scans/{scanPath}",
+                                    "httpMethod": "GET",
+                                    "id": "keyvisualizer_pa.domains.projects.scans.get",
+                                    "parameterOrder": [
+                                        "domain",
+                                        "projectNumber",
+                                        "scanPath"
+                                    ],
+                                    "parameters": {
+                                        "domain": {
+                                            "description": "The storage domain, e.g. \"bigtable\", \"spanner\", \"datastore\".",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "projectNumber": {
+                                            "description": "The project number to get the scan for.",
+                                            "format": "int64",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "scanPath": {
+                                            "description": "The path to the scan.",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "uuid": {
+                                            "description": "UUID used for deduping requests. Each request from the front-end should\ninclude a new UUID.",
+                                            "location": "query",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/domains/{domain}/projects/{projectNumber}/scans/{scanPath}",
+                                    "response": {
+                                        "$ref": "GetScanResponse"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform",
+                                        "https://www.googleapis.com/auth/monitoring",
+                                        "https://www.googleapis.com/auth/monitoring.read"
+                                    ]
+                                },
+                                "list": {
+                                    "description": "List scans and associated metadata for a storage domain and project ID.",
+                                    "flatPath": "v1/domains/{domain}/projects/{projectNumber}/scans",
+                                    "httpMethod": "GET",
+                                    "id": "keyvisualizer_pa.domains.projects.scans.list",
+                                    "parameterOrder": [
+                                        "domain",
+                                        "projectNumber"
+                                    ],
+                                    "parameters": {
+                                        "domain": {
+                                            "description": "The storage domain, e.g. \"bigtable\", \"datastore\". For a full list see:\nhttp://google3/java/com/google/storage/visualanalytics/keyvisualizer/api/KeyVisualizerServiceImpl.java",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        },
+                                        "pageToken": {
+                                            "description": "Currently not used, exists for future compatibility.",
+                                            "location": "query",
+                                            "type": "string"
+                                        },
+                                        "projectNumber": {
+                                            "description": "The project number to list scans for.",
+                                            "format": "int64",
+                                            "location": "path",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "path": "v1/domains/{domain}/projects/{projectNumber}/scans",
+                                    "response": {
+                                        "$ref": "ListScansResponse"
+                                    },
+                                    "scopes": [
+                                        "https://www.googleapis.com/auth/cloud-platform",
+                                        "https://www.googleapis.com/auth/monitoring",
+                                        "https://www.googleapis.com/auth/monitoring.read"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190822",
+    "rootUrl": "https://test-keyvisualizer-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "CbtInfo": {
+            "description": "A message describing metadata about a Cloud Bigtable. Next id: 7.",
+            "id": "CbtInfo",
+            "properties": {
+                "clusterId": {
+                    "description": "The cluster id.",
+                    "type": "string"
+                },
+                "customName": {
+                    "description": "The custom Bigtable name.",
+                    "type": "string"
+                },
+                "instanceId": {
+                    "description": "The instance id.",
+                    "type": "string"
+                },
+                "jurisdiction": {
+                    "description": "The jurisdiction, \"us\", \"europe\", or \"others\".",
+                    "type": "string"
+                },
+                "projectNumber": {
+                    "description": "The project number.",
+                    "type": "string"
+                },
+                "zoneId": {
+                    "description": "The zone id, equivalent to location, which is the internal term.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DerivedMetric": {
+            "description": "A message representing a derived metric.\nNext id: 3.",
+            "id": "DerivedMetric",
+            "properties": {
+                "denominator": {
+                    "description": "The name of the denominator metric. e.g. \"rows\".",
+                    "type": "string"
+                },
+                "numerator": {
+                    "description": "The name of the numerator metric. e.g. \"latency\".",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DiagnosticMessage": {
+            "description": "A message representing the key visualizer diagnostic messages.\nNext id: 6.",
+            "id": "DiagnosticMessage",
+            "properties": {
+                "description": {
+                    "description": "The description.",
+                    "type": "string"
+                },
+                "metric": {
+                    "description": "The metric.",
+                    "type": "string"
+                },
+                "severity": {
+                    "description": "The severity of the diagnostic message.",
+                    "type": "string"
+                },
+                "shortMessage": {
+                    "description": "The short message.",
+                    "type": "string"
+                },
+                "showOnlyForThisMetric": {
+                    "description": "Whether to show this message only when this metric is visible.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "GetScanResponse": {
+            "description": "A response containing scan data that can be visualized in the CKV UI.\nThis message should be only used in Stackdriver.\nNext id: 2.",
+            "id": "GetScanResponse",
+            "properties": {
+                "scanData": {
+                    "$ref": "ScanData",
+                    "description": "The data object that was loaded."
+                }
+            },
+            "type": "object"
+        },
+        "KeyRangeInfo": {
+            "description": "A message representing information for a key range (possibly one key).\nNext id: 6.",
+            "id": "KeyRangeInfo",
+            "properties": {
+                "description": {
+                    "description": "The description of this key range, for all metrics.",
+                    "type": "string"
+                },
+                "endKeyIndex": {
+                    "description": "The index of the end key in indexed_keys.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "metricValues": {
+                    "description": "The list of values for particular metrics associated with this key range.",
+                    "items": {
+                        "$ref": "KeyRangeInfoMetricValue"
+                    },
+                    "type": "array"
+                },
+                "numKeys": {
+                    "description": "The number of keys this range covers.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "startKeyIndex": {
+                    "description": "The index of the start key in indexed_keys.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "KeyRangeInfoMetricValue": {
+            "description": "A message representing a metric, value, unit and description tuple for a\nKeyRangeInfo.\nNext id: 5.",
+            "id": "KeyRangeInfoMetricValue",
+            "properties": {
+                "description": {
+                    "description": "The description specific for this metric.",
+                    "type": "string"
+                },
+                "metric": {
+                    "description": "The name of the metric. e.g. \"latency\".",
+                    "type": "string"
+                },
+                "unit": {
+                    "description": "The unit of the metric.",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "The value of the metric.",
+                    "format": "float",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "KeyRangeInfos": {
+            "description": "A message representing a list of specific information for multiple key\nranges.\nNext id: 3.",
+            "id": "KeyRangeInfos",
+            "properties": {
+                "fullCount": {
+                    "description": "The size of the total list of infos if the list below is truncated.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "infos": {
+                    "description": "The list individual KeyRangeInfos.",
+                    "items": {
+                        "$ref": "KeyRangeInfo"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListScansResponse": {
+            "description": "A response that lists available scans and associated metadata.\nNext id: 4.",
+            "id": "ListScansResponse",
+            "properties": {
+                "nextPageToken": {
+                    "description": "Currently not used, exists for future compatibility.",
+                    "type": "string"
+                },
+                "scanPaths": {
+                    "description": "List of all the scan paths that can loaded by issuing a GetScanRequest.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "sourceIdToInfo": {
+                    "additionalProperties": {
+                        "$ref": "SourceInfo"
+                    },
+                    "description": "A map of source_id (a CKV construct shared across all domains) to a\nmetadata object describing the data source.",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "MetricData": {
+            "description": "A message representing the actual monitoring data, values for each key bucket\nover time, of a metric.\nNext id: 13.",
+            "id": "MetricData",
+            "properties": {
+                "aggregation": {
+                    "description": "The aggregation function used to aggregate each key bucket. e.g. \"SUM\",\n\"MAX\", \"DOT_PRODUCT\".",
+                    "type": "string"
+                },
+                "anyNonZeroData": {
+                    "description": "Whether the metric has any non-zero data.",
+                    "type": "boolean"
+                },
+                "category": {
+                    "description": "The category of the metric, e.g. \"Activity\", \"Alerts\", \"Reads\", etc.",
+                    "type": "string"
+                },
+                "derived": {
+                    "$ref": "DerivedMetric",
+                    "description": "The references to numerator and denominator metrics for a derived metric."
+                },
+                "description": {
+                    "description": "The description of the metric.",
+                    "type": "string"
+                },
+                "hotValue": {
+                    "description": "The value that is considered hot for the metric.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "matrix": {
+                    "$ref": "MetricMatrix",
+                    "description": "The data for the metric as a matrix."
+                },
+                "name": {
+                    "description": "The name of the metric.",
+                    "type": "string"
+                },
+                "sparseHotKeyIndexMatrix": {
+                    "additionalProperties": {
+                        "format": "int32",
+                        "type": "integer"
+                    },
+                    "description": "The sparse matrix of indices mapped to an index in indexed_Keys.",
+                    "type": "object"
+                },
+                "sparseKeyRangeInfosMatrix": {
+                    "additionalProperties": {
+                        "$ref": "KeyRangeInfos"
+                    },
+                    "description": "The sparse matrix of indices mapped to KeyRangeInfos.",
+                    "type": "object"
+                },
+                "unit": {
+                    "description": "The unit of the metric.",
+                    "type": "string"
+                },
+                "visible": {
+                    "description": "Whether the metric is visible to the end user.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "MetricMatrix": {
+            "description": "A message representing a matrix of floats. Next id: 2.",
+            "id": "MetricMatrix",
+            "properties": {
+                "rows": {
+                    "description": "The rows of the matrix.",
+                    "items": {
+                        "$ref": "MetricMatrixRow"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "MetricMatrixRow": {
+            "description": "A message representing a row of a matrix of floats. Next id: 2.",
+            "id": "MetricMatrixRow",
+            "properties": {
+                "cols": {
+                    "description": "The columns of the row.",
+                    "items": {
+                        "format": "float",
+                        "type": "number"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "PrefixNode": {
+            "description": "A message representing a key prefix node in the key prefix hierarchy. Next\nid: 6.",
+            "id": "PrefixNode",
+            "properties": {
+                "depth": {
+                    "description": "The depth in the prefix hierarchy.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "endIndex": {
+                    "description": "The index of the end key bucket of the range that this node spans.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "startIndex": {
+                    "description": "The index of the start key bucket of the range that this node spans.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "tableNode": {
+                    "description": "Whether this corresponds to a table name.",
+                    "type": "boolean"
+                },
+                "word": {
+                    "description": "The string represented by the prefix node.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ScanData": {
+            "description": "A message representing a scan, i.e. the data that is needed to generate a CKV\nvisualization. This closely mirrors the fields of:\nhttp://google3/java/com/google/storage/visualanalytics/keysight/aggregation/KeyTimeGrid.java\nNext id: 19.",
+            "id": "ScanData",
+            "properties": {
+                "containsPii": {
+                    "description": "Whether this scan contains PII.",
+                    "type": "boolean"
+                },
+                "domain": {
+                    "description": "The domain of the data source, e.g. \"Bigtable', \"Spanner\", etc.",
+                    "type": "string"
+                },
+                "domainUrl": {
+                    "description": "A url that contains domain specific documentation; may point to Cloud docs.",
+                    "type": "string"
+                },
+                "endKeyStrings": {
+                    "description": "The list of end keys for each key bucket.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "indexedKeys": {
+                    "description": "The list of keys that are referenced by KeyRangeInfos.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "keySeparator": {
+                    "description": "The token delimiting the key prefixes.",
+                    "type": "string"
+                },
+                "keyUnit": {
+                    "description": "The unit for the key: e.g. 'key' or 'chunk'.",
+                    "type": "string"
+                },
+                "maxTime": {
+                    "description": "The end of the time range captured by the scan.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "messages": {
+                    "description": "The list of messages (info, alerts, ...)",
+                    "items": {
+                        "$ref": "DiagnosticMessage"
+                    },
+                    "type": "array"
+                },
+                "metrics": {
+                    "description": "The list of data objects for each metric.",
+                    "items": {
+                        "$ref": "MetricData"
+                    },
+                    "type": "array"
+                },
+                "minTime": {
+                    "description": "The start of the time range captured by the scan.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "numKeyBuckets": {
+                    "description": "The number of key buckets.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "prefixNodes": {
+                    "description": "The list of extracted key prefix nodes used in the key prefix hierarchy.",
+                    "items": {
+                        "$ref": "PrefixNode"
+                    },
+                    "type": "array"
+                },
+                "sourceName": {
+                    "description": "The name of the data source this scan came from, e.g. a particular\nBigtable.",
+                    "type": "string"
+                },
+                "subtitles": {
+                    "description": "The subtitles: any kind of information about the scan.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "tableEnd": {
+                    "description": "The token signifying the end of a table.",
+                    "type": "string"
+                },
+                "tableSeparator": {
+                    "description": "The token delimiting a table name from the rest of a key in a table.",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "The title of the scan: e.g. the table name.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SourceInfo": {
+            "description": "Metadata about a table from any storage domain. Next id: 2.",
+            "id": "SourceInfo",
+            "properties": {
+                "cbtInfo": {
+                    "$ref": "CbtInfo",
+                    "description": "Metadata about a Cloud Bigtable."
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Cloud Key Visualizer Private API",
+    "version": "v1",
+    "version_module": true
+}

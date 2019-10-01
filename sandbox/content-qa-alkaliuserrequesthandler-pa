@@ -1,0 +1,1111 @@
+{
+    "basePath": "",
+    "baseUrl": "https://qa-alkaliuserrequesthandler-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Alkali Userrequesthandler",
+    "description": "Baymax User Request Handler Alkali Application",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://go/alkali",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "qa_alkaliuserrequesthandler_pa_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "qa_alkaliuserrequesthandler_pa_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "BaymaxURH": {
+            "resources": {
+                "CreateTicketFromUsersRequest": {
+                    "methods": {
+                        "create": {
+                            "description": "Generates a ticket from a user's request and returns id of created issue.",
+                            "flatPath": "v1/BaymaxURH/CreateTicketFromUsersRequest",
+                            "httpMethod": "POST",
+                            "id": "qa_alkaliuserrequesthandler_pa_sandbox.BaymaxURH.CreateTicketFromUsersRequest.create",
+                            "parameterOrder": [],
+                            "parameters": {},
+                            "path": "v1/BaymaxURH/CreateTicketFromUsersRequest",
+                            "request": {
+                                "$ref": "MapsProductionToolsBaymaxUserRequestHandlerReporterRequest"
+                            },
+                            "response": {
+                                "$ref": "MapsProductionToolsBaymaxUserRequestHandlerServerResponse"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "echo": {
+            "methods": {
+                "create": {
+                    "description": "Responds back with same message.",
+                    "flatPath": "v1/echo",
+                    "httpMethod": "POST",
+                    "id": "qa_alkaliuserrequesthandler_pa_sandbox.echo.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/echo",
+                    "request": {
+                        "$ref": "GoogleInternalAlkaliApplicationsUserrequesthandlerV1CreateEchoRequest"
+                    },
+                    "response": {
+                        "$ref": "GoogleInternalAlkaliApplicationsUserrequesthandlerV1Echo"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190917",
+    "rootUrl": "https://qa-alkaliuserrequesthandler-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "GoogleInternalAlkaliApplicationsUserrequesthandlerV1CreateEchoRequest": {
+            "description": "Echo request.",
+            "id": "GoogleInternalAlkaliApplicationsUserrequesthandlerV1CreateEchoRequest",
+            "properties": {
+                "in": {
+                    "description": "Input message to echo.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalAlkaliApplicationsUserrequesthandlerV1Echo": {
+            "description": "Echo response.",
+            "id": "GoogleInternalAlkaliApplicationsUserrequesthandlerV1Echo",
+            "properties": {
+                "out": {
+                    "description": "Echoed input message.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MapsProductionToolsBaymaxUserRequestHandlerApiIdentifier": {
+            "description": "Use this message to identify an API.",
+            "id": "MapsProductionToolsBaymaxUserRequestHandlerApiIdentifier",
+            "properties": {
+                "domainName": {
+                    "description": "At RPC traffic level, use domain_name as an identifier for API.\nDomain is used in global throttling configuration",
+                    "type": "string"
+                },
+                "key": {
+                    "description": "API key. This is PII.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "API name.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MapsProductionToolsBaymaxUserRequestHandlerQPSQuotaRequest": {
+            "id": "MapsProductionToolsBaymaxUserRequestHandlerQPSQuotaRequest",
+            "properties": {
+                "apiIdentifier": {
+                    "$ref": "MapsProductionToolsBaymaxUserRequestHandlerApiIdentifier",
+                    "description": "Required"
+                },
+                "attributes": {
+                    "additionalProperties": {
+                        "description": "Properties of the object.",
+                        "type": "any"
+                    },
+                    "description": "Use attributes to detail quota request requirements, such as\nrequested qps, traffic mix information, etc.\nFor example:\n    { \"QPS\": 100,\n      \"text_based_address_percentage\": 10 }",
+                    "type": "object"
+                },
+                "quotaType": {
+                    "description": "Required",
+                    "enum": [
+                        "UNKNOWN_QUOTA_TYPE",
+                        "HTTP",
+                        "RPC"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MapsProductionToolsBaymaxUserRequestHandlerReporterRequest": {
+            "description": "User Request with a reporter's username.",
+            "id": "MapsProductionToolsBaymaxUserRequestHandlerReporterRequest",
+            "properties": {
+                "reporter": {
+                    "type": "string"
+                },
+                "userRequest": {
+                    "$ref": "MapsProductionToolsBaymaxUserRequestHandlerUserRequest"
+                }
+            },
+            "type": "object"
+        },
+        "MapsProductionToolsBaymaxUserRequestHandlerResource": {
+            "id": "MapsProductionToolsBaymaxUserRequestHandlerResource",
+            "properties": {
+                "amount": {
+                    "description": "The requested amount of resource. Its units are given in ProductType\ncomments.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "productType": {
+                    "description": "Required.",
+                    "enum": [
+                        "UNKNOWN_PRODUCT_TYPE",
+                        "BORG_RAM",
+                        "BORG_GCU",
+                        "BORG_DISK",
+                        "COLOSSUS_DISK",
+                        "COLOSSUS_SSD",
+                        "COLOSSUS_LOW_LATENCY_SPINDLES",
+                        "COLOSSUS_THROUGHPUT_SPINDLES",
+                        "BIGTABLE_SERVER_TSUS",
+                        "BIGTABLE_LOW_LATENCY_SPINDLES",
+                        "BIGTABLE_THROUGHPUT_SPINDLES",
+                        "BIGTABLE_DISK",
+                        "BIGTABLE_SSD",
+                        "SPANNER_SERVERS",
+                        "SPANNER_STORAGE_DISK",
+                        "SPANNER_STORAGE_BACKUP_DISK",
+                        "SPANNER_LOW_LATENCY_SPINDLES",
+                        "SPANNER_THROUGHPUT_SPINDLES",
+                        "SPANNER_STORAGE_SSD",
+                        "MONARCH_IN_MEMORY_STORAGE",
+                        "MONARCH_ON_DISK_STORAGE",
+                        "ULS_THROUGHPUT",
+                        "ULS_BUFFER",
+                        "CHRONICLE_DAILY_THROUGHPUT",
+                        "CHRONICLE_LIBRARY_STORAGE",
+                        "CHRONICLE_VAULT_STORAGE",
+                        "STRUCTURED_SEARCH_STBTI_GCU",
+                        "STRUCTURED_SEARCH_STCP_GCU",
+                        "STRUCTURED_SEARCH_STBTI_RAM",
+                        "STRUCTURED_SEARCH_STCP_RAM"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "BORG\nWould be given in GiB.",
+                        "Would be given as number of GCUs.",
+                        "Would be given in GiB.",
+                        "COLOSSUS\nWould be given in GiB.",
+                        "Would be given in GiB.",
+                        "Would be given as number of low-latency spindles.",
+                        "Would be given as number of throughput spindles.",
+                        "BIGTABLE\nWould be given as number of servers (TSUs).",
+                        "Would be given as number of low_latency spindles.",
+                        "Would be given as number of throughput spindles.",
+                        "Would be given in GiB.",
+                        "Would be given in GiB.",
+                        "SPANNER\nWould be given as number of servers.",
+                        "Would be given in GiB.",
+                        "Would be given in GiB.",
+                        "Would be given as number of low_latency spindles.",
+                        "Would be given as number of throughput spindles.",
+                        "Would be given in GiB.",
+                        "MONARCH\nWould be given in GiB.",
+                        "Would be given in GiB.",
+                        "ULS\nWould be given in MB/sec.",
+                        "Would be given in TiB.",
+                        "CHRONICLE\nWould be given in TiB.",
+                        "Would be given in TiB.",
+                        "Would be given in TiB.",
+                        "STRUCTURED SEARCH\nWould be given as number of STBTI GCUs.",
+                        "Would be given as number of STCP GCUs.",
+                        "Would be given in GiB.",
+                        "Would be given in GiB."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MapsProductionToolsBaymaxUserRequestHandlerResourcesPerLocation": {
+            "id": "MapsProductionToolsBaymaxUserRequestHandlerResourcesPerLocation",
+            "properties": {
+                "location": {
+                    "$ref": "ProductionRomaPlinyLocationLocation"
+                },
+                "locationString": {
+                    "type": "string"
+                },
+                "resources": {
+                    "items": {
+                        "$ref": "MapsProductionToolsBaymaxUserRequestHandlerResource"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "MapsProductionToolsBaymaxUserRequestHandlerServerResponse": {
+            "description": "Server response with id of created bug and additional notes.",
+            "id": "MapsProductionToolsBaymaxUserRequestHandlerServerResponse",
+            "properties": {
+                "bugId": {
+                    "format": "int64",
+                    "type": "string"
+                },
+                "note": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MapsProductionToolsBaymaxUserRequestHandlerServiceRequest": {
+            "id": "MapsProductionToolsBaymaxUserRequestHandlerServiceRequest",
+            "properties": {
+                "resourcesPerLocations": {
+                    "description": "Requested resources per location.",
+                    "items": {
+                        "$ref": "MapsProductionToolsBaymaxUserRequestHandlerResourcesPerLocation"
+                    },
+                    "type": "array"
+                },
+                "service": {
+                    "$ref": "ProductionResourcesCatalogProtoServiceIdentifier",
+                    "description": "Flex product."
+                }
+            },
+            "type": "object"
+        },
+        "MapsProductionToolsBaymaxUserRequestHandlerUserRequest": {
+            "description": "User Request obtained from a request form available at: go/get-quota.",
+            "id": "MapsProductionToolsBaymaxUserRequestHandlerUserRequest",
+            "properties": {
+                "created": {
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "flexPool": {
+                    "type": "string"
+                },
+                "mdbGroup": {
+                    "type": "string"
+                },
+                "notes": {
+                    "type": "string"
+                },
+                "qpsQuotaRequests": {
+                    "items": {
+                        "$ref": "MapsProductionToolsBaymaxUserRequestHandlerQPSQuotaRequest"
+                    },
+                    "type": "array"
+                },
+                "serviceRequests": {
+                    "items": {
+                        "$ref": "MapsProductionToolsBaymaxUserRequestHandlerServiceRequest"
+                    },
+                    "type": "array"
+                },
+                "summary": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ProductionResourcesCatalogProtoProductIdentifier": {
+            "id": "ProductionResourcesCatalogProtoProductIdentifier",
+            "properties": {
+                "id": {
+                    "description": "A numeric id that uniquely identifies the product.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Required. Name of this Product. For example, \"FLEX_BORG_GCU\",\n\"LOGS_SPINDLES_SC_LL\", etc.\nThe Product name should be globally unique.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ProductionResourcesCatalogProtoServiceIdentifier": {
+            "description": "A service may be uniquely identified using either its name or its\nnumeric identifier.",
+            "id": "ProductionResourcesCatalogProtoServiceIdentifier",
+            "properties": {
+                "id": {
+                    "description": "A numeric ID that uniquely identifies the Service.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Required. A name to identify the Service.\ne.g. \"BORG\", \"BIGTABLE\", \"COLOSSUS\", \"SPANNER\", \"MACHINES\", \"LEGOS\"\nService names should be globally unique.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ProductionRomaPlinyAnnotation": {
+            "description": "An annotation is a name, value pair that can be attached to an entity.",
+            "id": "ProductionRomaPlinyAnnotation",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "namespace": {
+                    "description": "Namespace and name together uniquely identify an annotation. Namespace\nand Name will be used together as the basis of access control.",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "One or more values of the annotation. For multi-valued annotations, all\nvalues must be of the same type.",
+                    "items": {
+                        "$ref": "ProductionRomaPlinyAnnotationValue"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ProductionRomaPlinyAnnotationValue": {
+            "description": "AnnotationValue defines the different flavors of annotation value.\nAny given annotation may only contain value(s) of a single type.",
+            "id": "ProductionRomaPlinyAnnotationValue",
+            "properties": {
+                "valueBlob": {
+                    "description": "TODO(jedwing) Other value types?  Map-valued data seems possibly useful.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "valueBoolean": {
+                    "type": "boolean"
+                },
+                "valueInt": {
+                    "format": "int64",
+                    "type": "string"
+                },
+                "valueReal": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "valueString": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ProductionRomaPlinyExternalId": {
+            "description": "An ExternalId gives the \u201cname\u201d of an entity as it appears in some external\ndata source, as defined by SourceType.",
+            "id": "ProductionRomaPlinyExternalId",
+            "properties": {
+                "id": {
+                    "description": "Actual ID values.  For \"hyperion\", for instance, an ID might be \"PG001\".\nFor \"mdb\", it might be \"2001492\".",
+                    "type": "string"
+                },
+                "sourceId": {
+                    "description": "Source: \"hyperion\", \"mdb\", etc.  See SourceType for a description of each\nID type.\nSee //production/resources/db/schemabindings/external_source_types.V1.txt\nfor a list of predefined source_ids.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ProductionRomaPlinyLocationFeatures": {
+            "id": "ProductionRomaPlinyLocationFeatures",
+            "properties": {
+                "automatedCapacityScaling": {
+                    "$ref": "ProductionRomaPlinyLocationFeaturesFeature",
+                    "description": "DEPRECATED!!!\nPlease use production/resources/inventory/proto/inventory.proto\nScalingConfig.automated_capacity_scaling_enabled instead.\n\nThe location supports automated capacity scaling for FlexAll."
+                },
+                "borgPriorityless": {
+                    "$ref": "ProductionRomaPlinyLocationFeaturesFeature",
+                    "description": "Borg cell: Priorityless contracts rollout.  In locations where this\nfeature is available, contracts are using the new \"priorityless\" quota\naggregation model for accounting subleases."
+                },
+                "colossusIsolationClassless": {
+                    "$ref": "ProductionRomaPlinyLocationFeaturesFeature",
+                    "description": "Colossus cell: isolation class agnostic contracts rollout.  In locations\nwhere this feature is available, contracts are using the new \"isolation\nclassless\" quota aggregation model for accounting subleases."
+                },
+                "contractsRefactorToPantry": {
+                    "$ref": "ProductionRomaPlinyLocationFeaturesFeature",
+                    "description": "Cluster: contracts in this location have been refactored so that they are\nall now modeled as subleases descending from a PA holding group\n(e.g. pantry). Since pantrification may occur more than once at a cluster;\nthis tracks the most recent contracts refactor at the location."
+                },
+                "dcCapacityEnabled": {
+                    "$ref": "ProductionRomaPlinyLocationFeaturesFeature",
+                    "description": "The location supports DC_CAPACITY orders."
+                },
+                "machineInventoryServiceAuthoritative": {
+                    "$ref": "ProductionRomaPlinyLocationFeaturesFeature",
+                    "description": "Cluster: Machine Inventory Service rollout. In locations where this feature\nis available, the Machine Inventory Service is authoritative for machine\naccounting ownership.\nvalid for CLUSTER"
+                },
+                "quotaEnabled": {
+                    "$ref": "ProductionRomaPlinyLocationFeaturesFeature",
+                    "description": "The location supports Quota and Quota Option orders."
+                }
+            },
+            "type": "object"
+        },
+        "ProductionRomaPlinyLocationFeaturesFeature": {
+            "description": "Message to represent enablement status of an individual feature.",
+            "id": "ProductionRomaPlinyLocationFeaturesFeature",
+            "properties": {
+                "enabledTimeMillis": {
+                    "description": "If the feature is enabled, what is the timestamp (in milliseconds since\nthe epoch) as of which it is enabled?  (NOTE: timestamp may be in the\nfuture!)  Given the semantics of LookupLocations, it is typically not\nmeaningful to fill this field in when issuing a LookupLocations query.\nIf state is being set to DISABLED, enabled_time_millis must be left\neither unset or set to -1.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "state": {
+                    "description": "Is the feature disabled, or [scheduled to be] enabled?",
+                    "enum": [
+                        "UNKNOWN",
+                        "ENABLED",
+                        "DISABLED"
+                    ],
+                    "enumDescriptions": [
+                        "The feature enablement is in an unknown state. This",
+                        "indicates binary incompatibility between the client and\nPliny server.\nFeature is enabled at a past, present, or future timestamp.",
+                        "Feature is disabled."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ProductionRomaPlinyLocationLocation": {
+            "description": "A Location provides a fully-qualified specification for a location in terms\nof (a) a location level that completely defines it, and (b) additional\ncontaining levels that make sense for the location being represented.\nFor example, a Borg cell can be completely identified at the CELL location\nlevel; whereas a cluster can be completely identified at the CLUSTER level.\nAdditionally, in both cases, information such as Metro, Region, Continent\netc specify the containing levels.\nThe following levels are referred to as service-specific levels below:\nCELL, PARTITION, MONARCH_ZONE, SPANNER_UNIVERSE, SPANNER_ALLOC, SPANNER_ZONE,\nCHRONICLE_UNIVERSE, CHRONICLE_SITE, FORGE_WORLD, ANCHOR_REALM,\nANCHOR_ISOLATION, ANCHOR_ISOLATION_DOMAIN, ANCHOR_REPLICA.",
+            "id": "ProductionRomaPlinyLocationLocation",
+            "properties": {
+                "activeFromMillis": {
+                    "description": "The active_from_millis and active_to_millis define the period during which\na given location is considered active i.e. whether this location is\nenabled for the purpose of allocation, display in resource management UIs,\netc. The status_attributes of the location entity contain further details\nof the location's status timeline, including handoff_status,\nis_enabled_for_fulfillment, status, etc. These details can be used by\ncomponents such as Cicero that need to make decisions based on exact\nhandoff status, etc.\nThe active period of locations is inclusive-exclusive of the start and\nend respectively i.e. [active_from_millis, active_to_millis).\nValid active time intervals are:\n   [NONE, NONE): Always active in the past, no end date set yet.\n   [NONE, active_to_millis): Location is / was active at all times until\n         active_to_millis.\n   [active_from_millis, NONE): Active since active_from_millis. No end date\n         set yet.\n   [active_from_millis, active_to_millis): Active from active_from_millis\n         to active_to_millis.\n   [1, 1): Inactive. Authoritative sources do not provide us data\n         about when it was active or transitioned from active to\n         inactive.\n\nactive_from_millis and active_to_millis are normally derived from\nstatus_attributes.\n\nThe start of the period when the location is active, defined as\nmilliseconds since epoch.\nOptional. If not specified it means that the location has always been\nactive.\n* CLUSTER: Derived from status_attributes.  active_from_millis is set to\nthe earliest FULL_HANDOFF or BETA_HANDOFF from_time_millis field, if any.\nOtherwise, CLSD is used, if any.  Otherwise, the cluster is considered\ninactive.\n* CLUSTER_SECTION: this field is not used.\n* CLIQUE_CAPACITY_INSTANCE: This field is set to the CLSD.\n* Other cluster descendants: The field is inherited from the parent\ncluster.\nvalid for CLUSTER,\nCLUSTER descendants\nexcept CLUSTER_SECTION",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "activeToMillis": {
+                    "description": "The end of the period when the location is active, defined as milliseconds\nsince epoch.\nOptional.  If not specified it means that the location is still active.\n* CLUSTER: Derived from status_attributes.  If the cluster is not inactive,\nactive_to_millis is set to the earliest ALL_SERVICES_OUT or DECOMMISSIONED\nfrom_time_millis field, if any.\n* CLUSTER_SECTION: this field is not used.\n* CLIQUE_CAPACITY_INSTANCE: inherited from the parent cluster. Should not\nbe updated if the CCIL is inactive.\n* Other cluster descendants: The field is inherited from the parent\ncluster.\nvalid for CLUSTER,\nCLUSTER descendants\nexcept CLUSTER_SECTION",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "annotation": {
+                    "description": "Optional annotations that may be attached by clients or brought in as part\nof synchronization from the canonical sources.",
+                    "items": {
+                        "$ref": "ProductionRomaPlinyAnnotation"
+                    },
+                    "type": "array"
+                },
+                "attributes": {
+                    "$ref": "ProductionRomaPlinyLocationLocationAttributes"
+                },
+                "clusterB2SectorTimeline": {
+                    "description": "The timeline association between cluster and B2 Sector\nvalid for CLUSTER",
+                    "items": {
+                        "$ref": "ProductionRomaPlinyLocationLocationParentTimeline"
+                    },
+                    "type": "array"
+                },
+                "clusterB4NeighborhoodTimeline": {
+                    "description": "The timeline association between cluster and B4 Neighborhood\nvalid for CLUSTER",
+                    "items": {
+                        "$ref": "ProductionRomaPlinyLocationLocationParentTimeline"
+                    },
+                    "type": "array"
+                },
+                "containedIn": {
+                    "items": {
+                        "$ref": "ProductionRomaPlinyLocationLocationLevelSpecification"
+                    },
+                    "type": "array"
+                },
+                "containedInKey": {
+                    "items": {
+                        "$ref": "ProductionRomaPlinyLocationLocationSpecification"
+                    },
+                    "type": "array"
+                },
+                "externalId": {
+                    "description": "List of other IDs by which this logical object is known to different\nsystems.",
+                    "items": {
+                        "$ref": "ProductionRomaPlinyExternalId"
+                    },
+                    "type": "array"
+                },
+                "globalName": {
+                    "description": "DEPRECATED !!!\n\nThe global_name is being DEPRECATED !!! Please use the minimal_uri field.\n\nGlobally unique name for this location. The name will be formed by a\nstring of the format \"LEVEL_ID[:SERVICE_TYPE_NAME]:NAME[:SUBCELL]\".",
+                    "type": "string"
+                },
+                "isArchived": {
+                    "description": "Is location archived? Archived locations are returned only when the user\nexplicitly specified `include_archived: true` in LookupOptions.",
+                    "type": "boolean"
+                },
+                "key": {
+                    "$ref": "ProductionRomaPlinyLocationLocationSpecification",
+                    "description": "A list of specifications, which will be returned in a topo-sorted\npartial ordering, from coarsest to finest granularity.\nThe 'key' field contains the specification that is required to identify\nthe location; while all the containing levels for the location are defined\nin the 'contained_in_key' field.\nFor example, a cluster 'cluster:ia' can be defined by level CLUSTER in\nthe 'key' field and levels 'CONTINENT', 'SUB_CONTINENT',\n'REGION' and 'METRO' in the 'contained_in_key' fields.\nFor time dependent parent relationship, the 'contained_in_key' will only\nexpose the relationship that is true at the query time or as-of time."
+                },
+                "parentLocationKey": {
+                    "description": "A list of specifications of locations that are the direct/immediate parents\nof the location.\nThe list is sorted in topological order from coarsest to finest\ngranularity.\nNetwork location levels (e.g., B2_SECTOR and B4_NEIGHBORHOOD) that are\npresent are not included.\nThis field is not used during the location creation/update (the\nUpdateLocations RPC). To create/update locations, use the contained_in_key\nfield to set the parents.",
+                    "items": {
+                        "$ref": "ProductionRomaPlinyLocationLocationSpecification"
+                    },
+                    "type": "array"
+                },
+                "projectedActiveFromMillis": {
+                    "description": "The projected_active_from_millis and projected_active_to_millis provide\nthe best available estimate as to when a location is/was expected to enter\na state.  Normally, the projected_active timestamps are the same as the\nactive timestamps.  However, if a schedule has slipped and an estimate has\nmoved into the past without a better estimate having been made, we may\nhave a past projected timestamp where the active timestamp is 1 or NULL.\n\nValid projected active time interval definition is similar to the valid\nactive time interval defined above.  projected_active_from_millis and\nprojected_active_to_millis are normally derived from\nprojected_status_attributes.\n\nThe projected start of the period when the location is active, defined as\nmilliseconds since the epoch, if not specified it means that the\nlocation has been projected to have been always active.\n* CLUSTER: Derived from projected_status_attributes.  This field is set to\nthe earliest FULL_HANDOFF or BETA_HANDOFF from_time_millis field, if any.\nOtherwise, CLSD is used, if any.  Otherwise, the cluster is projected to be\ninactive.\n* CLUSTER_SECTION: Derived from projected_status_attributes in the same\nfashion as the CLUSTER.\n* CLIQUE_CAPACITY_INSTANCE: This field is set to the CLSD.\n* Other cluster descendants: The field is inherited from the parent\ncluster.\nvalid for CLUSTER,\nCLUSTER descendants",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "projectedActiveToMillis": {
+                    "description": "The projected end of the period when the location is active, defined as\nmilliseconds since the epoch. If not specified it means that the location\nis projected to be still active.\n* CLUSTER: Derived from projected_status_attributes.  If the cluster is not\ninactive, this field is set to the earliest ALL_SERVICES_OUT or\nDECOMMISSIONED from_time_millis field, if any.\n* CLUSTER_SECTION: Derived from projected_status_attributes in the same\nfashion as the CLUSTER.\n* CLIQUE_CAPACITY_INSTANCE: inherited from the parent cluster. Should not\nbe updated if the CCIL is inactive.\n* Other cluster descendants: The field is inherited from the parent\ncluster.\nvalid for CLUSTER, CLUSTER descendants",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "projectedStatusAttributes": {
+                    "description": "projected_status_attributes gives the times at which a location entered or\nleft a state, or it gives the time at which a location was/is scheduled to\nenter or leave a state.\n* CLUSTER: Each handoff_status in the status_attributes\nlist will be present, with the same from_time_millis, in the\nprojected_status_attributes.\nprojected_status_attributes may contain additional records.  These records\nindicate that a location was scheduled to enter a state, but the schedule\nslipped and the state has not yet been entered, and the schedule has not\nyet been updated.  For these records, from_time_millis will be in the past.\nThe to_time_millis field of a projected_status_attributes record will\nusually match the same field of the corresponding status attributes record,\nif any, but when a projected schedule has slipped, some of the\ncorresponding to_time_millis fields might not match.\n* CLUSTER_SECTION: The FACILITY_READY, FULL_HANDOFF, and ALL_SERVICES_OUT\nstatuses are used.\n* CLIQUE_CAPACITY_INSTANCE: The FULL_HANDOFF status is used with\nfrom_time_millis set to the CLSD, and to_time_millis left unset.\n* Other cluster descendants: This field is inherited from the parent\ncluster.\nvalid for\nCLUSTER,\nCLUSTER descendants",
+                    "items": {
+                        "$ref": "ProductionRomaPlinyLocationLocationStatusAttributes"
+                    },
+                    "type": "array"
+                },
+                "specification": {
+                    "$ref": "ProductionRomaPlinyLocationLocationLevelSpecification",
+                    "description": "DEPRECATED !!!\nPlease use the key and contained_in_key fields"
+                },
+                "statusAttributes": {
+                    "description": "status_attributes gives a past time at which a location entered or left a\nstate, or gives a future time which is our best estimate as to when a\nlocation will enter or leave a state.  If a location is not in a state,\nhas never been in the state, and we don't have a good estimate as to when\nit might be in that state, the state will not have an entry in\nstatus_attributes.\n* CLUSTER_SECTION: status_attributes are not set.\n* CLIQUE_CAPACITY_INSTANCE: status_attributes are not set.\n* Other cluster descendants: the field is inherited from the parent\ncluster.\nat least one required for\nCLUSTER,\nCLUSTER descendants except\nCLUSTER_SECTION and\nCLIQUE_CAPACITY_INSTANCE",
+                    "items": {
+                        "$ref": "ProductionRomaPlinyLocationLocationStatusAttributes"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ProductionRomaPlinyLocationLocationAttributes": {
+            "description": "Attributes that apply to a particular location and are not an intrinsic\nproperty of the location level.",
+            "id": "ProductionRomaPlinyLocationLocationAttributes",
+            "properties": {
+                "associatedFlexPool": {
+                    "$ref": "ProductionRomaPlinyPrincipalPrincipalIdentifier",
+                    "description": "The Principal identifier of the flex pool the location is associated\nwith. If the attribute is not specified, the location is not bounded\nto a single flex pool. This attribute is used with\nSpanner Zones and Bigtable Partitions."
+                },
+                "borgContractsAuthoritative": {
+                    "description": "Whether or not supply contracts and machine-specific demand\n(i.e., dedicated, private, freepool, and MS) contracts are\nauthoritative. This information is synchronized by Pliny from\nthe Borg cell settings for both BORG and COLOSSUS cells.\nvalid for BORG/COLOSSUS",
+                    "type": "boolean"
+                },
+                "committedLegoStartTimeMillis": {
+                    "description": "The time in milliseconds since epoch of the location's Committed Lego\nStart Date (CLSD).\n* CLUSTER: The CLSD is set for PLANNED clusters that are\noffered for sale in WGW. If a cluster is not sold or not approved, the\nCLSD may be unset until the cluster is again made available for sale.\nCLSD, once set, may be updated after due approvals. It does not typically\nchange once the cluster is in CONTRACT_SIGNED state.\n* CLUSTER_SECTION: An approved CLUSTER is built in sections, and the\nCLSD of each section is set separately.  The CLSD of an approved cluster\nis typically the MIN of its sections.\n* CLIQUE_CAPACITY_INSTANCE: Cluster capacity can also be built out over\ntime.  The CLSD is specified separately for each increment of cluster\ncapacity.\n* Other cluster descendants: CLSD is inherited from the parent cluster.\nvalid for CLUSTER,",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "cpuToGcuConversionFactor": {
+                    "description": "The conversion factor from CPU to GCU for a Borg cell.\nFor a Borg cell that is GCU-enabled, this is the conversion factor at\nthe time of GCU-enablement in the cell.\nFor all other Borg cells, this is the average value of a logical core\nin units of GCUs.\nvalid for BORG CELL",
+                    "format": "double",
+                    "type": "number"
+                },
+                "defaultProductOffered": {
+                    "$ref": "ProductionResourcesCatalogProtoProductIdentifier",
+                    "description": "The identifier of the default product that is offered at the location.\nThis attribute applies to BIGTABLE partitions where a particular shape of\na product may be offered by default.\n\nFor instance:\nkey {\n  name: \"psocial\"\n  minimal_uri: \"bigtable/cell:srv-sa/partition:psocial\"\n}\nattributes {\n  default_product_offered {\n    id: 50710138\n    name: \"BIGTABLE_TABLETSERVER_16GCU_16G\"\n  }\n}\n\"BIGTABLE_TABLETSERVER_16GCU_16G\" is one among the many shapes of\nthe product \"BIGTABLE_TABLETSERVER\" and is the default shape offered at\nthe partition \"psocial\" in the cell \"srv-sa\"."
+                },
+                "fabricName": {
+                    "description": "The network fabric name of the cluster.\n\"TBD\" indicates the fabric name is not configured yet for the cluster.\nValid for CLUSTER",
+                    "type": "string"
+                },
+                "fabricType": {
+                    "description": "The network fabric type of the cluster.\nValid for CLUSTER",
+                    "type": "string"
+                },
+                "fanCoilType": {
+                    "description": "An attribute to indicate the type of fan coil.\nExample values are HH, Hyena_1_0, Jackal_1_0, and Mamba.\nvalid for SUB_BUILDING, CLUSTER",
+                    "type": "string"
+                },
+                "features": {
+                    "$ref": "ProductionRomaPlinyLocationFeatures",
+                    "description": "Which features are enabled in this location?"
+                },
+                "gcuEnabledFromTimeMillis": {
+                    "description": "The time in milliseconds since epoch when location is considered to be\nGCU-enabled. The default -1 indicates that the location is not\nGCU-enabled.\nNote: A location is considered GCU enabled at all times AFTER the\nenablement time.\nvalid for BORG CELL",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "hasBusductForMaintenance": {
+                    "description": "An attribute to indicate whether a cluster has Bus Duct Maintenance.\nvalid for CLUSTER",
+                    "type": "boolean"
+                },
+                "hasNonstandardMachineDeliverySlo": {
+                    "description": "CSR/PASMO orders at clusters with this attribute set to true have\nnon-standard machine delivery SLO.\nSee go/standard-order for more details.\nValid for CLUSTER",
+                    "type": "boolean"
+                },
+                "hasOperationalClusters": {
+                    "description": "An attribute to indicate whether the location contains any clusters that\nare currently in states CONTRACT_SIGNED, FACILITY_READY, PARTIAL_HANDOFF,\nBASE_SERVICES_READY, BETA_HANDOFFF, FULL_HANDOFF or ALL_SERVICES_OUT.\nValid for levels that can contain a CLUSTER.",
+                    "type": "boolean"
+                },
+                "ipAddressType": {
+                    "description": "An attribute to indicate the IP address type.\nExample values are IPv4, IPv6, and Dual_Stack.\nvalid for CLUSTER",
+                    "type": "string"
+                },
+                "isManagedByGoogle": {
+                    "description": "Is the location managed by Google? Used to differentiate \"YAWN\" vs.\n\"colo\" locations.\nThis field is copied from the CLUSTER to descendents of the CLUSTER.\nrequired for BUILDING,",
+                    "type": "boolean"
+                },
+                "majorityTenantSupplier": {
+                    "$ref": "ProductionRomaPlinyPrincipalPrincipalIdentifier",
+                    "description": "The Principal identifier of a majority tenant supplier of a location.\nIt is only valid for a cluster.  This is typically a PG or PE that owns\na substantial majority (e.g. 85%) of the machines in a cluster.\nValid for CLUSTER"
+                },
+                "marineOrderStartTimeMillis": {
+                    "description": "The time in milliseconds since epoch of the cluster's Marine Order\nStart Date (MOSD). The MOSD is the earliest possible date at which\nMarine orders may start in a cluster. The MOSD is typically set to\nPHO - 4 weeks and will be unset if the PHO date is not availble for\na cluster.\nvalid for CLUSTER",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "operatingAsSupercluster": {
+                    "description": "If true, indicates that the location is operating as a supercluster.\nIf true, the supercluster_type is set to either SUPERCLUSTER_WITH_SLO or\nSUPERCLUSTER_WITHOUT_SLO.\nIf false, the supercluster_type is set to either PLANNED_SUPERCLUSTER or\nNOT_A_PLANNED_SUPERCLUSTER.\nSee supercluster_cells.proto, http://shortn/_LnDnoNJS9T for more details.\nvalid for CLUSTER,",
+                    "type": "boolean"
+                },
+                "operator": {
+                    "$ref": "ProductionRomaPlinyPrincipalPrincipalIdentifier",
+                    "description": "The principal identifier representing a principal of type \"MDB\" that\noperates the location\nrequired for service-specific\nlevels."
+                },
+                "pcrZone": {
+                    "description": "The PCR Zone that this cluster belongs to.\nNote: PCR Zone was originally designed as a repeated attribute to model\nOffering 3 Superclusters. However, given the deprecation of that\noffering, a location will only belong to at most one PCR zone.\nSee b/11150669 for more context.\nThis field is copied from the CLUSTER to descendents of the CLUSTER.\nvalid for CLUSTER, CLUSTER descendents",
+                    "items": {
+                        "format": "int32",
+                        "type": "integer"
+                    },
+                    "type": "array"
+                },
+                "primaryPurpose": {
+                    "description": "The primary purpose for which the location is used - \"production\" /\n\"corp\" / \"logs\" / \"platforms\" / etc.  See also\nhttps://g3doc.corp.google.com/production/mdb/g3doc/\n    schema/datacenters.md#primary-purposes-summary\nwhich seems fairly up-to-date as of summer solstice 2019.\nThis field is copied from the CLUSTER to descendents of the CLUSTER.\nrequired for CLUSTER",
+                    "type": "string"
+                },
+                "siteType": {
+                    "description": "An attribute to indicate the site type.\nExample values are Jupiter1, JupiterX1, JupiterX2,\nSCC_Large, and Std.\nvalid for SUB_BUILDING",
+                    "type": "string"
+                },
+                "subPurpose": {
+                    "description": "The location sub_purpose is an optional string which includes additional\nmetadata about a location purpose. Valid values include:\n  \"TEST\" - indicates the cluster is being used for turnup/turndown\n           automation testing. When the sub_purpose is set to \"TEST\",\n           some of the location information may not be up-to-date.\n           Specifically, the status of a location indicating repeated\n           turnup/turndown is not synced into Pliny.\n  \"MONETA\" - indicates the cluster is a special moneta cluster\n             (go/nst-moneta) and not available for general use.\nThis is a dynamic enum, whose valid values can be obtained by calling\nEnumerationService.LookupEnumerations with namespace \"location\" and\nname \"SUB_PURPOSE\".\nThe sub_purpose field is not intended to be a replacement to the\nprimary_purpose. It should be used in addition to the primary_purpose to\ndeduce information about the location purpose.",
+                    "type": "string"
+                },
+                "superblockRating": {
+                    "description": "An attribute to indicate the type of superblock rating.\nExample values are 40G, 100G, and Mixed.\nvalid for CLUSTER",
+                    "type": "string"
+                },
+                "superclusterSlo": {
+                    "type": "string"
+                },
+                "superclusterType": {
+                    "description": "The supercluster_type can be set to one of the following values.\nNOT_A_PLANNED_SUPERCLUSTER: This location is not configured as a\n    Supercluster and currently does not offer any Supercluster SLO.\n    Additionally, there are no plans for this to change.\nPLANNED_SUPERCLUSTER: This location does not offer any Supercluster SLO,\n    but it will in the future\nSUPERCLUSTER_WITH_SLO: This location offers the Supercluster SLO\nSUPERCLUSTER_WITHOUT_SLO: This location is configured as a Supercluster\n    (in terms of physical setup and infrastructure software\n    configuration) but does not offer any Supercluster SLO.\nvalid for CLUSTER, BORG CELL",
+                    "type": "string"
+                },
+                "timeZone": {
+                    "description": "Timezone of this location.\nValid for METRO and its descendents",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ProductionRomaPlinyLocationLocationIdentifier": {
+            "description": "A Location Identifier represents the stable attribute that can be\nused to uniquely identify a location for the lifetime of the location.",
+            "id": "ProductionRomaPlinyLocationLocationIdentifier",
+            "properties": {
+                "id": {
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ProductionRomaPlinyLocationLocationLevelSpecification": {
+            "description": "DEPRECATED !!!\n\nThe LevelSpecification message is being deprecated.\nPlease use Specification message instead.\n\nThe specification for a single location level, given by a level_id,\nservice_type_name, name, subcell, and one or more tags.\nFor example, {level_id:CELL service_type_name:\"BORG\" name:\"wg\"}",
+            "id": "ProductionRomaPlinyLocationLocationLevelSpecification",
+            "properties": {
+                "levelId": {
+                    "description": "What type of object is this?  (\"CELL\", \"CLUSTER\", etc.)\nSee id field in LocationLevel.\nrequired",
+                    "enum": [
+                        "UNKNOWN_LEVEL_ID",
+                        "PARTITION",
+                        "PUBSUB_BORG_CELL",
+                        "CELL",
+                        "ALLOC",
+                        "ZONE",
+                        "VIRTUAL_CELL",
+                        "FABRIC",
+                        "SPANNER_UNIVERSE",
+                        "SPANNER_ALLOC",
+                        "SPANNER_ZONE",
+                        "ANCHOR_REALM",
+                        "ANCHOR_ISOLATION",
+                        "ANCHOR_ISOLATION_DOMAIN",
+                        "ANCHOR_REPLICA",
+                        "L4_CACHE",
+                        "CLUSTER",
+                        "POP",
+                        "SUB_BUILDING",
+                        "BUILDING",
+                        "B2_SECTOR",
+                        "B4_NEIGHBORHOOD",
+                        "CAMPUS",
+                        "CHRONICLE_UNIVERSE",
+                        "CHRONICLE_SITE",
+                        "METRO",
+                        "REGION",
+                        "NETWORK_COST_REGION",
+                        "COUNTRY",
+                        "MONARCH_ZONE",
+                        "SUB_CONTINENT",
+                        "CONTINENT",
+                        "FORGE_WORLD",
+                        "PUBSUB_CELL",
+                        "BLOBSTORE_ZONE",
+                        "WORLD",
+                        "CLIQUE_CAPACITY_INSTANCE",
+                        "NON_LEGACY_LOCATION_LEVEL",
+                        "GLOBAL",
+                        "POWER_PLANT"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "Note: In compliance with http://go/ulh and the protobuf style-guide,\nthis location level has been spelled as SUB_CONTINENT rather than\nSUBCONTINENT",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "When you see NON_LEGACY_LOCATION_LEVEL, that means you have to migrate to\nuse the new level identifier, which is string type. The LevelId enum is\ndeprecated. For details visit: go/fast-location-onboarding",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name of the location level. (e.g. a region named \"ASIA\", a cluster\nnamed \"wg\", a continent named \"North America\")\nThe root of the hierarchy, of level \"WORLD\", will have the predefined\nname \"World\".\nrequired",
+                    "type": "string"
+                },
+                "serviceTypeName": {
+                    "description": "The Pliny ServiceType name of the service (as per the Pliny Product\nCatalog), that is offered in the location.\nFor example, a public Borg cell, a Logs Processing cell, and a Crawlindex\ncell will all have \"BORG\"; while a Kansas cell will have \"KANSAS\".\nNote, we will have separate entries for a Borg cell vs. a Kansas\ncell at the same location, to enable different ACLs, so that capabilities\ncan be delegated to the appropriate service teams.\nrequired for all service-specific",
+                    "type": "string"
+                },
+                "subcell": {
+                    "description": "A subcell or partition name, if applicable.\nA subcell is a partition within a cell that is assigned a specific label\nand serves as an isolation class within a cell. Subcell names are generic\nand can only be interpreted in the context of the cell and cluster that\nthey are located in.\noptional, only makes sense for CELL",
+                    "type": "string"
+                },
+                "tag": {
+                    "description": "One or more optional tags that are associated with this location.\nTags can be associated with any location level and the exact usage will\nbe specific to the service offered at the location.\n\nExample 1: Borg may require all Borg cells be tagged with the\nspecific offering at that location. So, all Borg cells reserved for Logs\nProcessing would have a tag of \"logs\"; those reserved for Crawlindex\nwould have a tag of \"crawlindex\"; while those available for the shared\nBorg service would have a tag of \"shared-borg\" associated with the\ncell.\nA Pliny ServiceOffering for Logs Processing can then specify the\nlocations where it is offered by specifying the location as:\n     {level_id:CELL service_type_name:\"BORG\" tag:\"logs\"} .\nWhile a Borg service offering would specify:\n     {level_id:CELL service_type_name:\"BORG\" tag:\"shared-borg\"}\n\nExample 2: Machines may require tags at the cluster level to specify the\nplatforms offered in that cluster:\nSo, a cluster 'foo' that offers \"IkariaWestmere-Base\" machines would be\nspecified as:\n       {level_id:CLUSTER tag:\"IkariaWestmere-Base\" name:\"foo\"}\nwhile a cluster 'bar' that offers platforms \"IkariaWestmere-Base\" and\n\"IbisSandybridge\" would specify:\n       {level_id:CLUSTER tag:\"IkariaWestmere-Base\" tag:\"IbisSandybridge\"\n        name:\"bar\"}\n\nExample 3: Kansas may not require any tags. It would suffice to look\nfor cells with service_type_name \"KANSAS\".",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ProductionRomaPlinyLocationLocationParentTimeline": {
+            "description": "Parent Timeline represents the association from a location to the parent\nlocation that is time dependent. The main use case of Parent Timeline is\nthe association between cluster and network. The timeline holds all\nassociations, even those in the past. There should be no gaps or overlaps\nbetween each parent timeline; i.e. effective_to_millis in one timeline\nelement should equal effective_from_millis in the next element. Parent\nTimeline will be returned in temporally sorted order. Finally, we may\nchoose to implement a time horizon where long-defunct locations will retire\nfrom the timeline result, e.g. 2 years after a location has turned down.",
+            "id": "ProductionRomaPlinyLocationLocationParentTimeline",
+            "properties": {
+                "effectiveFromMillis": {
+                    "description": "The effective from time of the association, inclusive",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "effectiveToMillis": {
+                    "description": "The effective to time of the association, exclusive.\nOptional, if not specified it means that the timeline is still effective.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "parent": {
+                    "$ref": "ProductionRomaPlinyLocationLocationSpecification",
+                    "description": "The parent location to which the timeline applies"
+                }
+            },
+            "type": "object"
+        },
+        "ProductionRomaPlinyLocationLocationSpecification": {
+            "description": "The attributes of a location that can be used to identify the location.",
+            "id": "ProductionRomaPlinyLocationLocationSpecification",
+            "properties": {
+                "identifier": {
+                    "$ref": "ProductionRomaPlinyLocationLocationIdentifier",
+                    "description": "The stable, opaque key that uniquely identifies this location. The\nidentifier is stable over time.\nrequired"
+                },
+                "levelId": {
+                    "description": "What type of location is this?  (\"CELL\", \"CLUSTER\", etc.)\nSee id field in LocationLevel.\nThe LevelId enum is deprecated. Please use level_name to identify the\nlocation levels. For the existing LevelId enum (except\nNON_LEGACY_LOCATION_LEVEL), the level_name is the name of the enum.",
+                    "enum": [
+                        "UNKNOWN_LEVEL_ID",
+                        "PARTITION",
+                        "PUBSUB_BORG_CELL",
+                        "CELL",
+                        "ALLOC",
+                        "ZONE",
+                        "VIRTUAL_CELL",
+                        "FABRIC",
+                        "SPANNER_UNIVERSE",
+                        "SPANNER_ALLOC",
+                        "SPANNER_ZONE",
+                        "ANCHOR_REALM",
+                        "ANCHOR_ISOLATION",
+                        "ANCHOR_ISOLATION_DOMAIN",
+                        "ANCHOR_REPLICA",
+                        "L4_CACHE",
+                        "CLUSTER",
+                        "POP",
+                        "SUB_BUILDING",
+                        "BUILDING",
+                        "B2_SECTOR",
+                        "B4_NEIGHBORHOOD",
+                        "CAMPUS",
+                        "CHRONICLE_UNIVERSE",
+                        "CHRONICLE_SITE",
+                        "METRO",
+                        "REGION",
+                        "NETWORK_COST_REGION",
+                        "COUNTRY",
+                        "MONARCH_ZONE",
+                        "SUB_CONTINENT",
+                        "CONTINENT",
+                        "FORGE_WORLD",
+                        "PUBSUB_CELL",
+                        "BLOBSTORE_ZONE",
+                        "WORLD",
+                        "CLIQUE_CAPACITY_INSTANCE",
+                        "NON_LEGACY_LOCATION_LEVEL",
+                        "GLOBAL",
+                        "POWER_PLANT"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "Note: In compliance with http://go/ulh and the protobuf style-guide,\nthis location level has been spelled as SUB_CONTINENT rather than\nSUBCONTINENT",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "When you see NON_LEGACY_LOCATION_LEVEL, that means you have to migrate to\nuse the new level identifier, which is string type. The LevelId enum is\ndeprecated. For details visit: go/fast-location-onboarding",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "levelName": {
+                    "description": "The name(key) of the location level.\nrequired",
+                    "type": "string"
+                },
+                "minimalUri": {
+                    "description": "The minimal_uri is the business key that uniquely identifies this\nlocation at a point in time. The business key of the location is not\nstable over time due to actions such as cluster name reuse.\nThe minimal_uri is the minimal string that can uniquely identify a\nlocation. For service-specific locations, the uri includes the relative\nname of a location that is composed of the name of parents in the\nservice-specific hierarchy to make it unique. For non service-specific\nlocations, the uri includes the absolute name of the location.\nThe minimal_uri string has the following format:\n    [service_type_name/](absolute name | relative name)\nThe relative name has the following format:\n    level_id:name\nThe absolute name has the following format:\n    [level_id:name/]level_id:name\nEach part of the minimal_uri is URL encoded.\n\nE.g. The minimal_uri of a spanner_alloc named \"photos:us\" in\nspanner_universe named \"f1-1way\" is:\n    \"spanner/spanner_universe:f1-1way/spanner_alloc:photos:us\"\nThe minimal_uri of a spanner_zone named \"qa.0270\" in spanner_alloc named\nphotos:us\" in spanner_universe named \"f1-1way\" is:\n    \"spanner/spanner_universe:f1-1way/spanner_alloc:photos:us\n        /spanner_zone:qa.0270\"\nThe minimal_uri of a KANSAS cell name \"ag\" is:\n                  \"kansas/cell:ag\"\nrequired",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name of the location level. (e.g. a region named \"ASIA\", a cluster\nnamed \"wg\", a continent named \"North America\")\nThe root of the hierarchy, of level \"WORLD\", will have the predefined\nname \"World\".\nrequired",
+                    "type": "string"
+                },
+                "serviceTypeName": {
+                    "description": "The Pliny ServiceType name of the service (as per the Pliny Product\nCatalog), that is offered in the location.\nFor example, a public Borg cell, a Logs Processing cell, and a Crawlindex\ncell will all have \"BORG\"; while a Kansas cell will have \"KANSAS\".\nNote, we will have separate entries for a Borg cell vs. a Kansas\ncell at the same location, to enable different ACLs, so that capabilities\ncan be delegated to the appropriate service teams.\nrequired for service-specific",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ProductionRomaPlinyLocationLocationStatusAttributes": {
+            "id": "ProductionRomaPlinyLocationLocationStatusAttributes",
+            "properties": {
+                "fromTimeMillis": {
+                    "description": "The from_time_millis and to_time_millis define the validity period of a\ngiven handoff status.\nA sample valid location entry would look like:\n   location {global_name:\"cluster:ia\"\n     specification {level_id:CLUSTER name:\"ia\" }\n     status_attributes{handoff_status:PARTIAL_HANDOFF\n        from_time_millis:100 to_time_millis:200}\n     status_attributes{handoff_status:FULL_HANDOFF\n        from_time_millis:200 to_time_millis:300}}\nThe validity period of a handoff status is inclusive-exclusive of the\nstart and end respectively i.e. [from_time_millis, to_time_millis).\n\nIf from_time_millis is not specified, it means that the status has always\nbeen effective. If to_time_millis is not specified, it means that the\nstatus is applicable at all times in the future.\n\nThe start of the validity period of the handoff status, defined as\nmilliseconds since epoch",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "handoffStatus": {
+                    "description": "What is the handoff status lifecycle code for this location?\nrequired",
+                    "enum": [
+                        "UNKNOWN_HANDOFF_STATUS",
+                        "PLANNED",
+                        "CONTRACT_SIGNED",
+                        "FACILITY_READY",
+                        "PARTIAL_HANDOFF",
+                        "BASE_SERVICES_READY",
+                        "BETA_HANDOFF",
+                        "FULL_HANDOFF",
+                        "ALL_SERVICES_OUT",
+                        "DECOMMISSIONED"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "Clusters in PLANNED or CONTRACT_SIGNED state may have missing\ninformation, as POPs and PCR Zones may not be assigned in the\nearly stages of the datacenter lifecycle.",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "Note that BETA_HANDOFF was used as a state for three clusters\n(pc, qf, vh) from 2013-02-14 through 2013-03-21.  There may be\nsome historical chargeback that depends on knowing about this\nHandoffStatus.  Otherwise, this status is not valid and should not be\nused.",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "toTimeMillis": {
+                    "description": "The end of the validity period of the handoff status, defined as\nmilliseconds since epoch",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ProductionRomaPlinyPrincipalPrincipalIdentifier": {
+            "description": "A Principal Identifier represents a set of stable attributes that can be\nused to uniquely identify a Pliny principal.\n(a) The Principal ID is the surrogate key for principals; and can be used\n    to uniquely identify a principal of any type.\nIt is recommended that clients specify the Principal ID whenever possible\nto uniquely identify principals.\n\nIf the Pliny ID is not available:\n(b) The name of a production group (i.e. principal of type \"MDB\") also\n    remains stable during the lifetime of the entity. In other words, the\n    principal name serves as a business key for principals of type MDB.\nSo, for MDB groups, in the absence of the Principal ID, the name and\ntype_id =  \"MDB\" can also be used to uniquely identify the principal.\n\nAll clients of Pliny should use the Principal.Identifier field to\nuniquely identify a principal. Other fields such as parents, external IDs,\nannotations and other attributes are freely modifiable with no such\nguarantees of stability.",
+            "id": "ProductionRomaPlinyPrincipalPrincipalIdentifier",
+            "properties": {
+                "id": {
+                    "description": "Surrogate Key:\n  [id]: Surrogate key to uniquely identify any principal.\nPrincipal ID",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Principal name",
+                    "type": "string"
+                },
+                "typeId": {
+                    "description": "Business key:\n  [type_id and name]:  Business key to uniquely identify principals of\n  type \"MDB\" only.\nPrincipal type. See PrincipalType.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Alkali User Request Handler Private API (QA)",
+    "version": "v1",
+    "version_module": true
+}

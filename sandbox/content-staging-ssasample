@@ -1,0 +1,562 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/cloud-platform": {
+                    "description": "View and manage your data across Google Cloud Platform services"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://staging-ssasample.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "SSA Sample",
+    "description": "SaaS Accelerator Sample API.",
+    "discoveryVersion": "v1",
+    "documentationLink": "https://cloud.google.com/ssasample/",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "ssasample:v1alpha1",
+    "kind": "discovery#restDescription",
+    "name": "ssasample",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "projects": {
+            "resources": {
+                "locations": {
+                    "methods": {
+                        "handleHealthCheckNotification": {
+                            "description": "RPC to send notifications of change in health state.",
+                            "flatPath": "v1alpha1/projects/{projectsId}/locations/{locationsId}",
+                            "httpMethod": "POST",
+                            "id": "ssasample.projects.locations.handleHealthCheckNotification",
+                            "parameterOrder": [
+                                "name"
+                            ],
+                            "parameters": {
+                                "name": {
+                                    "description": "This field is filled in from the \u2018payloadName\u2019 field in the grpcSettings\nin the NotificationEndpoint resource, if one is provided. If the gRPC\nserver is behind a OnePlatform API, then this field needs to be filled in.\nIt is a (soft) requirement of Google APIs that this first field be called\n\u2018name\u2019 and should identify a resource name. More context at\nhttps://cloud.google.com/apis/design/resource_names",
+                                    "location": "path",
+                                    "pattern": "^projects/[^/]+/locations/[^/]+$",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            },
+                            "path": "v1alpha1/{+name}",
+                            "request": {
+                                "$ref": "HealthCheckServiceNotificationRequest"
+                            },
+                            "response": {
+                                "$ref": "Empty"
+                            },
+                            "scopes": [
+                                "https://www.googleapis.com/auth/cloud-platform"
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190613",
+    "rootUrl": "https://staging-ssasample.sandbox.googleapis.com/",
+    "schemas": {
+        "Empty": {
+            "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+            "id": "Empty",
+            "properties": {},
+            "type": "object"
+        },
+        "Endpoint": {
+            "description": "Contains address that identifies an endpoint.",
+            "id": "Endpoint",
+            "properties": {
+                "ipAddress": {
+                    "description": "Human-readable IP address.",
+                    "type": "string"
+                },
+                "port": {
+                    "description": "Endpoint port.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "EndpointGroupHealth": {
+            "description": "Contains health state for a Network Endpoint Group.",
+            "id": "EndpointGroupHealth",
+            "properties": {
+                "annotations": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Annotations as specified when Network Endpoint Group was created.",
+                    "type": "object"
+                },
+                "endpointHealth": {
+                    "description": "This list does not necessarily include all endpoints in the group. It\ntypically includes only endpoints with a recent health state change, but it\nmay sometimes include all endpoints.",
+                    "items": {
+                        "$ref": "EndpointHealth"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "EndpointHealth": {
+            "description": "Contains health state for an endpoint of a Network Endpoint Group.",
+            "id": "EndpointHealth",
+            "properties": {
+                "annotations": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Annotations as specified on the Network Endpoint Group API for creating the\nendpoint.",
+                    "type": "object"
+                },
+                "endpoint": {
+                    "$ref": "Endpoint",
+                    "description": "IP:port that identifies the endpoint."
+                },
+                "healthResult": {
+                    "description": "This is length 1. It is a repeated field because eventually it will have\nlength greater than 1, when there is support for multiple health checks\nwhose results are not aggregated.",
+                    "items": {
+                        "$ref": "HealthResult"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudSaasacceleratorManagementProvidersV1Instance": {
+            "description": "Instance represents the interface for SLM services to actuate the state\nof control plane resources.\n\nExample Instance in JSON, where\n  consumer-project=snapchat,\n  producer-project=cloud-sql:\n\n```json\nInstance:\n{\n  \"name\":\n  \"projects/snapchat/locations/us-east1/instances/prod-instance\",\n  \"create_time\": {\n    \"seconds\": 1526406431,\n  },\n  \"labels\": {\n    \"env\": \"prod\",\n    \"foo\": \"bar\"\n  },\n  \"state\": READY,\n  \"software_versions\": {\n    \"software_update\": \"cloud-sql-09-28-2018\",\n  },\n  \"maintenance_policy_names\": {\n    \"UpdatePolicy\":\n    \"projects/snapchat/locations/us-east1/maintenancePolicies/prod-update-policy\",\n  }\n  \"rollout_metadata\": {\n    \"projects/cloud-sql/locations/global/rolloutTypes/software_update\": {\n      \"release\":\n      \"projects/cloud-sql/locations/global/releases/cloud-sql-09-28-2018\",\n      \"rollout\":\n      \"projects/cloud-sql/locations/us-east1/rollouts/cloud-sql-09-28-2018-canary\",\n    },\n    \"projects/cloud-sql/locations/global/rolloutTypes/instance_restart\": {\n      \"release\":\n      \"projects/cloud-sql/locations/global/releases/cloud-sql-09-20-repair\",\n      \"rollout\":\n      \"projects/cloud-sql/locations/us-east1/rollouts/cloud-sql-09-20-repair-100-percent\",\n    }\n  }\n  \"tenant_project_id\": \"cloud-sql-test-tenant\",\n  \"producer_metadata\": {\n    \"cloud-sql-tier\": \"basic\",\n    \"cloud-sql-instance-size\": \"1G\",\n  },\n  \"provisioned_resources\": [\n    {\n      \"resource-type\": \"compute-instance\",\n      \"resource-url\":\n      \"https://www.googleapis.com/compute/v1/projects/cloud-sql/zones/us-east1-b/instances/vm-1\",\n    }\n  ],\n  \"maintenance_schedules\": {\n    \"csa_rollout\": {\n       \"start_time\": {\n          \"seconds\": 1526406431,\n       },\n       \"end_time\": {\n          \"seconds\": 1535406431,\n       },\n    },\n    \"ncsa_rollout\": {\n       \"start_time\": {\n          \"seconds\": 1526406431,\n       },\n       \"end_time\": {\n          \"seconds\": 1535406431,\n       },\n    }\n  }\n}\n```",
+            "id": "GoogleCloudSaasacceleratorManagementProvidersV1Instance",
+            "properties": {
+                "createTime": {
+                    "description": "Output only. Timestamp when the resource was created.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "labels": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Optional. Resource labels to represent user provided metadata. Each label\nis a key-value pair, where both the key and the value are arbitrary strings\nprovided by the user.",
+                    "type": "object"
+                },
+                "maintenancePolicyNames": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "The MaintenancePolicies that have been attached to the instance.\nThe key must be of the type name of the oneof policy name defined in\nMaintenancePolicy, and the referenced policy must define the same policy\ntype. For complete details of MaintenancePolicy, please refer to\ngo/cloud-saas-mw-ug.",
+                    "type": "object"
+                },
+                "maintenanceSchedules": {
+                    "additionalProperties": {
+                        "$ref": "GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule"
+                    },
+                    "description": "The MaintenanceSchedule contains the scheduling information of published\nmaintenance schedule.",
+                    "type": "object"
+                },
+                "name": {
+                    "description": "Unique name of the resource. It uses the form:\n `projects/{project_id}/locations/{location_id}/instances/{instance_id}`",
+                    "type": "string"
+                },
+                "producerMetadata": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Output only. Custom string attributes used primarily to expose\nproducer-specific information in monitoring dashboards.\nSee go/get-instance-metadata.",
+                    "type": "object"
+                },
+                "provisionedResources": {
+                    "description": "Output only. The list of data plane resources provisioned for this\ninstance, e.g. compute VMs. See go/get-instance-metadata.",
+                    "items": {
+                        "$ref": "GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource"
+                    },
+                    "type": "array"
+                },
+                "rolloutMetadata": {
+                    "additionalProperties": {
+                        "$ref": "GoogleCloudSaasacceleratorManagementProvidersV1RolloutMetadata"
+                    },
+                    "description": "The map between RolloutType and the corresponding RolloutMetadata.\nThis is only mutated by rollout service. For actuation implementation,\nthis information is pass-through for Rollout management. Producer shall\nnot modify by itself.\nFor update of a single entry in this map, the update field mask shall\nfollow this sementics: go/advanced-field-masks",
+                    "type": "object"
+                },
+                "sloMetadata": {
+                    "$ref": "GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata",
+                    "description": "Output only. SLO metadata for instance classification in the\nStandardized dataplane SLO platform.\nSee go/cloud-ssa-standard-slo for feature description."
+                },
+                "softwareVersions": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Software versions that are used to deploy this instance. This can be\nmutated by rollout services.",
+                    "type": "object"
+                },
+                "state": {
+                    "description": "Output only. Current lifecycle state of the resource (e.g. if it's being\ncreated or ready to use).",
+                    "enum": [
+                        "STATE_UNSPECIFIED",
+                        "CREATING",
+                        "READY",
+                        "UPDATING",
+                        "REPAIRING",
+                        "DELETING"
+                    ],
+                    "enumDescriptions": [
+                        "Unspecified state.",
+                        "Instance is being created.",
+                        "Instance has been created and is ready to use.",
+                        "Instance is being updated.",
+                        "Instance is unheathy and under repair.",
+                        "Instance is being deleted."
+                    ],
+                    "type": "string"
+                },
+                "tenantProjectId": {
+                    "description": "Output only. ID of the associated GCP tenant project.\nSee go/get-instance-metadata.",
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "Output only. Timestamp when the resource was last modified.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule": {
+            "description": "Maintenance schedule which is exposed to customer and potentially end user,\nindicating published upcoming future maintenance schedule",
+            "id": "GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule",
+            "properties": {
+                "canReschedule": {
+                    "description": "Can this scheduled update be rescheduled?\nBy default, it's true and API needs to do explicitly check whether it's\nset, if it's set as false explicitly, it's false",
+                    "type": "boolean"
+                },
+                "endTime": {
+                    "description": "The scheduled end time for the maintenance.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "startTime": {
+                    "description": "The scheduled start time for the maintenance.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata": {
+            "description": "Node information for custom per-node SLO implementations.\nSSA does not support per-node SLO, but producers can populate per-node\ninformation in SloMetadata for custom precomputations.\nSSA Eligibility Exporter will emit per-node metric based on this information.",
+            "id": "GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata",
+            "properties": {
+                "exclusions": {
+                    "description": "By default node is eligible if instance is eligible.\nBut individual node might be excluded from SLO by adding entry here.\nFor semantic see SloMetadata.exclusions.\nIf both instance and node level exclusions are present for time period,\nthe node level's reason will be reported by Eligibility Exporter.",
+                    "items": {
+                        "$ref": "GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion"
+                    },
+                    "type": "array"
+                },
+                "location": {
+                    "description": "The location of the node, if different from instance location.",
+                    "type": "string"
+                },
+                "nodeId": {
+                    "description": "The id of the node.\nThis should be equal to SaasInstanceNode.node_id.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudSaasacceleratorManagementProvidersV1NotificationMetadata": {
+            "description": "NotificationMetadata is the notification state for an instance.",
+            "id": "GoogleCloudSaasacceleratorManagementProvidersV1NotificationMetadata",
+            "properties": {
+                "rescheduled": {
+                    "description": "Whether the instance update has been rescheduled.",
+                    "type": "boolean"
+                },
+                "scheduledEndTime": {
+                    "description": "The scheduled end time for the maintenance window during which update\ncan be performed on the instance.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "scheduledStartTime": {
+                    "description": "The scheduled start time for the maintenance window during which\nupdate can be performed on the instance.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "targetRelease": {
+                    "description": "The target release to be applied to the instance.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource": {
+            "description": "Describes provisioned dataplane resources.",
+            "id": "GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource",
+            "properties": {
+                "resourceType": {
+                    "description": "Type of the resource. This can be either a GCP resource or a custom one\n(e.g. another cloud provider's VM). For GCP compute resources use singular\nform of the names listed in GCP compute API documentation\n(https://cloud.google.com/compute/docs/reference/rest/v1/), prefixed with\n'compute-', for example: 'compute-instance', 'compute-disk',\n'compute-autoscaler'.",
+                    "type": "string"
+                },
+                "resourceUrl": {
+                    "description": "URL identifying the resource, e.g.\n\"https://www.googleapis.com/compute/v1/projects/...)\".",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudSaasacceleratorManagementProvidersV1RolloutMetadata": {
+            "description": "RolloutMetadata for an actuation instance. It maps to a single RolloutType.",
+            "id": "GoogleCloudSaasacceleratorManagementProvidersV1RolloutMetadata",
+            "properties": {
+                "notification": {
+                    "$ref": "GoogleCloudSaasacceleratorManagementProvidersV1NotificationMetadata",
+                    "description": "Instance level notification metadata."
+                },
+                "releaseName": {
+                    "description": "The last Release that has been applied to the instance.",
+                    "type": "string"
+                },
+                "rolloutName": {
+                    "description": "The last rollout that has been applied to the instance.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion": {
+            "description": "SloExclusion represents an excusion in SLI calculation applies to all SLOs.",
+            "id": "GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion",
+            "properties": {
+                "exclusionDuration": {
+                    "description": "Exclusion duration. No restrictions on the possible values.\n\nWhen an ongoing operation is taking longer than initially expected,\nan existing entry in the exclusion list can be updated by extending the\nduration. This is supported by the subsystem exporting eligibility data\nas long as such extension is committed at least 10 minutes before the\noriginal exclusion expiration - otherwise it is possible that there will\nbe \"gaps\" in the exclusion application in the exported timeseries.",
+                    "format": "google-duration",
+                    "type": "string"
+                },
+                "exclusionStartTime": {
+                    "description": "Start time of the exclusion. No alignment (e.g. to a full minute) needed.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "reason": {
+                    "description": "Human-readable reason for the exclusion.\nThis should be a static string (e.g. \"Disruptive update in progress\")\nand should not contain dynamically generated data (e.g. instance name).\nCan be left empty.",
+                    "type": "string"
+                },
+                "sliName": {
+                    "description": "Name of an SLI that this exclusion applies to. Can be left empty,\nsignaling that the instance should be excluded from all SLIs defined\nin the service SLO configuration.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata": {
+            "description": "SloMetadata contains resources required for proper SLO classification of the\ninstance.",
+            "id": "GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata",
+            "properties": {
+                "exclusions": {
+                    "description": "List of SLO exclusion windows. When multiple entries in the list match\n(matching the exclusion time-window against current time point)\nthe exclusion reason used in the first matching entry will be published.\n\nIt is not needed to include expired exclusion in this list, as only the\ncurrently applicable exclusions are taken into account by the eligibility\nexporting subsystem (the historical state of exclusions will be reflected\nin the historically produced timeseries regardless of the current state).\n\nThis field can be used to mark the instance as temporary ineligible\nfor the purpose of SLO calculation. For permanent instance SLO exclusion,\na dedicated tier name can be used that does not have targets specified\nin the service SLO configuration.",
+                    "items": {
+                        "$ref": "GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion"
+                    },
+                    "type": "array"
+                },
+                "nodes": {
+                    "description": "Optional: list of nodes.\nSome producers need to use per-node metadata to calculate SLO.\nThis field allows such producers to publish per-node SLO meta data,\nwhich will be consumed by SSA Eligibility Exporter and published in the\nform of per node metric to Monarch.",
+                    "items": {
+                        "$ref": "GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata"
+                    },
+                    "type": "array"
+                },
+                "tier": {
+                    "description": "Name of the SLO tier the Instance belongs to. This name will be expected to\nmatch the tiers specified in the service SLO configuration.\n\nField is mandatory and must not be empty.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "HealthCheckServiceNotificationRequest": {
+            "description": "Contains notifications of changes in health state.",
+            "id": "HealthCheckServiceNotificationRequest",
+            "properties": {
+                "endpointGroupHealth": {
+                    "description": "List of endpoint groups. This typically includes only some of the endpoint\ngroups in a HealthCheckService, not all of them.",
+                    "items": {
+                        "$ref": "EndpointGroupHealth"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "HealthResult": {
+            "description": "Combines an endpoint identfied by IP:port with associated health state.",
+            "id": "HealthResult",
+            "properties": {
+                "healthChangeTime": {
+                    "description": "Timestamp of the change in health state. Note that this field may have\nthe default UnixEpoch value in some cases where the health_change_time\nassociated with a health state change cannot be accurately determined.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "healthState": {
+                    "description": "Health state of an endpoint.",
+                    "enum": [
+                        "HEALTH_STATE_UNSPECIFIED",
+                        "HEALTHY",
+                        "UNHEALTHY",
+                        "TIMEOUT"
+                    ],
+                    "enumDescriptions": [
+                        "HEALTH_STATE_UNSPECIFIED indicates that the health checking system is aware\nof the endpoint but its health is not known at the moment.",
+                        "HEALTHY indicates the endpoint is reachable, and conforms to the\nrequirements defined by the health check to be considered healthy (e.g.,\nHTTP 200 response for HTTP/HTTPS health check).",
+                        "UNHEALTHY indicates the endpoint is reachable, but does not conform to the\nrequirements defined by the health check to be considered healthy (e.g.,\nHTTP 404 response for HTTP/HTTPS health check).",
+                        "TIMEOUT indicates the endpoint is unreachable, i.e., a connection to the\napplication health checking endpoint cannot be established, or the server\non a VM instance does not respond within the specified timeout (e.g., this\nmay be caused by misconfigured firewall rules or an overloaded server\napplication on a VM instance)."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "OperationMetadata": {
+            "description": "Represents the metadata of the long-running operation.",
+            "id": "OperationMetadata",
+            "properties": {
+                "apiVersion": {
+                    "description": "[Output only] API version used to start the operation.",
+                    "type": "string"
+                },
+                "cancelRequested": {
+                    "description": "[Output only] Identifies whether the user has requested cancellation\nof the operation. Operations that have successfully been cancelled\nhave Operation.error value with a google.rpc.Status.code of 1,\ncorresponding to `Code.CANCELLED`.",
+                    "type": "boolean"
+                },
+                "createTime": {
+                    "description": "[Output only] The time the operation was created.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "endTime": {
+                    "description": "[Output only] The time the operation finished running.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "statusDetail": {
+                    "description": "[Output only] Human-readable status of the operation, if any.",
+                    "type": "string"
+                },
+                "target": {
+                    "description": "[Output only] Server-defined resource path for the target of the operation.",
+                    "type": "string"
+                },
+                "verb": {
+                    "description": "[Output only] Name of the verb executed by the operation.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SSASampleConfigs": {
+            "description": "SSASampleConfigs is the message containing configurations CLH wants to push\nto ssa-sample service.",
+            "id": "SSASampleConfigs",
+            "properties": {
+                "configs": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "config list for ssa sample service.\n  map key: the name of a config entry.\n  map value: the value of a config entry.",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "SaaS Accelerator Sample Service (Staging)",
+    "version": "v1alpha1",
+    "version_module": true
+}

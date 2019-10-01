@@ -1,0 +1,2854 @@
+{
+    "auth": {
+        "oauth2": {
+            "scopes": {
+                "https://www.googleapis.com/auth/userinfo.email": {
+                    "description": "View your email address"
+                }
+            }
+        }
+    },
+    "basePath": "",
+    "baseUrl": "https://stg-deployant-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Stage_Deployant_pa_sandbox",
+    "description": "",
+    "discoveryVersion": "v1",
+    "documentationLink": "",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "stg_deployant_pa_sandbox:v1",
+    "kind": "discovery#restDescription",
+    "name": "stg_deployant_pa_sandbox",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "atask": {
+            "methods": {
+                "get": {
+                    "description": "Call to get an actionable task entitity.",
+                    "flatPath": "v1/atask/{actTaskId}",
+                    "httpMethod": "GET",
+                    "id": "stg_deployant_pa_sandbox.atask.get",
+                    "parameterOrder": [
+                        "actTaskId"
+                    ],
+                    "parameters": {
+                        "actTaskId": {
+                            "description": "ID of the actionable tasks to retrieve.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/atask/{actTaskId}",
+                    "response": {
+                        "$ref": "ActionableTask"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                }
+            }
+        },
+        "createProjects": {
+            "methods": {
+                "create": {
+                    "description": "CreateProjects creates projects in PM Tool.",
+                    "flatPath": "v1/createProjects",
+                    "httpMethod": "POST",
+                    "id": "stg_deployant_pa_sandbox.createProjects.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/createProjects",
+                    "request": {
+                        "$ref": "CreateProjectsRequest"
+                    },
+                    "response": {
+                        "$ref": "ProjectRun"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                }
+            }
+        },
+        "dpk": {
+            "methods": {
+                "get": {
+                    "description": "Call to get DPK for given actionable task.",
+                    "flatPath": "v1/dpk/{actTaskId}",
+                    "httpMethod": "GET",
+                    "id": "stg_deployant_pa_sandbox.dpk.get",
+                    "parameterOrder": [
+                        "actTaskId"
+                    ],
+                    "parameters": {
+                        "actTaskId": {
+                            "description": "ID of the actionable task.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/dpk/{actTaskId}",
+                    "response": {
+                        "$ref": "DPK"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                }
+            }
+        },
+        "getProjectRun": {
+            "methods": {
+                "get": {
+                    "description": "GetProjectRun returns project run report for a given project run id.",
+                    "flatPath": "v1/getProjectRun/{projectRunId}",
+                    "httpMethod": "GET",
+                    "id": "stg_deployant_pa_sandbox.getProjectRun.get",
+                    "parameterOrder": [
+                        "projectRunId"
+                    ],
+                    "parameters": {
+                        "projectRunId": {
+                            "description": "Project Run ID to retrieve.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/getProjectRun/{projectRunId}",
+                    "response": {
+                        "$ref": "ProjectRun"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                }
+            }
+        },
+        "listProjectRuns": {
+            "methods": {
+                "listProjectRuns": {
+                    "description": "List Projects returns the list of project Runs for given filter in request.",
+                    "flatPath": "v1/listProjectRuns/{filter}",
+                    "httpMethod": "GET",
+                    "id": "stg_deployant_pa_sandbox.listProjectRuns.listProjectRuns",
+                    "parameterOrder": [
+                        "filter"
+                    ],
+                    "parameters": {
+                        "filter": {
+                            "description": "Filter expression defining projects to be returned.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/listProjectRuns/{filter}",
+                    "response": {
+                        "$ref": "ListProjectRunsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                }
+            }
+        },
+        "v1": {
+            "methods": {
+                "deleteProjectRuns": {
+                    "description": "DeleteProjectRuns deletes project run in given request.",
+                    "flatPath": "v1/deleteProjectRuns",
+                    "httpMethod": "POST",
+                    "id": "stg_deployant_pa_sandbox.deleteProjectRuns",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/deleteProjectRuns",
+                    "request": {
+                        "$ref": "DeleteProjectRunsRequest"
+                    },
+                    "response": {
+                        "$ref": "Empty"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "orderSync": {
+                    "description": "Call to trigger a manual sync between PM tool and Order\nservice(ProcureANT).",
+                    "flatPath": "v1/orderSync",
+                    "httpMethod": "POST",
+                    "id": "stg_deployant_pa_sandbox.orderSync",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/orderSync",
+                    "request": {
+                        "$ref": "ManualOrderSyncRequest"
+                    },
+                    "response": {
+                        "$ref": "ManualOrderSyncResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "updateref": {
+                    "description": "Call to update the ExecutionReference of an actionable task.",
+                    "flatPath": "v1/updateref",
+                    "httpMethod": "POST",
+                    "id": "stg_deployant_pa_sandbox.updateref",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/updateref",
+                    "request": {
+                        "$ref": "UpdateExecutionReferenceRequest"
+                    },
+                    "response": {
+                        "$ref": "Empty"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "updatestatus": {
+                    "description": "Call to update the ActionableTask status.",
+                    "flatPath": "v1/updatestatus",
+                    "httpMethod": "POST",
+                    "id": "stg_deployant_pa_sandbox.updatestatus",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/updatestatus",
+                    "request": {
+                        "$ref": "UpdateActionableTaskStatusRequest"
+                    },
+                    "response": {
+                        "$ref": "Empty"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                },
+                "validateProjects": {
+                    "description": "ValidateProjects is a dry run version of create projects.",
+                    "flatPath": "v1/validateProjects",
+                    "httpMethod": "POST",
+                    "id": "stg_deployant_pa_sandbox.validateProjects",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/validateProjects",
+                    "request": {
+                        "$ref": "CreateProjectsRequest"
+                    },
+                    "response": {
+                        "$ref": "ValidateProjectsResponse"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                }
+            }
+        },
+        "workfront": {
+            "methods": {
+                "update": {
+                    "description": "RPC call to update Workfront entities.",
+                    "flatPath": "v1/workfront:update",
+                    "httpMethod": "POST",
+                    "id": "stg_deployant_pa_sandbox.workfront.update",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/workfront:update",
+                    "request": {
+                        "$ref": "UpdateWorkfrontRequest"
+                    },
+                    "response": {
+                        "$ref": "Empty"
+                    },
+                    "scopes": [
+                        "https://www.googleapis.com/auth/userinfo.email"
+                    ]
+                }
+            }
+        }
+    },
+    "revision": "20190917",
+    "rootUrl": "https://stg-deployant-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "ActionableTask": {
+            "description": "ActionableTask represents a schedulable unit of work that can be consumed\nby a workflow. It is the high level entity for managing\ndata used by DeployANT while interacting with different\nexternal systems.\nSee go/deployant-capadd \"Data Model-ActionableTask\" section.",
+            "id": "ActionableTask",
+            "properties": {
+                "actualCompletionDate": {
+                    "description": "The actual completion date of the task.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "archived": {
+                    "description": "Task will not be considered active if archived. It will no longer be\nsynced.",
+                    "type": "boolean"
+                },
+                "bomCAttrs": {
+                    "$ref": "BomCAttributes"
+                },
+                "bomMaAttrs": {
+                    "$ref": "BomMaAttributes"
+                },
+                "bomMdAttrs": {
+                    "$ref": "BomMdAttributes"
+                },
+                "bomMoAttrs": {
+                    "$ref": "BomMoAttributes"
+                },
+                "canStart": {
+                    "description": "Indicate this task can start.",
+                    "type": "boolean"
+                },
+                "ctupAttrs": {
+                    "$ref": "CtupAttributes"
+                },
+                "deliverableUuids": {
+                    "description": "BTP deliverable UUIDs associated with given actionable task.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "designAttrs": {
+                    "$ref": "DesignAttributes"
+                },
+                "executionReference": {
+                    "$ref": "ExecutionReference",
+                    "description": "Reference to execution information."
+                },
+                "id": {
+                    "description": "Unique ID that identifies the Actionable Task.",
+                    "type": "string"
+                },
+                "instCapAttrs": {
+                    "$ref": "InstCapAttributes"
+                },
+                "instCfpAttrs": {
+                    "$ref": "InstCfpAttributes"
+                },
+                "invAttrs": {
+                    "$ref": "InvAttributes"
+                },
+                "materialCommitDate": {
+                    "description": "Date when material is supposed to be onsite.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "plannedCompletionDate": {
+                    "description": "When the work is planned to be completed.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "plannedStartDate": {
+                    "description": "When work is planned to start. This date comes from\nPMT Client and used for Pega Requests.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "pmtReference": {
+                    "$ref": "PMTReference",
+                    "description": "Reference to object in project management system."
+                },
+                "pop": {
+                    "description": "Primary location where work is happening.",
+                    "type": "string"
+                },
+                "sfAttrs": {
+                    "$ref": "SFAttributes"
+                },
+                "taskStatus": {
+                    "description": "Current Status of Actionable Task.",
+                    "enum": [
+                        "TS_UNKNOWN",
+                        "TS_NEW",
+                        "TS_READY",
+                        "TS_INPROGRESS",
+                        "TS_BLOCKED",
+                        "TS_COMPLETE",
+                        "TS_CANCELED"
+                    ],
+                    "enumDescriptions": [
+                        "Default unknown status for enum if not explicitly set.",
+                        "Task is newly created.",
+                        "Deprecated! Please refer to can_start in ActionableTask(b/114476303).\nTask is ready to initiate ZTN workflows.",
+                        "Task is in progress.",
+                        "Task is in blocked state.",
+                        "Task is completed.",
+                        "Task is in canceled state."
+                    ],
+                    "type": "string"
+                },
+                "taskType": {
+                    "description": "Type of Actionable Task.",
+                    "enum": [
+                        "TT_UNKNOWN",
+                        "TT_DESIGN",
+                        "TT_CTUP",
+                        "TT_INST_CFP",
+                        "TT_INST_CAP",
+                        "TT_INV",
+                        "TT_BOM_MO",
+                        "TT_BOM_MA",
+                        "TT_BOM_MD",
+                        "TT_SF",
+                        "TT_BOM_C"
+                    ],
+                    "enumDescriptions": [
+                        "Default unknown type for enum if not explicitly set.",
+                        "Task for detailed design.",
+                        "Task to track when BTP deliverable is to be completed.",
+                        "Task for physically patching multiple circuits.",
+                        "Task for line card installation.",
+                        "Task for material receipt.",
+                        "Task for tracking Material Order.",
+                        "Task for tracking Material Commit.",
+                        "Task for tracking Material Delivery.",
+                        "Task for tracking Salesforce Opportunity.",
+                        "Task for tracking BOM creation."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AddLineCard": {
+            "description": "DPK for adding line cards/optics.",
+            "id": "AddLineCard",
+            "properties": {
+                "cardDetails": {
+                    "items": {
+                        "$ref": "CardDetail"
+                    },
+                    "type": "array"
+                },
+                "moduleDetails": {
+                    "items": {
+                        "$ref": "ModuleDetail"
+                    },
+                    "type": "array"
+                },
+                "portDetails": {
+                    "items": {
+                        "$ref": "PortDetail"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AddLink": {
+            "description": "DPK for adding circuit links(a single patch).",
+            "id": "AddLink",
+            "properties": {
+                "linkDetails": {
+                    "items": {
+                        "$ref": "LinkDetail"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Audit": {
+            "description": "DEPRECATED, please use\n[revision_history.proto](./revision_history.md).\nAudit is the set of fields shared by all global schemas.",
+            "id": "Audit",
+            "properties": {
+                "createTime": {
+                    "$ref": "Date",
+                    "description": "The time at which this object was created."
+                },
+                "createUser": {
+                    "description": "The identity of the system or user that created this object.",
+                    "type": "string"
+                },
+                "deleteTime": {
+                    "$ref": "Date",
+                    "description": "The time at which this object was most recently deleted.\nUndeletes do not reset this field; see deleted to tell if this object\nis deleted or not."
+                },
+                "deleteUser": {
+                    "description": "The identity of the system or user that last deleted this object.",
+                    "type": "string"
+                },
+                "deleted": {
+                    "description": "Flag indicating delete status of this object.  Allows undelete.",
+                    "type": "boolean"
+                },
+                "updateTime": {
+                    "$ref": "Date",
+                    "description": "The time at which this object was most recently updated."
+                },
+                "updateUser": {
+                    "description": "The identity of the system or user that last updated this object.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "BomCAttributes": {
+            "description": "BomCAttributes corresponds to BOM_C task.",
+            "id": "BomCAttributes",
+            "properties": {},
+            "type": "object"
+        },
+        "BomMaAttributes": {
+            "description": "BomMaAttributes identifies Material SC Committed task which is created when\nProcureANT notifies DeployANT of BOM creation. Task is completed after SC\ngives commit date of delivery for the given BOM order.",
+            "id": "BomMaAttributes",
+            "properties": {
+                "bomId": {
+                    "description": "BOM ID.",
+                    "type": "string"
+                },
+                "orderInfo": {
+                    "$ref": "OrderInfo",
+                    "description": "Order related information pertaining to creation of WF BOM task.\nInternal use only."
+                }
+            },
+            "type": "object"
+        },
+        "BomMdAttributes": {
+            "description": "BomMdAttributes identifies the Material Delivery task which is created when\nProcureANT notifies DeployANT of BOM creation.\nTask is completed when the order is successfully delivered.",
+            "id": "BomMdAttributes",
+            "properties": {
+                "bomId": {
+                    "description": "BOM ID.",
+                    "type": "string"
+                },
+                "orderInfo": {
+                    "$ref": "OrderInfo",
+                    "description": "Order related information pertaining to creation of WF BOM task.\nInternal use only."
+                }
+            },
+            "type": "object"
+        },
+        "BomMoAttributes": {
+            "description": "BomMoAttributes identifies Material Ordered task which is created when\nProcureANT notifies DeployANT of BOM creation. Requested Delivery Date field\nneeds to stay in sync with Supply Chain Onsite Requested date.",
+            "id": "BomMoAttributes",
+            "properties": {
+                "bomId": {
+                    "description": "BOM ID.",
+                    "type": "string"
+                },
+                "onsiteRequestedDate": {
+                    "description": "Onsite Order Delivery Requested Date.\nInternal use only.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "orderInfo": {
+                    "$ref": "OrderInfo",
+                    "description": "Order related information\npertaining to creation of WF BOM task.\nInternal use only."
+                }
+            },
+            "type": "object"
+        },
+        "Card": {
+            "description": "A physical linecard, which may contain one or more ports. Other types of\npluggable cards should be EK_COMPONENT.",
+            "id": "Card",
+            "properties": {
+                "description": {
+                    "description": "The description of the card.",
+                    "type": "string"
+                },
+                "drainData": {
+                    "$ref": "DrainData",
+                    "description": "Whether this card is requested-to-be-drained, and whether it's\nactually-drained. Domain-dependent on whether this is used or not."
+                },
+                "entityState": {
+                    "$ref": "EntityState",
+                    "description": "The entity state of the card."
+                },
+                "identification": {
+                    "$ref": "CardIdentification",
+                    "description": "The card's identfication. Manufacturers often name a card and its location\nin a device by a combination of card type and index number."
+                },
+                "lifecycleState": {
+                    "description": "Lifecycle State of the rack. go/apotheca-state-table.",
+                    "enum": [
+                        "ESLS_UNKNOWN",
+                        "ESLS_PLANNED",
+                        "ESLS_ASBUILT",
+                        "ESLS_DECOM"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The card's name.",
+                    "type": "string"
+                },
+                "physicalChassisUuid": {
+                    "description": "The UUID of the physical chassis containing the card.",
+                    "type": "string"
+                },
+                "physicalItemAttr": {
+                    "$ref": "PhysicalItemAttributes",
+                    "description": "The physical attributes of the card."
+                },
+                "revisionHistory": {
+                    "$ref": "RevisionHistory",
+                    "description": "The revision history of the Card."
+                },
+                "role": {
+                    "description": "The role of the card.",
+                    "enum": [
+                        "CR_UNKNOWN",
+                        "CR_CONTROL_CARD",
+                        "CR_LINE_CARD",
+                        "CR_CONTROL_LINE_CARD",
+                        "CR_PON_LINE_CARD",
+                        "CR_FABRIC_CARD"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "slotIndex": {
+                    "description": "The index of the slot this card is populated in.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "slotUuid": {
+                    "description": "The UUID of the slot containing the card.",
+                    "type": "string"
+                },
+                "slotUuids": {
+                    "description": "The list of all slot uuids for this card. This is searchable and updatable.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "description": "Different card technologies supported on Platforms side.",
+                    "enum": [
+                        "CT_UNKNOWN",
+                        "CT_ALHENA",
+                        "CT_ALNITAK",
+                        "CT_ALTARES",
+                        "CT_BELLATRIX",
+                        "CT_CHABOT",
+                        "CT_DIONE",
+                        "CT_LYRA",
+                        "CT_MARKAB",
+                        "CT_NEPTUNE",
+                        "CT_PEGATRIX",
+                        "CT_PLUTO",
+                        "CT_POLLUX",
+                        "CT_PROXIMA",
+                        "CT_SHIVA",
+                        "CT_TITAN",
+                        "CT_TAYGETA",
+                        "CT_TRAPEZIUM",
+                        "CT_TRAPEZIUM2",
+                        "CT_ULYSSES",
+                        "CT_UTP_ACASTOR",
+                        "CT_UTP_CFP2",
+                        "CT_UTP_FCASTOR",
+                        "CT_UTP_GCASTOR",
+                        "CT_UTP_MATAR",
+                        "CT_UTP_QSFP",
+                        "CT_UTP_SFP",
+                        "CT_TIN"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "uuid": {
+                    "description": "The card's unique id.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CardDetail": {
+            "description": "Detail for adding a card.",
+            "id": "CardDetail",
+            "properties": {
+                "card": {
+                    "$ref": "Card",
+                    "description": "For now only a subset of fields are populated:\n- name\n- physical_item_attr.unit_description"
+                },
+                "chassis": {
+                    "$ref": "ChassisInfo"
+                }
+            },
+            "type": "object"
+        },
+        "CardIdentification": {
+            "description": "Manufacturers often name a card and its location in a device by a combination\nof card type and index number.",
+            "id": "CardIdentification",
+            "properties": {
+                "cardType": {
+                    "type": "string"
+                },
+                "systemIndex": {
+                    "description": "The index number the card gets assigned in the system. This number is\noften, but not always, derived from the slot index where this card or\nparent card is installed in the chassis.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "ChassisInfo": {
+            "description": "Information about an existing chassis.",
+            "id": "ChassisInfo",
+            "properties": {
+                "chassisName": {
+                    "description": "<local name>.<pop name>:<suffix> eg.cx04.atl14:0",
+                    "type": "string"
+                },
+                "deviceName": {
+                    "description": "<local name>.<pop name> eg. cx04.atl14",
+                    "type": "string"
+                },
+                "pop": {
+                    "type": "string"
+                },
+                "rackName": {
+                    "description": "<pop name><position> eg. atl14-4-5",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CircuitTurnup": {
+            "description": "DPK for circuit turnup.\nApplies to CTUP type Actionable task.",
+            "id": "CircuitTurnup",
+            "properties": {
+                "circuitIds": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CreateProjectsRequest": {
+            "description": "CreateProjectsRequest specifies the inputs for project creation.",
+            "id": "CreateProjectsRequest",
+            "properties": {
+                "projectRun": {
+                    "$ref": "ProjectRun",
+                    "description": "Project Run message that will contain some user input fields."
+                }
+            },
+            "type": "object"
+        },
+        "CtupAttributes": {
+            "description": "CTUP identifies BTP when deliverable is to be successfully delivered.\nCompletion of this task indicate project has been completed.",
+            "id": "CtupAttributes",
+            "properties": {
+                "btpTargetDate": {
+                    "description": "BTP completion target date.\nInternal use only.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DPK": {
+            "description": "DPK stands for Deployment Package, containing information needed to\nperform installation work.\nSee go/deployant-capadd \"Data Model-DPK\" section.",
+            "id": "DPK",
+            "properties": {
+                "addLinecard": {
+                    "$ref": "AddLineCard"
+                },
+                "addLink": {
+                    "$ref": "AddLink"
+                },
+                "circuitTurnup": {
+                    "$ref": "CircuitTurnup"
+                },
+                "materialReceipt": {
+                    "$ref": "MaterialReceipt"
+                },
+                "metroOwner": {
+                    "type": "string"
+                },
+                "metroSecondaryOwner": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Date": {
+            "description": "Represents a whole or partial calendar date, e.g. a birthday. The time of day\nand time zone are either specified elsewhere or are not significant. The date\nis relative to the Proleptic Gregorian Calendar. This can represent:\n\n* A full date, with non-zero year, month and day values\n* A month and day value, with a zero year, e.g. an anniversary\n* A year on its own, with zero month and day values\n* A year and month value, with a zero day, e.g. a credit card expiration date\n\nRelated types are google.type.TimeOfDay and `google.protobuf.Timestamp`.",
+            "id": "Date",
+            "properties": {
+                "day": {
+                    "description": "Day of month. Must be from 1 to 31 and valid for the year and month, or 0\nif specifying a year by itself or a year and month where the day is not\nsignificant.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "month": {
+                    "description": "Month of year. Must be from 1 to 12, or 0 if specifying a year without a\nmonth and day.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "year": {
+                    "description": "Year of date. Must be from 1 to 9999, or 0 if specifying a date without\na year.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "DeleteProjectRunsRequest": {
+            "description": "DeleteProjectRunsRequest contains request to delete project runs.",
+            "id": "DeleteProjectRunsRequest",
+            "properties": {
+                "projectRunIds": {
+                    "description": "Project Run IDs to delete.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Deliverable": {
+            "description": "Deliverable represents schedulable unit of deployment work. It maps 1 : 1\nto task in project management tool.\nFields are defined based on requirement doc go/capadd-brd.",
+            "id": "Deliverable",
+            "properties": {
+                "activity": {
+                    "description": "BTP Activity. Check go/btp for more details.",
+                    "type": "string"
+                },
+                "capacityLevel": {
+                    "description": "Capacity level, indicates level of aggregation.",
+                    "enum": [
+                        "CL_UNSPECIFIED",
+                        "CL_CCG",
+                        "CL_SUB_LINK"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "ccg",
+                        "sub_link"
+                    ],
+                    "type": "string"
+                },
+                "delQuantity": {
+                    "description": "Deliverable quantity (in Gbps).",
+                    "type": "string"
+                },
+                "delUuid": {
+                    "description": "Deliverable UUID.",
+                    "type": "string"
+                },
+                "deployType": {
+                    "description": "What type of deliverable it is, whether adding capacity or adding hardware.\nThis is needed to select template.",
+                    "enum": [
+                        "DT_UNSPECIFIED",
+                        "DT_CAPACITY"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "So far we only support capacity related BTP deliverables.\nHardware related deliverables are yet to be defined."
+                    ],
+                    "type": "string"
+                },
+                "function": {
+                    "description": "Capacity function.",
+                    "enum": [
+                        "FN_UNSPECIFIED",
+                        "FN_B2ADJ",
+                        "FN_B4ADJ",
+                        "FN_GTR",
+                        "FN_GMS"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "b2adj",
+                        "b4adj",
+                        "L1 -  Google Transport Record(GTR).",
+                        "L1 - Google Managed Services(GMS)."
+                    ],
+                    "type": "string"
+                },
+                "groupKey": {
+                    "description": "Group key, deliverables with same group key will be grouped into same\nproject. If it doesn't present, UUID will be used as group key.",
+                    "type": "string"
+                },
+                "inputSource": {
+                    "description": "Source system of the deliverable.",
+                    "enum": [
+                        "IS_UNSPECIFIED",
+                        "IS_BTP_DELIVERABLE",
+                        "IS_DEPLOYMENT_TASK"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "metros": {
+                    "description": "Metros for deliverable, eg. ATL, MAD.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "Name for deliverable. eg. atl21.drb2.atlb2a_2018-04_3840_5600",
+                    "type": "string"
+                },
+                "needByDate": {
+                    "$ref": "Date",
+                    "description": "Date by which network capacity must be delivered."
+                },
+                "owner": {
+                    "description": "Username for project manager who owns the deliverable. If owner is not set,\ncaller will be used as owner.",
+                    "type": "string"
+                },
+                "region": {
+                    "description": "GNA Region responsible for planning the asset.",
+                    "enum": [
+                        "GNAR_UNKNOWN",
+                        "GNAR_AMER",
+                        "GNAR_APAC",
+                        "GNAR_EMEA",
+                        "GNAR_GLOBAL"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "Americas",
+                        "Asia/Pacific",
+                        "Europe, Middle-east and Africa",
+                        "Earth"
+                    ],
+                    "type": "string"
+                },
+                "routerPortCap": {
+                    "description": "Router Port Capacity.",
+                    "enum": [
+                        "RP_UNSPECIFIED",
+                        "RP_10G",
+                        "RP_40G",
+                        "RP_100G"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "Values correspond to 10G, 40G and 100G in Workfront.\nThey can be found under PHY in go/metropor.",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "team": {
+                    "description": "NetDeploy team responsible for deployment.",
+                    "enum": [
+                        "TM_UNSPECIFIED",
+                        "TM_CORE",
+                        "TM_EDGE",
+                        "TM_TRANSPORT"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "Core team usually works in datacenters.",
+                        "Edge team typically works in Colos.",
+                        "Transport team works across metros."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DeliverableStatus": {
+            "description": "DeliverableStatus contains information about BTP deliverable\nand any error associated with it.",
+            "id": "DeliverableStatus",
+            "properties": {
+                "deliverable": {
+                    "$ref": "Deliverable",
+                    "description": "BTP Deliverable."
+                },
+                "status": {
+                    "$ref": "Status",
+                    "description": "Status of the given deliverable."
+                }
+            },
+            "type": "object"
+        },
+        "DesignAttributes": {
+            "description": "Design task is for detailed design and created right after project creation.\nCompletion of this design task will trigger creation of material tasks and\ninstallation tasks.",
+            "id": "DesignAttributes",
+            "properties": {},
+            "type": "object"
+        },
+        "DrainData": {
+            "description": "This message encapsulates all drain data - specifically, drain reasons, and\nwill soon encapsulate drain state. (That requires migration, though.)",
+            "id": "DrainData",
+            "properties": {
+                "reasons": {
+                    "description": "Reasons why a user or system has requested that something be drained.",
+                    "items": {
+                        "$ref": "DrainReason"
+                    },
+                    "type": "array"
+                },
+                "state": {
+                    "description": "Whether or not an entity is actually drained.\n\nSome higher-level entities may have \"DrainState\" in their *Attributes\nmessage, but should change to use this field.",
+                    "items": {
+                        "$ref": "DrainState"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "DrainReason": {
+            "description": "A DrainReason represents a single \"intended\" drain. This may be different\nfrom what is actually-drained:\n  - the system may be in an intermediate state, where a DrainReason has been\n  applied or removed but the DrainState persists.\n  - the system may have constraints about which entities can be\n  actually-drained (which combinations of DrainState are valid), and these\n  may be weaker when represented in DrainReason. For example, the system may\n  perform \"covering\" drains of higher-level entities.",
+            "id": "DrainReason",
+            "properties": {
+                "active": {
+                    "description": "Asserts whether there is an active DrainState related to this DrainReason.\nA value of true indicates that addition of this DrainReason actively\ndrained the target entity by also adding a DrainState.\nA value of false indicates that addition of this DrainReason was\ninformative only, e.g. this entity might be drained indirectly.",
+                    "type": "boolean"
+                },
+                "drainType": {
+                    "description": "Concrete type of drain.",
+                    "enum": [
+                        "DT_UNKNOWN",
+                        "DT_EBGP_ALL",
+                        "DT_ISIS_HIGH_METRIC",
+                        "DT_CSPF_ALL",
+                        "DT_CSPF_HIPRI",
+                        "DT_ADMIN_DOWN",
+                        "DT_REMOVED_FROM_LAG",
+                        "DT_VRRP",
+                        "DT_OSPF_HIGH_METRIC",
+                        "DT_NOT_IN_SERVICE",
+                        "DT_EBGP_NO_ROUTES_IMPORT",
+                        "DT_EBGP_NO_ROUTES_EXPORT",
+                        "DT_IBGP_ALL",
+                        "DT_ISIS_LAYER2",
+                        "DT_ISIS_OVERLOAD",
+                        "DT_BGP_FILTER",
+                        "DT_DRAIN_ME",
+                        "DT_UNSPECIFIED"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "EBGP is drained (learnt and advertised prefixes are filtered/deprefed)",
+                        "IS-IS is drained using max metric on all interfaces on the router, this\nmethod is only used for a limited set of roles, it has mostly been replaced\nby DT_ISIS_OVERLOAD (see below).\nISIS is drained (max metric)",
+                        "Introduces a CSPF constraint that removes a link from all PROD LSP\ncomputations.",
+                        "Introduces a CSPF constraint that removes a link from high-prio prod LSP\ncomputations.",
+                        "Interfaces or ports are shut.",
+                        "Temporarily removed from containing aggregate.",
+                        "Depref'd in a VRRP group.",
+                        "OSPF is drained (max metric)",
+                        "Not in service drain",
+                        "",
+                        "",
+                        "IBGP is drained.",
+                        "IS-IS control packets are blocked to prevent neighbor relationship\nformation on a shared VLAN using a MAC ACL (this is done typically on CX).",
+                        "IS-IS overload bit is set on the router, this is the typical IS-IS router\ndrain method utilized by most B2 roles.  This method does not change\nmetrics on the router, but does cause other routers not to utilize this\nrouter to provide transit to a destination.\nIS-IS overload bit is set on router.",
+                        "Filtering prefix advertisements either by rejecting or by modifying BGP\nattributes.  This entails the application of routing-policy to a B2 device\nand applies to external or internal BGP prefixes.\nPrime example of this is rejecting prefixes that have the 'Pinball'\ncommunity on advertisements coming from cluster fabrics.\nMultipurpose BGP filter Drain Type.",
+                        "An alias of DT_UNSPECIFIED, which indicates the entity itself is drained by\nits default drain mechanism.",
+                        "The drain is applied, however particular type of drain is not specified\nor will be decided by some software later e.g. PCMS router drain."
+                    ],
+                    "type": "string"
+                },
+                "reflectInDescription": {
+                    "description": "For compatibility where drain-reasons are reflected in descriptions.",
+                    "type": "boolean"
+                },
+                "ticketId": {
+                    "$ref": "TicketId"
+                }
+            },
+            "type": "object"
+        },
+        "DrainState": {
+            "description": "DrainState represents a single type of drain on a device, port, or interface.\nTypically, it indicates which routing protocol is drained. Not all models\nneed represent drains, they may e.g. remove drained members from the\ntopology, or they may indicate the result of the drain via e.g. metric\nchanges instead of representing drains explicitiy. If drains are explicitly\nrepresented in a model, then the value of attributes such as routing metrics\nshould be their *undrained* value.\n\nThis does *not* represent a drain stack (or a member of a drain stack), it\nrepresents the operational state of a drainable entity.",
+            "id": "DrainState",
+            "properties": {
+                "type": {
+                    "description": "The type of the drain - how the drain is effected.",
+                    "enum": [
+                        "DT_UNKNOWN",
+                        "DT_EBGP_ALL",
+                        "DT_ISIS_HIGH_METRIC",
+                        "DT_CSPF_ALL",
+                        "DT_CSPF_HIPRI",
+                        "DT_ADMIN_DOWN",
+                        "DT_REMOVED_FROM_LAG",
+                        "DT_VRRP",
+                        "DT_OSPF_HIGH_METRIC",
+                        "DT_NOT_IN_SERVICE",
+                        "DT_EBGP_NO_ROUTES_IMPORT",
+                        "DT_EBGP_NO_ROUTES_EXPORT",
+                        "DT_IBGP_ALL",
+                        "DT_ISIS_LAYER2",
+                        "DT_ISIS_OVERLOAD",
+                        "DT_BGP_FILTER",
+                        "DT_DRAIN_ME",
+                        "DT_UNSPECIFIED"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "EBGP is drained (learnt and advertised prefixes are filtered/deprefed)",
+                        "IS-IS is drained using max metric on all interfaces on the router, this\nmethod is only used for a limited set of roles, it has mostly been replaced\nby DT_ISIS_OVERLOAD (see below).\nISIS is drained (max metric)",
+                        "Introduces a CSPF constraint that removes a link from all PROD LSP\ncomputations.",
+                        "Introduces a CSPF constraint that removes a link from high-prio prod LSP\ncomputations.",
+                        "Interfaces or ports are shut.",
+                        "Temporarily removed from containing aggregate.",
+                        "Depref'd in a VRRP group.",
+                        "OSPF is drained (max metric)",
+                        "Not in service drain",
+                        "",
+                        "",
+                        "IBGP is drained.",
+                        "IS-IS control packets are blocked to prevent neighbor relationship\nformation on a shared VLAN using a MAC ACL (this is done typically on CX).",
+                        "IS-IS overload bit is set on the router, this is the typical IS-IS router\ndrain method utilized by most B2 roles.  This method does not change\nmetrics on the router, but does cause other routers not to utilize this\nrouter to provide transit to a destination.\nIS-IS overload bit is set on router.",
+                        "Filtering prefix advertisements either by rejecting or by modifying BGP\nattributes.  This entails the application of routing-policy to a B2 device\nand applies to external or internal BGP prefixes.\nPrime example of this is rejecting prefixes that have the 'Pinball'\ncommunity on advertisements coming from cluster fabrics.\nMultipurpose BGP filter Drain Type.",
+                        "An alias of DT_UNSPECIFIED, which indicates the entity itself is drained by\nits default drain mechanism.",
+                        "The drain is applied, however particular type of drain is not specified\nor will be decided by some software later e.g. PCMS router drain."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Empty": {
+            "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+            "id": "Empty",
+            "properties": {},
+            "type": "object"
+        },
+        "EntityState": {
+            "description": "Represents the overall lifecycle state of the entity. The state might\nactually be a composite of multiple subsidiary entities' states.   If this\nfield is unset for an entity, recursively follow the union of the RK_CONTAINS\nand RK_TRAVERSES relationships (in the z-to-a direction) until you reach an\nentity with this field set.\n\nThe overall state is broken into sub-messages, each of which applies\nto a specific model stage (see go/unm-stages).  In general, state\ntransitions for a sub-message should only occur to model updates for the\nassociated model stage, except those states marked (in comments below)\nas \u201chandoff\u201d states, where the subsequent state would be written\nin the next model stage.\n\nDrains are not represented in this message - see DrainState.",
+            "id": "EntityState",
+            "properties": {
+                "adminState": {
+                    "enum": [
+                        "AST_UNKNOWN",
+                        "AST_NEEDS_CONFIG",
+                        "AST_NEEDS_QUAL",
+                        "AST_SERVING",
+                        "AST_POR_IS_DECOM",
+                        "AST_READY_FOR_DECOM",
+                        "AST_UNDER_REPAIR",
+                        "AST_FAULTY"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "The entity needs additional configuration work.",
+                        "The entity needs a qualification process to be run.",
+                        "The entity is in-service.\nAn entity in service can directly move to the following states if the\nentity cannot serve:\n  AST_UNDER_REPAIR\n  AST_FAULTY",
+                        "The AST_POR_IS_DECOM state is a \u201cguard\u201d to ensure that the transition\nto AST_READY_FOR_DECOM cannot happen unless there is an explicit plan\nto decommission the entity.  The AST_POR_IS_DECOM state should be\ncreated in a planned-stage model, then (when that model becomes POR)\nreflected, by some workflow, into the admin model.  Except for this\nguard function, AST_POR_IS_DECOM means the same as AST_SERVING;\ncode that interprets these values needs to account for that meaning.",
+                        "The entity is about to be decommissioned - presumably it has been drained\nif that is necessary. The only legal transition into AST_READY_FOR_DECOM is\nfrom AST_POR_IS_DECOM or AST_FAULTY.\nHandoff possible to ABST_DECOM_IN_PROGRESS, or PLST_AVAILABLE or\nPLST_PLACEHOLDER.",
+                        "The entity is under repair or needs repair to be used correctly.\nHandoff possible to\n  AST_NEEDS_CONFIG\n  AST_NEEDS_QUAL\n  AST_SERVING",
+                        "The entity is faulty. The entity will eventually be decommed.\nHandoff possible to:\nABST_.*DECOM* states.\nAST_READY_FOR_DECOM"
+                    ],
+                    "type": "string"
+                },
+                "asbuiltState": {
+                    "enum": [
+                        "ABST_UNKNOWN",
+                        "ABST_READY_TO_DEPLOY",
+                        "ABST_DEPLOY_IN_PROGRESS",
+                        "ABST_DEPLOY_COMPLETE",
+                        "ABST_DECOM_IN_PROGRESS",
+                        "ABST_DECOM_COMPLETE"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "The entity is ready to deploy, but deployment has not started.",
+                        "The entity's deployment is in-progress",
+                        "The entity's deployment is completed. This state is a hand-off state\nto AST_NEEDS_CONFIG, AST_NEEDS_QUAL, or AST_SERVING.",
+                        "This state indicates that decommissioning has started.",
+                        "The entity has been decommissioned. Handoff possible to PLST_AVAILABLE or\nPLST_PLACEHOLDER."
+                    ],
+                    "type": "string"
+                },
+                "isServing": {
+                    "description": "is_serving should be set IFF the state is AST_SERVING or AST_POR_IS_DECOM\n(which is defined as functionally equivalent to AST_SERVING).",
+                    "type": "boolean"
+                },
+                "planningState": {
+                    "enum": [
+                        "PLST_UNKNOWN",
+                        "PLST_PROPOSED",
+                        "PLST_READY_TO_DEPLOY",
+                        "PLST_ON_HOLD",
+                        "PLST_PLACEHOLDER",
+                        "PLST_AVAILABLE"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "This entity is potentially deployable, but is not yet POR.",
+                        "This entity is ready for deployment when this model becomes POR.\nThis state is a hand-off state to ABST_READY_TO_DEPLOY.",
+                        "The entity is not ready for deployment yet, it is a placeholder for future\nuse (one kind of \"depop\" status).",
+                        "The entity is a placeholder to ensure proper numbering. It is not planned\nto be deployed (another kind of \"depop\" status).",
+                        "The entity is available for reuse. For example, \"inventory items\" or unused\nports may be marked AVAILABLE."
+                    ],
+                    "type": "string"
+                },
+                "stateIsInMdb": {
+                    "description": "State for some entities (e.g., EK_MACHINE) may be kept in MDB, and if so,\nwe might not want to keep it in sync with EntityState metadata.\nIf state_is_in_mdb is set, look in MDB for the actual current state,\nand ignore the rest of EntityState in as-built/admin/observed models.\n(It is OK to mirror the entity state here, for use in historical models.)",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "ExecutionReference": {
+            "description": "ExecutionReference is a reference to the system responsible for execution\nof the Actionable task.",
+            "id": "ExecutionReference",
+            "properties": {
+                "loveshackWorkflows": {
+                    "$ref": "LoveshackWorkflows"
+                }
+            },
+            "type": "object"
+        },
+        "InstCapAttributes": {
+            "description": "INST-CAP task is for line card installation, created after design has been\ncompleted. ZTN workflows will be created for this task.",
+            "id": "InstCapAttributes",
+            "properties": {
+                "cardCount": {
+                    "description": "Number of cards to add.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "deploymentTaskIds": {
+                    "description": "Deployment Task UUIDs.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "deviceName": {
+                    "description": "Device Name, needed since scope of this task is per device.",
+                    "type": "string"
+                },
+                "opticCount": {
+                    "description": "Number of optics to add.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "InstCfpAttributes": {
+            "description": "INST-CFP task is for physically patching multiple circuits.\nZTN workflows will be created for this task.",
+            "id": "InstCfpAttributes",
+            "properties": {
+                "deploymentTaskIds": {
+                    "description": "Deployment task UUIDs.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "patchCount": {
+                    "description": "Number of patches to add.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "InvAttributes": {
+            "description": "INV is the material receipt task created after BOM is created.\nZTN workflows will be created for this task.",
+            "id": "InvAttributes",
+            "properties": {
+                "materialCommitDate": {
+                    "description": "DEPRECATED! planned_start_date will be used for LS workflow.\nWhen the material is committed to be delivered, coming from ProcureANT.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "orderCache": {
+                    "description": "Associated order information needed to decide task status/generate DPK.\nInternal use only.",
+                    "items": {
+                        "$ref": "OrderCache"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "LinkDetail": {
+            "description": "Detail for adding a single link(patch) for a circuit in a pop.",
+            "id": "LinkDetail",
+            "properties": {
+                "a": {
+                    "description": "The first port to be connected.",
+                    "type": "string"
+                },
+                "circuitId": {
+                    "description": "Circuit ID in stoat, eg.C-TFN-TFN-00001",
+                    "type": "string"
+                },
+                "pop": {
+                    "description": "eg. ATL14.",
+                    "type": "string"
+                },
+                "z": {
+                    "description": "The second port to be connected.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListProjectRunsResponse": {
+            "description": "ListProjectRunsResponse returns all project run reports for\ncorresponding filter request.",
+            "id": "ListProjectRunsResponse",
+            "properties": {
+                "projectRuns": {
+                    "description": "List of Project Runs from the past.",
+                    "items": {
+                        "$ref": "ProjectRun"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "LoveshackWorkflows": {
+            "description": "LoveshackWorkflows contains the list of workflows associated with the\nexecution of the Actionable Task.",
+            "id": "LoveshackWorkflows",
+            "properties": {
+                "shaxIds": {
+                    "description": "LoveShack Workflow IDs.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "urls": {
+                    "description": "URLs to tickets. (eg. https://isp.google.com/ticketing/ticket/123)",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ManualOrderSyncRequest": {
+            "id": "ManualOrderSyncRequest",
+            "properties": {
+                "bomIds": {
+                    "description": "Rather than syncing all orders, a subset of them can be specified\nusing BOM IDs. Only supported for direction `PROCUREANT_TO_WORKFRONT`.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "direction": {
+                    "description": "Direction of synchronization.",
+                    "enum": [
+                        "UNSPECIFIED",
+                        "WORKFRONT_TO_PROCUREANT",
+                        "PROCUREANT_TO_WORKFRONT"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ManualOrderSyncResponse": {
+            "id": "ManualOrderSyncResponse",
+            "properties": {
+                "exceptions": {
+                    "items": {
+                        "$ref": "SyncError"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "MaterialReceipt": {
+            "description": "DPK for receiving materials.",
+            "id": "MaterialReceipt",
+            "properties": {
+                "morNumbers": {
+                    "description": "MOR(Move Order Requests) numbers.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ModuleDetail": {
+            "description": "Detail for adding a module.",
+            "id": "ModuleDetail",
+            "properties": {
+                "card": {
+                    "$ref": "Card",
+                    "description": "Module is represented as Card entity in Thorax, Card.name is the module\nname. For now only a subset of fields are populated:\n- name\n- physical_item_attr.unit_description"
+                },
+                "cardName": {
+                    "type": "string"
+                },
+                "chassis": {
+                    "$ref": "ChassisInfo"
+                }
+            },
+            "type": "object"
+        },
+        "OrderCache": {
+            "description": "Cached BOM-MD information. Used by Inventory task\nto determine self commit date and status.",
+            "id": "OrderCache",
+            "properties": {
+                "bomId": {
+                    "description": "BOM ID of the associated BOM-MD task.",
+                    "type": "string"
+                },
+                "commitDate": {
+                    "description": "Material commit date for the given order.\nIf commit date is nil it means it has not been set yet.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "completionDate": {
+                    "description": "Material completion date for the given order.\nIf completion date is nil it means it order has not been completed yet.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "OrderInfo": {
+            "description": "OrderInfo contains order related information\nneeded to create and keep in sync, Material (BOM-M*) tasks in Workfront.",
+            "id": "OrderInfo",
+            "properties": {
+                "creationDate": {
+                    "description": "Date when order is created.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "Order display name.",
+                    "type": "string"
+                },
+                "scOrderId": {
+                    "description": "URL for order.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PMTReference": {
+            "description": "PMTReference is a reference to the Project Management Tool used by Actionable\nTask.",
+            "id": "PMTReference",
+            "properties": {
+                "workfrontTask": {
+                    "$ref": "WorkfrontTask"
+                }
+            },
+            "type": "object"
+        },
+        "PhysicalItemAttributes": {
+            "description": "This message models common attributes of physical items, such as serial\nnumbers. See go/unm-physical-item-attrs .\nWhen adding this to an entity's Attributes message, it should in a submessage\ncalled \"physical_item_attr\", so that UNM profiles can operate on all entities\nhaving this feature in common.",
+            "id": "PhysicalItemAttributes",
+            "properties": {
+                "googlePartNumber": {
+                    "description": "The Google Part Number (GPN) for the entity.  See http://what/gpn for\nfurther detail.",
+                    "type": "string"
+                },
+                "hardwareConfigId": {
+                    "description": "This is an opaque string (MUST NOT be parsed) used by repair workflows",
+                    "type": "string"
+                },
+                "isRepairableUnit": {
+                    "description": "This bool can be set when a model is created, based on the\nmodel-generator\u2019s specific knowledge, to indicate whether the entity is a\n\u201crepairable unit.\u201d",
+                    "type": "boolean"
+                },
+                "model": {
+                    "description": "Well-known strings exist - see strings/enums.proto.",
+                    "type": "string"
+                },
+                "partsCatalogUnitDescription": {
+                    "description": "The unit description, from the parts catalog, for the entity.  Unit\ndescription is an identifier for a part that allows for physical\nfungibility, unlike GPN, i.e. two parts that are physically fungible share\nthe same unit description.",
+                    "type": "string"
+                },
+                "rackificationLabel": {
+                    "description": "The rackification_label is an opaque string used to communicate between\nTonka and Overture.  Although its format is described in\nhttps://g3doc.corp.google.com/platforms/networking/sandcastle/model/design/service/g3doc/network_role.md?cl=head\nit MUST NOT be parsed by any consumer.",
+                    "type": "string"
+                },
+                "serialNumber": {
+                    "description": "as assigned by the manufacturer",
+                    "type": "string"
+                },
+                "supplier": {
+                    "description": "The brand of the device.",
+                    "enum": [
+                        "S_UNKNOWN",
+                        "S_A10",
+                        "S_AGENTV",
+                        "S_ALCATELLUCENT",
+                        "S_ALLIEDTELESIS",
+                        "S_APC",
+                        "S_ARISTA",
+                        "S_ARUBA",
+                        "S_AUDIOCODES",
+                        "S_AVAYA",
+                        "S_AVOCENT",
+                        "S_BRILLIANT",
+                        "S_BROCADE",
+                        "S_BTI",
+                        "S_CALIENT",
+                        "S_CIENA",
+                        "S_CISCO",
+                        "S_CITRIX",
+                        "S_DELL",
+                        "S_DELTA",
+                        "S_EVERTZ",
+                        "S_F5",
+                        "S_FORCE10",
+                        "S_FORTINET",
+                        "S_FOUNDRY",
+                        "S_GE",
+                        "S_GOOGLE",
+                        "S_HP",
+                        "S_INFINERA",
+                        "S_IXIA",
+                        "S_JDSU",
+                        "S_JUNIPER",
+                        "S_MRV",
+                        "S_NETSCOUT",
+                        "S_NOVIFLOW",
+                        "S_ORACLE",
+                        "S_PICA8",
+                        "S_SCHLEIFENBAUER",
+                        "S_SERVERTECH",
+                        "S_SIEMENS",
+                        "S_SILVERPEAK",
+                        "S_SYMMETRICOM",
+                        "S_THALES",
+                        "S_UBIQUITI",
+                        "S_VSWITCH"
+                    ],
+                    "enumDescriptions": [
+                        "Must be declared first.",
+                        "",
+                        "Corp SDN, go/project-perry",
+                        "Alcatel-Lucent optical gear",
+                        "",
+                        "",
+                        "",
+                        "Replace with S_HPE?",
+                        "",
+                        "",
+                        "Formerly Cyclades",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "Should we replace with S_BROCADE?",
+                        "",
+                        "A Google-built network device or machine.",
+                        "Rename to HPE?",
+                        "",
+                        "",
+                        "Rename to Viavi or Lumentum?",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "Time masters?",
+                        "HSM",
+                        "",
+                        "For Open vSwitch"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PhysicalPort": {
+            "description": "The device-side attachment point that a connector connects to. Physically,\nthis entity represents the merging of the Port (just the hole in the side of\na device/card/module) with the female connector object. The female connector\ntype is determined by the number of StrandEndpoints inside of it.\nThe full Port Connectivity Model is:\nPhysicalPort  <--- Connector\n   ^                  ^\n   |                  |\nStrandEndpoint <- ConnectorPin",
+            "id": "PhysicalPort",
+            "properties": {
+                "audit": {
+                    "$ref": "Audit",
+                    "description": "AuditInfo captures who did what to this entity and when."
+                },
+                "cardUuid": {
+                    "type": "string"
+                },
+                "connectorType": {
+                    "description": "Type of the strand endpoints.",
+                    "enum": [
+                        "CT_UNKNOWN",
+                        "CT_LC",
+                        "CT_SC",
+                        "CT_MPO_PIN",
+                        "CT_FC",
+                        "CT_E_2000",
+                        "CT_MINI_LC",
+                        "CT_ST"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "designIntent": {
+                    "description": "Design intent for this port. Bootstrapped from NBB reservations.",
+                    "type": "string"
+                },
+                "deviceUuid": {
+                    "description": "The parent_uuid contains a device_uuid when the port is directly\non a device without a card or module as an intermediary.",
+                    "type": "string"
+                },
+                "framing": {
+                    "description": "The framing of any signal emitted by this physical port.",
+                    "enum": [
+                        "PF_UNKNOWN",
+                        "PF_LAN",
+                        "PF_WAN",
+                        "PF_SDH",
+                        "PF_SONET",
+                        "PF_G709"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "legacyObjectId": {
+                    "description": "Old object_id from NC. Only populated on reads, used for back-referencing.",
+                    "format": "uint64",
+                    "type": "string"
+                },
+                "lifecycleState": {
+                    "description": "Lifecycle State of the physical port. go/apotheca-state-table",
+                    "enum": [
+                        "ESLS_UNKNOWN",
+                        "ESLS_PLANNED",
+                        "ESLS_ASBUILT",
+                        "ESLS_DECOM"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "logicalUsageStatus": {
+                    "enum": [
+                        "PUS_UNKNOWN",
+                        "PUS_AVAILABLE",
+                        "PUS_IN_USE",
+                        "PUS_UNUSABLE",
+                        "PUS_RESERVED",
+                        "PUS_EMPTY"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "managementState": {
+                    "description": "The circuit management status of the physical port. go/apotheca-state-table",
+                    "enum": [
+                        "ESMS_UNKNOWN",
+                        "ESMS_AVAILABLE",
+                        "ESMS_RESERVED"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "managementStatus": {
+                    "enum": [
+                        "PORT_MANAGEMENT_STATUS_UNKNOWN",
+                        "PORT_MANAGEMENT_STATUS_AVAILABLE",
+                        "PORT_MANAGEMENT_STATUS_RESERVED",
+                        "PORT_MANAGEMENT_STATUS_PENDING_DECOMMISSION",
+                        "PORT_MANAGEMENT_STATUS_UNAVAILABLE"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "modulation": {
+                    "description": "The modulation of any signal emitted by this physical port.",
+                    "enum": [
+                        "MODULATION_UNKNOWN",
+                        "MODULATION_BPSK",
+                        "MODULATION_QPSK",
+                        "MODULATION_8QAM",
+                        "MODULATION_16QAM",
+                        "MODULATION_32QAM",
+                        "MODULATION_64QAM",
+                        "MODULATION_OOK",
+                        "MODULATION_56GBAUD",
+                        "MODULATION_NRZ",
+                        "MODULATION_PAM4",
+                        "MODULATION_60_1GBAUD",
+                        "MODULATION_60_6GBAUD",
+                        "MODULATION_62_6GBAUD",
+                        "MODULATION_69_4GBAUD",
+                        "MODULATION_72GBAUD"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "moduleUuid": {
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The physical port's name.\n\nFormat: <device_name>:<card_name>:...:<port_name>.",
+                    "type": "string"
+                },
+                "objectId": {
+                    "description": "Netcracker object ID.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "operationalState": {
+                    "description": "Operational State of the physical port. go/apotheca-state-table",
+                    "enum": [
+                        "ESOS_UNKNOWN",
+                        "ESOS_BROKEN",
+                        "ESOS_NOTBROKEN"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "patchPanelUuid": {
+                    "description": "Patch panel that contains the port. This should be populated only when\nthe port is a direct child of the panel.",
+                    "type": "string"
+                },
+                "physicalChassisUuid": {
+                    "description": "Physical chassis that contains the port. This should be populated only\nwhen the Port is a direct child of the chassis.",
+                    "type": "string"
+                },
+                "physicalItemAttr": {
+                    "$ref": "PhysicalItemAttributes",
+                    "description": "The physical attributes of the physical port."
+                },
+                "physicalPortAttribute": {
+                    "$ref": "PhysicalPortAttributes",
+                    "description": "Attributes of a Physical Port, imported from UNM."
+                },
+                "physicalUsageStatus": {
+                    "description": "For the next three items.\nPlease see:\nhttps://goto.google.com/dhportmanagement\nOr UNM definition:\nhttp://cs/google3/net/model/unm/proto/topology.proto?l=2272",
+                    "enum": [
+                        "PUS_UNKNOWN",
+                        "PUS_AVAILABLE",
+                        "PUS_IN_USE",
+                        "PUS_UNUSABLE",
+                        "PUS_RESERVED",
+                        "PUS_EMPTY"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "portSide": {
+                    "enum": [
+                        "PS_UNKNOWN",
+                        "PS_FRONT",
+                        "PS_BACK"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "purposeAttribute": {
+                    "description": "The purpose for the port if it's part of a bundle of Port Reservations.",
+                    "type": "string"
+                },
+                "reservationUuid": {
+                    "description": "The port reservation uuid that is referenced by this port. This field\nmust be supplied for the reservation to be found in DH.",
+                    "type": "string"
+                },
+                "reservationValue": {
+                    "type": "string"
+                },
+                "revisionHistory": {
+                    "$ref": "RevisionHistory",
+                    "description": "The revision history of the physical port."
+                },
+                "slotUuid": {
+                    "description": "Slot that contains the card or module which contains the Physical Port.\nThis field's value must be supplied in order to support DH API, and it\nmust be a copy of this port's parent card's slot's UUID.",
+                    "type": "string"
+                },
+                "speed": {
+                    "description": "The speed of the signals emitted by this physical port.",
+                    "enum": [
+                        "PTR_UNKNOWN",
+                        "PTR_10ME",
+                        "PTR_100ME",
+                        "PTR_OC3_STM1",
+                        "PTR_OC12_STM4",
+                        "PTR_1GE",
+                        "PTR_OC48_STM16",
+                        "PTR_OTU1",
+                        "PTR_OC192_STM64",
+                        "PTR_10GE",
+                        "PTR_OTU2",
+                        "PTR_20GE",
+                        "PTR_25GE",
+                        "PTR_28G_GNET",
+                        "PTR_OC768_STM256",
+                        "PTR_40GE",
+                        "PTR_OTU3",
+                        "PTR_50GE",
+                        "PTR_51_2G_GNET",
+                        "PTR_100GE",
+                        "PTR_OTU4",
+                        "PTR_150GE",
+                        "PTR_200GE",
+                        "PTR_250GE",
+                        "PTR_300GE",
+                        "PTR_400GE",
+                        "PTR_500GE",
+                        "PTR_600GE",
+                        "PTR_700GE",
+                        "PTR_800GE"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "strandEndpointUuids": {
+                    "description": "The names of the strand endpoints contained by the physical port.\nThis is a denormalized field.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "transactionTime": {
+                    "$ref": "TransactionTime",
+                    "description": "The transaction time of the physical port."
+                },
+                "usageState": {
+                    "description": "The circuit usage status of the physical port. go/apotheca-state-table",
+                    "enum": [
+                        "ESUS_UNKNOWN",
+                        "ESUS_LIT",
+                        "ESUS_UNLIT",
+                        "ESUS_PLANNED"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "uuid": {
+                    "description": "The physical port's unique id.\nThorax UUID.",
+                    "type": "string"
+                },
+                "vendorAssignedId": {
+                    "description": "Vendor assigned ID.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PhysicalPortAttributes": {
+            "description": "Attributes of a Physical Port. See go/ant-unm-equipment-model.",
+            "id": "PhysicalPortAttributes",
+            "properties": {
+                "connectorCount": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "connectorType": {
+                    "description": "Number of strand endpoints within this physical port.",
+                    "enum": [
+                        "PCT_UNKNOWN",
+                        "PCT_DB9",
+                        "PCT_DB15",
+                        "PCT_DB25",
+                        "PCT_E_2000",
+                        "PCT_FC",
+                        "PCT_FIBER_SPLICE",
+                        "PCT_HD15",
+                        "PCT_HD26",
+                        "PCT_LC",
+                        "PCT_MINI_LC",
+                        "PCT_MINI_DIN_6_PIN",
+                        "PCT_MPO_PIN",
+                        "PCT_MINI_USB",
+                        "PCT_MTP",
+                        "PCT_RJ_45",
+                        "PCT_SC",
+                        "PCT_ST",
+                        "PCT_USB_TYPE_A",
+                        "PCT_USB_TYPE_B",
+                        "PCT_WIRE_WRAP",
+                        "PCT_OTHER",
+                        "PCT_E_2000_SINGLE",
+                        "PCT_E_2000_DOUBLE",
+                        "PCT_FC_SINGLE",
+                        "PCT_FC_DOUBLE",
+                        "PCT_LC_SINGLE",
+                        "PCT_LC_DOUBLE",
+                        "PCT_SC_SINGLE",
+                        "PCT_SC_DOUBLE",
+                        "PCT_ST_SINGLE",
+                        "PCT_ST_DOUBLE"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "RS-232, Alarm Interface, EIA/TIA-232, Clocking",
+                        "Alarm Interface",
+                        "Alarm Interface",
+                        "Optical line",
+                        "Optical line",
+                        "Optical line",
+                        "Video Interface",
+                        "RS-232, Alarm Interface",
+                        "Optical line, many others",
+                        "Mini-LC Optical line",
+                        "PS/2 port",
+                        "Optical line",
+                        "USB",
+                        "Optical line",
+                        "10/100/1000BASE-T, many others",
+                        "Optical line, many others",
+                        "Optical line",
+                        "USB",
+                        "USB",
+                        "Alarm Interface, Clocking",
+                        "",
+                        "Deprecated, use PCT_E_2000, PCT_FC, PCT_LC, PCT_SC or PCT_ST and\nspecify connector_count.",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "devicePortName": {
+                    "description": "Local name of the port on the device, similar to the device_port_name\nfield in PortAttributes.",
+                    "type": "string"
+                },
+                "entityState": {
+                    "$ref": "EntityState"
+                },
+                "formFactor": {
+                    "enum": [
+                        "TFF_UNKNOWN",
+                        "TFF_EMPTY",
+                        "TFF_FIXED",
+                        "TFF_SFP",
+                        "TFF_SFP_PLUS",
+                        "TFF_XFP",
+                        "TFF_QSFP_PLUS",
+                        "TFF_CFP",
+                        "TFF_CFP2",
+                        "TFF_CFP4",
+                        "TFF_QSFP28",
+                        "TFF_CPAK",
+                        "TFF_XENPAK",
+                        "TFF_X2"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "Slot not populated by transceiver.",
+                        "Unremovable transceiver.",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "index": {
+                    "description": "Index (0-based) of this physical port within the physical entity that\ndirectly contains it",
+                    "format": "uint32",
+                    "type": "integer"
+                },
+                "physicalItemAttr": {
+                    "$ref": "PhysicalItemAttributes"
+                },
+                "pmdType": {
+                    "enum": [
+                        "PMD_UNKNOWN",
+                        "PMD_NONE",
+                        "PMD_OC3_SR",
+                        "PMD_OC3_IR",
+                        "PMD_OC3_LR",
+                        "PMD_OC3_ER",
+                        "PMD_OC3_CWDM",
+                        "PMD_OC12_SR",
+                        "PMD_OC12_IR",
+                        "PMD_OC12_LR",
+                        "PMD_OC12_ER",
+                        "PMD_OC48_SR",
+                        "PMD_OC48_IR",
+                        "PMD_OC48_LR",
+                        "PMD_OC48_ER",
+                        "PMD_OC192_SR",
+                        "PMD_OC192_IR",
+                        "PMD_OC192_LR",
+                        "PMD_OC192_ER",
+                        "PMD_OC768_SR",
+                        "PMD_OC768_IR",
+                        "PMD_OC768_LR",
+                        "PMD_OC768_ER",
+                        "PMD_1G_SX",
+                        "PMD_1G_LX",
+                        "PMD_1G_CWDM",
+                        "PMD_1G_COPPER",
+                        "PMD_10G_SRL",
+                        "PMD_10G_SR",
+                        "PMD_10G_LR",
+                        "PMD_10G_ER",
+                        "PMD_10G_ZR",
+                        "PMD_10G_CWDM",
+                        "PMD_10G_DWDM",
+                        "PMD_10G_COPPER",
+                        "PMD_10G_CX4",
+                        "PMD_4X10G_PSM4",
+                        "PMD_4X10G_SR",
+                        "PMD_4X10G_IR",
+                        "PMD_4X10G_LR",
+                        "PMD_40G_CR4",
+                        "PMD_40G_COPPER",
+                        "PMD_40G_SR4",
+                        "PMD_40G_GR4",
+                        "PMD_40G_IR4",
+                        "PMD_40G_PSM4_2KM",
+                        "PMD_40G_PSM4_10KM",
+                        "PMD_40G_LR4",
+                        "PMD_40G_CWDM",
+                        "PMD_10X10G_PSM10",
+                        "PMD_10X10G_LR",
+                        "PMD_10X10G_DWDM",
+                        "PMD_100G_CR2",
+                        "PMD_100G_CR4",
+                        "PMD_100G_SR10",
+                        "PMD_100G_CGR4",
+                        "PMD_100G_CSR4",
+                        "PMD_100G_LR4",
+                        "PMD_100G_OTU4_LR4",
+                        "PMD_100G_ER4",
+                        "PMD_100G_ER4L20",
+                        "PMD_100G_ER4L30",
+                        "PMD_100G_CWDM4",
+                        "PMD_100G_DWDM",
+                        "PMD_100G_SR4",
+                        "PMD_100G_FR",
+                        "PMD_250G_ACO"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PortDetail": {
+            "description": "Detail for adding a port.",
+            "id": "PortDetail",
+            "properties": {
+                "cardName": {
+                    "description": "<device_name>:<card_index> eg.cx04.atl14:0:0",
+                    "type": "string"
+                },
+                "chassis": {
+                    "$ref": "ChassisInfo"
+                },
+                "link": {
+                    "$ref": "LinkDetail",
+                    "description": "Patch required from router port to patch panel."
+                },
+                "moduleName": {
+                    "description": "<device_name>:<module_index> eg.cx04.atl14:0:0:0",
+                    "type": "string"
+                },
+                "port": {
+                    "$ref": "PhysicalPort",
+                    "description": "Port entity represented in thorax schema, for now only a subset of fields\nare populated:\n- name\n- physical_item_attr.unit_description"
+                },
+                "slotIndex": {
+                    "description": "DEPRECATED(b/119444261): Get slot index by parsing port.name.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "ProjectRun": {
+            "description": "ProjectRun represents a report of a project creation run.\nIt contains information related to all the BTP deliverables for which\nprojects were created as well information about any errors generated in\nthe process.",
+            "id": "ProjectRun",
+            "properties": {
+                "createdBy": {
+                    "description": "LDAP of Googler who executed the Project Run.",
+                    "type": "string"
+                },
+                "creationDate": {
+                    "description": "Date when the Project Run Report was created.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "delErrors": {
+                    "description": "Deliverables with error (if any).",
+                    "items": {
+                        "$ref": "DeliverableStatus"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "Unique Project Run ID.",
+                    "type": "string"
+                },
+                "input": {
+                    "$ref": "UserInput",
+                    "description": "User Inputs in the Project Creation Run."
+                },
+                "numDeliverables": {
+                    "description": "Number of Deliverables for which projects were intended to be created.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "numSuccessDeliverables": {
+                    "description": "Number of Deliverables for which projects were successfully created.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "numWorkfrontProjects": {
+                    "description": "Number of Projects created in Workfront.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "projectIds": {
+                    "description": "List of created project IDs.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "state": {
+                    "description": "Project Run State.",
+                    "enum": [
+                        "PRUN_UNSPECIFIED",
+                        "PRUN_PROCESSING",
+                        "PRUN_COMPLETE"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "wfUrl": {
+                    "description": "Workfront URL containing created projects.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RevisionHistory": {
+            "description": "RevisionHistory captures who created or modified entity and when.",
+            "id": "RevisionHistory",
+            "properties": {
+                "createTime": {
+                    "description": "The time when the object was created.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "createUser": {
+                    "description": "The user who created the object.",
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "The time when the object was last updated.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "updateUser": {
+                    "description": "The user who updated the object.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SFAttributes": {
+            "description": "SFAttributes contains information about the Workfront task tied to given\nopportunity as well as values of fields to synchronize.\nSalesforce Opportunity Table:\nhttps://plx.corp.google.com/#/table/netops_salesforce_prod.gna_sf_por/schema",
+            "id": "SFAttributes",
+            "properties": {
+                "gnaNegotiator": {
+                    "description": "GNA Negotiator.",
+                    "type": "string"
+                },
+                "opportunityId": {
+                    "description": "Opportunity ID.",
+                    "type": "string"
+                },
+                "salesforceServiceType": {
+                    "description": "Salesforce service type.",
+                    "type": "string"
+                },
+                "taskName": {
+                    "description": "Task Name.",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "URL.",
+                    "type": "string"
+                },
+                "vendor": {
+                    "description": "Salesforce Contract Vendor.",
+                    "type": "string"
+                },
+                "vendorHandoverDate": {
+                    "description": "Vendor Handover Date.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Status": {
+            "description": "The `Status` type defines a logical error model that is suitable for\ndifferent programming environments, including REST APIs and RPC APIs. It is\nused by [gRPC](https://github.com/grpc). Each `Status` message contains\nthree pieces of data: error code, error message, and error details.\n\nYou can find out more about this error model and how to work with it in the\n[API Design Guide](https://cloud.google.com/apis/design/errors).",
+            "id": "Status",
+            "properties": {
+                "code": {
+                    "description": "The status code, which should be an enum value of google.rpc.Code.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "details": {
+                    "description": "A list of messages that carry the error details.  There is a common set of\nmessage types for APIs to use.",
+                    "items": {
+                        "additionalProperties": {
+                            "description": "Properties of the object. Contains field @type with type URL.",
+                            "type": "any"
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "message": {
+                    "description": "A developer-facing error message, which should be in English. Any\nuser-facing error message should be localized and sent in the\ngoogle.rpc.Status.details field, or localized by the client.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SyncError": {
+            "id": "SyncError",
+            "properties": {
+                "associations": {
+                    "description": "Used to communicate any errors encountered in the sync.\nList of involved associations.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "error": {
+                    "description": "related error string",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TaskDelta": {
+            "id": "TaskDelta",
+            "properties": {
+                "commitDate": {
+                    "description": "Commit Date to set for the task (i.e. the date when technicians\nwould be on-site).",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "pegaStatus": {
+                    "description": "Status of the corresponding Pega ticket. Depending on the Pega status,\na corresponding Workfront status is computed and set if required. This\nfield is ignored if a Loveshack workflow is associated with the Workfront\ntask.",
+                    "enum": [
+                        "PT_UNKNOWN",
+                        "PT_NEW",
+                        "PT_OPEN_ASSIGNED",
+                        "PT_PENDING_VENDOR",
+                        "PT_PENDING_FOIS",
+                        "PT_PENDING_IR",
+                        "PT_PENDING_COMPLETION",
+                        "PT_PENDING_CONFIRM",
+                        "PT_RESOLVED_COMPLETED",
+                        "PT_RESOLVED_WITHDRAWN",
+                        "PT_PENDING_RESOLUTION",
+                        "PT_RESOLVED_ISSUES",
+                        "PT_PENDING_ACTION",
+                        "PT_PENDING_HARDWARE",
+                        "PT_PENDING_CANCELATION",
+                        "PT_RESOLVED_REDISPATCHED"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "type": "string"
+                },
+                "refNum": {
+                    "description": "(Required) Workfront Reference Number of the task being updated.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "resourceName": {
+                    "description": "Resource assignment for the task (LDAP/group name as recognized by\nWorkfront). Only one of resource_name or role_account must be set.",
+                    "type": "string"
+                },
+                "roleAccountName": {
+                    "description": "Role account to set for the task. Only one of resource_name or\nrole_account must be set.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TicketId": {
+            "description": "A TicketId is a generic representation of some kind of ticket or association\nwith a ticketing system. It is used when reserving an entity for a workflow's\nexclusive or semi-exclusive use. It is also used as a way of associating\ndrain reasons with tickets.",
+            "id": "TicketId",
+            "properties": {
+                "kind": {
+                    "description": "Which system does this ID refer to? AD_HOC means that the system_id\nrepresents a free-form opaque string, likely entered by a person.",
+                    "enum": [
+                        "TK_UNKNOWN",
+                        "TK_ADHOC",
+                        "TK_GUTS",
+                        "TK_BUGANIZER",
+                        "TK_PCMS",
+                        "TK_SHAX",
+                        "TK_AUGMENTIN",
+                        "TK_AMC",
+                        "TK_BANJOLELE",
+                        "TK_VERTEX",
+                        "TK_WORKVIEW",
+                        "TK_TESTING",
+                        "TK_MANDIBLES_ORDER",
+                        "TK_MANDIBLES_INVENTORY",
+                        "TK_SILKROADS",
+                        "TK_SISYPHUS",
+                        "TK_RAPPY",
+                        "TK_CATAN",
+                        "TK_RISK",
+                        "TK_WORKFRONT"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "The ticket is not associated with a specific system. The system_id\nrepresents an ad-hoc, usually human-entered string.",
+                        "For the following systems, system_id is a decimal system-assigned primary\nkey to track the work item, such as the GUTS ticket number, the Buganizer\nbug number, or similar.\nGUTS, t/ tickets.",
+                        "Bugs, b/ tickets from Buganizer.",
+                        "PCRs, pcr/ work items from PCMS.",
+                        "Loveshack, shax/ tickets.",
+                        "Augmentin tickets - go/augmentin.",
+                        "Alert manager incidents, shown in AMC (alert manager console).",
+                        "Banjolele circuit-repair tickets, see go/banjolele.",
+                        "Vertex workflows - go/vertex.",
+                        "Workview - go/b2migrations.",
+                        "Some kind of manual test.",
+                        "Ordering systems. The system_id is a 64-bit integer serialized in decimal.",
+                        "Inventory. The system_id is formed as $PRODUCT/$PA, where $PRODUCT and $PA\nare Pliny strings (e.g. NETWORK_LEGO_B4_TRANSFER_PROTECTED for product, and\nPA is the Pliny Principal (typically an MDB group).",
+                        "",
+                        "",
+                        "Rappy plans, see go/rappy and http://rappy/",
+                        "Catan project IDs, see go/catan and http://catan/ used to plan cluster\nfabric and B4 network changes.",
+                        "Risk workflow executions, typically used to manage cluster and B4 fabric\nchanges among other things. See http://risk/",
+                        "Workfront projects, referenced with a UUID."
+                    ],
+                    "type": "string"
+                },
+                "systemId": {
+                    "description": "An identifier that is interpreted in a ticketing-system-specific way. For a\nticketing system that uses decimal number identifiers like Buganizer or\nPCMS, this will typically be the decimal number identifier represented as a\nstring. For the \"ad-hoc\" system, this is an arbitrary string that doesn't\nfit into a ticketing-system category.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TransactionTime": {
+            "description": "Transaction time is the time period during which a fact stored in the\ndatabase was known. This enables queries that show the state of the database\nat a given time. Transaction time periods can only occur in the past or up to\nthe current time. In a transaction time table, records are never deleted.\nOnly the new records can be inserted, and existing ones updated by setting\ntheir transaction end time to show that they are no longer current.",
+            "id": "TransactionTime",
+            "properties": {
+                "endTime": {
+                    "description": "end_time is the time that transaction was superseded, which may be\ninfinity (9999-12-31T23:59:59.999999999Z) if it has not yet been\nsuperseded. Both entity table and entity history table may use transaction\ntime. The default end_time is infinity for record in entity table, the\ndefault end_time is \"now\" for record in entity history table.",
+                    "format": "google-datetime",
+                    "type": "string"
+                },
+                "startTime": {
+                    "description": "start_time is the time a transaction was made. It indicates when the\nrecord was first inserted into the table.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateActionableTaskStatusRequest": {
+            "id": "UpdateActionableTaskStatusRequest",
+            "properties": {
+                "actTaskId": {
+                    "description": "ID of the actionable task to update.",
+                    "type": "string"
+                },
+                "newTaskStatus": {
+                    "description": "New status of the actionable task entity.",
+                    "enum": [
+                        "TS_UNKNOWN",
+                        "TS_NEW",
+                        "TS_READY",
+                        "TS_INPROGRESS",
+                        "TS_BLOCKED",
+                        "TS_COMPLETE",
+                        "TS_CANCELED"
+                    ],
+                    "enumDescriptions": [
+                        "Default unknown status for enum if not explicitly set.",
+                        "Task is newly created.",
+                        "Deprecated! Please refer to can_start in ActionableTask(b/114476303).\nTask is ready to initiate ZTN workflows.",
+                        "Task is in progress.",
+                        "Task is in blocked state.",
+                        "Task is completed.",
+                        "Task is in canceled state."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateExecutionReferenceRequest": {
+            "id": "UpdateExecutionReferenceRequest",
+            "properties": {
+                "actTaskId": {
+                    "description": "Actionable task ID to update.",
+                    "type": "string"
+                },
+                "ticketIds": {
+                    "description": "IDs of the Loveshack workflows to associate with the given actionable task.",
+                    "items": {
+                        "$ref": "TicketId"
+                    },
+                    "type": "array"
+                },
+                "urls": {
+                    "description": "URLs to tickets. (eg. https://isp.google.com/ticketing/ticket/123)",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateWorkfrontRequest": {
+            "description": "UpdateWorkfrontRequest triggers an update to the Workfront entity\nspecified in the request.",
+            "id": "UpdateWorkfrontRequest",
+            "properties": {
+                "taskDelta": {
+                    "$ref": "TaskDelta",
+                    "description": "(Required) Details of the task being updated."
+                },
+                "updateMask": {
+                    "description": "Fields to update (in task_delta).\nE.g.: [\"task_delta.commit_date\", \"task_delta.resource_name\"].\nAn empty field mask results in an error to prevent accidental updates.",
+                    "format": "google-fieldmask",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UserInput": {
+            "description": "UserInput contains fields that are inputs from user\nperforming the project run.",
+            "id": "UserInput",
+            "properties": {
+                "dataSource": {
+                    "description": "Data Source for obtaining deliverables in go/btp.",
+                    "type": "string"
+                },
+                "endDate": {
+                    "$ref": "Date",
+                    "description": "BTP publication end date."
+                },
+                "projRunComments": {
+                    "description": "Custom Project Run comments provided by user.",
+                    "type": "string"
+                },
+                "projRunName": {
+                    "description": "Custom Project Run Name provided by user.",
+                    "type": "string"
+                },
+                "startDate": {
+                    "$ref": "Date",
+                    "description": "BTP publication start date."
+                }
+            },
+            "type": "object"
+        },
+        "ValidateProjectsResponse": {
+            "description": "ValidateProjectsResponse returns a list of validated deliverables.",
+            "id": "ValidateProjectsResponse",
+            "properties": {
+                "deliverableRecords": {
+                    "description": "BTP Deliverable Records along with their validation statuses.",
+                    "items": {
+                        "$ref": "DeliverableStatus"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "WorkfrontTask": {
+            "description": "WorkfrontTask contains Workfront project and task details associated with the\nActionable task.",
+            "id": "WorkfrontTask",
+            "properties": {
+                "projectId": {
+                    "description": "Workfront Project ID.",
+                    "type": "string"
+                },
+                "projectOwner": {
+                    "description": "Project owner of the corresponding workfront project.",
+                    "type": "string"
+                },
+                "projectReferenceNum": {
+                    "description": "Human readable ID of Workfront Project.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "taskId": {
+                    "description": "Workfront task ID.",
+                    "type": "string"
+                },
+                "taskReferenceNum": {
+                    "description": "Human readable ID of Workfront task.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "DeployANT API (Stage)",
+    "version": "v1",
+    "version_module": true
+}

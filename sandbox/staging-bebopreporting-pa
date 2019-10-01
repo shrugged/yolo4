@@ -1,0 +1,1585 @@
+{
+    "basePath": "",
+    "baseUrl": "https://staging-bebopreporting-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Bebop Reporting Private",
+    "description": "An API for generating reports on the Bebop Hire Platform",
+    "discoveryVersion": "v1",
+    "documentationLink": "",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "bebopreporting_pa:v1",
+    "kind": "discovery#restDescription",
+    "name": "bebopreporting_pa",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "v1": {
+            "methods": {
+                "active_pipeline": {
+                    "description": "The ActivePipelineReport counts how many active job applications are in\neach process stage group. It *does not* include rejected job applications.\n\nIt returns a list of cohorts, each of which has a count of how many\napplications fell into that cohort, a process stage group oid, and the name\nassociated with that process stage group.\n\nFor example, it might return something that looks like:\n[\n   ActivePipelineCohort(process_stage_group_oid=\"1\",\n   process_stage_group_name=\"first group\", job_application_count=2),\n   ActivePipelineCohort(process_stage_group_oid=\"2\",\n   process_stage_group_name=\"second group\", job_application_count=1),\n]\n\nIndicating that of the 3 job applications that are active:\n- 2 are in the \"first group\" process stage group, and\n- 1 is in the \"second group\" process stage group",
+                    "flatPath": "v1/active_pipeline",
+                    "httpMethod": "POST",
+                    "id": "bebopreporting_pa.active_pipeline",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/active_pipeline",
+                    "request": {
+                        "$ref": "ActivePipelineReportRequest"
+                    },
+                    "response": {
+                        "$ref": "ActivePipelineReportResponse"
+                    }
+                },
+                "active_pipeline_candidates_per_stage": {
+                    "description": "The ActivePipelineCandidatesPerStageReport counts how many active job\napplications are in each process stage. It *does not* include rejected job\napplications.\n\nIt returns a list of cohorts, each of which has a count of how many\napplications fell into that cohort, a stage group oid/name, and process\nstage oid/name.",
+                    "flatPath": "v1/active_pipeline_candidates_per_stage",
+                    "httpMethod": "POST",
+                    "id": "bebopreporting_pa.active_pipeline_candidates_per_stage",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/active_pipeline_candidates_per_stage",
+                    "request": {
+                        "$ref": "ActivePipelineCandidatesPerStageReportRequest"
+                    },
+                    "response": {
+                        "$ref": "ActivePipelineCandidatesPerStageReportResponse"
+                    }
+                },
+                "candidates_per_hire_insight_card": {
+                    "description": "The CandidatesPerHireInsightCard calculates the average number of\ncandidates it takes to hire for one role in a particular department.\nIt shows you the top 4 departments which are most diffcult to hire for\n(have the highest average candidates per hire).\n\nFor example, it might return something that looks like:\n[\n   CandidatesPerHireInsightCardCohort(department=\"Engineering\", count=50),\n   CandidatesPerHireInsightCardCohort(department=\"Product\", count=23),\n   CandidatesPerHireInsightCardCohort(department=\"Operations\", count=12),\n]\n\nIndicating that:\n- Engineering is the most diffcult department to hire for. It takes an\naverage of 50 candidates to hire 1.\n- Product is the 2nd most diffcult department to hire for. It takes an\naverage of 23 candidates to hire 1.\n- Operations is the 3rd most diffcult department to hire for. It takes an\naverage of 12 candidates to hire 1.\nIf a company has less than 4 departments with a hired candidate\nthen less than 4 departments will be returned in the response.",
+                    "flatPath": "v1/candidates_per_hire_insight_card",
+                    "httpMethod": "POST",
+                    "id": "bebopreporting_pa.candidates_per_hire_insight_card",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/candidates_per_hire_insight_card",
+                    "request": {
+                        "$ref": "HistoricalPipelineReportRequest"
+                    },
+                    "response": {
+                        "$ref": "CandidatesPerHireInsightCardResponse"
+                    }
+                },
+                "historical_pipeline": {
+                    "description": "The HistoricalPipelineReport counts how many job applications were rejected\nat a given stage. It returns a list of cohorts, each of which has a count\nof how many applications fell into that cohort, a stage group oid, and\nstage oid.\n\nFor example, it might return something that looks like:\n[\n   HistoricalPipelineCohort(stage_group_oid=\"hired\", stage_oid=\"hired\",\n   job_application_count=1),\n   HistoricalPipelineCohort(stage_group_oid=\"first_group\",\n   stage_oid=\"first_stage\", job_application_count=2),\n   HistoricalPipelineCohort(stage_group_oid=\"first_group\",\n   stage_oid=\"second_stage\", job_application_count=1),\n]\n\nIndicating that of the 4 job applications:\n- 2 were rejected in the \"first_group\"/\"first_stage\"\n- 1 was rejected in the \"first_group\"/\"second_stage\"\n- 1 was hired",
+                    "flatPath": "v1/historical_pipeline",
+                    "httpMethod": "POST",
+                    "id": "bebopreporting_pa.historical_pipeline",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/historical_pipeline",
+                    "request": {
+                        "$ref": "HistoricalPipelineReportRequest"
+                    },
+                    "response": {
+                        "$ref": "HistoricalPipelineReportResponse"
+                    }
+                },
+                "rejection_reason": {
+                    "description": "The RejectionReasonReport counts how many job applications were\nrejected for each close reason.\nIt returns a list of cohorts, each of which has a count of how many\napplications fell into that cohort, a close reason oid, and the text\nassociated with that close reason. For example, it might return something\nthat looks like:\n[\n   RejectionReasonCohort(reason_oid=\"1\", reason_text=\"not qualified\",\n   job_application_count=2), RejectionReasonCohort(reason_oid=\"2\",\n   reason_text=\"withdrew\", job_application_count=1),\n]\nIndicating that of the 3 rejected job applications:\n- 2 were rejected with the \"not qualified\" reason, and\n- 1 was rejected with the \"withdrew\" reason",
+                    "flatPath": "v1/rejection_reason",
+                    "httpMethod": "POST",
+                    "id": "bebopreporting_pa.rejection_reason",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/rejection_reason",
+                    "request": {
+                        "$ref": "RejectionReasonReportRequest"
+                    },
+                    "response": {
+                        "$ref": "RejectionReasonReportResponse"
+                    }
+                },
+                "rejections": {
+                    "description": "The RejectionsReport counts how many job applications were rejected at a\ngiven stage (or stage groups). It returns a list of cohorts, each of which\nhas a count of how many applications fell into that cohort, a stage (or\nstage group oid), and the reason that job application was rejected.\n\nFor example, it might return something that looks like:\n[\n   RejectionsCohort(stage_group_oid=\"second_group\",\n   job_application_count=1, reason_text=\"Compensation unsatisfactory\"),\n   RejectionsCohort(stage_group_oid=\"first_group\", job_application_count=2,\n   reason_text=\"Location undesirable\"),\n   RejectionsCohort(stage_group_oid=\"first_group\", job_application_count=1,\n   reason_text=\"Visa issues\"),\n]\n\nIndicating that of the 4 job applications that were rejected in this time\nrange:\n- 2 were rejected in the \"first_group\", citing the location as a rejection\nreason\n- 1 was rejected in the \"first_group\", citing visa issues as the rejection\nreason\n- 1 was rejected from the \"second_group\", citing compensation as the\nrejection reason",
+                    "flatPath": "v1/rejections",
+                    "httpMethod": "POST",
+                    "id": "bebopreporting_pa.rejections",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/rejections",
+                    "request": {
+                        "$ref": "RejectionsReportRequest"
+                    },
+                    "response": {
+                        "$ref": "RejectionsReportResponse"
+                    }
+                },
+                "source_efficiency": {
+                    "description": "The SourceEfficiencyReport counts how many job applications were received\nfrom this source. It returns a list of cohorts, each of which has a count\nof how many applications fell into that source, a job application status,\nand the source name. For example, it might return something that looks\nlike:\n[\n   SourceEfficiencyCohort(source=\"enum.Hiring_CandidateSourceType.ExternalReferral\",\n   status=\"enum.Hiring_JobApplicationStatus.Rejected\",\n   job_application_count=2),\n   SourceEfficiencyCohort(source=\"enum.Hiring_CandidateSourceType.ExternalReferral\",\n   status=\"enum.Hiring_JobApplicationStatus.Accepted\",\n   job_application_count=1),\n]\nIndicating that of the 3 job applications for this source:\n- 2 are rejected\n- 1 is accepted",
+                    "flatPath": "v1/source_efficiency",
+                    "httpMethod": "POST",
+                    "id": "bebopreporting_pa.source_efficiency",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/source_efficiency",
+                    "request": {
+                        "$ref": "SourceEfficiencyReportRequest"
+                    },
+                    "response": {
+                        "$ref": "SourceEfficiencyReportResponse"
+                    }
+                },
+                "sources": {
+                    "description": "The SourcesReport counts how many job applications were rejected at a given\nstage, grouped by source. It returns a list of cohorts, each of which has a\ncount of how many applications fell into that cohort, a stage group oid,\nand source name.\n\nFor example, it might return something that looks like:\n[\n   SourcesCohort(stage_group_oid=\"hired\", job_application_count=1,\n   source_name=\"Applied\"), SourcesCohort(stage_group_oid=\"first_group\",\n   job_application_count=2, source_name=\"Applied\"),\n   SourcesCohort(stage_group_oid=\"first_group\", job_application_count=1,\n   source_name=\"Screen\"),\n]\n\nIndicating that of the 4 job applications:\n- 2 were rejected in the \"first_group\", from the \"Applied\" source\n- 1 was rejected in the \"first_group\", from the \"Screen source\"\n- 1 was hired from the \"Applied\" source",
+                    "flatPath": "v1/sources",
+                    "httpMethod": "POST",
+                    "id": "bebopreporting_pa.sources",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/sources",
+                    "request": {
+                        "$ref": "SourcesReportRequest"
+                    },
+                    "response": {
+                        "$ref": "SourcesReportResponse"
+                    }
+                },
+                "stage_length_insight_card": {
+                    "description": "The StageLengthInsightCard shows how many days an average candidate spends\nin each of the stage groups.\n\nIt returns a list of summary objects, each of which has a\n\"duration_in_days\" attribute and a \"stage_group_oid\" attribute.\n\nFor example, it might return something that looks like:\n[\n   StageLengthSummary(duration_in_days=1, stage_group_oid=\"foo\"),\n   StageLengthSummary(duration_in_days=3, stage_group_oid=\"bar\"),\n]\n\nIndicating that an average candidate (matching any specified filters)\nspends\n- 1 day in the stage group having oid \"foo\"\n- 3 days in the stage group with oid \"bar\"",
+                    "flatPath": "v1/stage_length_insight_card",
+                    "httpMethod": "POST",
+                    "id": "bebopreporting_pa.stage_length_insight_card",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/stage_length_insight_card",
+                    "request": {
+                        "$ref": "StageLengthInsightCardRequest"
+                    },
+                    "response": {
+                        "$ref": "StageLengthInsightCardResponse"
+                    }
+                },
+                "time_to_hire": {
+                    "description": "The TimeToHireReport counts how long it took for hired job applications to\nbecome hired. It returns a list of cohorts, each of which has a min/max\ndate and a count of how many applications fell into that cohort. For\nexample, it might return something that looks like:\n[\n   TimeToHireCohort(days_to_hire_lower_bound=0,\n   days_to_hire_upper_bound=10, job_application_count=10),\n   TimeToHireCohort(days_to_hire_lower_bound=11,\n   days_to_hire_upper_bound=50, job_application_count=20),\n   TimeToHireCohort(days_to_hire_lower_bound=51,\n   days_to_hire_upper_bound=1000, job_application_count=1),\n]\nIndicating that of the 31 hired job applications:\n- 10 were hired within 10 days\n- 20 were hired between 10 and 50 days\n- 1 was hired after 50 days",
+                    "flatPath": "v1/time_to_hire",
+                    "httpMethod": "POST",
+                    "id": "bebopreporting_pa.time_to_hire",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/time_to_hire",
+                    "request": {
+                        "$ref": "TimeToHireReportRequest"
+                    },
+                    "response": {
+                        "$ref": "TimeToHireReportResponse"
+                    }
+                },
+                "timetofill": {
+                    "description": "The TimeToFillReport counts how many job positions are filled certain\ndays after the position creation for a certain department/recruiter.\nIt returns a list of cohorts, each of which has a count of how many job\npositions fall into that cohort, a number indicating the days it takes to\nfill that position, and a \"group key\", which is a department name or\nrecruiter id.\n\nFor example, it might return something that looks like:\n[\n   TimeToFillReportCohort(job_application_count=3, days_to_fill=17,\n   group_key=\"Marketing\"),\n   TimeToFillReportCohort(job_application_count=4, days_to_fill=12,\n   group_key=\"Sales\"),\n   TimeToFillReportCohort(job_application_count=3, days_to_fill=18,\n   group_key=\"Sales\"),\n   TimeToFillReportCohort(job_application_count=2, days_to_fill=27,\n   group_key=\"Engineering\"),\n]\n\nIndicating that:\n- Marketing filled 3 positions after 17 days of creating those positions.\n- Sales filled 4 positions 12 days after creating those positions, and\nother 3 positions 18 days after creating those.\n- Engineering filled 2 positions 27 days after creating those positions.",
+                    "flatPath": "v1/timetofill",
+                    "httpMethod": "POST",
+                    "id": "bebopreporting_pa.timetofill",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/timetofill",
+                    "request": {
+                        "$ref": "TimeToFillReportRequest"
+                    },
+                    "response": {
+                        "$ref": "TimeToFillReportResponse"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190909",
+    "rootUrl": "https://staging-bebopreporting-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "ActivePipelineCandidatesPerStageCohort": {
+            "description": "Each cohort is defined by:\n- the number of job applications in that cohort\n- the process stage name (and oid), and\n- the stage group name (and oid)",
+            "id": "ActivePipelineCandidatesPerStageCohort",
+            "properties": {
+                "jobApplicationCount": {
+                    "description": "the number of job applications that are in this stage/stage group",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "jobPositionOid": {
+                    "description": "the oid of the job position this job application is in",
+                    "type": "string"
+                },
+                "processStageGroupName": {
+                    "description": "the name of the process stage group this job application is in",
+                    "type": "string"
+                },
+                "processStageGroupOid": {
+                    "description": "the oid of the process stage group this job application is in",
+                    "type": "string"
+                },
+                "stageName": {
+                    "description": "the name of the stage this job application is in",
+                    "type": "string"
+                },
+                "stageOid": {
+                    "description": "the oid of the stage this job application is in",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ActivePipelineCandidatesPerStageCohortIdentifier": {
+            "description": "ActivePipelineCandidatesPerStageCohortIdentifier is an identifier used to\nfetch job application oids or job position oids for a specific cohort, in\norder to support hover card links.",
+            "id": "ActivePipelineCandidatesPerStageCohortIdentifier",
+            "properties": {
+                "stageGroupOid": {
+                    "description": "the oid of the process stage group that a cohort is associated with. If\nprovided, then stage_oid should not be set.",
+                    "type": "string"
+                },
+                "stageOid": {
+                    "description": "the oid of the process stage that a cohort is associated with. If provided,\nthen stage_group_oid should not be set.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ActivePipelineCandidatesPerStageReportRequest": {
+            "description": "Input to ActivePipelineCandidatesPerStage RPC",
+            "id": "ActivePipelineCandidatesPerStageReportRequest",
+            "properties": {
+                "aggregationTier": {
+                    "description": "The aggregation tier requested",
+                    "enum": [
+                        "DEFAULT",
+                        "FULL",
+                        "NONE"
+                    ],
+                    "enumDescriptions": [
+                        "Not specified",
+                        "Used for chart views only",
+                        "Used for export/summary rows only"
+                    ],
+                    "type": "string"
+                },
+                "cohortIdentifier": {
+                    "$ref": "ActivePipelineCandidatesPerStageCohortIdentifier",
+                    "description": "cohort identifier in order to fetch job application or job position oids."
+                },
+                "environment": {
+                    "description": "The environment this request is being made from",
+                    "enum": [
+                        "UNKNOWN",
+                        "STAGING",
+                        "PRODUCTION"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown",
+                        "Used for requests against the staging tables",
+                        "Used for requests against the production tables"
+                    ],
+                    "type": "string"
+                },
+                "filters": {
+                    "$ref": "Filters",
+                    "description": "The filters to apply to this request"
+                },
+                "isAdmin": {
+                    "description": "Whether or not the user making the request is an admin\nAdmins can see all job applications and have relaxed security constraints",
+                    "type": "boolean"
+                },
+                "jobsSummary": {
+                    "description": "Whether to return a summary list of jobs (or, if not, applications)\nNote: this is only honoured when aggregation tier = \"NONE\" (aka, when we\nrequest summary data)",
+                    "type": "boolean"
+                },
+                "limit": {
+                    "description": "The number of results to return",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "namespaceId": {
+                    "description": "Bebop tenant namespace id",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "requestUserOid": {
+                    "description": "OID of the user making the request",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ActivePipelineCandidatesPerStageReportResponse": {
+            "description": "Output of ActivePipelineCandidatesPerStage RPC",
+            "id": "ActivePipelineCandidatesPerStageReportResponse",
+            "properties": {
+                "cohorts": {
+                    "description": "A list of cohorts that tell us how quickly job applications were hired",
+                    "items": {
+                        "$ref": "ActivePipelineCandidatesPerStageCohort"
+                    },
+                    "type": "array"
+                },
+                "oids": {
+                    "description": "A list of job application or job position oids representing non aggregate\ndata",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ActivePipelineCohort": {
+            "description": "========== V2 Reports ==========\nEach cohort is defined by:\n- the number of job applications in that cohort\n- the process stage group oid, and\n- the process stage group name",
+            "id": "ActivePipelineCohort",
+            "properties": {
+                "jobApplicationCount": {
+                    "description": "the number of job applications that are in this process stage group",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "processStageGroupName": {
+                    "description": "the name of the process stage group this job application is in",
+                    "type": "string"
+                },
+                "processStageGroupOid": {
+                    "description": "the oid of the process stage group this job application is in",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ActivePipelineReportRequest": {
+            "description": "Input to ActivePipeline RPC",
+            "id": "ActivePipelineReportRequest",
+            "properties": {
+                "aggregationTier": {
+                    "description": "The aggregation tier requested",
+                    "enum": [
+                        "DEFAULT",
+                        "FULL",
+                        "NONE"
+                    ],
+                    "enumDescriptions": [
+                        "Not specified",
+                        "Used for chart views only",
+                        "Used for export/summary rows only"
+                    ],
+                    "type": "string"
+                },
+                "environment": {
+                    "description": "The environment this request is being made from",
+                    "enum": [
+                        "UNKNOWN",
+                        "STAGING",
+                        "PRODUCTION"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown",
+                        "Used for requests against the staging tables",
+                        "Used for requests against the production tables"
+                    ],
+                    "type": "string"
+                },
+                "filters": {
+                    "$ref": "Filters",
+                    "description": "The filters to apply to this request"
+                },
+                "isAdmin": {
+                    "description": "Whether or not the user making the request is an admin\nAdmins can see all job applications and have relaxed security constraints",
+                    "type": "boolean"
+                },
+                "limit": {
+                    "description": "The number of results to return",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "namespaceId": {
+                    "description": "Bebop tenant namespace id",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "requestUserOid": {
+                    "description": "OID of the user making the request",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ActivePipelineReportResponse": {
+            "description": "Output of ActivePipeline RPC",
+            "id": "ActivePipelineReportResponse",
+            "properties": {
+                "cohorts": {
+                    "description": "A list of cohorts that tell us how quickly job applications were hired",
+                    "items": {
+                        "$ref": "ActivePipelineCohort"
+                    },
+                    "type": "array"
+                },
+                "oids": {
+                    "description": "A list of job application oids representing non aggregate data",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CandidatesPerHireInsightCardCohort": {
+            "description": "=========== Beginning of Insight Cards ==========\nEach cohort is defined by the department and the average number of\ncandidates it takes to fill a job within that department",
+            "id": "CandidatesPerHireInsightCardCohort",
+            "properties": {
+                "count": {
+                    "description": "Average number of candidates needed per hire",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "department": {
+                    "description": "Name of department",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CandidatesPerHireInsightCardResponse": {
+            "description": "Output of CandidatesPerHireInsightCard RPC",
+            "id": "CandidatesPerHireInsightCardResponse",
+            "properties": {
+                "cohorts": {
+                    "description": "A list of cohorts that tell us how quickly job applications were hired",
+                    "items": {
+                        "$ref": "CandidatesPerHireInsightCardCohort"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "DateFilter": {
+            "description": "The date filter to apply",
+            "id": "DateFilter",
+            "properties": {
+                "filterType": {
+                    "description": "The type of date filter to apply: either a range or snapshot/point-in-time",
+                    "enum": [
+                        "UNSPECIFIED",
+                        "RANGE",
+                        "SNAPSHOT"
+                    ],
+                    "enumDescriptions": [
+                        "Not specified",
+                        "A range date filter",
+                        "A snapshot/point-in-time date filter"
+                    ],
+                    "type": "string"
+                },
+                "lowerBoundDate": {
+                    "description": "The lower bound date for a range date filter",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "snapshotDate": {
+                    "description": "The date for a snapshot/point-in-time date filter",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "upperBoundDate": {
+                    "description": "The upper bound date for a range date filter",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DepartmentFilter": {
+            "description": "The job department filter to apply",
+            "id": "DepartmentFilter",
+            "properties": {
+                "names": {
+                    "description": "The job departments (by name) that should be included in this report",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Filters": {
+            "description": "The optional filters to apply for this reporting request.\nThere are eight types of filters that can be applied:\n1) DateFilter:\n  - either a snapshot/point-in-time calculation (\"what is the calculated\n  value, at X time?\"), OR\n  - a range calculation (\"what is the calculated value over this range or\n  time interval (lower, upper)?\")\n2) PositionFilter:\n  - a list of job position OIDs that should be included in this report\n3) DepartmentFilter:\n  - a list of departments (by name) that should be included in this report\n  - a job application is associated with a job position, and a job position\n  is grouped into a job department\n4) RecruiterFilter:\n  - a list of recruiter OIDs that should be included in this report\n  - a job application is associated with a job position, and a job position\n  has a list of recruiters that recruiter for that job\n5) HiringManagerFilter:\n  - a list of hiring manager OIDs that should be included in this report\n  - a job application is associated with a job position, and a job position\n  has a list of hiring managers that hire for that job\n6) SourceFilter:\n  - a list of candidate sources (by name) that should be included in this\n  report\n  - a job application is applied to by an applicant, who is categorized into\n  the \"funnel\" through which they applied to that job\n7) AggregationTier:\n  - whether we want this request to return oids (NONE aggregation), or not\n  (FULL aggregation)\n8) ProcessFlowFilter:\n  - a list of process flow OIDs that should be included in this report",
+            "id": "Filters",
+            "properties": {
+                "aggregationTier": {
+                    "description": "The aggregation tier requested",
+                    "enum": [
+                        "DEFAULT",
+                        "FULL",
+                        "NONE"
+                    ],
+                    "enumDescriptions": [
+                        "Not specified",
+                        "Used for chart views only",
+                        "Used for export/summary rows only"
+                    ],
+                    "type": "string"
+                },
+                "date": {
+                    "$ref": "DateFilter",
+                    "description": "Which dates this report should calculate data over"
+                },
+                "department": {
+                    "$ref": "DepartmentFilter",
+                    "description": "The departments that this report should include applications for"
+                },
+                "hiringManager": {
+                    "$ref": "HiringManagerFilter",
+                    "description": "The hiring managers whose applications should be included"
+                },
+                "position": {
+                    "$ref": "PositionFilter",
+                    "description": "The positions this report should include data for"
+                },
+                "processFlow": {
+                    "$ref": "ProcessFlowFilter",
+                    "description": "The process flows for which data should be included"
+                },
+                "recruiter": {
+                    "$ref": "RecruiterFilter",
+                    "description": "The recruiters whose applications should be included"
+                },
+                "source": {
+                    "$ref": "SourceFilter",
+                    "description": "The originating sources for which data should be included"
+                }
+            },
+            "type": "object"
+        },
+        "HiringManagerFilter": {
+            "description": "The job application hiring manager filter to apply",
+            "id": "HiringManagerFilter",
+            "properties": {
+                "oids": {
+                    "description": "The OIDs of the hiring managers of the job application to filter on",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "HistoricalPipelineCohort": {
+            "description": "Each cohort is defined by the process stage group the application is in,\nand the number of applications that are in that process stage group.",
+            "id": "HistoricalPipelineCohort",
+            "properties": {
+                "jobApplicationCount": {
+                    "description": "the number of job applications that are in this process stage group",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "stageGroupOid": {
+                    "description": "the oid of the process stage group this job application is in",
+                    "type": "string"
+                },
+                "stageOid": {
+                    "description": "the oid of the process stage this job application is in",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "HistoricalPipelineCohortIdentifier": {
+            "description": "HistoricalPipelineCohortIdentifier is an identifier used to fetch job\napplication oids for a specific cohort, in order to support hover card links.",
+            "id": "HistoricalPipelineCohortIdentifier",
+            "properties": {
+                "stageGroupOids": {
+                    "description": "the oid of the process stage group(s) that a cohort is associated with. If\nprovided, then stage_oids should not be set.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "stageOids": {
+                    "description": "the oid of the process stage(s) that a cohort is associated with. If\nprovided, then stage_group_oids should not be set.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "HistoricalPipelineReportRequest": {
+            "description": "Input to HistoricalPipeline RPC",
+            "id": "HistoricalPipelineReportRequest",
+            "properties": {
+                "aggregationTier": {
+                    "description": "The aggregation tier requested",
+                    "enum": [
+                        "DEFAULT",
+                        "FULL",
+                        "NONE"
+                    ],
+                    "enumDescriptions": [
+                        "Not specified",
+                        "Used for chart views only",
+                        "Used for export/summary rows only"
+                    ],
+                    "type": "string"
+                },
+                "cohortIdentifier": {
+                    "$ref": "HistoricalPipelineCohortIdentifier",
+                    "description": "cohort identifier in order to fetch job application oids."
+                },
+                "environment": {
+                    "description": "The environment this request is being made from",
+                    "enum": [
+                        "UNKNOWN",
+                        "STAGING",
+                        "PRODUCTION"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown",
+                        "Used for requests against the staging tables",
+                        "Used for requests against the production tables"
+                    ],
+                    "type": "string"
+                },
+                "filters": {
+                    "$ref": "Filters",
+                    "description": "The filters to apply to this request"
+                },
+                "isAdmin": {
+                    "description": "Whether or not the user making the request is an admin\nAdmins can see all job applications and have relaxed security constraints",
+                    "type": "boolean"
+                },
+                "jobsSummary": {
+                    "description": "Whether to return a summary list of jobs (or, if not, applications)\nNote: this is only honoured when aggregation tier = \"NONE\" (aka, when we\nrequest summary data)",
+                    "type": "boolean"
+                },
+                "limit": {
+                    "description": "The number of results to return",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "namespaceId": {
+                    "description": "Bebop tenant namespace id",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "requestUserOid": {
+                    "description": "OID of the user making the request",
+                    "type": "string"
+                },
+                "stageAggregation": {
+                    "description": "Whether to aggregate by stage or stage group",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "HistoricalPipelineReportResponse": {
+            "description": "Output of HistoricalPipeline RPC",
+            "id": "HistoricalPipelineReportResponse",
+            "properties": {
+                "cohorts": {
+                    "description": "A list of cohorts that tell us how quickly job applications were hired",
+                    "items": {
+                        "$ref": "HistoricalPipelineCohort"
+                    },
+                    "type": "array"
+                },
+                "oids": {
+                    "description": "A list of job application or job position oids representing non aggregate\ndata",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "PositionFilter": {
+            "description": "The job position filter to apply",
+            "id": "PositionFilter",
+            "properties": {
+                "oids": {
+                    "description": "The job position OIDs that should be included in this report",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ProcessFlowFilter": {
+            "description": "The process flow filter to apply",
+            "id": "ProcessFlowFilter",
+            "properties": {
+                "oids": {
+                    "description": "The oids of the process flows to filter on",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "RecruiterFilter": {
+            "description": "The job application recruiter filter to apply",
+            "id": "RecruiterFilter",
+            "properties": {
+                "oids": {
+                    "description": "The OIDs of the recruiters of the job application to filter on",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "RejectionReasonCohort": {
+            "description": "Each cohort is defined by the rejection reason oid, text\nand the number of applications that were rejected for that reason.",
+            "id": "RejectionReasonCohort",
+            "properties": {
+                "jobApplicationCount": {
+                    "description": "the number of job applications that were rejected for this reason",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "reasonOid": {
+                    "description": "rejection reason oid",
+                    "type": "string"
+                },
+                "reasonText": {
+                    "description": "rejection reason text",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RejectionReasonReportRequest": {
+            "description": "Input to RejectionReason RPC",
+            "id": "RejectionReasonReportRequest",
+            "properties": {
+                "aggregationTier": {
+                    "description": "The aggregation tier requested",
+                    "enum": [
+                        "DEFAULT",
+                        "FULL",
+                        "NONE"
+                    ],
+                    "enumDescriptions": [
+                        "Not specified",
+                        "Used for chart views only",
+                        "Used for export/summary rows only"
+                    ],
+                    "type": "string"
+                },
+                "environment": {
+                    "description": "The environment this request is being made from",
+                    "enum": [
+                        "UNKNOWN",
+                        "STAGING",
+                        "PRODUCTION"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown",
+                        "Used for requests against the staging tables",
+                        "Used for requests against the production tables"
+                    ],
+                    "type": "string"
+                },
+                "filters": {
+                    "$ref": "Filters",
+                    "description": "The filters to apply to this request"
+                },
+                "isAdmin": {
+                    "description": "Whether or not the user making the request is an admin\nAdmins can see all job applications and have relaxed security constraints",
+                    "type": "boolean"
+                },
+                "limit": {
+                    "description": "The number of results to return",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "namespaceId": {
+                    "description": "Bebop tenant namespace id",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "requestUserOid": {
+                    "description": "OID of the user making the request",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RejectionReasonReportResponse": {
+            "description": "Output of RejectionReason RPC",
+            "id": "RejectionReasonReportResponse",
+            "properties": {
+                "cohorts": {
+                    "description": "A list of cohorts that tell us why job applications were rejected",
+                    "items": {
+                        "$ref": "RejectionReasonCohort"
+                    },
+                    "type": "array"
+                },
+                "oids": {
+                    "description": "A list of job application oids representing non aggregate data",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "RejectionsCohort": {
+            "description": "Each cohort is defined by:\n- the number of job applications in that cohort\n- the process stage group oid, and\n- the source name",
+            "id": "RejectionsCohort",
+            "properties": {
+                "jobApplicationCount": {
+                    "description": "the number of job applications that are in this process stage group",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "reasonText": {
+                    "description": "the reason this job application was rejected",
+                    "type": "string"
+                },
+                "stageGroupOid": {
+                    "description": "the oid of the process stage group this job application is in",
+                    "type": "string"
+                },
+                "stageOid": {
+                    "description": "the oid of the process stage this job application is in",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RejectionsCohortIdentifier": {
+            "description": "RejectionsCohortIdentifier is an identifier used to fetch job application or\njob position oids for a specific cohort, in order to support hover card\nlinks.",
+            "id": "RejectionsCohortIdentifier",
+            "properties": {
+                "reasonText": {
+                    "description": "the rejection reason text associated with the job application",
+                    "type": "string"
+                },
+                "stageGroupOid": {
+                    "description": "the oid of the process stage group that a cohort is associated with. If\nprovided, then stage_oid should not be set.",
+                    "type": "string"
+                },
+                "stageOid": {
+                    "description": "the oid of the process stage that a cohort is associated with. If provided,\nthen stage_group_oid should not be set.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RejectionsReportRequest": {
+            "description": "Input to Rejections RPC",
+            "id": "RejectionsReportRequest",
+            "properties": {
+                "aggregationTier": {
+                    "description": "The aggregation tier requested",
+                    "enum": [
+                        "DEFAULT",
+                        "FULL",
+                        "NONE"
+                    ],
+                    "enumDescriptions": [
+                        "Not specified",
+                        "Used for chart views only",
+                        "Used for export/summary rows only"
+                    ],
+                    "type": "string"
+                },
+                "cohortIdentifier": {
+                    "$ref": "RejectionsCohortIdentifier",
+                    "description": "cohort identifier in order to fetch job application or job position oids."
+                },
+                "environment": {
+                    "description": "The environment this request is being made from",
+                    "enum": [
+                        "UNKNOWN",
+                        "STAGING",
+                        "PRODUCTION"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown",
+                        "Used for requests against the staging tables",
+                        "Used for requests against the production tables"
+                    ],
+                    "type": "string"
+                },
+                "filters": {
+                    "$ref": "Filters",
+                    "description": "The filters to apply to this request"
+                },
+                "isAdmin": {
+                    "description": "Whether or not the user making the request is an admin\nAdmins can see all job applications and have relaxed security constraints",
+                    "type": "boolean"
+                },
+                "jobsSummary": {
+                    "description": "Whether to return a summary list of jobs (or, if not, applications)\nNote: this is only honoured when aggregation tier = \"NONE\" (aka, when we\nrequest summary data)",
+                    "type": "boolean"
+                },
+                "limit": {
+                    "description": "The number of results to return",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "namespaceId": {
+                    "description": "Bebop tenant namespace id",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "requestUserOid": {
+                    "description": "OID of the user making the request",
+                    "type": "string"
+                },
+                "stageAggregation": {
+                    "description": "Whether to aggregate by stage or stage group",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "RejectionsReportResponse": {
+            "description": "Output of Rejections RPC",
+            "id": "RejectionsReportResponse",
+            "properties": {
+                "cohorts": {
+                    "description": "A list of cohorts that tell us which stage (or stage group) and for which\nreason job applications were rejected",
+                    "items": {
+                        "$ref": "RejectionsCohort"
+                    },
+                    "type": "array"
+                },
+                "oids": {
+                    "description": "A list of job application or job position oids representing non aggregate\ndata",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "SourceEfficiencyCohort": {
+            "description": "Each cohort is defined by the source the application is in,\nthe number of applications that were received via that source, and the job\napplication status",
+            "id": "SourceEfficiencyCohort",
+            "properties": {
+                "jobApplicationCount": {
+                    "description": "the number of job applications that are in this process stage group",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "jobApplicationStatus": {
+                    "description": "the status of the job application",
+                    "type": "string"
+                },
+                "source": {
+                    "description": "the source this job application was received through",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SourceEfficiencyReportRequest": {
+            "description": "Input to SourceEfficiency RPC",
+            "id": "SourceEfficiencyReportRequest",
+            "properties": {
+                "aggregationTier": {
+                    "description": "The aggregation tier requested",
+                    "enum": [
+                        "DEFAULT",
+                        "FULL",
+                        "NONE"
+                    ],
+                    "enumDescriptions": [
+                        "Not specified",
+                        "Used for chart views only",
+                        "Used for export/summary rows only"
+                    ],
+                    "type": "string"
+                },
+                "environment": {
+                    "description": "The environment this request is being made from",
+                    "enum": [
+                        "UNKNOWN",
+                        "STAGING",
+                        "PRODUCTION"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown",
+                        "Used for requests against the staging tables",
+                        "Used for requests against the production tables"
+                    ],
+                    "type": "string"
+                },
+                "filters": {
+                    "$ref": "Filters",
+                    "description": "The filters to apply to this request"
+                },
+                "isAdmin": {
+                    "description": "Whether or not the user making the request is an admin\nAdmins can see all job applications and have relaxed security constraints",
+                    "type": "boolean"
+                },
+                "limit": {
+                    "description": "The number of results to return",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "namespaceId": {
+                    "description": "Bebop tenant namespace id",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "requestUserOid": {
+                    "description": "OID of the user making the request",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SourceEfficiencyReportResponse": {
+            "description": "Output of SourceEfficiency RPC",
+            "id": "SourceEfficiencyReportResponse",
+            "properties": {
+                "cohorts": {
+                    "description": "A list of cohorts that tell us how quickly job applications were hired",
+                    "items": {
+                        "$ref": "SourceEfficiencyCohort"
+                    },
+                    "type": "array"
+                },
+                "oids": {
+                    "description": "A list of job application oids representing non aggregate data",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "SourceFilter": {
+            "description": "The candidate source filter to apply",
+            "id": "SourceFilter",
+            "properties": {
+                "names": {
+                    "description": "The names of the candidate sources (\"funnels\") to filter on",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "SourcesCohort": {
+            "description": "Each cohort is defined by:\n- the number of job applications in that cohort\n- the process stage group oid, and\n- the source name",
+            "id": "SourcesCohort",
+            "properties": {
+                "jobApplicationCount": {
+                    "description": "the number of job applications that are in this process stage group",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "sourceName": {
+                    "description": "the name of the source this job application originates from",
+                    "type": "string"
+                },
+                "sourceType": {
+                    "description": "the type of the source this job application originates from\nmay or may not match source_name based on request params",
+                    "type": "string"
+                },
+                "stageGroupOid": {
+                    "description": "the oid of the process stage group this job application is in",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SourcesCohortIdentifier": {
+            "description": "SourcesCohortIdentifier is an identifier used to fetch job application oids\nfor a specific cohort, in order to support hover card links.",
+            "id": "SourcesCohortIdentifier",
+            "properties": {
+                "source": {
+                    "description": "the source for the job applications",
+                    "type": "string"
+                },
+                "stageGroupOids": {
+                    "description": "the oid of the process stage that a cohort is associated with.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "SourcesReportRequest": {
+            "description": "Input to Sources RPC",
+            "id": "SourcesReportRequest",
+            "properties": {
+                "aggregationTier": {
+                    "description": "The aggregation tier requested",
+                    "enum": [
+                        "DEFAULT",
+                        "FULL",
+                        "NONE"
+                    ],
+                    "enumDescriptions": [
+                        "Not specified",
+                        "Used for chart views only",
+                        "Used for export/summary rows only"
+                    ],
+                    "type": "string"
+                },
+                "cohortIdentifier": {
+                    "$ref": "SourcesCohortIdentifier",
+                    "description": "cohort identifier in order to fetch job application oids."
+                },
+                "environment": {
+                    "description": "The environment this request is being made from",
+                    "enum": [
+                        "UNKNOWN",
+                        "STAGING",
+                        "PRODUCTION"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown",
+                        "Used for requests against the staging tables",
+                        "Used for requests against the production tables"
+                    ],
+                    "type": "string"
+                },
+                "filters": {
+                    "$ref": "Filters",
+                    "description": "The filters to apply to this request"
+                },
+                "isAdmin": {
+                    "description": "Whether or not the user making the request is an admin\nAdmins can see all job applications and have relaxed security constraints",
+                    "type": "boolean"
+                },
+                "jobsSummary": {
+                    "description": "Whether to return a summary list of jobs (or, if not, applications)\nNote: this is only honoured when aggregation tier = \"NONE\" (aka, when we\nrequest summary data)",
+                    "type": "boolean"
+                },
+                "limit": {
+                    "description": "The number of results to return",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "namespaceId": {
+                    "description": "Bebop tenant namespace id",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "requestUserOid": {
+                    "description": "OID of the user making the request",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SourcesReportResponse": {
+            "description": "Output of Sources RPC",
+            "id": "SourcesReportResponse",
+            "properties": {
+                "cohorts": {
+                    "description": "A list of cohorts that tell us how which source job applications were\nhired/rejected from",
+                    "items": {
+                        "$ref": "SourcesCohort"
+                    },
+                    "type": "array"
+                },
+                "oids": {
+                    "description": "A list of job application or job position oids representing non aggregate\ndata",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "StageLengthInsightCardRequest": {
+            "description": "Input to StageLengthInsightCard RPC",
+            "id": "StageLengthInsightCardRequest",
+            "properties": {
+                "filters": {
+                    "$ref": "Filters",
+                    "description": "The filters to apply to this request"
+                },
+                "isAdmin": {
+                    "description": "Whether or not the user making the request is an admin\nAdmins can see all job applications and have relaxed security constraints",
+                    "type": "boolean"
+                },
+                "namespaceId": {
+                    "description": "Bebop tenant namespace id",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "requestUserOid": {
+                    "description": "OID of the user making the request",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "StageLengthInsightCardResponse": {
+            "description": "Output of StageLengthInsightCard RPC",
+            "id": "StageLengthInsightCardResponse",
+            "properties": {
+                "lengths": {
+                    "description": "A list of cohorts that tell us average lengths of each stage group",
+                    "items": {
+                        "$ref": "StageLengthSummary"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "StageLengthSummary": {
+            "description": "An entry in the response of StageLengthInsightCard to summarize the stage\nlength of one process stage group. It is defined by the process stage group\nthe summary is for, and the number of days that an average application spends\nin the stage group.",
+            "id": "StageLengthSummary",
+            "properties": {
+                "daysInStageGroup": {
+                    "description": "the number of days on average an application spends in the stage group.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "stageGroupOid": {
+                    "description": "the oid of the process stage group this length summary is for",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TimeToFillCohortIdentifier": {
+            "description": "TimeToFillCohortIdentifier is an identifier used to fetch job application\noids or position oids for a specific cohort, in order to support hover card\nlinks.",
+            "id": "TimeToFillCohortIdentifier",
+            "properties": {
+                "daysToFill": {
+                    "description": "the days_to_fill value for the cohort of interest.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "groupKey": {
+                    "description": "the oid of a recruiter (when group-by is by recuirter) or a department name\n(when group-by is by department).",
+                    "type": "string"
+                },
+                "operator": {
+                    "description": "the operator used with days_to_fill query.",
+                    "enum": [
+                        "ARITHMETIC_UNSPECIFIED",
+                        "ARITHMETIC_EQ",
+                        "ARITHMETIC_GTE"
+                    ],
+                    "enumDescriptions": [
+                        "",
+                        "=",
+                        ">="
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TimeToFillReportCohort": {
+            "description": "A TimeToFillReportCohort describes a cohort of job positions that belong to\nthe same group (defined as job managed by the same recruiter or belonging to\nthe same department), and take the same number of days to fill.  Each cohort\nis defined by the group oid (of a recruiter or department, depending on the\nrequested group-by field), group label, days to fill positions in this\ncohort, and the number of job positions in this cohort.",
+            "id": "TimeToFillReportCohort",
+            "properties": {
+                "daysToFill": {
+                    "description": "the number of days to fill positions in this cohort",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "groupKey": {
+                    "description": "group key, which is either name of a recruiter or department",
+                    "type": "string"
+                },
+                "jobApplicationCount": {
+                    "description": "the number of job applications that fill positions at this particular days\nafter position creation. Note that this is job application count in case\nmultiple job applications are accepted for the same position.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TimeToFillReportRequest": {
+            "description": "Input to TimeToFillReport RPC",
+            "id": "TimeToFillReportRequest",
+            "properties": {
+                "aggregationTier": {
+                    "description": "The aggregation tier requested",
+                    "enum": [
+                        "DEFAULT",
+                        "FULL",
+                        "NONE"
+                    ],
+                    "enumDescriptions": [
+                        "Not specified",
+                        "Used for chart views only",
+                        "Used for export/summary rows only"
+                    ],
+                    "type": "string"
+                },
+                "cohortIdentifier": {
+                    "$ref": "TimeToFillCohortIdentifier",
+                    "description": "cohort identifier in order to fetch jobs/positions for a specific cohort."
+                },
+                "filters": {
+                    "$ref": "Filters",
+                    "description": "The filters to apply to this request"
+                },
+                "groupBy": {
+                    "description": "The group-by field for creating cohorts",
+                    "enum": [
+                        "UNSPECIFIED_TTF_GROUPBY_OPTION",
+                        "GROUP_BY_RECRUITER",
+                        "GROUP_BY_DEPARTMENT"
+                    ],
+                    "enumDescriptions": [
+                        "Not specified",
+                        "group by recruiter",
+                        "group by department"
+                    ],
+                    "type": "string"
+                },
+                "isAdmin": {
+                    "description": "Whether or not the user making the request is an admin\nAdmins can see all job applications and have relaxed security constraints",
+                    "type": "boolean"
+                },
+                "jobsSummary": {
+                    "description": "Whether to return a summary list of jobs (or, if not, applications)\nNote: this is only honoured when aggregation tier = \"NONE\" (aka, when we\nrequest summary data)",
+                    "type": "boolean"
+                },
+                "limit": {
+                    "description": "The number of results to return",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "namespaceId": {
+                    "description": "Bebop tenant namespace id",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "requestUserOid": {
+                    "description": "OID of the user making the request",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TimeToFillReportResponse": {
+            "description": "Output of TimeToFillReport RPC",
+            "id": "TimeToFillReportResponse",
+            "properties": {
+                "cohorts": {
+                    "description": "A list of cohorts that tell us why job applications were rejected",
+                    "items": {
+                        "$ref": "TimeToFillReportCohort"
+                    },
+                    "type": "array"
+                },
+                "oids": {
+                    "description": "A list of job application or job position oids representing non aggregate\ndata",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "TimeToHireCohort": {
+            "description": "Each cohort is defined by a min/max number of days to hire,\nand the number of applications that were hired within that many days.",
+            "id": "TimeToHireCohort",
+            "properties": {
+                "daysToHireLowerBound": {
+                    "description": "job applications hired in less than (or equal to) this many days are not\nincluded",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "daysToHireUpperBound": {
+                    "description": "job applications hired in more than this many days are not included",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "jobApplicationCount": {
+                    "description": "the number of job applications that were hired in x days, where x >=\ndays_to_hire_lower_bound and x < days_to_hire_upper_bound",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TimeToHireReportRequest": {
+            "description": "Input to TimeToHire RPC",
+            "id": "TimeToHireReportRequest",
+            "properties": {
+                "aggregationTier": {
+                    "description": "The aggregation tier requested",
+                    "enum": [
+                        "DEFAULT",
+                        "FULL",
+                        "NONE"
+                    ],
+                    "enumDescriptions": [
+                        "Not specified",
+                        "Used for chart views only",
+                        "Used for export/summary rows only"
+                    ],
+                    "type": "string"
+                },
+                "environment": {
+                    "description": "The environment this request is being made from",
+                    "enum": [
+                        "UNKNOWN",
+                        "STAGING",
+                        "PRODUCTION"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown",
+                        "Used for requests against the staging tables",
+                        "Used for requests against the production tables"
+                    ],
+                    "type": "string"
+                },
+                "filters": {
+                    "$ref": "Filters",
+                    "description": "The filters to apply to this request"
+                },
+                "isAdmin": {
+                    "description": "Whether or not the user making the request is an admin\nAdmins can see all job applications and have relaxed security constraints",
+                    "type": "boolean"
+                },
+                "limit": {
+                    "description": "The number of results to return",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "namespaceId": {
+                    "description": "Bebop tenant namespace id",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "requestUserOid": {
+                    "description": "OID of the user making the request",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TimeToHireReportResponse": {
+            "description": "Output of TimeToHire RPC",
+            "id": "TimeToHireReportResponse",
+            "properties": {
+                "cohorts": {
+                    "description": "A list of cohorts that tell us how quickly job applications were hired",
+                    "items": {
+                        "$ref": "TimeToHireCohort"
+                    },
+                    "type": "array"
+                },
+                "oids": {
+                    "description": "A list of job application oids representing non aggregate data",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Bebop Reporting Private API Staging",
+    "version": "v1",
+    "version_module": true
+}

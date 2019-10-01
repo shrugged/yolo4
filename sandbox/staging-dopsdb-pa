@@ -1,0 +1,356 @@
+{
+    "basePath": "",
+    "baseUrl": "https://local-dopsdb-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "description": "An API for managing device inventory for Mobile Testing as a Service",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://go/mtaas",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "dopsdb_pa:v1",
+    "kind": "discovery#restDescription",
+    "name": "dopsdb_pa",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "inventory": {
+            "methods": {
+                "create": {
+                    "description": "Insert Or Update to DOBSDB Legacy V1 Table",
+                    "flatPath": "v1/inventory/{inventoryId}",
+                    "httpMethod": "PUT",
+                    "id": "dopsdb_pa.inventory.create",
+                    "parameterOrder": [
+                        "udid"
+                    ],
+                    "parameters": {
+                        "assetExpiredLicenseToOperate": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "assetGutsTicket": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "assetHeldWithIndividual": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "assetImportLicense": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "assetImportLicenseDate": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "assetInventoryDate": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "assetInventoryLocation": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "assetLoanedTo": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "assetPurchaseDate": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "assetPurchaseOrder": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "assetTag": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "createdBy": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "datacenter": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "dateCreated": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "dateLastModified": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "dateLastSeen": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "deviceAbi": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "deviceApi": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "deviceBrand": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "deviceBus": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "deviceDevicemaster": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "deviceImei": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "deviceManufacturer": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "deviceModel": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "deviceNapkinEnabled": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "deviceOs": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "deviceProductBoard": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "deviceProductDevice": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "deviceProductName": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "deviceRelease": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "deviceSerial": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "deviceStatus": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "deviceVersion": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "environment": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "fqdn": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "ipAddress": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "macAddress": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "modifiedBy": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "osName": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "osVersion": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "rack": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "remoteaccessFqdn": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "searchableInventoryPending": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "searchableIsDevice": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "searchableIsProd": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "searchableIsServer": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "searchableIsStaging": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "searchableIsTest": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "searchableKeywords": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "searchableMacVendor": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "service": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "submittedBy": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "tray": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "udid": {
+                            "location": "path",
+                            "pattern": "^[^/]+$",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "wirelessChannel": {
+                            "location": "query",
+                            "type": "string"
+                        },
+                        "wirelessFrequency": {
+                            "location": "query",
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/inventory/{+udid}",
+                    "response": {
+                        "$ref": "InsertUpdateResponse"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190912",
+    "rootUrl": "https://local-dopsdb-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "InsertUpdateResponse": {
+            "id": "InsertUpdateResponse",
+            "properties": {},
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "DOPSDB Local",
+    "version": "v1",
+    "version_module": true
+}

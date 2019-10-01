@@ -1,0 +1,1224 @@
+{
+    "basePath": "",
+    "baseUrl": "https://culturalmobileservice-pa-staging.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "Cultural Mobile Service",
+    "description": "RPCs for the Stella Native app.",
+    "discoveryVersion": "v1",
+    "documentationLink": "",
+    "fullyEncodeReservedExpansion": true,
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "cultural_mobile_service:v1",
+    "kind": "discovery#restDescription",
+    "name": "cultural_mobile_service",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "v1": {
+            "methods": {
+                "batchFilterMatchedAssets": {
+                    "description": "Requests backend to filter blacklisted matches out and provide face\nimages extracted from assets.",
+                    "flatPath": "v1/batchFilterMatchedAssets",
+                    "httpMethod": "POST",
+                    "id": "cultural_mobile_service.batchFilterMatchedAssets",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/batchFilterMatchedAssets",
+                    "request": {
+                        "$ref": "BatchFilterMatchedAssetsRequest"
+                    },
+                    "response": {
+                        "$ref": "BatchFilterMatchedAssetsResponse"
+                    }
+                },
+                "batchGetRelatedArtImagesForColorPalette": {
+                    "description": "Requests images matching a given color palette (in streaming mode).",
+                    "flatPath": "v1/batchGetRelatedArtImagesForColorPalette",
+                    "httpMethod": "POST",
+                    "id": "cultural_mobile_service.batchGetRelatedArtImagesForColorPalette",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/batchGetRelatedArtImagesForColorPalette",
+                    "request": {
+                        "$ref": "BatchGetRelatedArtImagesForColorPaletteRequest"
+                    },
+                    "response": {
+                        "$ref": "BatchGetRelatedArtImagesForColorPaletteResponse"
+                    }
+                },
+                "filterMatchedAssets": {
+                    "description": "Requests backend to filter blacklisted matches out.",
+                    "flatPath": "v1/filterMatchedAssets",
+                    "httpMethod": "POST",
+                    "id": "cultural_mobile_service.filterMatchedAssets",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/filterMatchedAssets",
+                    "request": {
+                        "$ref": "FilterMatchedAssetsRequest"
+                    },
+                    "response": {
+                        "$ref": "FilterMatchedAssetsResponse"
+                    }
+                },
+                "getDailyDigest": {
+                    "description": "Requests the daily digest.",
+                    "flatPath": "v1/getDailyDigest",
+                    "httpMethod": "POST",
+                    "id": "cultural_mobile_service.getDailyDigest",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/getDailyDigest",
+                    "request": {
+                        "$ref": "GetDailyDigestRequest"
+                    },
+                    "response": {
+                        "$ref": "GetDailyDigestResponse"
+                    }
+                },
+                "getPocketGalleries": {
+                    "description": "Requests all the pocket galleries.",
+                    "flatPath": "v1/getPocketGalleries",
+                    "httpMethod": "POST",
+                    "id": "cultural_mobile_service.getPocketGalleries",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/getPocketGalleries",
+                    "request": {
+                        "$ref": "GetPocketGalleriesRequest"
+                    },
+                    "response": {
+                        "$ref": "GetPocketGalleriesResponse"
+                    }
+                },
+                "getPocketGalleryById": {
+                    "description": "Requests a pocket gallery by id.",
+                    "flatPath": "v1/getPocketGalleryById",
+                    "httpMethod": "POST",
+                    "id": "cultural_mobile_service.getPocketGalleryById",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/getPocketGalleryById",
+                    "request": {
+                        "$ref": "GetPocketGalleryByIdRequest"
+                    },
+                    "response": {
+                        "$ref": "GetPocketGalleryByIdResponse"
+                    }
+                },
+                "getRandomAssets": {
+                    "description": "Requests some random assets (first use case is to show them in a carousel\nin the AR asset viewer).",
+                    "flatPath": "v1/getRandomAssets",
+                    "httpMethod": "POST",
+                    "id": "cultural_mobile_service.getRandomAssets",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/getRandomAssets",
+                    "request": {
+                        "$ref": "GetRandomAssetsRequest"
+                    },
+                    "response": {
+                        "$ref": "GetRandomAssetsResponse"
+                    }
+                },
+                "getRelatedArtImagesForColorPalette": {
+                    "description": "Requests images matching a given color palette (in regular list mode).",
+                    "flatPath": "v1/getRelatedArtImagesForColorPalette",
+                    "httpMethod": "POST",
+                    "id": "cultural_mobile_service.getRelatedArtImagesForColorPalette",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/getRelatedArtImagesForColorPalette",
+                    "request": {
+                        "$ref": "GetRelatedArtImagesForColorPaletteRequest"
+                    },
+                    "response": {
+                        "$ref": "GetRelatedArtImagesForColorPaletteResponse"
+                    }
+                },
+                "getWearableAssetFamily": {
+                    "description": "Requests images for the background of wearables.",
+                    "flatPath": "v1/getWearableAssetFamily",
+                    "httpMethod": "POST",
+                    "id": "cultural_mobile_service.getWearableAssetFamily",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/getWearableAssetFamily",
+                    "request": {
+                        "$ref": "GetWearableAssetFamilyRequest"
+                    },
+                    "response": {
+                        "$ref": "GetWearableAssetFamilyResponse"
+                    }
+                },
+                "hasArtEgoAccess": {
+                    "description": "Checks whether the user making the request has access to ArtEgo.",
+                    "flatPath": "v1/hasArtEgoAccess",
+                    "httpMethod": "POST",
+                    "id": "cultural_mobile_service.hasArtEgoAccess",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/hasArtEgoAccess",
+                    "request": {
+                        "$ref": "HasArtEgoAccessRequest"
+                    },
+                    "response": {
+                        "$ref": "HasArtEgoAccessResponse"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190913",
+    "rootUrl": "https://culturalmobileservice-pa-staging.googleapis.com/",
+    "schemas": {
+        "Asset": {
+            "description": "A pocket gallery asset.\nNext ID: 17",
+            "id": "Asset",
+            "properties": {
+                "assetDepth": {
+                    "description": "The depth of the asset, in meters.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "borderColor": {
+                    "$ref": "RgbColor",
+                    "description": "The asset border color. This is the color of the \"box\" of size\nwidth x height x asset_depth behind the asset."
+                },
+                "creator": {
+                    "description": "The asset creator.",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "The asset description.",
+                    "type": "string"
+                },
+                "displayDate": {
+                    "description": "The asset creation date.",
+                    "type": "string"
+                },
+                "frameColor": {
+                    "$ref": "RgbColor",
+                    "description": "The asset frame color."
+                },
+                "frameDepth": {
+                    "description": "The depth of the asset frame, in meters. 0 means the asset has no frame.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "id": {
+                    "description": "The asset ID.",
+                    "type": "string"
+                },
+                "localToModel": {
+                    "$ref": "Matrix4x4",
+                    "description": "The transformation matrix from the local coordinates of the asset (0,0,0\nis the top-left corner and width,height,0 is the bottom-right corner,\nwith width and height the physical width and height of the asset,\nin meters), to coordinates in the model's reference frame."
+                },
+                "microscopeToken": {
+                    "description": "The access token of the microscope image of the asset.",
+                    "type": "string"
+                },
+                "microscopeUrl": {
+                    "description": "The url of the microscope image of the asset.",
+                    "type": "string"
+                },
+                "partner": {
+                    "description": "The name of the partner owning this asset.",
+                    "type": "string"
+                },
+                "partnerCity": {
+                    "description": "The city of the partner owning this asset.",
+                    "type": "string"
+                },
+                "partnerLogoUrl": {
+                    "description": "The URL of the logo of the partner owning this asset.",
+                    "type": "string"
+                },
+                "physicalWidth": {
+                    "description": "The width of the asset, in meters.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "title": {
+                    "description": "The asset title.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AssetInfo": {
+            "description": "Information about a requested asset.",
+            "id": "AssetInfo",
+            "properties": {
+                "creator": {
+                    "description": "The asset creator.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "The asset id.",
+                    "type": "string"
+                },
+                "microscopeToken": {
+                    "description": "The access token of the microscope image of the asset.",
+                    "type": "string"
+                },
+                "microscopeUrl": {
+                    "description": "The url of the microscope image of the asset.",
+                    "type": "string"
+                },
+                "partner": {
+                    "description": "The name of the partner owning this asset.",
+                    "type": "string"
+                },
+                "physicalWidth": {
+                    "description": "The width of the asset, in meters.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "title": {
+                    "description": "The asset title.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "BatchFilterMatchedAssetsRequest": {
+            "description": "Request to check whether assets should be filtered out due to black listing.",
+            "id": "BatchFilterMatchedAssetsRequest",
+            "properties": {
+                "assets": {
+                    "description": "Required",
+                    "items": {
+                        "$ref": "IdentifiedAsset"
+                    },
+                    "type": "array"
+                },
+                "locale": {
+                    "description": "Locale of the request in a IETF BCP 47 locale tag. If omitted or empty, the\nserver will assume \"en\". This will be used to select the language of the\nmetadata.",
+                    "type": "string"
+                },
+                "maxMatches": {
+                    "description": "The maximum number of assets to return. If, after filtering, there are more\nassets left than this maximum, the remaining assets are discarded. Assets\nare filtered in the given order.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "BatchFilterMatchedAssetsResponse": {
+            "description": "Response of service BatchFilterMatchedAssets.\nNext id: 10",
+            "id": "BatchFilterMatchedAssetsResponse",
+            "properties": {
+                "assetId": {
+                    "description": "ID of the asset.\nRequired",
+                    "type": "string"
+                },
+                "assetUrl": {
+                    "description": "URL of the asset.\nRequired",
+                    "type": "string"
+                },
+                "creator": {
+                    "description": "Creator of the matching asset.\nOptional, defaults to empty string",
+                    "type": "string"
+                },
+                "faceCropImage": {
+                    "description": "Cropped face for the thumbnail in pixels.\nRequired",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "faceId": {
+                    "description": "The client's unique identifier for the given face in the Art Selfie index.\nNote that the asset_id does not uniquely identify the face, since there may\nbe multiple faces in one asset. This ID is used by the client to determine\nwhich responses correspond with which faces in the on-device Art Selfie\nindex.\nRequired",
+                    "type": "string"
+                },
+                "faceIndexUrl": {
+                    "description": "The URL of the face index to use to compute new on-device face matches.",
+                    "type": "string"
+                },
+                "imageResult": {
+                    "description": "Whole image in pixels.\nRequired",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "partnerName": {
+                    "description": "Partner name.\nOptional, defaults to empty string",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Title of the matching asset.\nOptional, defaults to empty string",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "BatchGetRelatedArtImagesForColorPaletteRequest": {
+            "description": "Request for BatchGetRelatedArtImagesForColorPalette RPC",
+            "id": "BatchGetRelatedArtImagesForColorPaletteRequest",
+            "properties": {
+                "colors": {
+                    "description": "required",
+                    "items": {
+                        "$ref": "WeightedColor"
+                    },
+                    "type": "array"
+                },
+                "locale": {
+                    "description": "Locale of the user making the request",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "BatchGetRelatedArtImagesForColorPaletteResponse": {
+            "description": "Response from BatchGetRelatedArtImagesForColorPalette RPC",
+            "id": "BatchGetRelatedArtImagesForColorPaletteResponse",
+            "properties": {
+                "assetId": {
+                    "description": "required",
+                    "type": "string"
+                },
+                "assetUrl": {
+                    "description": "required",
+                    "type": "string"
+                },
+                "creator": {
+                    "description": "Creator",
+                    "type": "string"
+                },
+                "dominantColorQuantumLight": {
+                    "description": "Dominant color of the asset, muted for quantum",
+                    "type": "string"
+                },
+                "imageResult": {
+                    "description": "required",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "partnerName": {
+                    "description": "Name of the collection owning the asset",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Title",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DailyDigestInfoCard": {
+            "description": "A single info card.",
+            "id": "DailyDigestInfoCard",
+            "properties": {
+                "destinationPath": {
+                    "description": "The path to open this object in the Arts & Culture app, for example:\n/exhibit/dgJSBH0gcvnHJQ.",
+                    "type": "string"
+                },
+                "placeholderColor": {
+                    "description": "Placeholder color to display while this object is loading.\nIn #hex format.",
+                    "type": "string"
+                },
+                "subtitle": {
+                    "description": "Subtitle for the object, this is displayed on the info card.",
+                    "type": "string"
+                },
+                "thumbnailUrl": {
+                    "description": "The thumbnail of the visual representation of this object.",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "The title to be used when displaying this object.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FilterMatchedAssetsRequest": {
+            "description": "Request to check whether assets should be filtered out due to black listing.",
+            "id": "FilterMatchedAssetsRequest",
+            "properties": {
+                "assets": {
+                    "description": "Required",
+                    "items": {
+                        "$ref": "IdentifiedAsset"
+                    },
+                    "type": "array"
+                },
+                "locale": {
+                    "description": "Locale of the request in a IETF BCP 47 locale tag. If omitted or empty, the\nserver will assume \"en\". This will be used to select the language of the\nmetadata.",
+                    "type": "string"
+                },
+                "maxMatches": {
+                    "description": "The maximum number of assets to return. If, after filtering, there are more\nassets left than this maximum, the remaining assets are discarded. Assets\nare filtered in the given order.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "FilterMatchedAssetsResponse": {
+            "description": "Response of service FilterMatchedAssets.",
+            "id": "FilterMatchedAssetsResponse",
+            "properties": {
+                "faceIndexUrl": {
+                    "description": "The URL of the face index to use to compute new on-device face matches.",
+                    "type": "string"
+                },
+                "matchedAsset": {
+                    "description": "The filtered matched assets.",
+                    "items": {
+                        "$ref": "MatchedAsset"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GetDailyDigestRequest": {
+            "description": "Request for the GetDailyDigest RPC.",
+            "id": "GetDailyDigestRequest",
+            "properties": {
+                "locale": {
+                    "description": "Locale of the request in a IETF BCP 47 locale tag. If omitted or empty, the\nserver will assume \"en\". This will be used to select the language of the\nmetadata.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GetDailyDigestResponse": {
+            "description": "Response from the GetDailyDigest RPC.",
+            "id": "GetDailyDigestResponse",
+            "properties": {
+                "infoCards": {
+                    "description": "List of cards in display order.",
+                    "items": {
+                        "$ref": "DailyDigestInfoCard"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GetPocketGalleriesRequest": {
+            "description": "Request for GetPocketGalleries RPC",
+            "id": "GetPocketGalleriesRequest",
+            "properties": {
+                "cachedGalleryVersions": {
+                    "additionalProperties": {
+                        "format": "byte",
+                        "type": "string"
+                    },
+                    "description": "The map from pocket gallery id to version of that gallery in the client\ncache (see the version field of the PocketGallery proto).",
+                    "type": "object"
+                },
+                "locale": {
+                    "description": "Locale of the user making the request.",
+                    "type": "string"
+                },
+                "supportedFormats": {
+                    "description": "The list of the model formats supported by the client. Should not be empty.",
+                    "enumDescriptions": [
+                        "Unknown or missing format. Not a valid value, but defined because proto3\nrules require it.",
+                        "glTF 2.x format (used with SceneForm). glTF is guaranteed to be forward\nand backward compatible across minor version number changes.\nSee\nhttps://github.com/KhronosGroup/glTF/tree/master/specification/2.0#versioning",
+                        "Collada 1.4 format (used with SceneKit). Collada does not make any\nguarantees across minor revisions, and all releases so far have been\nunder the 1.x versioning scheme.\nSee https://en.wikipedia.org/wiki/COLLADA#Versions."
+                    ],
+                    "items": {
+                        "enum": [
+                            "UNKNOWN",
+                            "GLTF_2",
+                            "COLLADA_1_4"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GetPocketGalleriesResponse": {
+            "description": "Response for GetPocketGalleries RPC",
+            "id": "GetPocketGalleriesResponse",
+            "properties": {
+                "pocketGalleryInfo": {
+                    "description": "List of current pocket galleries, in display order. The fields of\nPocketGalleryInfo implicitly encode whether a pocket gallery is\nnew / updated, unchanged, or deleted:\n- If the id field is the only one that is set, then this marks the gallery\n  proto as UNCHANGED.\n- If both the id and the pocket_gallery fields are set, then this marks the\n  gallery proto as NEW or UPDATED\n- If a gallery id was specified in the request, but does not appear in a\n  PocketGalleryInfo entry here, then this marks the gallery as DELETED.\n\nFor new, updated, and unchanged galleries, the position of the\nPocketGalleryInfo entry encodes the display order in the UI.",
+                    "items": {
+                        "$ref": "PocketGalleryInfo"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GetPocketGalleryByIdRequest": {
+            "description": "Request for GetPocketGalleryById RPC",
+            "id": "GetPocketGalleryByIdRequest",
+            "properties": {
+                "cachedGalleryVersion": {
+                    "description": "The version of that gallery in the client cache, if any (see the version\nfield of the PocketGallery proto).",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "The id of the pocket gallery. This must be the story id of a Story of type\nPOCKET_GALLERY_STORY.",
+                    "type": "string"
+                },
+                "locale": {
+                    "description": "Locale of the user making the request.",
+                    "type": "string"
+                },
+                "supportedFormats": {
+                    "description": "The list of the model formats supported by the client. Should not be empty.",
+                    "enumDescriptions": [
+                        "Unknown or missing format. Not a valid value, but defined because proto3\nrules require it.",
+                        "glTF 2.x format (used with SceneForm). glTF is guaranteed to be forward\nand backward compatible across minor version number changes.\nSee\nhttps://github.com/KhronosGroup/glTF/tree/master/specification/2.0#versioning",
+                        "Collada 1.4 format (used with SceneKit). Collada does not make any\nguarantees across minor revisions, and all releases so far have been\nunder the 1.x versioning scheme.\nSee https://en.wikipedia.org/wiki/COLLADA#Versions."
+                    ],
+                    "items": {
+                        "enum": [
+                            "UNKNOWN",
+                            "GLTF_2",
+                            "COLLADA_1_4"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GetPocketGalleryByIdResponse": {
+            "description": "Response for GetPocketGalleryById RPC",
+            "id": "GetPocketGalleryByIdResponse",
+            "properties": {
+                "pocketGallery": {
+                    "$ref": "PocketGallery",
+                    "description": "The requested pocket gallery. This field is present if and only if the\ngallery is new (cached_gallery_version in the request is empty) or updated\n(cached_gallery_version didn't match). If there are no updates to the\ngallery, an empty response is returned.\nThe deletion case is not handled here, because it is presumed that this\nRPC will necessarily originate from a context where the pocket gallery is\nknown to be valid."
+                }
+            },
+            "type": "object"
+        },
+        "GetRandomAssetsRequest": {
+            "description": "Request for GetRandomAssets RPC",
+            "id": "GetRandomAssetsRequest",
+            "properties": {
+                "locale": {
+                    "description": "Locale of the user making the request.",
+                    "type": "string"
+                },
+                "numAssets": {
+                    "description": "The desired number of assets.",
+                    "format": "uint32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "GetRandomAssetsResponse": {
+            "description": "Response for GetRandomAssets RPC",
+            "id": "GetRandomAssetsResponse",
+            "properties": {
+                "assetInfo": {
+                    "description": "The requested assets.",
+                    "items": {
+                        "$ref": "AssetInfo"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GetRelatedArtImagesForColorPaletteRequest": {
+            "description": "Request for GetRelatedArtImagesForColorPalette RPC",
+            "id": "GetRelatedArtImagesForColorPaletteRequest",
+            "properties": {
+                "colors": {
+                    "description": "Palette colors with weights\nrequired",
+                    "items": {
+                        "$ref": "WeightedColor"
+                    },
+                    "type": "array"
+                },
+                "locale": {
+                    "description": "Locale of the user making the request",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GetRelatedArtImagesForColorPaletteResponse": {
+            "description": "Response from GetRelatedArtImagesForColorPalette RPC",
+            "id": "GetRelatedArtImagesForColorPaletteResponse",
+            "properties": {
+                "paletteAsset": {
+                    "description": "List of matching assets",
+                    "items": {
+                        "$ref": "RelatedPaletteAsset"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GetWearableAssetFamilyRequest": {
+            "description": "Request to get the WearableAssetFamily for a device.",
+            "id": "GetWearableAssetFamilyRequest",
+            "properties": {
+                "count": {
+                    "description": "Max number of assets to be sent back.\ndefault = 12",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "currentSetId": {
+                    "description": "The current id of the set used on the wearable.",
+                    "type": "string"
+                },
+                "deviceHeight": {
+                    "description": "Height of the wearable device in pixels.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "deviceWidth": {
+                    "description": "Width of the wearable device in pixels.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "locale": {
+                    "description": "Locale of the request in a IETF BCP 47 locale tag. If omitted or empty, the\nserver will assume \"en\". This will be used to select the language of the\nmetadata.",
+                    "type": "string"
+                },
+                "timezone": {
+                    "description": "The timezone of the requester, used to determine which assets to send back.\ndefault = \"UTC\".",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GetWearableAssetFamilyResponse": {
+            "description": "Response composed of the asset family and status.",
+            "id": "GetWearableAssetFamilyResponse",
+            "properties": {
+                "assetFamily": {
+                    "$ref": "WearableAssetFamily",
+                    "description": "A family of assets returned from the server."
+                },
+                "responseStatus": {
+                    "$ref": "Status",
+                    "description": "Responde status from the server."
+                }
+            },
+            "type": "object"
+        },
+        "HasArtEgoAccessRequest": {
+            "description": "Request for HasArtEgoAccess RPC",
+            "id": "HasArtEgoAccessRequest",
+            "properties": {},
+            "type": "object"
+        },
+        "HasArtEgoAccessResponse": {
+            "description": "Response for HasArtEgoAccess RPC",
+            "id": "HasArtEgoAccessResponse",
+            "properties": {
+                "artEgoAccess": {
+                    "description": "Whether the user making the request has access to ArtEgo.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "IdentifiedAsset": {
+            "description": "Identifies an asset and a face rectangle inside it.",
+            "id": "IdentifiedAsset",
+            "properties": {
+                "assetId": {
+                    "description": "Required",
+                    "type": "string"
+                },
+                "faceId": {
+                    "description": "The client's unique identifier for the given face in the Art Selfie index.\nNote that the asset_id does not uniquely identify the face, since there may\nbe multiple faces in one asset.\nRequired",
+                    "type": "string"
+                },
+                "faceLocationArtwork": {
+                    "$ref": "ProportionalBoundingBox",
+                    "description": "Bounding box around the face detected by FaceNet. This can be used by the\nserver to crop a higher-resolution version of the asset (rather than\ncropping a downsampled version of the full image sent back to the client)."
+                }
+            },
+            "type": "object"
+        },
+        "MatchedAsset": {
+            "description": "A filtered matched asset.",
+            "id": "MatchedAsset",
+            "properties": {
+                "assetId": {
+                    "description": "ID of the asset.\nRequired",
+                    "type": "string"
+                },
+                "assetUrl": {
+                    "description": "URL of the asset.\nRequired",
+                    "type": "string"
+                },
+                "creator": {
+                    "description": "Creator of the matching asset.\nOptional, defaults to empty string",
+                    "type": "string"
+                },
+                "faceId": {
+                    "description": "The client's unique identifier for the given face in the Art Selfie\nindex. Note that the asset_id does not uniquely identify the face, since\nthere may be multiple faces in one asset. This ID is used by the client\nto determine which responses correspond with which faces in the on-device\nArt Selfie index.\nRequired",
+                    "type": "string"
+                },
+                "partnerName": {
+                    "description": "Partner name.\nOptional, defaults to empty string",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Title of the matching asset.\nOptional, defaults to empty string",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Matrix4x4": {
+            "description": "A 4x4 matrix, with 16 coefficients specified in row major order. The\ndefault value is the identity matrix.",
+            "id": "Matrix4x4",
+            "properties": {
+                "coefficient": {
+                    "description": "The coefficients of the matrix, in row major order.",
+                    "items": {
+                        "format": "float",
+                        "type": "number"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ModelZipFile": {
+            "description": "A ZIP file containing all the model files and dependencies (textures, etc)\nrequired to represent a PocketGallery template in a particular format.\n\nThere is a similar proto definition for the back-end. Whenever making a\nchange to this proto, consider whether you should make it on the back-end\nproto as well. See cultural/proto/pocket_gallery_model_files.proto.\n\nNext ID: 8",
+            "id": "ModelZipFile",
+            "properties": {
+                "ceilingModelFilename": {
+                    "description": "The filename of the 3D model of the \"ceiling\" of the scene in the ZIP file.\nThis model is only shown when the pocket gallery is rendered in full scale.\nThe model coordinates must be in meters, and the model must be correctly\naligned with the main scene model 'model_filename'.",
+                    "type": "string"
+                },
+                "collisionModelFilename": {
+                    "description": "The filename of the 3D collision model of the scene in the ZIP file. This\nmodel is only used to compute intersections of rays with the pocket gallery\n(to navigate inside the scene), and is never displayed. It can be a\nsimplified version of the full model. The model coordinates must be in\nmeters, and the model must be correctly aligned with the main scene model\n'model_filename'.",
+                    "type": "string"
+                },
+                "fileHash": {
+                    "description": "The MD5 hash of the ZIP file. This avoids an extra round-trip to GCS on the\nclient side.\nFor now, this field only exists on the front-end proto. We compute it\non-the-fly (possibility of caching). It would be possible to store it in\nthe back-end proto as well, but this would require storing the back-end\nproto in Spanner, and integrating with Cloud Pub/Sub.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "fileSizeBytes": {
+                    "description": "The size of the ZIP file, in bytes. This avoids an extra round-trip to GCS\non the client side.\nFor now, this field only exists on the front-end proto. We compute it\non-the-fly (possibility of caching). It would be possible to store it in\nthe back-end proto as well, but this would require storing the back-end\nproto in Spanner, and integrating with Cloud Pub/Sub.",
+                    "format": "uint32",
+                    "type": "integer"
+                },
+                "format": {
+                    "description": "The format of the model(s) contained in the ZIP file.",
+                    "enum": [
+                        "UNKNOWN",
+                        "GLTF_2",
+                        "COLLADA_1_4"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown or missing format. Not a valid value, but defined because proto3\nrules require it.",
+                        "glTF 2.x format (used with SceneForm). glTF is guaranteed to be forward\nand backward compatible across minor version number changes.\nSee\nhttps://github.com/KhronosGroup/glTF/tree/master/specification/2.0#versioning",
+                        "Collada 1.4 format (used with SceneKit). Collada does not make any\nguarantees across minor revisions, and all releases so far have been\nunder the 1.x versioning scheme.\nSee https://en.wikipedia.org/wiki/COLLADA#Versions."
+                    ],
+                    "type": "string"
+                },
+                "modelFilename": {
+                    "description": "The filename of the 3D model of the scene in the ZIP file. The model\ncoordinates must be in meters, with the y axis representing the vertical\naxis, and y = floor_height the floor plane of the model.",
+                    "type": "string"
+                },
+                "zipUrl": {
+                    "description": "The URL of the ZIP file on GCS.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PocketGallery": {
+            "description": "Information about a pocket gallery.\nNext ID: 17",
+            "id": "PocketGallery",
+            "properties": {
+                "anchor": {
+                    "$ref": "Matrix4x4",
+                    "description": "The anchor of the model. This is the transformation matrix from model\ncoordinates to the coordinate space of the anchor node (e.g. where the user\nwants to put the scene in Augmented Reality). It should specify an initial,\nreduced scale of the model, for an outside view."
+                },
+                "asset": {
+                    "description": "The list of assets in the gallery, and where to put them.",
+                    "items": {
+                        "$ref": "Asset"
+                    },
+                    "type": "array"
+                },
+                "author": {
+                    "description": "The pocket gallery author.",
+                    "type": "string"
+                },
+                "ceilingModelFilename": {
+                    "description": "DEPRECATED: use model_zip_file instead",
+                    "type": "string"
+                },
+                "collisionModelFilename": {
+                    "description": "DEPRECATED: use model_zip_file instead",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "The pocket gallery long description",
+                    "type": "string"
+                },
+                "floorHeight": {
+                    "description": "The height of the floor of the model, in meters and in model coordinates.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "modelFilename": {
+                    "description": "DEPRECATED: use model_zip_file instead",
+                    "type": "string"
+                },
+                "modelZipFile": {
+                    "$ref": "ModelZipFile",
+                    "description": "Information about the model files for this gallery."
+                },
+                "storyThumbnailUrl": {
+                    "description": "The thumbnail URL for the Pocket Gallery story.",
+                    "type": "string"
+                },
+                "subtitle": {
+                    "description": "The pocket gallery subtitle.",
+                    "type": "string"
+                },
+                "tapTarget": {
+                    "description": "The tap targets for the predefined viewpoints into the scene.",
+                    "items": {
+                        "$ref": "TapTarget"
+                    },
+                    "type": "array"
+                },
+                "templateThumbnailUrl": {
+                    "description": "The thumbnail URL for the Pocket Gallery template.",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "The pocket gallery title.",
+                    "type": "string"
+                },
+                "version": {
+                    "description": "The version marker for this gallery proto. The client should not assign\nany meaning to its content, except to the extent that it allows the backend\nto detect whether the client has the most up-to-date version of the proto.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "viewpoint": {
+                    "description": "Predefined viewpoints into the scene. Each viewpoint is specified with a\ntransformation matrix from model coordinates to the local coordinates of\nthe camera.",
+                    "items": {
+                        "$ref": "Matrix4x4"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "PocketGalleryInfo": {
+            "description": "Information about a pocket gallery. The id field is always present; the\npocket_gallery field is present only if the gallery is new or updated\n(see pocket_gallery_info below for details).",
+            "id": "PocketGalleryInfo",
+            "properties": {
+                "id": {
+                    "description": "The pocket gallery story id.",
+                    "type": "string"
+                },
+                "pocketGallery": {
+                    "$ref": "PocketGallery",
+                    "description": "The full data of the PocketGallery. Only filled in if the gallery has\nbeen added or updated since the last client request."
+                }
+            },
+            "type": "object"
+        },
+        "ProportionalBoundingBox": {
+            "description": "Generic bounding box around a face proportionally in relation to the asset\nwidth and height. Every value must be between 0 and 1.\nNote: 'left' is the distance between left side of the asset and left side\nof the face while 'right' is the distance between the right side of the\nasset and right side of the face.",
+            "id": "ProportionalBoundingBox",
+            "properties": {
+                "bottom": {
+                    "description": "Position of the bottom side of the box from the top side of the source\nimage.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "left": {
+                    "description": "NOTE: The following values are between 0 and 1 and are in relation to the\noverall width or height of the image.\nPosition of the left side of the box from the left side of the source\nimage.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "right": {
+                    "description": "Position of the right side of the box from the left side of the source\nimage.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "top": {
+                    "description": "Position of the top side of the box from the top side of the source image.",
+                    "format": "float",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RelatedPaletteAsset": {
+            "description": "Infos about one asset matching a color palette request",
+            "id": "RelatedPaletteAsset",
+            "properties": {
+                "assetId": {
+                    "description": "Identifier of the asset\nrequired",
+                    "type": "string"
+                },
+                "assetUrl": {
+                    "description": "URL of the asset page\nrequired",
+                    "type": "string"
+                },
+                "creator": {
+                    "description": "Creator",
+                    "type": "string"
+                },
+                "dominantColorQuantumLight": {
+                    "description": "The dominant color (muted for quantum light), as a 6 hexadecimal digits rgb\ncolor, e.g. \"6748E2\".",
+                    "type": "string"
+                },
+                "imageHeight": {
+                    "description": "Height in pixels of the full image\nrequired",
+                    "format": "uint32",
+                    "type": "integer"
+                },
+                "imageUrl": {
+                    "description": "URL of the image of the asset\nrequired",
+                    "type": "string"
+                },
+                "imageWidth": {
+                    "description": "Width in pixels of the full image\nrequired",
+                    "format": "uint32",
+                    "type": "integer"
+                },
+                "partnerName": {
+                    "description": "Name of the collection owning the asset",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Title",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RgbColor": {
+            "description": "A color defined by its red, green and blue components. Hopefully, client and\nserver will agree on the color profile.",
+            "id": "RgbColor",
+            "properties": {
+                "blue": {
+                    "description": "Blue color component clamped to [0;255].",
+                    "format": "uint32",
+                    "type": "integer"
+                },
+                "green": {
+                    "description": "Green color component clamped to [0;255].",
+                    "format": "uint32",
+                    "type": "integer"
+                },
+                "red": {
+                    "description": "Red color component clamped to [0;255].",
+                    "format": "uint32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "Status": {
+            "description": "The `Status` type defines a logical error model that is suitable for\ndifferent programming environments, including REST APIs and RPC APIs. It is\nused by [gRPC](https://github.com/grpc). Each `Status` message contains\nthree pieces of data: error code, error message, and error details.\n\nYou can find out more about this error model and how to work with it in the\n[API Design Guide](https://cloud.google.com/apis/design/errors).",
+            "id": "Status",
+            "properties": {
+                "code": {
+                    "description": "The status code, which should be an enum value of google.rpc.Code.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "details": {
+                    "description": "A list of messages that carry the error details.  There is a common set of\nmessage types for APIs to use.",
+                    "items": {
+                        "additionalProperties": {
+                            "description": "Properties of the object. Contains field @type with type URL.",
+                            "type": "any"
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "message": {
+                    "description": "A developer-facing error message, which should be in English. Any\nuser-facing error message should be localized and sent in the\ngoogle.rpc.Status.details field, or localized by the client.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TapTarget": {
+            "description": "A tap target for a predefined viewpoint into the scene.",
+            "id": "TapTarget",
+            "properties": {
+                "box": {
+                    "$ref": "Matrix4x4",
+                    "description": "The tappable volume of this tap target, defined as the transformation of\nthe unit box - from (0,0,0) to (1,1,1) - by this matrix (in model\ncoordinates)."
+                },
+                "viewpointIndex": {
+                    "description": "The (zero-based) index of the predefined viewpoint, in the 'viewpoint'\nlist, corresponding to this tap target (meaning that the camera will be\nset to this viewpoint when tapping on the 'box' volume). Several\nTapTarget can reference the same viewpoint.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "WearableAsset": {
+            "description": "Asset containing an image, the url to the image and metadata.",
+            "id": "WearableAsset",
+            "properties": {
+                "creator": {
+                    "description": "Creator of the asset in the language requested or the closest possible if\nthe requested one is not available.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "A stable unique identifier for this asset.",
+                    "type": "string"
+                },
+                "partnerName": {
+                    "description": "Institution responsible for the asset, in the language requested or the\nclosest possible if the requested one is not available.",
+                    "type": "string"
+                },
+                "thumbnail": {
+                    "description": "Image thumbnail.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "thumbnailUrl": {
+                    "description": "Image thumbnail URL.",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Title of the assest in the language requested or the closest possible if\nthe requested one is not available.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "WearableAssetFamily": {
+            "description": "Collection of assets and an id.",
+            "id": "WearableAssetFamily",
+            "properties": {
+                "asset": {
+                    "description": "A list of assets suitable for using on Wearable devices.",
+                    "items": {
+                        "$ref": "WearableAsset"
+                    },
+                    "type": "array"
+                },
+                "currentSetId": {
+                    "description": "A unique id for this set of assets.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "WeightedColor": {
+            "description": "A color with an associated weight, representing the expected \"importance\" of\nthe color in the result.",
+            "id": "WeightedColor",
+            "properties": {
+                "color": {
+                    "$ref": "RgbColor",
+                    "description": "The color components"
+                },
+                "weight": {
+                    "description": "All incoming weights will be normalized to the [0;1] range (expected by the\nbackend service).",
+                    "format": "uint32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "Arts & Culture Stella Native App Private API",
+    "version": "v1",
+    "version_module": true
+}

@@ -1,0 +1,2370 @@
+{
+    "basePath": "",
+    "baseUrl": "https://staging-vrappdiscovery-pa.sandbox.googleapis.com/",
+    "batchPath": "batch",
+    "canonicalName": "VR App Discovery",
+    "description": "VrAppDiscovery API helps Google VR platform recommend featured VR apps/contents to users.",
+    "discoveryVersion": "v1",
+    "documentationLink": "http://go/vrhome",
+    "icons": {
+        "x16": "http://www.google.com/images/icons/product/search-16.gif",
+        "x32": "http://www.google.com/images/icons/product/search-32.gif"
+    },
+    "id": "vrappdiscovery:v1",
+    "kind": "discovery#restDescription",
+    "name": "vrappdiscovery",
+    "ownerDomain": "google.com",
+    "ownerName": "Google",
+    "parameters": {
+        "$.xgafv": {
+            "description": "V1 error format.",
+            "enum": [
+                "1",
+                "2"
+            ],
+            "enumDescriptions": [
+                "v1 error format",
+                "v2 error format"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "access_token": {
+            "description": "OAuth access token.",
+            "location": "query",
+            "type": "string"
+        },
+        "alt": {
+            "default": "json",
+            "description": "Data format for response.",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "enumDescriptions": [
+                "Responses with Content-Type of application/json",
+                "Media download with context-dependent Content-Type",
+                "Responses with Content-Type of application/x-protobuf"
+            ],
+            "location": "query",
+            "type": "string"
+        },
+        "callback": {
+            "description": "JSONP",
+            "location": "query",
+            "type": "string"
+        },
+        "fields": {
+            "description": "Selector specifying which fields to include in a partial response.",
+            "location": "query",
+            "type": "string"
+        },
+        "key": {
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+            "location": "query",
+            "type": "string"
+        },
+        "oauth_token": {
+            "description": "OAuth 2.0 token for the current user.",
+            "location": "query",
+            "type": "string"
+        },
+        "prettyPrint": {
+            "default": "true",
+            "description": "Returns response with indentations and line breaks.",
+            "location": "query",
+            "type": "boolean"
+        },
+        "quotaUser": {
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+            "location": "query",
+            "type": "string"
+        },
+        "uploadType": {
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        },
+        "upload_protocol": {
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+            "location": "query",
+            "type": "string"
+        }
+    },
+    "protocol": "rest",
+    "resources": {
+        "appdetail": {
+            "methods": {
+                "batchGet": {
+                    "description": "Provides batch app details.",
+                    "flatPath": "v1/appdetail:batchGet",
+                    "httpMethod": "POST",
+                    "id": "vrappdiscovery.appdetail.batchGet",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/appdetail:batchGet",
+                    "request": {
+                        "$ref": "GoogleInternalVrAppdiscoveryV1BatchGetAppDetailRequest"
+                    },
+                    "response": {
+                        "$ref": "GoogleInternalVrAppdiscoveryV1BatchGetAppDetailResponse"
+                    }
+                },
+                "get": {
+                    "description": "Gets one app details by app ID.",
+                    "flatPath": "v1/appdetail/{id}:get",
+                    "httpMethod": "POST",
+                    "id": "vrappdiscovery.appdetail.get",
+                    "parameterOrder": [
+                        "id"
+                    ],
+                    "parameters": {
+                        "id": {
+                            "description": "ID of the app to request for.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/appdetail/{id}:get",
+                    "request": {
+                        "$ref": "GoogleInternalVrAppdiscoveryV1GetAppDetailRequest"
+                    },
+                    "response": {
+                        "$ref": "GoogleInternalVrAppdiscoveryV1GetAppDetailResponse"
+                    }
+                }
+            }
+        },
+        "collection": {
+            "methods": {
+                "batchGet": {
+                    "description": "Gets content for Ithaca.",
+                    "flatPath": "v1/collection:batchGet",
+                    "httpMethod": "POST",
+                    "id": "vrappdiscovery.collection.batchGet",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/collection:batchGet",
+                    "request": {
+                        "$ref": "GoogleInternalVrAppdiscoveryV1GetCollectionRequest"
+                    },
+                    "response": {
+                        "$ref": "GoogleInternalVrAppdiscoveryV1GetCollectionResponse"
+                    }
+                }
+            }
+        },
+        "mylistitems": {
+            "methods": {
+                "create": {
+                    "description": "Creates an item in MyList.",
+                    "flatPath": "v1/mylistitems",
+                    "httpMethod": "POST",
+                    "id": "vrappdiscovery.mylistitems.create",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/mylistitems",
+                    "request": {
+                        "$ref": "GoogleInternalVrAppdiscoveryV1CreateMyListItemRequest"
+                    },
+                    "response": {
+                        "$ref": "GoogleInternalVrAppdiscoveryV1CreateMyListItemResponse"
+                    }
+                },
+                "delete": {
+                    "description": "Deletes an item in MyList.",
+                    "flatPath": "v1/mylistitems:delete",
+                    "httpMethod": "POST",
+                    "id": "vrappdiscovery.mylistitems.delete",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/mylistitems:delete",
+                    "request": {
+                        "$ref": "GoogleInternalVrAppdiscoveryV1DeleteMyListItemRequest"
+                    },
+                    "response": {
+                        "$ref": "GoogleInternalVrAppdiscoveryV1DeleteMyListItemResponse"
+                    }
+                },
+                "list": {
+                    "description": "Lists items in MyList.",
+                    "flatPath": "v1/mylistitems:list",
+                    "httpMethod": "POST",
+                    "id": "vrappdiscovery.mylistitems.list",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/mylistitems:list",
+                    "request": {
+                        "$ref": "GoogleInternalVrAppdiscoveryV1ListMyListItemsRequest"
+                    },
+                    "response": {
+                        "$ref": "GoogleInternalVrAppdiscoveryV1ListMyListItemsResponse"
+                    }
+                }
+            }
+        },
+        "onboarding": {
+            "methods": {
+                "exit": {
+                    "description": "Indicates to the server that the user has exited the onboarding flow.\nThis may be called multiple times with different states of completion.",
+                    "flatPath": "v1/onboarding:exit",
+                    "httpMethod": "POST",
+                    "id": "vrappdiscovery.onboarding.exit",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/onboarding:exit",
+                    "request": {
+                        "$ref": "GoogleInternalVrAppdiscoveryV1ExitOnboardingFlowRequest"
+                    },
+                    "response": {
+                        "$ref": "GoogleInternalVrAppdiscoveryV1ExitOnboardingFlowResponse"
+                    }
+                }
+            }
+        },
+        "playtos": {
+            "methods": {
+                "accept": {
+                    "description": "Accepts Google Play's Terms of Service.",
+                    "flatPath": "v1/playtos:accept",
+                    "httpMethod": "POST",
+                    "id": "vrappdiscovery.playtos.accept",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/playtos:accept",
+                    "request": {
+                        "$ref": "GoogleInternalVrAppdiscoveryV1AcceptPlayTosRequest"
+                    },
+                    "response": {
+                        "$ref": "GoogleProtobufEmpty"
+                    }
+                },
+                "get": {
+                    "description": "Gets Google Play's Terms of Service.",
+                    "flatPath": "v1/playtos:get",
+                    "httpMethod": "POST",
+                    "id": "vrappdiscovery.playtos.get",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/playtos:get",
+                    "request": {
+                        "$ref": "GoogleInternalVrAppdiscoveryV1GetPlayTosRequest"
+                    },
+                    "response": {
+                        "$ref": "GoogleInternalVrAppdiscoveryV1GetPlayTosResponse"
+                    }
+                }
+            }
+        },
+        "search": {
+            "methods": {
+                "search": {
+                    "description": "Searches for Daydream content related to the user's search query.\nCurrently only supports searching over apps.",
+                    "flatPath": "v1/search/{query}:search",
+                    "httpMethod": "POST",
+                    "id": "vrappdiscovery.search.search",
+                    "parameterOrder": [
+                        "query"
+                    ],
+                    "parameters": {
+                        "query": {
+                            "description": "The search query string to fetch results for.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/search/{query}:search",
+                    "request": {
+                        "$ref": "GoogleInternalVrAppdiscoveryV1SearchRequest"
+                    },
+                    "response": {
+                        "$ref": "GoogleInternalVrAppdiscoveryV1SearchResponse"
+                    }
+                },
+                "suggest": {
+                    "description": "Lists possible queries the user may want to search.",
+                    "flatPath": "v1/search/{query}:suggest",
+                    "httpMethod": "POST",
+                    "id": "vrappdiscovery.search.suggest",
+                    "parameterOrder": [
+                        "query"
+                    ],
+                    "parameters": {
+                        "query": {
+                            "description": "The query to fetch suggestions for.",
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/search/{query}:suggest",
+                    "request": {
+                        "$ref": "GoogleInternalVrAppdiscoveryV1ListQuerySuggestionsRequest"
+                    },
+                    "response": {
+                        "$ref": "GoogleInternalVrAppdiscoveryV1ListQuerySuggestionsResponse"
+                    }
+                }
+            }
+        },
+        "userpreference": {
+            "methods": {
+                "batchGet": {
+                    "description": "Fetches the requested preferences.",
+                    "flatPath": "v1/userpreference:batchGet",
+                    "httpMethod": "POST",
+                    "id": "vrappdiscovery.userpreference.batchGet",
+                    "parameterOrder": [],
+                    "parameters": {},
+                    "path": "v1/userpreference:batchGet",
+                    "request": {
+                        "$ref": "GoogleInternalVrAppdiscoveryV1BatchGetUserPreferencesRequest"
+                    },
+                    "response": {
+                        "$ref": "GoogleInternalVrAppdiscoveryV1BatchGetUserPreferencesResponse"
+                    }
+                },
+                "update": {
+                    "description": "Updates a single user preference.",
+                    "flatPath": "v1/userpreference/{type}:update",
+                    "httpMethod": "POST",
+                    "id": "vrappdiscovery.userpreference.update",
+                    "parameterOrder": [
+                        "type"
+                    ],
+                    "parameters": {
+                        "type": {
+                            "description": "The preference type.",
+                            "enum": [
+                                "UNKNOWN_TYPE",
+                                "MARKETING_EMAIL_NOTIFICATION",
+                                "UPDATES_PUSH_NOTIFICATION"
+                            ],
+                            "location": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "path": "v1/userpreference/{type}:update",
+                    "request": {
+                        "$ref": "GoogleInternalVrAppdiscoveryV1UpdateUserPreferenceRequest"
+                    },
+                    "response": {
+                        "$ref": "GoogleInternalVrAppdiscoveryV1UpdateUserPreferenceResponse"
+                    }
+                }
+            }
+        }
+    },
+    "revision": "20190913",
+    "rootUrl": "https://staging-vrappdiscovery-pa.sandbox.googleapis.com/",
+    "schemas": {
+        "GoogleInternalVrAppdiscoveryV1AcceptPlayTosRequest": {
+            "description": "Request for {@code AcceptPlayTos} API.",
+            "id": "GoogleInternalVrAppdiscoveryV1AcceptPlayTosRequest",
+            "properties": {
+                "context": {
+                    "$ref": "VrDiscoveryAppRequestContext",
+                    "description": "Context of this request. Required."
+                },
+                "tosToken": {
+                    "description": "The base64 encoded opaque token of the ToS that user has accepted.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalVrAppdiscoveryV1BatchGetAppDetailRequest": {
+            "description": "The request message for {@code BatchGetAppDetail} API.",
+            "id": "GoogleInternalVrAppdiscoveryV1BatchGetAppDetailRequest",
+            "properties": {
+                "context": {
+                    "$ref": "VrDiscoveryAppRequestContext",
+                    "description": "Context of this request."
+                },
+                "id": {
+                    "description": "ID of the app to request for - the package name of the app.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalVrAppdiscoveryV1BatchGetAppDetailResponse": {
+            "description": "The response message for {@code BatchGetAppDetail} API.",
+            "id": "GoogleInternalVrAppdiscoveryV1BatchGetAppDetailResponse",
+            "properties": {
+                "appDetailResponse": {
+                    "description": "Results for requested AppDetails.",
+                    "items": {
+                        "$ref": "VrDiscoveryAppDetailResponse"
+                    },
+                    "type": "array"
+                },
+                "context": {
+                    "$ref": "VrDiscoveryResponseContext",
+                    "description": "Top-level context for all RPC responses."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalVrAppdiscoveryV1BatchGetUserPreferencesRequest": {
+            "description": "Batch call for fetching a set of preferences.",
+            "id": "GoogleInternalVrAppdiscoveryV1BatchGetUserPreferencesRequest",
+            "properties": {
+                "context": {
+                    "$ref": "VrDiscoveryAppRequestContext",
+                    "description": "Context of this request."
+                },
+                "preferenceType": {
+                    "description": "Preference types to fetch.",
+                    "enumDescriptions": [
+                        "Invalid type.",
+                        "Preferences related to sending marketing emails.",
+                        "Preferences related to sending push notifications for Daydream updates."
+                    ],
+                    "items": {
+                        "enum": [
+                            "UNKNOWN_TYPE",
+                            "MARKETING_EMAIL_NOTIFICATION",
+                            "UPDATES_PUSH_NOTIFICATION"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalVrAppdiscoveryV1BatchGetUserPreferencesResponse": {
+            "description": "Batch response for returning a set of preferences.",
+            "id": "GoogleInternalVrAppdiscoveryV1BatchGetUserPreferencesResponse",
+            "properties": {
+                "context": {
+                    "$ref": "VrDiscoveryResponseContext",
+                    "description": "Top-level context for all RPC responses."
+                },
+                "preference": {
+                    "description": "Set of preferences that were requested.",
+                    "items": {
+                        "$ref": "VrDiscoveryUserPreference"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalVrAppdiscoveryV1CreateMyListItemRequest": {
+            "description": "Request of {@code CreateMyListItem} API.",
+            "id": "GoogleInternalVrAppdiscoveryV1CreateMyListItemRequest",
+            "properties": {
+                "context": {
+                    "$ref": "VrDiscoveryAppRequestContext",
+                    "description": "Context of this request."
+                },
+                "extras": {
+                    "additionalProperties": {
+                        "description": "Properties of the object.",
+                        "type": "any"
+                    },
+                    "description": "All key/value pairs from the extra bundle of a share intent.",
+                    "type": "object"
+                },
+                "target": {
+                    "description": "App package name or deeplink URL from a Content proto in collections.\nExample formats:\n- \"apk://<package_name>\"\n- \"<deeplink_url>\"",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalVrAppdiscoveryV1CreateMyListItemResponse": {
+            "description": "Response of {@code CreateMyListItem} API.",
+            "id": "GoogleInternalVrAppdiscoveryV1CreateMyListItemResponse",
+            "properties": {
+                "context": {
+                    "$ref": "VrDiscoveryResponseContext",
+                    "description": "Top-level context for all RPC responses."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalVrAppdiscoveryV1DeleteMyListItemRequest": {
+            "description": "Request of {@code DeleteMyListItem} API.",
+            "id": "GoogleInternalVrAppdiscoveryV1DeleteMyListItemRequest",
+            "properties": {
+                "context": {
+                    "$ref": "VrDiscoveryAppRequestContext",
+                    "description": "Context of this request."
+                },
+                "target": {
+                    "description": "App package name or deeplink URL from the Content proto in a\nMyListItemResult. Example formats:\n- \"apk://<package_name>\"\n- \"<deeplink_url>\"",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalVrAppdiscoveryV1DeleteMyListItemResponse": {
+            "description": "Response of {@code DeleteMyListItem} API.",
+            "id": "GoogleInternalVrAppdiscoveryV1DeleteMyListItemResponse",
+            "properties": {
+                "context": {
+                    "$ref": "VrDiscoveryResponseContext",
+                    "description": "Top-level context for all RPC responses."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalVrAppdiscoveryV1ExitOnboardingFlowRequest": {
+            "description": "Request sent when a user exits the onboarding flow.",
+            "id": "GoogleInternalVrAppdiscoveryV1ExitOnboardingFlowRequest",
+            "properties": {
+                "completionState": {
+                    "description": "The state of the user's progress through the onboarding flow.",
+                    "enum": [
+                        "UNKNOWN_COMPLETION_STATE",
+                        "COMPLETED"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown completion state.",
+                        "User has completed the onboarding flow.  Note that completed\ndoesn\u2019t mean they have necessarily done everything in the flow\n(for example, playing some of the example games is optional),\nbut has done all the necessary setup such that we consider\nthem a fully onboarded user."
+                    ],
+                    "type": "string"
+                },
+                "context": {
+                    "$ref": "VrDiscoveryAppRequestContext",
+                    "description": "Context of this request."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalVrAppdiscoveryV1ExitOnboardingFlowResponse": {
+            "description": "Response message for {@code ExitOnboardingFlow} API.",
+            "id": "GoogleInternalVrAppdiscoveryV1ExitOnboardingFlowResponse",
+            "properties": {
+                "context": {
+                    "$ref": "VrDiscoveryResponseContext",
+                    "description": "Top-level context for all RPC responses."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalVrAppdiscoveryV1GetAppDetailRequest": {
+            "description": "The request message for {@code GetAppDetail} API.",
+            "id": "GoogleInternalVrAppdiscoveryV1GetAppDetailRequest",
+            "properties": {
+                "context": {
+                    "$ref": "VrDiscoveryAppRequestContext",
+                    "description": "Context of this request."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalVrAppdiscoveryV1GetAppDetailResponse": {
+            "description": "The response message for {@code GetAppDetail} API.",
+            "id": "GoogleInternalVrAppdiscoveryV1GetAppDetailResponse",
+            "properties": {
+                "canonicalCode": {
+                    "description": "Canonical error code for this response.",
+                    "enum": [
+                        "OK",
+                        "CANCELLED",
+                        "UNKNOWN",
+                        "INVALID_ARGUMENT",
+                        "DEADLINE_EXCEEDED",
+                        "NOT_FOUND",
+                        "ALREADY_EXISTS",
+                        "PERMISSION_DENIED",
+                        "UNAUTHENTICATED",
+                        "RESOURCE_EXHAUSTED",
+                        "FAILED_PRECONDITION",
+                        "ABORTED",
+                        "OUT_OF_RANGE",
+                        "UNIMPLEMENTED",
+                        "INTERNAL",
+                        "UNAVAILABLE",
+                        "DATA_LOSS"
+                    ],
+                    "enumDescriptions": [
+                        "Not an error; returned on success\n\nHTTP Mapping: 200 OK",
+                        "The operation was cancelled, typically by the caller.\n\nHTTP Mapping: 499 Client Closed Request",
+                        "Unknown error.  For example, this error may be returned when\na `Status` value received from another address space belongs to\nan error space that is not known in this address space.  Also\nerrors raised by APIs that do not return enough error information\nmay be converted to this error.\n\nHTTP Mapping: 500 Internal Server Error",
+                        "The client specified an invalid argument.  Note that this differs\nfrom `FAILED_PRECONDITION`.  `INVALID_ARGUMENT` indicates arguments\nthat are problematic regardless of the state of the system\n(e.g., a malformed file name).\n\nHTTP Mapping: 400 Bad Request",
+                        "The deadline expired before the operation could complete. For operations\nthat change the state of the system, this error may be returned\neven if the operation has completed successfully.  For example, a\nsuccessful response from a server could have been delayed long\nenough for the deadline to expire.\n\nHTTP Mapping: 504 Gateway Timeout",
+                        "Some requested entity (e.g., file or directory) was not found.\n\nNote to server developers: if a request is denied for an entire class\nof users, such as gradual feature rollout or undocumented whitelist,\n`NOT_FOUND` may be used. If a request is denied for some users within\na class of users, such as user-based access control, `PERMISSION_DENIED`\nmust be used.\n\nHTTP Mapping: 404 Not Found",
+                        "The entity that a client attempted to create (e.g., file or directory)\nalready exists.\n\nHTTP Mapping: 409 Conflict",
+                        "The caller does not have permission to execute the specified\noperation. `PERMISSION_DENIED` must not be used for rejections\ncaused by exhausting some resource (use `RESOURCE_EXHAUSTED`\ninstead for those errors). `PERMISSION_DENIED` must not be\nused if the caller can not be identified (use `UNAUTHENTICATED`\ninstead for those errors). This error code does not imply the\nrequest is valid or the requested entity exists or satisfies\nother pre-conditions.\n\nHTTP Mapping: 403 Forbidden",
+                        "The request does not have valid authentication credentials for the\noperation.\n\nHTTP Mapping: 401 Unauthorized",
+                        "Some resource has been exhausted, perhaps a per-user quota, or\nperhaps the entire file system is out of space.\n\nHTTP Mapping: 429 Too Many Requests",
+                        "The operation was rejected because the system is not in a state\nrequired for the operation's execution.  For example, the directory\nto be deleted is non-empty, an rmdir operation is applied to\na non-directory, etc.\n\nService implementors can use the following guidelines to decide\nbetween `FAILED_PRECONDITION`, `ABORTED`, and `UNAVAILABLE`:\n (a) Use `UNAVAILABLE` if the client can retry just the failing call.\n (b) Use `ABORTED` if the client should retry at a higher level\n     (e.g., when a client-specified test-and-set fails, indicating the\n     client should restart a read-modify-write sequence).\n (c) Use `FAILED_PRECONDITION` if the client should not retry until\n     the system state has been explicitly fixed.  E.g., if an \"rmdir\"\n     fails because the directory is non-empty, `FAILED_PRECONDITION`\n     should be returned since the client should not retry unless\n     the files are deleted from the directory.\n\nHTTP Mapping: 400 Bad Request",
+                        "The operation was aborted, typically due to a concurrency issue such as\na sequencer check failure or transaction abort.\n\nSee the guidelines above for deciding between `FAILED_PRECONDITION`,\n`ABORTED`, and `UNAVAILABLE`.\n\nHTTP Mapping: 409 Conflict",
+                        "The operation was attempted past the valid range.  E.g., seeking or\nreading past end-of-file.\n\nUnlike `INVALID_ARGUMENT`, this error indicates a problem that may\nbe fixed if the system state changes. For example, a 32-bit file\nsystem will generate `INVALID_ARGUMENT` if asked to read at an\noffset that is not in the range [0,2^32-1], but it will generate\n`OUT_OF_RANGE` if asked to read from an offset past the current\nfile size.\n\nThere is a fair bit of overlap between `FAILED_PRECONDITION` and\n`OUT_OF_RANGE`.  We recommend using `OUT_OF_RANGE` (the more specific\nerror) when it applies so that callers who are iterating through\na space can easily look for an `OUT_OF_RANGE` error to detect when\nthey are done.\n\nHTTP Mapping: 400 Bad Request",
+                        "The operation is not implemented or is not supported/enabled in this\nservice.\n\nHTTP Mapping: 501 Not Implemented",
+                        "Internal errors.  This means that some invariants expected by the\nunderlying system have been broken.  This error code is reserved\nfor serious errors.\n\nHTTP Mapping: 500 Internal Server Error",
+                        "The service is currently unavailable.  This is most likely a\ntransient condition, which can be corrected by retrying with\na backoff. Note that it is not always safe to retry\nnon-idempotent operations.\n\nSee the guidelines above for deciding between `FAILED_PRECONDITION`,\n`ABORTED`, and `UNAVAILABLE`.\n\nHTTP Mapping: 503 Service Unavailable",
+                        "Unrecoverable data loss or corruption.\n\nHTTP Mapping: 500 Internal Server Error"
+                    ],
+                    "type": "string"
+                },
+                "context": {
+                    "$ref": "VrDiscoveryResponseContext",
+                    "description": "Top-level context for all RPC responses."
+                },
+                "detail": {
+                    "$ref": "VrDiscoveryAppDetail",
+                    "description": "Details of the app. This is only populated if the canonical_code is OK."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalVrAppdiscoveryV1GetCollectionRequest": {
+            "description": "Request for Ithaca content. Bundles together several different types of\ncontent request that Ithaca makes, so that they can be batched.\nNext tag: 8",
+            "id": "GoogleInternalVrAppdiscoveryV1GetCollectionRequest",
+            "properties": {
+                "appDetailType": {
+                    "description": "The fields of AppDetail needed in the response. Specifying\nPARTIALLY_POPULATED will greatly decrease the size of the response.",
+                    "enum": [
+                        "UNKNOWN_APP_DETAIL_TYPE",
+                        "FULLY_POPULATED",
+                        "PARTIALLY_POPULATED"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown type. Defaults to fully populated.",
+                        "Every field of AppDetail is populated.",
+                        "Populate a subset of fields. Namely:\npackageName\nversionCode\nnumRatings\nformattedAvgRating\nprice\nownershipStatus\ndaydreamInfo\ntitle\nplayUrl\ndeveloperName\nid\nappDetailType"
+                    ],
+                    "type": "string"
+                },
+                "carouselCollection": {
+                    "$ref": "GoogleInternalVrAppdiscoveryV1GetCollectionRequestCarouselCollection",
+                    "description": "Carousel request. Optional."
+                },
+                "collection": {
+                    "$ref": "GoogleInternalVrAppdiscoveryV1GetCollectionRequestCollection",
+                    "description": "Collection request. Optional."
+                },
+                "context": {
+                    "$ref": "VrDiscoveryAppRequestContext",
+                    "description": "Context of this request. Required."
+                },
+                "discoveryCollection": {
+                    "$ref": "GoogleInternalVrAppdiscoveryV1GetCollectionRequestDiscoveryCollection",
+                    "description": "Discovery window request. Optional."
+                },
+                "featuredCollections": {
+                    "$ref": "GoogleInternalVrAppdiscoveryV1GetCollectionRequestFeaturedCollections",
+                    "description": "Featured content request. Optional."
+                },
+                "guideCollections": {
+                    "$ref": "GoogleInternalVrAppdiscoveryV1GetCollectionRequestGuideCollections",
+                    "description": "Guide collections request. Optional."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalVrAppdiscoveryV1GetCollectionRequestCarouselCollection": {
+            "description": "Request for carousel content.",
+            "id": "GoogleInternalVrAppdiscoveryV1GetCollectionRequestCarouselCollection",
+            "properties": {
+                "paginationInfo": {
+                    "$ref": "VrDiscoveryPaginationInfo",
+                    "description": "Pagination options. The max_results field is required, but the\ncontinuation_token is optional."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalVrAppdiscoveryV1GetCollectionRequestCollection": {
+            "description": "Request for a specific list of content. This is mainly intended for\npaginating the collections returned by FeaturedCollections. To paginate the\nother content (eg CarouselCollection), just use that request and set the\npagination_info.",
+            "id": "GoogleInternalVrAppdiscoveryV1GetCollectionRequestCollection",
+            "properties": {
+                "id": {
+                    "description": "The id of the content list. Typically taken from a previous Featured\nresponse. Eg: GetCollectionResponse.featured.results[i].cluster_detail.id\nRequired.",
+                    "type": "string"
+                },
+                "paginationInfo": {
+                    "$ref": "VrDiscoveryPaginationInfo",
+                    "description": "Pagination options. The max_results field is required, but the\ncontinuation_token is optional."
+                },
+                "supportedContentTemplates": {
+                    "description": "List of supported content templates. If left unspecified then the server\ncannot control how the content is rendered in the GetCollectionResponse.",
+                    "enumDescriptions": [
+                        "If the template is set to unknown, it is up to the client to determine\nwhich template should be used. This will be based mostly on the context and\nover time this case should be less frequent.",
+                        "Templates to use for rendering app content. The content type here must be\nAPP_CONTENT_TYPE.",
+                        "Medium sized app template. See SMALL_APP_CARD_CONTENT_TEMPLATE.",
+                        "Large sized app template. See SMALL_APP_CARD_CONTENT_TEMPLATE.",
+                        "Wide sized app template. See SMALL_APP_CARD_CONTENT_TEMPLATE.",
+                        "Templates to use for rendering video content. The content type here must be\nYOUTUBE_VIDEO_CONTENT_TYPE.",
+                        "Medium sized video template. See SMALL_VIDEO_CARD_CONTENT_TEMPLATE.",
+                        "Large sized video template. See SMALL_VIDEO_CARD_CONTENT_TEMPLATE.",
+                        "Wide sized video template. See SMALL_VIDEO_CARD_CONTENT_TEMPLATE.",
+                        "Templates to use for rendering generic promotional content. This content\ntype here can be APP_CONTENT_TYPE, YOUTUBE_VIDEO_CONTENT_TYPE, or\nEDITORIAL_CONTENT_TYPE.",
+                        "Medium sized promo template. See SMALL_PROMO_CARD_CONTENT_TEMPLATE.",
+                        "Large sized promo template. See SMALL_PROMO_CARD_CONTENT_TEMPLATE.",
+                        "Template to use for rendering promo video cards. This content type must be\ntype LIVESTREAM_VIDEO_CONTENT_TYPE or YOUTUBE_VIDEO_CONTENT_TYPE"
+                    ],
+                    "items": {
+                        "enum": [
+                            "UNKNOWN_CONTENT_TEMPLATE",
+                            "SMALL_APP_CARD_CONTENT_TEMPLATE",
+                            "MEDIUM_APP_CARD_CONTENT_TEMPLATE",
+                            "LARGE_APP_CARD_CONTENT_TEMPLATE",
+                            "WIDE_APP_CARD_CONTENT_TEMPLATE",
+                            "SMALL_VIDEO_CARD_CONTENT_TEMPLATE",
+                            "MEDIUM_VIDEO_CARD_CONTENT_TEMPLATE",
+                            "LARGE_VIDEO_CARD_CONTENT_TEMPLATE",
+                            "WIDE_VIDEO_CARD_CONTENT_TEMPLATE",
+                            "SMALL_PROMO_CARD_CONTENT_TEMPLATE",
+                            "MEDIUM_PROMO_CARD_CONTENT_TEMPLATE",
+                            "LARGE_PROMO_CARD_CONTENT_TEMPLATE",
+                            "PROMO_VIDEO_CARD_CONTENT_TEMPLATE"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "supportedContentTypes": {
+                    "description": "List of supported content types. If not specified the server will infer\nthe type from the ID.",
+                    "enumDescriptions": [
+                        "Unknown type.",
+                        "The content represents an app.",
+                        "The content represents a YouTube video.",
+                        "Editorial content.",
+                        "The content represents a Livestream"
+                    ],
+                    "items": {
+                        "enum": [
+                            "UNKNOWN_CONTENT_TYPE",
+                            "APP_CONTENT_TYPE",
+                            "YOUTUBE_VIDEO_CONTENT_TYPE",
+                            "EDITORIAL_CONTENT_TYPE",
+                            "LIVESTREAM_VIDEO_CONTENT_TYPE"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalVrAppdiscoveryV1GetCollectionRequestDiscoveryCollection": {
+            "description": "Request for discovery window content.",
+            "id": "GoogleInternalVrAppdiscoveryV1GetCollectionRequestDiscoveryCollection",
+            "properties": {
+                "paginationInfo": {
+                    "$ref": "VrDiscoveryPaginationInfo",
+                    "description": "Pagination options. The max_results field is required, but the\ncontinuation_token is optional."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalVrAppdiscoveryV1GetCollectionRequestFeaturedCollections": {
+            "description": "Request for list of lists of featured content.",
+            "id": "GoogleInternalVrAppdiscoveryV1GetCollectionRequestFeaturedCollections",
+            "properties": {
+                "maxResultsPerCluster": {
+                    "description": "Max number of results in each cluster. Required.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "paginationInfo": {
+                    "$ref": "VrDiscoveryPaginationInfo",
+                    "description": "Pagination options. Note that this allows pagination of clusters, not the\nresults in the clusters. To find later pages of a cluster, use the\nCollection request. The max_results field is required, but the\ncontinuation_token is optional."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalVrAppdiscoveryV1GetCollectionRequestGuideCollections": {
+            "description": "Request for guide content. This is a collection (stream) of clusters",
+            "id": "GoogleInternalVrAppdiscoveryV1GetCollectionRequestGuideCollections",
+            "properties": {
+                "maxResultsPerCluster": {
+                    "description": "Maximum number of tiles in each cluster. Required.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "paginationInfo": {
+                    "$ref": "VrDiscoveryPaginationInfo",
+                    "description": "The max_results field is required.\nThe continuation_token is for fetching more collections within the\ntop-level collection (stream). For fetching more tiles within a\nsecond-level collection (cluster), do a \"collection\" request with its own\npagination_info."
+                },
+                "supportedContentTemplates": {
+                    "description": "List of supported content templates. If left unspecified then the server\ncannot control how the content is rendered in the GetCollectionResponse.",
+                    "enumDescriptions": [
+                        "If the template is set to unknown, it is up to the client to determine\nwhich template should be used. This will be based mostly on the context and\nover time this case should be less frequent.",
+                        "Templates to use for rendering app content. The content type here must be\nAPP_CONTENT_TYPE.",
+                        "Medium sized app template. See SMALL_APP_CARD_CONTENT_TEMPLATE.",
+                        "Large sized app template. See SMALL_APP_CARD_CONTENT_TEMPLATE.",
+                        "Wide sized app template. See SMALL_APP_CARD_CONTENT_TEMPLATE.",
+                        "Templates to use for rendering video content. The content type here must be\nYOUTUBE_VIDEO_CONTENT_TYPE.",
+                        "Medium sized video template. See SMALL_VIDEO_CARD_CONTENT_TEMPLATE.",
+                        "Large sized video template. See SMALL_VIDEO_CARD_CONTENT_TEMPLATE.",
+                        "Wide sized video template. See SMALL_VIDEO_CARD_CONTENT_TEMPLATE.",
+                        "Templates to use for rendering generic promotional content. This content\ntype here can be APP_CONTENT_TYPE, YOUTUBE_VIDEO_CONTENT_TYPE, or\nEDITORIAL_CONTENT_TYPE.",
+                        "Medium sized promo template. See SMALL_PROMO_CARD_CONTENT_TEMPLATE.",
+                        "Large sized promo template. See SMALL_PROMO_CARD_CONTENT_TEMPLATE.",
+                        "Template to use for rendering promo video cards. This content type must be\ntype LIVESTREAM_VIDEO_CONTENT_TYPE or YOUTUBE_VIDEO_CONTENT_TYPE"
+                    ],
+                    "items": {
+                        "enum": [
+                            "UNKNOWN_CONTENT_TEMPLATE",
+                            "SMALL_APP_CARD_CONTENT_TEMPLATE",
+                            "MEDIUM_APP_CARD_CONTENT_TEMPLATE",
+                            "LARGE_APP_CARD_CONTENT_TEMPLATE",
+                            "WIDE_APP_CARD_CONTENT_TEMPLATE",
+                            "SMALL_VIDEO_CARD_CONTENT_TEMPLATE",
+                            "MEDIUM_VIDEO_CARD_CONTENT_TEMPLATE",
+                            "LARGE_VIDEO_CARD_CONTENT_TEMPLATE",
+                            "WIDE_VIDEO_CARD_CONTENT_TEMPLATE",
+                            "SMALL_PROMO_CARD_CONTENT_TEMPLATE",
+                            "MEDIUM_PROMO_CARD_CONTENT_TEMPLATE",
+                            "LARGE_PROMO_CARD_CONTENT_TEMPLATE",
+                            "PROMO_VIDEO_CARD_CONTENT_TEMPLATE"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "supportedContentTypes": {
+                    "description": "List of supported content types. If not specified, the server will assume\nonly EDITORIAL_CONTENT_TYPE.",
+                    "enumDescriptions": [
+                        "Unknown type.",
+                        "The content represents an app.",
+                        "The content represents a YouTube video.",
+                        "Editorial content.",
+                        "The content represents a Livestream"
+                    ],
+                    "items": {
+                        "enum": [
+                            "UNKNOWN_CONTENT_TYPE",
+                            "APP_CONTENT_TYPE",
+                            "YOUTUBE_VIDEO_CONTENT_TYPE",
+                            "EDITORIAL_CONTENT_TYPE",
+                            "LIVESTREAM_VIDEO_CONTENT_TYPE"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalVrAppdiscoveryV1GetCollectionResponse": {
+            "description": "Response containing all the requested content.\nNext tag: 8",
+            "id": "GoogleInternalVrAppdiscoveryV1GetCollectionResponse",
+            "properties": {
+                "carouselCollection": {
+                    "$ref": "GoogleInternalVrAppdiscoveryV1GetCollectionResponseCarouselCollection",
+                    "description": "Carousel response. Only set if the carousel_collection field was set in the\nrequest."
+                },
+                "collection": {
+                    "$ref": "GoogleInternalVrAppdiscoveryV1GetCollectionResponseCollection",
+                    "description": "Collection response. Only set if the collection field was set in the\nrequest."
+                },
+                "context": {
+                    "$ref": "VrDiscoveryResponseContext",
+                    "description": "Top-level context for all RPC responses."
+                },
+                "discoveryCollection": {
+                    "$ref": "GoogleInternalVrAppdiscoveryV1GetCollectionResponseDiscoveryCollection",
+                    "description": "Discovery window response. Only set if the discovery_collection field was\nset in the request."
+                },
+                "featuredCollections": {
+                    "$ref": "GoogleInternalVrAppdiscoveryV1GetCollectionResponseFeaturedCollections",
+                    "description": "Featured content response. Only set if the featured_collections field was\nset in the request."
+                },
+                "guideCollections": {
+                    "$ref": "GoogleInternalVrAppdiscoveryV1GetCollectionResponseGuideCollections",
+                    "description": "Guide windows (a collection of clusters) response. Only set if the\nguide_collections field was set in the request."
+                },
+                "serverLogsCookie": {
+                    "description": "A serialized protocol buffer for annotation generated on server-side.\nThe client should never try to parse this protocol buffer.",
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalVrAppdiscoveryV1GetCollectionResponseCarouselCollection": {
+            "description": "Carousel response.",
+            "id": "GoogleInternalVrAppdiscoveryV1GetCollectionResponseCarouselCollection",
+            "properties": {
+                "canonicalCode": {
+                    "description": "Canonical error code for this response.",
+                    "enum": [
+                        "OK",
+                        "CANCELLED",
+                        "UNKNOWN",
+                        "INVALID_ARGUMENT",
+                        "DEADLINE_EXCEEDED",
+                        "NOT_FOUND",
+                        "ALREADY_EXISTS",
+                        "PERMISSION_DENIED",
+                        "UNAUTHENTICATED",
+                        "RESOURCE_EXHAUSTED",
+                        "FAILED_PRECONDITION",
+                        "ABORTED",
+                        "OUT_OF_RANGE",
+                        "UNIMPLEMENTED",
+                        "INTERNAL",
+                        "UNAVAILABLE",
+                        "DATA_LOSS"
+                    ],
+                    "enumDescriptions": [
+                        "Not an error; returned on success\n\nHTTP Mapping: 200 OK",
+                        "The operation was cancelled, typically by the caller.\n\nHTTP Mapping: 499 Client Closed Request",
+                        "Unknown error.  For example, this error may be returned when\na `Status` value received from another address space belongs to\nan error space that is not known in this address space.  Also\nerrors raised by APIs that do not return enough error information\nmay be converted to this error.\n\nHTTP Mapping: 500 Internal Server Error",
+                        "The client specified an invalid argument.  Note that this differs\nfrom `FAILED_PRECONDITION`.  `INVALID_ARGUMENT` indicates arguments\nthat are problematic regardless of the state of the system\n(e.g., a malformed file name).\n\nHTTP Mapping: 400 Bad Request",
+                        "The deadline expired before the operation could complete. For operations\nthat change the state of the system, this error may be returned\neven if the operation has completed successfully.  For example, a\nsuccessful response from a server could have been delayed long\nenough for the deadline to expire.\n\nHTTP Mapping: 504 Gateway Timeout",
+                        "Some requested entity (e.g., file or directory) was not found.\n\nNote to server developers: if a request is denied for an entire class\nof users, such as gradual feature rollout or undocumented whitelist,\n`NOT_FOUND` may be used. If a request is denied for some users within\na class of users, such as user-based access control, `PERMISSION_DENIED`\nmust be used.\n\nHTTP Mapping: 404 Not Found",
+                        "The entity that a client attempted to create (e.g., file or directory)\nalready exists.\n\nHTTP Mapping: 409 Conflict",
+                        "The caller does not have permission to execute the specified\noperation. `PERMISSION_DENIED` must not be used for rejections\ncaused by exhausting some resource (use `RESOURCE_EXHAUSTED`\ninstead for those errors). `PERMISSION_DENIED` must not be\nused if the caller can not be identified (use `UNAUTHENTICATED`\ninstead for those errors). This error code does not imply the\nrequest is valid or the requested entity exists or satisfies\nother pre-conditions.\n\nHTTP Mapping: 403 Forbidden",
+                        "The request does not have valid authentication credentials for the\noperation.\n\nHTTP Mapping: 401 Unauthorized",
+                        "Some resource has been exhausted, perhaps a per-user quota, or\nperhaps the entire file system is out of space.\n\nHTTP Mapping: 429 Too Many Requests",
+                        "The operation was rejected because the system is not in a state\nrequired for the operation's execution.  For example, the directory\nto be deleted is non-empty, an rmdir operation is applied to\na non-directory, etc.\n\nService implementors can use the following guidelines to decide\nbetween `FAILED_PRECONDITION`, `ABORTED`, and `UNAVAILABLE`:\n (a) Use `UNAVAILABLE` if the client can retry just the failing call.\n (b) Use `ABORTED` if the client should retry at a higher level\n     (e.g., when a client-specified test-and-set fails, indicating the\n     client should restart a read-modify-write sequence).\n (c) Use `FAILED_PRECONDITION` if the client should not retry until\n     the system state has been explicitly fixed.  E.g., if an \"rmdir\"\n     fails because the directory is non-empty, `FAILED_PRECONDITION`\n     should be returned since the client should not retry unless\n     the files are deleted from the directory.\n\nHTTP Mapping: 400 Bad Request",
+                        "The operation was aborted, typically due to a concurrency issue such as\na sequencer check failure or transaction abort.\n\nSee the guidelines above for deciding between `FAILED_PRECONDITION`,\n`ABORTED`, and `UNAVAILABLE`.\n\nHTTP Mapping: 409 Conflict",
+                        "The operation was attempted past the valid range.  E.g., seeking or\nreading past end-of-file.\n\nUnlike `INVALID_ARGUMENT`, this error indicates a problem that may\nbe fixed if the system state changes. For example, a 32-bit file\nsystem will generate `INVALID_ARGUMENT` if asked to read at an\noffset that is not in the range [0,2^32-1], but it will generate\n`OUT_OF_RANGE` if asked to read from an offset past the current\nfile size.\n\nThere is a fair bit of overlap between `FAILED_PRECONDITION` and\n`OUT_OF_RANGE`.  We recommend using `OUT_OF_RANGE` (the more specific\nerror) when it applies so that callers who are iterating through\na space can easily look for an `OUT_OF_RANGE` error to detect when\nthey are done.\n\nHTTP Mapping: 400 Bad Request",
+                        "The operation is not implemented or is not supported/enabled in this\nservice.\n\nHTTP Mapping: 501 Not Implemented",
+                        "Internal errors.  This means that some invariants expected by the\nunderlying system have been broken.  This error code is reserved\nfor serious errors.\n\nHTTP Mapping: 500 Internal Server Error",
+                        "The service is currently unavailable.  This is most likely a\ntransient condition, which can be corrected by retrying with\na backoff. Note that it is not always safe to retry\nnon-idempotent operations.\n\nSee the guidelines above for deciding between `FAILED_PRECONDITION`,\n`ABORTED`, and `UNAVAILABLE`.\n\nHTTP Mapping: 503 Service Unavailable",
+                        "Unrecoverable data loss or corruption.\n\nHTTP Mapping: 500 Internal Server Error"
+                    ],
+                    "type": "string"
+                },
+                "cluster": {
+                    "$ref": "VrDiscoveryClusterDetail",
+                    "description": "List of content. Only set when the canonical_code is OK."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalVrAppdiscoveryV1GetCollectionResponseCollection": {
+            "description": "Collection response.",
+            "id": "GoogleInternalVrAppdiscoveryV1GetCollectionResponseCollection",
+            "properties": {
+                "canonicalCode": {
+                    "description": "Canonical error code for this response.",
+                    "enum": [
+                        "OK",
+                        "CANCELLED",
+                        "UNKNOWN",
+                        "INVALID_ARGUMENT",
+                        "DEADLINE_EXCEEDED",
+                        "NOT_FOUND",
+                        "ALREADY_EXISTS",
+                        "PERMISSION_DENIED",
+                        "UNAUTHENTICATED",
+                        "RESOURCE_EXHAUSTED",
+                        "FAILED_PRECONDITION",
+                        "ABORTED",
+                        "OUT_OF_RANGE",
+                        "UNIMPLEMENTED",
+                        "INTERNAL",
+                        "UNAVAILABLE",
+                        "DATA_LOSS"
+                    ],
+                    "enumDescriptions": [
+                        "Not an error; returned on success\n\nHTTP Mapping: 200 OK",
+                        "The operation was cancelled, typically by the caller.\n\nHTTP Mapping: 499 Client Closed Request",
+                        "Unknown error.  For example, this error may be returned when\na `Status` value received from another address space belongs to\nan error space that is not known in this address space.  Also\nerrors raised by APIs that do not return enough error information\nmay be converted to this error.\n\nHTTP Mapping: 500 Internal Server Error",
+                        "The client specified an invalid argument.  Note that this differs\nfrom `FAILED_PRECONDITION`.  `INVALID_ARGUMENT` indicates arguments\nthat are problematic regardless of the state of the system\n(e.g., a malformed file name).\n\nHTTP Mapping: 400 Bad Request",
+                        "The deadline expired before the operation could complete. For operations\nthat change the state of the system, this error may be returned\neven if the operation has completed successfully.  For example, a\nsuccessful response from a server could have been delayed long\nenough for the deadline to expire.\n\nHTTP Mapping: 504 Gateway Timeout",
+                        "Some requested entity (e.g., file or directory) was not found.\n\nNote to server developers: if a request is denied for an entire class\nof users, such as gradual feature rollout or undocumented whitelist,\n`NOT_FOUND` may be used. If a request is denied for some users within\na class of users, such as user-based access control, `PERMISSION_DENIED`\nmust be used.\n\nHTTP Mapping: 404 Not Found",
+                        "The entity that a client attempted to create (e.g., file or directory)\nalready exists.\n\nHTTP Mapping: 409 Conflict",
+                        "The caller does not have permission to execute the specified\noperation. `PERMISSION_DENIED` must not be used for rejections\ncaused by exhausting some resource (use `RESOURCE_EXHAUSTED`\ninstead for those errors). `PERMISSION_DENIED` must not be\nused if the caller can not be identified (use `UNAUTHENTICATED`\ninstead for those errors). This error code does not imply the\nrequest is valid or the requested entity exists or satisfies\nother pre-conditions.\n\nHTTP Mapping: 403 Forbidden",
+                        "The request does not have valid authentication credentials for the\noperation.\n\nHTTP Mapping: 401 Unauthorized",
+                        "Some resource has been exhausted, perhaps a per-user quota, or\nperhaps the entire file system is out of space.\n\nHTTP Mapping: 429 Too Many Requests",
+                        "The operation was rejected because the system is not in a state\nrequired for the operation's execution.  For example, the directory\nto be deleted is non-empty, an rmdir operation is applied to\na non-directory, etc.\n\nService implementors can use the following guidelines to decide\nbetween `FAILED_PRECONDITION`, `ABORTED`, and `UNAVAILABLE`:\n (a) Use `UNAVAILABLE` if the client can retry just the failing call.\n (b) Use `ABORTED` if the client should retry at a higher level\n     (e.g., when a client-specified test-and-set fails, indicating the\n     client should restart a read-modify-write sequence).\n (c) Use `FAILED_PRECONDITION` if the client should not retry until\n     the system state has been explicitly fixed.  E.g., if an \"rmdir\"\n     fails because the directory is non-empty, `FAILED_PRECONDITION`\n     should be returned since the client should not retry unless\n     the files are deleted from the directory.\n\nHTTP Mapping: 400 Bad Request",
+                        "The operation was aborted, typically due to a concurrency issue such as\na sequencer check failure or transaction abort.\n\nSee the guidelines above for deciding between `FAILED_PRECONDITION`,\n`ABORTED`, and `UNAVAILABLE`.\n\nHTTP Mapping: 409 Conflict",
+                        "The operation was attempted past the valid range.  E.g., seeking or\nreading past end-of-file.\n\nUnlike `INVALID_ARGUMENT`, this error indicates a problem that may\nbe fixed if the system state changes. For example, a 32-bit file\nsystem will generate `INVALID_ARGUMENT` if asked to read at an\noffset that is not in the range [0,2^32-1], but it will generate\n`OUT_OF_RANGE` if asked to read from an offset past the current\nfile size.\n\nThere is a fair bit of overlap between `FAILED_PRECONDITION` and\n`OUT_OF_RANGE`.  We recommend using `OUT_OF_RANGE` (the more specific\nerror) when it applies so that callers who are iterating through\na space can easily look for an `OUT_OF_RANGE` error to detect when\nthey are done.\n\nHTTP Mapping: 400 Bad Request",
+                        "The operation is not implemented or is not supported/enabled in this\nservice.\n\nHTTP Mapping: 501 Not Implemented",
+                        "Internal errors.  This means that some invariants expected by the\nunderlying system have been broken.  This error code is reserved\nfor serious errors.\n\nHTTP Mapping: 500 Internal Server Error",
+                        "The service is currently unavailable.  This is most likely a\ntransient condition, which can be corrected by retrying with\na backoff. Note that it is not always safe to retry\nnon-idempotent operations.\n\nSee the guidelines above for deciding between `FAILED_PRECONDITION`,\n`ABORTED`, and `UNAVAILABLE`.\n\nHTTP Mapping: 503 Service Unavailable",
+                        "Unrecoverable data loss or corruption.\n\nHTTP Mapping: 500 Internal Server Error"
+                    ],
+                    "type": "string"
+                },
+                "cluster": {
+                    "$ref": "VrDiscoveryClusterDetail",
+                    "description": "List of content. Only set when the canonical_code is OK."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalVrAppdiscoveryV1GetCollectionResponseDiscoveryCollection": {
+            "description": "Discovery window response.",
+            "id": "GoogleInternalVrAppdiscoveryV1GetCollectionResponseDiscoveryCollection",
+            "properties": {
+                "canonicalCode": {
+                    "description": "Canonical error code for this response.",
+                    "enum": [
+                        "OK",
+                        "CANCELLED",
+                        "UNKNOWN",
+                        "INVALID_ARGUMENT",
+                        "DEADLINE_EXCEEDED",
+                        "NOT_FOUND",
+                        "ALREADY_EXISTS",
+                        "PERMISSION_DENIED",
+                        "UNAUTHENTICATED",
+                        "RESOURCE_EXHAUSTED",
+                        "FAILED_PRECONDITION",
+                        "ABORTED",
+                        "OUT_OF_RANGE",
+                        "UNIMPLEMENTED",
+                        "INTERNAL",
+                        "UNAVAILABLE",
+                        "DATA_LOSS"
+                    ],
+                    "enumDescriptions": [
+                        "Not an error; returned on success\n\nHTTP Mapping: 200 OK",
+                        "The operation was cancelled, typically by the caller.\n\nHTTP Mapping: 499 Client Closed Request",
+                        "Unknown error.  For example, this error may be returned when\na `Status` value received from another address space belongs to\nan error space that is not known in this address space.  Also\nerrors raised by APIs that do not return enough error information\nmay be converted to this error.\n\nHTTP Mapping: 500 Internal Server Error",
+                        "The client specified an invalid argument.  Note that this differs\nfrom `FAILED_PRECONDITION`.  `INVALID_ARGUMENT` indicates arguments\nthat are problematic regardless of the state of the system\n(e.g., a malformed file name).\n\nHTTP Mapping: 400 Bad Request",
+                        "The deadline expired before the operation could complete. For operations\nthat change the state of the system, this error may be returned\neven if the operation has completed successfully.  For example, a\nsuccessful response from a server could have been delayed long\nenough for the deadline to expire.\n\nHTTP Mapping: 504 Gateway Timeout",
+                        "Some requested entity (e.g., file or directory) was not found.\n\nNote to server developers: if a request is denied for an entire class\nof users, such as gradual feature rollout or undocumented whitelist,\n`NOT_FOUND` may be used. If a request is denied for some users within\na class of users, such as user-based access control, `PERMISSION_DENIED`\nmust be used.\n\nHTTP Mapping: 404 Not Found",
+                        "The entity that a client attempted to create (e.g., file or directory)\nalready exists.\n\nHTTP Mapping: 409 Conflict",
+                        "The caller does not have permission to execute the specified\noperation. `PERMISSION_DENIED` must not be used for rejections\ncaused by exhausting some resource (use `RESOURCE_EXHAUSTED`\ninstead for those errors). `PERMISSION_DENIED` must not be\nused if the caller can not be identified (use `UNAUTHENTICATED`\ninstead for those errors). This error code does not imply the\nrequest is valid or the requested entity exists or satisfies\nother pre-conditions.\n\nHTTP Mapping: 403 Forbidden",
+                        "The request does not have valid authentication credentials for the\noperation.\n\nHTTP Mapping: 401 Unauthorized",
+                        "Some resource has been exhausted, perhaps a per-user quota, or\nperhaps the entire file system is out of space.\n\nHTTP Mapping: 429 Too Many Requests",
+                        "The operation was rejected because the system is not in a state\nrequired for the operation's execution.  For example, the directory\nto be deleted is non-empty, an rmdir operation is applied to\na non-directory, etc.\n\nService implementors can use the following guidelines to decide\nbetween `FAILED_PRECONDITION`, `ABORTED`, and `UNAVAILABLE`:\n (a) Use `UNAVAILABLE` if the client can retry just the failing call.\n (b) Use `ABORTED` if the client should retry at a higher level\n     (e.g., when a client-specified test-and-set fails, indicating the\n     client should restart a read-modify-write sequence).\n (c) Use `FAILED_PRECONDITION` if the client should not retry until\n     the system state has been explicitly fixed.  E.g., if an \"rmdir\"\n     fails because the directory is non-empty, `FAILED_PRECONDITION`\n     should be returned since the client should not retry unless\n     the files are deleted from the directory.\n\nHTTP Mapping: 400 Bad Request",
+                        "The operation was aborted, typically due to a concurrency issue such as\na sequencer check failure or transaction abort.\n\nSee the guidelines above for deciding between `FAILED_PRECONDITION`,\n`ABORTED`, and `UNAVAILABLE`.\n\nHTTP Mapping: 409 Conflict",
+                        "The operation was attempted past the valid range.  E.g., seeking or\nreading past end-of-file.\n\nUnlike `INVALID_ARGUMENT`, this error indicates a problem that may\nbe fixed if the system state changes. For example, a 32-bit file\nsystem will generate `INVALID_ARGUMENT` if asked to read at an\noffset that is not in the range [0,2^32-1], but it will generate\n`OUT_OF_RANGE` if asked to read from an offset past the current\nfile size.\n\nThere is a fair bit of overlap between `FAILED_PRECONDITION` and\n`OUT_OF_RANGE`.  We recommend using `OUT_OF_RANGE` (the more specific\nerror) when it applies so that callers who are iterating through\na space can easily look for an `OUT_OF_RANGE` error to detect when\nthey are done.\n\nHTTP Mapping: 400 Bad Request",
+                        "The operation is not implemented or is not supported/enabled in this\nservice.\n\nHTTP Mapping: 501 Not Implemented",
+                        "Internal errors.  This means that some invariants expected by the\nunderlying system have been broken.  This error code is reserved\nfor serious errors.\n\nHTTP Mapping: 500 Internal Server Error",
+                        "The service is currently unavailable.  This is most likely a\ntransient condition, which can be corrected by retrying with\na backoff. Note that it is not always safe to retry\nnon-idempotent operations.\n\nSee the guidelines above for deciding between `FAILED_PRECONDITION`,\n`ABORTED`, and `UNAVAILABLE`.\n\nHTTP Mapping: 503 Service Unavailable",
+                        "Unrecoverable data loss or corruption.\n\nHTTP Mapping: 500 Internal Server Error"
+                    ],
+                    "type": "string"
+                },
+                "cluster": {
+                    "$ref": "VrDiscoveryClusterDetail",
+                    "description": "List of content. Only set when the canonical_code is OK."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalVrAppdiscoveryV1GetCollectionResponseFeaturedCollections": {
+            "description": "Featured content response.",
+            "id": "GoogleInternalVrAppdiscoveryV1GetCollectionResponseFeaturedCollections",
+            "properties": {
+                "canonicalCode": {
+                    "description": "Canonical error code for this response.",
+                    "enum": [
+                        "OK",
+                        "CANCELLED",
+                        "UNKNOWN",
+                        "INVALID_ARGUMENT",
+                        "DEADLINE_EXCEEDED",
+                        "NOT_FOUND",
+                        "ALREADY_EXISTS",
+                        "PERMISSION_DENIED",
+                        "UNAUTHENTICATED",
+                        "RESOURCE_EXHAUSTED",
+                        "FAILED_PRECONDITION",
+                        "ABORTED",
+                        "OUT_OF_RANGE",
+                        "UNIMPLEMENTED",
+                        "INTERNAL",
+                        "UNAVAILABLE",
+                        "DATA_LOSS"
+                    ],
+                    "enumDescriptions": [
+                        "Not an error; returned on success\n\nHTTP Mapping: 200 OK",
+                        "The operation was cancelled, typically by the caller.\n\nHTTP Mapping: 499 Client Closed Request",
+                        "Unknown error.  For example, this error may be returned when\na `Status` value received from another address space belongs to\nan error space that is not known in this address space.  Also\nerrors raised by APIs that do not return enough error information\nmay be converted to this error.\n\nHTTP Mapping: 500 Internal Server Error",
+                        "The client specified an invalid argument.  Note that this differs\nfrom `FAILED_PRECONDITION`.  `INVALID_ARGUMENT` indicates arguments\nthat are problematic regardless of the state of the system\n(e.g., a malformed file name).\n\nHTTP Mapping: 400 Bad Request",
+                        "The deadline expired before the operation could complete. For operations\nthat change the state of the system, this error may be returned\neven if the operation has completed successfully.  For example, a\nsuccessful response from a server could have been delayed long\nenough for the deadline to expire.\n\nHTTP Mapping: 504 Gateway Timeout",
+                        "Some requested entity (e.g., file or directory) was not found.\n\nNote to server developers: if a request is denied for an entire class\nof users, such as gradual feature rollout or undocumented whitelist,\n`NOT_FOUND` may be used. If a request is denied for some users within\na class of users, such as user-based access control, `PERMISSION_DENIED`\nmust be used.\n\nHTTP Mapping: 404 Not Found",
+                        "The entity that a client attempted to create (e.g., file or directory)\nalready exists.\n\nHTTP Mapping: 409 Conflict",
+                        "The caller does not have permission to execute the specified\noperation. `PERMISSION_DENIED` must not be used for rejections\ncaused by exhausting some resource (use `RESOURCE_EXHAUSTED`\ninstead for those errors). `PERMISSION_DENIED` must not be\nused if the caller can not be identified (use `UNAUTHENTICATED`\ninstead for those errors). This error code does not imply the\nrequest is valid or the requested entity exists or satisfies\nother pre-conditions.\n\nHTTP Mapping: 403 Forbidden",
+                        "The request does not have valid authentication credentials for the\noperation.\n\nHTTP Mapping: 401 Unauthorized",
+                        "Some resource has been exhausted, perhaps a per-user quota, or\nperhaps the entire file system is out of space.\n\nHTTP Mapping: 429 Too Many Requests",
+                        "The operation was rejected because the system is not in a state\nrequired for the operation's execution.  For example, the directory\nto be deleted is non-empty, an rmdir operation is applied to\na non-directory, etc.\n\nService implementors can use the following guidelines to decide\nbetween `FAILED_PRECONDITION`, `ABORTED`, and `UNAVAILABLE`:\n (a) Use `UNAVAILABLE` if the client can retry just the failing call.\n (b) Use `ABORTED` if the client should retry at a higher level\n     (e.g., when a client-specified test-and-set fails, indicating the\n     client should restart a read-modify-write sequence).\n (c) Use `FAILED_PRECONDITION` if the client should not retry until\n     the system state has been explicitly fixed.  E.g., if an \"rmdir\"\n     fails because the directory is non-empty, `FAILED_PRECONDITION`\n     should be returned since the client should not retry unless\n     the files are deleted from the directory.\n\nHTTP Mapping: 400 Bad Request",
+                        "The operation was aborted, typically due to a concurrency issue such as\na sequencer check failure or transaction abort.\n\nSee the guidelines above for deciding between `FAILED_PRECONDITION`,\n`ABORTED`, and `UNAVAILABLE`.\n\nHTTP Mapping: 409 Conflict",
+                        "The operation was attempted past the valid range.  E.g., seeking or\nreading past end-of-file.\n\nUnlike `INVALID_ARGUMENT`, this error indicates a problem that may\nbe fixed if the system state changes. For example, a 32-bit file\nsystem will generate `INVALID_ARGUMENT` if asked to read at an\noffset that is not in the range [0,2^32-1], but it will generate\n`OUT_OF_RANGE` if asked to read from an offset past the current\nfile size.\n\nThere is a fair bit of overlap between `FAILED_PRECONDITION` and\n`OUT_OF_RANGE`.  We recommend using `OUT_OF_RANGE` (the more specific\nerror) when it applies so that callers who are iterating through\na space can easily look for an `OUT_OF_RANGE` error to detect when\nthey are done.\n\nHTTP Mapping: 400 Bad Request",
+                        "The operation is not implemented or is not supported/enabled in this\nservice.\n\nHTTP Mapping: 501 Not Implemented",
+                        "Internal errors.  This means that some invariants expected by the\nunderlying system have been broken.  This error code is reserved\nfor serious errors.\n\nHTTP Mapping: 500 Internal Server Error",
+                        "The service is currently unavailable.  This is most likely a\ntransient condition, which can be corrected by retrying with\na backoff. Note that it is not always safe to retry\nnon-idempotent operations.\n\nSee the guidelines above for deciding between `FAILED_PRECONDITION`,\n`ABORTED`, and `UNAVAILABLE`.\n\nHTTP Mapping: 503 Service Unavailable",
+                        "Unrecoverable data loss or corruption.\n\nHTTP Mapping: 500 Internal Server Error"
+                    ],
+                    "type": "string"
+                },
+                "clusters": {
+                    "description": "List of clusters of content. Only set when the canonical_code is OK.",
+                    "items": {
+                        "$ref": "VrDiscoveryClusterDetail"
+                    },
+                    "type": "array"
+                },
+                "paginationInfo": {
+                    "$ref": "VrDiscoveryPaginationInfo",
+                    "description": "Pagination info. Only set when there are more pages of results and the\ncanonical_code is OK."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalVrAppdiscoveryV1GetCollectionResponseGuideCollections": {
+            "description": "Guide collections (a collection of clusters) response.",
+            "id": "GoogleInternalVrAppdiscoveryV1GetCollectionResponseGuideCollections",
+            "properties": {
+                "canonicalCode": {
+                    "description": "Canonical error code for this response.",
+                    "enum": [
+                        "OK",
+                        "CANCELLED",
+                        "UNKNOWN",
+                        "INVALID_ARGUMENT",
+                        "DEADLINE_EXCEEDED",
+                        "NOT_FOUND",
+                        "ALREADY_EXISTS",
+                        "PERMISSION_DENIED",
+                        "UNAUTHENTICATED",
+                        "RESOURCE_EXHAUSTED",
+                        "FAILED_PRECONDITION",
+                        "ABORTED",
+                        "OUT_OF_RANGE",
+                        "UNIMPLEMENTED",
+                        "INTERNAL",
+                        "UNAVAILABLE",
+                        "DATA_LOSS"
+                    ],
+                    "enumDescriptions": [
+                        "Not an error; returned on success\n\nHTTP Mapping: 200 OK",
+                        "The operation was cancelled, typically by the caller.\n\nHTTP Mapping: 499 Client Closed Request",
+                        "Unknown error.  For example, this error may be returned when\na `Status` value received from another address space belongs to\nan error space that is not known in this address space.  Also\nerrors raised by APIs that do not return enough error information\nmay be converted to this error.\n\nHTTP Mapping: 500 Internal Server Error",
+                        "The client specified an invalid argument.  Note that this differs\nfrom `FAILED_PRECONDITION`.  `INVALID_ARGUMENT` indicates arguments\nthat are problematic regardless of the state of the system\n(e.g., a malformed file name).\n\nHTTP Mapping: 400 Bad Request",
+                        "The deadline expired before the operation could complete. For operations\nthat change the state of the system, this error may be returned\neven if the operation has completed successfully.  For example, a\nsuccessful response from a server could have been delayed long\nenough for the deadline to expire.\n\nHTTP Mapping: 504 Gateway Timeout",
+                        "Some requested entity (e.g., file or directory) was not found.\n\nNote to server developers: if a request is denied for an entire class\nof users, such as gradual feature rollout or undocumented whitelist,\n`NOT_FOUND` may be used. If a request is denied for some users within\na class of users, such as user-based access control, `PERMISSION_DENIED`\nmust be used.\n\nHTTP Mapping: 404 Not Found",
+                        "The entity that a client attempted to create (e.g., file or directory)\nalready exists.\n\nHTTP Mapping: 409 Conflict",
+                        "The caller does not have permission to execute the specified\noperation. `PERMISSION_DENIED` must not be used for rejections\ncaused by exhausting some resource (use `RESOURCE_EXHAUSTED`\ninstead for those errors). `PERMISSION_DENIED` must not be\nused if the caller can not be identified (use `UNAUTHENTICATED`\ninstead for those errors). This error code does not imply the\nrequest is valid or the requested entity exists or satisfies\nother pre-conditions.\n\nHTTP Mapping: 403 Forbidden",
+                        "The request does not have valid authentication credentials for the\noperation.\n\nHTTP Mapping: 401 Unauthorized",
+                        "Some resource has been exhausted, perhaps a per-user quota, or\nperhaps the entire file system is out of space.\n\nHTTP Mapping: 429 Too Many Requests",
+                        "The operation was rejected because the system is not in a state\nrequired for the operation's execution.  For example, the directory\nto be deleted is non-empty, an rmdir operation is applied to\na non-directory, etc.\n\nService implementors can use the following guidelines to decide\nbetween `FAILED_PRECONDITION`, `ABORTED`, and `UNAVAILABLE`:\n (a) Use `UNAVAILABLE` if the client can retry just the failing call.\n (b) Use `ABORTED` if the client should retry at a higher level\n     (e.g., when a client-specified test-and-set fails, indicating the\n     client should restart a read-modify-write sequence).\n (c) Use `FAILED_PRECONDITION` if the client should not retry until\n     the system state has been explicitly fixed.  E.g., if an \"rmdir\"\n     fails because the directory is non-empty, `FAILED_PRECONDITION`\n     should be returned since the client should not retry unless\n     the files are deleted from the directory.\n\nHTTP Mapping: 400 Bad Request",
+                        "The operation was aborted, typically due to a concurrency issue such as\na sequencer check failure or transaction abort.\n\nSee the guidelines above for deciding between `FAILED_PRECONDITION`,\n`ABORTED`, and `UNAVAILABLE`.\n\nHTTP Mapping: 409 Conflict",
+                        "The operation was attempted past the valid range.  E.g., seeking or\nreading past end-of-file.\n\nUnlike `INVALID_ARGUMENT`, this error indicates a problem that may\nbe fixed if the system state changes. For example, a 32-bit file\nsystem will generate `INVALID_ARGUMENT` if asked to read at an\noffset that is not in the range [0,2^32-1], but it will generate\n`OUT_OF_RANGE` if asked to read from an offset past the current\nfile size.\n\nThere is a fair bit of overlap between `FAILED_PRECONDITION` and\n`OUT_OF_RANGE`.  We recommend using `OUT_OF_RANGE` (the more specific\nerror) when it applies so that callers who are iterating through\na space can easily look for an `OUT_OF_RANGE` error to detect when\nthey are done.\n\nHTTP Mapping: 400 Bad Request",
+                        "The operation is not implemented or is not supported/enabled in this\nservice.\n\nHTTP Mapping: 501 Not Implemented",
+                        "Internal errors.  This means that some invariants expected by the\nunderlying system have been broken.  This error code is reserved\nfor serious errors.\n\nHTTP Mapping: 500 Internal Server Error",
+                        "The service is currently unavailable.  This is most likely a\ntransient condition, which can be corrected by retrying with\na backoff. Note that it is not always safe to retry\nnon-idempotent operations.\n\nSee the guidelines above for deciding between `FAILED_PRECONDITION`,\n`ABORTED`, and `UNAVAILABLE`.\n\nHTTP Mapping: 503 Service Unavailable",
+                        "Unrecoverable data loss or corruption.\n\nHTTP Mapping: 500 Internal Server Error"
+                    ],
+                    "type": "string"
+                },
+                "clusters": {
+                    "description": "List of clusters of content. Only set when the canonical_code is OK.",
+                    "items": {
+                        "$ref": "VrDiscoveryClusterDetail"
+                    },
+                    "type": "array"
+                },
+                "paginationInfo": {
+                    "$ref": "VrDiscoveryPaginationInfo",
+                    "description": "Pagination info. Only set when there are more pages of results and the\ncanonical_code is OK."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalVrAppdiscoveryV1GetPlayTosRequest": {
+            "description": "Request for {@code GetPlayTos} API.",
+            "id": "GoogleInternalVrAppdiscoveryV1GetPlayTosRequest",
+            "properties": {
+                "context": {
+                    "$ref": "VrDiscoveryAppRequestContext",
+                    "description": "Context of this request. Required."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalVrAppdiscoveryV1GetPlayTosResponse": {
+            "description": "Response for {@code GetPlayTos} API.",
+            "id": "GoogleInternalVrAppdiscoveryV1GetPlayTosResponse",
+            "properties": {
+                "context": {
+                    "$ref": "VrDiscoveryResponseContext",
+                    "description": "Top-level context for all RPC responses."
+                },
+                "tosContent": {
+                    "description": "A localized message containing the link to Play ToS.",
+                    "type": "string"
+                },
+                "tosToken": {
+                    "description": "An base64 encoded opaque token of the ToS to be accepted.\nOn user accepting ToS, client should pass this back via AcceptPlayTos API.",
+                    "type": "string"
+                },
+                "userAcceptanceState": {
+                    "description": "Acceptance state of the tos_token in the response.",
+                    "enum": [
+                        "UNKNOWN_PLAY_TERMS_OF_SERVICE_ACCEPTANCE_STATE",
+                        "CURRENT_PLAY_TERMS_OF_SERVICE_ACCEPTED",
+                        "CURRENT_PLAY_TERMS_OF_SERVICE_NOT_ACCEPTED"
+                    ],
+                    "enumDescriptions": [
+                        "Catch-all for unrecognized enum values. See go/protosdosdonts.",
+                        "The user has already accepted the terms of service associated with the\ntoken in the response.",
+                        "The user has not yet accepted the terms of service associated with the\ntoken in the response."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalVrAppdiscoveryV1ListMyListItemsRequest": {
+            "description": "Request of {@code ListMyListItems} API.",
+            "id": "GoogleInternalVrAppdiscoveryV1ListMyListItemsRequest",
+            "properties": {
+                "context": {
+                    "$ref": "VrDiscoveryAppRequestContext",
+                    "description": "Context of this request."
+                },
+                "paginationInfo": {
+                    "$ref": "VrDiscoveryPaginationInfo",
+                    "description": "Pagination options. The max_results field is required, but the\ncontinuation_token is optional."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalVrAppdiscoveryV1ListMyListItemsResponse": {
+            "description": "Response of {@code ListMyListItems} API.",
+            "id": "GoogleInternalVrAppdiscoveryV1ListMyListItemsResponse",
+            "properties": {
+                "context": {
+                    "$ref": "VrDiscoveryResponseContext",
+                    "description": "Top-level context for all RPC responses."
+                },
+                "items": {
+                    "description": "Item results.",
+                    "items": {
+                        "$ref": "VrDiscoveryMyListItemResult"
+                    },
+                    "type": "array"
+                },
+                "paginationInfo": {
+                    "$ref": "VrDiscoveryPaginationInfo",
+                    "description": "Pagination info. Only present when there are more results."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalVrAppdiscoveryV1ListQuerySuggestionsRequest": {
+            "description": "Request message for fetching suggested search completions.",
+            "id": "GoogleInternalVrAppdiscoveryV1ListQuerySuggestionsRequest",
+            "properties": {
+                "context": {
+                    "$ref": "VrDiscoveryAppRequestContext",
+                    "description": "Context of this request."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalVrAppdiscoveryV1ListQuerySuggestionsResponse": {
+            "description": "Response message containing suggested searches.",
+            "id": "GoogleInternalVrAppdiscoveryV1ListQuerySuggestionsResponse",
+            "properties": {
+                "context": {
+                    "$ref": "VrDiscoveryResponseContext",
+                    "description": "Top-level context for all RPC responses."
+                },
+                "querySuggestions": {
+                    "description": "Query suggestions for the requested prefix.",
+                    "items": {
+                        "$ref": "VrDiscoveryQuerySuggestion"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalVrAppdiscoveryV1SearchRequest": {
+            "description": "Search request message.",
+            "id": "GoogleInternalVrAppdiscoveryV1SearchRequest",
+            "properties": {
+                "contentType": {
+                    "description": "The types of search results requested. Unknown value will assume that only\napps are supported.",
+                    "enumDescriptions": [
+                        "Unknown type.",
+                        "The content represents an app.",
+                        "The content represents a YouTube video.",
+                        "Editorial content.",
+                        "The content represents a Livestream"
+                    ],
+                    "items": {
+                        "enum": [
+                            "UNKNOWN_CONTENT_TYPE",
+                            "APP_CONTENT_TYPE",
+                            "YOUTUBE_VIDEO_CONTENT_TYPE",
+                            "EDITORIAL_CONTENT_TYPE",
+                            "LIVESTREAM_VIDEO_CONTENT_TYPE"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "context": {
+                    "$ref": "VrDiscoveryAppRequestContext",
+                    "description": "Context of this request."
+                },
+                "paginationInfo": {
+                    "$ref": "VrDiscoveryPaginationInfo",
+                    "description": "Pagination info. Supports paging over one content type. If more than one\ncontent type is provided with a continuation token, this constitutes an\ninvalid request. The same query should be provided as in the\ninitial request."
+                },
+                "searchFilter": {
+                    "description": "Search filters to further limit results.  If multiple filters are provided\nthey will be logically AND'ed.",
+                    "items": {
+                        "$ref": "VrDiscoverySearchFilter"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalVrAppdiscoveryV1SearchResponse": {
+            "description": "Search response message.",
+            "id": "GoogleInternalVrAppdiscoveryV1SearchResponse",
+            "properties": {
+                "apps": {
+                    "description": "App search results. Deprecated; please use a ContentCollection of type\nAPP_TYPE.",
+                    "items": {
+                        "$ref": "VrDiscoveryContent"
+                    },
+                    "type": "array"
+                },
+                "context": {
+                    "$ref": "VrDiscoveryResponseContext",
+                    "description": "Top-level context for all RPC responses."
+                },
+                "result": {
+                    "description": "Search results. There will be a collection for each different content\ntype, e.g. apps or videos. The collections will contain only a single\ntype of content each and empty collections will not be included.",
+                    "items": {
+                        "$ref": "VrDiscoveryContentCollection"
+                    },
+                    "type": "array"
+                },
+                "searchFilters": {
+                    "description": "Search filters that can be used to further limit\nresults.  Note these filters only apply in the context of the\nSearchRequest being made; trying to reuse them with other search queries\nhas undefined behavior.",
+                    "items": {
+                        "$ref": "VrDiscoverySearchFilterGroup"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalVrAppdiscoveryV1UpdateUserPreferenceRequest": {
+            "description": "Request message for updating a single preference.",
+            "id": "GoogleInternalVrAppdiscoveryV1UpdateUserPreferenceRequest",
+            "properties": {
+                "context": {
+                    "$ref": "VrDiscoveryAppRequestContext",
+                    "description": "Context of this request."
+                },
+                "preference": {
+                    "$ref": "VrDiscoveryUserPreference",
+                    "description": "Preference to update."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleInternalVrAppdiscoveryV1UpdateUserPreferenceResponse": {
+            "description": "Response message for updating a single preference. Contains the updated\npreference as determined by the server.",
+            "id": "GoogleInternalVrAppdiscoveryV1UpdateUserPreferenceResponse",
+            "properties": {
+                "context": {
+                    "$ref": "VrDiscoveryResponseContext",
+                    "description": "Top-level context for all RPC responses."
+                },
+                "preference": {
+                    "$ref": "VrDiscoveryUserPreference",
+                    "description": "The updated preference."
+                }
+            },
+            "type": "object"
+        },
+        "GoogleProtobufEmpty": {
+            "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+            "id": "GoogleProtobufEmpty",
+            "properties": {},
+            "type": "object"
+        },
+        "VrDiscoveryAppContactDetails": {
+            "description": "App developer's contact information.",
+            "id": "VrDiscoveryAppContactDetails",
+            "properties": {
+                "email": {
+                    "description": "App developer's email.",
+                    "type": "string"
+                },
+                "phoneNumber": {
+                    "description": "App developer's phone number.",
+                    "type": "string"
+                },
+                "physicalAddress": {
+                    "description": "Physical address of app developer.",
+                    "type": "string"
+                },
+                "website": {
+                    "description": "App developer's website.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "VrDiscoveryAppDetail": {
+            "description": "Describe details of an app.\n\nNext tag: 31",
+            "id": "VrDiscoveryAppDetail",
+            "properties": {
+                "adsSupported": {
+                    "description": "Whether the APP is ads supported. More detail see:\nhttp://go/ads-supported-label.",
+                    "type": "boolean"
+                },
+                "appContactDetails": {
+                    "$ref": "VrDiscoveryAppContactDetails",
+                    "description": "App developer's contact information."
+                },
+                "appDetailType": {
+                    "description": "Specifies which fields of this AppDetail are populated.",
+                    "enum": [
+                        "UNKNOWN_APP_DETAIL_TYPE",
+                        "FULLY_POPULATED",
+                        "PARTIALLY_POPULATED"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown type. Defaults to fully populated.",
+                        "Every field of AppDetail is populated.",
+                        "Populate a subset of fields. Namely:\npackageName\nversionCode\nnumRatings\nformattedAvgRating\nprice\nownershipStatus\ndaydreamInfo\ntitle\nplayUrl\ndeveloperName\nid\nappDetailType"
+                    ],
+                    "type": "string"
+                },
+                "approximateDownloadSize": {
+                    "description": "Approximate download size in bytes.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "avgRating": {
+                    "description": "Average star rating that users gave for app (approximate).",
+                    "format": "float",
+                    "type": "number"
+                },
+                "contentRating": {
+                    "$ref": "VrDiscoveryContentRating",
+                    "description": "Content rating of the app."
+                },
+                "daydreamInfo": {
+                    "$ref": "VrDiscoveryDaydreamInfo",
+                    "description": "Motion intensity and Daydream icon and icon background's urls.\nThis is set if and only if the developer opted in to Daydream."
+                },
+                "developerName": {
+                    "description": "The merchant developer's display name.",
+                    "type": "string"
+                },
+                "formattedAvgRating": {
+                    "description": "Formatted average start rating, like \"4.3\"",
+                    "type": "string"
+                },
+                "formattedNumDownloads": {
+                    "description": "Formatted number of downloads, like 50,000 +.",
+                    "type": "string"
+                },
+                "formattedUpdatedDate": {
+                    "description": "Updated date.",
+                    "type": "string"
+                },
+                "iapMaxPrice": {
+                    "$ref": "VrDiscoveryPrice",
+                    "description": "The max IAP price, if offered by the app."
+                },
+                "iapMinPrice": {
+                    "$ref": "VrDiscoveryPrice",
+                    "description": "The min IAP price, if offered by the app."
+                },
+                "iapSupported": {
+                    "description": "Whether the app supports in-app purchases. Note that this is based on the\npermissions requested by the app and is independent of the min and max IAP\nprices above.",
+                    "type": "boolean"
+                },
+                "id": {
+                    "description": "Id of this app.",
+                    "type": "string"
+                },
+                "image": {
+                    "description": "Images of this app.",
+                    "items": {
+                        "$ref": "VrDiscoveryImage"
+                    },
+                    "type": "array"
+                },
+                "installs": {
+                    "description": "Number of installs on this app (approximate).",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "interactiveElement": {
+                    "description": "Interactive elements of the app.",
+                    "enumDescriptions": [
+                        "Unknown.",
+                        "Interacts with user.",
+                        "User can share info.",
+                        "User can share location.",
+                        "User can make digital purchases.",
+                        "User can use unrestricted internet."
+                    ],
+                    "items": {
+                        "enum": [
+                            "UNKNOWN_INTERACTIVE_ELEMENT",
+                            "USERS_INTERACT",
+                            "SHARES_INFO",
+                            "SHARES_LOCATION",
+                            "DIGITAL_PURCHASES",
+                            "UNRESTRICTED_INTERNET"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "numRatings": {
+                    "description": "Number of users who have given a star rating for app (approximate).",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "ownershipStatus": {
+                    "description": "App ownership status.",
+                    "enum": [
+                        "UNKNOWN_OWNERSHIP_STATUS",
+                        "UNOWNED",
+                        "OWNED"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown.",
+                        "App is not owned by the user.",
+                        "App is owned by the user."
+                    ],
+                    "type": "string"
+                },
+                "packageName": {
+                    "description": "Package name of the app.",
+                    "type": "string"
+                },
+                "playUrl": {
+                    "description": "Play url of this app.",
+                    "type": "string"
+                },
+                "price": {
+                    "description": "The list of prices for this language.",
+                    "items": {
+                        "$ref": "VrDiscoveryPrice"
+                    },
+                    "type": "array"
+                },
+                "privacyPolicyUrl": {
+                    "description": "Publisher specific privacy policy for this app.",
+                    "type": "string"
+                },
+                "recentChanges": {
+                    "description": "Description of recent changes, localized for this language.",
+                    "type": "string"
+                },
+                "snippet": {
+                    "description": "Short text snippets of the document that may include the description of the\ndocument. The description of the document is the last snippet\n(snippetSize - 1). Other snippets that appear here are created by\nPLATO/merchandising, for multi-paragraph editorials.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "subtitle": {
+                    "description": "Subtitle of this app.",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Title of this app.",
+                    "type": "string"
+                },
+                "versionCode": {
+                    "description": "Version code of APK. If proto represents more than one APKs\n(for apps that publish multiple APKs), this field will not be set.\nNote that version_code is an app's version code specifed in its\nManifest. It's different from version_string, which is seen by\nthe user.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "versionString": {
+                    "description": "The non-localized user displayable string\nidentifying the version of the APK.\n(e.g. \"1.4\")",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "VrDiscoveryAppDetailResponse": {
+            "description": "Wraps an individual AppDetail response.",
+            "id": "VrDiscoveryAppDetailResponse",
+            "properties": {
+                "canonicalCode": {
+                    "description": "Canonical error code for this response.",
+                    "enum": [
+                        "OK",
+                        "CANCELLED",
+                        "UNKNOWN",
+                        "INVALID_ARGUMENT",
+                        "DEADLINE_EXCEEDED",
+                        "NOT_FOUND",
+                        "ALREADY_EXISTS",
+                        "PERMISSION_DENIED",
+                        "UNAUTHENTICATED",
+                        "RESOURCE_EXHAUSTED",
+                        "FAILED_PRECONDITION",
+                        "ABORTED",
+                        "OUT_OF_RANGE",
+                        "UNIMPLEMENTED",
+                        "INTERNAL",
+                        "UNAVAILABLE",
+                        "DATA_LOSS"
+                    ],
+                    "enumDescriptions": [
+                        "Not an error; returned on success\n\nHTTP Mapping: 200 OK",
+                        "The operation was cancelled, typically by the caller.\n\nHTTP Mapping: 499 Client Closed Request",
+                        "Unknown error.  For example, this error may be returned when\na `Status` value received from another address space belongs to\nan error space that is not known in this address space.  Also\nerrors raised by APIs that do not return enough error information\nmay be converted to this error.\n\nHTTP Mapping: 500 Internal Server Error",
+                        "The client specified an invalid argument.  Note that this differs\nfrom `FAILED_PRECONDITION`.  `INVALID_ARGUMENT` indicates arguments\nthat are problematic regardless of the state of the system\n(e.g., a malformed file name).\n\nHTTP Mapping: 400 Bad Request",
+                        "The deadline expired before the operation could complete. For operations\nthat change the state of the system, this error may be returned\neven if the operation has completed successfully.  For example, a\nsuccessful response from a server could have been delayed long\nenough for the deadline to expire.\n\nHTTP Mapping: 504 Gateway Timeout",
+                        "Some requested entity (e.g., file or directory) was not found.\n\nNote to server developers: if a request is denied for an entire class\nof users, such as gradual feature rollout or undocumented whitelist,\n`NOT_FOUND` may be used. If a request is denied for some users within\na class of users, such as user-based access control, `PERMISSION_DENIED`\nmust be used.\n\nHTTP Mapping: 404 Not Found",
+                        "The entity that a client attempted to create (e.g., file or directory)\nalready exists.\n\nHTTP Mapping: 409 Conflict",
+                        "The caller does not have permission to execute the specified\noperation. `PERMISSION_DENIED` must not be used for rejections\ncaused by exhausting some resource (use `RESOURCE_EXHAUSTED`\ninstead for those errors). `PERMISSION_DENIED` must not be\nused if the caller can not be identified (use `UNAUTHENTICATED`\ninstead for those errors). This error code does not imply the\nrequest is valid or the requested entity exists or satisfies\nother pre-conditions.\n\nHTTP Mapping: 403 Forbidden",
+                        "The request does not have valid authentication credentials for the\noperation.\n\nHTTP Mapping: 401 Unauthorized",
+                        "Some resource has been exhausted, perhaps a per-user quota, or\nperhaps the entire file system is out of space.\n\nHTTP Mapping: 429 Too Many Requests",
+                        "The operation was rejected because the system is not in a state\nrequired for the operation's execution.  For example, the directory\nto be deleted is non-empty, an rmdir operation is applied to\na non-directory, etc.\n\nService implementors can use the following guidelines to decide\nbetween `FAILED_PRECONDITION`, `ABORTED`, and `UNAVAILABLE`:\n (a) Use `UNAVAILABLE` if the client can retry just the failing call.\n (b) Use `ABORTED` if the client should retry at a higher level\n     (e.g., when a client-specified test-and-set fails, indicating the\n     client should restart a read-modify-write sequence).\n (c) Use `FAILED_PRECONDITION` if the client should not retry until\n     the system state has been explicitly fixed.  E.g., if an \"rmdir\"\n     fails because the directory is non-empty, `FAILED_PRECONDITION`\n     should be returned since the client should not retry unless\n     the files are deleted from the directory.\n\nHTTP Mapping: 400 Bad Request",
+                        "The operation was aborted, typically due to a concurrency issue such as\na sequencer check failure or transaction abort.\n\nSee the guidelines above for deciding between `FAILED_PRECONDITION`,\n`ABORTED`, and `UNAVAILABLE`.\n\nHTTP Mapping: 409 Conflict",
+                        "The operation was attempted past the valid range.  E.g., seeking or\nreading past end-of-file.\n\nUnlike `INVALID_ARGUMENT`, this error indicates a problem that may\nbe fixed if the system state changes. For example, a 32-bit file\nsystem will generate `INVALID_ARGUMENT` if asked to read at an\noffset that is not in the range [0,2^32-1], but it will generate\n`OUT_OF_RANGE` if asked to read from an offset past the current\nfile size.\n\nThere is a fair bit of overlap between `FAILED_PRECONDITION` and\n`OUT_OF_RANGE`.  We recommend using `OUT_OF_RANGE` (the more specific\nerror) when it applies so that callers who are iterating through\na space can easily look for an `OUT_OF_RANGE` error to detect when\nthey are done.\n\nHTTP Mapping: 400 Bad Request",
+                        "The operation is not implemented or is not supported/enabled in this\nservice.\n\nHTTP Mapping: 501 Not Implemented",
+                        "Internal errors.  This means that some invariants expected by the\nunderlying system have been broken.  This error code is reserved\nfor serious errors.\n\nHTTP Mapping: 500 Internal Server Error",
+                        "The service is currently unavailable.  This is most likely a\ntransient condition, which can be corrected by retrying with\na backoff. Note that it is not always safe to retry\nnon-idempotent operations.\n\nSee the guidelines above for deciding between `FAILED_PRECONDITION`,\n`ABORTED`, and `UNAVAILABLE`.\n\nHTTP Mapping: 503 Service Unavailable",
+                        "Unrecoverable data loss or corruption.\n\nHTTP Mapping: 500 Internal Server Error"
+                    ],
+                    "type": "string"
+                },
+                "detail": {
+                    "$ref": "VrDiscoveryAppDetail",
+                    "description": "Details of the app. This is populated if the canonical_code is OK.\nIf the canonical_code is not OK, only id will be populated."
+                }
+            },
+            "type": "object"
+        },
+        "VrDiscoveryAppRequestContext": {
+            "description": "Context used for app related requests, like AppDetail and AppCollection.\nNext tag: 8",
+            "id": "VrDiscoveryAppRequestContext",
+            "properties": {
+                "carrierMccmnc": {
+                    "description": "The carrier mccmnc identification can be passed into a request.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "clientInfo": {
+                    "$ref": "VrDiscoveryClientInfo",
+                    "description": "This should always be set, but some early clients do not provide this data."
+                },
+                "deviceConfigAndroidId": {
+                    "description": "device_config_android_id of the device, if known.\nThe devices are assumed to be anonymous unless this field is set.",
+                    "format": "uint64",
+                    "type": "string"
+                },
+                "locale": {
+                    "$ref": "VrDiscoveryContentLocale",
+                    "description": "Locale of the request."
+                },
+                "managedConfiguration": {
+                    "additionalProperties": {
+                        "description": "Properties of the object.",
+                        "type": "any"
+                    },
+                    "description": "Optional\nThe manged configuration for Retail Demo (go/dd-rd).",
+                    "type": "object"
+                },
+                "phoneskyVersion": {
+                    "description": "Required in GetPlayTosRequest.\nThe version of Phonesky may be used to determine the right ToS version.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "testSettings": {
+                    "$ref": "VrDiscoveryTestSettings",
+                    "description": "Settings only available for testing purposes.  Please contact\nddx-be-eng@google.com before setting these."
+                }
+            },
+            "type": "object"
+        },
+        "VrDiscoveryClientInfo": {
+            "description": "Information about the endpoint making requests to the VR Discovery backends.",
+            "id": "VrDiscoveryClientInfo",
+            "properties": {
+                "androidInfo": {
+                    "$ref": "VrDiscoveryClientInfoAndroidInfo",
+                    "description": "Required if the device type is ANDROID_PHONE."
+                },
+                "deviceType": {
+                    "description": "Required device type.",
+                    "enum": [
+                        "UNKNOWN_DEVICE_TYPE",
+                        "ANDROID_PHONE"
+                    ],
+                    "enumDescriptions": [
+                        "Should never be set by clients.",
+                        "A standard Android smartphone. Requests that specify this type must also\npopulate the android_info field."
+                    ],
+                    "type": "string"
+                },
+                "headsetInfo": {
+                    "$ref": "VrDiscoveryClientInfoHeadsetInfo",
+                    "description": "Optional."
+                }
+            },
+            "type": "object"
+        },
+        "VrDiscoveryClientInfoAndroidInfo": {
+            "description": "Information on an Android application.",
+            "id": "VrDiscoveryClientInfoAndroidInfo",
+            "properties": {
+                "androidId": {
+                    "description": "Android ID.\nRequired in vr.discovery.GetPlayTosRequest.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "packageName": {
+                    "description": "Required Android package name of the app making the request. For the\nDaydream app this will be com.google.android.vr.home for production\nversions and com.google.android.vr.home.dev for locally built versions.",
+                    "type": "string"
+                },
+                "sdkVersion": {
+                    "description": "Android SDK version.\nRequired in vr.discovery.GetPlayTosRequest.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "versionCode": {
+                    "description": "Optional version code of the app according to the Android package\nmanager. For locally built versions this will simply be 0.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "VrDiscoveryClientInfoHeadsetInfo": {
+            "description": "The type of Daydream headset.",
+            "id": "VrDiscoveryClientInfoHeadsetInfo",
+            "properties": {
+                "model": {
+                    "description": "The model of the headset.",
+                    "type": "string"
+                },
+                "vendor": {
+                    "description": "The vendor of the headset.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "VrDiscoveryClusterDetail": {
+            "description": "Describe details of a cluster.\nIn GetCollectionResponse this relationship is represented by\nClusterDetail.content, and a cluster can't contain a cluster (so the tree\nof content will only have 1 layer).\nNext tag: 8",
+            "id": "VrDiscoveryClusterDetail",
+            "properties": {
+                "content": {
+                    "description": "The list of content.",
+                    "items": {
+                        "$ref": "VrDiscoveryContent"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "Id of this cluster.",
+                    "type": "string"
+                },
+                "paginationInfo": {
+                    "$ref": "VrDiscoveryPaginationInfo",
+                    "description": "Pagination info. Only set when there are more pages of results"
+                },
+                "playUrl": {
+                    "description": "Play url of this cluster.",
+                    "type": "string"
+                },
+                "serverLogsCookie": {
+                    "description": "Logging proto for this cluster. This is a serialized\nPlaylogDaydreamHomeNodeDescriptor proto. Send this cookie along when\nlogging clicks/impressions of this cluster in Odyssey.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "subtitle": {
+                    "description": "Subtitle of this cluster.",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Title of this cluster.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "VrDiscoveryContent": {
+            "description": "A piece of content. Only one of the Detail fields should be populated in a\nsingle Content.\nNext tag: 7",
+            "id": "VrDiscoveryContent",
+            "properties": {
+                "appDetail": {
+                    "$ref": "VrDiscoveryAppDetail",
+                    "description": "Details about an app, or the app that opens this content."
+                },
+                "editorialDetail": {
+                    "$ref": "VrDiscoveryEditorialDetail",
+                    "description": "Content metadata."
+                },
+                "preferredContentTemplate": {
+                    "description": "The render template the client should use to render this content.",
+                    "enum": [
+                        "UNKNOWN_CONTENT_TEMPLATE",
+                        "SMALL_APP_CARD_CONTENT_TEMPLATE",
+                        "MEDIUM_APP_CARD_CONTENT_TEMPLATE",
+                        "LARGE_APP_CARD_CONTENT_TEMPLATE",
+                        "WIDE_APP_CARD_CONTENT_TEMPLATE",
+                        "SMALL_VIDEO_CARD_CONTENT_TEMPLATE",
+                        "MEDIUM_VIDEO_CARD_CONTENT_TEMPLATE",
+                        "LARGE_VIDEO_CARD_CONTENT_TEMPLATE",
+                        "WIDE_VIDEO_CARD_CONTENT_TEMPLATE",
+                        "SMALL_PROMO_CARD_CONTENT_TEMPLATE",
+                        "MEDIUM_PROMO_CARD_CONTENT_TEMPLATE",
+                        "LARGE_PROMO_CARD_CONTENT_TEMPLATE",
+                        "PROMO_VIDEO_CARD_CONTENT_TEMPLATE"
+                    ],
+                    "enumDescriptions": [
+                        "If the template is set to unknown, it is up to the client to determine\nwhich template should be used. This will be based mostly on the context and\nover time this case should be less frequent.",
+                        "Templates to use for rendering app content. The content type here must be\nAPP_CONTENT_TYPE.",
+                        "Medium sized app template. See SMALL_APP_CARD_CONTENT_TEMPLATE.",
+                        "Large sized app template. See SMALL_APP_CARD_CONTENT_TEMPLATE.",
+                        "Wide sized app template. See SMALL_APP_CARD_CONTENT_TEMPLATE.",
+                        "Templates to use for rendering video content. The content type here must be\nYOUTUBE_VIDEO_CONTENT_TYPE.",
+                        "Medium sized video template. See SMALL_VIDEO_CARD_CONTENT_TEMPLATE.",
+                        "Large sized video template. See SMALL_VIDEO_CARD_CONTENT_TEMPLATE.",
+                        "Wide sized video template. See SMALL_VIDEO_CARD_CONTENT_TEMPLATE.",
+                        "Templates to use for rendering generic promotional content. This content\ntype here can be APP_CONTENT_TYPE, YOUTUBE_VIDEO_CONTENT_TYPE, or\nEDITORIAL_CONTENT_TYPE.",
+                        "Medium sized promo template. See SMALL_PROMO_CARD_CONTENT_TEMPLATE.",
+                        "Large sized promo template. See SMALL_PROMO_CARD_CONTENT_TEMPLATE.",
+                        "Template to use for rendering promo video cards. This content type must be\ntype LIVESTREAM_VIDEO_CONTENT_TYPE or YOUTUBE_VIDEO_CONTENT_TYPE"
+                    ],
+                    "type": "string"
+                },
+                "serverLogsCookie": {
+                    "description": "Logging proto for each individual tile. This is a serialized\nPlaylogDaydreamHomeNodeDescriptor proto. Send this cookie along when\nlogging clicks/impressions of this cluster in Odyssey.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "The type of content represented, e.g. app or video.",
+                    "enum": [
+                        "UNKNOWN_CONTENT_TYPE",
+                        "APP_CONTENT_TYPE",
+                        "YOUTUBE_VIDEO_CONTENT_TYPE",
+                        "EDITORIAL_CONTENT_TYPE",
+                        "LIVESTREAM_VIDEO_CONTENT_TYPE"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown type.",
+                        "The content represents an app.",
+                        "The content represents a YouTube video.",
+                        "Editorial content.",
+                        "The content represents a Livestream"
+                    ],
+                    "type": "string"
+                },
+                "videoDetail": {
+                    "$ref": "VrDiscoveryVideoDetail",
+                    "description": "Details about a video."
+                }
+            },
+            "type": "object"
+        },
+        "VrDiscoveryContentCollection": {
+            "description": "A collection of content, e.g. a list of videos or apps to be displayed.",
+            "id": "VrDiscoveryContentCollection",
+            "properties": {
+                "contents": {
+                    "description": "The contents of the collection. Note that these should all be of the same\ntype. A list of app results should contain only Content with AppDetail.",
+                    "items": {
+                        "$ref": "VrDiscoveryContent"
+                    },
+                    "type": "array"
+                },
+                "paginationInfo": {
+                    "$ref": "VrDiscoveryPaginationInfo",
+                    "description": "Pagination info."
+                },
+                "title": {
+                    "description": "The title of this content collection.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "VrDiscoveryContentLocale": {
+            "description": "Language and region for the content. Also can be used for filtering.",
+            "id": "VrDiscoveryContentLocale",
+            "properties": {
+                "language": {
+                    "description": "The language code. This maybe 2 or 3 letters lower case string, optionally\nwith region code follows a dash.\n(e.g. \"en\", \"en-US\", \"zh-CN\", \"es\", or \"fil\").\n\nAll language codes are defined in\n//google3/java/com/google/i18n/identifiers/LanguageCode.java",
+                    "type": "string"
+                },
+                "region": {
+                    "description": "The region code. This is a 2-letter upper case string defined in:\n//google3/java/com/google/i18n/identifiers/RegionCode.java",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "VrDiscoveryContentRating": {
+            "description": "Describe content rating of an app.",
+            "id": "VrDiscoveryContentRating",
+            "properties": {
+                "displayText": {
+                    "description": "Display text for this rating. Generated by server from Finsky config.",
+                    "type": "string"
+                },
+                "iconUrl": {
+                    "description": "Icon of content rating. Generated by server from Finsky config.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "VrDiscoveryDaydreamInfo": {
+            "description": "Motion intensity, Daydream icon and icon background's urls for a Daydream\napp.",
+            "id": "VrDiscoveryDaydreamInfo",
+            "properties": {
+                "iconBackgroundFifeUrl": {
+                    "description": "Daydream icon background image's FIFE url.",
+                    "type": "string"
+                },
+                "iconFifeUrl": {
+                    "description": "Daydream icon image's FIFE url.",
+                    "type": "string"
+                },
+                "motionIntensity": {
+                    "description": "Motion intensity of the Daydream App's graphic effects.",
+                    "enum": [
+                        "UNKNOWN_MOTION",
+                        "NO_MOTION",
+                        "MODERATE_MOTION",
+                        "INTENSE_MOTION"
+                    ],
+                    "enumDescriptions": [
+                        "Unknow motion.",
+                        "No motion.",
+                        "Moderate motion.",
+                        "Intense motion."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "VrDiscoveryEditorialDetail": {
+            "description": "Describe details of an editorial doc.",
+            "id": "VrDiscoveryEditorialDetail",
+            "properties": {
+                "appPlayUrl": {
+                    "description": "Play url of the app represented by this editorial doc.",
+                    "type": "string"
+                },
+                "appTitle": {
+                    "description": "Title of the app represented by this editorial doc.",
+                    "type": "string"
+                },
+                "deeplinkUrl": {
+                    "description": "Deeplink of this editorial doc.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Id of this editorial doc.",
+                    "type": "string"
+                },
+                "image": {
+                    "description": "Images of this editorial doc.",
+                    "items": {
+                        "$ref": "VrDiscoveryImage"
+                    },
+                    "type": "array"
+                },
+                "packageName": {
+                    "description": "Package name of the app represented by this editorial doc.",
+                    "type": "string"
+                },
+                "requiredMinAppVersionCode": {
+                    "description": "Indicate required minimum supported app version of the items in this\ncontainer document.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "subtitle": {
+                    "description": "Subtitle of this editorial doc.",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Title of this editorial doc.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "VrDiscoveryImage": {
+            "description": "Describs images of an app.",
+            "id": "VrDiscoveryImage",
+            "properties": {
+                "imageType": {
+                    "description": "Type of the image.",
+                    "enum": [
+                        "UNKNOWN",
+                        "THUMBNAIL",
+                        "HIRES_PREVIEW",
+                        "PROMOTIONAL_WIDE",
+                        "PREVIEW",
+                        "DAYDREAM_STEREO_IMAGE"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown.",
+                        "A low-resolution icon representing the document. Used in contexts where\nlower resolution icons are acceptable. For example, legacy Android Market\nclients use it as the only icon for applications, and sourced directly\nfrom the Android APK.",
+                        "A high-resolution Image Icon representing the document (typically\n512x512). This is commonly used to represent the document as a list item.",
+                        "Large, extra wide promotional images on the homepage (16:9 ratio).",
+                        "the image shown on the details page",
+                        "Daydream stereo image is a 3840 x 2160  360-degree panorama picture that\nusers can experience using Daydream. Daydream stereo image is publicly\nknown as \"360 degree stereoscopic image\". Required to publish an app that\nopted in to be distributed to Daydream enabled devices."
+                    ],
+                    "type": "string"
+                },
+                "imageUrl": {
+                    "description": "URL to the image. Can be HTTP or HTTPS.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "VrDiscoveryMyListItemResult": {
+            "description": "A result in ListMyListItemsResponse.",
+            "id": "VrDiscoveryMyListItemResult",
+            "properties": {
+                "content": {
+                    "$ref": "VrDiscoveryContent",
+                    "description": "Metadata for rendering a card."
+                },
+                "item": {
+                    "$ref": "VrDiscoveryProtoMyListItem",
+                    "description": "Internal representation of an item."
+                },
+                "modificationTimestamp": {
+                    "description": "Timestamp of last modification on this item in MyList:\n- Time when the item was added to Mylist for the first time; or\n- Time when an existing MyList item was re-added.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "VrDiscoveryNotificationPreference": {
+            "description": "A notification preference.",
+            "id": "VrDiscoveryNotificationPreference",
+            "properties": {
+                "enabledState": {
+                    "description": "The enabled state for the notification.",
+                    "enum": [
+                        "UNKNOWN_ENABLED_STATE",
+                        "DISABLED",
+                        "ENABLED"
+                    ],
+                    "enumDescriptions": [
+                        "Invalid state.",
+                        "Notification group is disabled.",
+                        "Notification group is enabled."
+                    ],
+                    "type": "string"
+                },
+                "preferenceSource": {
+                    "description": "Where the preference originated (e.g. explicitly set by user, or default).",
+                    "enum": [
+                        "SOURCE_UNSPECIFIED",
+                        "EXPLICIT_PREFERENCE",
+                        "BEHAVIOR_DEFAULT",
+                        "BEHAVIOR_OVERRIDE",
+                        "REMOVED_PREFERENCE",
+                        "NON_DYNAMIC_EXPLICIT_PREFERENCE"
+                    ],
+                    "enumDescriptions": [
+                        "Shouldn't ever be set.",
+                        "An explicit preference was stored and respected.",
+                        "No explicit preference was stored, so the default as defined from the\nPreferenceSpec associated with the preference_key was used.",
+                        "The behavior specified in the PreferenceSpec overrode any stored\npreference. The existence of a stored preference was not even checked.",
+                        "An explicit preference was deleted, so the default as defined by the\nPreferenceSpec associated with the preference_key was used.",
+                        "An explicit dynamic preference was requested but not found, so the\nexplicitly set preference with the given preference_key was used."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "VrDiscoveryPaginationInfo": {
+            "description": "Options for requesting a particular page of results.",
+            "id": "VrDiscoveryPaginationInfo",
+            "properties": {
+                "continuationToken": {
+                    "description": "Continuation token. In requests, this should be taken from a previous\nresponse, or left unset to get the first page. In responses, this is the\ntoken for the next page, or unset if there are no more results.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "maxResults": {
+                    "description": "Max number of results to return.",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "VrDiscoveryPrice": {
+            "description": "Describe prices of an app.",
+            "id": "VrDiscoveryPrice",
+            "properties": {
+                "currencyCode": {
+                    "description": "Localized currency code, like USD, CNY, etc.",
+                    "type": "string"
+                },
+                "formattedAmount": {
+                    "description": "Formatted amount of currency, like \"$0.99\"",
+                    "type": "string"
+                },
+                "micros": {
+                    "description": "If set to 0 means this app is free.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "VrDiscoveryProtoMyListItem": {
+            "description": "The payload message of an item stored in Penelope.",
+            "id": "VrDiscoveryProtoMyListItem",
+            "properties": {
+                "extras": {
+                    "additionalProperties": {
+                        "description": "Properties of the object.",
+                        "type": "any"
+                    },
+                    "description": "Optional. Only present if the item was added via a share intent.",
+                    "type": "object"
+                },
+                "id": {
+                    "$ref": "VrDiscoveryProtoMyListItemId",
+                    "description": "Required."
+                }
+            },
+            "type": "object"
+        },
+        "VrDiscoveryProtoMyListItemId": {
+            "description": "Normalized ID of each stored item.\nAppDiscoveryService parses and validates the raw URLs in share intents, and\nconverts the URLs into this normalized ID message.",
+            "id": "VrDiscoveryProtoMyListItemId",
+            "properties": {
+                "type": {
+                    "description": "Item type.",
+                    "enum": [
+                        "UNKNOWN_TYPE",
+                        "APP",
+                        "YOUTUBE_VIDEO"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown type.",
+                        "Android app.",
+                        "Youtube video."
+                    ],
+                    "type": "string"
+                },
+                "value": {
+                    "description": "App package name, i.e. \"com.resolutiongames.wonderglade\"; or\nEncrypted Youtube video ID, i.e. \"8MoOfCbr8Yw\".",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "VrDiscoveryQuerySuggestion": {
+            "description": "A search completion suggestion.",
+            "id": "VrDiscoveryQuerySuggestion",
+            "properties": {
+                "score": {
+                    "description": "A number between 0 - 1 inclusive, indicating the popularity score of this\nsuggestion.",
+                    "format": "float",
+                    "type": "number"
+                },
+                "suggestionTitle": {
+                    "description": "If the suggestion is a TEXT_QUERY, suggestion title will contain the\nquery string.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "The type of query suggestion.",
+                    "enum": [
+                        "UNKNOWN_QUERY_SUGGESTION_TYPE",
+                        "TEXT_QUERY"
+                    ],
+                    "enumDescriptions": [
+                        "Unknonw type of suggestion.",
+                        "Text query suggestion."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "VrDiscoveryResponseContext": {
+            "description": "Data that may be present in any AppDiscoveryService RPC response.",
+            "id": "VrDiscoveryResponseContext",
+            "properties": {
+                "serverLogsCookie": {
+                    "description": "A serialized protocol buffer for annotations generated on the server-side.\nThe client should never try to parse this protocol buffer.\nThis includes currently selected experiment IDs for the response.",
+                    "format": "byte",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "VrDiscoverySearchFilter": {
+            "description": "An individual search filter option.",
+            "id": "VrDiscoverySearchFilter",
+            "properties": {
+                "displayText": {
+                    "description": "The display text to use for showing the filter.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "The id of the filter.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "VrDiscoverySearchFilterGroup": {
+            "description": "A search filter grouping.  A group consists of a type and all filter options\nwithin that type.",
+            "id": "VrDiscoverySearchFilterGroup",
+            "properties": {
+                "filterType": {
+                    "description": "The group filter type",
+                    "enum": [
+                        "UNKNOWN_FILTER_TYPE",
+                        "CATEGORY_FILTER_TYPE",
+                        "DURATION_FILTER_TYPE",
+                        "AGE_FILTER_TYPE",
+                        "VIDEO_FEATURES_FILTER_TYPE",
+                        "PRICE_FILTER_TYPE"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown type.",
+                        "Filter for what category the content falls in.",
+                        "Filter for the duration of the content.",
+                        "Filter for the age of the content.",
+                        "Filter for the features of video content (i.e. 360, 180, 3D)",
+                        "Filter for the price of content."
+                    ],
+                    "type": "string"
+                },
+                "searchFilter": {
+                    "description": "Individual filter values in the group.",
+                    "items": {
+                        "$ref": "VrDiscoverySearchFilter"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "VrDiscoveryTestSettings": {
+            "description": "AppDiscoveryService settings only available for testing.  If you want to\nuse one of these fields in a non test context, graduate the field to a more\nappropriate proto; this proto is kept separate to allow easy testing\nthat none of the fields are set in a non test context.\nIf you want to use one of these settings, please contact\nddx-be-eng@google.com.",
+            "id": "VrDiscoveryTestSettings",
+            "properties": {
+                "device": {
+                    "description": "The internal hardware codename of the device.\nThis comes from android.os.Build.DEVICE.\n(field named \"device\" per logs/wireless/android/android_checkin.proto)",
+                    "type": "string"
+                },
+                "userIpCountry": {
+                    "description": "The IP address country of the user making the request, used only for\ntesting.",
+                    "type": "string"
+                },
+                "userLifetime": {
+                    "description": "The users time based state in daydream.",
+                    "enum": [
+                        "DAYDREAM_LIFETIME_UNKNOWN",
+                        "REGULAR_USER",
+                        "NEW_USER"
+                    ],
+                    "enumDescriptions": [
+                        "Unknown",
+                        "a regular user.",
+                        "a new user."
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "VrDiscoveryUserPreference": {
+            "description": "A preference is a generic object to represent any user chosen setting.\nAn example of this would be a setting for whether or not the user wants\nto receive , marketingemail notifications from Daydream.",
+            "id": "VrDiscoveryUserPreference",
+            "properties": {
+                "marketingEmailNotification": {
+                    "$ref": "VrDiscoveryNotificationPreference",
+                    "description": "Preference controlling whether the user wants to receive marketing emails\nfrom Daydream. Type is MARKETING_EMAIL_NOTIFICATION."
+                },
+                "type": {
+                    "description": "The preference type.",
+                    "enum": [
+                        "UNKNOWN_TYPE",
+                        "MARKETING_EMAIL_NOTIFICATION",
+                        "UPDATES_PUSH_NOTIFICATION"
+                    ],
+                    "enumDescriptions": [
+                        "Invalid type.",
+                        "Preferences related to sending marketing emails.",
+                        "Preferences related to sending push notifications for Daydream updates."
+                    ],
+                    "type": "string"
+                },
+                "updatesPushNotification": {
+                    "$ref": "VrDiscoveryNotificationPreference",
+                    "description": "Preference controlling whether the user wants to receive marketing emails\nfrom Daydream. Type is UPDATES_PUSH_NOTIFICATION."
+                }
+            },
+            "type": "object"
+        },
+        "VrDiscoveryVideoDetail": {
+            "description": "Describe details of a piece of video content.",
+            "id": "VrDiscoveryVideoDetail",
+            "properties": {
+                "deeplinkUrl": {
+                    "description": "URL to the video.",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "The video description.",
+                    "type": "string"
+                },
+                "durationMs": {
+                    "description": "The duration of the video in milliseconds.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "publicationTimeMs": {
+                    "description": "The time the video was published, in milliseconds since Unix epoch.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "publisher": {
+                    "description": "The video author\u2019s channel name.",
+                    "type": "string"
+                },
+                "thumbnail": {
+                    "$ref": "VrDiscoveryImage",
+                    "description": "The video thumbnail."
+                },
+                "title": {
+                    "description": "The video title.",
+                    "type": "string"
+                },
+                "viewCount": {
+                    "description": "The number of views of the video.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "servicePath": "",
+    "title": "VR AppDiscovery Private API",
+    "version": "v1",
+    "version_module": true
+}
